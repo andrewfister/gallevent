@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* Title: Layout
+** Description: Large orange background with centered white box
+** Author: Jessica Greenwalt - www.jgreenwalt.com
+** Created: 02-19-2012
+** Updated: 02-19-2012
+************************************** */
+
+html {
+	background:url(../img/bg-orange-full-r.png) top left repeat-x;
+	}
+
+body {
+	background:url(../img/bg-orange-full.png) top left no-repeat;
+	}
+
+/* = Header */
+#header {
+	}
+
+#container {
+	background:#fff;
+	-webkit-box-shadow:0px 0px 8px rgba(0,0,0,0.5);
+	-moz-box-shadow:0px 0px 8px rgba(0,0,0,0.5);
+	box-shadow:0px 0px 8px rgba(0,0,0,0.5);
+	width:806px;
+	margin:0 auto;
+	}

@@ -2,20 +2,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Gallevent - Go out and do something!</title>
-
-<style type="text/css"> 
-    #container { overflow : hidden; }
-#pin-key  { float : right ; width : 300px }
-#map_canvas    { overflow : hidden; } 
-  </style> 
-
+<title>Gallevent - Find events near you!</title>
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/layout-main.css" />
+<link rel="stylesheet" type="text/css" href="css/typography.css" />
+<link rel="stylesheet" type="text/css" href="css/centered-container-pages.css" />
 
 <!-- START GOOGLE MAPS -->
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
-
-   
- <script type="text/javascript">
+<script type="text/javascript">
 
 <!-------------- START INFO WINDOW HTML --------->
 
@@ -131,42 +126,32 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 <body>
 	<div id="header">
-    	<div class="bg">
-        <a href="#" class="logo"><img src="img/logo-gallevent-white.png" title="Find things to do with Gallevent!" alt="Find events to attend on Gallevent!" /></a>
+        <a href="#" class="logo"><img src="img/logo-gallevent-white.png" title="Gallevent Events" alt="Gallevent Events" /></a>
         <span class="right">
-        	<a href="#">Join Gallevent</a> | <a href="#">Sign In</a>
+        	<a href="#">Already a Member? Sign In Here!</a>
         </span><!-- .right -->
-        <form id="top-search">
-        	<span class="left">
-                <label for="event">Search for Events:</label>
-                <input type="text" id="event" onchange="javascript:codeAddress(this);"  />
-            </span>
-            <span class="left">
-                <label for="date1">Select Dates:</label>
-                <input type="date" id="date1" />
-                to
-                <input type="date" id="date2" />
-            </span>
-            <span class="left">
-            	<input class="btn-search" type="submit" value="Search" />
-            </span>
-        </form><!-- #top-nav -->
-        </div>
     </div><!-- #header -->
-    <div id="container" style="height:100%;">
-    	<ul id="pin-key">
-            <li><a href="#" class="key networking">Networking &amp; Meetups</a></li>
-            <li><a href="#" class="key education">Education</a></li>
-            <li><a href="#" class="key athletic">Athletic</a></li>
-            <li><a href="#" class="key art">Art &amp; Music</a></li>
-            <li><a href="#" class="key dancing">Dancing</a></li>
-            <li><a href="#" class="key sales">Sales</a></li>
-            <li><a href="#" class="key dining">Dining</a></li>
-            <li><a href="#" class="key parties">Parties</a></li>
-            <li><a href="#" class="key jobs">Jobs</a></li>
-            <li class="btn-post-event"><a href="#">Post Your Event on Gallevent!</a></li>
-    	</ul>
-        <div id="map_canvas" ></div>
+    <div id="container">
+    	<form>
+        	<label>Invitation Code:</label>
+            <input type="text" />
+            <label>Email Address:</label>
+            <input type="text" />
+            <label>Password:</label>
+            <input type="text" />
+            <label>Repeat Password:</label>
+            <input type="text" />
+            <input class="btn-create-account" type="submit" value="Create Account" />
+        </form>
+        <div class="right">
+        	<h2>Gallevent is the best place to post and find events!</h2>
+            <p>Create an account to post your event and watch your guest list grow.</p>
+            <h2>Gallevent membership is currently by invitation only</h2>
+            <p>If you have an invitation code, enter your information to create an account.</p>
+            <h2>Get on the List!</h2>
+            <p>If you would like to request an invitation to join Gallevent, send us your email address and we'll send you a message when more invitations become available.</p>
+            <p><a href="#">Get on the list &raquo;</a></p>
+        </div>
     </div>
     <div id="footer">
         <ul>

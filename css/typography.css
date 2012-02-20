@@ -15,6 +15,17 @@ body {
 a,
 a:link {
 	text-decoration:none;
+	color:#70b820;
+	}
+
+h2 {
+	color:#239ea2;
+	font-size:170%;
+	font-weight:normal;
+	}
+
+p {
+	font-size:120%;
 	}
 
 #top-nav ul{

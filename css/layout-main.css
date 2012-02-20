@@ -1,0 +1,77 @@
+@charset "utf-8";
+/* Title: Layout
+** Description: Positioning of most site-wide elemenets
+** Author: Jessica Greenwalt - www.jgreenwalt.com
+** Created: 01-28-2012
+** Updated: 02-19-2012
+************************************** */
+
+html, body {
+	width: 100%;
+	height: 100%;
+	background:#f2f2f2;
+	}
+
+/* = General Styles
+----------------------------------- */
+.left {
+	float:left;
+	}
+
+.right {
+	float:right;
+	}
+
+/* = Containers
+----------------------------------- */
+/* = Header */
+#header a.logo {
+	margin:18px 0 0 20px;
+	display:block;
+	float:left;
+	}
+
+#header .right {
+	top:5px;
+	right:20px;
+	text-align:right;
+	position:fixed;
+	}
+
+/* = Footer */
+#footer {
+	border-top:1px solid #f99f1b;
+	float:left;
+	width:100%;
+	background:#f2f2f2;
+	}
+
+#footer .copyright {
+	float:right;
+	}
+
+/* = Buttons 
+----------------------------------- */
+.btn-post-event {
+	background:url(../img/btn-post-event-h.png) 0 7px no-repeat;
+	display:block;
+	float:left;
+	width:234px;
+	height:79px;
+	margin:0 0 0 10px;
+	}
+.btn-post-event a {
+	background:url(../img/btn-post-event.png) 0 7px no-repeat;
+	display:block;
+	float:left;
+	width:234px;
+	height:79px;
+	text-indent:-9999px;
+	-webkit-transition: opacity .4s ease-in-out;
+	-moz-transition: opacity .4s ease-in-out;
+	-o-transition: opacity .4s ease-in-out;
+	transition: opacity .4s ease-in-out; 
+	}
+.btn-post-event a:hover {
+	opacity: 0;
+	}
