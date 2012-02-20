@@ -1,0 +1,79 @@
+@charset "utf-8";
+/* Title: Typography
+** Description: Styles for all text
+** Author: Jessica Greenwalt - www.jgreenwalt.com
+** Created: 01-26-2012
+** Updated: 02-06-2012
+************************************** */
+
+html,
+body {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:15px;
+	}
+
+a,
+a:link {
+	text-decoration:none;
+	}
+
+#top-nav ul{
+	padding:1.5em 0 1.3em 29px;
+	}
+
+#top-nav ul li,
+#footer ul li {
+	display:inline;
+	margin-right:1em;
+	}
+
+#header {
+	color:#fff;
+	font-weight:bold;
+	}
+
+#header .right {
+	font-size:90%;
+	font-weight:normal;
+	}
+
+#header .right a,
+#header .right a:link {
+	color:#fff;
+	}
+
+#header .right a:hover {
+	color:#fef091;
+	text-decoration:underline;
+	}
+
+/* = Pin Key */
+#pin-key a {
+	color:#000;
+	font-size:100%;
+	font-weight:bold;
+	}
+
+#footer {
+	font-size:80%;
+	}
+
+#footer ul {
+	padding:1.2em 0 1em 29px;
+	float:left;
+	}
+
+#footer a,
+#footer a:link {
+	color:#13898e;
+	}
+
+#footer a:hover {
+	color:#f99f1b;
+	}
+
+#footer .copyright {
+	float:right;
+	color:#404040;
+	padding:1.2em 29px 1em 0;
+	}
