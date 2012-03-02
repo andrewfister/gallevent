@@ -1,0 +1,217 @@
+@charset "utf-8";
+/* Title: Layout
+** Description: Header with dropshadow, pin key on side, map on side, and footer on bottom
+** Author: Jessica Greenwalt - www.jgreenwalt.com
+** Created: 02-19-2012
+** Updated: 02-19-2012
+************************************** */
+
+/* = Containers
+----------------------------------- */
+html, body {
+	width: 100%;
+	height: 100%;
+	background:#f2f2f2;
+	}
+
+#container {
+	height:82%;
+	}
+
+/* = Map */
+#map-box {
+	height:100%;
+	margin-left:600px;
+	}
+	
+#map_canvas {
+	height:100%;
+	width:100%;
+	float:right;
+	position:relative;
+	z-index:100;
+	}
+
+/* = Header */
+#header {
+	background:#fF9A00 url(../img/bg-orange-full-r.jpg) top left repeat-x;
+	float:left;
+	width:100%;
+	position:relative;
+	z-index:9999;
+	-webkit-box-shadow:0px 0px 8px rgba(0,0,0,0.5);
+	-moz-box-shadow:0px 0px 8px rgba(0,0,0,0.5);
+	box-shadow:0px 0px 8px rgba(0,0,0,0.5);
+	}
+
+#header .bg {
+	background:url(../img/bg-orange-full.jpg) top left no-repeat;
+	float:left;
+	width:100%;
+	min-height:86px;
+	}
+
+/* = Content Area
+----------------------------------- */
+/* = Side Content */
+#side-content {
+	background:#fff;
+	width:600px;
+	height:100%;
+	float:left;
+	z-index:888;
+	overflow-x:hidden;
+	overflow-y:scroll;
+	}
+
+/* = Full Content */
+#full-content {
+	background:#fff;
+	width:100%;
+	height:100%;
+	float:left;
+	z-index:888;
+	overflow-x:hidden;
+	overflow-y:scroll;
+	}
+
+#tabs {
+	float:left;
+	width:100%;
+	left:0;
+	z-index:999;
+	border-bottom-width:5px;
+	border-bottom-style:solid;
+	}
+	
+.ma-post-event #tabs {
+	border-bottom-color:#85C440;
+	}
+.ma-your-posts #tabs {
+	border-bottom-color:#239EA2;
+	}
+.ma-events #tabs {
+	border-bottom-color:#F68D1F;
+	}
+.ma-your-people #tabs {
+	border-bottom-color:#FCB510;
+	}
+.ma-your-profile #tabs {
+	border-bottom-color:#F1667A;
+	}
+
+#tabs a {
+	float:left;
+	padding:.5em 0 .5em 0;
+	width:20%;
+	text-align:center;
+	}
+
+#tabs a.tab-post-event {
+	background:#85C440;
+	}
+.ma-post-event #tabs a.tab-post-event {
+	-webkit-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	-moz-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	position:relative;
+	z-index:800;
+	}
+#tabs a.tab-post-event:hover {
+	background:#90D147;
+	}
+#tabs a.tab-your-posts {
+	background:#239EA2;
+	}
+.ma-your-posts #tabs a.tab-your-posts {
+	-webkit-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	-moz-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	position:relative;
+	z-index:800;
+	}
+#tabs a.tab-your-posts:hover {
+	background:#2FB5B7;
+	}
+#tabs a.tab-events {
+	background:#F68D1F;
+	}
+.ma-events #tabs a.tab-events {
+	-webkit-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	-moz-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	position:relative;
+	z-index:800;
+	}
+#tabs a.tab-events:hover {
+	background:#F49B42;
+	}
+
+#tabs a.tab-your-people {
+	background:#FCB510;
+	}
+.ma-your-people #tabs a.tab-your-people {
+	-webkit-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	-moz-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	position:relative;
+	z-index:800;
+	}
+#tabs a.tab-your-people:hover {
+	background:#F7C65B;
+	}
+	
+#tabs a.tab-your-profile {
+	background:#F1667A;
+	}
+.ma-your-profile #tabs a.tab-your-profile {
+	-webkit-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	-moz-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	position:relative;
+	z-index:800;
+	}
+#tabs a.tab-your-profile:hover {
+	background:#F7798A;
+	}
+
+#active-tab-content {
+	float:left;
+	padding:0 0 1.5em 30px;
+	position:relative;
+	z-index:500;
+	}
+
+
+/* = Forms
+----------------------------------- */
+form input {
+	width:300px;
+	padding:.3em;
+	margin-bottom:0.5em;
+	}
+
+form textarea {
+	width:300px;
+	padding:.3em;
+	margin-bottom:0.5em;
+	}
+
+form .checkbox-group {
+	float:left;
+	margin-bottom:0.5em;
+	}
+form .checkbox-group .col {
+	width:229px;
+	float:left;
+	}
+form .checkbox {
+	float:left;
+	clear:both;
+	display:block;
+	}
+form .checkbox input {
+	float:left;
+	padding:0;
+	width:20px;
+	}

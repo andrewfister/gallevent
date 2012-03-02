@@ -18,14 +18,27 @@ a:link {
 	color:#70b820;
 	}
 
+a:hover {
+	text-decoration:underline;
+	color:#ff9a00;
+	}
+
 h2 {
 	color:#239ea2;
 	font-size:170%;
 	font-weight:normal;
+	margin-bottom:0.2em;
+	}
+h3, .h3 {
+	color:#239ea2;
+	font-size:130%;
+	margin-bottom:0.2em;
+	font-weight:bold;
 	}
 
 p {
 	font-size:120%;
+	margin-bottom:1em;
 	}
 
 #top-nav ul{
@@ -58,11 +71,78 @@ p {
 	text-decoration:underline;
 	}
 
+/* = Forms */
+#tabs a,
+#tabs a:link {
+	color:#fff;
+	font-weight:bold;
+	}
+#tabs a:hover {
+	text-decoration:none;
+	}
+
+/* = Forms */
+label {
+	font-weight:bold;
+	color:#239ea2;
+	display:block;
+	}
+label.required {
+	color:#f9882b;
+	}
+
+ul.form-event-list,
+ul.form-event-list a,
+ul.form-event-list a:link {
+	font-size:90%;
+	color:#333;
+	}
+
+ul.form-event-list .event-name {
+	font-weight:bold;
+	font-size:110%;
+	}
+
+ul.form-event-list .address {
+	font-weight:bold;
+	}
+
+.form-details {
+	color:#555;
+	font-size:95%;
+	margin:.5em 0 .5em 0;
+	}
+
+.possible-connections h2 {
+	background:#85C440;
+	font-weight:bold;
+	font-size:130%;
+	color:#fff;
+	padding:.2em 0 .2em .5em;
+	}
+.my-contacts h2 {
+	background:#239EA2;
+	font-weight:bold;
+	font-size:130%;
+	color:#fff;
+	padding:.2em 0 .2em .5em;
+	}
+.my-groups h2 {
+	background:#F68D1F;
+	font-weight:bold;
+	font-size:130%;
+	color:#fff;
+	padding:.2em 0 .2em .5em;
+	}
+
 /* = Pin Key */
 #pin-key a {
 	color:#000;
 	font-size:100%;
 	font-weight:bold;
+	}
+#pin-key a:hover {
+	text-decoration:none;
 	}
 
 #footer {

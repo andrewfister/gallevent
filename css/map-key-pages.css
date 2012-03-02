@@ -1,9 +1,9 @@
 @charset "utf-8";
 /* Title: Layout
-** Description: Header with dropshadow, pin key on side, map on side, and footer on bottom
+** Description: Header with dropshadow, contetn area on side, map on side, and footer on bottom
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
-** Created: 02-19-2012
-** Updated: 02-19-2012
+** Created: 02-20-2012
+** Updated: 02-20-2012
 ************************************** */
 
 /* = Containers
@@ -34,7 +34,7 @@ html, body {
 
 /* = Header */
 #header {
-	background:url(../img/bg-header-r.png) top left repeat;
+	background:#fF9A00 url(../img/bg-orange-full-r.jpg) top left repeat-x;
 	float:left;
 	width:100%;
 	position:relative;
@@ -45,50 +45,10 @@ html, body {
 	}
 
 #header .bg {
-	background:url(../img/bg-header.png) top left no-repeat;
+	background:url(../img/bg-orange-full.jpg) top left no-repeat;
 	float:left;
 	width:100%;
 	min-height:86px;
-	}
-
-/* = Search in Header */
-form#top-search {
-	float:left;
-	margin:14px 29px 16px 20px;
-	}
-
-form#top-search input {
-	font-size:100%;
-	}
-
-form#top-search label {
-	display:block;
-	}
-
-form#top-search #event,
-form#top-search #date1,
-form#top-search #date2 {
-	border:1px solid #ff9000;
-	padding:.5em 0 .5em .5em;
-	}
-
-form#top-search #event {
-	width:290px;
-	margin-right:.5em;
-	}
-
-form#top-search #date1,
-form#top-search #date2 {
-	width:100px;
-	}
-
-form#top-search .btn-search {
-	background:url(../img/btn-search.png) top left no-repeat;
-	width:78px;
-	height:36px;
-	border:none;
-	text-indent:-9999px;
-	margin:20px 0 0 10px;
 	}
 
 /* = Pin Key */
