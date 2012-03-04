@@ -34,8 +34,42 @@
 
 .col {
 	float:left;
-	width:500px;
-	margin-right:10px;
+	margin-right:50px;
+	}
+
+/* = Map Pop-ups */
+.map-popup {
+	width:300px;
+	color:#333;
+	overflow-y:hidden;
+	}
+
+.map-popup .event-name {
+	padding:0 .5em .5em 35px;
+	font-weight:bold;
+	font-size:110%;
+	color:#000;
+	}
+.cb-networking {
+	background:url(../img/cbi-networking.png) top left no-repeat;
+	}
+
+.map-popup .date-time {
+	color:#239ea2;
+	}
+
+.map-popup .description,
+.map-popup .address {
+	margin:.5em 0 0 0;
+	}
+
+.map-popup .address {
+	color:#999;
+	font-style:italic;
+	}
+
+.map-popup .btns {
+	margin-top:1.2em;
 	}
 
 /* = Footer */
@@ -126,11 +160,19 @@ form label {
 	display:block;
 	}
 
+.possible-connections,
+.my-contacts ,
+.my-groups {
+	width:500px;
+	}
+
 .possible-connections {
 	border:3px solid #85C440;
 	float:left;
 	}
-.possible-connections form {
+.possible-connections form,
+.my-contacts form,
+.my-groups form {
 	margin-left:.5em;
 	}
 
@@ -138,16 +180,10 @@ form label {
 	border:3px solid #239EA2;
 	float:left;
 	}
-.my-contacts form {
-	margin-left:.5em;
-	}
 
 .my-groups {
 	border:3px solid #F68D1F;
 	float:left;
-	}
-.my-groups form {
-	margin-left:.5em;
 	}
 
 form .group {
@@ -372,4 +408,30 @@ input.btn-s-post-event:hover {
 	}
 .btn-create-account:hover {
 	background:url(../img/btn-create-account-h.png) 0 0 no-repeat;
+	}
+
+
+.map-popup .btn-rsvp,
+.map-popup .btn-track {
+	margin-right:5px;
+	padding:.4em .6em .4em .6em;
+	-moz-border-radius:    3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius:  3px;
+    border-radius:         3px;
+	}
+
+.map-popup .btn-rsvp {
+	background:#85c440;
+	color:#fff;
+	}
+.map-popup .btn-rsvp:hover {
+	background:#8cd734;
+	}
+.map-popup .btn-track {
+	background:#f68d1f;
+	color:#fff;
+	}
+.map-popup .btn-track:hover {
+	background:#fcb510;
 	}

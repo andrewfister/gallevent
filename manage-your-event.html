@@ -34,25 +34,26 @@
         </form><!-- #top-nav -->
         </div>
     </div><!-- #header -->
-    <div id="container" class="ma-your-profile">
+    <div id="container" class="ma-your-people">
     	<div id="tabs">
         	<a class="tab-post-event" href="post-event.html">Post an Event</a><a class="tab-your-posts" href="your-posts.html">Your Posts</a><a class="tab-events" href="your-lineup.html">Your Lineup</a><a class="tab-your-profile" href="your-profile.html">Your Profile</a>
         </div><!-- #tabs -->
     	<div id="full-content">
             <div id="active-tab-content">
-                <h2 style="margin-top:1em;">Your Profile</h2>
-                <p>Text here.</p>
+                <h2 style="margin-top:1em;">Manage Your Event</h2>
+                <p>Manage your guest list and event details.</p>
+                <div class="col">
                 <form>
                     <span class="group">
-                        <span class="h3">Personal Informaiton</span>
-                        <label for="first-name">First name:</label>
-                        <input type="text" id="first-name" class="input-standard" />
-                        <label for="last-name">Last name:</label>
-                        <input type="text" id="last-name" class="input-standard" />
-                        <label for="your-city">The city you live in:</label>
-                        <input type="text" id="your-city" class="input-standard" />
-                        <label for="your-description">Tell us about yourself:</label>
-                        <textarea id="your-description" class="input-standard"></textarea>
+                        <span class="h3">Event Details</span>
+                        <label for="first-name">Event name:</label>
+                        <p>2nd Annual Bay Area Brew Festival</p>
+                        <label for="first-name">Starts on:</label>
+                        <p>March 3 at 1:00 pm</p>
+                        <label for="first-name">Ends on:</label>
+                        <p>March 3 at 5:00 pm</p>
+                        <label for="first-name">Address:</label>
+                        <p>Marina Blvd, San Francisco, CA 94123</p>
                     </span>
                     <span class="group">
                         <span class="h3">Event Preferences</span>
@@ -62,6 +63,33 @@
                         <input type="text" id="your-keywords" class="input-standard" />
                     </span>
                 </form>
+                </div><!-- .col -->
+                <div class="col my-contacts">
+                <h2>Guest List</h2>
+                <form>
+                    <span class="group">
+                        <label for="active-sort-by2">Search Guests:</label>
+                        <input type="text" class="input-standard">
+                        <label for="active-sort-by2">Sort By:</label>
+                        <select id="active-sort-by3">
+                            <option value="date-ascending">Name Ascending</option>
+                            <option value="date-descending">Name Descending</option>
+                        </select>
+                        <ul class="form-people-list">
+                        	<li>
+                            	<a>
+                                	<img src="img/pin-key-dining.png" style="weight:80px;height:80px;background:#ff0;" />
+                                	<span class="name">Jessica G.</span>
+                                    <span class="city">San Francisco, California</span>
+                                    <span class="like-categories"><strong>Likes these categories:</strong><img src="img/pin-key-art.png" title="Art" alt="Art" /><img src="img/pin-key-athletic.png" title="Athletic" alt="Athletic" /></span>
+                                    <span class="like-keywords"><strong>Event keywords:</strong> penguins, parties, art, crafting, tech, startups</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <a href="#" class="more-link">More contacts &raquo;</a>
+                    </span>
+                </form>
+                </div><!-- .col -->
             </div><!-- #active-tab-content -->
     	</div><!-- #full-content -->
     </div>
