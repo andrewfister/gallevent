@@ -72,6 +72,14 @@
 	margin-top:1.2em;
 	}
 
+.map-popup .mod-event {
+	margin-top:1.2em;
+	}
+
+.map-popup .mod-event .warning {
+	float:right;
+	}
+
 /* = Footer */
 #footer {
 	border-top:1px solid #f99f1b;

@@ -41,6 +41,11 @@ p {
 	margin-bottom:1em;
 	}
 
+.warning,
+.warning a {
+	color:#d62121;
+	}
+
 #top-nav ul{
 	padding:1.5em 0 1.3em 29px;
 	}
@@ -71,7 +76,7 @@ p {
 	text-decoration:underline;
 	}
 
-/* = Forms */
+/* = Tabs */
 #tabs a,
 #tabs a:link {
 	color:#fff;
@@ -79,6 +84,26 @@ p {
 	}
 #tabs a:hover {
 	text-decoration:none;
+	}
+
+/* = Map Pop-Up */
+.map-popup .mod-event a {
+	font-style:italic;
+	text-decoration:underline;
+	color:#f68d1f;
+	}
+.map-popup .mod-event a:hover {
+	text-decoration:none;
+	color:#85c440;
+	}
+.map-popup .mod-event a.warning {
+	font-style:italic;
+	text-decoration:underline;
+	color:#d62121;
+	}
+.map-popup .mod-event a.warning:hover {
+	text-decoration:none;
+	color:#F2581C;
 	}
 
 /* = Forms */
