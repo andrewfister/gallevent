@@ -10,43 +10,47 @@
 </head>	
 
 <body>
-	<div id="header">
-        <a href="#" class="logo"><img src="img/logo-gallevent-white.png" title="Gallevent Events" alt="Gallevent Events" /></a>
-        <span class="right">
-        	<a href="#">Already a Member? Sign In Here!</a>
-        </span><!-- .right -->
-    </div><!-- #header -->
-    <div id="container">
-    	<form>
-        	<label>Invitation Code:</label>
-            <input type="text" />
-            <label>Email Address:</label>
-            <input type="text" />
-            <label>Password:</label>
-            <input type="text" />
-            <label>Repeat Password:</label>
-            <input type="text" />
-            <input class="btn-create-account" type="submit" value="Create Account" />
-        </form>
-        <div class="right">
-        	<h2>Gallevent is the best place to post and find events!</h2>
-            <p>Create an account to post your event and watch your guest list grow.</p>
-            <h2>Gallevent membership is currently by invitation only</h2>
-            <p>If you have an invitation code, enter your information to create an account.</p>
-            <h2>Get on the List!</h2>
-            <p>If you would like to request an invitation to join Gallevent, send us your email address and we'll send you a message when more invitations become available.</p>
-            <p><a href="#">Get on the list &raquo;</a></p>
-        </div>
-    </div>
-    <div id="footer">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Post an Event</a></li>
-            <li><a href="#">About Gallevent</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-        </ul>
-        <p class="copyright">&copy; Copyright 2012. All Rights Reserved.</p>
-    </div><!-- #footer -->
+	<div id="bg">
+        <div id="header">
+            <a href="index.html" class="logo"><img src="img/logo-gallevent-white.png" title="Gallevent Events" alt="Gallevent Events" /></a>
+            <span class="right">
+                <a href="sign-in.html">Already a Member? Sign In Here!</a>
+            </span><!-- .right -->
+        </div><!-- #header -->
+        <div id="content">
+            <div id="container">
+                <form>
+                    <label>Invitation Code:</label>
+                    <input type="text" class="input-active" />
+                    <label>Email Address:</label>
+                    <input type="text" class="input-standard" />
+                    <label>Password:</label>
+                    <input type="text" class="input-standard" />
+                    <label>Repeat Password:</label>
+                    <input type="text" class="input-standard" />
+                    <input class="btn-create-account" type="submit" value="Create Account" />
+                </form>
+                <div class="right">
+                    <h2>Gallevent is the best place to post and find events!</h2>
+                    <p>Create an account to post your event and watch your guest list grow.</p>
+                    <h2>Gallevent membership is currently by invitation only</h2>
+                    <p>If you have an invitation code, enter your information to create an account.</p>
+                    <h2>Get on the List!</h2>
+                    <p>If you would like to request an invitation to join Gallevent, send us your email address and we'll send you a message when more invitations become available.</p>
+                    <p><a href="invite-request.html">Get on the list &raquo;</a></p>
+                </div>
+            </div><!-- #container -->
+        </div><!-- #content -->
+        <div id="footer">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Post an Event</a></li>
+                <li><a href="#">About Gallevent</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
+            <span class="copyright">&copy; Copyright 2012. All Rights Reserved.</span>
+        </div><!-- #footer -->
+    </div><!-- #bg -->
 </body>
 </html>

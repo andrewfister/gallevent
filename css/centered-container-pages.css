@@ -7,22 +7,78 @@
 ************************************** */
 
 html {
-	background:url(../img/bg-orange-full-r.png) top left repeat-x;
+	background-color:#f2f2f2;
 	}
 
 body {
-	background:url(../img/bg-orange-full.png) top left no-repeat;
+	background:#FF9A00 url(../img/bg-orange-full-r.jpg) top left repeat-x;
+	overflow-x:hidden;
+	overflow-y:scroll;
+	float:left;
+	width:100%;
+	}
+#bg {
+	background:url(../img/bg-orange-full.jpg) top left no-repeat;
+	float:left;
+	width:100%;
 	}
 
 /* = Header */
 #header {
+	width:100%;
+	height:82px;
+	margin-bottom:1em;
+	}
+#content {
+	float:left;
+	position:relative;
+	left:50%;
+	}
+#container {
+	float:left;
+	position:relative;
+	left:-50%;
+	width:710px;
+	margin-bottom:9em;
+	padding:40px 40px 40px 50px;
+	background:#fff;
+	-moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    -khtml-border-radius:5px;
+    border-radius:5px;
+	-webkit-box-shadow:0px 0px 8px rgba(185,83,0,0.5);
+	-moz-box-shadow:0px 0px 8px rgba(185,83,0,0.5);
+	box-shadow:0px 0px 8px rgba(185,83,0,0.5);
+	} 
+#container .right {
+	width:325px;
 	}
 
-#container {
-	background:#fff;
-	-webkit-box-shadow:0px 0px 8px rgba(0,0,0,0.5);
-	-moz-box-shadow:0px 0px 8px rgba(0,0,0,0.5);
-	box-shadow:0px 0px 8px rgba(0,0,0,0.5);
-	width:806px;
-	margin:0 auto;
+#container .left {
+	width:325px;
+	margin:0 50px 0 0;
+	}
+
+form {
+	float:left;
+	width:350px;
+	}
+
+.form-centered {
+	text-align:center;
+	margin:2.6em 0 .5em 170px;
+	}
+
+.form-left {
+	margin-top:4.5em;
+	width:330px;
+	}
+
+label {
+	font-size:130%;
+	}
+#container form input {
+	width:300px;
+	padding:.5em;
+	margin-bottom:1.5em;
 	}
