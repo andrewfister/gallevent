@@ -193,6 +193,7 @@ form input {
 
 form textarea {
 	width:300px;
+	min-height:200px;
 	padding:.3em;
 	margin-bottom:0.5em;
 	}
