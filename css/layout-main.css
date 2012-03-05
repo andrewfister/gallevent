@@ -287,7 +287,7 @@ ul.form-people-list li {
 	border:2px solid #3CC;
 	float:left;
 	display:block;
-	width:480px;
+	width:500px;
 	background:#e4f3f4;
 	}
 
@@ -321,7 +321,7 @@ ul.form-event-list li:hover .edit {
 .more-link {
 	float:left;
 	text-align:right;
-	width:480px;
+	width:500px;
 	margin:.5em 0 0 0;
 	}
 
@@ -336,35 +336,38 @@ ul.form-event-list li:hover .edit {
 .form-event-list .list-jobs {
 	padding:8px 12px 8px 53px;
 	float:left;
-	width:385px;
+	width:435px;
 	}
 
-.form-event-list .list-meetups {
-	background:url(../img/pin-key-networking.png) 8px 6px no-repeat;
+ul.form-event-list li.list-meetups,
+ul.form-event-list a.list-meetups {
+	background-image:url(../img/pin-key-networking.png);
+	background-position:8px 6px;
+	background-repeat:no-repeat;
 	}
 .form-event-list .list-education {
-	background:url(../img/pin-key-education.png) 8px 6px no-repeat;
+	background-image:url(../img/pin-key-education.png) 8px 6px no-repeat;
 	}
 .form-event-list .list-athletic {
-	background:url(../img/pin-key-athletic.png) 8px 6px no-repeat;
+	background-image:url(../img/pin-key-athletic.png) 8px 6px no-repeat;
 	}
 .form-event-list .list-art {
-	background:url(../img/pin-key-art.png) 8px 6px no-repeat;
+	background-image:url(../img/pin-key-art.png) 8px 6px no-repeat;
 	}
 .form-event-list .list-dancing {
-	background:url(../img/pin-key-dancing.png) 8px 6px no-repeat;
+	background-image:url(../img/pin-key-dancing.png) 8px 6px no-repeat;
 	}
 .form-event-list .list-sales {
-	background:url(../img/pin-key-sales.png) 8px 6px no-repeat;
+	background-image:url(../img/pin-key-sales.png) 8px 6px no-repeat;
 	}
 .form-event-list .list-dining {
-	background:url(../img/pin-key-dining.png) 8px 6px no-repeat;
+	background-image:url(../img/pin-key-dining.png) 8px 6px no-repeat;
 	}
 .form-event-list .list-parties {
-	background:url(../img/pin-key-parties.png) 8px 6px no-repeat;
+	background-image:url(../img/pin-key-parties.png) 8px 6px no-repeat;
 	}
 .form-event-list .list-jobs {
-	background:url(../img/pin-key-jobs.png) 8px 6px no-repeat;
+	background-image:url(../img/pin-key-jobs.png) 8px 6px no-repeat;
 	}
 
 
