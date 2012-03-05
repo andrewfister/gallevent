@@ -193,3 +193,26 @@ ul.form-event-list .address {
 	color:#404040;
 	padding:1.2em 29px 1em 0;
 	}
+
+/* = Buttons */
+.form-event-list a.btn-guests,
+.form-event-list a.btn-edit {
+	color:#fff;
+	}
+
+.btn-guests:hover,
+.btn-edit:hover,
+.btn-delete:hover {
+	text-decoration:none;
+	}
+
+.mod-event a.btn-delete,
+.mod-event .btn-delete {
+	color:#f68d1f;
+	text-decoration:underline;
+	}
+.mod-event a.btn-delete:hover,
+.mod-event .btn-delete:hover {
+	color:#d62121;
+	text-decoration:none;
+	}

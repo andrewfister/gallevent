@@ -345,34 +345,97 @@ ul.form-event-list a.list-meetups {
 	background-position:8px 6px;
 	background-repeat:no-repeat;
 	}
-.form-event-list .list-education {
-	background-image:url(../img/pin-key-education.png) 8px 6px no-repeat;
+ul.form-event-list li.list-education,
+ul.form-event-list a.list-education {
+	background-image:url(../img/pin-key-education.png);
+	background-position:8px 6px;
+	background-repeat:no-repeat;
 	}
-.form-event-list .list-athletic {
-	background-image:url(../img/pin-key-athletic.png) 8px 6px no-repeat;
+ul.form-event-list li.list-athletic,
+ul.form-event-list a.list-athletic {
+	background-image:url(../img/pin-key-athletic.png);
+	background-position:8px 6px;
+	background-repeat:no-repeat;
 	}
-.form-event-list .list-art {
-	background-image:url(../img/pin-key-art.png) 8px 6px no-repeat;
+ul.form-event-list li.list-art,
+ul.form-event-list a.list-art {
+	background-image:url(../img/pin-key-art.png);
+	background-position:8px 6px;
+	background-repeat:no-repeat;
 	}
-.form-event-list .list-dancing {
-	background-image:url(../img/pin-key-dancing.png) 8px 6px no-repeat;
+ul.form-event-list li.list-dancing,
+ul.form-event-list a.list-dancing {
+	background-image:url(../img/pin-key-dancing.png);
+	background-position:8px 6px;
+	background-repeat:no-repeat;
 	}
-.form-event-list .list-sales {
-	background-image:url(../img/pin-key-sales.png) 8px 6px no-repeat;
+ul.form-event-list li.list-sales,
+ul.form-event-list a.list-sales {
+	background-image:url(../img/pin-key-sales.png);
+	background-position:8px 6px;
+	background-repeat:no-repeat;
 	}
-.form-event-list .list-dining {
-	background-image:url(../img/pin-key-dining.png) 8px 6px no-repeat;
+ul.form-event-list li.list-dining,
+ul.form-event-list a.list-dining {
+	background-image:url(../img/pin-key-dining.png);
+	background-position:8px 6px;
+	background-repeat:no-repeat;
 	}
-.form-event-list .list-parties {
-	background-image:url(../img/pin-key-parties.png) 8px 6px no-repeat;
+ul.form-event-list li.list-parties,
+ul.form-event-list a.list-parties {
+	background-image:url(../img/pin-key-parties.png);
+	background-position:8px 6px;
+	background-repeat:no-repeat;
 	}
-.form-event-list .list-jobs {
-	background-image:url(../img/pin-key-jobs.png) 8px 6px no-repeat;
+ul.form-event-list li.list-jobs,
+ul.form-event-list a.list-jobs {
+	background-image:url(../img/pin-key-jobs.png);
+	background-position:8px 6px;
+	background-repeat:no-repeat;
+	}
+	
+.form-event-list .event-data {
+	float:left;
+	width:350px;
+	}
+
+.form-event-list .mod-event {
+	float:right;
+	width:70px;
 	}
 
 
 /* = Buttons 
 ----------------------------------- */
+a.btn-guests,
+a.btn-edit,
+.mod-event .btn-delete {
+	float:right;
+	padding:.4em .6em .4em .6em;
+	-moz-border-radius:    3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius:  3px;
+    border-radius:         3px;
+	display:block;
+	clear:right;
+	margin-bottom:4px;
+	width:100%;
+	text-align:center;
+	}
+.btn-guests {
+	background:#239ea2;
+	}
+.btn-guests:hover {
+	background:#34bec2;
+	}
+
+.btn-edit {
+	background:#85c440;
+	}
+.btn-edit:hover {
+	background:#8cd734;
+	}
+
 .btn-post-event {
 	background:url(../img/btn-post-event-h.png) 0 7px no-repeat;
 	display:block;
