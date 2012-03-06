@@ -195,8 +195,8 @@ ul.form-event-list .address {
 	}
 
 /* = Buttons */
-.mod-event a.btn-guests,
-.mod-event a.btn-edit {
+ul.form-event-list .mod-event a.btn-guests,
+ul.form-event-list .mod-event a.btn-edit {
 	color:#fff;
 	}
 
@@ -206,8 +206,8 @@ ul.form-event-list .address {
 	text-decoration:none;
 	}
 
-.mod-event a.btn-delete,
-.mod-event .btn-delete {
+ul.form-event-list .mod-event a.btn-delete,
+ul.form-event-list .mod-event .btn-delete {
 	color:#f68d1f;
 	text-decoration:underline;
 	}
