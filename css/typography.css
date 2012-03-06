@@ -195,8 +195,8 @@ ul.form-event-list .address {
 	}
 
 /* = Buttons */
-.form-event-list a.btn-guests,
-.form-event-list a.btn-edit {
+.mod-event a.btn-guests,
+.mod-event a.btn-edit {
 	color:#fff;
 	}
 
