@@ -233,7 +233,7 @@ form input#rsvp-limit {
 	}
 
 #select-fairs,
-#select-meetups,
+#select-networking,
 #select-education,
 #select-athletic,
 #select-art,
@@ -249,7 +249,7 @@ form input#rsvp-limit {
 #select-fairs {
 	background:url(../img/pin-key-art.png) top left no-repeat;
 	}
-#select-meetups {
+#select-networking {
 	background:url(../img/pin-key-networking.png) top left no-repeat;
 	}
 #select-education {
@@ -325,7 +325,7 @@ ul.form-event-list li:hover .edit {
 	margin:.5em 0 0 0;
 	}
 
-.form-event-list .list-meetups,
+.form-event-list .list-networking,
 .form-event-list .list-education,
 .form-event-list .list-athletic,
 .form-event-list .list-art,
@@ -339,8 +339,8 @@ ul.form-event-list li:hover .edit {
 	width:435px;
 	}
 
-ul.form-event-list li.list-meetups,
-ul.form-event-list a.list-meetups {
+ul.form-event-list li.list-networking,
+ul.form-event-list a.list-networking {
 	background-image:url(../img/pin-key-networking.png);
 	background-position:8px 6px;
 	background-repeat:no-repeat;
