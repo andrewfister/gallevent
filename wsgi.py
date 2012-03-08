@@ -1,6 +1,7 @@
-sys.path.append('/var/django/gallevent')
 import os
 import sys
+
+sys.path.append('/var/www/')
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'gallevent.settings'
 
