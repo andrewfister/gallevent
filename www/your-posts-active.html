@@ -150,17 +150,15 @@ google.maps.event.addDomListener(window, 'load', initialize);
         </form><!-- #top-nav -->
         </div>
     </div><!-- #header -->
-    <div id="container" class="your-events">
+    <div id="container" class="your-posts">
     	<div id="tabs">
-        	<a class="tab-post-event" href="post-event.html">Post an Event</a><a class="tab-your-posts" href="your-posts.html">Your Posts</a><a class="tab-events" href="#">Your Lineup</a><a class="tab-your-profile" href="your-profile.html">Your Profile</a>
+        	<a class="tab-post-event" href="post-event.html">Post an Event</a><a class="tab-your-posts" href="your-posts.html">Your Posts</a><a class="tab-events" href="your-lineup.html">Your Lineup</a><a class="tab-your-profile" href="your-profile.html">Your Profile</a>
         </div><!-- #tabs -->
-        <div id="side-content">
+    	<div id="side-content">
             <div id="active-tab-content">
-                <h2>Your Lineup</h2>
-                <p>Events you have RSVPed to, events you are following, <br />and events you have attended.</p>
-                <form>
+                <h2 style="margin-top:1em;"><a href="your-posts.html">Your Posts</a>: All Active Posts</h2>
+                <form id="your-posts">
                     <span class="group">
-                        <h3>Events you've RSVPed to</h3>
                         <label for="active-sort-by1">Sort by:</label>
                         <select id="active-sort-by1">
                             <option value="date-ascending">Date Ascending</option>
@@ -172,82 +170,112 @@ google.maps.event.addDomListener(window, 'load', initialize);
                             	<span class="event-data">
                             		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
                                 </span>
-                                <span class="mod-event"><a class="btn-view" href="view-event.html">View</a><a class="btn-track" href="#">Track</a><a class="btn-delete" href="#">Cancel RSVP</a></span>
+                                <span class="mod-event"><a class="btn-manage" href="#">Guests</a><a class="btn-edit" href="#">Edit</a><a class="btn-delete" href="#">Delete</a></span>
                             </li>
                             <li class="list-education">
                             	<span class="event-data">
                             		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
                                 </span>
-                                <span class="mod-event"><a class="btn-view" href="view-event.html">View</a><a class="btn-track" href="#">Track</a><a class="btn-delete" href="#">Cancel RSVP</a></span>
+                                <span class="mod-event"><a class="btn-manage" href="#">Guests</a><a class="btn-edit" href="#">Edit</a><a class="btn-delete" href="#">Delete</a></span>
                             </li>
                             <li class="list-athletic">
                             	<span class="event-data">
                             		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
                                 </span>
-                                <span class="mod-event"><a class="btn-view" href="view-event.html">View</a><a class="btn-track" href="#">Track</a><a class="btn-delete" href="#">Cancel RSVP</a></span>
+                                <span class="mod-event"><a class="btn-manage" href="#">Guests</a><a class="btn-edit" href="#">Edit</a><a class="btn-delete" href="#">Delete</a></span>
                             </li>
                             <li class="list-art">
                             	<span class="event-data">
                             		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
                                 </span>
-                                <span class="mod-event"><a class="btn-view" href="view-event.html">View</a><a class="btn-track" href="#">Track</a><a class="btn-delete" href="#">Cancel RSVP</a></span>
+                                <span class="mod-event"><a class="btn-manage" href="#">Guests</a><a class="btn-edit" href="#">Edit</a><a class="btn-delete" href="#">Delete</a></span>
                             </li>
-                        </ul>
-                        <a href="#" class="more-link">More Events &amp; Calendar &raquo;</a>
-                    </span>
-                    <span class="group">
-                        <h3>Events you're tracking</h3>
-                        <label for="active-sort-by2">Sort by:</label>
-                        <select id="active-sort-by2">
-                            <option value="date-ascending">Date Ascending</option>
-                            <option value="date-descending">Date Descending</option>
-                            <option value="date-category">Category</option>
-                        </select>
-                        <ul class="form-event-list">
-                        	<li class="list-networking">
+                            <li class="list-dancing">
                             	<span class="event-data">
                             		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
                                 </span>
-                                <span class="mod-event"><a class="btn-view" href="view-event.html">View</a><a class="btn-edit">RSVP</a><a class="btn-delete" href="#">Remove</a></span>
+                                <span class="mod-event"><a class="btn-manage" href="#">Guests</a><a class="btn-edit" href="#">Edit</a><a class="btn-delete" href="#">Delete</a></span>
+                            </li>
+                            <li class="list-sales">
+                            	<span class="event-data">
+                            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
+                                </span>
+                                <span class="mod-event"><a class="btn-manage" href="#">Guests</a><a class="btn-edit" href="#">Edit</a><a class="btn-delete" href="#">Delete</a></span>
+                            </li>
+                            <li class="list-dining">
+                            	<span class="event-data">
+                            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
+                                </span>
+                                <span class="mod-event"><a class="btn-manage" href="#">Guests</a><a class="btn-edit" href="#">Edit</a><a class="btn-delete" href="#">Delete</a></span>
+                            </li>
+                            <li class="list-parties">
+                            	<span class="event-data">
+                            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
+                                </span>
+                                <span class="mod-event"><a class="btn-manage" href="#">Guests</a><a class="btn-edit" href="#">Edit</a><a class="btn-delete" href="#">Delete</a></span>
+                            </li>
+                            <li class="list-jobs">
+                            	<span class="event-data">
+                            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
+                                </span>
+                                <span class="mod-event"><a class="btn-manage" href="#">Guests</a><a class="btn-edit" href="#">Edit</a><a class="btn-delete" href="#">Delete</a></span>
+                            </li>
+                            <li class="list-networking">
+                            	<span class="event-data">
+                            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
+                                </span>
+                                <span class="mod-event"><a class="btn-manage" href="#">Guests</a><a class="btn-edit" href="#">Edit</a><a class="btn-delete" href="#">Delete</a></span>
                             </li>
                             <li class="list-education">
                             	<span class="event-data">
                             		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
                                 </span>
-                                <span class="mod-event"><a class="btn-view" href="view-event.html">View</a><a class="btn-edit">RSVP</a><a class="btn-delete" href="#">Remove</a></span>
+                                <span class="mod-event"><a class="btn-manage" href="#">Guests</a><a class="btn-edit" href="#">Edit</a><a class="btn-delete" href="#">Delete</a></span>
                             </li>
                             <li class="list-athletic">
                             	<span class="event-data">
                             		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
                                 </span>
-                                <span class="mod-event"><a class="btn-view" href="view-event.html">View</a><a class="btn-edit">RSVP</a><a class="btn-delete" href="#">Remove</a></span>
+                                <span class="mod-event"><a class="btn-manage" href="#">Guests</a><a class="btn-edit" href="#">Edit</a><a class="btn-delete" href="#">Delete</a></span>
                             </li>
                             <li class="list-art">
                             	<span class="event-data">
                             		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
                                 </span>
-                                <span class="mod-event"><a class="btn-view" href="view-event.html">View</a><a class="btn-edit">RSVP</a><a class="btn-delete" href="#">Remove</a></span>
+                                <span class="mod-event"><a class="btn-manage" href="#">Guests</a><a class="btn-edit" href="#">Edit</a><a class="btn-delete" href="#">Delete</a></span>
                             </li>
-                        </ul>
-                        <a href="#" class="more-link">More Events &amp; Calendar &raquo;</a>
-                    </span>
-                    <span class="group">
-                        <h3>Events you've attended</h3>
-                        <label for="active-sort-by3">Sort by:</label>
-                        <select id="active-sort-by3">
-                            <option value="date-ascending">Date Ascending</option>
-                            <option value="date-descending">Date Descending</option>
-                            <option value="date-category">Category</option>
-                        </select>
-                        <ul class="form-event-list">
-                            <li class="list-art">
+                            <li class="list-dancing">
                             	<span class="event-data">
                             		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
                                 </span>
-                                <span class="mod-event"><a class="btn-view" href="view-event.html">View</a></span>
+                                <span class="mod-event"><a class="btn-manage" href="#">Guests</a><a class="btn-edit" href="#">Edit</a><a class="btn-delete" href="#">Delete</a></span>
+                            </li>
+                            <li class="list-sales">
+                            	<span class="event-data">
+                            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
+                                </span>
+                                <span class="mod-event"><a class="btn-manage" href="#">Guests</a><a class="btn-edit" href="#">Edit</a><a class="btn-delete" href="#">Delete</a></span>
+                            </li>
+                            <li class="list-dining">
+                            	<span class="event-data">
+                            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
+                                </span>
+                                <span class="mod-event"><a class="btn-manage" href="#">Guests</a><a class="btn-edit" href="#">Edit</a><a class="btn-delete" href="#">Delete</a></span>
+                            </li>
+                            <li class="list-parties">
+                            	<span class="event-data">
+                            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
+                                </span>
+                                <span class="mod-event"><a class="btn-manage" href="#">Guests</a><a class="btn-edit" href="#">Edit</a><a class="btn-delete" href="#">Delete</a></span>
+                            </li>
+                            <li class="list-jobs">
+                            	<span class="event-data">
+                            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
+                                </span>
+                                <span class="mod-event"><a class="btn-manage" href="#">Guests</a><a class="btn-edit" href="#">Edit</a><a class="btn-delete" href="#">Delete</a></span>
                             </li>
                         </ul>
-                        <a href="#" class="more-link">More Events &amp; Calendar &raquo;</a>
+                        <span class="more-link"><a href="#">&laquo; Previous</a> <a href="#">1</a> <a href="#">2</a> <a href="#">Next &raquo;</a></span>
                     </span>
                 </form>
             </div><!-- #active-tab-content -->

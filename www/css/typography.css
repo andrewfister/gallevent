@@ -29,6 +29,16 @@ h2 {
 	font-weight:normal;
 	margin-bottom:0.2em;
 	}
+h2 a {
+	color:#239ea2;
+	}
+#active-tab-content h2 {
+	margin-top:1em;
+	}
+h2 em {
+	font-weight:normal;
+	}
+
 h3, .h3 {
 	color:#239ea2;
 	font-size:130%;
@@ -86,7 +96,62 @@ p {
 	text-decoration:none;
 	}
 
+/* = Your Posts: Manage Your Event */
+.your-posts-mng #active-tab-content .price,
+.your-posts-mng #active-tab-content .date-time,
+.your-posts-mng #active-tab-content .address,
+.your-posts-mng #active-tab-content .description {
+	margin:0.5em 0 0 0;
+	font-size:110%;
+	}
+
+.your-posts-mng #active-tab-content .description p {
+	margin:0.3em 0 0 0;
+	font-size:100%;
+	}
+
+.your-posts-mng #active-tab-content .date-time {
+	color:#239ea2;
+	}
+.your-posts-mng #active-tab-content .address {
+	color:#999;
+	font-style:italic;
+	}
+
 /* = Map Pop-Up */
+.map-popup .event-name {
+	font-weight:bold;
+	font-size:120%;
+	color:#239ea2;
+	}
+.map-popup .event-name a {
+	color:#239ea2;
+	}
+.map-popup .event-name a:hover {
+	color:#85c440;
+	}
+
+.map-popup .price,
+.map-popup .date-time {
+	color:#239ea2;
+	}
+
+.map-popup .price {
+	font-size:110%;
+	font-weight:bold;
+	margin-bottom:.5em;
+	}
+
+.map-popup .description,
+.map-popup .address {
+	margin:.5em 0 0 0;
+	}
+
+.map-popup .address {
+	color:#999;
+	font-style:italic;
+	}
+
 .map-popup .mod-event a {
 	font-style:italic;
 	text-decoration:underline;
@@ -123,13 +188,35 @@ ul.form-event-list a:link {
 	color:#333;
 	}
 
-ul.form-event-list .event-name {
+ul.form-people-list,
+ul.form-people-list a,
+ul.form-people-list a:link {
+	color:#333;
+	}
+
+ul.form-event-list .event-name,
+ul.form-people-list .name {
 	font-weight:bold;
 	font-size:110%;
 	}
 
+ul.form-people-list li a .categories-label,
+ul.form-people-list li a .keywords-label {
+	font-weight:bold;
+	}
+
+ul.form-people-list li a .categories-label {
+	margin-top:.5em;
+	}
+ul.form-people-list li a .keywords-label {
+	margin-top:.3em;
+	}
+
 ul.form-event-list .address {
 	font-weight:bold;
+	}
+ul.form-people-list .city {
+	font-style:italic;
 	}
 
 .form-details {
@@ -145,6 +232,23 @@ ul.form-event-list .address {
 	color:#fff;
 	padding:.2em 0 .2em .5em;
 	}
+
+#active-tab-content .guest-list h2,
+#active-tab-content .tracking-list h2 {
+	font-weight:bold;
+	font-size:130%;
+	color:#fff;
+	padding:0 .5em .2em .5em;
+	margin-top:0;
+	margin:0 -12px 0.5em -12px;
+	}
+#active-tab-content .guest-list h2 {
+	background:#85C440;
+	}
+#active-tab-content .tracking-list h2 {
+	background:#f68d1f;
+	}
+
 .my-contacts h2 {
 	background:#239EA2;
 	font-weight:bold;
@@ -195,13 +299,18 @@ ul.form-event-list .address {
 	}
 
 /* = Buttons */
-ul.form-event-list .mod-event a.btn-guests,
-ul.form-event-list .mod-event a.btn-edit {
+ul.form-event-list .mod-event a.btn-manage,
+ul.form-event-list .mod-event a.btn-view,
+ul.form-event-list .mod-event a.btn-edit,
+ul.form-event-list .mod-event a.btn-track,
+.your-posts-mng .btn-edit {
 	color:#fff;
 	}
 
-.btn-guests:hover,
+.btn-manage:hover,
+.btn-view:hover,
 .btn-edit:hover,
+.btn-track:hover,
 .btn-delete:hover {
 	text-decoration:none;
 	}

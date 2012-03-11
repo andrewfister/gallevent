@@ -150,69 +150,73 @@ google.maps.event.addDomListener(window, 'load', initialize);
         </form><!-- #top-nav -->
         </div>
     </div><!-- #header -->
-    <div id="container" class="your-posts">
+    <div id="container" class="your-post-event">
     	<div id="tabs">
         	<a class="tab-post-event" href="post-event.html">Post an Event</a><a class="tab-your-posts" href="your-posts.html">Your Posts</a><a class="tab-events" href="your-lineup.html">Your Lineup</a><a class="tab-your-profile" href="your-profile.html">Your Profile</a>
         </div><!-- #tabs -->
     	<div id="side-content">
             <div id="active-tab-content">
-                <h2>Your Posts</h2>
-                <p>Scroll down to view the posts you have created.</p>
-                <form id="your-posts">
+                <h2><a href="your-posts.html">Your Posts</a>: Edit Your Event</h2>
+                <form id="post-event">
                     <span class="group">
-                        <span class="h3">Active Posts</span>
-                        <label for="active-sort-by1">Sort by:</label>
-                        <select id="active-sort-by1">
-                            <option value="date-ascending">Date Ascending</option>
-                            <option value="date-descending">Date Descending</option>
-                            <option value="date-category">Category</option>
-                        </select>
-                        <ul class="form-event-list">
-                        	<li class="list-networking">
-                            	<span class="event-data">
-                            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
-                                </span>
-                                <span class="mod-event"><a class="btn-manage" href="your-posts-manage.html">Manage</a><a class="btn-edit" href="edit-event.html">Edit</a><a class="btn-delete" href="#">Delete</a></span>
-                            </li>
-                            <li class="list-education">
-                            	<span class="event-data">
-                            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
-                                </span>
-                                <span class="mod-event"><a class="btn-manage" href="your-posts-manage.html">Manage</a><a class="btn-edit" href="edit-event.html">Edit</a><a class="btn-delete" href="#">Delete</a></span>
-                            </li>
-                            <li class="list-athletic">
-                            	<span class="event-data">
-                            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
-                                </span>
-                                <span class="mod-event"><a class="btn-manage" href="your-posts-manage.html">Manage</a><a class="btn-edit" href="edit-event.html">Edit</a><a class="btn-delete" href="#">Delete</a></span>
-                            </li>
-                            <li class="list-art">
-                            	<span class="event-data">
-                            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
-                                </span>
-                                <span class="mod-event"><a class="btn-manage" href="your-posts-manage.html">Manage</a><a class="btn-edit" href="edit-event.html">Edit</a><a class="btn-delete" href="#">Delete</a></span>
-                            </li>
-                        </ul>
-                        <a href="your-posts-active.html" class="more-link">More Active Posts &raquo;</a>
+                        <span class="h3">Where will your event be?</span>
+                        <label for="address1" class="required">Address Line 1:</label>
+                        <input type="text" id="address1" class="input-active" />
+                        <label for="address2">Address Line 2:</label>
+                        <input type="text" id="address2" class="input-standard" />
+                        <label for="city" class="required">City:</label>
+                        <input type="text" id="city" class="input-required" />
+                        <label for="zip-code">Zip Code:</label>
+                        <input type="text" id="zip-code" class="input-standard" />
                     </span>
                     <span class="group">
-                        <span class="h3">Expired Posts</span>
-                        <label for="active-sort-by3">Sort by:</label>
-                        <select id="active-sort-by3">
-                            <option value="date-ascending">Date Ascending</option>
-                            <option value="date-descending">Date Descending</option>
-                            <option value="date-category">Category</option>
+                        <span class="h3">What type of event is this?</span>
+                        <label for="event-category">Select an Event Category:</label>
+                        <select id="event-category" class="input-required">
+                            <option value="fairs" id="select-fairs">Festivals &amp; Fairs</option>
+                            <option value="networking" id="select-networking">Networking</option>
+                            <option value="education" id="select-education">Education</option>
+                            <option value="athletic" id="select-athletic">Athletic</option>
+                            <option value="art" id="select-art">Art &amp; Music</option>
+                            <option value="dancing" id="select-dancing">Dancing</option>
+                            <option value="sales" id="select-sales">Sales</option>
+                            <option value="dining" id="select-dining">Dining</option>
+                            <option value="parties" id="select-parties">Parties</option>
+                            <option value="jobs" id="select-jobs">Jobs</option>
                         </select>
-                        <ul class="form-event-list">
-                            <li class="list-jobs">
-                            	<span class="event-data">
-                            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
-                                </span>
-                                <span class="mod-event"><a class="btn-manage" href="your-posts-manage.html">Manage</a><a class="btn-edit" href="edit-event.html">Edit</a><a class="btn-delete" href="#">Delete</a></span>
-                            </li>
-                        </ul>
-                        <a href="#" class="more-link">More Expired Posts &raquo;</a>
+                        <label for="event-keywords">Keywords:</label>
+                        <input type="text" id="event-keywords" class="input-standard" />
                     </span>
+                    <span class="group">
+                        <span class="h3">When will your event happen?</span>
+                        <label for="start-date" class="required">Start Date &amp; Time:</label>
+                        <input type="text" id="start-date" class="input-required" /> at <input type="text" id="start-time" class="input-required" />
+                        <label for="end-date" class="required">End Date &amp; Time:</label>
+                        <input type="text" id="end-date" class="input-required" /> at <input type="text" id="end-time" class="input-required" />
+                    </span>
+                    <span class="group">
+                        <span class="h3">What is your event all about?</span>
+                        <label for="event-name" class="required">Name your event:</label>
+                        <input type="text" id="event-name" class="input-required" />
+                        <label for="event-description" class="required">Describe your event:</label>
+                        <textarea id="event-description" class="input-required"></textarea>
+                        <label for="event-url">Link to event or organizaiton page:</label>
+                        <input type="text" id="event-url" class="input-standard" />
+                    </span>
+                    <span class="group">
+                        <label class="h3">Guest list</label>
+                        <label for="rsvp-limit">How many people may RSVP?</label>
+                        <span class="form-details">The number you enter below will limit how many Gallevent Members can RSVP to this event. <br />Leave this blank if there is no limit.</span>
+                        <input type="text" id="rsvp-limit" class="input-standard" /><em class="form-comment">000 Gallevent Members can RSVP to this event.</em>
+                    </span>
+                    <span class="group">
+                        <label class="h3">Are you selling tickets?</label>
+                        <label for="ticket-price">Ticket price:</label>
+                        <input type="text" id="ticket-price" class="input-standard" /><em class="form-comment">Your event is free!</em>
+                        <label for="ticket-link">Link to buy tickets:</label>
+                        <input type="text" id="ticket-link" class="input-standard" />
+                    </span>
+                    <input class="btn-s-post-event" type="button" value="Post Event">
                 </form>
             </div><!-- #active-tab-content -->
     	</div><!-- #side-content -->
