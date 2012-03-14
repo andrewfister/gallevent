@@ -1,4 +1,3 @@
 settings.py
-settings.pyc
 wsgi.py
-wsgi.pyc
+*.pyc
