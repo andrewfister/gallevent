@@ -1,19 +1,18 @@
 from django.conf.urls.defaults import *
 from django.contrib import admin
-
-from gallevent.map.views import show
+from django.conf import settings
 
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Example:
-    # (r'^gallevent/', include('gallevent.foo.urls')),
-    (r'^map/', show),
+    #Links to views
+    (r'^$', include('gallevent.map.urls')),
+    (r'^login/', include('gallevent.login.urls')),
     
-    # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
-    # to INSTALLED_APPS to enable admin documentation:
-    # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
+    #Static files like css, js, and images
+    (r'^static/(?P<path>.*)$', 'django.views.static.serve',
+        {'document_root': settings.MEDIA_ROOT}),
+    
+    #Admin page
     (r'^admin/', include(admin.site.urls)),
 )

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>{% block title %}Gallevent - Find events near you!{% endblock %}</title>
+
+<link rel="stylesheet" type="text/css" href="/static/css/reset.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/layout-main.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/typography.css" />
+{% block css %}{% endblock %}
+
+{% block javascript %}{% endblock %}
+
+</head>
+<body>
+    {% block preheader %}{% endblock %}
+    {% block header %}
+    <div id="header">
+    	<div class="bg">
+        <a href="#" class="logo"><img src="/static/img/logo-gallevent-white.png" title="Gallevent Events" alt="Gallevent Events" /></a>
+        <span class="right">
+        	<a href="/login/invite_code/">Join Gallevent</a> | <a href="sign-in.html">Sign In</a>
+        </span><!-- .right -->
+        <form id="top-search">
+        	<span class="left">
+                <label for="event">Search for Events:</label>
+                <input type="text" id="event" onchange="javascript:codeAddress(this);"  />
+            </span>
+            <span class="left">
+                <label for="date1">Select Dates:</label>
+                <input type="date" id="date1" />
+                to
+                <input type="date" id="date2" />
+            </span>
+            <span class="left">
+            	<input class="btn-search" type="submit" value="Search" />
+            </span>
+        </form><!-- #top-nav -->
+        </div>
+    </div><!-- #header -->
+    {% endblock %}
+    
+    {% block content %}{% endblock %}
+    
+    {% block footer %}
+    <div id="footer">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Post an Event</a></li>
+            <li><a href="#">About Gallevent</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+        </ul>
+        <span class="copyright">&copy; Copyright 2012. All Rights Reserved.</span>
+    </div><!-- #footer -->
+    {% endblock %}
+    {% block postfooter %}{% endblock %}
+</body>
+</html>
