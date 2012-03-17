@@ -1,7 +1,7 @@
-{% extends "base.html" %}
+{% extends "base-map.html" %}
 
 {% block css %}
-<link rel="stylesheet" type="text/css" href="static/css/map-key-pages.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/map-key-pages.css" />
 {% endblock %}
 
 {% block content %}
@@ -16,8 +16,8 @@
         <li><a href="#" class="key dining">Dining</a></li>
         <li><a href="#" class="key parties">Parties</a></li>
         <li><a href="#" class="key jobs">Jobs</a></li>
-        <li class="btn-post-event"><a href="post-event.html">Post Your Event on Gallevent!</a></li>
+        <li class="btn-post-event"><a href="/event/post">Post Your Event on Gallevent!</a></li>
 	</ul>
-	{% block map %}{% endblock %}
+	{{ block.super }}
 </div>
 {% endblock %}

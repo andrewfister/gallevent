@@ -1,13 +1,4 @@
-{% extends "index.html" %}
-
-{% block javascript %}
-<!-- START GOOGLE MAPS -->
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
-
-   
-<script type="text/javascript">
-
-<!-------------- START INFO WINDOW HTML --------->
+/*-------------- START INFO WINDOW HTML ---------*/
 
 var contentString = '<div class="map-popup">'+
 	'<div class="event-name cb-networking"><a href="#">2nd Annual Bay Area Brew Festival</a></div>'+
@@ -19,7 +10,7 @@ var contentString = '<div class="map-popup">'+
 	'<div class="mod-event"><a href="#">Is this your event?</a><a href="#" class="warning">Report this event</a></div>'+
     '</div>';
 
-<!---------------------- END INFO WINDOW HTML ------------->
+/*---------------------- END INFO WINDOW HTML -------------*/
 
 
 
@@ -62,7 +53,7 @@ function codeAddress(txt_event) {
    
 var address = txt_event.value;
 
-var image = 'static/img/pin-map-dining.png';
+var image = '/static/img/pin-map-dining.png';
 
 var infowindow = new google.maps.InfoWindow({
     content: contentString
@@ -103,13 +94,3 @@ last_marker = marker;
   }
 	 
 google.maps.event.addDomListener(window, 'load', initialize);
-
-</script>
-<!-- END GOOGLE MAPS -->
-{% endblock %}
-
-{% block map %}
-<div id="map-box">
-    <div id="map_canvas" ></div>
-</div>
-{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block javascript %}
+<!-- START GOOGLE MAPS -->
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript" src="/static/js/map.js"></script>
+<!-- END GOOGLE MAPS -->
+{% endblock javascript %}
+
+{% block content %}
+<div id="map-box">
+    <div id="map_canvas" ></div>
+</div>
+{% endblock content %}

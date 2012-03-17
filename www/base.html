@@ -3,18 +3,18 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>{% block title %}Gallevent - Find events near you!{% endblock %}</title>
+<title>{% block title %}Gallevent - Find events near you!{% endblock title %}</title>
 
 <link rel="stylesheet" type="text/css" href="/static/css/reset.css" />
 <link rel="stylesheet" type="text/css" href="/static/css/layout-main.css" />
 <link rel="stylesheet" type="text/css" href="/static/css/typography.css" />
-{% block css %}{% endblock %}
+{% block css %}{% endblock css %}
 
-{% block javascript %}{% endblock %}
+{% block javascript %}{% endblock javascript %}
 
 </head>
 <body>
-    {% block preheader %}{% endblock %}
+    {% block preheader %}{% endblock preheader %}
     {% block header %}
     <div id="header">
     	<div class="bg">
@@ -39,9 +39,9 @@
         </form><!-- #top-nav -->
         </div>
     </div><!-- #header -->
-    {% endblock %}
+    {% endblock header %}
     
-    {% block content %}{% endblock %}
+    {% block content %}{% endblock content %}
     
     {% block footer %}
     <div id="footer">
@@ -54,7 +54,7 @@
         </ul>
         <span class="copyright">&copy; Copyright 2012. All Rights Reserved.</span>
     </div><!-- #footer -->
-    {% endblock %}
-    {% block postfooter %}{% endblock %}
+    {% endblock footer %}
+    {% block postfooter %}{% endblock postfooter %}
 </body>
 </html>
