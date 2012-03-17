@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     (r'^login/', include('gallevent.login.urls')),
     
     #Static files like css, js, and images
-    (r'^static/(?P<path>.*)$', 'django.views.static.serve',
+    (r'^static/(?P<path>.(?!html))$', 'django.views.static.serve',
         {'document_root': settings.MEDIA_ROOT}),
     
     #Admin page
