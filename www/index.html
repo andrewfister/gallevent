@@ -1,4 +1,5 @@
-{% extends "base-map.html" %}
+{% extends "base.html" %}
+{% load map_tags %}
 
 {% block css %}
 <link rel="stylesheet" type="text/css" href="/static/css/map-key-pages.css" />
@@ -18,6 +19,6 @@
         <li><a href="#" class="key jobs">Jobs</a></li>
         <li class="btn-post-event"><a href="/event/post">Post Your Event on Gallevent!</a></li>
 	</ul>
-	{{ block.super }}
+	{% show_map %}
 </div>
 {% endblock %}

@@ -1,87 +1,79 @@
-{% extends "base-map.html" %}
+{% extends "base-profile.html" %}
+{% load map_tags %}
 
-{% block css %}
-<link rel="stylesheet" type="text/css" href="/static/css/map-content-pages.css" />
-{% endblock css %}
+{% block active_tab_content_width %}side{% endblock %}
 
-{% block content %}
-<div id="container" class="your-post-event">
-	<div id="tabs">
-    	<a class="tab-post-event" href="/event/post">Post an Event</a><a class="tab-your-posts" href="your-posts.html">Your Posts</a><a class="tab-events" href="your-lineup.html">Your Lineup</a><a class="tab-your-profile" href="your-profile.html">Your Profile</a>
-    </div><!-- #tabs -->
-	<div id="side-content">
-        <div id="active-tab-content">
-        
-            {% if edit %}
-            <h2><a href="your-posts.html">Your Posts</a>: Edit Your Event</h2>
-            {% else %}
-            <h2>Post Your Event on Gallevent</h2>
-            <p>Fill out the form below to post your event <br />and watch your guest list grow!</p>
-            {% endif %}
-            
-            <form id="post-event">
-                <span class="group">
-                    <span class="h3">Where will your event be?</span>
-                    <label for="address1" class="required">Address Line 1:</label>
-                    <input type="text" id="address1" class="input-active" />
-                    <label for="address2">Address Line 2:</label>
-                    <input type="text" id="address2" class="input-standard" />
-                    <label for="city" class="required">City:</label>
-                    <input type="text" id="city" class="input-required" />
-                    <label for="zip-code">Zip Code:</label>
-                    <input type="text" id="zip-code" class="input-standard" />
-                </span>
-                <span class="group">
-                    <span class="h3">What type of event is this?</span>
-                    <label for="event-category">Select an Event Category:</label>
-                    <select id="event-category" class="input-required">
-                        <option value="fairs" id="select-fairs">Festivals &amp; Fairs</option>
-                        <option value="networking" id="select-networking">Networking</option>
-                        <option value="education" id="select-education">Education</option>
-                        <option value="athletic" id="select-athletic">Athletic</option>
-                        <option value="art" id="select-art">Art &amp; Music</option>
-                        <option value="dancing" id="select-dancing">Dancing</option>
-                        <option value="sales" id="select-sales">Sales</option>
-                        <option value="dining" id="select-dining">Dining</option>
-                        <option value="parties" id="select-parties">Parties</option>
-                        <option value="jobs" id="select-jobs">Jobs</option>
-                    </select>
-                    <label for="event-keywords">Keywords:</label>
-                    <input type="text" id="event-keywords" class="input-standard" />
-                </span>
-                <span class="group">
-                    <span class="h3">When will your event happen?</span>
-                    <label for="start-date" class="required">Start Date &amp; Time:</label>
-                    <input type="text" id="start-date" class="input-required" /> at <input type="text" id="start-time" class="input-required" />
-                    <label for="end-date" class="required">End Date &amp; Time:</label>
-                    <input type="text" id="end-date" class="input-required" /> at <input type="text" id="end-time" class="input-required" />
-                </span>
-                <span class="group">
-                    <span class="h3">What is your event all about?</span>
-                    <label for="event-name" class="required">Name your event:</label>
-                    <input type="text" id="event-name" class="input-required" />
-                    <label for="event-description" class="required">Describe your event:</label>
-                    <textarea id="event-description" class="input-required"></textarea>
-                    <label for="event-url">Link to event or organizaiton page:</label>
-                    <input type="text" id="event-url" class="input-standard" />
-                </span>
-                <span class="group">
-                    <label class="h3">Guest list</label>
-                    <label for="rsvp-limit">How many people may RSVP?</label>
-                    <span class="form-details">The number you enter below will limit how many Gallevent Members can RSVP to this event. <br />Leave this blank if there is no limit.</span>
-                    <input type="text" id="rsvp-limit" class="input-standard" /><em class="form-comment">000 Gallevent Members can RSVP to this event.</em>
-                </span>
-                <span class="group">
-                    <label class="h3">Are you selling tickets?</label>
-                    <label for="ticket-price">Ticket price:</label>
-                    <input type="text" id="ticket-price" class="input-standard" /><em class="form-comment">Your event is free!</em>
-                    <label for="ticket-link">Link to buy tickets:</label>
-                    <input type="text" id="ticket-link" class="input-standard" />
-                </span>
-                <input class="btn-s-post-event" type="button" value="Post Event">
-            </form>
-        </div><!-- #active-tab-content -->
-	</div><!-- #side-content -->
-	{{ block.super }}
-</div>
-{% endblock content %}
+{% block active_tab_content %}
+{% if edit %}
+<h2><a href="your-posts.html">Your Posts</a>: Edit Your Event</h2>
+{% else %}
+<h2>Post Your Event on Gallevent</h2>
+<p>Fill out the form below to post your event <br />and watch your guest list grow!</p>
+{% endif %}
+
+<form id="post-event">
+    <span class="group">
+        <span class="h3">Where will your event be?</span>
+        <label for="address1" class="required">Address Line 1:</label>
+        <input type="text" id="address1" class="input-active" />
+        <label for="address2">Address Line 2:</label>
+        <input type="text" id="address2" class="input-standard" />
+        <label for="city" class="required">City:</label>
+        <input type="text" id="city" class="input-required" />
+        <label for="zip-code">Zip Code:</label>
+        <input type="text" id="zip-code" class="input-standard" />
+    </span>
+    <span class="group">
+        <span class="h3">What type of event is this?</span>
+        <label for="event-category">Select an Event Category:</label>
+        <select id="event-category" class="input-required">
+            <option value="fairs" id="select-fairs">Festivals &amp; Fairs</option>
+            <option value="networking" id="select-networking">Networking</option>
+            <option value="education" id="select-education">Education</option>
+            <option value="athletic" id="select-athletic">Athletic</option>
+            <option value="art" id="select-art">Art &amp; Music</option>
+            <option value="dancing" id="select-dancing">Dancing</option>
+            <option value="sales" id="select-sales">Sales</option>
+            <option value="dining" id="select-dining">Dining</option>
+            <option value="parties" id="select-parties">Parties</option>
+            <option value="jobs" id="select-jobs">Jobs</option>
+        </select>
+        <label for="event-keywords">Keywords:</label>
+        <input type="text" id="event-keywords" class="input-standard" />
+    </span>
+    <span class="group">
+        <span class="h3">When will your event happen?</span>
+        <label for="start-date" class="required">Start Date &amp; Time:</label>
+        <input type="text" id="start-date" class="input-required" /> at <input type="text" id="start-time" class="input-required" />
+        <label for="end-date" class="required">End Date &amp; Time:</label>
+        <input type="text" id="end-date" class="input-required" /> at <input type="text" id="end-time" class="input-required" />
+    </span>
+    <span class="group">
+        <span class="h3">What is your event all about?</span>
+        <label for="event-name" class="required">Name your event:</label>
+        <input type="text" id="event-name" class="input-required" />
+        <label for="event-description" class="required">Describe your event:</label>
+        <textarea id="event-description" class="input-required"></textarea>
+        <label for="event-url">Link to event or organizaiton page:</label>
+        <input type="text" id="event-url" class="input-standard" />
+    </span>
+    <span class="group">
+        <label class="h3">Guest list</label>
+        <label for="rsvp-limit">How many people may RSVP?</label>
+        <span class="form-details">The number you enter below will limit how many Gallevent Members can RSVP to this event. <br />Leave this blank if there is no limit.</span>
+        <input type="text" id="rsvp-limit" class="input-standard" /><em class="form-comment">000 Gallevent Members can RSVP to this event.</em>
+    </span>
+    <span class="group">
+        <label class="h3">Are you selling tickets?</label>
+        <label for="ticket-price">Ticket price:</label>
+        <input type="text" id="ticket-price" class="input-standard" /><em class="form-comment">Your event is free!</em>
+        <label for="ticket-link">Link to buy tickets:</label>
+        <input type="text" id="ticket-link" class="input-standard" />
+    </span>
+    <input class="btn-s-post-event" type="button" value="Post Event">
+</form>
+{% endblock active_tab_content %}
+
+{% block right_side_content %}
+    {% show_map %}
+{% endblock right_side_content %}

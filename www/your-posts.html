@@ -1,234 +1,69 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Gallevent - Find events near you!</title>
-<link rel="stylesheet" type="text/css" href="css/reset.css" />
-<link rel="stylesheet" type="text/css" href="css/layout-main.css" />
-<link rel="stylesheet" type="text/css" href="css/typography.css" />
-<link rel="stylesheet" type="text/css" href="css/map-content-pages.css" />
+{% extends "base-profile.html" %}
+{% load map_tags %}
 
-<!-- START GOOGLE MAPS -->
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+{% block active_tab_content_width %}side{% endblock %}
 
-   
- <script type="text/javascript">
-
-<!-------------- START INFO WINDOW HTML --------->
-
-var contentString = '<div id="content">'+
-    '<div id="siteNotice">'+
-    '</div>'+
-    '<h2 id="firstHeading" class="firstHeading">Uluru</h2>'+
-    '<div id="bodyContent">'+
-    '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-    'sandstone rock formation in the southern part of the '+
-    'Northern Territory, central Australia. It lies 335 km (208 mi) '+
-    'south west of the nearest large town, Alice Springs; 450 km '+
-    '(280 mi) by road. Kata Tjuta and Uluru are the two major '+
-    'features of the Uluru - Kata Tjuta National Park. Uluru is '+
-    'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
-    'Aboriginal people of the area. It has many springs, waterholes, '+
-    'rock caves and ancient paintings. Uluru is listed as a World '+
-    'Heritage Site.</p>'+
-    '<p>Attribution: Uluru, <a href="http://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-    'http://en.wikipedia.org/w/index.php?title=Uluru</a> (last visited June 22, 2009).</p>'+
-    '</div>'+
-    '</div>';
-
-<!---------------------- END INFO WINDOW HTML ------------->
-
-
-
-var map;
-var geocoder;
-var autocomplete;
-
-var last_marker = null;
-  
-    
-function initialize() {
-         geocoder = new google.maps.Geocoder();
-         
-         var myOptions = {
-          center: new google.maps.LatLng(37.88397, -122.2644), 
-          zoom: 8,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        }; 
- 
-        map = new google.maps.Map(document.getElementById("map_canvas"),
-            myOptions);
-
-
-	var input = document.getElementById("event");
-	if (input==null) alert('error');
-	var defaultBounds = new google.maps.LatLngBounds(
-  			new google.maps.LatLng(36.8902, -123.1759),
-  			new google.maps.LatLng(39.8474, -121.2631));
-
-	var autoopts = {
-  		bounds: defaultBounds,
-  		types: ['establishment']
-	};
-
-	autocomplete = new google.maps.places.Autocomplete(input, autoopts);
-}    
-	  
-
-function codeAddress(txt_event) {
-   
-var address = txt_event.value;
-
-var image = 'img/pin-map-dining.png';
-
-var infowindow = new google.maps.InfoWindow({
-    content: contentString
-});
-
-    geocoder.geocode( { 'address': address}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        map.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
-            map: map,
-            draggable:true,
-            position: results[0].geometry.location,
-            icon: image,
-            title : address,
-	    animation: google.maps.Animation.DROP
-        });
-
-/*	google.maps.event.addListener(marker, 'click', function(){
-
-if (marker.getAnimation() != null) {
-    marker.setAnimation(null);
-  } else {
-    marker.setAnimation(google.maps.Animation.BOUNCE);
-  }
-
-}); */
-
-google.maps.event.addListener(marker, 'click', function() {
-infowindow.close();  
-infowindow.open(map,marker);
-last_marker = marker;
-});
-
-      } else {
-        alert("Geocode was not successful for the following reason: " + status); 
-      }
-    });
-  }
-	 
-google.maps.event.addDomListener(window, 'load', initialize);
-
-</script>
-<!-- END GOOGLE MAPS -->
-
-</head>	
-
-<body>
-	<div id="header">
-    	<div class="bg">
-        <a href="index.html" class="logo"><img src="img/logo-gallevent-white.png" title="Gallevent Events" alt="Gallevent Events" /></a>
-        <span class="right">
-        	<a href="your-profile.html">Your Account</a> | <a href="sign-out.html">Sign Out</a>
-        </span><!-- .right -->
-        <form id="top-search">
-        	<span class="left">
-                <label for="event">Search for Events:</label>
-                <input type="text" id="event" onchange="javascript:codeAddress(this);"  />
-            </span>
-            <span class="left">
-                <label for="date1">Select Dates:</label>
-                <input type="date" id="date1" />
-                to
-                <input type="date" id="date2" />
-            </span>
-            <span class="left">
-            	<input class="btn-search" type="submit" value="Search" />
-            </span>
-        </form><!-- #top-nav -->
-        </div>
-    </div><!-- #header -->
-    <div id="container" class="your-posts">
-    	<div id="tabs">
-        	<a class="tab-post-event" href="post-event.html">Post an Event</a><a class="tab-your-posts" href="your-posts.html">Your Posts</a><a class="tab-events" href="your-lineup.html">Your Lineup</a><a class="tab-your-profile" href="your-profile.html">Your Profile</a>
-        </div><!-- #tabs -->
-    	<div id="side-content">
-            <div id="active-tab-content">
-                <h2>Your Posts</h2>
-                <p>Scroll down to view the posts you have created.</p>
-                <form id="your-posts">
-                    <span class="group">
-                        <span class="h3">Active Posts</span>
-                        <label for="active-sort-by1">Sort by:</label>
-                        <select id="active-sort-by1">
-                            <option value="date-ascending">Date Ascending</option>
-                            <option value="date-descending">Date Descending</option>
-                            <option value="date-category">Category</option>
-                        </select>
-                        <ul class="form-event-list">
-                        	<li class="list-networking">
-                            	<span class="event-data">
-                            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
-                                </span>
-                                <span class="mod-event"><a class="btn-manage" href="your-posts-manage.html">Manage</a><a class="btn-edit" href="edit-event.html">Edit</a><a class="btn-delete" href="#">Delete</a></span>
-                            </li>
-                            <li class="list-education">
-                            	<span class="event-data">
-                            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
-                                </span>
-                                <span class="mod-event"><a class="btn-manage" href="your-posts-manage.html">Manage</a><a class="btn-edit" href="edit-event.html">Edit</a><a class="btn-delete" href="#">Delete</a></span>
-                            </li>
-                            <li class="list-athletic">
-                            	<span class="event-data">
-                            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
-                                </span>
-                                <span class="mod-event"><a class="btn-manage" href="your-posts-manage.html">Manage</a><a class="btn-edit" href="edit-event.html">Edit</a><a class="btn-delete" href="#">Delete</a></span>
-                            </li>
-                            <li class="list-art">
-                            	<span class="event-data">
-                            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
-                                </span>
-                                <span class="mod-event"><a class="btn-manage" href="your-posts-manage.html">Manage</a><a class="btn-edit" href="edit-event.html">Edit</a><a class="btn-delete" href="#">Delete</a></span>
-                            </li>
-                        </ul>
-                        <a href="your-posts-active.html" class="more-link">More Active Posts &raquo;</a>
-                    </span>
-                    <span class="group">
-                        <span class="h3">Expired Posts</span>
-                        <label for="active-sort-by3">Sort by:</label>
-                        <select id="active-sort-by3">
-                            <option value="date-ascending">Date Ascending</option>
-                            <option value="date-descending">Date Descending</option>
-                            <option value="date-category">Category</option>
-                        </select>
-                        <ul class="form-event-list">
-                            <li class="list-jobs">
-                            	<span class="event-data">
-                            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
-                                </span>
-                                <span class="mod-event"><a class="btn-manage" href="your-posts-manage.html">Manage</a><a class="btn-edit" href="edit-event.html">Edit</a><a class="btn-delete" href="#">Delete</a></span>
-                            </li>
-                        </ul>
-                        <a href="#" class="more-link">More Expired Posts &raquo;</a>
-                    </span>
-                </form>
-            </div><!-- #active-tab-content -->
-    	</div><!-- #side-content -->
-    	<div id="map-box">
-        	<div id="map_canvas" ></div>
-        </div>
-    </div>
-    <div id="footer">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Post an Event</a></li>
-            <li><a href="#">About Gallevent</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
+{% block active_tab_content %}
+<h2>Your Posts</h2>
+<p>Scroll down to view the posts you have created.</p>
+<form id="your-posts">
+    <span class="group">
+        <span class="h3">Active Posts</span>
+        <label for="active-sort-by1">Sort by:</label>
+        <select id="active-sort-by1">
+            <option value="date-ascending">Date Ascending</option>
+            <option value="date-descending">Date Descending</option>
+            <option value="date-category">Category</option>
+        </select>
+        <ul class="form-event-list">
+        	<li class="list-networking">
+            	<span class="event-data">
+            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
+                </span>
+                <span class="mod-event"><a class="btn-manage" href="your-posts-manage.html">Manage</a><a class="btn-edit" href="edit-event.html">Edit</a><a class="btn-delete" href="#">Delete</a></span>
+            </li>
+            <li class="list-education">
+            	<span class="event-data">
+            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
+                </span>
+                <span class="mod-event"><a class="btn-manage" href="your-posts-manage.html">Manage</a><a class="btn-edit" href="edit-event.html">Edit</a><a class="btn-delete" href="#">Delete</a></span>
+            </li>
+            <li class="list-athletic">
+            	<span class="event-data">
+            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
+                </span>
+                <span class="mod-event"><a class="btn-manage" href="your-posts-manage.html">Manage</a><a class="btn-edit" href="edit-event.html">Edit</a><a class="btn-delete" href="#">Delete</a></span>
+            </li>
+            <li class="list-art">
+            	<span class="event-data">
+            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
+                </span>
+                <span class="mod-event"><a class="btn-manage" href="your-posts-manage.html">Manage</a><a class="btn-edit" href="edit-event.html">Edit</a><a class="btn-delete" href="#">Delete</a></span>
+            </li>
         </ul>
-        <span class="copyright">&copy; Copyright 2012. All Rights Reserved.</span>
-    </div><!-- #footer -->
-</body>
-</html>
+        <a href="your-posts-active.html" class="more-link">More Active Posts &raquo;</a>
+    </span>
+    <span class="group">
+        <span class="h3">Expired Posts</span>
+        <label for="active-sort-by3">Sort by:</label>
+        <select id="active-sort-by3">
+            <option value="date-ascending">Date Ascending</option>
+            <option value="date-descending">Date Descending</option>
+            <option value="date-category">Category</option>
+        </select>
+        <ul class="form-event-list">
+            <li class="list-jobs">
+            	<span class="event-data">
+            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
+                </span>
+                <span class="mod-event"><a class="btn-manage" href="your-posts-manage.html">Manage</a><a class="btn-edit" href="edit-event.html">Edit</a><a class="btn-delete" href="#">Delete</a></span>
+            </li>
+        </ul>
+        <a href="#" class="more-link">More Expired Posts &raquo;</a>
+    </span>
+</form>
+{% endblock active_tab_content %}
+
+{% block right_side_content %}
+    {% show_map %}
+{% endblock right_side_content %}

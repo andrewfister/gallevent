@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     (r'^$', include('gallevent.map.urls')),
     (r'^login/', include('gallevent.login.urls')),
     (r'^event/', include('gallevent.event.urls')),
+    (r'^profile/', include('gallevent.user_profile.urls')),
     
     #Static files like css, js, and images
     (r'^static/(?P<path>.*)$', 'django.views.static.serve',
