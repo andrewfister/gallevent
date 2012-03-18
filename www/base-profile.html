@@ -5,9 +5,9 @@
 {% endblock css %}
 
 {% block content %}
-<div id="container" class="your-post-event">
+<div id="container" class="{% block selected_page %}{% endblock %}">
 	<div id="tabs">
-    	<a class="tab-post-event" href="/event/post">Post an Event</a><a class="tab-your-posts" href="/event/show">Your Posts</a><a class="tab-events" href="/event/show">Your Lineup</a><a class="tab-your-profile" href="/profile/show">Your Profile</a>
+    	<a class="tab-post-event" href="/event/post">Post an Event</a><a class="tab-your-posts" href="/event/show">Your Posts</a><a class="tab-events" href="/event/lineup">Your Lineup</a><a class="tab-your-profile" href="/profile/show">Your Profile</a>
     </div><!-- #tabs -->
 	<div id="{% block active_tab_content_width %}{% endblock %}-content">
         <div id="active-tab-content">
