@@ -6,9 +6,14 @@
 {% block active_tab_content_width %}side{% endblock %}
 
 {% block active_tab_content %}
+{% if selected_page == 'your-posts' %}
 <h2>Your Posts</h2>
 <p>Scroll down to view the posts you have created.</p>
-<form id="your-posts">
+{% else %}{% if selected_page == 'your-events' %}
+<h2>Your Lineup</h2>
+<p>Events you have RSVPed to, events you are following, <br />and events you have attended.</p>
+{% endif %}{% endif %}
+<form id="your-posts">    
     <span class="group">
         <span class="h3">Active Posts</span>
         <label for="active-sort-by1">Sort by:</label>
@@ -45,6 +50,8 @@
         </ul>
         <a href="your-posts-active.html" class="more-link">More Active Posts &raquo;</a>
     </span>
+    
+    {% if selected_page == 'your-posts' %}
     <span class="group">
         <span class="h3">Expired Posts</span>
         <label for="active-sort-by3">Sort by:</label>
@@ -63,6 +70,7 @@
         </ul>
         <a href="#" class="more-link">More Expired Posts &raquo;</a>
     </span>
+    {% endif %}
 </form>
 {% endblock active_tab_content %}
 
