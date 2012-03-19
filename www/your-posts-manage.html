@@ -4,7 +4,7 @@
 
 {% block active_tab_content %}
 <div class="col">
-	<h2><a href="/event/post">Your Posts</a>: Manage Your Event</h2>
+	<h2><a href="{% url gallevent.event.views.post_event %}">Your Posts</a>: Manage Your Event</h2>
 	<p>Manage your guest list and see who is interested in your event!</p>
 	<span class="h3">2nd Annual Bay Area Brew Festival</span>
     <p class="date-time">Saturday, March 3, 1:00 pm to 5:00 pm</p>
@@ -13,7 +13,7 @@
     	<p>With so many wine tastings and pairings, it's 'bout time for SF to have another beer festival. The 2nd Annual Bay Area Brew Festival follows last year's sold out event and this year's promises to be even bigger and better.</p>
         <p>The two day event will feature dozens of international and domestic beers, SF's best food trucks (food sold separately) and will take place at Fort Mason. Admission is $40 for general admission (2pm to 5pm) and $50 for VIP (1pm to 5pm) and includes unlimited beer.</p>
     </div><!-- .description -->
-    <a class="btn-edit" href="/event/edit">Edit</a>
+    <a class="btn-edit" href="{% url gallevent.event.views.edit_event %}">Edit</a>
 </div><!-- .col -->
 <div class="col guest-list">
 <h2>RSVPs <em>(20)</em></h2>
