@@ -6,6 +6,8 @@
 ** Updated: 02-06-2012
 ************************************** */
 
+/* = General Styles
+----------------------------------- */
 html,
 body {
 	font-family:Arial, Helvetica, sans-serif;
@@ -23,6 +25,24 @@ a:hover {
 	color:#ff9a00;
 	}
 
+p {
+	font-size:120%;
+	margin-bottom:1em;
+	}
+
+.warning,
+.warning a {
+	color:#d62121;
+	}
+
+.address,
+.city {
+	font-style:italic;
+	color:#999;
+	}
+
+/* = Headings
+----------------------------------- */
 h2 {
 	color:#239ea2;
 	font-size:170%;
@@ -44,16 +64,6 @@ h3, .h3 {
 	font-size:130%;
 	margin-bottom:0.2em;
 	font-weight:bold;
-	}
-
-p {
-	font-size:120%;
-	margin-bottom:1em;
-	}
-
-.warning,
-.warning a {
-	color:#d62121;
 	}
 
 #top-nav ul{
@@ -96,6 +106,9 @@ p {
 	text-decoration:none;
 	}
 
+/* = Your Profile */
+
+
 /* = Your Posts: Manage Your Event */
 .your-posts-mng #active-tab-content .price,
 .your-posts-mng #active-tab-content .date-time,
@@ -112,10 +125,6 @@ p {
 
 .your-posts-mng #active-tab-content .date-time {
 	color:#239ea2;
-	}
-.your-posts-mng #active-tab-content .address {
-	color:#999;
-	font-style:italic;
 	}
 
 /* = Map Pop-Up */
@@ -145,11 +154,6 @@ p {
 .map-popup .description,
 .map-popup .address {
 	margin:.5em 0 0 0;
-	}
-
-.map-popup .address {
-	color:#999;
-	font-style:italic;
 	}
 
 .map-popup .mod-event a {
@@ -215,8 +219,10 @@ ul.form-people-list li a .keywords-label {
 ul.form-event-list .address {
 	font-weight:bold;
 	}
+
+ul.form-event-list .address,
 ul.form-people-list .city {
-	font-style:italic;
+	color:#000;
 	}
 
 .form-details {
@@ -299,11 +305,15 @@ ul.form-people-list .city {
 	}
 
 /* = Buttons */
+a.btn-manage,
+a.btn-view,
+a.btn-edit,
+a.btn-track,
+.btn-edit,
 ul.form-event-list .mod-event a.btn-manage,
 ul.form-event-list .mod-event a.btn-view,
 ul.form-event-list .mod-event a.btn-edit,
-ul.form-event-list .mod-event a.btn-track,
-.your-posts-mng .btn-edit {
+ul.form-event-list .mod-event a.btn-track {
 	color:#fff;
 	}
 
@@ -324,4 +334,14 @@ ul.form-event-list .mod-event a.btn-delete:hover,
 ul.form-event-list .mod-event .btn-delete:hover {
 	color:#d62121;
 	text-decoration:none;
+	}
+
+/* = Edit hover links */
+.person-summary h3 em,
+.person-summary p em {
+	display:none;
+	}
+.person-summary h3:hover em,
+.person-summary p:hover em {
+	display:inline;
 	}

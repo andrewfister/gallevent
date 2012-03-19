@@ -5,26 +5,113 @@
 {% block active_tab_content_width %}full{% endblock %}
 
 {% block active_tab_content %}
-<h2 style="margin-top:1em;">Your Profile</h2>
-<p>Text here.</p>
+<div class="col">
+	<h2>Your Profile</h2>
+	<p>All about you and your event preferences.</p>
+    <div class="profile-pic">
+    	<img class="profile-pic" src="/static/img/profile-pic-jessica.jpg" />
+    </div><!-- .photo-col -->
+    <div class="person-summary">
+        <h3>Jessica G. <em class="form-comment">Edit</em></h3>
+        <p class="city">San Francisco, California <em class="form-comment">Edit</em></p>
+        <p class="description">This is a sample of a description. Max of 280 characters here. All contained in a single p tag. No html tags allowed. Special characters allowed. <em class="form-comment">Edit</em>
+        </p><!-- .description -->
+        <a class="btn-edit" href="/event/edit">Edit</a>
+    </div>
+</div><!-- .col -->
+<div class="col guest-list">
+    <h2>Your Event Preferences</h2>
+    <form>
+    	<span class="h3">Which event categories do you like?</span>
+        <label for="networking">Networking</label> <input id="networking" type="checkbox" name="networking" value="Networking" />
+        <label for="education">Education<input id="education" type="checkbox" name="education" value="Education" />
+        Athletic <input type="checkbox" name="athletic" value="Athletic" />
+        Art &amp; Music <input type="checkbox" name="art" value="Art and Music" />
+        Dancing <input type="checkbox" name="dancing" value="Dancing" />
+		Sales <input type="checkbox" name="sales" value="Sales" />
+        Dining <input type="checkbox" name="dining" value="Dining" />
+		Parties <input type="checkbox" name="parties" value="Parties" />
+        Jobs <input type="checkbox" name="jobs" value="Jobs" />
+    </form>
+</div><!-- .col .guest-list -->
+<div class="col tracking-list">
+<h2>Your Stats</h2>
 <form>
-    <span class="group">
-        <span class="h3">Personal Informaiton</span>
-        <label for="first-name">First name:</label>
-        <input type="text" id="first-name" class="input-standard" />
-        <label for="last-name">Last name:</label>
-        <input type="text" id="last-name" class="input-standard" />
-        <label for="your-city">The city you live in:</label>
-        <input type="text" id="your-city" class="input-standard" />
-        <label for="your-description">Tell us about yourself:</label>
-        <textarea id="your-description" class="input-standard"></textarea>
-    </span>
-    <span class="group">
-        <span class="h3">Event Preferences</span>
-        <label for="like-categories">Event categories you like:</label>
-        <input type="text" id="like-categories" class="input-standard" />
-        <label for="your-keywords">Keywords you like to search for in events:</label>
-        <input type="text" id="your-keywords" class="input-standard" />
-    </span>
+    <ul class="form-people-list">
+        <li>
+            <a>
+            <img class="profile-pic" src="/static/img/profile-pic-jessica.jpg" />
+            <span class="person-summary">
+                <span class="name">Jessica G.</span>
+                <span class="city">San Francisco, California</span>
+                <span class="categories-label">Likes these categories:</span>
+                <span class="pins"><img src="/static/img/pin-key-networking.png" title="Networking" alt="Networking" /><img src="/static/img/pin-key-education.png" title="Education" alt="Education" /><img src="/static/img/pin-key-athletic.png" title="Athletic" alt="Athletic" /><img src="/static/img/pin-key-art.png" title="Art" alt="Art" /><img src="/static/img/pin-key-dancing.png" title="Dancing" alt="Dancing" /><img src="/static/img/pin-key-sales.png" title="Sales" alt="Sales" /><img src="/static/img/pin-key-dining.png" title="Dining" alt="Dining" /><img src="/static/img/pin-key-parties.png" title="Parties" alt="Parties" /><img src="/static/img/pin-map-jobs.png" title="Jobs" alt="Jobs" /></span>
+                <span class="keywords"><strong>Likes events with:</strong> penguins, parties, art, crafting, tech, startups</span>
+            </span><!-- .person-summary -->
+            </a>
+        </li>
+        <li>
+            <a>
+            <img class="profile-pic" src="/static/img/profile-pic-andrew.jpg" />
+            <span class="person-summary">
+                <span class="name">Andrew F.</span>
+                <span class="city">San Francisco, California</span>
+                <span class="categories-label">Likes these categories:</span>
+                <span class="pins"><img src="/static/img/pin-key-education.png" title="Education" alt="Education" /><img src="/static/img/pin-key-art.png" title="Art" alt="Art" /><img src="/static/img/pin-key-dining.png" title="Dining" alt="Dining" /></span>
+                <span class="keywords"><strong>Likes events with:</strong> penguins, parties, art, crafting, tech, startups</span>
+            </span><!-- .person-summary -->
+            </a>
+        </li>
+        <li>
+            <a>
+            <img class="profile-pic" src="/static/img/profile-pic-slim.jpg" />
+            <span class="person-summary">
+                <span class="name">Slim C.</span>
+                <span class="city">San Francisco, California</span>
+                <span class="categories-label">Likes these categories:</span>
+                <span class="pins"><img src="/static/img/pin-key-education.png" title="Education" alt="Education" /><img src="/static/img/pin-key-athletic.png" title="Athletic" alt="Athletic" /><img src="/static/img/pin-key-art.png" title="Art" alt="Art" /><img src="/static/img/pin-key-dancing.png" title="Dancing" alt="Dancing" /><img src="/static/img/pin-key-dining.png" title="Dining" alt="Dining" /></span>
+                <span class="keywords"><strong>Likes events with:</strong> penguins, parties, art, crafting, tech, startups</span>
+            </span><!-- .person-summary -->
+            </a>
+        </li>
+        <li>
+            <a>
+            <img class="profile-pic" src="/static/img/profile-pic-jessica.jpg" />
+            <span class="person-summary">
+                <span class="name">Jessica G.</span>
+                <span class="city">San Francisco, California</span>
+                <span class="categories-label">Likes these categories:</span>
+                <span class="pins"><img src="/static/img/pin-key-networking.png" title="Networking" alt="Networking" /><img src="/static/img/pin-key-education.png" title="Education" alt="Education" /><img src="/static/img/pin-key-athletic.png" title="Athletic" alt="Athletic" /><img src="/static/img/pin-key-art.png" title="Art" alt="Art" /><img src="/static/img/pin-key-dancing.png" title="Dancing" alt="Dancing" /><img src="/static/img/pin-key-sales.png" title="Sales" alt="Sales" /><img src="/static/img/pin-key-dining.png" title="Dining" alt="Dining" /><img src="/static/img/pin-key-parties.png" title="Parties" alt="Parties" /><img src="/static/img/pin-map-jobs.png" title="Jobs" alt="Jobs" /></span>
+                <span class="keywords"><strong>Likes events with:</strong> penguins, parties, art, crafting, tech, startups</span>
+            </span><!-- .person-summary -->
+            </a>
+        </li>
+        <li>
+            <a>
+            <img class="profile-pic" src="/static/img/profile-pic-andrew.jpg" />
+            <span class="person-summary">
+                <span class="name">Andrew F.</span>
+                <span class="city">San Francisco, California</span>
+                <span class="categories-label">Likes these categories:</span>
+                <span class="pins"><img src="/static/img/pin-key-education.png" title="Education" alt="Education" /><img src="/static/img/pin-key-art.png" title="Art" alt="Art" /><img src="/static/img/pin-key-dining.png" title="Dining" alt="Dining" /></span>
+                <span class="keywords"><strong>Likes events with:</strong> penguins, parties, art, crafting, tech, startups</span>
+            </span><!-- .person-summary -->
+            </a>
+        </li>
+        <li>
+            <a>
+            <img class="profile-pic" src="/static/img/profile-pic-slim.jpg" />
+            <span class="person-summary">
+                <span class="name">Slim C.</span>
+                <span class="city">San Francisco, California</span>
+                <span class="categories-label">Likes these categories:</span>
+                <span class="pins"><img src="/static/img/pin-key-education.png" title="Education" alt="Education" /><img src="/static/img/pin-key-athletic.png" title="Athletic" alt="Athletic" /><img src="/static/img/pin-key-art.png" title="Art" alt="Art" /><img src="/static/img/pin-key-dancing.png" title="Dancing" alt="Dancing" /><img src="/static/img/pin-key-dining.png" title="Dining" alt="Dining" /></span>
+                <span class="keywords"><strong>Likes events with:</strong> penguins, parties, art, crafting, tech, startups</span>
+            </span><!-- .person-summary -->
+            </a>
+        </li>
+    </ul>
+    <a href="#" class="more-link">See all event trackers &raquo;</a>
 </form>
+</div><!-- .col .guest-list -->
 {% endblock active_tab_content %}

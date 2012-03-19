@@ -16,6 +16,18 @@
 	float:right;
 	}
 
+.profile-pic {
+	display:block;
+	float:left;
+	}
+
+.person-summary {
+	display:block;
+	float:left;
+	margin:-80px 0 0 88px;
+	}
+
+
 /* = Containers
 ----------------------------------- */
 /* = Header */
@@ -435,10 +447,6 @@ ul.form-event-list a.list-jobs {
 ul.form-people-list li {
 	padding:6px;
 	}
-ul.form-people-list li .profile-pic {
-	display:block;
-	float:left;
-	}
 
 ul.form-people-list li .city {
 	display:block;
@@ -447,11 +455,7 @@ ul.form-people-list li .city {
 	}
 
 
-ul.form-people-list li a span.person-summary {
-	display:block;
-	float:left;
-	margin:-80px 0 0 88px;
-	}
+
 
 ul.form-people-list li a .name,
 ul.form-people-list li a .city,
@@ -513,7 +517,9 @@ a.btn-track,
 	background:#fcb510;
 	}
 
-.your-posts-mng .btn-edit {
+.your-posts-mng .btn-edit,
+.your-profile .btn-edit,
+.your-posts-manage .btn-edit {
 	width:40px;
 	float:left;
 	margin-top:1em;
