@@ -107,7 +107,9 @@ h3, .h3 {
 	}
 
 /* = Your Profile */
-
+.person-summary .description {
+	font-size:90%;
+	}
 
 /* = Your Posts: Manage Your Event */
 .your-posts-mng #active-tab-content .price,
@@ -120,7 +122,7 @@ h3, .h3 {
 
 .your-posts-mng #active-tab-content .description p {
 	margin:0.3em 0 0 0;
-	font-size:100%;
+	font-size:95%;
 	}
 
 .your-posts-mng #active-tab-content .date-time {
@@ -147,9 +149,9 @@ h3, .h3 {
 
 .map-popup .price {
 	font-size:110%;
-	font-weight:bold;
 	margin-bottom:.5em;
 	}
+.map-popup .price strong {color:#70b820;}
 
 .map-popup .description,
 .map-popup .address {
@@ -198,6 +200,12 @@ ul.form-people-list a:link {
 	color:#333;
 	}
 
+ul.form-event-list a:hover,
+ul.form-people-list a:hover {
+	text-decoration:none;
+	}
+
+
 ul.form-event-list .event-name,
 ul.form-people-list .name {
 	font-weight:bold;
@@ -225,6 +233,10 @@ ul.form-people-list .city {
 	color:#000;
 	}
 
+.form-comment {
+	color:#f9882b;
+	}
+
 .form-details {
 	color:#555;
 	font-size:95%;
@@ -240,7 +252,7 @@ ul.form-people-list .city {
 	}
 
 #active-tab-content .guest-list h2,
-#active-tab-content .tracking-list h2 {
+#active-tab-content .watching-list h2 {
 	font-weight:bold;
 	font-size:130%;
 	color:#fff;
@@ -251,7 +263,7 @@ ul.form-people-list .city {
 #active-tab-content .guest-list h2 {
 	background:#85C440;
 	}
-#active-tab-content .tracking-list h2 {
+#active-tab-content .watching-list h2 {
 	background:#f68d1f;
 	}
 
@@ -308,19 +320,19 @@ ul.form-people-list .city {
 a.btn-manage,
 a.btn-view,
 a.btn-edit,
-a.btn-track,
+a.btn-watch,
 .btn-edit,
 ul.form-event-list .mod-event a.btn-manage,
 ul.form-event-list .mod-event a.btn-view,
 ul.form-event-list .mod-event a.btn-edit,
-ul.form-event-list .mod-event a.btn-track {
+ul.form-event-list .mod-event a.btn-watch {
 	color:#fff;
 	}
 
 .btn-manage:hover,
 .btn-view:hover,
 .btn-edit:hover,
-.btn-track:hover,
+.btn-watch:hover,
 .btn-delete:hover {
 	text-decoration:none;
 	}
@@ -337,11 +349,17 @@ ul.form-event-list .mod-event .btn-delete:hover {
 	}
 
 /* = Edit hover links */
-.person-summary h3 em,
-.person-summary p em {
-	display:none;
+.person-summary .form-comment {
+	font-size:16px;
 	}
-.person-summary h3:hover em,
-.person-summary p:hover em {
+.person-summary h3 .form-comment,
+.person-summary .city .form-comment,
+.person-summary .description .form-comment {
+	display:none;
+	font-weight:normal;
+	}
+.person-summary h3:hover .form-comment,
+.person-summary .city:hover .form-comment,
+.person-summary .description:hover .form-comment {
 	display:inline;
 	}

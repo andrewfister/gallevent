@@ -157,26 +157,80 @@ form label {
 	background:#e4f3f4;
 	}
 
-.form-comment {
-	color:#f9882b;
-	}
-
 .form-details {
 	width:350px;
 	display:block;
 	}
+
+/* = Select Categories Checkboxes */
+.slt-categories {
+	display:block;
+	float:left;
+	margin:.5em 0 1em 0;
+	}
+.slt-categories span {
+	width:49%;
+	border:1px solid #3CC;
+	float:left;
+	display:block;
+	background-color:#e4f3f4;
+	}
+.slt-categories span:hover {
+	border:1px solid #85C440;
+	background-color:#f0f8e8;
+	}
+.slt-categories span label {
+	float:left;
+	padding:12px 0 12px 42px;
+	}
+.slt-categories input.big-checkbox {
+	float:right;
+	display:inline;
+	width:15px;
+	height:15px;
+	border:1px solid #30C;
+	}
+
+.slt-networking label {
+	background:url(../img/pin-key-networking.png) 2px 3px no-repeat;
+	}
+.slt-education label {
+	background:url(../img/pin-key-education.png) 2px 3px no-repeat;
+	}
+.slt-athletic label {
+	background:url(../img/pin-key-athletic.png) 2px 3px no-repeat;
+	}
+.slt-art label {
+	background:url(../img/pin-key-art.png) 2px 3px no-repeat;
+	}
+.slt-dancing label {
+	background:url(../img/pin-key-dancing.png) 2px 3px no-repeat;
+	}
+.slt-sales label {
+	background:url(../img/pin-key-sales.png) 2px 3px no-repeat;
+	}
+.slt-dining label {
+	background:url(../img/pin-key-dining.png) 2px 3px no-repeat;
+	}
+.slt-jobs label {
+	background:url(../img/pin-key-jobs.png) 2px 3px no-repeat;
+	}
+.slt-parties label {
+	background:url(../img/pin-key-parties.png) 2px 3px no-repeat;
+	}
+
 
 /* = Special Columns for Your Account */
 .possible-connections,
 .my-contacts ,
 .my-groups,
 .guest-list,
-.tracking-list {
+.watching-list {
 	float:left;
 	}
 
 .guest-list input#search-rsvps,
-.tracking-list input#search-rsvps {
+.watching-list input#search-rsvps {
 	width:85%;
 	margin:0;
 	float:left;
@@ -188,7 +242,7 @@ form label {
 	}
 
 .guest-list,
-.tracking-list {
+.watching-list {
 	float:left;
 	margin-top:2em;
 	padding:0 12px 0 12px;
@@ -198,7 +252,7 @@ form label {
 	border:3px solid #85C440;
 	}
 
-.tracking-list {
+.watching-list {
 	border:3px solid #f68d1f;
 	}
 
@@ -326,6 +380,7 @@ ul.form-event-list li:hover,
 ul.form-people-list li:hover {
 	border:2px solid #85C440;
 	background:#f0f8e8;
+	text-decoration:none;
 	}
 
 .more-link {
@@ -480,7 +535,7 @@ ul.form-people-list li a .keywords-label {
 a.btn-manage,
 a.btn-view,
 a.btn-edit,
-a.btn-track,
+a.btn-watch,
 .mod-event .btn-delete {
 	float:right;
 	padding:.4em .6em .4em .6em;
@@ -510,10 +565,10 @@ a.btn-track,
 	background:#8cd734;
 	}
 
-.btn-track {
+.btn-watch {
 	background:#f68d1f;
 	}
-.btn-track:hover {
+.btn-watch:hover {
 	background:#fcb510;
 	}
 
@@ -587,7 +642,7 @@ input.btn-s-post-event:hover {
 	}
 
 .map-popup .btn-rsvp,
-.map-popup .btn-track {
+.map-popup .btn-watch {
 	margin-right:5px;
 	padding:.4em .6em .4em .6em;
 	-moz-border-radius:    3px;
@@ -603,10 +658,10 @@ input.btn-s-post-event:hover {
 .map-popup .btn-rsvp:hover {
 	background:#8cd734;
 	}
-.map-popup .btn-track {
+.map-popup .btn-watch {
 	background:#f68d1f;
 	color:#fff;
 	}
-.map-popup .btn-track:hover {
+.map-popup .btn-watch:hover {
 	background:#fcb510;
 	}
