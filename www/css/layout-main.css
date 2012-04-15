@@ -3,7 +3,7 @@
 ** Description: Positioning of most site-wide elemenets
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-28-2012
-** Updated: 03-05-2012
+** Updated: 04-15-2012
 ************************************** */
 
 /* = General Styles
@@ -19,15 +19,20 @@ a:link {
 	text-decoration:none;
 	color:#70b820;
 	}
-
 a:hover {
-	text-decoration:underline;
+	text-decoration:none;
 	color:#ff9a00;
 	}
-
 p {
 	font-size:120%;
 	margin-bottom:1em;
+	}
+
+.left {
+	float:left;
+	}
+.right {
+	float:right;
 	}
 
 .warning,
@@ -40,26 +45,6 @@ p {
 	font-style:italic;
 	color:#999;
 	}
-
-.left {
-	float:left;
-	}
-
-.right {
-	float:right;
-	}
-
-.profile-pic {
-	display:block;
-	float:left;
-	}
-
-.person-summary {
-	display:block;
-	float:left;
-	margin:-80px 0 0 88px;
-	}
-
 
 /* = Headings
 ----------------------------------- */
@@ -79,6 +64,45 @@ h2 em {
 	font-weight:normal;
 	}
 
+.possible-connections h2 {
+	background:#85C440;
+	font-weight:bold;
+	font-size:130%;
+	color:#fff;
+	padding:.2em 0 .2em .5em;
+	}
+
+#active-tab-content .guest-list h2,
+#active-tab-content .watching-list h2 {
+	font-weight:bold;
+	font-size:130%;
+	color:#fff;
+	padding:0 .5em .2em .5em;
+	margin-top:0;
+	margin:0 -12px 0.5em -12px;
+	}
+#active-tab-content .guest-list h2 {
+	background:#85C440;
+	}
+#active-tab-content .watching-list h2 {
+	background:#f68d1f;
+	}
+
+.my-contacts h2 {
+	background:#239EA2;
+	font-weight:bold;
+	font-size:130%;
+	color:#fff;
+	padding:.2em 0 .2em .5em;
+	}
+.my-groups h2 {
+	background:#F68D1F;
+	font-weight:bold;
+	font-size:130%;
+	color:#fff;
+	padding:.2em 0 .2em .5em;
+	}
+
 h3, .h3 {
 	color:#239ea2;
 	font-size:130%;
@@ -86,51 +110,80 @@ h3, .h3 {
 	font-weight:bold;
 	}
 
+/* = Containers
+----------------------------------- */
+/* = Header */
+#header {
+	color:#fff;
+	font-weight:bold;
+	}
+#header a.logo {
+	margin:26px 0 0 20px;
+	display:block;
+	float:left;
+	}
+#header .right {
+	font-size:90%;
+	font-weight:normal;
+	top:5px;
+	right:20px;
+	text-align:right;
+	position:fixed;
+	}
+#header .right a,
+#header .right a:link {
+	color:#fff;
+	}
+#header .right a:hover {
+	color:#fef091;
+	text-decoration:underline;
+	}
+
+/* = Top Search */
+form#top-search {
+	float:left;
+	margin:14px 29px 16px 20px;
+	}
+form#top-search input {
+	font-size:100%;
+	}
+form#top-search label {
+	display:block;
+	color:#fff;
+	}
+form#top-search #event,
+form#top-search #date1,
+form#top-search #date2 {
+	border:1px solid #ff9000;
+	padding:.5em 0 .5em .5em;
+	}
+form#top-search #event {
+	width:290px;
+	margin-right:.5em;
+	}
+form#top-search #date1,
+form#top-search #date2 {
+	width:100px;
+	}
+
+/* = Top Navigation */
 #top-nav ul{
 	padding:1.5em 0 1.3em 29px;
 	}
-
 #top-nav ul li,
 #footer ul li {
 	display:inline;
 	margin-right:1em;
 	}
 
-#header {
-	color:#fff;
+/* = Pin Key */
+#pin-key a {
+	color:#000;
+	font-size:100%;
 	font-weight:bold;
 	}
-
-#header .right {
-	font-size:90%;
-	font-weight:normal;
-	}
-
-#header .right a,
-#header .right a:link {
-	color:#fff;
-	}
-
-#header .right a:hover {
-	color:#fef091;
-	text-decoration:underline;
-	}
-
-
-/* = Containers
------------------------------------ */
-/* = Header */
-#header a.logo {
-	margin:26px 0 0 20px;
-	display:block;
-	float:left;
-	}
-
-#header .right {
-	top:5px;
-	right:20px;
-	text-align:right;
-	position:fixed;
+#pin-key a:hover {
+	text-decoration:none;
 	}
 
 /* = Columns */
@@ -138,6 +191,58 @@ h3, .h3 {
 	float:left;
 	margin-right:1.5em;
 	width:28%;
+	}
+
+/* = Special Columns for Your Account */
+.possible-connections,
+.my-contacts ,
+.my-groups,
+.guest-list,
+.watching-list {
+	float:left;
+	}
+
+.guest-list input#search-rsvps,
+.watching-list input#search-rsvps {
+	width:85%;
+	margin:0;
+	float:left;
+	}
+
+.possible-connections {
+	border:3px solid #85C440;
+	float:left;
+	}
+
+.guest-list,
+.watching-list {
+	float:left;
+	margin-top:2em;
+	padding:0 12px 0 12px;
+	}
+
+.guest-list {
+	border:3px solid #85C440;
+	}
+
+.watching-list {
+	border:3px solid #f68d1f;
+	}
+
+.possible-connections form,
+.my-contacts form,
+.my-groups form {
+	margin-left:.5em;
+	}
+
+.my-contacts {
+	border:3px solid #239EA2;
+	float:left;
+	}
+
+.my-groups {
+	border:3px solid #F68D1F;
+	float:left;
 	}
 
 /* = Map Pop-ups */
@@ -148,91 +253,111 @@ h3, .h3 {
 	}
 
 .map-popup .event-name {
+	font-weight:bold;
+	font-size:120%;
+	color:#239ea2;
 	padding:0 .5em .5em 35px;
 	}
-	
-.cb-networking {
-	background:url(../img/cbi-networking.png) top left no-repeat;
+.map-popup .event-name a {
+	color:#239ea2;
+	}
+.map-popup .event-name a:hover {
+	color:#85c440;
 	}
 
-.map-popup .btns {
-	margin-top:1.2em;
+.map-popup .price,
+.map-popup .date-time {
+	color:#239ea2;
+	}
+.map-popup .price {
+	font-size:110%;
+	margin-bottom:.5em;
+	}
+.map-popup .price strong {
+	color:#70b820;
+	}
+
+.map-popup .description,
+.map-popup .address {
+	margin:.5em 0 0 0;
 	}
 
 .map-popup .mod-event {
 	margin-top:1.2em;
 	}
-
+.map-popup .mod-event a {
+	font-style:italic;
+	text-decoration:underline;
+	color:#f68d1f;
+	}
+.map-popup .mod-event a:hover {
+	text-decoration:none;
+	color:#85c440;
+	}
 .map-popup .mod-event .warning {
 	float:right;
+	}
+.map-popup .mod-event a.warning {
+	font-style:italic;
+	text-decoration:underline;
+	color:#d62121;
+	}
+.map-popup .mod-event a.warning:hover {
+	text-decoration:none;
+	color:#F2581C;
+	}
+
+.cb-networking {
+	background:url(../img/cbi-networking.png) top left no-repeat;
 	}
 
 /* = Footer */
 #footer {
+	font-size:80%;
 	border-top:1px solid #f99f1b;
 	float:left;
 	width:100%;
 	background:#f2f2f2;
 	}
-
+#footer a,
+#footer a:link {
+	color:#13898e;
+	}
+#footer a:hover {
+	color:#f99f1b;
+	}
+#footer ul {
+	padding:1.2em 0 1em 29px;
+	float:left;
+	}
 #footer .copyright {
 	float:right;
-	}
-
-/* = Search in Header */
-form#top-search {
-	float:left;
-	margin:14px 29px 16px 20px;
-	}
-
-form#top-search input {
-	font-size:100%;
-	}
-
-form#top-search label {
-	display:block;
-	color:#fff;
-	}
-
-form#top-search #event,
-form#top-search #date1,
-form#top-search #date2 {
-	border:1px solid #ff9000;
-	padding:.5em 0 .5em .5em;
-	}
-
-form#top-search #event {
-	width:290px;
-	margin-right:.5em;
-	}
-
-form#top-search #date1,
-form#top-search #date2 {
-	width:100px;
-	}
-
-form#top-search .btn-search {
-	background:url(../img/btn-search.png) top left no-repeat;
-	width:78px;
-	height:36px;
-	border:none;
-	text-indent:-9999px;
-	margin:18px 0 0 10px;
-	}
-
-form#top-search .btn-search:hover {
-	background:url(../img/btn-search-h.png) top left no-repeat;
+	color:#404040;
+	padding:1.2em 29px 1em 0;
 	}
 
 /* = Forms
 ----------------------------------- */
+form .group {
+	margin-bottom:1.5em;
+	display:block;
+	float:left;
+	clear:left;
+	}
 form input {
 	font-size:110%;
 	margin-bottom:1em;
 	}
 form label {
 	clear:both;
+	font-weight:bold;
+	color:#239ea2;
+	display:block;
 	}
+label.required {
+	color:#f9882b;
+	}
+
 .input-required {
 	border:2px solid #f9882b;
 	background:#fefbe3;
@@ -249,9 +374,138 @@ form label {
 .form-details {
 	width:350px;
 	display:block;
+	color:#555;
+	font-size:95%;
+	margin:.5em 0 .5em 0;
+	}
+.form-comment {
+	color:#f9882b;
 	}
 
-/* = Select Categories Checkboxes */
+#active-sort-by1,
+#active-sort-by2,
+#active-sort-by3 {
+	margin-bottom:.5em;
+	}
+
+form input#zip-code {
+	width:80px;
+	margin-right:15px;
+	}
+
+form select#event-category {
+	font-size:110%;
+	background:#fefbe3;
+	width:300px;
+	margin-bottom:0.5em;
+	}
+
+form input#start-date,
+form input#start-time,
+form input#end-date,
+form input#end-time {
+	width:100px;
+	}
+
+form input#ticket-price,
+form input#rsvp-limit {
+	width:100px;
+	margin-right:15px;
+	}
+/* = Forms */
+
+ul.form-event-list,
+ul.form-event-list a,
+ul.form-event-list a:link {
+	font-size:95%;
+	color:#333;
+	}
+
+ul.form-people-list,
+ul.form-people-list a,
+ul.form-people-list a:link {
+	color:#333;
+	}
+
+ul.form-event-list a:hover,
+ul.form-people-list a:hover {
+	text-decoration:none;
+	}
+
+ul.form-event-list .event-name,
+ul.form-people-list .name {
+	font-weight:bold;
+	font-size:110%;
+	}
+
+ul.form-people-list li a .categories-label,
+ul.form-people-list li a .keywords-label {
+	font-weight:bold;
+	}
+
+ul.form-people-list li a .categories-label {
+	margin-top:.5em;
+	}
+ul.form-people-list li a .keywords-label {
+	margin-top:.3em;
+	}
+
+ul.form-event-list .address {
+	font-weight:bold;
+	}
+
+ul.form-event-list .address,
+ul.form-people-list .city {
+	color:#000;
+	}
+
+/* = Select Categories Dropdown */
+#select-fairs,
+#select-networking,
+#select-education,
+#select-athletic,
+#select-art,
+#select-dancing,
+#select-sales,
+#select-dining,
+#select-parties,
+#select-jobs {
+	height:36px;
+	padding:5px 5px 0 40px;
+	}
+
+#select-fairs {
+	background:url(../img/pin-key-art.png) top left no-repeat;
+	}
+#select-networking {
+	background:url(../img/pin-key-networking.png) top left no-repeat;
+	}
+#select-education {
+	background:url(../img/pin-key-education.png) top left no-repeat;
+	}
+#select-athletic {
+	background:url(../img/pin-key-athletic.png) top left no-repeat;
+	}
+#select-art {
+	background:url(../img/pin-key-art.png) top left no-repeat;
+	}
+#select-dancing {
+	background:url(../img/pin-key-dancing.png) top left no-repeat;
+	}
+#select-sales {
+	background:url(../img/pin-key-sales.png) top left no-repeat;
+	}
+#select-dining {
+	background:url(../img/pin-key-dining.png) top left no-repeat;
+	}
+#select-parties {
+	background:url(../img/pin-key-parties.png) top left no-repeat;
+	}
+#select-jobs {
+	background:url(../img/pin-key-jobs.png) top left no-repeat;
+	}
+
+/* = Select Categories Checkboxes - Used on: Your Profile */
 .slt-categories {
 	display:block;
 	float:left;
@@ -307,143 +561,6 @@ form label {
 .slt-parties label {
 	background:url(../img/pin-key-parties.png) 2px 3px no-repeat;
 	}
-
-
-/* = Special Columns for Your Account */
-.possible-connections,
-.my-contacts ,
-.my-groups,
-.guest-list,
-.watching-list {
-	float:left;
-	}
-
-.guest-list input#search-rsvps,
-.watching-list input#search-rsvps {
-	width:85%;
-	margin:0;
-	float:left;
-	}
-
-.possible-connections {
-	border:3px solid #85C440;
-	float:left;
-	}
-
-.guest-list,
-.watching-list {
-	float:left;
-	margin-top:2em;
-	padding:0 12px 0 12px;
-	}
-
-.guest-list {
-	border:3px solid #85C440;
-	}
-
-.watching-list {
-	border:3px solid #f68d1f;
-	}
-
-.possible-connections form,
-.my-contacts form,
-.my-groups form {
-	margin-left:.5em;
-	}
-
-.my-contacts {
-	border:3px solid #239EA2;
-	float:left;
-	}
-
-.my-groups {
-	border:3px solid #F68D1F;
-	float:left;
-	}
-
-form .group {
-	margin-bottom:1.5em;
-	display:block;
-	float:left;
-	clear:left;
-	}
-
-#active-sort-by1,
-#active-sort-by2,
-#active-sort-by3 {
-	margin-bottom:.5em;
-	}
-
-form input#zip-code {
-	width:80px;
-	margin-right:15px;
-	}
-
-form select#event-category {
-	font-size:110%;
-	background:#fefbe3;
-	width:300px;
-	margin-bottom:0.5em;
-	}
-
-form input#start-date,
-form input#start-time,
-form input#end-date,
-form input#end-time {
-	width:100px;
-	}
-
-form input#ticket-price,
-form input#rsvp-limit {
-	width:100px;
-	margin-right:15px;
-	}
-
-#select-fairs,
-#select-networking,
-#select-education,
-#select-athletic,
-#select-art,
-#select-dancing,
-#select-sales,
-#select-dining,
-#select-parties,
-#select-jobs {
-	height:36px;
-	padding:5px 5px 0 40px;
-	}
-
-#select-fairs {
-	background:url(../img/pin-key-art.png) top left no-repeat;
-	}
-#select-networking {
-	background:url(../img/pin-key-networking.png) top left no-repeat;
-	}
-#select-education {
-	background:url(../img/pin-key-education.png) top left no-repeat;
-	}
-#select-athletic {
-	background:url(../img/pin-key-athletic.png) top left no-repeat;
-	}
-#select-art {
-	background:url(../img/pin-key-art.png) top left no-repeat;
-	}
-#select-dancing {
-	background:url(../img/pin-key-dancing.png) top left no-repeat;
-	}
-#select-sales {
-	background:url(../img/pin-key-sales.png) top left no-repeat;
-	}
-#select-dining {
-	background:url(../img/pin-key-dining.png) top left no-repeat;
-	}
-#select-parties {
-	background:url(../img/pin-key-parties.png) top left no-repeat;
-	}
-#select-jobs {
-	background:url(../img/pin-key-jobs.png) top left no-repeat;
-	}
-
 
 /* = Event and People Lists
 -------------------------------- */
@@ -598,9 +715,6 @@ ul.form-people-list li .city {
 	clear:left;
 	}
 
-
-
-
 ul.form-people-list li a .name,
 ul.form-people-list li a .city,
 ul.form-people-list li a .categories-label,
@@ -616,11 +730,55 @@ ul.form-people-list li a .keywords-label {
 	clear:left;
 	}
 
-
-
-
-/* = Buttons 
+/* = Buttons and Edit Links
 ----------------------------------- */
+form#top-search .btn-search {
+	background:url(../img/btn-search.png) top left no-repeat;
+	width:78px;
+	height:36px;
+	border:none;
+	text-indent:-9999px;
+	margin:18px 0 0 10px;
+	}
+form#top-search .btn-search:hover {
+	background:url(../img/btn-search-h.png) top left no-repeat;
+	}
+
+.map-popup .btns {
+	margin-top:1.2em;
+	}
+
+a.btn-manage,
+a.btn-view,
+a.btn-edit,
+a.btn-watch,
+.btn-edit,
+ul.form-event-list .mod-event a.btn-manage,
+ul.form-event-list .mod-event a.btn-view,
+ul.form-event-list .mod-event a.btn-edit,
+ul.form-event-list .mod-event a.btn-watch {
+	color:#fff;
+	}
+
+.btn-manage:hover,
+.btn-view:hover,
+.btn-edit:hover,
+.btn-watch:hover,
+.btn-delete:hover {
+	text-decoration:none;
+	}
+
+ul.form-event-list .mod-event a.btn-delete,
+ul.form-event-list .mod-event .btn-delete {
+	color:#f68d1f;
+	text-decoration:underline;
+	}
+ul.form-event-list .mod-event a.btn-delete:hover,
+ul.form-event-list .mod-event .btn-delete:hover {
+	color:#d62121;
+	text-decoration:none;
+	}
+
 a.btn-manage,
 a.btn-view,
 a.btn-edit,
@@ -730,6 +888,7 @@ input.btn-s-post-event:hover {
     border-radius:         0 3px 3px 0;
 	}
 
+/* = Buttons on Map Pop-Up */
 .map-popup .btn-rsvp,
 .map-popup .btn-watch {
 	margin-right:5px;
@@ -755,10 +914,32 @@ input.btn-s-post-event:hover {
 	background:#fcb510;
 	}
 
+/* = Edit Hover Links */
+.person-summary .form-comment {
+	font-size:16px;
+	}
+.person-summary h3 .form-comment,
+.person-summary .city .form-comment,
+.person-summary .description .form-comment {
+	display:none;
+	font-weight:normal;
+	}
+.person-summary h3:hover .form-comment,
+.person-summary .city:hover .form-comment,
+.person-summary .description:hover .form-comment {
+	display:inline;
+	}
 
+/* = Unique Page Styles
+----------------------------------- */
 /* = Your Profile */
 .person-summary .description {
 	font-size:90%;
+	}
+
+.profile-pic {
+	display:block;
+	float:left;
 	}
 
 /* = Your Posts: Manage Your Event */
@@ -779,237 +960,8 @@ input.btn-s-post-event:hover {
 	color:#239ea2;
 	}
 
-/* = Map Pop-Up */
-.map-popup .event-name {
-	font-weight:bold;
-	font-size:120%;
-	color:#239ea2;
-	}
-.map-popup .event-name a {
-	color:#239ea2;
-	}
-.map-popup .event-name a:hover {
-	color:#85c440;
-	}
-
-.map-popup .price,
-.map-popup .date-time {
-	color:#239ea2;
-	}
-
-.map-popup .price {
-	font-size:110%;
-	margin-bottom:.5em;
-	}
-.map-popup .price strong {color:#70b820;}
-
-.map-popup .description,
-.map-popup .address {
-	margin:.5em 0 0 0;
-	}
-
-.map-popup .mod-event a {
-	font-style:italic;
-	text-decoration:underline;
-	color:#f68d1f;
-	}
-.map-popup .mod-event a:hover {
-	text-decoration:none;
-	color:#85c440;
-	}
-.map-popup .mod-event a.warning {
-	font-style:italic;
-	text-decoration:underline;
-	color:#d62121;
-	}
-.map-popup .mod-event a.warning:hover {
-	text-decoration:none;
-	color:#F2581C;
-	}
-
-/* = Forms */
-label {
-	font-weight:bold;
-	color:#239ea2;
+.person-summary {
 	display:block;
-	}
-label.required {
-	color:#f9882b;
-	}
-
-ul.form-event-list,
-ul.form-event-list a,
-ul.form-event-list a:link {
-	font-size:95%;
-	color:#333;
-	}
-
-ul.form-people-list,
-ul.form-people-list a,
-ul.form-people-list a:link {
-	color:#333;
-	}
-
-ul.form-event-list a:hover,
-ul.form-people-list a:hover {
-	text-decoration:none;
-	}
-
-
-ul.form-event-list .event-name,
-ul.form-people-list .name {
-	font-weight:bold;
-	font-size:110%;
-	}
-
-ul.form-people-list li a .categories-label,
-ul.form-people-list li a .keywords-label {
-	font-weight:bold;
-	}
-
-ul.form-people-list li a .categories-label {
-	margin-top:.5em;
-	}
-ul.form-people-list li a .keywords-label {
-	margin-top:.3em;
-	}
-
-ul.form-event-list .address {
-	font-weight:bold;
-	}
-
-ul.form-event-list .address,
-ul.form-people-list .city {
-	color:#000;
-	}
-
-.form-comment {
-	color:#f9882b;
-	}
-
-.form-details {
-	color:#555;
-	font-size:95%;
-	margin:.5em 0 .5em 0;
-	}
-
-.possible-connections h2 {
-	background:#85C440;
-	font-weight:bold;
-	font-size:130%;
-	color:#fff;
-	padding:.2em 0 .2em .5em;
-	}
-
-#active-tab-content .guest-list h2,
-#active-tab-content .watching-list h2 {
-	font-weight:bold;
-	font-size:130%;
-	color:#fff;
-	padding:0 .5em .2em .5em;
-	margin-top:0;
-	margin:0 -12px 0.5em -12px;
-	}
-#active-tab-content .guest-list h2 {
-	background:#85C440;
-	}
-#active-tab-content .watching-list h2 {
-	background:#f68d1f;
-	}
-
-.my-contacts h2 {
-	background:#239EA2;
-	font-weight:bold;
-	font-size:130%;
-	color:#fff;
-	padding:.2em 0 .2em .5em;
-	}
-.my-groups h2 {
-	background:#F68D1F;
-	font-weight:bold;
-	font-size:130%;
-	color:#fff;
-	padding:.2em 0 .2em .5em;
-	}
-
-/* = Pin Key */
-#pin-key a {
-	color:#000;
-	font-size:100%;
-	font-weight:bold;
-	}
-#pin-key a:hover {
-	text-decoration:none;
-	}
-
-#footer {
-	font-size:80%;
-	}
-
-#footer ul {
-	padding:1.2em 0 1em 29px;
 	float:left;
-	}
-
-#footer a,
-#footer a:link {
-	color:#13898e;
-	}
-
-#footer a:hover {
-	color:#f99f1b;
-	}
-
-#footer .copyright {
-	float:right;
-	color:#404040;
-	padding:1.2em 29px 1em 0;
-	}
-
-/* = Buttons */
-a.btn-manage,
-a.btn-view,
-a.btn-edit,
-a.btn-watch,
-.btn-edit,
-ul.form-event-list .mod-event a.btn-manage,
-ul.form-event-list .mod-event a.btn-view,
-ul.form-event-list .mod-event a.btn-edit,
-ul.form-event-list .mod-event a.btn-watch {
-	color:#fff;
-	}
-
-.btn-manage:hover,
-.btn-view:hover,
-.btn-edit:hover,
-.btn-watch:hover,
-.btn-delete:hover {
-	text-decoration:none;
-	}
-
-ul.form-event-list .mod-event a.btn-delete,
-ul.form-event-list .mod-event .btn-delete {
-	color:#f68d1f;
-	text-decoration:underline;
-	}
-ul.form-event-list .mod-event a.btn-delete:hover,
-ul.form-event-list .mod-event .btn-delete:hover {
-	color:#d62121;
-	text-decoration:none;
-	}
-
-/* = Edit hover links */
-.person-summary .form-comment {
-	font-size:16px;
-	}
-.person-summary h3 .form-comment,
-.person-summary .city .form-comment,
-.person-summary .description .form-comment {
-	display:none;
-	font-weight:normal;
-	}
-.person-summary h3:hover .form-comment,
-.person-summary .city:hover .form-comment,
-.person-summary .description:hover .form-comment {
-	display:inline;
+	margin:-80px 0 0 88px;
 	}
