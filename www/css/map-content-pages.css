@@ -21,7 +21,6 @@ html, body {
 /* = Map */
 #map-box {
 	height:100%;
-	/* margin-left:600px; */
 	}
 	
 #map_canvas {
@@ -62,6 +61,12 @@ html, body {
 	z-index:888;
 	overflow-x:hidden;
 	overflow-y:scroll;
+	}
+
+#post-event,  /* Form container on Post Event Page */
+#your-posts {  /* Form container on Your Post Page */
+	width:85%;
+	background:#Ff0;
 	}
 
 /* = Full Content */
@@ -224,3 +229,21 @@ form .checkbox input {
 	width:20px;
 	}
 */
+
+/* = Media Queries
+----------------------------------------------------------------------*/
+@media screen and (max-width:1050px) {
+#side-content {
+	width:50%;
+	}
+#map_canvas {
+	width:50%;
+	}
+
+@media screen and (max-width:768px) {
+#side-content {
+	width:100%;
+	}
+#map_canvas {
+	width:100%;
+	}
