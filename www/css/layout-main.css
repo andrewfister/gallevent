@@ -129,7 +129,7 @@ h3, .h3 {
 	top:5px;
 	right:20px;
 	text-align:right;
-	position:fixed;
+	position:absolute;
 	}
 #header .right a,
 #header .right a:link {
@@ -369,7 +369,6 @@ form .group {
 	float:left;
 	clear:left;
 	width:100%;
-	background:#f00;
 	}
 
 form label {
@@ -501,6 +500,16 @@ ul.form-people-list li:hover {
 	}
 
 /* = Event List */
+.form-event-list .event-data {
+	float:left;
+	width:83%;
+	}
+
+.form-event-list .mod-event {
+	float:right;
+	width:17%;
+	}
+
 ul.form-event-list .event-name,
 ul.form-event-list .date-time,
 ul.form-event-list .address {
@@ -509,6 +518,8 @@ ul.form-event-list .address {
 	margin:0 0.875em .4em 0;
 	}
 ul.form-event-list .event-name {
+	font-weight:bold;
+	font-size:120%;
 	clear:both;
 	width:100%;
 	}
@@ -531,9 +542,8 @@ ul.form-event-list li:hover .edit {
 .form-event-list .list-dining,
 .form-event-list .list-parties,
 .form-event-list .list-jobs {
-	padding:8px 12px 8px 53px;
+	padding:.5em .75em .5em 3.3125em; jess
 	float:left;
-	/* width:435px; jess */
 	}
 
 ul.form-event-list li.list-networking,
@@ -589,16 +599,6 @@ ul.form-event-list a.list-jobs {
 	background-image:url(../img/pin-key-jobs.png);
 	background-position:8px 6px;
 	background-repeat:no-repeat;
-	}
-	
-.form-event-list .event-data {
-	float:left;
-	width:350px;
-	}
-
-.form-event-list .mod-event {
-	float:right;
-	width:70px;
 	}
 
 /* = People List */

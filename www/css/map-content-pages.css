@@ -63,10 +63,11 @@ html, body {
 	overflow-y:scroll;
 	}
 
-#post-event,  /* Form container on Post Event Page */
-#your-posts {  /* Form container on Your Post Page */
+#post-event {  /* Form container on Post Event Page */
 	width:85%;
-	background:#Ff0;
+	}
+#your-posts {  /* Form container on Your Post Page */
+	width:92%;
 	}
 
 /* = Full Content */
@@ -240,9 +241,12 @@ form .checkbox input {
 	width:50%;
 	}
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:700px) {
 #side-content {
 	width:100%;
+	overflow:visible;
+	height:auto;
+	display:block;
 	}
 #map_canvas {
 	width:100%;
