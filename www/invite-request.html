@@ -9,9 +9,9 @@
             <h2>Get on the List!</h2>
             <p>If you would like to request an invitation to join Gallevent, send us your email address and we'll send you a message when more invitations become available.</p>
         </div>
-        <form class="form-left">
+        <form class="form-left" method="POST">
             <label>Email Address:</label>
-            <input type="text" class="input-standard" />
+            <input id="id_email" type="text" maxlength="64" name="email" class="input-standard">
             <input class="btn-create-account" type="submit" value="Create Account" />
         </form>
     </div><!-- #container -->
