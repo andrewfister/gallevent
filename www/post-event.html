@@ -10,9 +10,8 @@
 <h2><a href="{% url gallevent.event.views.show_events %}">Your Posts</a>: Edit Your Event</h2>
 {% else %}
 <h2>Post Your Event on Gallevent</h2>
-<p>Fill out the form below to post your event <br />and watch your guest list grow!</p>
+<p>Fill out the form below to post your event <br />and watch your guest list grow!<br /><em class="form-comment">Required fields are in <b>orange</b></em>.</p>
 {% endif %}
-
 <form id="post-event">
     <span class="group">
         <span class="h3">Where will your event be?</span>
@@ -62,7 +61,7 @@
     <span class="group">
         <label class="h3">Guest list</label>
         <label for="rsvp-limit">How many people may RSVP?</label>
-        <span class="form-details">The number you enter below will limit how many Gallevent Members can RSVP to this event. <br />Leave this blank if there is no limit.</span>
+        <span class="form-details">The number you enter below will limit how many Gallevent Members can RSVP to this event. Leave this blank if there is no limit.</span>
         <input type="text" id="rsvp-limit" class="input-standard" /><em class="form-comment">000 Gallevent Members can RSVP to this event.</em>
     </span>
     <span class="group">

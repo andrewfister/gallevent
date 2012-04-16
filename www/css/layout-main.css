@@ -50,7 +50,7 @@ p {
 ----------------------------------- */
 h2 {
 	color:#239ea2;
-	font-size:170%;
+	font-size:190%;
 	font-weight:normal;
 	margin-bottom:0.2em;
 	}
@@ -105,8 +105,9 @@ h2 em {
 
 h3, .h3 {
 	color:#239ea2;
+	display:block;
 	font-size:130%;
-	margin-bottom:0.2em;
+	margin:0 0 .6em 0;
 	font-weight:bold;
 	}
 
@@ -128,7 +129,7 @@ h3, .h3 {
 	top:5px;
 	right:20px;
 	text-align:right;
-	position:fixed;
+	position:absolute;
 	}
 #header .right a,
 #header .right a:link {
@@ -338,26 +339,6 @@ form#top-search #date2 {
 
 /* = Forms
 ----------------------------------- */
-form .group {
-	margin-bottom:1.5em;
-	display:block;
-	float:left;
-	clear:left;
-	}
-form input {
-	font-size:110%;
-	margin-bottom:1em;
-	}
-form label {
-	clear:both;
-	font-weight:bold;
-	color:#239ea2;
-	display:block;
-	}
-label.required {
-	color:#f9882b;
-	}
-
 .input-required {
 	border:2px solid #f9882b;
 	background:#fefbe3;
@@ -372,7 +353,7 @@ label.required {
 	}
 
 .form-details {
-	width:350px;
+	width:100%;
 	display:block;
 	color:#555;
 	font-size:95%;
@@ -382,48 +363,66 @@ label.required {
 	color:#f9882b;
 	}
 
-#active-sort-by1,
-#active-sort-by2,
-#active-sort-by3 {
-	margin-bottom:.5em;
+form .group {
+	margin-bottom:1em;
+	display:block;
+	float:left;
+	clear:left;
+	width:100%;
 	}
 
-form input#zip-code {
-	width:80px;
-	margin-right:15px;
+form label {
+	clear:both;
+	font-weight:bold;
+	color:#239ea2;
+	display:block;
+	margin:0 0 .1em 0;
+	}
+label.required {
+	color:#f9882b;
 	}
 
+form input,
+form textarea,
 form select#event-category {
 	font-size:110%;
-	background:#fefbe3;
-	width:300px;
-	margin-bottom:0.5em;
+	width:100%;
+	padding:.5em;
+	margin-bottom:.6em;
+	}
+form textarea {
+	min-height:12.5em;
+	}
+form select#event-category {
+	padding:0 0 0 .5em;
+	}
+
+form input#zip-code,
+form input#ticket-price,
+form input#rsvp-limit {
+	width:30%;
+	margin-right:15px;
 	}
 
 form input#start-date,
 form input#start-time,
 form input#end-date,
 form input#end-time {
-	width:100px;
+	width:30%;
 	}
 
-form input#ticket-price,
-form input#rsvp-limit {
-	width:100px;
-	margin-right:15px;
+#active-sort-by1,
+#active-sort-by2,
+#active-sort-by3 {
+	margin-bottom:.5em;
 	}
-/* = Forms */
 
+/* = Form Event List - Used on: Your Posts */
+/*
 ul.form-event-list,
 ul.form-event-list a,
 ul.form-event-list a:link {
 	font-size:95%;
-	color:#333;
-	}
-
-ul.form-people-list,
-ul.form-people-list a,
-ul.form-people-list a:link {
 	color:#333;
 	}
 
@@ -457,6 +456,175 @@ ul.form-event-list .address {
 ul.form-event-list .address,
 ul.form-people-list .city {
 	color:#000;
+	}
+*/
+/* = Event and People Lists
+-------------------------------- */
+.search-box {
+	float:left;
+	width:100%;
+	margin-bottom:.5em;
+	}
+
+ul.form-event-list,
+ul.form-people-list {
+	list-style:none;
+	float:left;
+	}
+ul.form-event-list li,
+ul.form-people-list li {
+	border:2px solid #3CC;
+	float:left;
+	display:block;
+	background:#e4f3f4;
+	}
+ul.form-event-list li:hover,
+ul.form-people-list li:hover {
+	border:2px solid #85C440;
+	background:#f0f8e8;
+	text-decoration:none;
+	}
+
+.more-link {
+	float:left;
+	text-align:right;
+	width:100%;
+	margin:.5em 0 0 0;
+	}
+
+.col .more-link {
+	float:left;
+	text-align:right;
+	width:100%;
+	margin:.5em 0 .5em 0;
+	}
+
+/* = Event List */
+.form-event-list .event-data {
+	float:left;
+	width:83%;
+	}
+
+.form-event-list .mod-event {
+	float:right;
+	width:17%;
+	}
+
+ul.form-event-list .event-name,
+ul.form-event-list .date-time,
+ul.form-event-list .address {
+	display:block;
+	float:left;
+	margin:0 0.875em .4em 0;
+	}
+ul.form-event-list .event-name {
+	font-weight:bold;
+	font-size:120%;
+	clear:both;
+	width:100%;
+	}
+
+ul.form-event-list .edit {
+	float:right;
+	display:none;
+	}
+
+ul.form-event-list li:hover .edit {
+	display:inline;
+	}
+
+.form-event-list .list-networking,
+.form-event-list .list-education,
+.form-event-list .list-athletic,
+.form-event-list .list-art,
+.form-event-list .list-dancing,
+.form-event-list .list-sales,
+.form-event-list .list-dining,
+.form-event-list .list-parties,
+.form-event-list .list-jobs {
+	padding:.5em .75em .5em 3.3125em; jess
+	float:left;
+	}
+
+ul.form-event-list li.list-networking,
+ul.form-event-list a.list-networking {
+	background-image:url(../img/pin-key-networking.png);
+	background-position:8px 6px;
+	background-repeat:no-repeat;
+	}
+ul.form-event-list li.list-education,
+ul.form-event-list a.list-education {
+	background-image:url(../img/pin-key-education.png);
+	background-position:8px 6px;
+	background-repeat:no-repeat;
+	}
+ul.form-event-list li.list-athletic,
+ul.form-event-list a.list-athletic {
+	background-image:url(../img/pin-key-athletic.png);
+	background-position:8px 6px;
+	background-repeat:no-repeat;
+	}
+ul.form-event-list li.list-art,
+ul.form-event-list a.list-art {
+	background-image:url(../img/pin-key-art.png);
+	background-position:8px 6px;
+	background-repeat:no-repeat;
+	}
+ul.form-event-list li.list-dancing,
+ul.form-event-list a.list-dancing {
+	background-image:url(../img/pin-key-dancing.png);
+	background-position:8px 6px;
+	background-repeat:no-repeat;
+	}
+ul.form-event-list li.list-sales,
+ul.form-event-list a.list-sales {
+	background-image:url(../img/pin-key-sales.png);
+	background-position:8px 6px;
+	background-repeat:no-repeat;
+	}
+ul.form-event-list li.list-dining,
+ul.form-event-list a.list-dining {
+	background-image:url(../img/pin-key-dining.png);
+	background-position:8px 6px;
+	background-repeat:no-repeat;
+	}
+ul.form-event-list li.list-parties,
+ul.form-event-list a.list-parties {
+	background-image:url(../img/pin-key-parties.png);
+	background-position:8px 6px;
+	background-repeat:no-repeat;
+	}
+ul.form-event-list li.list-jobs,
+ul.form-event-list a.list-jobs {
+	background-image:url(../img/pin-key-jobs.png);
+	background-position:8px 6px;
+	background-repeat:no-repeat;
+	}
+
+/* = People List */
+ul.form-people-list li {
+	padding:6px;
+	}
+
+ul.form-people-list li .city {
+	display:block;
+	float:left;
+	clear:left;
+	}
+
+ul.form-people-list li a .name,
+ul.form-people-list li a .city,
+ul.form-people-list li a .categories-label,
+ul.form-people-list li a .pins,
+ul.form-people-list li a .keywords-label,
+ul.form-people-list li a .keywords {
+	display:block;
+	float:left;
+	}
+
+ul.form-people-list li a .pins,
+ul.form-people-list li a .keywords-label {
+	clear:left;
 	}
 
 /* = Select Categories Dropdown */
@@ -560,174 +728,6 @@ ul.form-people-list .city {
 	}
 .slt-parties label {
 	background:url(../img/pin-key-parties.png) 2px 3px no-repeat;
-	}
-
-/* = Event and People Lists
--------------------------------- */
-.search-box {
-	float:left;
-	width:100%;
-	margin-bottom:.5em;
-	}
-
-ul.form-event-list,
-ul.form-people-list {
-	list-style:none;
-	float:left;
-	}
-ul.form-event-list li,
-ul.form-people-list li {
-	border:2px solid #3CC;
-	float:left;
-	display:block;
-	background:#e4f3f4;
-	}
-ul.form-event-list li:hover,
-ul.form-people-list li:hover {
-	border:2px solid #85C440;
-	background:#f0f8e8;
-	text-decoration:none;
-	}
-
-.more-link {
-	float:left;
-	text-align:right;
-	width:500px;
-	margin:.5em 0 0 0;
-	}
-
-.col .more-link {
-	float:left;
-	text-align:right;
-	width:100%;
-	margin:.5em 0 .5em 0;
-	}
-
-/* = Event List */
-ul.form-event-list .event-name,
-ul.form-event-list .date-time,
-ul.form-event-list .address {
-	display:block;
-	float:left;
-	margin:0 14px 8px 0;
-	}
-ul.form-event-list .event-name {
-	clear:both;
-	width:300px;
-	}
-
-ul.form-event-list .edit {
-	float:right;
-	display:none;
-	}
-
-ul.form-event-list li:hover .edit {
-	display:inline;
-	}
-
-.form-event-list .list-networking,
-.form-event-list .list-education,
-.form-event-list .list-athletic,
-.form-event-list .list-art,
-.form-event-list .list-dancing,
-.form-event-list .list-sales,
-.form-event-list .list-dining,
-.form-event-list .list-parties,
-.form-event-list .list-jobs {
-	padding:8px 12px 8px 53px;
-	float:left;
-	width:435px;
-	}
-
-ul.form-event-list li.list-networking,
-ul.form-event-list a.list-networking {
-	background-image:url(../img/pin-key-networking.png);
-	background-position:8px 6px;
-	background-repeat:no-repeat;
-	}
-ul.form-event-list li.list-education,
-ul.form-event-list a.list-education {
-	background-image:url(../img/pin-key-education.png);
-	background-position:8px 6px;
-	background-repeat:no-repeat;
-	}
-ul.form-event-list li.list-athletic,
-ul.form-event-list a.list-athletic {
-	background-image:url(../img/pin-key-athletic.png);
-	background-position:8px 6px;
-	background-repeat:no-repeat;
-	}
-ul.form-event-list li.list-art,
-ul.form-event-list a.list-art {
-	background-image:url(../img/pin-key-art.png);
-	background-position:8px 6px;
-	background-repeat:no-repeat;
-	}
-ul.form-event-list li.list-dancing,
-ul.form-event-list a.list-dancing {
-	background-image:url(../img/pin-key-dancing.png);
-	background-position:8px 6px;
-	background-repeat:no-repeat;
-	}
-ul.form-event-list li.list-sales,
-ul.form-event-list a.list-sales {
-	background-image:url(../img/pin-key-sales.png);
-	background-position:8px 6px;
-	background-repeat:no-repeat;
-	}
-ul.form-event-list li.list-dining,
-ul.form-event-list a.list-dining {
-	background-image:url(../img/pin-key-dining.png);
-	background-position:8px 6px;
-	background-repeat:no-repeat;
-	}
-ul.form-event-list li.list-parties,
-ul.form-event-list a.list-parties {
-	background-image:url(../img/pin-key-parties.png);
-	background-position:8px 6px;
-	background-repeat:no-repeat;
-	}
-ul.form-event-list li.list-jobs,
-ul.form-event-list a.list-jobs {
-	background-image:url(../img/pin-key-jobs.png);
-	background-position:8px 6px;
-	background-repeat:no-repeat;
-	}
-	
-.form-event-list .event-data {
-	float:left;
-	width:350px;
-	}
-
-.form-event-list .mod-event {
-	float:right;
-	width:70px;
-	}
-
-/* = People List */
-ul.form-people-list li {
-	padding:6px;
-	}
-
-ul.form-people-list li .city {
-	display:block;
-	float:left;
-	clear:left;
-	}
-
-ul.form-people-list li a .name,
-ul.form-people-list li a .city,
-ul.form-people-list li a .categories-label,
-ul.form-people-list li a .pins,
-ul.form-people-list li a .keywords-label,
-ul.form-people-list li a .keywords {
-	display:block;
-	float:left;
-	}
-
-ul.form-people-list li a .pins,
-ul.form-people-list li a .keywords-label {
-	clear:left;
 	}
 
 /* = Buttons and Edit Links
@@ -965,3 +965,20 @@ input.btn-s-post-event:hover {
 	float:left;
 	margin:-80px 0 0 88px;
 	}
+
+/* = Media Queries
+----------------------------------------------------------------------*/
+/* Disable iOS/WinMobile font size changes */
+@media screen and (max-width: 600px),
+screen and (max-device-width: 480px) {
+	html {
+		-ms-text-size-adjust: none;
+		-webkit-text-size-adjust: none;
+	}
+}
+
+/* 
+*/
+@media screen and (max-width: 768px), screen and (min-width: 1200px) {
+	
+
