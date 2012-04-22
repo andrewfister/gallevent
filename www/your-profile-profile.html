@@ -1,0 +1,46 @@
+{% extends "base-profile.html" %}
+
+{% block selected_page %}your-profile{% endblock %}
+
+{% block active_tab_content_width %}full{% endblock %}
+
+{% block active_tab_content %}
+<ul id="side-page-links">
+	<li><a href="#">Profile</a></li>
+    <li><a href="#">Event Preferences</a></li>
+</ul>
+<div class="col">
+	<h2>Your Public Profile</h2>
+	<p>What do you want other Gallevent members to know about you?</p>
+    <div class="profile-pic">
+    	<img class="profile-pic" src="/static/img/profile-pic-jessica.jpg" />
+    </div><!-- .photo-col -->
+    <div class="person-summary">
+        <h3>Jessica G.</h3>
+        <p class="city">San Francisco, California</p>
+        <div class="description"><p>Tell us about yourself in 1,000 characters. This is sample text. Sample text here. This is sample text. This is only sample thext. This sample text will not appear on the actual site. This text is for placement only. Sample text here. This is sample text. Sample text here. This is sample text. Sample text here.</p>
+        </div><!-- .description -->
+        <div class="profile-links"
+        <a class="btn-edit" href="/event/edit">Edit</a>
+    </div>
+</div><!-- .col -->
+<div class="col guest-list">
+    <h2>Your Event Preferences</h2>
+    <form>
+    	<span class="h3">Which event categories do you like?</span>
+        <span class="slt-categories">
+        	<span class="slt-networking"><label for="networking">Networking</label> <input class="big-checkbox" id="networking" type="checkbox" name="networking" value="Networking" /></span>
+            <span class="slt-sales"><label for="sales">Sales</label> <input class="big-checkbox" id="sales" type="checkbox" name="sales" value="Sales" /></span>
+            <span class="slt-education"><label for="education">Education</label> <input class="big-checkbox" id="education" type="checkbox" name="education" value="Education" /></span>
+            <span class="slt-dining"><label for="dining">Dining</label> <input class="big-checkbox" id="dining" type="checkbox" name="dining" value="Dining" /></span>
+            <span class="slt-athletic"><label for="athletic">Athletic</label> <input class="big-checkbox" id="athletic" type="checkbox" name="athletic" value="Athletic" /></span>
+            <span class="slt-parties"><label for="parties">Parties</label> <input class="big-checkbox" id="parties" type="checkbox" name="parties" value="Parties" /></span>
+            <span class="slt-art"><label for="art">Art &amp; Music</label> <input class="big-checkbox" id="art" type="checkbox" name="art" value="Art and Music" /></span>
+            <span class="slt-jobs"><label for="jobs">Jobs</label> <input class="big-checkbox" id="jobs" type="checkbox" name="jobs" value="Jobs" /></span>
+            <span class="slt-dancing"><label for="dancing">Dancing</label> <input class="big-checkbox" id="dancing" type="checkbox" name="dancing" value="Dancing" /></span>
+        </span>
+        <label class="h3">What do you like to see at events?</label>
+        <span class="form-details">Type some keywords you like to use when searching for events. Hit "Return" or "Enter" after each keyword.</span>
+    </form>
+</div><!-- .col .guest-list -->
+{% endblock active_tab_content %}

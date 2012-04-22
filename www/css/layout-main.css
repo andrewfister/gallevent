@@ -3,7 +3,7 @@
 ** Description: Positioning of most site-wide elemenets
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-28-2012
-** Updated: 04-15-2012
+** Updated: 04-22-2012
 ************************************** */
 
 /* = General Styles
@@ -192,6 +192,112 @@ form#top-search #date2 {
 	float:left;
 	margin-right:1.5em;
 	width:28%;
+	}
+
+/* = Tabs */
+#tabs {
+	float:left;
+	width:100%;
+	left:0;
+	z-index:999;
+	border-bottom-width:5px;
+	border-bottom-style:solid;
+	}
+	
+.your-post-event #tabs {
+	border-bottom-color:#85C440;
+	}
+.your-posts #tabs,
+.your-posts-mng #tabs {
+	border-bottom-color:#239EA2;
+	}
+.your-events #tabs {
+	border-bottom-color:#F68D1F;
+	}
+.your-people #tabs {
+	border-bottom-color:#FCB510;
+	}
+.your-profile #tabs {
+	border-bottom-color:#F1667A;
+	}
+
+#tabs a {
+	color:#fff;
+	font-weight:bold;
+	float:left;
+	padding:.5em 0 .5em 0;
+	width:25%;
+	text-align:center;
+	}
+#tabs a:hover {
+	text-decoration:none;
+	}
+#tabs a.tab-post-event {
+	background:#85C440;
+	}
+.your-post-event #tabs a.tab-post-event {
+	-webkit-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	-moz-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	position:relative;
+	z-index:800;
+	}
+#tabs a.tab-post-event:hover {
+	background:#90D147;
+	}
+#tabs a.tab-your-posts {
+	background:#239EA2;
+	}
+.your-posts #tabs a.tab-your-posts {
+	-webkit-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	-moz-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	position:relative;
+	z-index:800;
+	}
+#tabs a.tab-your-posts:hover {
+	background:#2FB5B7;
+	}
+#tabs a.tab-events {
+	background:#F68D1F;
+	}
+.your-events #tabs a.tab-events {
+	-webkit-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	-moz-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	position:relative;
+	z-index:800;
+	}
+#tabs a.tab-events:hover {
+	background:#F49B42;
+	}
+
+#tabs a.tab-your-people {
+	background:#FCB510;
+	}
+.your-people #tabs a.tab-your-people {
+	-webkit-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	-moz-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	position:relative;
+	z-index:800;
+	}
+#tabs a.tab-your-people:hover {
+	background:#F7C65B;
+	}
+	
+#tabs a.tab-your-profile {
+	background:#F1667A;
+	}
+.your-profile #tabs a.tab-your-profile {
+	-webkit-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	-moz-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	box-shadow:0px -2px 6px rgba(0,0,0,0.5);
+	position:relative;
+	z-index:800;
+	}
+#tabs a.tab-your-profile:hover {
+	background:#F7798A;
 	}
 
 /* = Special Columns for Your Account */
@@ -932,7 +1038,69 @@ input.btn-s-post-event:hover {
 
 /* = Unique Page Styles
 ----------------------------------- */
+/* = Full Content */
+#full-content {
+	background:#fff;
+	width:100%;
+	height:100%;
+	float:left;
+	z-index:888;
+	overflow-x:hidden;
+	overflow-y:scroll;
+	}
+
+#active-tab-content {
+	float:left;
+	height:100%;
+	padding:0;
+	position:relative;
+	z-index:500;
+	}
+
 /* = Your Profile */
+.your-profile .col {
+	margin:0 0 0 23%;
+	width:40%;
+	}
+
+#side-page-links {
+	background:#f1f2f3;
+	height:100%;
+	width:20%;
+	float:left;
+	position:fixed;
+	-moz-box-shadow:    inset 0 0 15px -5px rgba(0,0,0,0.6);
+	-webkit-box-shadow: inset 0 0 15px -5px rgba(0,0,0,0.6);
+	box-shadow:         inset 0 0 15px -5px rgba(0,0,0,0.1);
+	}
+#side-page-links a,
+#side-page-links a:link {
+	display:block;
+	font-size:135%;
+	color:#239ea2;
+	background:#d7d9dc;
+	border-bottom:2px solid #fff;
+	padding:.7555em 1.25em .7555em 1.25em;
+	-moz-box-shadow:    inset 0 0 15px -5px rgba(0,0,0,0.6);
+	-webkit-box-shadow: inset 0 0 15px -5px rgba(0,0,0,0.6);
+	box-shadow:         inset 0 0 15px -5px rgba(0,0,0,0.1);
+	}
+#side-page-links a:hover {
+	color:#fff;
+	background:#babec2;
+	}
+#side-page-links a.active {
+	color:#fff;
+	background:#239ea2 url(../img/side-link-arrow.png) center right no-repeat;
+	-moz-box-shadow:	none;
+	-webkit-box-shadow:	none;
+	box-shadow:			none;
+	}
+#side-page-links a.active:hover {
+	color:#fff;
+	background:#239ea2 url(../img/side-link-arrow.png) center right no-repeat;
+	}
+
 .person-summary .description {
 	font-size:90%;
 	}
@@ -940,6 +1108,10 @@ input.btn-s-post-event:hover {
 .profile-pic {
 	display:block;
 	float:left;
+	}
+
+.profile-links a {
+	display:block;
 	}
 
 /* = Your Posts: Manage Your Event */

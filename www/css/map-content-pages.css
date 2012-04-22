@@ -3,7 +3,7 @@
 ** Description: Header with dropshadow, pin key on side, map on side, and footer on bottom
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 02-19-2012
-** Updated: 04-15-2012
+** Updated: 04-22-2012
 ************************************** */
 
 /* = Containers
@@ -25,7 +25,7 @@ html, body {
 	
 #map_canvas {
 	height:100%;
-	width:65%;
+	width:63%;
 	float:right;
 	position:relative;
 	z-index:100;
@@ -59,6 +59,7 @@ html, body {
 	height:100%;
 	float:left;
 	z-index:888;
+	padding:0 0 0 2%;
 	overflow-x:hidden;
 	overflow-y:scroll;
 	}
@@ -70,167 +71,6 @@ html, body {
 	width:92%;
 	}
 
-/* = Full Content */
-#full-content {
-	background:#fff;
-	width:100%;
-	height:100%;
-	float:left;
-	z-index:888;
-	overflow-x:hidden;
-	overflow-y:scroll;
-	}
-
-/* = Tabs */
-#tabs {
-	float:left;
-	width:100%;
-	left:0;
-	z-index:999;
-	border-bottom-width:5px;
-	border-bottom-style:solid;
-	}
-	
-.your-post-event #tabs {
-	border-bottom-color:#85C440;
-	}
-.your-posts #tabs,
-.your-posts-mng #tabs {
-	border-bottom-color:#239EA2;
-	}
-.your-events #tabs {
-	border-bottom-color:#F68D1F;
-	}
-.your-people #tabs {
-	border-bottom-color:#FCB510;
-	}
-.your-profile #tabs {
-	border-bottom-color:#F1667A;
-	}
-
-#tabs a {
-	color:#fff;
-	font-weight:bold;
-	float:left;
-	padding:.5em 0 .5em 0;
-	width:25%;
-	text-align:center;
-	}
-#tabs a:hover {
-	text-decoration:none;
-	}
-#tabs a.tab-post-event {
-	background:#85C440;
-	}
-.your-post-event #tabs a.tab-post-event {
-	-webkit-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
-	-moz-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
-	box-shadow:0px -2px 6px rgba(0,0,0,0.5);
-	position:relative;
-	z-index:800;
-	}
-#tabs a.tab-post-event:hover {
-	background:#90D147;
-	}
-#tabs a.tab-your-posts {
-	background:#239EA2;
-	}
-.your-posts #tabs a.tab-your-posts {
-	-webkit-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
-	-moz-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
-	box-shadow:0px -2px 6px rgba(0,0,0,0.5);
-	position:relative;
-	z-index:800;
-	}
-#tabs a.tab-your-posts:hover {
-	background:#2FB5B7;
-	}
-#tabs a.tab-events {
-	background:#F68D1F;
-	}
-.your-events #tabs a.tab-events {
-	-webkit-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
-	-moz-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
-	box-shadow:0px -2px 6px rgba(0,0,0,0.5);
-	position:relative;
-	z-index:800;
-	}
-#tabs a.tab-events:hover {
-	background:#F49B42;
-	}
-
-#tabs a.tab-your-people {
-	background:#FCB510;
-	}
-.your-people #tabs a.tab-your-people {
-	-webkit-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
-	-moz-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
-	box-shadow:0px -2px 6px rgba(0,0,0,0.5);
-	position:relative;
-	z-index:800;
-	}
-#tabs a.tab-your-people:hover {
-	background:#F7C65B;
-	}
-	
-#tabs a.tab-your-profile {
-	background:#F1667A;
-	}
-.your-profile #tabs a.tab-your-profile {
-	-webkit-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
-	-moz-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
-	box-shadow:0px -2px 6px rgba(0,0,0,0.5);
-	position:relative;
-	z-index:800;
-	}
-#tabs a.tab-your-profile:hover {
-	background:#F7798A;
-	}
-
-#active-tab-content {
-	float:left;
-	padding:0 0 1.5em 30px;
-	position:relative;
-	z-index:500;
-	}
-
-
-/* = Forms
------------------------------------ */
-/*
-form input {
-	width:18.75em;
-	padding:.3em;
-	margin-bottom:0.5em;
-	}
-
-form textarea {
-	width:300px;
-	min-height:200px;
-	padding:.3em;
-	margin-bottom:0.5em;
-	}
-
-form .checkbox-group {
-	float:left;
-	margin-bottom:0.5em;
-	}
-form .checkbox-group .col {
-	width:229px;
-	float:left;
-	}
-form .checkbox {
-	float:left;
-	clear:both;
-	display:block;
-	}
-form .checkbox input {
-	float:left;
-	padding:0;
-	width:20px;
-	}
-*/
-
 /* = Media Queries
 ----------------------------------------------------------------------*/
 @media screen and (max-width:1050px) {
@@ -240,6 +80,7 @@ form .checkbox input {
 #map_canvas {
 	width:50%;
 	}
+}
 
 @media screen and (max-width:700px) {
 #side-content {
@@ -251,3 +92,4 @@ form .checkbox input {
 #map_canvas {
 	width:100%;
 	}
+}
