@@ -14,3 +14,10 @@ class SimpleTest(TestCase):
         Tests that 1 + 1 always equals 2.
         """
         self.assertEqual(1 + 1, 2)
+
+class QueryTest(TestCase):
+    def test_email_query(self):
+        """
+        Tests to see if an email address is already in the db
+        """
+        return models.InvitationManager.objects.filter(email=invited_email_address)

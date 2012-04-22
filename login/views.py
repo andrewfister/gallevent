@@ -14,7 +14,7 @@ def invite_request(request):
             # Process the data in form.cleaned_data
             invited_email_address = form.cleaned_data['email']
             
-            if len(models.InvitationManager.objects.filter(email=invited_email_address)) > 0:
+            if len(models.InvitationManager.objects.filter(email=invited_email_address)) == 0:
                 invite_data = models.InvitationManager(email=invited_email_address)
                 invite_data.save()
             
