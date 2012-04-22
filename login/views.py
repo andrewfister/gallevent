@@ -15,7 +15,7 @@ def invite_request(request):
             invited_email_address = form.cleaned_data['email']
             
             invite_data = models.InvitationManager(email=invited_email_address)
-            #inviteData.save()
+            invite_ata.save()
             
             from django.core.mail import send_mail
             send_mail('Thank you for your interest in Gallevent', 'Your invite is on the way!', 'gallevent.main@gmail.com', [invited_email_address])
