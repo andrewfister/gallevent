@@ -477,6 +477,11 @@ form .group {
 	width:100%;
 	}
 
+form .radio {
+	width:20px;
+	background:#ff0;
+	}
+
 form label {
 	clear:both;
 	font-weight:bold;
@@ -523,47 +528,6 @@ form input#end-time {
 	margin-bottom:.5em;
 	}
 
-/* = Form Event List - Used on: Your Posts */
-/*
-ul.form-event-list,
-ul.form-event-list a,
-ul.form-event-list a:link {
-	font-size:95%;
-	color:#333;
-	}
-
-ul.form-event-list a:hover,
-ul.form-people-list a:hover {
-	text-decoration:none;
-	}
-
-ul.form-event-list .event-name,
-ul.form-people-list .name {
-	font-weight:bold;
-	font-size:110%;
-	}
-
-ul.form-people-list li a .categories-label,
-ul.form-people-list li a .keywords-label {
-	font-weight:bold;
-	}
-
-ul.form-people-list li a .categories-label {
-	margin-top:.5em;
-	}
-ul.form-people-list li a .keywords-label {
-	margin-top:.3em;
-	}
-
-ul.form-event-list .address {
-	font-weight:bold;
-	}
-
-ul.form-event-list .address,
-ul.form-people-list .city {
-	color:#000;
-	}
-*/
 /* = Event and People Lists
 -------------------------------- */
 .search-box {
@@ -609,6 +573,7 @@ ul.form-people-list li:hover {
 .form-event-list .event-data {
 	float:left;
 	width:83%;
+	font-size:90%;
 	}
 
 .form-event-list .mod-event {
@@ -625,7 +590,7 @@ ul.form-event-list .address {
 	}
 ul.form-event-list .event-name {
 	font-weight:bold;
-	font-size:120%;
+	font-size:115%;
 	clear:both;
 	width:100%;
 	}
@@ -648,7 +613,7 @@ ul.form-event-list li:hover .edit {
 .form-event-list .list-dining,
 .form-event-list .list-parties,
 .form-event-list .list-jobs {
-	padding:.5em .75em .5em 3.3125em; jess
+	padding:.5em .75em .5em 3.3125em;
 	float:left;
 	}
 
@@ -1101,6 +1066,10 @@ input.btn-s-post-event:hover {
 	background:#239ea2 url(../img/side-link-arrow.png) center right no-repeat;
 	}
 
+.person-summary .city {
+	font-size:110%;
+	margin-top:0;
+	}
 .person-summary .description {
 	font-size:90%;
 	}
@@ -1148,9 +1117,4 @@ screen and (max-device-width: 480px) {
 		-webkit-text-size-adjust: none;
 	}
 }
-
-/* 
-*/
-@media screen and (max-width: 768px), screen and (min-width: 1200px) {
-	
 
