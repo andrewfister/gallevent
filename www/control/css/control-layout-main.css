@@ -1,0 +1,85 @@
+@charset "utf-8";
+/* Title: Layout
+** Description: Positioning of most site-wide elemenets
+** Author: Jessica Greenwalt - www.jgreenwalt.com
+** Created: 01-28-2012
+** Updated: 04-22-2012
+************************************** */
+
+/* = General Styles
+----------------------------------- */
+html,
+body {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:15px;
+	}
+
+a,
+a:link {
+	text-decoration:none;
+	color:#70b820;
+	}
+a:hover {
+	text-decoration:none;
+	color:#ff9a00;
+	}
+p {
+	font-size:120%;
+	margin-bottom:1em;
+	}
+
+.left {
+	float:left;
+	}
+.right {
+	float:right;
+	}
+
+.warning,
+.warning a {
+	color:#d62121;
+	}
+
+.address,
+.city {
+	font-style:italic;
+	color:#999;
+	}
+
+/* = Headings
+----------------------------------- */
+h2 {
+	color:#239ea2;
+	font-size:190%;
+	font-weight:normal;
+	margin-bottom:0.2em;
+	}
+h2 a {
+	color:#239ea2;
+	}
+	
+h2 em {
+	font-weight:normal;
+	}
+
+h3, .h3 {
+	color:#239ea2;
+	display:block;
+	font-size:130%;
+	margin:0 0 .6em 0;
+	font-weight:bold;
+	}
+
+/* = Tables
+----------------------------------- */
+table td {
+	padding:1em;
+	border:1px solid #999;
+	}
+table.manage-invites {
+	width:90%;
+	border:1px solid #239ea2;
+	}
+table.manage-invites .table-header {
+	background:#239ea2;
+	}

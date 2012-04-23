@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>{% block title %}Gallevent Control{% endblock title %}</title>
+
+<link rel="stylesheet" type="text/css" href="../css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/control-layout-main.css" />
+</head>
+
+<body>
+
+<div class="container">
+  <header>
+    <div id="header">
+    	Gallevent Control
+        <nav>
+        	<ul>
+            	<li><a href="#">Manage Invites</a></li>
+            </ul>
+        </nav>
+    </div><!-- #header -->
+    <div id="container">
+    	<h1>Manage Invites</h1>
+        <form>
+        	<label for="actions">Actions:</label>
+        	<select id="actions">
+                <option value="accept-selected">Accept Selected</option>
+        		<option value="deny-selected">Deny Selected</option>
+            </select>
+            <table class="manage-invites" cellpadding="0" cellspacing="0">
+                <tr class="table-header">
+                    <td><input type="checkbox" name="select-all" value="select-all" /></td>
+                    <td>Email</td>
+                    <td>Date</td>
+                    <td>Approve</td>
+                    <td>Deny</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" value="select-one" /></td>
+                    <td>Email@email.com</td>
+                    <td>03-24-2012</td>
+                    <td><a href="#">Approve</a></td>
+                    <td><a href="#">Deny</a></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" value="select-one" /></td>
+                    <td>Email@email.com</td>
+                    <td>03-24-2012</td>
+                    <td><a href="#">Approve</a></td>
+                    <td><a href="#">Deny</a></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" value="select-one" /></td>
+                    <td>Email@email.com</td>
+                    <td>03-24-2012</td>
+                    <td><a href="#">Approve</a></td>
+                    <td><a href="#">Deny</a></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+  </header>
+</body>
+</html>
