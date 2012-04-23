@@ -102,3 +102,16 @@ a.key:hover {
 .jobs {
 	background:url(../img/pin-key-jobs.png) 10px 8px no-repeat;
 	}
+	
+/* = Media Queries
+----------------------------------------------------------------------*/
+@media screen and (max-height:750px) {
+#container {
+	height:77%;
+	}
+}
+@media screen and (max-height:650px) {
+#container {
+	height:100%;
+	}
+}

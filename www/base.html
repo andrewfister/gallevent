@@ -3,6 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
 <title>{% block title %}Gallevent - Find events near you!{% endblock title %}</title>
 
 <link rel="stylesheet" type="text/css" href="/static/css/reset.css" />
@@ -19,7 +20,7 @@
     	<div class="bg">
         <a href="{% url gallevent.map.views.show %}" class="logo"><img src="/static/img/logo-gallevent-white.png" title="Gallevent Events" alt="Gallevent Events" /></a>
         <span class="right">
-        	<a href="{% url gallevent.login.views.invite_code %}">Request an Invite to Join</a> | <a href="{% url gallevent.login.views.sign_in %}">Sign In</a>
+        	<a href="{% url gallevent.login.views.invite_code %}">Request an Invite</a> | <a href="{% url gallevent.login.views.sign_in %}">Sign In</a>
         </span><!-- .right -->
         <form id="top-search">
         	<span class="left">

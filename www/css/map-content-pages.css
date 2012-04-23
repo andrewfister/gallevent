@@ -68,17 +68,28 @@ html, body {
 	width:85%;
 	}
 #your-posts {  /* Form container on Your Post Page */
-	width:92%;
+	width:95%;
 	}
 
 /* = Media Queries
 ----------------------------------------------------------------------*/
+@media screen and (max-height:750px) {
+#container {
+	height:74%;
+	}
+}
+@media screen and (max-height:650px) {
+#container {
+	height:100%;
+	}
+}
+
 @media screen and (max-width:1050px) {
 #side-content {
 	width:50%;
 	}
 #map_canvas {
-	width:50%;
+	width:48%;
 	}
 }
 
