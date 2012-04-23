@@ -7,6 +7,8 @@ Replace this with more appropriate tests for your application.
 
 from django.test import TestCase
 
+import models
+
 
 class SimpleTest(TestCase):
     def test_basic_addition(self):
@@ -16,8 +18,8 @@ class SimpleTest(TestCase):
         self.assertEqual(1 + 1, 2)
 
 class QueryTest(TestCase):
-    def test_email_query(self):
-        """
-        Tests to see if an email address is already in the db
-        """
-        return models.InvitationManager.objects.filter(email=invited_email_address)
+    def test_invite_requsts(self):
+        return models.InvitationManager.objects.all()
+        
+    def runTest(self):
+        print(self.test_invite_requests())

@@ -37,27 +37,15 @@
                     <td>Approve</td>
                     <td>Deny</td>
                 </tr>
+                {% for email, date in invite_requests %}
                 <tr>
                     <td><input type="checkbox" value="select-one" /></td>
-                    <td>Email@email.com</td>
-                    <td>03-24-2012</td>
+                    <td>{{ email }}</td>
+                    <td>{{ date }}</td>
                     <td><a href="#">Approve</a></td>
                     <td><a href="#">Deny</a></td>
                 </tr>
-                <tr>
-                    <td><input type="checkbox" value="select-one" /></td>
-                    <td>Email@email.com</td>
-                    <td>03-24-2012</td>
-                    <td><a href="#">Approve</a></td>
-                    <td><a href="#">Deny</a></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" value="select-one" /></td>
-                    <td>Email@email.com</td>
-                    <td>03-24-2012</td>
-                    <td><a href="#">Approve</a></td>
-                    <td><a href="#">Deny</a></td>
-                </tr>
+                {% endfor %}
             </table>
         </form>
     </div>
