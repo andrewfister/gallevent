@@ -11,12 +11,10 @@ def invite_request(request):
     if request.method == 'POST': # If the form has been submitted...
         form = forms.RequestInviteForm(request.POST) # A form bound to the POST data
         if form.is_valid(): # All validation rules pass
+            form.save()
+            
             # Process the data in form.cleaned_data
             new_email_address = form.cleaned_data['email']
-            
-            if len(models.InvitationManager.objects.filter(email=new_email_address)) == 0:
-                invite_data = models.InvitationManager(email=new_email_address)
-                invite_data.save()
             
             from django.core.mail import send_mail
             send_mail('Thank you for your interest in Gallevent', 
@@ -42,16 +40,33 @@ def manage_invites(request):
     invite_requests = models.InvitationManager.objects.all()
     email_choices = [invite_request.email for invite_request in invite_requests]
     dates = [invite_request.date for invite_request in invite_requests]
-    
+    values = [str(i) for i in range(len(invite_requests))]
 
     if request.method == 'POST':
-        form = forms.InviteEmailsForm(email_choices)
-        if form.is_valid():
-            emails_chosen = form.cleaned_data['emails']
-    else:
-        form = forms.InviteEmailsForm(email_choices)
+        import uuid
+        
+        invite_details = []
+        email_key, email_indexes = request.POST.lists()[0]
+        email_indexes.reverse()
+        
+        for i in email_indexes:
+            invite_details.append((dates[int(i)], email_choices[int(i)]))
+            email_choices.remove(email_choices[int(i)])
+        
+        for invite_date, invite_email in invite_details:
+            invite_data = models.InvitationManager.objects.get(email=invite_email, date=invite_date)
+            uuid_hash = uuid.uuid4()
+            invite_data.code = str(uuid_hash)
+            invite_data.save()
+            
+            from django.core.mail import send_mail
+            send_mail('Thank you for your interest in Gallevent', 
+                    'Here is your invite code: '+ invite_data.code, 
+                    'gallevent.main@gmail.com', 
+                    [invite_email])
+        
+        
     
     return render_to_response('control/manage-invites.html', {
-        'form': form,
-        'invite_requests': zip(email_choices, dates),
+        'invite_requests': zip(email_choices, dates, values),
     })
