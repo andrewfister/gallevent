@@ -37,13 +37,15 @@ def sign_in(request):
     return render_to_response('sign-in.html')
 
 def manage_invites(request):
-    invite_requests = models.InvitationManager.objects.all()
+    invite_requests = models.InvitationManager.objects.filter(code='').order_by('date')
     email_choices = [invite_request.email for invite_request in invite_requests]
     dates = [invite_request.date for invite_request in invite_requests]
     values = [str(i) for i in range(len(invite_requests))]
 
     if request.method == 'POST':
         import uuid
+        
+        from django.core.mail import send_mail
         
         invite_details = []
         email_key, email_indexes = request.POST.lists()[0]
@@ -59,12 +61,10 @@ def manage_invites(request):
             invite_data.code = str(uuid_hash)
             invite_data.save()
             
-            from django.core.mail import send_mail
             send_mail('Thank you for your interest in Gallevent', 
                     'Here is your invite code: '+ invite_data.code, 
                     'gallevent.main@gmail.com', 
-                    [invite_email])
-        
+                    [invite_email])  
         
     
     return render_to_response('control/manage-invites.html', {
