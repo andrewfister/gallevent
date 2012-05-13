@@ -1,0 +1,107 @@
+{% extends "base-profile.html" %}
+
+{% block selected_page %}your-posts-mng{% endblock %}
+
+{% block active_tab_content_width %}full{% endblock %}
+
+{% block active_tab_content %}
+<ul id="side-page-links">
+	<li><a href="#">Event Details</a></li>
+    <li><a href="#">Ticket Types</a></li>
+    <li><a href="#" class="active">RSVPs</a></li>
+    <li><a href="#">Followers</a></li>
+    <li><a href="#">Invitations</a></li>
+    <li><a href="#">Updates</a></li>
+</ul>
+<div class="col">
+	<h2>RSVPs</h2>
+    <p>People who are planning on going to your event.</p>
+    <h3 class="rsvp-group"><b>100</b> People RSVPed for General Admission</h3>
+    <form>
+    	<!-- <label for="active-sort-by2">Sort By:</label>
+    	<select id="active-sort-by2">
+        	<option value="date-ascending">Name Ascending</option>
+        	<option value="date-descending">Name Descending</option>
+    	</select> -->
+    <ul class="form-people-list">
+        <li>
+            <a>
+            <img class="profile-pic" src="/static/img/profile-pic-jessica.jpg" />
+            <span class="person-summary">
+                <span class="name">Jessica G.</span>
+                <span class="city">San Francisco, California</span>
+                <span class="pins"><img src="/static/img/pin-key-networking.png" title="Networking" alt="Networking" /><img src="/static/img/pin-key-education.png" title="Education" alt="Education" /><img src="/static/img/pin-key-athletic.png" title="Athletic" alt="Athletic" /><img src="/static/img/pin-key-art.png" title="Art" alt="Art" /><img src="/static/img/pin-key-dancing.png" title="Dancing" alt="Dancing" /><img src="/static/img/pin-key-sales.png" title="Sales" alt="Sales" /><img src="/static/img/pin-key-dining.png" title="Dining" alt="Dining" /><img src="/static/img/pin-key-parties.png" title="Parties" alt="Parties" /><img src="/static/img/pin-map-jobs.png" title="Jobs" alt="Jobs" /></span>
+                <span class="keywords"><strong>Likes events with:</strong> penguins, parties, art, crafting, tech, startups</span>
+            </span><!-- .person-summary -->
+            </a>
+        </li>
+        <li>
+            <a>
+            <img class="profile-pic" src="/static/img/profile-pic-andrew.jpg" />
+            <span class="person-summary">
+                <span class="name">Andrew F.</span>
+                <span class="city">San Francisco, California</span>
+                <span class="pins"><img src="/static/img/pin-key-education.png" title="Education" alt="Education" /><img src="/static/img/pin-key-art.png" title="Art" alt="Art" /><img src="/static/img/pin-key-dining.png" title="Dining" alt="Dining" /></span>
+                <span class="keywords"><strong>Likes events with:</strong> penguins, parties, art, crafting, tech, startups</span>
+            </span><!-- .person-summary -->
+            </a>
+        </li>
+        <li>
+            <a>
+            <img class="profile-pic" src="/static/img/profile-pic-slim.jpg" />
+            <span class="person-summary">
+                <span class="name">Slim C.</span>
+                <span class="city">San Francisco, California</span>
+                <span class="pins"><img src="/static/img/pin-key-education.png" title="Education" alt="Education" /><img src="/static/img/pin-key-athletic.png" title="Athletic" alt="Athletic" /><img src="/static/img/pin-key-art.png" title="Art" alt="Art" /><img src="/static/img/pin-key-dancing.png" title="Dancing" alt="Dancing" /><img src="/static/img/pin-key-dining.png" title="Dining" alt="Dining" /></span>
+                <span class="keywords"><strong>Likes events with:</strong> penguins, parties, art, crafting, tech, startups</span>
+            </span><!-- .person-summary -->
+            </a>
+        </li>
+    </ul>
+    <a href="#" class="more-link">See all General Admission RSVPs &raquo;</a>
+	</form>
+    <p>&nbsp;</p>
+    <h3 class="rsvp-group"><b>50</b> People RSVPed for VIP</h3>
+    <form>
+    <ul class="form-people-list">
+        <li>
+            <a>
+            <img class="profile-pic" src="/static/img/profile-pic-jessica.jpg" />
+            <span class="person-summary">
+                <span class="name">Jessica G.</span>
+                <span class="city">San Francisco, California</span>
+                <span class="categories-label">Likes these categories:</span>
+                <span class="pins"><img src="/static/img/pin-key-networking.png" title="Networking" alt="Networking" /><img src="/static/img/pin-key-education.png" title="Education" alt="Education" /><img src="/static/img/pin-key-athletic.png" title="Athletic" alt="Athletic" /><img src="/static/img/pin-key-art.png" title="Art" alt="Art" /><img src="/static/img/pin-key-dancing.png" title="Dancing" alt="Dancing" /><img src="/static/img/pin-key-sales.png" title="Sales" alt="Sales" /><img src="/static/img/pin-key-dining.png" title="Dining" alt="Dining" /><img src="/static/img/pin-key-parties.png" title="Parties" alt="Parties" /><img src="/static/img/pin-map-jobs.png" title="Jobs" alt="Jobs" /></span>
+                <span class="keywords"><strong>Likes events with:</strong> penguins, parties, art, crafting, tech, startups</span>
+            </span><!-- .person-summary -->
+            </a>
+        </li>
+        <li>
+            <a>
+            <img class="profile-pic" src="/static/img/profile-pic-andrew.jpg" />
+            <span class="person-summary">
+                <span class="name">Andrew F.</span>
+                <span class="city">San Francisco, California</span>
+                <span class="categories-label">Likes these categories:</span>
+                <span class="pins"><img src="/static/img/pin-key-education.png" title="Education" alt="Education" /><img src="/static/img/pin-key-art.png" title="Art" alt="Art" /><img src="/static/img/pin-key-dining.png" title="Dining" alt="Dining" /></span>
+                <span class="keywords"><strong>Likes events with:</strong> penguins, parties, art, crafting, tech, startups</span>
+            </span><!-- .person-summary -->
+            </a>
+        </li>
+        <li>
+            <a>
+            <img class="profile-pic" src="/static/img/profile-pic-slim.jpg" />
+            <span class="person-summary">
+                <span class="name">Slim C.</span>
+                <span class="city">San Francisco, California</span>
+                <span class="categories-label">Likes these categories:</span>
+                <span class="pins"><img src="/static/img/pin-key-education.png" title="Education" alt="Education" /><img src="/static/img/pin-key-athletic.png" title="Athletic" alt="Athletic" /><img src="/static/img/pin-key-art.png" title="Art" alt="Art" /><img src="/static/img/pin-key-dancing.png" title="Dancing" alt="Dancing" /><img src="/static/img/pin-key-dining.png" title="Dining" alt="Dining" /></span>
+                <span class="keywords"><strong>Likes events with:</strong> penguins, parties, art, crafting, tech, startups</span>
+            </span><!-- .person-summary -->
+            </a>
+        </li>
+    </ul>
+    <a href="#" class="more-link">See all VIP RSVPs &raquo;</a>
+	</form>
+</div><!-- .col -->
+{% endblock active_tab_content %}
