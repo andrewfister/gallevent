@@ -78,6 +78,9 @@ h3, .h3 {
 	}
 #header .logo {
 	font-size:130%;
+	background:url(../img/logo-gallevent-white.png) top left no-repeat;
+	width:213px;
+	height:43px;
 	}
 
 #container {
