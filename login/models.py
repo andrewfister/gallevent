@@ -4,4 +4,4 @@ from django.db import models
 class InvitationManager(models.Model):
     email = models.CharField(max_length=64)
     code = models.CharField(max_length=64)
-    date = models.DateField(auto_now_add=True)
+    date = models.DateField(auto_now=True)
