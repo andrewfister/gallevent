@@ -80,8 +80,13 @@ h3, .h3 {
 #header a:link {
 	color:#fff;
 	}
+#header a:hover {
+	color:#ff9a00;
+	}
+
 #header .logo {
 	display:block;
+	float:left;
 	font-size:130%;
 	background:url(../img/logo-gallevent-white.png) top left no-repeat;
 	width:213px;
@@ -90,12 +95,12 @@ h3, .h3 {
 	}
 
 #header nav {
-font-size:90%;
+	font-size:100%;
 	float:right;
 	}
 #header nav ul {
 	float:right;
-list-style:none;
+	list-style:none;
 	}
 
 #container {
