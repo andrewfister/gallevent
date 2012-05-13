@@ -82,6 +82,7 @@ h3, .h3 {
 	padding:1em;
 	float:left;
 	width:100%;
+	margin:0 0 1em 0;
 	}
 #header a,
 #header a:link {
@@ -106,7 +107,6 @@ h3, .h3 {
 	float:right;
 	}
 #header nav ul {
-	float:right;
 	list-style:none;
 	}
 
