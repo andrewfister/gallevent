@@ -76,11 +76,23 @@ h3, .h3 {
 	background:#85c440;
 	padding:1em;
 	}
+#header a {
+	color:#fff;
+	}
 #header .logo {
 	font-size:130%;
 	background:url(../img/logo-gallevent-white.png) top left no-repeat;
 	width:213px;
 	height:43px;
+	}
+
+#header nav {
+font-size:80%;
+	float:right;
+	}
+#header nav ul {
+	float:right;
+list-style:none;
 	}
 
 #container {
@@ -97,7 +109,7 @@ table.manage-invites {
 	width:90%;
 	border:1px solid #239ea2;
 	}
-table.manage-invites .table-header {
+table th {
 	background:#239ea2;
 	color:#fff;
 	}
