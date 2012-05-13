@@ -76,18 +76,21 @@ h3, .h3 {
 	background:#85c440;
 	padding:1em;
 	}
-#header a {
+#header a,
+#header a:link {
 	color:#fff;
 	}
 #header .logo {
+	display:block;
 	font-size:130%;
 	background:url(../img/logo-gallevent-white.png) top left no-repeat;
 	width:213px;
 	height:43px;
+	text-indent:-9999px;
 	}
 
 #header nav {
-font-size:80%;
+font-size:90%;
 	float:right;
 	}
 #header nav ul {
