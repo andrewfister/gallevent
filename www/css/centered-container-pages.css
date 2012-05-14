@@ -43,11 +43,12 @@ p {
 	float:left;
 	position:relative;
 	left:50%;
+	width:50%;
 	}
 #container {
 	float:left;
 	position:relative;
-	left:-355px;
+	left:-370px;
 	width:710px;
 	padding:40px 40px 40px 50px;
 	min-height:500px;
