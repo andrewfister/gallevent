@@ -4,15 +4,17 @@
 <div id="content">
     <div id="container">
     	<div class="left">
-            <h2>Gallevent membership is currently by invitation only</h2>
+            <h2>Gallevent membership <br />is by invitation only</h2>
             <p>If you have an invitation code, you can enter your information to <a href="{% url gallevent.login.views.invite_code %}">create an account here</a>.</p>
             <h2>Get on the List!</h2>
             <p>If you would like to request an invitation to join Gallevent, send us your email address and we'll send you a message when more invitations become available.</p>
+            <h2>Being a Gallevnet member rocks!</h2>
+            <p>As a member, you can post events, RSVP for events, watch events, and more! <b>It's FREE to join</b>, But you must be invited.</p>
         </div>
         <form class="form-left" method="POST">
             <label>Email Address:</label>
             <input id="id_email" type="text" maxlength="64" name="email" class="input-standard">
-            <input class="btn-create-account" type="submit" value="Create Account" />
+            <input class="btn-request-invite" type="submit" value="Create Account" />
         </form>
     </div><!-- #container -->
 </div><!-- #content -->

@@ -3,7 +3,7 @@
 ** Description: Positioning of most site-wide elemenets
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-28-2012
-** Updated: 04-22-2012
+** Updated: 05-13-2012
 ************************************** */
 
 /* = General Styles
@@ -52,7 +52,7 @@ h2 {
 	color:#239ea2;
 	font-size:190%;
 	font-weight:normal;
-	margin-bottom:0.2em;
+	margin:0 0 0.2em 0;
 	}
 h2 a {
 	color:#239ea2;
@@ -995,15 +995,26 @@ input.btn-s-post-event:hover {
 	background:url(../img/btn-s-post-event-h.png) top left no-repeat;
 	}
 
-.btn-create-account {
-	background:url(../img/btn-create-account.png) 0 0 no-repeat;
+
+.btn-create-account,
+.btn-request-invite {
 	width:180px;
 	height:54px;
 	text-indent:-9999px;
 	margin-top:1em;
 	}
+.btn-create-account {
+	background:url(../img/btn-create-account.png) 0 0 no-repeat;
+	}
+.btn-request-invite {
+	background:url(../img/btn-request-invite.png) 0 0 no-repeat;
+	}
+	
 .btn-create-account:hover {
 	background:url(../img/btn-create-account-h.png) 0 0 no-repeat;
+	}
+.btn-request-invite:hover {
+	background:url(../img/btn-request-invite-h.png) 0 0 no-repeat;
 	}
 
 .search-box .btn-search {
