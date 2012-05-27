@@ -1,10 +1,16 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
 
 from gallevent.login import forms
 from gallevent.login import models
 
 def invite_code(request):
+    if request.method == 'POST':
+        form = forms.RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+    
     return render_to_response('invite-code.html')
     
 def invite_request(request):
@@ -23,12 +29,8 @@ def invite_request(request):
                         [new_email_address])
             
             return HttpResponseRedirect('/login/invite_request_received/') # Redirect after POST
-    else:
-        form = forms.RequestInviteForm() # An unbound form
 
-    return render_to_response('invite-request.html', {
-        'form': form,
-    })
+    return render_to_response('invite-request.html')
 
 def invite_request_received(request):
     return render_to_response('invite-request-received.html')
