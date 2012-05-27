@@ -48,6 +48,11 @@ p {
 
 /* = Headings
 ----------------------------------- */
+h1 {
+	font-weight:normal;
+	color:#239ea2;
+	font-size:200%;
+	}
 h2 {
 	color:#239ea2;
 	font-size:190%;
@@ -75,13 +80,45 @@ h3, .h3 {
 #header {
 	background:#85c440;
 	padding:1em;
+	float:left;
+	width:100%;
+	margin:0 0 1em 0;
 	}
+#header a,
+#header a:link {
+	color:#fff;
+	}
+#header a:hover {
+	color:#ff9a00;
+	}
+
 #header .logo {
+	display:block;
+	float:left;
 	font-size:130%;
+	background:url(../img/logo-gallevent-white.png) top left no-repeat;
+	width:213px;
+	height:43px;
+	text-indent:-9999px;
+	}
+
+#header nav {
+	font-size:100%;
+	float:right;
+	}
+#header nav ul {
+	list-style:none;
 	}
 
 #container {
 	padding:1em;
+	}
+
+/* = Forms
+----------------------------------- */
+label {
+	font-weight:bold;
+	color:#239ea2;
 	}
 
 /* = Tables
@@ -94,7 +131,7 @@ table.manage-invites {
 	width:90%;
 	border:1px solid #239ea2;
 	}
-table.manage-invites .table-header {
+table th {
 	background:#239ea2;
 	color:#fff;
 	}
