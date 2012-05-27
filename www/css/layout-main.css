@@ -427,6 +427,8 @@ form#top-search #date2 {
 	float:left;
 	width:100%;
 	background:#f2f2f2;
+	position:relative;
+	z-index:999;
 	}
 #footer a,
 #footer a:link {
@@ -1109,6 +1111,7 @@ input.btn-s-post-event:hover {
 	-moz-box-shadow:    inset 0 0 15px -5px rgba(0,0,0,0.6);
 	-webkit-box-shadow: inset 0 0 15px -5px rgba(0,0,0,0.6);
 	box-shadow:         inset 0 0 15px -5px rgba(0,0,0,0.1);
+	z-index:888;
 	}
 #side-page-links a,
 #side-page-links a:link {
