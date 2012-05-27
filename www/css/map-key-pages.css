@@ -15,7 +15,7 @@ html, body {
 	}
 
 #container {
-	height:80%;
+	height:82%;
 	}
 
 /* = Map */
@@ -107,7 +107,7 @@ a.key:hover {
 ----------------------------------------------------------------------*/
 @media screen and (max-height:750px) {
 #container {
-	height:79%;
+	height:79.5%;
 	}
 }
 @media screen and (max-height:650px) {
