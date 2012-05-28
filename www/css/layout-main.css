@@ -120,9 +120,18 @@ h3, .h3 {
 	font-weight:bold;
 	}
 #header a.logo {
-	margin:26px 0 0 20px;
+	margin:24px 0 0 20px;
+	height:42px;
 	display:block;
 	float:left;
+	color:#fff;
+	}
+#header a.logo b {
+	position:relative;
+	font-weight:normal;
+	font-style:italic;
+	top:-6px;
+	left:-11px;
 	}
 #header .right {
 	font-size:90%;
