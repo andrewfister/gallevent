@@ -54,6 +54,8 @@ class RegistrationForm(forms.Form):
     confirm_password = forms.CharField(max_length=32)
     
     def clean_email(self):
+        import logging
+        logging.debug('cleaning email')
         email = self.cleaned_data['email']
 
         ADDR_SPEC = (
@@ -75,34 +77,54 @@ class RegistrationForm(forms.Form):
         if len(User.objects.filter(username=email)) > 0:
             raise forms.ValidationError('This email address is already registered!')
 
+        logging.debug('email is clean')
         return email
     
     def clean_invite_code(self):
+        import logging
+        logging.debug('cleaning invite code')
         invite_code = self.cleaned_data['invite_code']
         query_email = self.cleaned_data['email']
         
         try:
             invite_request = models.InvitationManager.objects.get(email=query_email)
-        except DoesNotExist:
-            raise ValidationError('This email address did not receive an invitation yet.')
+        except (models.InvitationManager.DoesNotExist, models.InvitationManager.MultipleObjectsReturned):
+            raise forms.ValidationError('This email address did not receive an invitation yet.')
         
-        if invite_request['invite_code'] != invite_code:
-            raise ValidationError('This invitation code does not match for this email address.')
+        if invite_request.code != invite_code:
+            raise forms.ValidationError('This invitation code does not match for this email address.')
         
+        logging.debug('invite code is clean')
         return invite_code
     
     def clean_password(self):
+        import logging
+        logging.debug('cleaning password')
         password = self.cleaned_data['password']
         
         if len(password) < 7:
-            raise ValidationError('This password is too short')
+            raise forms.ValidationError('This password is too short')
         elif len(password) > 32:
-            raise ValidationError('This password is too long')
+            raise forms.ValidationError('This password is too long')
         
+        logging.debug('password is clean')
+        return password
+        
+    def clean_confirm_password(self):
+        import logging
+        logging.debug('cleaning repassword')
+        password = self.cleaned_data['password']
+        confirm_password = self.cleaned_data['confirm_password']
+        
+        if password != confirm_password:
+            raise forms.ValidationError('The passwords do not match')
+        
+        logging.debug('repassword is clean')
         return password
     
     def save(self, commit=True):
         email = self.cleaned_data['email']
         password = self.cleaned_data['password']
         
-        User.objects.create_user(email, email, password)
+        user = User.objects.create_user(email, email, password)
+        user.save()

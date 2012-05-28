@@ -1,8 +1,15 @@
 # Django settings for gallevent project.
 import local_settings
-
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+
+import logging
+logging.basicConfig(
+    level = logging.DEBUG,
+    format = '%(asctime)s %(levelname)s %(message)s',
+    filename = '/tmp/gallevent.log',
+    filemode = 'w'
+)
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),

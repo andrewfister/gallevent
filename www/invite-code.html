@@ -3,15 +3,15 @@
 {% block content %}
 <div id="content">
     <div id="container">
-        <form>
+        <form method='post'>
             <label>Invitation Code:</label>
-            <input type="text" class="input-active" />
+            <input type="text" class="input-active" name="invite_code"/>
             <label>Email Address:</label>
-            <input type="text" class="input-standard" />
+            <input type="text" class="input-standard" name="email"/>
             <label>Password:</label>
-            <input type="text" class="input-standard" />
+            <input type="password" class="input-standard" name="password"/>
             <label>Repeat Password:</label>
-            <input type="text" class="input-standard" />
+            <input type="password" class="input-standard" name="confirm_password"/>
             <input class="btn-create-account" type="submit" value="Create Account" />
         </form>
         <div class="right">

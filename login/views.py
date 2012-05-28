@@ -6,13 +6,27 @@ from gallevent.login import forms
 from gallevent.login import models
 
 def invite_code(request):
+    email = ''
+    invite_code = ''
+    import logging
+    logging.debug('calling register')
+
     if request.method == 'POST':
+        logging.debug('submitting register')
         form = forms.RegistrationForm(request.POST)
         if form.is_valid():
+            logging.debug('register form is valid')
             form.save()
+        
+        email = request.POST['email']
+        invite_code = request.POST['invite_code']
     
-    return render_to_response('invite-code.html')
+    return render_to_response('invite-code.html', {
+        'email': email,
+        'invite_code': invite_code
+    })
     
+        
 def invite_request(request):
     if request.method == 'POST': # If the form has been submitted...
         form = forms.RequestInviteForm(request.POST) # A form bound to the POST data
