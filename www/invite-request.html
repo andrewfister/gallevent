@@ -1,4 +1,5 @@
 {% extends "base-login.html" %}
+{% block login-link %}<a href="/login/invite_code">Have your code? Click here to sign up!</a> | <a href="{% url gallevent.login.views.sign_in %}">Sign In</a>{% endblock %}
 
 {% block content %}
 <div id="content">

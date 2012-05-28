@@ -54,10 +54,10 @@ h1 {
 	font-size:200%;
 	}
 h2 {
-	color:#239ea2;
-	font-size:190%;
+	color:#47B5B7;
+	font-size:150%;
 	font-weight:normal;
-	margin-bottom:0.2em;
+	margin:1em 0 0.5em 0;
 	}
 h2 a {
 	color:#239ea2;
@@ -121,17 +121,29 @@ label {
 	color:#239ea2;
 	}
 
+.add-email .form-field {
+	border:1px solid #239ea2;
+	font-size:150%;
+	font-weight:normal;
+	width:500px;
+	margin-bottom:0.5em;
+	padding:0.2em 0.2em 0.3em 0.2em;
+	}
+
 /* = Tables
 ----------------------------------- */
 table td {
 	padding:.8em;
 	border-bottom:1px solid #e8e8e8;
 	}
-table.manage-invites {
-	width:90%;
+table.manage-invites,
+table.pre-approved {
+	width:60%;
 	border:1px solid #239ea2;
+	margin-bottom:2em;
 	}
-table th {
+table tr.table-header {
 	background:#239ea2;
+	font-weight:bold;
 	color:#fff;
 	}

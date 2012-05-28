@@ -712,16 +712,14 @@ ul.form-people-list .person-summary:hover {
 	}
 
 ul.form-people-list li {
-	border-bottom:1px solid #BABEC2;
 	float:left;
 	display:block;
-	background:#F1F2F3;
+	background:#fff;
 	width:98%;
-	padding:1% 1% 2% 1%;
+	padding:1em 1em 2em 1em;
 	color:#292929;
 	}
 ul.form-people-list li:hover {
-	border-bottom:1px solid #3cc;
 	background:#e4f3f4;
 	text-decoration:none;
 	}
@@ -1006,13 +1004,16 @@ input.btn-s-post-event:hover {
 	background:url(../img/btn-s-post-event-h.png) top left no-repeat;
 	}
 
-
+.btn-sign-in,
 .btn-create-account,
 .btn-request-invite {
 	width:180px;
 	height:54px;
 	text-indent:-9999px;
 	margin-top:1em;
+	}
+.btn-sign-in {
+	background:url(../img/btn-sign-in.png) 0 0 no-repeat;
 	}
 .btn-create-account {
 	background:url(../img/btn-create-account.png) 0 0 no-repeat;
@@ -1021,6 +1022,9 @@ input.btn-s-post-event:hover {
 	background:url(../img/btn-request-invite.png) 0 0 no-repeat;
 	}
 	
+.btn-sign-in:hover {
+	background:url(../img/btn-sign-in-h.png) 0 0 no-repeat;
+	}
 .btn-create-account:hover {
 	background:url(../img/btn-create-account-h.png) 0 0 no-repeat;
 	}

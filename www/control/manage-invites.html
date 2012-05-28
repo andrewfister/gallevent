@@ -18,11 +18,12 @@
     </div><!-- #header -->
     <nav>
     	<ul>
-        	<li><a href="#">Manage Invites</a></li>
+        	<li><a href="#">Manage Invitation Requests</a></li>
         </ul>
     </nav>
     <div id="container">
-    	<h1>Manage Invites</h1>
+    	<h1>Manage Invitation Requests</h1>
+        <h2>Emails Requesting Invitations</h2>
         <form method='post'>
         	<label for="actions">Actions:</label>
         	<select id="actions">
@@ -30,15 +31,16 @@
         		<option value="deny-selected">Deny Selected</option>
             </select>
             <table class="manage-invites" cellpadding="0" cellspacing="0">
-                <th>
+                <tr class="table-header">
                     <td><input type="checkbox" name="select-all" value="select-all" /></td>
                     <td>Email</td>
-                    <td>Date</td>
+                    <td>Request Date</td>
                     <td>Approve</td>
                     <td>Deny</td>
-                </th>
+                </tr>
                 {% for email, date, value in invite_requests %}
                 <tr>
+                	
                     <td><input type="checkbox" name="emails" value="{{ value }}"/></td>
                     <td>{{ email }}</td>
                     <td>{{ date }}</td>
@@ -46,6 +48,24 @@
                     <td><a href="#">Deny</a></td>
                 </tr>
                 {% endfor %}
+            </table>
+            
+            <h2>Emails Pre-Approved to Receive Invitation Codes</h2>
+        <form method='post'>
+        	<span class="add-email"><label for="actions">Add Email:</label> <input class="form-field" type="text"></span>
+            <table class="pre-approved" cellpadding="0" cellspacing="0">
+                <tr class="table-header">
+                    <td><input type="checkbox" name="select-all" value="select-all" /></td>
+                    <td>Email</td>
+                    <td>Date Added</td>
+                    <td>Remove</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="emails" value="{{ value }}"/></td>
+                    <td>email</td>
+                    <td>date</td>
+                    <td><a href="#">Remove</a></td>
+                </tr>
             </table>
             <input type='submit'></input>
         </form>

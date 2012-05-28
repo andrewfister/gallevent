@@ -1,12 +1,15 @@
 {% extends "base-login.html" %}
+{% block login-link %}<a href="/login/invite_code">Have your code? Click here to sign up!</a> | <a href="{% url gallevent.login.views.sign_in %}">Sign In</a>{% endblock %}
 
 {% block content %}
 <div id="content">
     <div id="container">
-    	<div class="left">
-            <h2>Congratulations! <br />Your email has been added to our wait list</h2>
-            <p>We will contact you soon to let you know if you can join Gallevent.</p>
-            <p>In the meantime, check out all the awesome events on Gallevent's <a href="{% url gallevent.map.views.show %}">Event Map</a>!</p>
+    	<div class="left" style="width:100%;text-align:center;">
+            <h2 style="margin-bottom:1em;">Congratulations! <br />You've been added to our wait list</h2>
+            <p>We will contact you soon to let you know if qualify to join Gallevent.</p>
+            <p>In the meantime, check out the awesome events on Gallevent's <a href="{% url gallevent.map.views.show %}">Event Map</a>!</p>
+            <p style="margin:2em 0 2em 0;"><a href="{% url gallevent.map.views.show %}" style="font-size:160%;">Click here to find events now!</a></p>
+            <p class="form-details" style="margin-top:2em;">If you aren't receiving confirmation emails from Gallevent, check the spam folder in your email account. Occasionally, email spam filters incorrectly classify valid emails as spam. To ensure you receive important notifications from us, please add gallevent.feedback@gmail.com to your address book.</p>
         </div>
     </div><!-- #container -->
 </div><!-- #content -->
