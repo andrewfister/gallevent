@@ -67,6 +67,8 @@ def sign_in(request):
                 if user.is_active:
                     logging.debug('logging in')
                     login(request, user)
+                    
+                    return HttpResponseRedirect('/profile/show/') # Redirect after POST
                 else:
                     logging.debug('disabled account')
                     print 'disabled account'
