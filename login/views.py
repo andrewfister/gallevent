@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 
 from gallevent.login import forms
 from gallevent.login import models
@@ -50,6 +51,29 @@ def invite_request_received(request):
     return render_to_response('invite-request-received.html')
     
 def sign_in(request):
+    import logging
+    logging.debug('loading sign-in page')
+    
+    if request.method == 'POST':
+        form = forms.SignInForm(request.POST)
+        if form.is_valid():
+            query_email = form.cleaned_data['email']
+            query_password = form.cleaned_data['password']
+            user = authenticate(username=query_email, password=query_password)
+            logging.debug('email: ' + query_email)
+            logging.debug('password: ' + query_password)
+        
+            if user is not None:
+                if user.is_active:
+                    logging.debug('logging in')
+                    login(request, user)
+                else:
+                    logging.debug('disabled account')
+                    print 'disabled account'
+            else:
+                logging.debug('invalid login')
+                print 'invalid login'
+    
     return render_to_response('sign-in.html')
 
 def manage_invites(request):

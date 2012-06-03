@@ -54,8 +54,6 @@ class RegistrationForm(forms.Form):
     confirm_password = forms.CharField(max_length=32)
     
     def clean_email(self):
-        import logging
-        logging.debug('cleaning email')
         email = self.cleaned_data['email']
 
         ADDR_SPEC = (
@@ -77,12 +75,9 @@ class RegistrationForm(forms.Form):
         if len(User.objects.filter(username=email)) > 0:
             raise forms.ValidationError('This email address is already registered!')
 
-        logging.debug('email is clean')
         return email
     
     def clean_invite_code(self):
-        import logging
-        logging.debug('cleaning invite code')
         invite_code = self.cleaned_data['invite_code']
         query_email = self.cleaned_data['email']
         
@@ -94,12 +89,9 @@ class RegistrationForm(forms.Form):
         if invite_request.code != invite_code:
             raise forms.ValidationError('This invitation code does not match for this email address.')
         
-        logging.debug('invite code is clean')
         return invite_code
     
     def clean_password(self):
-        import logging
-        logging.debug('cleaning password')
         password = self.cleaned_data['password']
         
         if len(password) < 7:
@@ -107,20 +99,16 @@ class RegistrationForm(forms.Form):
         elif len(password) > 32:
             raise forms.ValidationError('This password is too long')
         
-        logging.debug('password is clean')
         return password
         
     def clean_confirm_password(self):
-        import logging
-        logging.debug('cleaning repassword')
         password = self.cleaned_data['password']
         confirm_password = self.cleaned_data['confirm_password']
         
         if password != confirm_password:
             raise forms.ValidationError('The passwords do not match')
         
-        logging.debug('repassword is clean')
-        return password
+        return confirm_password
     
     def save(self, commit=True):
         email = self.cleaned_data['email']
@@ -128,3 +116,8 @@ class RegistrationForm(forms.Form):
         
         user = User.objects.create_user(email, email, password)
         user.save()
+        
+    
+class SignInForm(forms.Form):
+    email = forms.CharField(max_length=64)
+    password = forms.CharField(max_length=32)
