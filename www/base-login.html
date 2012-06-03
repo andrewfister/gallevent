@@ -12,7 +12,7 @@
 <div id="header">
     <a href="/" class="logo"><img src="/static/img/logo-gallevent-white.png" title="Gallevent Events" alt="Gallevent Events" /></a>
     <span class="right">
-        <a href="/login/invite_request">Don't have an invitation code? Request one here!</a>
+        {% block login-link %}<a href="/login/invite_request">Don't have a code? Click here!</a> | <a href="{% url gallevent.login.views.sign_in %}">Sign In</a>{% endblock %}
     </span><!-- .right -->
 </div><!-- #header -->
 {% endblock %}
