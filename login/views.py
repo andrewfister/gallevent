@@ -1,7 +1,8 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.template import RequestContext
 
 from gallevent.login import forms
 from gallevent.login import models
@@ -25,7 +26,7 @@ def invite_code(request):
     return render_to_response('invite-code.html', {
         'email': email,
         'invite_code': invite_code
-    })
+    }, context_instance=RequestContext(request))
     
         
 def invite_request(request):
@@ -45,10 +46,12 @@ def invite_request(request):
             
             return HttpResponseRedirect('/login/invite_request_received/') # Redirect after POST
 
-    return render_to_response('invite-request.html')
+    return render_to_response('invite-request.html', {
+    }, context_instance=RequestContext(request))
 
 def invite_request_received(request):
-    return render_to_response('invite-request-received.html')
+    return render_to_response('invite-request-received.html', {
+    }, context_instance=RequestContext(request))
     
 def sign_in(request):
     import logging
@@ -76,7 +79,15 @@ def sign_in(request):
                 logging.debug('invalid login')
                 print 'invalid login'
     
-    return render_to_response('sign-in.html')
+    return render_to_response('sign-in.html', {
+    }, context_instance=RequestContext(request))
+    
+def sign_out(request):
+    if request.user.is_authenticated():
+        logout(request)
+
+    return render_to_response('sign-in.html', {
+    }, context_instance=RequestContext(request))
 
 def manage_invites(request):
     invite_requests = models.InvitationManager.objects.filter(code='').order_by('date')
@@ -111,4 +122,4 @@ def manage_invites(request):
     
     return render_to_response('control/manage-invites.html', {
         'invite_requests': zip(email_choices, dates, values),
-    })
+    }, context_instance=RequestContext(request))
