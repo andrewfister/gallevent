@@ -12,22 +12,22 @@
 <h2>Post Your Event on Gallevent</h2>
 <p>Fill out the form below to post your event <br />and watch your guest list grow!<br /><em class="form-comment">Required fields are in <b>orange</b></em>.</p>
 {% endif %}
-<form id="post-event">
+<form id="post-event" method='post'>
     <span class="group">
         <span class="h3">Where will your event be?</span>
         <label for="address1" class="required">Address Line 1:</label>
-        <input type="text" id="address1" class="input-active" />
+        <input type="text" id="address1" class="input-active" name="address1" />
         <label for="address2">Address Line 2:</label>
-        <input type="text" id="address2" class="input-standard" />
+        <input type="text" id="address2" class="input-standard" name="address2" />
         <label for="city" class="required">City:</label>
-        <input type="text" id="city" class="input-required" />
+        <input type="text" id="city" class="input-required" name="city" />
         <label for="zip-code">Zip Code:</label>
-        <input type="text" id="zip-code" class="input-standard" />
+        <input type="text" id="zip-code" class="input-standard" name="zipcode" />
     </span>
     <span class="group">
         <span class="h3">What type of event is this?</span>
         <label for="event-category">Select an Event Category:</label>
-        <select id="event-category" class="input-required">
+        <select id="event-category" class="input-required" name="event_category" >
             <option value="fairs" id="select-fairs">Festivals &amp; Fairs</option>
             <option value="networking" id="select-networking">Networking</option>
             <option value="education" id="select-education">Education</option>
@@ -40,38 +40,38 @@
             <option value="jobs" id="select-jobs">Jobs</option>
         </select>
         <label for="event-keywords">Keywords:</label>
-        <input type="text" id="event-keywords" class="input-standard" />
+        <input type="text" id="event-keywords" class="input-standard" name="event_keywords" />
     </span>
     <span class="group">
         <span class="h3">When will your event happen?</span>
         <label for="start-date" class="required">Start Date &amp; Time:</label>
-        <input type="text" id="start-date" class="input-required" /> at <input type="text" id="start-time" class="input-required" />
+        <input type="text" id="start-date" class="input-required" name="start_date" /> at <input type="text" id="start-time" class="input-required" name="start_time" />
         <label for="end-date" class="required">End Date &amp; Time:</label>
-        <input type="text" id="end-date" class="input-required" /> at <input type="text" id="end-time" class="input-required" />
+        <input type="text" id="end-date" class="input-required" name="end_date" /> at <input type="text" id="end-time" class="input-required" name="end_time" />
     </span>
     <span class="group">
         <span class="h3">What is your event all about?</span>
         <label for="event-name" class="required">Name your event:</label>
-        <input type="text" id="event-name" class="input-required" />
+        <input type="text" id="event-name" class="input-required" name="event_name" />
         <label for="event-description" class="required">Describe your event:</label>
-        <textarea id="event-description" class="input-required"></textarea>
+        <textarea id="event-description" class="input-required" name="event_description" ></textarea>
         <label for="event-url">Link to event or organizaiton page:</label>
-        <input type="text" id="event-url" class="input-standard" />
+        <input type="text" id="event-url" class="input-standard" name="event_url" />
     </span>
     <span class="group">
         <label class="h3">Guest list</label>
         <label for="rsvp-limit">How many people may RSVP?</label>
         <span class="form-details">The number you enter below will limit how many Gallevent Members can RSVP to this event. Leave this blank if there is no limit.</span>
-        <input type="text" id="rsvp-limit" class="input-standard" /><em class="form-comment">000 Gallevent Members can RSVP to this event.</em>
+        <input type="text" id="rsvp-limit" class="input-standard" name="rsvp_limit" /><em class="form-comment">000 Gallevent Members can RSVP to this event.</em>
     </span>
     <span class="group">
         <label class="h3">Do guests need to purchase tickets?</label>
-        <input class="radio" type="radio" name="no" value="no" /> No<br />
-        <input class="radio" type="radio" name="yes" value="yes" /> Yes		
+        <input class="radio" type="radio" name="purchase_tickets" value="no" /> No<br />
+        <input class="radio" type="radio" name="purchase_tickets" value="yes" /> Yes		
         <label for="ticket-price">Ticket price:</label>
-        <input type="text" id="ticket-price" class="input-standard" /><em class="form-comment">Your event is free!</em>
+        <input type="text" id="ticket-price" class="input-standard" name="ticket_price" /><em class="form-comment">Your event is free!</em>
         <label for="ticket-link">Link to get tickets:</label>
-        <input type="text" id="ticket-link" class="input-standard" />
+        <input type="text" id="ticket-link" class="input-standard" name="ticket_url" />
     </span>
     <input class="btn-s-post-event" type="button" value="Post Event">
 </form>

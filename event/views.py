@@ -2,6 +2,9 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 
 def post_event(request):
+    if request.method == 'POST':
+        pass
+
     return render_to_response('post-event.html', {
     'edit': False
     }, context_instance=RequestContext(request))
