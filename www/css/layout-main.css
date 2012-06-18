@@ -458,6 +458,10 @@ form#top-search #date2 {
 
 /* = Forms
 ----------------------------------- */
+form {
+	float:left;
+	}
+
 input.search {
 	border:2px solid #239ea2; /* Networking Blue */
 	width:40%;
@@ -481,7 +485,7 @@ input.search {
 	display:block;
 	color:#555;
 	font-size:95%;
-	margin:.5em 0 .5em 0;
+	margin:0 0 .4em 0;
 	}
 .form-comment {
 	color:#f9882b;
@@ -505,7 +509,7 @@ form label {
 	font-weight:bold;
 	color:#239ea2;
 	display:block;
-	margin:0 0 .1em 0;
+	margin:0 0 .2em 0;
 	}
 label.required {
 	color:#f9882b;
@@ -517,7 +521,7 @@ form select#event-category {
 	font-size:110%;
 	width:100%;
 	padding:.5em;
-	margin-bottom:.6em;
+	margin-bottom:0.99em;
 	}
 form textarea {
 	min-height:12.5em;
@@ -888,11 +892,12 @@ form#top-search .btn-search:hover {
 	margin-top:1.2em;
 	}
 
-a.btn-manage,
-a.btn-view,
-a.btn-edit,
-a.btn-watch,
+.btn-manage,
+.btn-view,
 .btn-edit,
+.btn-watch,
+.btn-edit,
+.btn-submit,
 ul.form-event-list .mod-event a.btn-manage,
 ul.form-event-list .mod-event a.btn-view,
 ul.form-event-list .mod-event a.btn-edit,
@@ -904,7 +909,8 @@ ul.form-event-list .mod-event a.btn-watch {
 .btn-view:hover,
 .btn-edit:hover,
 .btn-watch:hover,
-.btn-delete:hover {
+.btn-delete:hover,
+.btn-submit:hover {
 	text-decoration:none;
 	}
 
@@ -945,11 +951,21 @@ a.btn-watch,
 	background:#34bec2;
 	}
 
-.btn-edit {
+.btn-edit,
+.btn-submit {
 	background:#85c440;
 	}
-.btn-edit:hover {
+.btn-edit:hover,
+.btn-submit:hover {
 	background:#8cd734;
+	}
+
+input.btn-submit { /* Used on Your Profile Form */
+	width:auto;
+	-moz-border-radius:    3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius:  3px;
+    border-radius:         3px;
 	}
 
 .btn-watch {
@@ -1103,6 +1119,7 @@ input.btn-s-post-event:hover {
 #active-tab-content {
 	float:left;
 	height:100%;
+	width:100%;
 	padding:0;
 	position:relative;
 	z-index:500;

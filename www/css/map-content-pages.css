@@ -67,7 +67,8 @@ html, body {
 #post-event {  /* Form container on Post Event Page */
 	width:85%;
 	}
-#your-posts {  /* Form container on Your Post Page */
+#your-posts, /* Form container on Your Post Page */
+#your-profile {  /* Form container on Your Profile Page */
 	width:95%;
 	}
 
