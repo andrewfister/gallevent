@@ -14,7 +14,7 @@
 <script src="/static/js/jquery-1.7.2.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function(){
-        
+        /*
         //  Initialize auto-hint fields
         $('INPUT.auto-hint, TEXTAREA.auto-hint').focus(function(){
             if($(this).val() == $(this).attr('title')){ 
@@ -38,8 +38,45 @@
 		//  Focus auto-focus fields
         $('.auto-focus:first').focus();
 		// Remove hints on form submission
-		jQuery('form', this).submit(function () {
-			jQuery('.' + config.className, this).removeClass(config.className).val('');
+		$('form', this).submit(function () {
+			$('.' + config.className, this).removeClass(config.className).val('');
+		});
+		*/
+        
+		//  Initialize auto-hint fields
+        var autoHintFields = $('INPUT.auto-hint, TEXTAREA.auto-hint');
+		
+		// On focus, delete the value if it is the title (hint value)
+		autoHintFields.focus(function(){
+            if($(this).val() == $(this).attr('title')){ 
+                $(this).val('');
+                $(this).removeClass('auto-hint');
+            }
+			
+		// on blur, add back the hint value if the value is empty
+        }).blur(function(){
+            if($(this).val() == '' && $(this).attr('title') != ''){ 
+                $(this).val($(this).attr('title'));
+                $(this).addClass('auto-hint'); 
+            }
+			
+		// On each input field, read the hint value from title and set that to the input value
+        }).each(function(){
+            if($(this).attr('title') == ''){ return; }
+            if($(this).val() == ''){ $(this).val($(this).attr('title')); }
+            else { $(this).removeClass('auto-hint'); } 
+        });
+		
+		//  Focus auto-focus fields
+        $('.auto-focus:first').focus();
+		
+		// Remove hints on form submission
+		$('form', this).submit(function () {
+			autoHintFields.each(function() {
+				if ($(this).val() == $(this).attr('title')) {
+					$(this).val('');
+				}
+			});
 		});
     });
 </script>
