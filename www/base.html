@@ -37,6 +37,10 @@
         });
 		//  Focus auto-focus fields
         $('.auto-focus:first').focus();
+		// Remove hints on form submission
+		jQuery('form', this).submit(function () {
+			jQuery('.' + config.className, this).removeClass(config.className).val('');
+		});
     });
 </script>
 <!-- <script src="/static/js/form-hints-1.0.js" type="text/javascript"></script>
