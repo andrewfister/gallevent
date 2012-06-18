@@ -2,31 +2,16 @@ import re
 
 from django import forms
 from django.contrib.auth.models import User
+from django.core.validators import validate_email
 
 from gallevent.login import models
 
 
 class RequestInviteForm(forms.Form):
-    email = forms.CharField(max_length=64)
+    email = forms.EmailField()
 
     def clean_email(self):
         email = self.cleaned_data['email']
-
-        ADDR_SPEC = (
-            "((?:"
-                r"[-!#$%&'*+/=?^_`{}|~0-9A-Z]+(?:\.[-!#$%&'*+/=?^_`{}|~0-9A-Z]+)*" # dot-atom
-            ")|(?:"
-                r'"(?:[\001-\010\013\014\016-\037!#-\[\]-\177]|\\[\001-011\013\014\016-\177])*"' # quoted-string
-            "))@("
-            r'(?:[A-Z0-9-]+\.)+[A-Z]{2,6}'   #domain
-            ")"
-        )
-
-        email_re = re.compile(
-            "^(?:" + ADDR_SPEC + ")|(?:\w[\w ]*)<" + ADDR_SPEC + ">$", re.IGNORECASE)
-
-        if re.match(email_re, email) == None:
-            raise forms.ValidationError('Invalid Email Address')
         
         if len(User.objects.filter(username=email)) > 0:
             raise forms.ValidationError('This email address is already registered!')
@@ -56,22 +41,6 @@ class RegistrationForm(forms.Form):
     def clean_email(self):
         email = self.cleaned_data['email']
 
-        ADDR_SPEC = (
-            "((?:"
-                r"[-!#$%&'*+/=?^_`{}|~0-9A-Z]+(?:\.[-!#$%&'*+/=?^_`{}|~0-9A-Z]+)*" # dot-atom
-            ")|(?:"
-                r'"(?:[\001-\010\013\014\016-\037!#-\[\]-\177]|\\[\001-011\013\014\016-\177])*"' # quoted-string
-            "))@("
-            r'(?:[A-Z0-9-]+\.)+[A-Z]{2,6}'   #domain
-            ")"
-        )
-
-        email_re = re.compile(
-            "^(?:" + ADDR_SPEC + ")|(?:\w[\w ]*)<" + ADDR_SPEC + ">$", re.IGNORECASE)
-
-        if re.match(email_re, email) == None:
-            raise forms.ValidationError('Invalid Email Address')
-        
         if len(User.objects.filter(username=email)) > 0:
             raise forms.ValidationError('This email address is already registered!')
 
@@ -119,5 +88,5 @@ class RegistrationForm(forms.Form):
         
     
 class SignInForm(forms.Form):
-    email = forms.CharField(max_length=64)
+    email = forms.EmailField()
     password = forms.CharField(max_length=32)

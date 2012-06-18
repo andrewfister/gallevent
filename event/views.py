@@ -1,9 +1,22 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
+from gallevent.event import forms
+from gallevent.event import models
+
+
 def post_event(request):
     if request.method == 'POST':
-        pass
+        form = forms.PostEventForm(request.POST)
+        import logging
+        logging.debug('created a form')
+        
+        if form.is_valid():
+            
+            logging.debug('form is valid')
+            form.save()
+        else:
+            logging.debug(form.errors)
 
     return render_to_response('post-event.html', {
     'edit': False

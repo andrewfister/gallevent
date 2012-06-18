@@ -13,5 +13,6 @@ class Event(models.Model):
     description = models.TextField()
     event_url = models.URLField()
     rsvp_limit = models.IntegerField()
-    ticket_price = models.DecimalField(decimal_places=2)
+    purchase_tickets = models.BooleanField()
+    ticket_price = models.DecimalField(decimal_places=2, max_digits=10)
     ticket_url = models.URLField()

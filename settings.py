@@ -92,5 +92,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'gallevent.map',
-    'gallevent.login'
+    'gallevent.login',
+    'gallevent.event',
 )
