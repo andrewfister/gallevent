@@ -5,5 +5,6 @@ urlpatterns = patterns('gallevent.login.views',
     (r'^invite_request/$', 'invite_request'),
     (r'^invite_request_received/$', 'invite_request_received'),
     (r'^sign_in/$', 'sign_in'),
+    (r'^sign_out/$', 'sign_out'),
     (r'^manage_invites/$', 'manage_invites'),
 )
