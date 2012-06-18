@@ -27,7 +27,7 @@
     <span class="group">
         <span class="h3">What type of event is this?</span>
         <label for="event-category">Select an Event Category:</label>
-        <select id="event-category" class="input-required" name="event_category" >
+        <select id="event-category" class="input-standard" name="event_category" >
             <option value="fairs" id="select-fairs">Festivals &amp; Fairs</option>
             <option value="networking" id="select-networking">Networking</option>
             <option value="education" id="select-education">Education</option>
@@ -45,16 +45,16 @@
     <span class="group">
         <span class="h3">When will your event happen?</span>
         <label for="start-date" class="required">Start Date &amp; Time:</label>
-        <input type="text" id="start-date" class="input-required" name="start_date" /> at <input type="text" id="start-time" class="input-required" name="start_time" />
+        <input type="text" id="start-date" class="input-standard auto-hint" name="start_date" title="6/20/2012" /> at <input type="text" id="start-time" class="input-standard" name="start_time" title="3:00 PM" />
         <label for="end-date" class="required">End Date &amp; Time:</label>
-        <input type="text" id="end-date" class="input-required" name="end_date" /> at <input type="text" id="end-time" class="input-required" name="end_time" />
+        <input type="text" id="end-date" class="input-standard auto-hint" name="end_date" title="6/20/2012" /> at <input type="text" id="end-time" class="input-standard" name="end_time" title="9:00 PM" />
     </span>
     <span class="group">
         <span class="h3">What is your event all about?</span>
         <label for="event-name" class="required">Name your event:</label>
-        <input type="text" id="event-name" class="input-required" name="event_name" />
+        <input type="text" id="event-name" class="input-standard" name="event_name" />
         <label for="event-description" class="required">Describe your event:</label>
-        <textarea id="event-description" class="input-required" name="event_description" ></textarea>
+        <textarea id="event-description" class="input-standard" name="event_description" ></textarea>
         <label for="event-url">Link to event or organizaiton page:</label>
         <input type="text" id="event-url" class="input-standard" name="event_url" />
     </span>
