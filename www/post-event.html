@@ -16,20 +16,19 @@
     <span class="group">
         <span class="h3">Where will your event be?</span>
         <label for="address1" class="required">Address Line 1:</label>
-        {{ form.address1.errors }}
-        <input type="text" id="address1" class="input-standard auto-focus auto-hint" name="address1" title="123 Your Street" />
+        <input type="text" id="address1" class="input-standard auto-focus auto-hint" name="address1" title="123 Your Street" value="{{ form.address1.value }}" />
         <label for="address2">Address Line 2:</label>
-        <input type="text" id="address2" class="input-standard auto-hint" name="address2" title="Suite 201" />
+        <input type="text" id="address2" class="input-standard auto-hint" name="address2" title="Suite 201" value="{{ form.address2.value }}" />
         <label for="city" class="required">City:</label>
         {{ form.city.errors }}
-        <input type="text" id="city" class="input-standard auto-hint" name="city" title="San Francisco" />
+        <input type="text" id="city" class="input-standard" name="city" value="{{ form.city.value }}" />
         <label for="zip-code">Zip Code:</label>
-        <input type="text" id="zip-code" class="input-standard" name="zipcode" />
+        <input type="text" id="zip-code" class="input-standard" name="zipcode" value="{{ form.zipcode.value }}" />
     </span>
     <span class="group">
         <span class="h3">What type of event is this?</span>
         <label for="event-category">Select an Event Category:</label>
-        <select id="event-category" class="input-standard" name="event_category" >
+        <select id="event-category" class="input-standard" name="event_category" value="{{ form.event_category.value }}" >
             <option value="fairs" id="select-fairs">Festivals &amp; Fairs</option>
             <option value="networking" id="select-networking">Networking</option>
             <option value="education" id="select-education">Education</option>
@@ -42,38 +41,38 @@
             <option value="jobs" id="select-jobs">Jobs</option>
         </select>
         <label for="event-keywords">Keywords:</label>
-        <input type="text" id="event-keywords" class="input-standard" name="event_keywords" />
+        <input type="text" id="event-keywords" class="input-standard" name="event_keywords" value="{{ form.event_keywords.value }}" />
     </span>
     <span class="group">
         <span class="h3">When will your event happen?</span>
         <label for="start-date" class="required">Start Date &amp; Time:</label>
-        <input type="text" id="start-date" class="input-standard auto-hint" name="start_date" title="6/20/2012" /> at <input type="text" id="start-time" class="input-standard" name="start_time" title="3:00 PM" />
+        <input type="text" id="start-date" class="input-standard auto-hint" name="start_date" title="6/20/2012" value="{{ form.start_date.value }}" /> at <input type="text" id="start-time" class="input-standard" name="start_time" title="3:00 PM" value="{{ form.start_time.value }}" />
         <label for="end-date" class="required">End Date &amp; Time:</label>
-        <input type="text" id="end-date" class="input-standard auto-hint" name="end_date" title="6/20/2012" /> at <input type="text" id="end-time" class="input-standard" name="end_time" title="9:00 PM" />
+        <input type="text" id="end-date" class="input-standard auto-hint" name="end_date" title="6/20/2012" value="{{ form.end_date.value }}" /> at <input type="text" id="end-time" class="input-standard" name="end_time" title="9:00 PM" value="{{ form.end_time.value }}" />
     </span>
     <span class="group">
         <span class="h3">What is your event all about?</span>
         <label for="event-name" class="required">Name your event:</label>
-        <input type="text" id="event-name" class="input-standard" name="event_name" />
+        <input type="text" id="event-name" class="input-standard" name="event_name" value="{{ form.event_name.value }}" />
         <label for="event-description" class="required">Describe your event:</label>
-        <textarea id="event-description" class="input-standard" name="event_description" ></textarea>
+        <textarea id="event-description" class="input-standard" name="event_description" value="{{ form.event_descriptions.value }}" ></textarea>
         <label for="event-url">Link to event or organizaiton page:</label>
-        <input type="text" id="event-url" class="input-standard" name="event_url" />
+        <input type="text" id="event-url" class="input-standard" name="event_url" value="{{ form.event_url.value }}" />
     </span>
     <span class="group">
         <label class="h3">Guest list</label>
         <label for="rsvp-limit">How many people may RSVP?</label>
         <span class="form-details">The number you enter below will limit how many Gallevent Members can RSVP to this event. Leave this blank if there is no limit.</span>
-        <input type="text" id="rsvp-limit" class="input-standard" name="rsvp_limit" /><em class="form-comment">000 Gallevent Members can RSVP to this event.</em>
+        <input type="text" id="rsvp-limit" class="input-standard" name="rsvp_limit" value="{{ form.rsvp_limit.value }}" /><em class="form-comment">000 Gallevent Members can RSVP to this event.</em>
     </span>
     <span class="group">
         <label class="h3">Do guests need to purchase tickets?</label>
-        <input class="radio" type="radio" name="purchase_tickets" value="no" /> No<br />
-        <input class="radio" type="radio" name="purchase_tickets" value="yes" /> Yes		
+        <input class="radio" type="radio" name="purchase_tickets" value="no" {% if not form.purchase_tickets.value %}checked{% endif %} /> No<br />
+        <input class="radio" type="radio" name="purchase_tickets" value="yes" {% if form.purchase_tickets.value %}checked{% endif %} /> Yes		
         <label for="ticket-price">Ticket price:</label>
-        <input type="text" id="ticket-price" class="input-standard" name="ticket_price" /><em class="form-comment">Your event is free!</em>
+        <input type="text" id="ticket-price" class="input-standard" name="ticket_price" value="{{ form.ticket_price.value }}" /><em class="form-comment">Your event is free!</em>
         <label for="ticket-link">Link to get tickets:</label>
-        <input type="text" id="ticket-link" class="input-standard" name="ticket_url" />
+        <input type="text" id="ticket-link" class="input-standard" name="ticket_url" value="{{ form.ticket_url.value }}" />
     </span>
     <input class="btn-s-post-event" type="submit" value="Post Event">
 </form>
