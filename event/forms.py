@@ -25,7 +25,7 @@ class PostEventForm(forms.Form):
     ticket_price = forms.DecimalField(decimal_places=2)
     ticket_url = forms.URLField()
     
-    def save(self, commit=True):
+    def save(self, user, commit=True):
         address1 = self.cleaned_data['address1']
         address2 = self.cleaned_data['address2']
         city = self.cleaned_data['city']
@@ -56,6 +56,7 @@ class PostEventForm(forms.Form):
                             description=event_description, event_url=event_url, 
                             rsvp_limit=rsvp_limit, 
                             purchase_tickets=purchase_tickets,
-                            ticket_price=ticket_price, ticket_url=ticket_url)
+                            ticket_price=ticket_price, ticket_url=ticket_url,
+                            user_id=user.id)
         event.save()
         
