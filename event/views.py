@@ -12,9 +12,12 @@ def post_event(request):
         logging.debug('created a form')
         
         if form.is_valid():
-            
             logging.debug('form is valid')
-            form.save()
+            form.save(request.user)
+            
+            return render_to_response('your-posts.html', {
+            'selected_page': 'your-posts'
+            }, context_instance=RequestContext(request))
         else:
             logging.debug(form.errors)
     else:
@@ -31,6 +34,7 @@ def edit_event(request):
     }, context_instance=RequestContext(request))
 
 def show_events(request):
+
     return render_to_response('your-posts.html', {
     'selected_page': 'your-posts'
     }, context_instance=RequestContext(request))
