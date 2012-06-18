@@ -17,9 +17,12 @@ def post_event(request):
             form.save()
         else:
             logging.debug(form.errors)
+    else:
+        form = forms.PostEventForm()
 
     return render_to_response('post-event.html', {
-    'edit': False
+    'edit': False,
+    'form': form,
     }, context_instance=RequestContext(request))
 
 def edit_event(request):

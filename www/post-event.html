@@ -20,6 +20,7 @@
         <label for="address2">Address Line 2:</label>
         <input type="text" id="address2" class="input-standard auto-hint" name="address2" title="Suite 201" />
         <label for="city" class="required">City:</label>
+        {{ form.city.errors }}
         <input type="text" id="city" class="input-standard" name="city" />
         <label for="zip-code">Zip Code:</label>
         <input type="text" id="zip-code" class="input-standard" name="zipcode" />
