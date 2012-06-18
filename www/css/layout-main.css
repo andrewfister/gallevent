@@ -458,10 +458,13 @@ form#top-search #date2 {
 
 /* = Forms
 ----------------------------------- */
+.auto-hint { /* Form hints (the text that appears in the form fields as an example and disappears when you click the field) */
+	color:#888;
+	font-style:italic;
+	}
 form {
 	float:left;
 	}
-
 input.search {
 	border:2px solid #239ea2; /* Networking Blue */
 	width:40%;
@@ -471,9 +474,11 @@ input.search {
 	border:2px solid #f9882b;
 	background:#fefbe3;
 	}
-.input-active {
+input:focus,
+textarea:focus {
 	border:2px solid #85c440;
 	background:#f0f8e8;
+	outline: none;
 	}
 .input-standard {
 	border:2px solid #239ea2;

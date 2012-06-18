@@ -1,0 +1,40 @@
+{% extends "base-profile.html" %}
+
+{% block selected_page %}your-profile{% endblock %}
+
+{% block active_tab_content_width %}full{% endblock %}
+
+{% block active_tab_content %}
+<ul id="side-page-links">
+	<li><a href="#" class="active">Profile</a></li>
+    <li><a href="#">Event Preferences</a></li>
+</ul>
+<div class="col">
+	<h2>Your Public Profile</h2>
+	<p>What do you want other Gallevent members to know about you?</p>
+    <div class="profile-pic">
+    	<img class="profile-pic" src="/static/img/profile-pic-jessica.jpg" />
+    </div><!-- .photo-col -->
+    <div class="person-summary">
+    	<form id="your-profile">
+        	<label class="required">First Name:</label>
+        	<input type="text" class="input-required" />
+            <label class="required">Last Name:</label>
+            <span class="form-details">Only the first letter of your last name will be shown on your profile.</span>
+            <input type="text" class="input-required" />
+            <label>City:</label>
+            <span class="form-details">What city do you call home?</span>
+            <input type="text" class="input-standard" />
+            <label>Description:</label>
+            <span class="form-details">Tell Gallevent members about yourself in 1000 characters or less.</span>
+            <textarea class="input-standard"></textarea>
+            <label>Twitter:</label>
+            <input type="text" class="input-standard" />
+            <label>URL:</label>
+            <span class="form-details">You can include a link to your own website here.</span>
+            <input type="text" class="input-standard" />
+            <input type="submit" class="btn-submit" value="Submit" />
+        </form>
+    </div>
+</div><!-- .col -->
+{% endblock active_tab_content %}
