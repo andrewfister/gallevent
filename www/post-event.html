@@ -55,7 +55,7 @@
         <label for="event-name" class="required">Name your event:</label>
         <input type="text" id="event-name" class="input-standard" name="event_name" value="{{ form.event_name.value }}" />
         <label for="event-description" class="required">Describe your event:</label>
-        <textarea id="event-description" class="input-standard" name="event_description" value="{{ form.event_descriptions.value }}" ></textarea>
+        <textarea id="event-description" class="input-standard" name="event_description" >{{ form.event_descriptions.value }}</textarea>
         <label for="event-url">Link to event or organizaiton page:</label>
         <input type="text" id="event-url" class="input-standard" name="event_url" value="{{ form.event_url.value }}" />
     </span>

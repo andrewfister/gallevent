@@ -12,12 +12,10 @@ def post_event(request):
         logging.debug('created a form')
         
         if form.is_valid():
-            logging.debug('form is valid')
+            logging.debug('form is valid. the user is: ' + request.user.id)
             form.save(request.user)
             
-            return render_to_response('your-posts.html', {
-            'selected_page': 'your-posts'
-            }, context_instance=RequestContext(request))
+            return HttpResponseRedirect('/event/show')
         else:
             logging.debug(form.errors)
     else:
@@ -34,9 +32,11 @@ def edit_event(request):
     }, context_instance=RequestContext(request))
 
 def show_events(request):
+    events = models.Event.objects.filter(user_id=request.user.id)
 
     return render_to_response('your-posts.html', {
-    'selected_page': 'your-posts'
+    'selected_page': 'your-posts',
+    'events': events,
     }, context_instance=RequestContext(request))
 
 def show_lineup(request):

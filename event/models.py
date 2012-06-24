@@ -16,4 +16,4 @@ class Event(models.Model):
     purchase_tickets = models.BooleanField()
     ticket_price = models.DecimalField(decimal_places=2, max_digits=10)
     ticket_url = models.URLField()
-    user_id = models.IntegerField(max_digits=11)
+    user_id = models.IntegerField()
