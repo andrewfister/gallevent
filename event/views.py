@@ -1,5 +1,8 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.http import HttpResponseRedirect
+
+from djangbone.views import BackboneAPIView
 
 from gallevent.event import forms
 from gallevent.event import models
@@ -12,7 +15,7 @@ def post_event(request):
         logging.debug('created a form')
         
         if form.is_valid():
-            logging.debug('form is valid. the user is: ' + request.user.id)
+            logging.debug('form is valid. the user is: ' + str(request.user.id))
             form.save(request.user)
             
             return HttpResponseRedirect('/event/show')

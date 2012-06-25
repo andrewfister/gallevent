@@ -8,22 +8,31 @@ from gallevent.event import models
 
 class PostEventForm(forms.Form):
     address1 = forms.CharField(max_length=255, initial="")
-    address2 = forms.CharField(max_length=64, initial="")
+    address2 = forms.CharField(max_length=64, required=False, initial="")
     city = forms.CharField(max_length=64, initial="")
     zipcode = forms.CharField(max_length=16, initial="")
     event_category = forms.CharField(max_length=64, initial="")
-    event_keywords = forms.CharField(max_length=255, initial="")
+    event_keywords = forms.CharField(max_length=255, required=False, initial="")
     start_date = forms.DateField(initial="")
     start_time = forms.TimeField(initial="")
     end_date = forms.DateField(initial="")
     end_time = forms.TimeField(initial="")
     event_name = forms.CharField(max_length=64, initial="")
     event_description = forms.CharField(max_length=255, initial="")
-    event_url = forms.URLField(initial="")
-    rsvp_limit = forms.IntegerField(initial="")
-    purchase_tickets = forms.BooleanField(initial="")
-    ticket_price = forms.DecimalField(decimal_places=2, initial="")
-    ticket_url = forms.URLField(initial="")
+    event_url = forms.URLField(required=False, initial="")
+    rsvp_limit = forms.IntegerField(required=False, initial="")
+    purchase_tickets = forms.BooleanField(initial=False)
+    ticket_price = forms.DecimalField(required=False, decimal_places=2, initial="")
+    ticket_url = forms.URLField(required=False, initial="")
+    
+    def clean_purchase_tickets(self):
+        return self.cleaned_data['purchase_tickets'] == "yes"
+    
+    def clean_ticket_price(self):
+        return self.cleaned_data['ticket_price'] or 0
+    
+    def clean_rsvp_limit(self):
+        return self.cleaned_data['rsvp_limit'] or 0
     
     def save(self, user, commit=True):
         address1 = self.cleaned_data['address1']
