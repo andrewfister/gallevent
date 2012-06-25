@@ -1,7 +1,7 @@
 from django.db import models
 
 class Event(models.Model):
-    address1 = models.CharField(max_length=255)
+    address1 = models.CharField(max_length=1000)
     address2 = models.CharField(max_length=64)
     city = models.CharField(max_length=64)
     zipcode = models.CharField(max_length=16)

@@ -18,7 +18,7 @@ class PostEventForm(forms.Form):
     end_date = forms.DateField(initial="")
     end_time = forms.TimeField(initial="")
     event_name = forms.CharField(max_length=64, initial="")
-    event_description = forms.CharField(max_length=255, initial="")
+    event_description = forms.CharField(max_length=1000, initial="")
     event_url = forms.URLField(required=False, initial="")
     rsvp_limit = forms.IntegerField(required=False, initial="")
     purchase_tickets = forms.BooleanField(initial=False)

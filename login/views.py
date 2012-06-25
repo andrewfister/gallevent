@@ -19,6 +19,26 @@ def invite_code(request):
         if form.is_valid():
             logging.debug('register form is valid')
             form.save()
+            query_email = form.cleaned_data['email']
+            query_password = form.cleaned_data['password']
+            user = authenticate(username=query_email, password=query_password)
+            logging.debug('email: ' + query_email)
+            logging.debug('password: ' + query_password)
+        
+            if user is not None:
+                if user.is_active:
+                    logging.debug('logging in')
+                    login(request, user)
+                    
+                    return HttpResponseRedirect('/') # Redirect after POST
+                else:
+                    logging.debug('disabled account')
+                    print 'disabled account'
+            else:
+                logging.debug('invalid login')
+                print 'invalid login'
+            
+            return HttpResponseRedirect('/event/show/')
         
         email = request.POST['email']
         invite_code = request.POST['invite_code']
