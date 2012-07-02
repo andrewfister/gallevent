@@ -84,6 +84,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 ROOT_URLCONF = 'gallevent.urls'
 
 TEMPLATE_DIRS = local_settings.TEMPLATE_DIRS_LOCAL
+MUSTACHEJS_DIRS = local_settings.JSTEMPLATE_DIRS_LOCAL
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -91,6 +92,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
+    'mustachejs',
     'gallevent.map',
     'gallevent.login',
     'gallevent.event',
