@@ -25,10 +25,15 @@ html, body {
 	
 #map_canvas {
 	height:100%;
-	width:63%;
+	width:60%;
+	/* width:63%; */
 	float:right;
 	position:relative;
 	z-index:100;
+	}
+
+.your-post-event #map_canvas { /* Made map less wide on Post Event form page */
+	width:50%;
 	}
 
 /* = Header */
@@ -55,7 +60,8 @@ html, body {
 /* = Side Content */
 #side-content {
 	background:#fff;
-	width:35%;
+	width:38%;
+	/* width:35%; */
 	height:100%;
 	float:left;
 	z-index:888;
@@ -64,8 +70,12 @@ html, body {
 	overflow-y:scroll;
 	}
 
+.your-post-event #side-content {  /* Made side content wider on Post Event form page */
+	width:48%;
+	}
+
 #post-event {  /* Form container on Post Event Page */
-	width:85%;
+	width:88%;
 	}
 #your-posts, /* Form container on Your Post Page */
 #your-profile {  /* Form container on Your Profile Page */
