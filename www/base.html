@@ -13,18 +13,6 @@
 
 <script type="text/javascript" src="/static/js/jquery-1.7.2.js"></script>
 <script type="text/javascript" src="/static/js/jquery.watermark.js"></script>
-<script type="text/javascript" language="javascript">
-<!--
-$(function(){  // on page load
-	$("input[type='text']").each(function(index, input) {  // Find each input tag
-	    input = $(input);              // each gives you a raw HTML element; wrap it back in input
-	    if (input.attr('title')) { // if that element has a watermark attribute
-		    input.watermark(input.attr('title')); // Use that attribute as the watermark
-		}
-	});
-});
-//-->
-</script>
 {% block javascript %}{% endblock javascript %}
 
 </head>
