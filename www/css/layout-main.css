@@ -465,6 +465,28 @@ form#top-search #date2 {
 form {
 	float:left;
 	}
+
+fieldset {
+	border:2px solid #e9eaea;
+	padding:1em 1em 1.5em 1.5em;
+	margin-bottom:1.5em;
+	display:block;
+	float:left;
+	clear:left;
+	width:100%;
+	}
+
+legend {
+	background:#239ea2;
+	color:#fff;
+	display:block;
+	font-size:130%;
+	padding:0.7em 5% 0.7em 15%;
+	margin:0 0 0 -15%;
+	font-weight:bold;
+	clear:both;
+	}	
+
 input.search {
 	border:2px solid #239ea2; /* Networking Blue */
 	width:40%;
@@ -496,14 +518,6 @@ textarea:focus {
 	color:#f9882b;
 	}
 
-form .group {
-	margin-bottom:1em;
-	display:block;
-	float:left;
-	clear:left;
-	width:100%;
-	}
-
 form .radio {
 	width:20px;
 	background:#ff0;
@@ -524,7 +538,7 @@ form input,
 form textarea,
 form select#event-category {
 	font-size:110%;
-	width:100%;
+	width:70%;
 	padding:.5em;
 	margin-bottom:0.99em;
 	}
@@ -533,12 +547,64 @@ form textarea {
 	}
 form select#event-category {
 	padding:0 0 0 .5em;
+	line-height:2em;
+	height:2.5em;
+	}
+
+/* = Select Categories Dropdown */
+#select-fairs,
+#select-networking,
+#select-education,
+#select-athletic,
+#select-art,
+#select-dancing,
+#select-sales,
+#select-dining,
+#select-parties,
+#select-jobs {
+	height:2em;
+	padding:5px 5px 0 40px;
+	}
+
+#select-fairs {
+	background:url(../img/pin-key-art.png) top left no-repeat;
+	}
+#select-networking {
+	background:url(../img/pin-key-networking.png) top left no-repeat;
+	}
+#select-education {
+	background:url(../img/pin-key-education.png) top left no-repeat;
+	}
+#select-athletic {
+	background:url(../img/pin-key-athletic.png) top left no-repeat;
+	}
+#select-art {
+	background:url(../img/pin-key-art.png) top left no-repeat;
+	}
+#select-dancing {
+	background:url(../img/pin-key-dancing.png) top left no-repeat;
+	}
+#select-sales {
+	background:url(../img/pin-key-sales.png) top left no-repeat;
+	}
+#select-dining {
+	background:url(../img/pin-key-dining.png) top left no-repeat;
+	}
+#select-parties {
+	background:url(../img/pin-key-parties.png) top left no-repeat;
+	}
+#select-jobs {
+	background:url(../img/pin-key-jobs.png) top left no-repeat;
+	}
+
+form input#city {
+	width:40%;
 	}
 
 form input#zip-code,
 form input#ticket-price,
 form input#rsvp-limit {
-	width:30%;
+	width:20%;
 	margin-right:15px;
 	}
 
@@ -546,7 +612,7 @@ form input#start-date,
 form input#start-time,
 form input#end-date,
 form input#end-time {
-	width:30%;
+	width:20%;
 	}
 	
 .sort label {
@@ -774,52 +840,6 @@ ul.form-people-list .person-summary {
 	}
 .person-summary .description {
 	font-size:90%;
-	}
-
-/* = Select Categories Dropdown */
-#select-fairs,
-#select-networking,
-#select-education,
-#select-athletic,
-#select-art,
-#select-dancing,
-#select-sales,
-#select-dining,
-#select-parties,
-#select-jobs {
-	height:36px;
-	padding:5px 5px 0 40px;
-	}
-
-#select-fairs {
-	background:url(../img/pin-key-art.png) top left no-repeat;
-	}
-#select-networking {
-	background:url(../img/pin-key-networking.png) top left no-repeat;
-	}
-#select-education {
-	background:url(../img/pin-key-education.png) top left no-repeat;
-	}
-#select-athletic {
-	background:url(../img/pin-key-athletic.png) top left no-repeat;
-	}
-#select-art {
-	background:url(../img/pin-key-art.png) top left no-repeat;
-	}
-#select-dancing {
-	background:url(../img/pin-key-dancing.png) top left no-repeat;
-	}
-#select-sales {
-	background:url(../img/pin-key-sales.png) top left no-repeat;
-	}
-#select-dining {
-	background:url(../img/pin-key-dining.png) top left no-repeat;
-	}
-#select-parties {
-	background:url(../img/pin-key-parties.png) top left no-repeat;
-	}
-#select-jobs {
-	background:url(../img/pin-key-jobs.png) top left no-repeat;
 	}
 
 /* = Select Categories Checkboxes - Used on: Your Profile */
@@ -1227,6 +1247,12 @@ input.btn-s-post-event:hover {
 
 .your-posts-mng #active-tab-content .date-time {
 	color:#239ea2;
+	}
+
+/* = Special Classes
+----------------------------------------------------------------------*/
+.hidden {
+	display:none;
 	}
 
 /* = Media Queries
