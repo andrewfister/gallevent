@@ -43,16 +43,19 @@ function initialize() {
 	    bounds: defaultBounds,
 	    types: ['establishment']
     };
+    
+    var infoWindows = $('#map-info').children();
+    $.each(infoWindows, function() {
+        codeAddress($("#" + this.id + " .address").text(), this.innerHTML);
+    });
 }
 
-function codeAddress(txt_event) {
-   
-    var address = txt_event.value;
+function codeAddress(address, infoWindow) {
 
     var image = '/static/img/pin-map-dining.png';
 
     var infowindow = new google.maps.InfoWindow({
-        content: contentString
+        content: infoWindow
     });
 
     geocoder.geocode( { 'address': address}, function(results, status) {

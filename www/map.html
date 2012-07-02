@@ -1,17 +1,19 @@
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
 <script type="text/javascript" src="/static/js/map.js"></script>
 
+<div id="map-info">
 {% for event in events %}
-        <div class="map-popup" style="visibility:hidden">
-	    <div class="event-name cb-networking"><a href="#">{{ event.name }}</a></div>
-        <div class="price">Price: <strong>{{ event.ticket_price }}</strong></div>
-	    <div class="date-time">{{ event.start_date }}, {{ event.start_time }} to {{ event.end_date }}, {{ event.end_time }}</div>
-	    <div class="description">{{ event.description }}<a href="#">More &raquo;</a></div>
-	    <div class="address">{{ event.address1 }} {{ event.address2 }} {{ event.zipcode }}</div>
-	    <div class="btns"><span class="btn-rsvp"><span>RSVP</span></span><span class="btn-watch"><span>Watch</span></span></div>
-	    <div class="mod-event"><a href="#">Is this your event?</a><a href="#" class="warning">Report this event</a></div>
-        </div>
+    <div class="map-popup hidden" id="map-popup-{{ event.id }}">
+    <div class="event-name cb-networking"><a href="#">{{ event.name }}</a></div>
+    <div class="price">Price: <strong>{{ event.ticket_price }}</strong></div>
+    <div class="date-time">{{ event.start_date }}, {{ event.start_time }} to {{ event.end_date }}, {{ event.end_time }}</div>
+    <div class="description">{{ event.description }}<a href="#">More &raquo;</a></div>
+    <div class="address">{{ event.address1 }} {{ event.address2 }} {{ event.zipcode }}</div>
+    <div class="btns"><span class="btn-rsvp"><span>RSVP</span></span><span class="btn-watch"><span>Watch</span></span></div>
+    <div class="mod-event"><a href="#">Is this your event?</a><a href="#" class="warning">Report this event</a></div>
+    </div>
 {% endfor %}
+</div>
 
 <div id="map-box">
     <div id="map_canvas" ></div>
