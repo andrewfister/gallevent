@@ -6,7 +6,5 @@ register = template.Library()
 
 @register.inclusion_tag("map.html")
 def show_map():
-    events = models.Event.objects.all()
-
-    return {'events': events}
+    return {}
 

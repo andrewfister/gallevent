@@ -1,6 +1,8 @@
 from django.conf.urls.defaults import *
 from django.views.generic.simple import direct_to_template
 
+from gallevent.event.views import EventView
+
 urlpatterns = patterns('gallevent.event.views',
     (r'^post/$', 'post_event'),
     (r'^edit/$', 'edit_event'),
@@ -11,4 +13,7 @@ urlpatterns = patterns('gallevent.event.views',
     (r'^manage/rsvps$', direct_to_template, {'template': 'your-posts-manage-rsvps.html'}),
     (r'^manage/followers$', direct_to_template, {'template': 'your-posts-manage-followers.html'}),
     (r'^manage/invitations$', direct_to_template, {'template': 'your-posts-manage-invitations.html'}),
+    
+    url(r'^$', EventView.as_view()),
+    url(r'^/(?P<id>\d+)', EventView.as_view()),
 )
