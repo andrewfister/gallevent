@@ -35,6 +35,8 @@ var MapView = Backbone.View.extend({
                     var address = item.attributes.address1 + ' ' + item.attributes.address2 + ', ' + item.attributes.city + ' ' + item.attributes.zipcode;
                     this.codeAddress(address, this.template(item.toJSON()), map, geocoder);
                 }, this);
+                
+                google.maps.event.clearListeners(map, 'tilesloaded');
             }.bind(this));
         }.bind(this));
         
