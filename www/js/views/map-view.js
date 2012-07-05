@@ -1,7 +1,7 @@
 var MapView = Backbone.View.extend({
     id: "map-canvas",
     
-    template: Mustache.template('map').render,
+    template: Mustache.template('marker').render,
     
     render: function() {
         google.maps.event.addDomListener(window, 'load', function() {
@@ -19,17 +19,6 @@ var MapView = Backbone.View.extend({
             map = new google.maps.Map($("#map_canvas").get(0),
                 myOptions);
 
-
-            /*var input = document.getElementById("event");
-            if (input==null) alert('error');
-            var defaultBounds = new google.maps.LatLngBounds(
-		            new google.maps.LatLng(36.8902, -123.1759),
-		            new google.maps.LatLng(39.8474, -121.2631));
-
-            var autoopts = {
-	            bounds: defaultBounds,
-	            types: ['establishment']
-            };*/
             google.maps.event.addListener(map, 'tilesloaded', function() {
                 _.each(this.collection.models, function(item, index, items) {
                     var address = item.attributes.address1 + ' ' + item.attributes.address2 + ', ' + item.attributes.city + ' ' + item.attributes.zipcode;
@@ -63,21 +52,11 @@ var MapView = Backbone.View.extend({
                     animation: google.maps.Animation.DROP
                 });
 
-            /*	google.maps.event.addListener(marker, 'click', function(){
-
-            if (marker.getAnimation() != null) {
-                marker.setAnimation(null);
-              } else {
-                marker.setAnimation(google.maps.Animation.BOUNCE);
-              }
-
-            }); */
-
-            google.maps.event.addListener(marker, 'click', function() {
-                infowindow.close();  
-                infowindow.open(map,marker);
-                last_marker = marker;
-            });
+                google.maps.event.addListener(marker, 'click', function() {
+                    infowindow.close();
+                    infowindow.open(map,marker);
+                    last_marker = marker;
+                });
 
             } else {
                 alert("Geocode was not successful for the following reason: " + status); 
