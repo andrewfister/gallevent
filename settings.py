@@ -84,7 +84,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 ROOT_URLCONF = 'gallevent.urls'
 
 TEMPLATE_DIRS = local_settings.TEMPLATE_DIRS_LOCAL
-MUSTACHEJS_DIRS = local_settings.JSTEMPLATE_DIRS_LOCAL
+
+from mustachejs import conf
+conf.conf.MUSTACHEJS_DIRS = local_settings.JSTEMPLATE_DIRS_LOCAL
+conf.conf.MUSTACHEJS_APP_DIRNAMES = []
 
 INSTALLED_APPS = (
     'django.contrib.auth',

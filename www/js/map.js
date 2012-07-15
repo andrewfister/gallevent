@@ -1,25 +1,9 @@
-/*-------------- START INFO WINDOW HTML ---------*/
-
-var contentString = '<div class="map-popup">'+
-	'<div class="event-name cb-networking"><a href="#">2nd Annual Bay Area Brew Festival</a></div>'+
-    '<div class="price">Price: <strong>$50</strong></div>'+
-	'<div class="date-time">Saturday, March 3, 1:00 pm to 5:00 pm</div>'+
-	'<div class="description">The 2nd Annual Bay Area Brew Festival follows promises to be even bigger and better... <a href="#">More &raquo;</a></div>'+
-	'<div class="address">Marina Blvd, San Francisco, CA 94123</div>'+
-	'<div class="btns"><span class="btn-rsvp"><span>RSVP</span></span><span class="btn-watch"><span>Watch</span></span></div>'+
-	'<div class="mod-event"><a href="#">Is this your event?</a><a href="#" class="warning">Report this event</a></div>'+
-    '</div>';
-
-/*---------------------- END INFO WINDOW HTML -------------*/
-
-
-
 var map;
 var geocoder;
 
 var last_marker = null;
-  
-    
+
+
 function initialize() {
     geocoder = new google.maps.Geocoder();
 
@@ -91,5 +75,5 @@ function codeAddress(address, infoWindow) {
         }
     });
 }
-	 
+
 google.maps.event.addDomListener(window, 'load', initialize);

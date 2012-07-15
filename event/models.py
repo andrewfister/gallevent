@@ -1,7 +1,6 @@
 from django.db import models
 
 class Event(models.Model):
-    id = models.IntegerField()
     address1 = models.CharField(max_length=1000)
     address2 = models.CharField(max_length=64)
     city = models.CharField(max_length=64)
@@ -18,3 +17,5 @@ class Event(models.Model):
     ticket_price = models.DecimalField(decimal_places=2, max_digits=10)
     ticket_url = models.URLField()
     user_id = models.IntegerField()
+    longitude = models.FloatField()
+    latitude = models.FloatField()
