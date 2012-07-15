@@ -2,30 +2,13 @@
 {% load map_tags %}
 
 {% block javascript %}
+<script type="text/javascript" src="/static/js/views/post-event-view.js"></script>
 <script type="text/javascript" language="javascript">
 $(function(){  // on page load
-    // Watermark all input tags:
-	$("input[type='text']").each(function(index, input) {  // Find each input tag
-	    input = $(input);              // each gives you a raw HTML element; wrap it back in input
-	    if (input.attr('title')) { // if that element has a watermark attribute
-		    input.watermark(input.attr('title')); // Use that attribute as the watermark
-		}
-	});
-	
-	// Make formOptional divs expand & collapse:
-	$(".formOptional").hide();
-	$(".formOptional").each(function(index, elem) {
-		var visible = false;
-		$(elem).siblings(".formOptionalToggle").change(function(event) {
-			var content = $(event.target).siblings(".formOptional");
-			if (visible) {
-				content.slideUp();
-			} else {
-				content.slideDown();
-			}
-			visible = !visible;
-		});
-	});
+    var postEventView = new PostEventView({
+        id: 'post-event',
+    });
+    postEventView.render();
 });
 </script>
 {% endblock javascript %}
