@@ -17,3 +17,5 @@ class Event(models.Model):
     ticket_price = models.DecimalField(decimal_places=2, max_digits=10)
     ticket_url = models.URLField()
     user_id = models.IntegerField()
+    longitude = models.FloatField()
+    latitude = models.FloatField()
