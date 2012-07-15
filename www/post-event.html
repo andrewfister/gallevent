@@ -4,14 +4,29 @@
 {% block javascript %}
 <script type="text/javascript" language="javascript">
 $(function(){  // on page load
+    // Watermark all input tags:
 	$("input[type='text']").each(function(index, input) {  // Find each input tag
 	    input = $(input);              // each gives you a raw HTML element; wrap it back in input
 	    if (input.attr('title')) { // if that element has a watermark attribute
 		    input.watermark(input.attr('title')); // Use that attribute as the watermark
 		}
 	});
+	
+	// Make formOptional divs expand & collapse:
+	$(".formOptional").hide();
+	$(".formOptional").each(function(index, elem) {
+		var visible = false;
+		$(elem).siblings(".formOptionalToggle").change(function(event) {
+			var content = $(event.target).siblings(".formOptional");
+			if (visible) {
+				content.slideUp();
+			} else {
+				content.slideDown();
+			}
+			visible = !visible;
+		});
+	});
 });
-</script>
 </script>
 {% endblock javascript %}
 
@@ -82,13 +97,16 @@ $(function(){  // on page load
     </fieldset>
     <fieldset>
     	<legend>Ticketing</legend>
-        <label>Do guests need to purchase tickets?</label>
-        <input class="radio" type="radio" name="purchase_tickets" value="no" {% if not form.purchase_tickets.value %}checked{% endif %} /> No<br />
-        <input class="radio" type="radio" name="purchase_tickets" value="yes" {% if form.purchase_tickets.value %}checked{% endif %} /> Yes		
-        <label for="ticket-price">Ticket price:</label>
-        <input type="text" id="ticket-price" class="input-standard" name="ticket_price" placeholder="$0.00" value="{{ form.ticket_price.value }}" /><em class="form-comment">Your event is free!</em>
-        <label for="ticket-link">Link to get tickets:</label>
-        <input type="text" id="ticket-link" class="input-standard" name="ticket_url" placeholder="www.gallevent.com" value="{{ form.ticket_url.value }}" />
+        <label>Do guests need tickets to attend your event?</label>
+        <span class="radio-btn-1"><input class="radio formOptionalToggle" type="radio" name="purchase_tickets" value="no" {% if not form.purchase_tickets.value %}checked{% endif %} /> No</span>
+        <span class="radio-btn-2"><input class="radio formOptionalToggle" type="radio" name="purchase_tickets" value="yes" {% if form.purchase_tickets.value %}checked{% endif %} /> Yes</span>
+
+        <div class='formOptional'>
+            <label for="ticket-price">Ticket price:</label>
+            <input type="text" id="ticket-price" class="input-standard" name="ticket_price" placeholder="$0.00" value="{{ form.ticket_price.value }}" /><em class="form-comment">Your event is free!</em>
+            <label for="ticket-link">Link to get tickets:</label>
+            <input type="text" id="ticket-link" class="input-standard" name="ticket_url" placeholder="www.gallevent.com" value="{{ form.ticket_url.value }}" />
+        </div>
     </fieldset>
     <input class="btn-s-post-event" type="submit" value="Post Event">
 </form>

@@ -503,8 +503,8 @@ textarea:focus {
 	outline: none;
 	}
 .input-standard {
-	border:2px solid #239ea2;
-	background:#e4f3f4;
+	border:2px solid #59BDBF;
+	background:#F4F7F7;
 	}
 
 .form-details {
@@ -521,6 +521,22 @@ textarea:focus {
 form .radio {
 	width:20px;
 	background:#ff0;
+	}
+
+form .radio-btn-1 {
+	background:#e0f4f4;
+	display:block;
+	width:40%;
+	padding:.5em;
+	float:left;
+	}
+
+form .radio-btn-2 {
+	background:#ecf9e8;
+	display:block;
+	width:40%;
+	padding:.5em;
+	float:right;
 	}
 
 form label {
