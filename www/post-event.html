@@ -19,14 +19,17 @@ $(function(){  // on page load
 
 {% block active_tab_content %}
 {% if edit %}
+<div class="hidden">
+	<img src="img/btn-s-post-event-h.png" alt="Post Event Button Hover" />
+</div><!-- .hidden -->
 <h2><a href="{% url gallevent.event.views.show_events %}">Your Posts</a>: Edit Your Event</h2>
 {% else %}
 <h2>Post Your Event on Gallevent</h2>
-<p><em class="form-comment">Required fields are in <b>orange</b></em>.</p>
+<p><em class="form-comment">Required items are in <b>orange</b>.</em></p>
 {% endif %}
 <form id="post-event" method='post'>
     <fieldset>
-    	<legend>Where will your event be?</legend>
+    	<legend>1. Where will your event be?</legend>
         <label for="address1" class="required">Address Line 1:</label>
         <input type="text" id="address1" class="input-standard" name="address1" placeholder="123 Your Street" value="{{ form.address1.value }}" />
         <label for="address2">Address Line 2:</label>
@@ -34,11 +37,11 @@ $(function(){  // on page load
         <label for="city" class="required">City:</label>
         {{ form.city.errors }}
         <input type="text" id="city" class="input-standard" name="city" placeholder="San Francisco" value="{{ form.city.value }}" />
-        <label for="zip-code">Zip Code:</label>
+        <label for="zip-code" class="required">Zip Code:</label>
         <input type="text" id="zip-code" class="input-standard" name="zipcode" placeholder="94114" value="{{ form.zipcode.value }}" />
     </fieldset>
     <fieldset>
-        <legend>What type of event is this?</legend>
+        <legend>2. What type of event is this?</legend>
         <label for="event-category">Select an Event Category:</label>
         <select id="event-category" class="input-standard" name="event_category" value="{{ form.event_category.value }}" >
             <option value="fairs" id="select-fairs">Festivals &amp; Fairs</option>
@@ -57,29 +60,38 @@ $(function(){  // on page load
         <input type="text" id="event-keywords" class="input-standard" name="event_keywords" placeholder="Art, Live Music, Dancing" value="{{ form.event_keywords.value }}" />
     </fieldset>
     <fieldset>
-    	<legend>What is your event all about?</legend>
+    	<legend>3. What is your event all about?</legend>
         <label for="event-name" class="required">Name your event:</label>
         <input type="text" id="event-name" class="input-standard" name="event_name" placeholder="The Best Event Ever" value="{{ form.event_name.value }}" />
         <label for="event-description" class="required">Describe your event:</label>
         <textarea id="event-description" class="input-standard" name="event_description" placeholder="Don't miss out on this year's Best Event Ever! We'll have it all..." >{{ form.event_descriptions.value }}</textarea>
-        <label for="event-url">Link to event or organizaiton page:</label>
+        <label for="event-url">Link to event page:</label>
         <input type="text" id="event-url" class="input-standard" name="event_url" placeholder="www.gallevent.com" value="{{ form.event_url.value }}" />
     </fieldset>
     <fieldset>
-        <legend>When will your event happen?</legend>
+    	<legend>4. Event organizer</legend>
+        <label for="organizer-email" class="required">Email:</label>
+        <input type="text" id="organizer-email" class="input-standard" name="organizer-email" placeholder="Event_Organizer@gmail.com" value="{{ form.event_name.value }}" />
+        <label for="organizer-phone" class="required">Phone number:</label>
+        <input type="text" id="organizer-phone" class="input-standard" name="organizer-phone" placeholder="123-456-7890" value="{{ form.event_name.value }}" />
+        <label for="organizer-url">Link to organizer's page:</label>
+        <input type="text" id="organizer-url" class="input-standard" name="organizer_url" placeholder="www.gallevent.com" value="{{ form.event_url.value }}" />
+    </fieldset>
+    <fieldset>
+        <legend>5. When will your event happen?</legend>
         <label for="start-date" class="required">Start Date &amp; Time:</label>
         <input type="text" id="start-date" class="input-standard" name="start_date"  placeholder="6/20/2012" value="{{ form.start_date.value }}" /> at <input type="text" id="start-time" class="input-standard" name="start_time" placeholder="3:00 PM" value="{{ form.start_time.value }}" />
         <label for="end-date" class="required">End Date &amp; Time:</label>
         <input type="text" id="end-date" class="input-standard" name="end_date" placeholder="6/20/2012" value="{{ form.end_date.value }}" /> at <input type="text" id="end-time" class="input-standard" name="end_time" placeholder="9:00 PM" value="{{ form.end_time.value }}" />
     </fieldset>
     <fieldset>
-        <legend>Guest list</legend>
+        <legend>6. Guest list</legend>
         <label for="rsvp-limit">How many people may RSVP?</label>
         <span class="form-details">The number you enter below will limit how many Gallevent Members can RSVP to this event. Leave this blank if there is no limit.</span>
-        <input type="text" id="rsvp-limit" class="input-standard" name="rsvp_limit" value="{{ form.rsvp_limit.value }}" /><em class="form-comment">000 Gallevent Members can RSVP to this event.</em>
+        <input type="text" id="rsvp-limit" class="input-standard" name="rsvp_limit" value="{{ form.rsvp_limit.value }}" /><em class="form-comment">0 Gallevent Members may RSVP to this event.</em>
     </fieldset>
     <fieldset>
-    	<legend>Ticketing</legend>
+    	<legend>7. Ticketing</legend>
         <label>Do guests need tickets to attend your event?</label>
         <span class="radio-btn-1"><input class="radio formOptionalToggle" type="radio" name="purchase_tickets" value="no" {% if not form.purchase_tickets.value %}checked{% endif %} /> No</span>
         <span class="radio-btn-2"><input class="radio formOptionalToggle" type="radio" name="purchase_tickets" value="yes" {% if form.purchase_tickets.value %}checked{% endif %} /> Yes</span>
