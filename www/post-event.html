@@ -43,18 +43,6 @@ $(function(){  // on page load
 {% endif %}
 <form id="post-event" method='post'>
     <fieldset>
-    	<legend>Where will your event be?</legend>
-        <label for="address1" class="required">Address Line 1:</label>
-        <input type="text" id="address1" class="input-standard" name="address1" placeholder="123 Your Street" value="{{ form.address1.value }}" />
-        <label for="address2">Address Line 2:</label>
-        <input type="text" id="address2" class="input-standard" name="address2" placeholder="Suite 201" value="{{ form.address2.value }}" />
-        <label for="city" class="required">City:</label>
-        {{ form.city.errors }}
-        <input type="text" id="city" class="input-standard" name="city" placeholder="San Francisco" value="{{ form.city.value }}" />
-        <label for="zip-code">Zip Code:</label>
-        <input type="text" id="zip-code" class="input-standard" name="zipcode" placeholder="94114" value="{{ form.zipcode.value }}" />
-    </fieldset>
-    <fieldset>
         <legend>What type of event is this?</legend>
         <label for="event-category">Select an Event Category:</label>
         <select id="event-category" class="input-standard" name="event_category" value="{{ form.event_category.value }}" >
@@ -74,11 +62,16 @@ $(function(){  // on page load
         <input type="text" id="event-keywords" class="input-standard" name="event_keywords" placeholder="Art, Live Music, Dancing" value="{{ form.event_keywords.value }}" />
     </fieldset>
     <fieldset>
-        <legend>When will your event happen?</legend>
-        <label for="start-date" class="required">Start Date &amp; Time:</label>
-        <input type="text" id="start-date" class="input-standard" name="start_date"  placeholder="6/20/2012" value="{{ form.start_date.value }}" /> at <input type="text" id="start-time" class="input-standard" name="start_time" placeholder="3:00 PM" value="{{ form.start_time.value }}" />
-        <label for="end-date" class="required">End Date &amp; Time:</label>
-        <input type="text" id="end-date" class="input-standard" name="end_date" placeholder="6/20/2012" value="{{ form.end_date.value }}" /> at <input type="text" id="end-time" class="input-standard" name="end_time" placeholder="9:00 PM" value="{{ form.end_time.value }}" />
+    	<legend>Where will your event be?</legend>
+        <label for="address1" class="required">Address Line 1:</label>
+        <input type="text" id="address1" class="input-standard" name="address1" placeholder="123 Your Street" value="{{ form.address1.value }}" />
+        <label for="address2">Address Line 2:</label>
+        <input type="text" id="address2" class="input-standard" name="address2" placeholder="Suite 201" value="{{ form.address2.value }}" />
+        <label for="city" class="required">City:</label>
+        {{ form.city.errors }}
+        <input type="text" id="city" class="input-standard" name="city" placeholder="San Francisco" value="{{ form.city.value }}" />
+        <label for="zip-code">Zip Code:</label>
+        <input type="text" id="zip-code" class="input-standard" name="zipcode" placeholder="94114" value="{{ form.zipcode.value }}" />
     </fieldset>
     <fieldset>
     	<legend>What is your event all about?</legend>
@@ -88,6 +81,13 @@ $(function(){  // on page load
         <textarea id="event-description" class="input-standard" name="event_description" placeholder="Don't miss out on this year's Best Event Ever! We'll have it all..." >{{ form.event_descriptions.value }}</textarea>
         <label for="event-url">Link to event or organizaiton page:</label>
         <input type="text" id="event-url" class="input-standard" name="event_url" placeholder="www.gallevent.com" value="{{ form.event_url.value }}" />
+    </fieldset>
+    <fieldset>
+        <legend>When will your event happen?</legend>
+        <label for="start-date" class="required">Start Date &amp; Time:</label>
+        <input type="text" id="start-date" class="input-standard" name="start_date"  placeholder="6/20/2012" value="{{ form.start_date.value }}" /> at <input type="text" id="start-time" class="input-standard" name="start_time" placeholder="3:00 PM" value="{{ form.start_time.value }}" />
+        <label for="end-date" class="required">End Date &amp; Time:</label>
+        <input type="text" id="end-date" class="input-standard" name="end_date" placeholder="6/20/2012" value="{{ form.end_date.value }}" /> at <input type="text" id="end-time" class="input-standard" name="end_time" placeholder="9:00 PM" value="{{ form.end_time.value }}" />
     </fieldset>
     <fieldset>
         <legend>Guest list</legend>
