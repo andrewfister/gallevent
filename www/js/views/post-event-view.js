@@ -1,6 +1,5 @@
 var PostEventView = Backbone.View.extend({
     id: "post-event",
-    
     render: function() {
         // Watermark all input tags:
 	    $("input[type='text']").each(function(index, input) {  // Find each input tag

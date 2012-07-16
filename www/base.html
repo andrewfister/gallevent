@@ -16,6 +16,13 @@
 <script type="text/javascript" src="/static/js/mustache/django.mustache.js"></script>
 <script type="text/javascript" src="/static/js/underscore.js"></script>
 <script type="text/javascript" src="/static/js/backbone.js"></script>
+<script type="text/javascript" src="/static/js/jquery-ui-1.8.21.custom.min.js"></script>
+<script>
+	$(function() {
+		$( "#date1" ).datepicker();
+		$( "#date2" ).datepicker();
+	});
+</script>
 {% block javascript %}{% endblock javascript %}
 
 </head>
@@ -35,13 +42,13 @@
         <form id="top-search">
         	<span class="left">
                 <label for="event">Search for Events:</label>
-                <input type="text" id="event" onchange="javascript:codeAddress(this);"  />
+                <input type="text" id="event" placeholder="Salsa Dancing San Francisco" onchange="javascript:codeAddress(this);"  />
             </span>
             <span class="left">
                 <label for="date1">Select Dates:</label>
-                <input type="date" id="date1" />
+                <input type="type" id="date1" placeholder="San Francisco" />
                 to
-                <input type="date" id="date2" />
+                <input type="type" id="date2" placeholder="San Francisco" />
             </span>
             <span class="left">
             	<input class="btn-search" type="submit" value="Search" />
