@@ -1,66 +1,63 @@
 var MapView = Backbone.View.extend({
+    initialize: function() {
+        this.collection.on("reset", function(events) {
+            var event = events.models[0];
+            this.setMarker(event.get("latitude"), event.get("longitude"), event.getAddress(), this.template(event.toJSON()));
+        }.bind(this));
+    },
+
     id: "map-canvas",
     
     template: Mustache.template('marker').render,
     
     render: function() {
         google.maps.event.addDomListener(window, 'load', function() {
-            var map;
-            var geocoder;
-            
-            geocoder = new google.maps.Geocoder();
-
             var myOptions = {
                 center: new google.maps.LatLng(37.88397, -122.2644), 
                 zoom: 8,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             }; 
 
-            map = new google.maps.Map($("#map_canvas").get(0),
+            this.map = new google.maps.Map($("#map_canvas").get(0),
                 myOptions);
 
-            google.maps.event.addListener(map, 'tilesloaded', function() {
+            google.maps.event.addListener(this.map, 'tilesloaded', function() {
                 _.each(this.collection.models, function(item, index, items) {
-                    var address = item.attributes.address1 + ' ' + item.attributes.address2 + ', ' + item.attributes.city + ' ' + item.attributes.zipcode;
-                    this.codeAddress(address, this.template(item.toJSON()), map, geocoder);
+                    this.setMarker(item.get("latitude"), item.get("longitude"), item.getAddress(), this.template(item.toJSON()));
                 }, this);
                 
-                google.maps.event.clearListeners(map, 'tilesloaded');
+                google.maps.event.clearListeners(this.map, 'tilesloaded');
             }.bind(this));
         }.bind(this));
         
         return this;
     },
     
-    codeAddress: function(address, infoWindow, map, geocoder) {
+    setMarker: function(latitude, longitude, address, info) {
 
         var image = '/static/img/pin-map-dining.png';
 
-        var infowindow = new google.maps.InfoWindow({
-            content: infoWindow
+        var infoWindow = new google.maps.InfoWindow({
+            content: info
         });
 
-        geocoder.geocode( { 'address': address}, function(results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-                map.setCenter(results[0].geometry.location);
-                var marker = new google.maps.Marker({
-                    map: map,
-                    draggable:true,
-                    position: results[0].geometry.location,
-                    icon: image,
-                    title : address,
-                    animation: google.maps.Animation.DROP
-                });
-
-                google.maps.event.addListener(marker, 'click', function() {
-                    infowindow.close();
-                    infowindow.open(map,marker);
-                    last_marker = marker;
-                });
-
-            } else {
-                alert("Geocode was not successful for the following reason: " + status); 
-            }
+        var location = new google.maps.LatLng(latitude, longitude);
+        this.map.setCenter(location);
+        
+        var marker = new google.maps.Marker({
+            map: this.map,
+            draggable:true,
+            position: location,
+            icon: image,
+            title : address,
+            animation: google.maps.Animation.DROP
         });
+
+        google.maps.event.addListener(marker, 'click', function() {
+            infoWindow.close();
+            infoWindow.open(this.map,marker);
+            last_marker = marker;
+        }.bind(this));
+
     },
 });

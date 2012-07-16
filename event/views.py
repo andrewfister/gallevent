@@ -16,7 +16,7 @@ def post_event(request):
         
         if form.is_valid():
             logging.debug('form is valid. the user is: ' + str(request.user.id))
-            form.save(request.user)
+            form.save()
             
             return HttpResponseRedirect('/event/show')
         else:
@@ -57,3 +57,6 @@ class EventView(BackboneAPIView):
     serialize_fields = ['id', 'address1', 'address2', 'city', 'zipcode',
                         'name', 'ticket_price', 'start_date', 'end_date', 
                         'description']
+                        
+    add_form_class = forms.PostEventForm
+    edit_form_class = forms.PostEventForm

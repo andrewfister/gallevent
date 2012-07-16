@@ -3,10 +3,13 @@
 
 {% block javascript %}
 <script type="text/javascript" src="/static/js/views/post-event-view.js"></script>
+<script type="text/javascript" src="/static/js/models/event-model.js"></script>
 <script type="text/javascript" language="javascript">
 $(function(){  // on page load
+    var event = new Event();
     var postEventView = new PostEventView({
         id: 'post-event',
+        model: event,
     });
     postEventView.render();
 });
@@ -31,14 +34,14 @@ $(function(){  // on page load
     <fieldset>
     	<legend>1. Where will your event be?</legend>
         <label for="address1" class="required">Address Line 1:</label>
-        <input type="text" id="address1" class="input-standard" name="address1" placeholder="123 Your Street" value="{{ form.address1.value }}" />
+        <input type="text" id="address1" class="input-standard location" name="address1" placeholder="123 Your Street" value="{{ form.address1.value }}" />
         <label for="address2">Address Line 2:</label>
         <input type="text" id="address2" class="input-standard" name="address2" placeholder="Suite 201" value="{{ form.address2.value }}" />
         <label for="city" class="required">City:</label>
         {{ form.city.errors }}
-        <input type="text" id="city" class="input-standard" name="city" placeholder="San Francisco" value="{{ form.city.value }}" />
+        <input type="text" id="city" class="input-standard location" name="city" placeholder="San Francisco" value="{{ form.city.value }}" />
         <label for="zip-code" class="required">Zip Code:</label>
-        <input type="text" id="zip-code" class="input-standard" name="zipcode" placeholder="94114" value="{{ form.zipcode.value }}" />
+        <input type="text" id="zip-code" class="input-standard location" name="zipcode" placeholder="94114" value="{{ form.zipcode.value }}" />
     </fieldset>
     <fieldset>
         <legend>2. What type of event is this?</legend>

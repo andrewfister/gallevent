@@ -5,11 +5,11 @@
 <script type="text/javascript" src="/static/js/models/event-model.js"></script>
 <script type="text/javascript" src="/static/js/views/map-view.js"></script>
 <script>
+var mapEvents = new EventCollection;
+
 $(document).ready(function() {
-    var events = new EventCollection;
-    events.fetch();
     var mapView = new MapView({
-        collection: events,
+        collection: mapEvents,
         id: 'map-canvas',
     });
     mapView.render();

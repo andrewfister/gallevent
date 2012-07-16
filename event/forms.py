@@ -34,7 +34,7 @@ class PostEventForm(forms.Form):
     def clean_rsvp_limit(self):
         return self.cleaned_data['rsvp_limit'] or 0
     
-    def save(self, user, commit=True):
+    def save(self, commit=True):
         address1 = self.cleaned_data['address1']
         address2 = self.cleaned_data['address2']
         city = self.cleaned_data['city']
@@ -66,6 +66,10 @@ class PostEventForm(forms.Form):
                             rsvp_limit=rsvp_limit, 
                             purchase_tickets=purchase_tickets,
                             ticket_price=ticket_price, ticket_url=ticket_url,
-                            user_id=user.id)
+                            user_id=self.request.user.id)
         event.save()
         
+        return event
+        
+    def set_request(self, request):
+        self.request = request

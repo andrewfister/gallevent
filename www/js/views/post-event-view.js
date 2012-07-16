@@ -25,35 +25,31 @@ var PostEventView = Backbone.View.extend({
 		    });
 	    });
         
+        $(".location").blur(function() {
+            var address1 = $("#address1").attr("value");
+            var city = $("#city").attr("value");
+            var zipcode = $("#zipcode").attr("value");
+            
+            var address = address1 + ', ' + city + ' ' + zipcode;
+            var location = this.codeAddress(address, {
+                address1: address1,
+                city: city,
+                zipcode: zipcode,
+            });
+        }.bind(this));
+        
         return this;
     },
     
-    codeAddress: function(address, infoWindow, map, geocoder) {
-
-        var image = '/static/img/pin-map-dining.png';
-
-        var infowindow = new google.maps.InfoWindow({
-            content: infoWindow
-        });
-
+    codeAddress: function(address, event) {
+        var geocoder = new google.maps.Geocoder();
+            
         geocoder.geocode( { 'address': address}, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
-                map.setCenter(results[0].geometry.location);
-                var marker = new google.maps.Marker({
-                    map: map,
-                    draggable:true,
-                    position: results[0].geometry.location,
-                    icon: image,
-                    title : address,
-                    animation: google.maps.Animation.DROP
-                });
-
-                google.maps.event.addListener(marker, 'click', function() {
-                    infowindow.close();
-                    infowindow.open(map,marker);
-                    last_marker = marker;
-                });
-
+                var location = results[0].geometry.location;
+                event.latitude = location.lat();
+                event.longitude = location.lng();
+                mapEvents.reset([event]);
             } else {
                 alert("Geocode was not successful for the following reason: " + status); 
             }
