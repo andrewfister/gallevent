@@ -100,7 +100,7 @@ $(function(){  // on page load
         	<div class="head">
             	<input class="radio formOptionalToggle" type="radio" id="yes-tickets" name="tickets" value="yes" {% if form.purchase_tickets.value %}checked{% endif %} /><label for="yes-tickets">Yes</label>
             </div>
-        	<div class='formOptional'>
+        	<div class='formOptional' visibleWhen="tickets">
             	<label for="ticket-type">Ticket type:</label>
             	<input type="text" id="ticket-type" class="input-standard" name="ticket_type" placeholder="General Admission" value="{{ form.ticket_price.value }}" />
                 <label for="ticket-price">Ticket price:</label>
