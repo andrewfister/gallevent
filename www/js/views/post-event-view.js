@@ -1,6 +1,5 @@
 var PostEventView = Backbone.View.extend({
     id: "post-event",
-    
     render: function() {
         // Watermark all input tags:
 	    $("input[type='text']").each(function(index, input) {  // Find each input tag
@@ -14,12 +13,13 @@ var PostEventView = Backbone.View.extend({
 	    $(".formOptional").hide();
 	    $(".formOptional").each(function(index, elem) {
 		    var visible = false;
-		    $(elem).siblings(".formOptionalToggle").change(function(event) {
-			    var content = $(event.target).siblings(".formOptional");
+			var origElem = $(elem);
+			var name = origElem.attr("visibleWhen");
+		    $(".formOptionalToggle[name='" + name + "']").change(function(event) {
 			    if (visible) {
-				    content.slideUp();
+				    origElem.slideUp();
 			    } else {
-				    content.slideDown();
+				    origElem.slideDown();
 			    }
 			    visible = !visible;
 		    });

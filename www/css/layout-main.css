@@ -177,6 +177,21 @@ form#top-search #date2 {
 	width:100px;
 	}
 
+/* = Calendar */
+#ui-datepicker-div {
+	background:#fff;
+	border:2px solid #239ea2;
+	}
+.ui-datepicker-header {
+	background:#239ea2;
+	color:#fff;
+	font-size:115%;
+	font-weight:bold;
+	}
+#ui-datepicker-div thead tr th{
+	font-weight:normal;
+	}
+
 /* = Top Navigation */
 #top-nav ul{
 	padding:1.5em 0 1.3em 29px;
@@ -518,25 +533,42 @@ textarea:focus {
 	color:#f9882b;
 	}
 
-form .radio {
-	width:20px;
-	background:#ff0;
-	}
-
-form .radio-btn-1 {
-	background:#e0f4f4;
-	display:block;
-	width:40%;
-	padding:.5em;
-	float:left;
-	}
-
+form .radio-btn-1,
 form .radio-btn-2 {
-	background:#ecf9e8;
 	display:block;
-	width:40%;
-	padding:.5em;
-	float:right;
+	}
+form .radio-btn-1,
+form .radio-btn-2 .head {
+	padding:1em 1em 0.3em 1em;
+	}
+form .radio-btn-2 {
+	border:2px solid #239ea2;
+	width:90%;
+	}
+form .radio-btn-2 .head {
+	background:#239ea2;
+	}
+
+form .radio-btn-1 label,
+form .radio-btn-2 label {
+	display:inline;
+	margin-left:0.6em;
+	}
+form .radio-btn-2 label {
+	color:#fff;
+	}
+	
+form .radio-btn-1 input,
+form .radio-btn-2 input {
+	width:auto;
+	}
+form .formOptional {
+	background:#fff;
+	}
+form .formOptional label {
+	color:#239ea2;
+	clear:both;
+	display:block;
 	}
 
 form label {
