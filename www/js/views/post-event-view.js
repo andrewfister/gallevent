@@ -27,15 +27,22 @@ var PostEventView = Backbone.View.extend({
         
         $(".location").blur(function() {
             var address1 = $("#address1").attr("value");
+            var address2 = $("#address2").attr("value");
             var city = $("#city").attr("value");
-            var zipcode = $("#zipcode").attr("value");
+            var zipcode = $("#zip-code").attr("value");
             
-            var address = address1 + ', ' + city + ' ' + zipcode;
-            var location = this.codeAddress(address, {
-                address1: address1,
-                city: city,
-                zipcode: zipcode,
-            });
+            if (address1.length > 0 && city.length > 0 && zipcode.length > 0)
+            {
+                var event = new Event({
+                    address1: address1,
+                    address2: address2,
+                    city: city,
+                    zipcode: zipcode,
+                });
+            
+                var address = event.getAddress();
+                this.codeAddress(address, event);
+            }
         }.bind(this));
         
         return this;
@@ -47,8 +54,7 @@ var PostEventView = Backbone.View.extend({
         geocoder.geocode( { 'address': address}, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 var location = results[0].geometry.location;
-                event.latitude = location.lat();
-                event.longitude = location.lng();
+                event.set({latitude: location.lat(), longitude: location.lng()});
                 mapEvents.reset([event]);
             } else {
                 alert("Geocode was not successful for the following reason: " + status); 

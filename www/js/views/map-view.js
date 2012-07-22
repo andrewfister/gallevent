@@ -1,6 +1,7 @@
 var MapView = Backbone.View.extend({
     initialize: function() {
         this.collection.on("reset", function(events) {
+            this.removeMarkers();
             var event = events.models[0];
             this.setMarker(event.get("latitude"), event.get("longitude"), event.getAddress(), this.template(event.toJSON()));
         }.bind(this));
@@ -9,6 +10,8 @@ var MapView = Backbone.View.extend({
     id: "map-canvas",
     
     template: Mustache.template('marker').render,
+    
+    markers: new Array(),
     
     render: function() {
         google.maps.event.addDomListener(window, 'load', function() {
@@ -56,8 +59,14 @@ var MapView = Backbone.View.extend({
         google.maps.event.addListener(marker, 'click', function() {
             infoWindow.close();
             infoWindow.open(this.map,marker);
-            last_marker = marker;
         }.bind(this));
 
+        this.markers.push(marker);
     },
+    
+    removeMarkers: function() {
+        _.each(this.markers, function(marker, index, markers) {
+            marker.setMap(null);
+        }, this);
+    }
 });
