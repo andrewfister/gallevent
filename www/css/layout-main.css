@@ -188,7 +188,7 @@ form#top-search #date2 {
 	-khtml-border-radius:0 0 5px 5px; /* for old Konqueror browsers */
 	}
 *+html #ui-datepicker-div {
-	width:190px;
+	width:195px;
 	}
 #ui-datepicker-div a {
 	color:#777;
