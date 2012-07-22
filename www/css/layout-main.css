@@ -187,6 +187,9 @@ form#top-search #date2 {
 	border-radius:0 0 5px 5px; /* future proofing */
 	-khtml-border-radius:0 0 5px 5px; /* for old Konqueror browsers */
 	}
+*+html #ui-datepicker-div {
+	width:200px;
+	}
 #ui-datepicker-div a {
 	color:#777;
 	}
