@@ -231,6 +231,12 @@ form#top-search #date2 {
 #ui-datepicker-div table td {
 	padding:4px 5px 4px 5px;
 	}
+#ui-datepicker-div table td:hover {
+	background:#EDF2F2;
+	}
+#ui-datepicker-div td:hover a {
+	color:#70b820;
+	}
 #ui-datepicker-div thead {
 	color:#fff;
 	background:#239ea2;
