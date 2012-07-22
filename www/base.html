@@ -28,6 +28,10 @@
 </head>
 <body>
     {% block preheader %}{% endblock preheader %}
+    <div class="hidden">
+    	<img src="img/icon-cal-arrow-l-h.png" alt="arrow" />
+        <img src="img/icon-cal-arrow-r-h.png" alt="arrow" />
+    </div>
     {% block header %}
     <div id="header">
     	<div class="bg">
@@ -46,9 +50,9 @@
             </span>
             <span class="left">
                 <label for="date1">Select Dates:</label>
-                <input type="type" id="date1" placeholder="San Francisco" />
+                <input type="type" id="date1" placeholder="7/22/2012" />
                 to
-                <input type="type" id="date2" placeholder="San Francisco" />
+                <input type="type" id="date2" placeholder="7/22/2012" />
             </span>
             <span class="left">
             	<input class="btn-search" type="submit" value="Search" />
