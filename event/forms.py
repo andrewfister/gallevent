@@ -24,6 +24,8 @@ class PostEventForm(forms.Form):
     purchase_tickets = forms.BooleanField(initial=False)
     ticket_price = forms.DecimalField(required=False, decimal_places=2, initial="")
     ticket_url = forms.URLField(required=False, initial="")
+    latitude = forms.FloatField()
+    longitude = forms.FloatField()
     
     def clean_purchase_tickets(self):
         return self.cleaned_data['purchase_tickets'] == "yes"
@@ -52,6 +54,8 @@ class PostEventForm(forms.Form):
         purchase_tickets = self.cleaned_data['purchase_tickets']
         ticket_price = self.cleaned_data['ticket_price']
         ticket_url = self.cleaned_data['ticket_url']
+        latitude = self.cleaned_data['latitude']
+        longitude = self.cleaned_data['longitude']
         
         #Need to combine these fields for realsies
         start_datetime = datetime.datetime.combine(start_date, start_time)
@@ -66,6 +70,7 @@ class PostEventForm(forms.Form):
                             rsvp_limit=rsvp_limit, 
                             purchase_tickets=purchase_tickets,
                             ticket_price=ticket_price, ticket_url=ticket_url,
+                            latitude=latitude, longitude=longitude,
                             user_id=self.request.user.id)
         event.save()
         

@@ -30,7 +30,7 @@ $(function(){  // on page load
 <h2>Post Your Event on Gallevent</h2>
 <p><em class="form-comment">Required items are in <b>orange</b>.</em></p>
 {% endif %}
-<form id="post-event" method='post'>
+<form id="post-event" method="post">
     <fieldset>
     	<legend>1. Where will your event be?</legend>
         <label for="address1" class="required">Address Line 1:</label>
@@ -42,6 +42,8 @@ $(function(){  // on page load
         <input type="text" id="city" class="input-standard location" name="city" placeholder="San Francisco" value="{{ form.city.value }}" />
         <label for="zip-code" class="required">Zip Code:</label>
         <input type="text" id="zip-code" class="input-standard location" name="zipcode" placeholder="94114" value="{{ form.zipcode.value }}" />
+        <input type="text" id="latitude" class="hidden" name="latitude" />
+        <input type="text" id="longitude" class="hidden" name="longitude" />
     </fieldset>
     <fieldset>
         <legend>2. What type of event is this?</legend>
@@ -97,13 +99,13 @@ $(function(){  // on page load
     	<legend>7. Ticketing</legend>
         <label>Do guests need tickets to attend your event?</label>
         <div class="radio-btn-1">
-        	<input class="radio formOptionalToggle" type="radio" id="no-tickets" name="tickets" value="no" {% if not form.purchase_tickets.value %}checked{% endif %} /><label for="no-tickets">No</label>
+        	<input class="radio formOptionalToggle" type="radio" id="no-tickets" name="purchase_tickets" value="no" {% if not form.purchase_tickets.value %}checked{% endif %} /><label for="no-tickets">No</label>
         </div>
         <div class="radio-btn-2">
         	<div class="head">
-            	<input class="radio formOptionalToggle" type="radio" id="yes-tickets" name="tickets" value="yes" {% if form.purchase_tickets.value %}checked{% endif %} /><label for="yes-tickets">Yes</label>
+            	<input class="radio formOptionalToggle" type="radio" id="yes-tickets" name="purchase_tickets" value="yes" {% if form.purchase_tickets.value %}checked{% endif %} /><label for="yes-tickets">Yes</label>
             </div>
-        	<div class='formOptional' visibleWhen="tickets">
+        	<div class='formOptional' visibleWhen="purchase_tickets">
             	<label for="ticket-type">Ticket type:</label>
             	<input type="text" id="ticket-type" class="input-standard" name="ticket_type" placeholder="General Admission" value="{{ form.ticket_price.value }}" />
                 <label for="ticket-price">Ticket price:</label>
@@ -113,7 +115,7 @@ $(function(){  // on page load
         	</div>
         </div><!-- .radio-btn-2 -->
     </fieldset>
-    <input class="btn-s-post-event" type="submit" value="Post Event">
+    <input class="btn-s-post-event" type="submit" value="Post Event" />
 </form>
 {% endblock active_tab_content %}
 
