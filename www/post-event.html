@@ -40,12 +40,68 @@ $(function(){  // on page load
         <label for="city" class="required">City:</label>
         {{ form.city.errors }}
         <input type="text" id="city" class="input-standard location" name="city" placeholder="San Francisco" value="{{ form.city.value }}" />
+        <label for="state" class="required">State:</label>
+        <select name="state" id="state" class="input-standard">
+            <option value="">Select Your State</option>
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="DC">District of Columbia</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+  		</select>
+  		<input type="text" name="state-list" id="state-list" style="display:none" />
         <label for="zip-code" class="required">Zip Code:</label>
         <input type="text" id="zip-code" class="input-standard location" name="zipcode" placeholder="94114" value="{{ form.zipcode.value }}" />
     </fieldset>
     <fieldset>
         <legend>2. What type of event is this?</legend>
-        <label for="event-category">Select an Event Category:</label>
+        <label for="event-category" class="required">Select an Event Category:</label>
         <select id="event-category" class="input-standard" name="event_category" value="{{ form.event_category.value }}" >
             <option value="fairs" id="select-fairs">Festivals &amp; Fairs</option>
             <option value="networking" id="select-networking">Networking</option>
@@ -59,7 +115,7 @@ $(function(){  // on page load
             <option value="jobs" id="select-jobs">Jobs</option>
         </select>
         <label for="event-keywords">Keywords:</label>
-        <span class="form-details">List up to three things that will be at your event.</span>
+        <span class="form-details">List up to three words that descibe your event.</span>
         <input type="text" id="event-keywords" class="input-standard" name="event_keywords" placeholder="Art, Live Music, Dancing" value="{{ form.event_keywords.value }}" />
     </fieldset>
     <fieldset>
@@ -73,8 +129,9 @@ $(function(){  // on page load
     </fieldset>
     <fieldset>
     	<legend>4. Event organizer</legend>
+        <span class="form-details">Only one contact method is required. (If you provide an email address, a phone number is not required. If you provide a phone number, an email address is not required.)</span>
         <label for="organizer-email" class="required">Email:</label>
-        <input type="text" id="organizer-email" class="input-standard" name="organizer-email" placeholder="Event_Organizer@gmail.com" value="{{ form.event_name.value }}" />
+        <input type="text" id="organizer-email" class="input-standard" name="organizer-email" placeholder="event_organizer@gmail.com" value="{{ form.event_name.value }}" />
         <label for="organizer-phone" class="required">Phone number:</label>
         <input type="text" id="organizer-phone" class="input-standard" name="organizer-phone" placeholder="123-456-7890" value="{{ form.event_name.value }}" />
         <label for="organizer-url">Link to organizer's page:</label>

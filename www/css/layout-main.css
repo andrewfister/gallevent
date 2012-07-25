@@ -188,7 +188,7 @@ form#top-search #date2 {
 	-khtml-border-radius:0 0 5px 5px; /* for old Konqueror browsers */
 	}
 *+html #ui-datepicker-div {
-	width:195px;
+	width:194px;
 	}
 #ui-datepicker-div a {
 	color:#777;
@@ -236,6 +236,7 @@ form#top-search #date2 {
 	}
 #ui-datepicker-div table td:hover {
 	background:#EDF2F2;
+	font-weight:bold;
 	}
 #ui-datepicker-div td:hover a {
 	color:#70b820;
@@ -627,12 +628,23 @@ form .radio-btn-2 input {
 	}
 form .formOptional {
 	background:#fff;
+	margin:1em 0 0 0;
 	}
 form .formOptional label {
 	color:#239ea2;
 	clear:both;
 	display:block;
+	margin-left:1em;
 	}
+
+form .formOptional input {
+	margin-left:1em;
+	}
+
+form .formOptional input {
+	width:300px;
+	}
+
 
 form label {
 	clear:both;
@@ -647,6 +659,7 @@ label.required {
 
 form input,
 form textarea,
+form select#state,
 form select#event-category {
 	font-size:110%;
 	width:70%;
@@ -656,6 +669,7 @@ form select#event-category {
 form textarea {
 	min-height:12.5em;
 	}
+form select#state,
 form select#event-category {
 	padding:0 0 0 .5em;
 	line-height:2em;
