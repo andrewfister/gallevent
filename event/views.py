@@ -9,13 +9,15 @@ from gallevent.event import models
 
 
 def post_event(request):
+    import logging
+    logging.debug('post event')
     if request.method == 'POST':
         form = forms.PostEventForm(request.POST)
-        import logging
         logging.debug('created a form')
         
         if form.is_valid():
             logging.debug('form is valid. the user is: ' + str(request.user.id))
+            form.set_request(request);
             form.save()
             
             return HttpResponseRedirect('/event/show')
@@ -57,6 +59,3 @@ class EventView(BackboneAPIView):
     serialize_fields = ['id', 'address1', 'address2', 'city', 'zipcode',
                         'name', 'ticket_price', 'start_date', 'end_date', 
                         'description']
-                        
-    add_form_class = forms.PostEventForm
-    edit_form_class = forms.PostEventForm

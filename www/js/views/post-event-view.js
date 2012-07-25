@@ -25,6 +25,8 @@ var PostEventView = Backbone.View.extend({
 		    });
 	    });
         
+        //Geocode address entered in the form when there's an address change 
+        //and there's enough address information
         $(".location").blur(function() {
             var address1 = $("#address1").attr("value");
             var address2 = $("#address2").attr("value");
@@ -33,32 +35,40 @@ var PostEventView = Backbone.View.extend({
             
             if (address1.length > 0 && city.length > 0 && zipcode.length > 0)
             {
-                var event = new Event({
+                this.model.set({
                     address1: address1,
                     address2: address2,
                     city: city,
                     zipcode: zipcode,
                 });
             
-                var address = event.getAddress();
-                this.codeAddress(address, event);
+                var address = this.model.getAddress();
+                this.codeAddress(address);
             }
         }.bind(this));
         
         return this;
     },
     
-    codeAddress: function(address, event) {
+    codeAddress: function(address) {
         var geocoder = new google.maps.Geocoder();
-            
+        
         geocoder.geocode( { 'address': address}, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 var location = results[0].geometry.location;
-                event.set({latitude: location.lat(), longitude: location.lng()});
-                mapEvents.reset([event]);
+                this.model.set({latitude: location.lat(), longitude: location.lng()});
+                $("#latitude").attr("value", location.lat());
+                $("#longitude").attr("value", location.lng());
+                mapEvents.reset([this.model]);
             } else {
                 alert("Geocode was not successful for the following reason: " + status); 
             }
-        });
+        }.bind(this));
+        
+        return event;
     },
+    
+    redirectToYourPosts: function() {
+        window.location = "/event/show";
+    }
 });
