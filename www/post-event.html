@@ -155,11 +155,11 @@ $(function(){  // on page load
     	<legend>7. Ticketing</legend>
         <label>Do guests need tickets to attend your event?</label>
         <div class="radio-btn-1">
-        	<input class="radio formOptionalToggle" type="radio" id="no-tickets" name="purchase_tickets" value="no" {% if not form.purchase_tickets.value %}checked{% endif %} /><label for="no-tickets">No</label>
+        	<input class="radio formOptionalToggle" type="radio" id="no-tickets" name="purchase_tickets" value="no" checked /><label for="no-tickets">No</label>
         </div>
         <div class="radio-btn-2">
         	<div class="head">
-            	<input class="radio formOptionalToggle" type="radio" id="yes-tickets" name="purchase_tickets" value="yes" {% if form.purchase_tickets.value %}checked{% endif %} /><label for="yes-tickets">Yes</label>
+            	<input class="radio formOptionalToggle" type="radio" id="yes-tickets" name="purchase_tickets" value="yes" /><label for="yes-tickets">Yes</label>
             </div>
         	<div class='formOptional' visibleWhen="purchase_tickets">
             	<label for="ticket-type">Ticket type:</label>
