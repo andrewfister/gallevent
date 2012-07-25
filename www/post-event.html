@@ -164,7 +164,7 @@ $(function(){  // on page load
             </div>
         	<div class='formOptional' visibleWhen="purchase_tickets">
             	<label for="ticket-type">Ticket type:</label>
-            	<input type="text" id="ticket-type" class="input-standard" name="ticket_type" placeholder="General Admission" value="{{ form.ticket_price.value }}" />
+            	<input type="text" id="ticket-type" class="input-standard" name="ticket_type" placeholder="General Admission" value="{{ form.ticket_price.value }}" checked />
                 <label for="ticket-price">Ticket price:</label>
             	<input type="text" id="ticket-price" class="input-standard" name="ticket_price" placeholder="$0.00" value="{{ form.ticket_price.value }}" /><em class="form-comment">Your event is free!</em>
             	<label for="ticket-link">Link to get tickets:</label>
