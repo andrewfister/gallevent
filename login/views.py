@@ -50,13 +50,20 @@ def invite_code(request):
     
         
 def invite_request(request):
+    import logging
+    logging.debug('request invite?');
     if request.method == 'POST': # If the form has been submitted...
         form = forms.RequestInviteForm(request.POST) # A form bound to the POST data
+        
+        logging.debug('validating email');
         if form.is_valid(): # All validation rules pass
             form.save()
             
             # Process the data in form.cleaned_data
             new_email_address = form.cleaned_data['email']
+            
+            
+            logging.debug('sending email')
             
             from django.core.mail import send_mail
             send_mail('Thank you for your interest in Gallevent', 
