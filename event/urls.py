@@ -13,4 +13,7 @@ urlpatterns = patterns('gallevent.event.views',
     (r'^manage/rsvps$', direct_to_template, {'template': 'your-posts-manage-rsvps.html'}),
     (r'^manage/followers$', direct_to_template, {'template': 'your-posts-manage-followers.html'}),
     (r'^manage/invitations$', direct_to_template, {'template': 'your-posts-manage-invitations.html'}),
+    
+    url(r'^events$', EventView.as_view()),
+    url(r'^events/(?P<id>\d+)', EventView.as_view()),
 )

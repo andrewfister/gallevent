@@ -32,5 +32,5 @@ var Event = Backbone.Model.extend({
 
 var EventCollection = Backbone.Collection.extend({
     model: Event,
-    url: '/event',
+    url: '/event/events',
 });

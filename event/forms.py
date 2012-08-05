@@ -8,11 +8,11 @@ from gallevent.event import models
 
 class PostEventForm(forms.Form):
     address1 = forms.CharField(max_length=255, initial="")
-    address2 = forms.CharField(max_length=64, required=False, initial="")
+    address2 = forms.CharField(max_length=64, initial="", required=False)
     city = forms.CharField(max_length=64, initial="")
     zipcode = forms.CharField(max_length=16, initial="")
     event_category = forms.CharField(max_length=64, initial="")
-    event_keywords = forms.CharField(max_length=255, required=False, initial="")
+    event_keywords = forms.CharField(max_length=255, initial="", required=False)
     start_date = forms.DateField(initial="")
     start_time = forms.TimeField(initial="")
     end_date = forms.DateField(initial="")
@@ -21,7 +21,7 @@ class PostEventForm(forms.Form):
     event_description = forms.CharField(max_length=1000, initial="")
     event_url = forms.URLField(required=False, initial="")
     rsvp_limit = forms.IntegerField(required=False, initial="")
-    purchase_tickets = forms.BooleanField(initial=False)
+    purchase_tickets = forms.BooleanField(initial=False, required=False)
     ticket_price = forms.DecimalField(required=False, decimal_places=2, initial="")
     ticket_url = forms.URLField(required=False, initial="")
     latitude = forms.FloatField()

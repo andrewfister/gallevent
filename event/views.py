@@ -58,4 +58,4 @@ class EventView(BackboneAPIView):
     
     serialize_fields = ['id', 'address1', 'address2', 'city', 'zipcode',
                         'name', 'ticket_price', 'start_date', 'end_date', 
-                        'description']
+                        'description', 'latitude', 'longitude']

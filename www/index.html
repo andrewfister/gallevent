@@ -5,6 +5,14 @@
 <link rel="stylesheet" type="text/css" href="/static/css/map-key-pages.css" />
 {% endblock %}
 
+{% block javascript %}
+<script type="text/javascript">
+$(function(){  // on page load
+    mapEvents.fetch();
+});
+</script>
+{% endblock %}
+
 {% block content %}
 <div id="container" >
 	<ul id="pin-key">
