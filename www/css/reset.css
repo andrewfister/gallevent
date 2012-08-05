@@ -21,7 +21,9 @@ h4,
 h5,
 h6,
 dd,
-input {
+input,
+button {
     border:none;
     padding:0;
-    margin:0;}
+    margin:0;
+	}

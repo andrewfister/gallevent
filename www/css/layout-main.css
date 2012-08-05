@@ -606,8 +606,11 @@ form .radio-btn-2 .head {
 	padding:1em 1em 0.3em 1em;
 	}
 form .radio-btn-2 {
-	border:2px solid #239ea2;
+	border:2px solid #fff;
 	width:90%;
+	}
+form .radio-btn-2 {
+	border:2px solid #239ea2;
 	}
 form .radio-btn-2 .head {
 	background:#239ea2;
@@ -1040,6 +1043,38 @@ form#top-search .btn-search:hover {
 
 .map-popup .btns {
 	margin-top:1.2em;
+	}
+
+.btn-add-ticket-type {
+	font-weight:bold;
+	background:transparent;
+	font-size:90%;
+	color:#70b820;
+	width:50%;
+	text-align:left;
+	margin:0 0 1.5em 1.5em;
+	}
+.btn-add-ticket-type:hover {
+	color:#239ea2;
+	}
+.btn-add-ticket-type:hover span {
+	background:#239ea2;
+	}
+.btn-add-ticket-type span {
+	background:#70b820;
+	color:#fff;
+	font-size:180%;
+	display:inline-block;
+	padding:0 0.2em 0.17em 0.25em;
+	margin-right:0.2em;
+	text-align:center;
+	-moz-border-radius:    5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius:  5px;
+    border-radius:         5px;
+	}
+.btn-add-ticket-type span:hover {
+	background:#239ea2;
 	}
 
 .btn-manage,
