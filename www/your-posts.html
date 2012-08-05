@@ -1,6 +1,14 @@
 {% extends "base-profile.html" %}
 {% load map_tags %}
 
+{% block javascript %}
+<script type="text/javascript">
+$(function(){  // on page load
+    mapEvents.fetch();
+});
+</script>
+{% endblock %}
+
 {% block selected_page %}{{ selected_page }}{% endblock %}
 
 {% block active_tab_content_width %}side{% endblock %}
