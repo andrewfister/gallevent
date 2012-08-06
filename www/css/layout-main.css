@@ -541,6 +541,14 @@ form#top-search #date2 {
 	color:#888;
 	font-style:italic;
 	}
+.error {
+	font-weidht:bold;
+	text-transform:uppercase;
+	background:#f9882b;
+	color:#fff;
+	padding:0.5em;
+	}
+
 form {
 	float:left;
 	}
@@ -572,7 +580,7 @@ input.search {
 	}
 
 .input-required {
-	border:2px solid #f9882b;
+	border:2px solid #f9882b; /* Orange */
 	background:#fefbe3;
 	}
 input:focus,
