@@ -33,14 +33,13 @@ $(function(){  // on page load
 <form id="post-event" method="post">
     <fieldset>
     	<legend>1. Where will your event be?</legend>
-        <label for="address1" class="required">Address Line 1:</label>
+        {{ form.address1.errors }} <label for="address1" class="required">Address Line 1:</label>
         <input type="text" id="address1" class="input-standard location" name="address1" placeholder="123 Your Street" value="{{ form.address1.value }}" />
-        <label for="address2">Address Line 2:</label>
+        {{ form.address2.errors }} <label for="address2">Address Line 2:</label>
         <input type="text" id="address2" class="input-standard" name="address2" placeholder="Suite 201" value="{{ form.address2.value }}" />
-        <label for="city" class="required">City:</label>
-        {{ form.city.errors }}
+        {{ form.city.errors }} <label for="city" class="required">City:</label>
         <input type="text" id="city" class="input-standard location" name="city" placeholder="San Francisco" value="{{ form.city.value }}" />
-        <label for="state" class="required">State:</label>
+        {{ form.state.errors }} <label for="state" class="required">State:</label>
         <select name="state" id="state" class="input-standard">
             <option value="">Select Your State</option>
             <option value="AL">Alabama</option>
@@ -95,14 +94,14 @@ $(function(){  // on page load
             <option value="WI">Wisconsin</option>
             <option value="WY">Wyoming</option>
   		</select>
-        <label for="zip-code" class="required">Zip Code:</label>
+        {{ form.zipcode.errors }} <label for="zip-code" class="required">Zip Code:</label>
         <input type="text" id="zip-code" class="input-standard location" name="zipcode" placeholder="94114" value="{{ form.zipcode.value }}" />
         <input type="text" id="latitude" class="hidden" name="latitude" />
         <input type="text" id="longitude" class="hidden" name="longitude" />
     </fieldset>
     <fieldset>
         <legend>2. What type of event is this?</legend>
-        <label for="event-category" class="required">Select an Event Category:</label>
+        {{ form.event_category.errors }} <label for="event-category" class="required">Select an Event Category:</label>
         <select id="event-category" class="input-standard" name="event_category" value="{{ form.event_category.value }}" >
             <option value="fairs" id="select-fairs">Festivals &amp; Fairs</option>
             <option value="networking" id="select-networking">Networking</option>
@@ -121,11 +120,11 @@ $(function(){  // on page load
     </fieldset>
     <fieldset>
     	<legend>3. All about your event</legend>
-        <label for="event-name" class="required">Name your event:</label>
+        {{ form.event_name.errors }} <label for="event-name" class="required">Name your event:</label>
         <input type="text" id="event-name" class="input-standard" name="event_name" placeholder="The Best Event Ever" value="{{ form.event_name.value }}" />
-        <label for="event-description" class="required">Describe your event:</label>
+        {{ form.event_description.errors }} <label for="event-description" class="required">Describe your event:</label>
         <textarea id="event-description" class="input-standard" name="event_description" placeholder="Don't miss out on this year's Best Event Ever! We'll have it all..." >{{ form.event_descriptions.value }}</textarea>
-        <label for="event-url">Link to event page:</label>
+        {{ form.event_url.errors }} <label for="event-url">Link to event page:</label>
         <input type="text" id="event-url" class="input-standard" name="event_url" placeholder="www.gallevent.com" value="{{ form.event_url.value }}" />
     </fieldset>
     <fieldset>
@@ -163,9 +162,9 @@ $(function(){  // on page load
             	<input class="radio formOptionalToggle" type="radio" id="yes-tickets" name="purchase_tickets" value="yes" /><label for="yes-tickets">Yes</label>
             </div>
         	<div class='formOptional' visibleWhen="purchase_tickets">
-            	<label for="ticket-type">1st Ticket type:</label>
+            	<label for="ticket-type">Ticket type 1:</label>
             	<input type="text" id="ticket-type" class="input-standard" name="ticket_type" placeholder="General Admission" value="{{ form.ticket_price.value }}" checked />
-                <label for="ticket-price">1st Ticket price:</label>
+                <label for="ticket-price">Price for ticket type 1:</label>
             	<input type="text" id="ticket-price" class="input-standard" name="ticket_price" placeholder="$0.00" value="{{ form.ticket_price.value }}" /><em class="form-comment">Your event is free!</em>
             	
                 <button class="btn-add-ticket-type"><span>+</span> Add another ticket type</button>
