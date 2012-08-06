@@ -163,11 +163,13 @@ $(function(){  // on page load
             	<input class="radio formOptionalToggle" type="radio" id="yes-tickets" name="purchase_tickets" value="yes" /><label for="yes-tickets">Yes</label>
             </div>
         	<div class='formOptional' visibleWhen="purchase_tickets">
-            	<label for="ticket-type">Ticket type:</label>
+            	<label for="ticket-type">1st Ticket type:</label>
             	<input type="text" id="ticket-type" class="input-standard" name="ticket_type" placeholder="General Admission" value="{{ form.ticket_price.value }}" checked />
-                <label for="ticket-price">Ticket price:</label>
+                <label for="ticket-price">1st Ticket price:</label>
             	<input type="text" id="ticket-price" class="input-standard" name="ticket_price" placeholder="$0.00" value="{{ form.ticket_price.value }}" /><em class="form-comment">Your event is free!</em>
-            	<label for="ticket-link">Link to get tickets:</label>
+            	
+                <button class="btn-add-ticket-type"><span>+</span> Add another ticket type</button>
+                <label for="ticket-link">Link to get tickets:</label>
             	<input type="text" id="ticket-link" class="input-standard" name="ticket_url" placeholder="www.gallevent.com" value="{{ form.ticket_url.value }}" />
         	</div>
         </div><!-- .radio-btn-2 -->
