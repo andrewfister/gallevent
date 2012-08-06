@@ -33,7 +33,11 @@ $(function(){  // on page load
 <form id="post-event" method="post">
     <fieldset>
     	<legend>1. Where will your event be?</legend>
-        {{ form.address1.errors }} <label for="address1" class="required">Address Line 1:</label>
+        {% if form.address1.errors %}
+        {% for error in form.address1.errors %}
+            <span>{{ error }}</span>
+        {% endfor %}
+        {% endif %} <label for="address1" class="required">Address Line 1:</label>
         <input type="text" id="address1" class="input-standard location" name="address1" placeholder="123 Your Street" value="{{ form.address1.value }}" />
         {{ form.address2.errors }} <label for="address2">Address Line 2:</label>
         <input type="text" id="address2" class="input-standard" name="address2" placeholder="Suite 201" value="{{ form.address2.value }}" />

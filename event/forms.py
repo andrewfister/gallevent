@@ -79,11 +79,3 @@ class PostEventForm(forms.Form):
         
     def set_request(self, request):
         self.request = request
-
-class EventErrorList(ErrorList):
-    def __unicode__(self):
-        return self.as_spans()
-    
-    def as_spans(self):
-        if not self: return u''
-        return ''.join([u'<span class="error">%s</span>' % e for e in self])

@@ -12,7 +12,7 @@ def post_event(request):
     import logging
     logging.debug('post event')
     if request.method == 'POST':
-        form = forms.PostEventForm(request.POST, error_class=forms.EventErrorList)
+        form = forms.PostEventForm(request.POST)
         logging.debug('created a form')
         
         if form.is_valid():
