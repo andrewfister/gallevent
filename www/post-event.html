@@ -29,23 +29,42 @@ $(function(){  // on page load
 </div><!-- .hidden -->
 <h2><a href="{% url gallevent.event.views.show_events %}">Your Posts</a>: Edit Your Event</h2>
 {% else %}
+{% if form.errors %}
+	<div class="top-error"><h3>Oops!</h3><span class="left">There are some errors in your event post.<br />Please review the form below and correct the errors.</span></div>
+{% endif %}
 <h2>Post Your Event on Gallevent</h2>
 <p><em class="form-comment">Required items are in <b>orange</b>.</em></p>
 {% endif %}
 <form id="post-event" method="post">
     <fieldset>
     	<legend>1. Where will your event be?</legend>
+        <label for="address1" class="required">Address Line 1:</label>
         {% if form.address1.errors %}
-        {% for error in form.address1.errors %}
-            <span>{{ error }}</span>
-        {% endfor %}
-        {% endif %} <label for="address1" class="required">Address Line 1:</label>
+        	{% for error in form.address1.errors %}
+         		<span class="error">{{ error }}</span>
+         	{% endfor %}
+        {% endif %}
         <input type="text" id="address1" class="input-standard location" name="address1" placeholder="123 Your Street" value="{{ form.address1.value }}" />
-        {{ form.address2.errors }} <label for="address2">Address Line 2:</label>
+        <label for="address2">Address Line 2:</label>
+        {% if form.address2.errors %}
+         	{% for error in form.address2.errors %}
+         		<span class="error">{{ error }}</span>
+         	{% endfor %}
+        {% endif %}
         <input type="text" id="address2" class="input-standard" name="address2" placeholder="Suite 201" value="{{ form.address2.value }}" />
-        {{ form.city.errors }} <label for="city" class="required">City:</label>
+        <label for="city" class="required">City:</label>
+        {% if form.city.errors %}
+         	{% for error in form.city.errors %}
+         		<span class="error">{{ error }}</span>
+         	{% endfor %}
+        {% endif %}
         <input type="text" id="city" class="input-standard location" name="city" placeholder="San Francisco" value="{{ form.city.value }}" />
-        {{ form.state.errors }} <label for="state" class="required">State:</label>
+        <label for="state" class="required">State:</label>
+        {% if form.state.errors %}
+         	{% for error in form.state.errors %}
+         		<span class="error">{{ error }}</span>
+         	{% endfor %}
+        {% endif %}
         <select name="state" id="state" class="input-standard">
             <option value="">Select Your State</option>
             <option value="AL">Alabama</option>
@@ -100,14 +119,24 @@ $(function(){  // on page load
             <option value="WI">Wisconsin</option>
             <option value="WY">Wyoming</option>
   		</select>
-        {{ form.zipcode.errors }} <label for="zip-code" class="required">Zip Code:</label>
+        <label for="zip-code" class="required">Zip Code:</label>
+        {% if form.zipcode.errors %}
+         	{% for error in form.zipcode.errors %}
+         		<span class="error">{{ error }}</span>
+         	{% endfor %}
+        {% endif %}
         <input type="text" id="zip-code" class="input-standard location" name="zipcode" placeholder="94114" value="{{ form.zipcode.value }}" />
         <input type="text" id="latitude" class="hidden" name="latitude" />
         <input type="text" id="longitude" class="hidden" name="longitude" />
     </fieldset>
     <fieldset>
         <legend>2. What type of event is this?</legend>
-        {{ form.event_category.errors }} <label for="event-category" class="required">Select an Event Category:</label>
+        <label for="event-category" class="required">Select an Event Category:</label>
+        {% if form.event_category.errors %}
+         	{% for error in form.event_category.errors %}
+         		<span class="error">{{ error }}</span>
+         	{% endfor %}
+        {% endif %}
         <select id="event-category" class="input-standard" name="event_category" value="{{ form.event_category.value }}" >
             <option value="fairs" id="select-fairs">Festivals &amp; Fairs</option>
             <option value="networking" id="select-networking">Networking</option>
@@ -121,40 +150,78 @@ $(function(){  // on page load
             <option value="jobs" id="select-jobs">Jobs</option>
         </select>
         <label for="event-keywords">Keywords:</label>
+        {% if form.event_keywords.errors %}
+         	{% for error in form.event_keywords.errors %}
+         		<span class="error">{{ error }}</span>
+         	{% endfor %}
+        {% endif %}
         <span class="form-details">List up to three words that descibe your event.</span>
         <input type="text" id="event-keywords" class="input-standard" name="event_keywords" placeholder="Art, Live Music, Dancing" value="{{ form.event_keywords.value }}" />
     </fieldset>
     <fieldset>
     	<legend>3. All about your event</legend>
-        {{ form.event_name.errors }} <label for="event-name" class="required">Name your event:</label>
+        <label for="event-name" class="required">Name your event:</label>
+        {% if form.event_name.errors %}
+         	{% for error in form.event_name.errors %}
+         		<span class="error">{{ error }}</span>
+         	{% endfor %}
+        {% endif %}
         <input type="text" id="event-name" class="input-standard" name="event_name" placeholder="The Best Event Ever" value="{{ form.event_name.value }}" />
-        {{ form.event_description.errors }} <label for="event-description" class="required">Describe your event:</label>
+        <label for="event-description" class="required">Describe your event:</label>
+        {% if form.event_description.errors %}
+         	{% for error in form.event_description.errors %}
+         		<span class="error">{{ error }}</span>
+         	{% endfor %}
+        {% endif %}
         <textarea id="event-description" class="input-standard" name="event_description" placeholder="Don't miss out on this year's Best Event Ever! We'll have it all..." >{{ form.event_descriptions.value }}</textarea>
-        {{ form.event_url.errors }} <label for="event-url">Link to event page:</label>
+        <label for="event-url">Link to event page:</label>
+        {% if form.event_url.errors %}
+         	{% for error in form.event_url.errors %}
+         		<span class="error">{{ error }}</span>
+         	{% endfor %}
+        {% endif %}
         <input type="text" id="event-url" class="input-standard" name="event_url" placeholder="www.gallevent.com" value="{{ form.event_url.value }}" />
     </fieldset>
     <fieldset>
     	<legend>4. Event organizer</legend>
         <span class="form-details">Only one contact method is required. (If you provide an email address, a phone number is not required. If you provide a phone number, an email address is not required.)</span>
-        <label for="organizer-email" class="required">Email:</label>
-        <input type="text" id="organizer-email" class="input-standard" name="organizer-email" placeholder="event_organizer@gmail.com" value="{{ form.event_name.value }}" />
-        <label for="organizer-phone" class="required">Phone number:</label>
-        <input type="text" id="organizer-phone" class="input-standard" name="organizer-phone" placeholder="123-456-7890" value="{{ form.event_name.value }}" />
+        <label for="organizer-email" class="required">
+        Email:</label>
+        <input type="text" id="organizer-email" class="input-standard" name="organizer_email" placeholder="event_organizer@gmail.com" value="{{ form.event_name.value }}" />
+        <label for="organizer-phone" class="required">
+        Phone number:</label>
+        <input type="text" id="organizer-phone" class="input-standard" name="organizer_phone" placeholder="123-456-7890" value="{{ form.event_name.value }}" />
         <label for="organizer-url">Link to organizer's page:</label>
         <input type="text" id="organizer-url" class="input-standard" name="organizer_url" placeholder="www.gallevent.com" value="{{ form.event_url.value }}" />
     </fieldset>
     <fieldset>
         <legend>5. When will your event happen?</legend>
         <label for="start-date" class="required">Start Date &amp; Time:</label>
-        <input type="text" id="start-date" class="input-standard" name="start_date"  placeholder="6/20/2012" value="{{ form.start_date.value }}" /> at <input type="text" id="start-time" class="input-standard" name="start_time" placeholder="3:00 PM" value="{{ form.start_time.value }}" />
+        {% if form.start_date.errors %}
+         	{% for error in form.start_date.errors %}
+         		<span class="error">{{ error }}</span>
+         	{% endfor %}
+        {% endif %}
+        <div><input type="text" id="start-date" class="input-standard" name="start_date"  placeholder="6/20/2012" value="{{ form.start_date.value }}" /> at <input type="text" id="start-time" class="input-standard" name="start_time" placeholder="3:00 PM" value="{{ form.start_time.value }}" /></div>
         <label for="end-date" class="required">End Date &amp; Time:</label>
-        <input type="text" id="end-date" class="input-standard" name="end_date" placeholder="6/20/2012" value="{{ form.end_date.value }}" /> at <input type="text" id="end-time" class="input-standard" name="end_time" placeholder="9:00 PM" value="{{ form.end_time.value }}" />
+        {% if form.end_date.errors %}
+         	{% for error in form.end_date.errors %}
+         		<span class="error">{{ error }}</span>
+         	{% endfor %}
+        {% endif %}
+        <div><input type="text" id="end-date" class="input-standard" name="end_date" placeholder="6/20/2012" value="{{ form.end_date.value }}" /> at <input type="text" id="end-time" class="input-standard" name="end_time" placeholder="9:00 PM" value="{{ form.end_time.value }}" /></div>
     </fieldset>
     <fieldset>
         <legend>6. Guest list</legend>
-        <label for="rsvp-limit">How many people may RSVP?</label>
+        <label for="rsvp-limit">
+        How many people may RSVP?</label>
         <span class="form-details">The number you enter below will limit how many Gallevent Members can RSVP to this event. Leave this blank if there is no limit.</span>
-        <input type="text" id="rsvp-limit" class="input-standard" name="rsvp_limit" value="{{ form.rsvp_limit.value }}" /><em class="form-comment">0 Gallevent Members may RSVP to this event.</em>
+        {% if form.rsvp_limit.errors %}
+         	{% for error in form.rsvp_limit.errors %}
+         		<span class="error">{{ error }}</span>
+         	{% endfor %}
+        {% endif %}
+        <div><input type="text" id="rsvp-limit" class="input-standard" name="rsvp_limit" value="{{ form.rsvp_limit.value }}" /><em class="form-comment">0 Gallevent Members may RSVP to this event.</em></div>
     </fieldset>
     <fieldset>
     	<legend>7. Ticketing</legend>

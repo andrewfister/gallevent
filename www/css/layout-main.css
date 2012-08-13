@@ -541,6 +541,46 @@ form#top-search #date2 {
 	color:#888;
 	font-style:italic;
 	}
+.top-error {
+	font-size:120%;
+	color:#555;
+	border:3px solid #f9882b;
+	padding:0.5em;
+	width:90%;
+	margin:1.5em 0 1em 0;
+	float:left;
+	}
+.top-error h3 {
+	font-size:160%;
+	color:#f9882b;
+	margin:0 0.5em 0 0;
+	font-weight:normal;
+	float:left;
+	}
+span.error {
+	font-weight:bold;
+	text-transform:uppercase;
+	background:#f9882b;
+	color:#fff;
+	padding:0.5em;
+	float:left;
+	clear:both;
+	}
+
+span.error + .input-standard,
+span.error + div>.input-standard {
+	border:2px solid #f9882b; /* Orange */
+	background:#fefbe3;
+	}
+span.error + .input-standard {
+	float:left;
+	clear:both;
+	}
+span.error + div {
+	float:left;
+	clear:both;
+	}
+
 form {
 	float:left;
 	}
@@ -572,7 +612,7 @@ input.search {
 	}
 
 .input-required {
-	border:2px solid #f9882b;
+	border:2px solid #f9882b; /* Orange */
 	background:#fefbe3;
 	}
 input:focus,
