@@ -1,13 +1,13 @@
 var MapView = Backbone.View.extend({
     initialize: function() {
-        this.collection.on("reset", function(events) {
+        /*this.collection.on("reset", function(events) {
             this.removeMarkers();
             var event = events.models[0];
             this.setMarker(event.get("latitude"), event.get("longitude"), event.getAddress(), this.template(event.toJSON()));
-        }.bind(this));
+        }.bind(this));*/
     },
 
-    id: "map-canvas",
+    id: "map_canvas",
     
     template: Mustache.template('marker').render,
     
@@ -19,15 +19,21 @@ var MapView = Backbone.View.extend({
                 center: new google.maps.LatLng(37.88397, -122.2644), 
                 zoom: 9,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
-            }; 
+            };
 
             this.map = new google.maps.Map($("#map_canvas").get(0),
                 myOptions);
 
             google.maps.event.addListener(this.map, 'tilesloaded', function() {
-                _.each(this.collection.models, function(item, index, items) {
-                    this.setMarker(item.get("latitude"), item.get("longitude"), item.getAddress(), this.template(item.toJSON()));
-                }, this);
+                this.collection.fetch({success: function(collection, response) {
+                        _.each(collection.models, function(item, index, items) {
+                            this.setMarker(item.get("latitude"), 
+                                            item.get("longitude"), 
+                                            item.getAddress(), 
+                                            this.template(item.toJSON()));
+                        }, this);
+                    }.bind(this)
+                });
                 
                 google.maps.event.clearListeners(this.map, 'tilesloaded');
             }.bind(this));
@@ -49,11 +55,11 @@ var MapView = Backbone.View.extend({
         
         var marker = new google.maps.Marker({
             map: this.map,
-            draggable:true,
+            draggable: true,
             position: location,
             icon: image,
             title : address,
-            animation: google.maps.Animation.DROP
+            animation: google.maps.Animation.DROP,
         });
 
         google.maps.event.addListener(marker, 'click', function() {
@@ -68,5 +74,5 @@ var MapView = Backbone.View.extend({
         _.each(this.markers, function(marker, index, markers) {
             marker.setMap(null);
         }, this);
-    }
+    },
 });

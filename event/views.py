@@ -61,5 +61,6 @@ class EventView(BackboneAPIView):
                         'description', 'latitude', 'longitude']
     
     def dispatch(self, request, *args, **kwargs):
-        self.base_queryset = models.objects.filter(user_id=request.user_id)
-        return super(EventView, self).dispatch(*args, **kwargs)
+        if request.GET.has_key('userId'):
+            self.base_queryset = models.Event.objects.filter(user_id=request.GET['userId'])
+        return super(EventView, self).dispatch(request, *args, **kwargs)

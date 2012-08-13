@@ -4,7 +4,7 @@
 {% block javascript %}
 <script type="text/javascript">
 $(function(){  // on page load
-    mapEvents.fetch();
+    mapEvents.url = "/event/events/?userId={{ request.user.id }}";
 });
 </script>
 {% endblock %}
