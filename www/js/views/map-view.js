@@ -30,6 +30,7 @@ var MapView = Backbone.View.extend({
                             this.setMarker(item.get("latitude"), 
                                             item.get("longitude"), 
                                             item.getAddress(), 
+                                            item.get("category"),
                                             this.template(item.toJSON()));
                         }, this);
                     }.bind(this)
@@ -42,9 +43,9 @@ var MapView = Backbone.View.extend({
         return this;
     },
     
-    setMarker: function(latitude, longitude, address, info) {
+    setMarker: function(latitude, longitude, address, category, info) {
 
-        var image = '/static/img/pin-map-dining.png';
+        var image = '/static/img/pin-map-' + category + '.png';
 
         var infoWindow = new google.maps.InfoWindow({
             content: info

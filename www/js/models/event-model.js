@@ -5,6 +5,7 @@ var Event = Backbone.Model.extend({
         'city': 'San Francisco',
         'zipcode': '94109',
         'name': 'My Event',
+        'category': 'networking',
         'description': 'A description of my event.',
         'start_date': '01/01/1970',
         'start_time': '12:00',

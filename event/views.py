@@ -57,7 +57,7 @@ class EventView(BackboneAPIView):
     base_queryset = models.Event.objects.all()
     
     serialize_fields = ['id', 'user_id', 'address1', 'address2', 'city', 'zipcode',
-                        'name', 'ticket_price', 'start_date', 'end_date', 
+                        'name', 'category', 'ticket_price', 'start_date', 'end_date', 
                         'description', 'latitude', 'longitude']
     
     def dispatch(self, request, *args, **kwargs):
