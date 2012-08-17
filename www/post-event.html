@@ -159,7 +159,7 @@ $(function(){  // on page load
         <input type="text" id="event-keywords" class="input-standard" name="event_keywords" placeholder="Art, Live Music, Dancing" value="{{ form.event_keywords.value }}" />
     </fieldset>
     <fieldset>
-    	<legend>3. All about your event</legend>
+    	<legend>3. About your event</legend>
         <label for="event-name" class="required">Name your event:</label>
         {% if form.event_name.errors %}
          	{% for error in form.event_name.errors %}
@@ -210,41 +210,8 @@ $(function(){  // on page load
          	{% endfor %}
         {% endif %}
         <div><input type="text" id="end-date" class="input-standard" name="end_date" placeholder="6/20/2012" value="{{ form.end_date.value }}" /> at <input type="text" id="end-time" class="input-standard" name="end_time" placeholder="9:00 PM" value="{{ form.end_time.value }}" /></div>
-    </fieldset>
-    <fieldset>
-        <legend>6. Guest list</legend>
-        <label for="rsvp-limit">
-        How many people may RSVP?</label>
-        <span class="form-details">The number you enter below will limit how many Gallevent Members can RSVP to this event. Leave this blank if there is no limit.</span>
-        {% if form.rsvp_limit.errors %}
-         	{% for error in form.rsvp_limit.errors %}
-         		<span class="error">{{ error }}</span>
-         	{% endfor %}
-        {% endif %}
-        <div><input type="text" id="rsvp-limit" class="input-standard" name="rsvp_limit" value="{{ form.rsvp_limit.value }}" /><em class="form-comment">0 Gallevent Members may RSVP to this event.</em></div>
-    </fieldset>
-    <fieldset>
-    	<legend>7. Ticketing</legend>
-        <label>Do guests need tickets to attend your event?</label>
-        <div class="radio-btn-1">
-        	<input class="radio formOptionalToggle" type="radio" id="no-tickets" name="purchase_tickets" value="no" checked />
-            <label for="no-tickets">No</label>
-        </div>
-        <div class="radio-btn-2">
-        	<div class="head">
-            	<input class="radio formOptionalToggle" type="radio" id="yes-tickets" name="purchase_tickets" value="yes" /><label for="yes-tickets">Yes</label>
-            </div>
-        	<div class='formOptional' visibleWhen="purchase_tickets">
-            	<label for="ticket-type">Ticket type 1:</label>
-            	<input type="text" id="ticket-type" class="input-standard" name="ticket_type" placeholder="General Admission" value="{{ form.ticket_price.value }}" checked />
-                <label for="ticket-price">Price for ticket type 1:</label>
-            	<input type="text" id="ticket-price" class="input-standard" name="ticket_price" placeholder="$0.00" value="{{ form.ticket_price.value }}" /><em class="form-comment">Your event is free!</em>
-            	
-                <button class="btn-add-ticket-type"><span>+</span> Add another ticket type</button>
-                <label for="ticket-link">Link to get tickets:</label>
-            	<input type="text" id="ticket-link" class="input-standard" name="ticket_url" placeholder="www.gallevent.com" value="{{ form.ticket_url.value }}" />
-        	</div>
-        </div><!-- .radio-btn-2 -->
+        <label>Click here if this is a multi-day event</label> 
+        <label>Click here if this is a reoccuring event</label> 
     </fieldset>
     <input class="btn-s-post-event" type="submit" value="Post Event" />
 </form>
