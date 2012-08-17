@@ -98,7 +98,7 @@ def sign_in(request):
                     logging.debug('logging in')
                     login(request, user)
                     
-                    return HttpResponseRedirect('/') # Redirect after POST
+                    return HttpResponseRedirect(request.POST['next']) # Redirect after POST
                 else:
                     logging.debug('disabled account')
                     print 'disabled account'
@@ -107,6 +107,7 @@ def sign_in(request):
                 print 'invalid login'
     
     return render_to_response('sign-in.html', {
+        'next': request.GET['next'] if request.GET.has_key('next') else '/'
     }, context_instance=RequestContext(request))
     
 def sign_out(request):
