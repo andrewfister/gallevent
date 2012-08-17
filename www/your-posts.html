@@ -4,7 +4,7 @@
 {% block javascript %}
 <script type="text/javascript">
 $(function(){  // on page load
-    mapEvents.url = "/event/events/?userId={{ request.user.id }}";
+    mapEvents.url = "/event/events/?userId=" + $('#user-id').html();
 });
 </script>
 {% endblock %}

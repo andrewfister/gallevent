@@ -1,11 +1,11 @@
 var User = Backbone.Model.extend({
     defaults: {
         'id': 0,
-        'username': '',
+        'username': 'example@domain.com',
         'first_name': '',
         'last_name': '',
-        'email': '',
+        'email': 'example@domain.com',
     },
     
-    urlRoot: '/profile/user',
+    url: '/profile/user',
 });

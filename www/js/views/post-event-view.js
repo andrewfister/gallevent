@@ -72,3 +72,15 @@ var PostEventView = Backbone.View.extend({
         window.location = "/event/show";
     }
 });
+
+
+$(function(){  // on page load
+    mapEvents.url = "/event/events/?userId=0";
+
+    var event = new Event();
+    var postEventView = new PostEventView({
+        id: 'post-event',
+        model: event,
+    });
+    postEventView.render();
+});

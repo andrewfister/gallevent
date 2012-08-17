@@ -2,20 +2,8 @@
 {% load map_tags %}
 
 {% block javascript %}
-<script type="text/javascript" src="/static/js/views/post-event-view.js"></script>
 <script type="text/javascript" src="/static/js/models/event-model.js"></script>
-<script type="text/javascript" language="javascript">
-$(function(){  // on page load
-    mapEvents.url = "/event/events/?userId=0";
-
-    var event = new Event();
-    var postEventView = new PostEventView({
-        id: 'post-event',
-        model: event,
-    });
-    postEventView.render();
-});
-</script>
+<script type="text/javascript" src="/static/js/views/post-event-view.js"></script>
 {% endblock javascript %}
 
 {% block selected_page %}your-post-event{% endblock %}

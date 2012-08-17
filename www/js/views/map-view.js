@@ -80,3 +80,13 @@ var MapView = Backbone.View.extend({
         }, this);
     },
 });
+
+var mapEvents = new EventCollection;
+
+$(function() {
+    var mapView = new MapView({
+        collection: mapEvents,
+        id: 'map_canvas',
+    });
+    mapView.render();
+});
