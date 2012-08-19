@@ -27,6 +27,7 @@ class PostEventForm(forms.Form):
     organizer_phone = forms.CharField(max_length=24, required=False, initial="")
     organizer_url = forms.URLField(max_length=200, required=False, initial="")
     purchase_tickets = forms.BooleanField(initial=False, required=False)
+    ticket_type = forms.CharField(max_length=32, required=False, initial="")
     ticket_price = forms.DecimalField(required=False, decimal_places=2, initial=0.00)
     ticket_url = forms.URLField(required=False, initial="")
     latitude = forms.FloatField()
@@ -61,6 +62,7 @@ class PostEventForm(forms.Form):
         organizer_phone = self.cleaned_data['organizer_phone']
         organizer_url = self.cleaned_data['organizer_url']
         purchase_tickets = self.cleaned_data['purchase_tickets']
+        ticket_type = self.cleaned_data['ticket_type']
         ticket_price = self.cleaned_data['ticket_price']
         ticket_url = self.cleaned_data['ticket_url']
         latitude = self.cleaned_data['latitude']
@@ -81,6 +83,7 @@ class PostEventForm(forms.Form):
                             organizer_phone=organizer_phone, 
                             organizer_url=organizer_url, 
                             purchase_tickets=purchase_tickets,
+                            ticket_type=ticket_type,
                             ticket_price=ticket_price, ticket_url=ticket_url,
                             latitude=latitude, longitude=longitude,
                             user_id=self.request.user.id)
