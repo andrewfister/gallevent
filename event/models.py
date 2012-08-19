@@ -4,6 +4,7 @@ class Event(models.Model):
     address1 = models.CharField(max_length=1000)
     address2 = models.CharField(max_length=64)
     city = models.CharField(max_length=64)
+    state = models.CharField(max_length=2)
     zipcode = models.CharField(max_length=16)
     category = models.CharField(max_length=64)
     keywords = models.CharField(max_length=255)
@@ -13,9 +14,15 @@ class Event(models.Model):
     description = models.TextField()
     event_url = models.URLField()
     rsvp_limit = models.IntegerField()
+    organizer_email = models.EmailField()
+    organizer_phone = models.CharField(max_length=24)
+    organizer_url = models.URLField()
     purchase_tickets = models.BooleanField()
+    ticket_type = models.CharField(max_length=32)
     ticket_price = models.DecimalField(decimal_places=2, max_digits=10)
     ticket_url = models.URLField()
     user_id = models.IntegerField()
     longitude = models.FloatField()
     latitude = models.FloatField()
+    
+    
