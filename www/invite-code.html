@@ -1,11 +1,14 @@
 {% extends "base-login.html" %}
 
 {% block content %}
+<div class="hidden">
+	<img src="/static/img/btn-create-account-h.png" title="Create Account Button" />
+</div><!-- .hidden -->
 <div id="content">
     <div id="container">
         <form method='post'>
             <label>Invitation Code:</label>
-            <input type="text" class="input-active" name="invite_code">{{ invite_code }}</input>
+            <input type="text" class="input-standard" name="invite_code">{{ invite_code }}</input>
             <label>Email Address:</label>
             <input type="text" class="input-standard" name="email">{{ email }}</input>
             <label>Password:</label>

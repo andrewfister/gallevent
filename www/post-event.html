@@ -184,7 +184,7 @@ $(function(){  // on page load
     </fieldset>
     <fieldset>
     	<legend>4. Event organizer</legend>
-        <span class="form-details">Only one contact method is required. (If you provide an email address, a phone number is not required. If you provide a phone number, an email address is not required.)</span>
+        <span class="form-details">Only one contact method is required. <br />(If you provide an email address, a phone number is not required. If you provide a phone number, an email address is not required.)</span>
         <label for="organizer-email" class="required">
         Email:</label>
         <input type="text" id="organizer-email" class="input-standard" name="organizer_email" placeholder="event_organizer@gmail.com" value="{{ form.event_name.value }}" />
@@ -212,6 +212,17 @@ $(function(){  // on page load
         <div><input type="text" id="end-date" class="input-standard" name="end_date" placeholder="6/20/2012" value="{{ form.end_date.value }}" /> at <input type="text" id="end-time" class="input-standard" name="end_time" placeholder="9:00 PM" value="{{ form.end_time.value }}" /></div>
         <label>Click here if this is a multi-day event</label> 
         <label>Click here if this is a reoccuring event</label> 
+    </fieldset>
+    <fieldset>
+    	<legend>6. Ticketing</legend>
+        <span class="form-details">Leave this section blank if guests do not need tickets to attend your event.</span>
+        <label for="ticket-type">Ticket type 1:</label>
+        <input type="text" id="ticket-type" class="input-standard" name="ticket_type" placeholder="General Admission" value="{{ form.ticket_price.value }}" checked />
+        <label for="ticket-price">Price for ticket type 1:</label>
+        <input type="text" id="ticket-price" class="input-standard" name="ticket_price" placeholder="$0.00" value="{{ form.ticket_price.value }}" /><em class="form-comment">Your event is free!</em>
+        <button class="btn-add-ticket-type"><span>+</span> Add another ticket type</button>
+        <label for="ticket-link">Link to get tickets:</label>
+        <input type="text" id="ticket-link" class="input-standard" name="ticket_url" placeholder="www.gallevent.com" value="{{ form.ticket_url.value }}" />
     </fieldset>
     <input class="btn-s-post-event" type="submit" value="Post Event" />
 </form>

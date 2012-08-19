@@ -6,10 +6,11 @@
     <div id="container">
     	<div class="left" style="width:100%;text-align:center;">
             <h2 style="margin-bottom:1em;">Congratulations! <br />You've been added to our wait list</h2>
-            <p>We will contact you soon to let you know if qualify to join Gallevent.</p>
+            <p>If qualify to join Gallevent, you will receive an email with your <br /><b>invitation code</b> within the next 48 hours.</p>
             <p>In the meantime, check out the awesome events on Gallevent's <a href="{% url gallevent.map.views.show %}">Event Map</a>!</p>
             <p style="margin:2em 0 2em 0;"><a href="{% url gallevent.map.views.show %}" style="font-size:160%;">Click here to find events now!</a></p>
-            <p class="form-details" style="margin-top:2em;">If you aren't receiving confirmation emails from Gallevent, check the spam folder in your email account. Occasionally, email spam filters incorrectly classify valid emails as spam. To ensure you receive important notifications from us, please add gallevent.feedback@gmail.com to your address book.</p>
+            <p style="margin:2em 0 2em 0;"><a href="{% url gallevent.login.views.invite_code %}" style="font-size:160%;">Already have your invite code? <br />Click here to create your account.</a></p>
+            <p class="form-details" style="margin-top:2em;">If you aren't receiving confirmation emails from Gallevent, check the spam folder in your email account. Occasionally, email spam filters incorrectly classify valid emails as spam. To ensure you receive important notifications from us, please add gallevent.main@gmail.com to your address book.</p>
         </div>
     </div><!-- #container -->
 </div><!-- #content -->

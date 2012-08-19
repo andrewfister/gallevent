@@ -631,7 +631,7 @@ textarea:focus {
 	display:block;
 	color:#555;
 	font-size:95%;
-	margin:0 0 .4em 0;
+	margin:0 0 0.9em 0;
 	}
 .form-comment {
 	color:#f9882b;
@@ -1092,7 +1092,8 @@ form#top-search .btn-search:hover {
 	color:#70b820;
 	width:50%;
 	text-align:left;
-	margin:0 0 1.5em 1.5em;
+	margin:0 0 2em 0;
+	display:block;
 	}
 .btn-add-ticket-type:hover {
 	color:#239ea2;
