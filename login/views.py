@@ -113,9 +113,8 @@ def sign_in(request):
 def sign_out(request):
     if request.user.is_authenticated():
         logout(request)
-
-    return render_to_response('sign-in.html', {
-    }, context_instance=RequestContext(request))
+        
+    return HttpResponseRedirect('/login/sign_in') # Redirect after logout
 
 def manage_invites(request):
     invite_requests = models.InvitationManager.objects.filter(code='').order_by('date')

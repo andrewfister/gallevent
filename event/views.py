@@ -69,4 +69,7 @@ class EventView(BackboneAPIView):
     def dispatch(self, request, *args, **kwargs):
         if request.GET.has_key('userId'):
             self.base_queryset = models.Event.objects.filter(user_id=request.GET['userId'])
+        elif request.GET.has_key('category'):
+            self.base_queryset = models.Event.objects.filter(user_id=request.GET['category'])
+            
         return super(EventView, self).dispatch(request, *args, **kwargs)
