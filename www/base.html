@@ -17,14 +17,13 @@
 <script type="text/javascript" src="/static/js/underscore.js"></script>
 <script type="text/javascript" src="/static/js/backbone.js"></script>
 <script type="text/javascript" src="/static/js/jquery-ui-1.8.22.custom.min.js"></script>
-<script type="text/javascript" src="/static/js/models/user-model.js"></script>
 <script>
-	$(function() {
-		$( "#date1" ).datepicker();
-		$( "#date2" ).datepicker();
-		$( "#start-date" ).datepicker();
-		$( "#end-date" ).datepicker();
-	});
+$(function() {
+	$( "#date1" ).datepicker();
+	$( "#date2" ).datepicker();
+	$( "#start-date" ).datepicker();
+	$( "#end-date" ).datepicker();
+});
 </script>
 {% block javascript %}{% endblock javascript %}
 
@@ -40,10 +39,17 @@
     	<div class="bg">
         <a href="{% url gallevent.map.views.show %}" class="logo"><img src="/static/img/logo-gallevent-white.png" title="Gallevent Events" alt="Gallevent Events" /><b>beta</b></a>
         <span class="right">
-            {% if user.username == "" %}
-        	<a href="{% url gallevent.login.views.invite_request %}">Join Gallevent</a> | <a href="{% url gallevent.login.views.sign_in %}">Sign In</a>
-        	{% else %}
+            {% if user.is_authenticated %}
         	Howdy, {{ user.username }}! | <a href="{% url gallevent.login.views.sign_out %}">Sign Out</a>
+        	<div class="hidden">
+        	    <span id="user-id">{{ user.id }}</span>
+        	    <span id="user-username">{{ user.username }}</span>
+        	    <span id="user-firstname">{{ user.firstname }}</span>
+        	    <span id="user-lastname">{{ user.lastname }}</span>
+        	    <span id="user-email">{{ user.email }}</span>
+        	</div>
+            {% else %}
+        	<a href="{% url gallevent.login.views.invite_request %}">Join Gallevent</a> | <a href="{% url gallevent.login.views.sign_in %}">Sign In</a>
         	{% endif %}
         </span><!-- .right -->
         <form id="top-search">

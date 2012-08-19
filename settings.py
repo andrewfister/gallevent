@@ -83,6 +83,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 ROOT_URLCONF = 'gallevent.urls'
 
+LOGIN_URL = '/login/sign_in'
+LOGOUT_URL = '/login/sign_out'
+
 TEMPLATE_DIRS = local_settings.TEMPLATE_DIRS_LOCAL
 
 from mustachejs import conf

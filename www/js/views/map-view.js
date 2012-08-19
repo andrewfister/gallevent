@@ -1,10 +1,9 @@
 var MapView = Backbone.View.extend({
     initialize: function() {
-        /*this.collection.on("reset", function(events) {
+        this.collection.on("reset", function(events) {
             this.removeMarkers();
-            var event = events.models[0];
-            this.setMarker(event.get("latitude"), event.get("longitude"), event.getAddress(), this.template(event.toJSON()));
-        }.bind(this));*/
+            this.setAllMarkers();
+        }.bind(this));
     },
 
     id: "map_canvas",
@@ -26,13 +25,7 @@ var MapView = Backbone.View.extend({
 
             google.maps.event.addListener(this.map, 'tilesloaded', function() {
                 this.collection.fetch({success: function(collection, response) {
-                        _.each(collection.models, function(item, index, items) {
-                            this.setMarker(item.get("latitude"), 
-                                            item.get("longitude"), 
-                                            item.getAddress(), 
-                                            item.get("category"),
-                                            this.template(item.toJSON()));
-                        }, this);
+                        this.setAllMarkers();
                     }.bind(this)
                 });
                 
@@ -41,6 +34,16 @@ var MapView = Backbone.View.extend({
         }.bind(this));
         
         return this;
+    },
+    
+    setAllMarkers: function() {
+        _.each(this.collection.models, function(item, index, items) {
+            this.setMarker(item.get("latitude"), 
+                            item.get("longitude"), 
+                            item.getAddress(), 
+                            item.get("category"),
+                            this.template(item.toJSON()));
+        }, this);
     },
     
     setMarker: function(latitude, longitude, address, category, info) {
@@ -56,7 +59,7 @@ var MapView = Backbone.View.extend({
         
         var marker = new google.maps.Marker({
             map: this.map,
-            draggable: true,
+            draggable: false,
             position: location,
             icon: image,
             title : address,
@@ -76,4 +79,14 @@ var MapView = Backbone.View.extend({
             marker.setMap(null);
         }, this);
     },
+});
+
+var mapEvents = new EventCollection;
+
+$(function() {
+    var mapView = new MapView({
+        collection: mapEvents,
+        id: 'map_canvas',
+    });
+    mapView.render();
 });
