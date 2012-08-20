@@ -25,6 +25,11 @@ var PostEventView = Backbone.View.extend({
 		    });
 	    });
         
+        var eventCategory = $("#event-category-value").attr("value");
+        if ($("#select-" + eventCategory)) {
+            $("#select-" + eventCategory).attr("selected", "selected");
+        }
+        
         //Geocode address entered in the form when there's an address change 
         //and there's enough address information
         $(".location").blur(function() {
