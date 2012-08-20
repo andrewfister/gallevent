@@ -25,7 +25,12 @@ var PostEventView = Backbone.View.extend({
 		    });
 	    });
         
-        var eventCategory = $("#event-category-value").attr("value");
+        var eventState = $("#state").attr("repost");
+        if ($("#state > [value=" + eventState + "]")) {
+            $("#state > [value=" + eventState + "]").attr("selected", "selected");
+        }
+        
+        var eventCategory = $("#event-category").attr("repost");
         if ($("#select-" + eventCategory)) {
             $("#select-" + eventCategory).attr("selected", "selected");
         }
