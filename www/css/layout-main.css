@@ -153,6 +153,7 @@ h3, .h3 {
 #header .right a,
 #header .right a:link {
 	color:#fff;
+	text-decoration:underline;
 	}
 #header .right a:hover {
 	color:#fef091;
@@ -751,7 +752,7 @@ form select#event-category {
 	}
 
 #select-fairs {
-	background:url(../img/pin-key-art.png) top left no-repeat;
+	background:url(../img/pin-key-fairs.png) top left no-repeat;
 	}
 #select-networking {
 	background:url(../img/pin-key-networking.png) top left no-repeat;
@@ -899,6 +900,7 @@ ul.form-event-list li:hover .edit {
 
 .form-event-list .list-networking,
 .form-event-list .list-education,
+.form-event-list .list-fairs,
 .form-event-list .list-athletic,
 .form-event-list .list-art,
 .form-event-list .list-dancing,
@@ -919,6 +921,12 @@ ul.form-event-list a.list-networking {
 ul.form-event-list li.list-education,
 ul.form-event-list a.list-education {
 	background-image:url(../img/pin-key-education.png);
+	background-position:8px 6px;
+	background-repeat:no-repeat;
+	}
+ul.form-event-list li.list-fairs,
+ul.form-event-list a.list-fairs {
+	background-image:url(../img/pin-key-fairs.png);
 	background-position:8px 6px;
 	background-repeat:no-repeat;
 	}
@@ -1060,6 +1068,9 @@ ul.form-people-list .person-summary {
 	}
 .slt-education label {
 	background:url(../img/pin-key-education.png) 2px 3px no-repeat;
+	}
+.slt-education label {
+	background:url(../img/pin-key-fairs.png) 2px 3px no-repeat;
 	}
 .slt-athletic label {
 	background:url(../img/pin-key-athletic.png) 2px 3px no-repeat;

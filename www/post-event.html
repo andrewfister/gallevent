@@ -44,14 +44,14 @@
         {% endif %}
         <span id="event-category-value" class="hidden" value="{{ form.event_category.value }}"></span>
         <select id="event-category" class="input-standard" name="event_category" repost="{{ form.event_category.value }}">
-            <option value="fairs" id="select-fairs">Festivals &amp; Fairs</option>
             <option value="networking" id="select-networking">Networking</option>
             <option value="education" id="select-education">Education</option>
+            <option value="fairs" id="select-fairs">Fairs &amp; Festivals</option>
             <option value="athletic" id="select-athletic">Athletic</option>
             <option value="art" id="select-art">Art &amp; Music</option>
             <option value="dancing" id="select-dancing">Dancing</option>
             <option value="dining" id="select-dining">Dining</option>
-            <option value="parties" id="select-parties">Parties</option>
+            <option value="parties" id="select-parties">Nightlife &amp; Parties</option>
         </select>
         <label for="event-keywords">Keywords:</label>
         {% if form.event_keywords.errors %}
@@ -214,7 +214,7 @@
     	<legend>6. Ticketing</legend>
         <span class="form-details">Leave this section blank if guests do not need tickets to attend your event.</span>
         <label for="ticket-type">Ticket type 1:</label>
-        <input type="text" id="ticket-type" class="input-standard" name="ticket_type" placeholder="General Admission" value="{{ form.ticket_price.value }}" checked />
+        <input type="text" id="ticket-type" class="input-standard" name="ticket_type" placeholder="General Admission" value="{{ form.ticket_type.value }}" checked />
         <label for="ticket-price">Price for ticket type 1:</label>
         <input type="text" id="ticket-price" class="input-standard" name="ticket_price" placeholder="$0.00" value="{{ form.ticket_price.value }}" /><em class="form-comment">Your event is free!</em>
         <button class="btn-add-ticket-type"><span>+</span> Add another ticket type</button>

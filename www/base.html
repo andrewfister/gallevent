@@ -43,7 +43,7 @@ $(function() {
             </div><!-- .logo-block -->
         <span class="right">
             {% if user.is_authenticated %}
-        	Howdy, {{ user.username }}! | <a href="{% url gallevent.login.views.sign_out %}">Sign Out</a>
+        	Howdy, <a href="{% url gallevent.user_profile.views.show_profile %}">{{ user.username }}</a>! | <a href="{% url gallevent.login.views.sign_out %}">Sign Out</a>
         	<div class="hidden">
         	    <span id="user-id">{{ user.id }}</span>
         	    <span id="user-username">{{ user.username }}</span>
