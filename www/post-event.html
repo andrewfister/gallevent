@@ -125,7 +125,8 @@
          		<span class="error">{{ error }}</span>
          	{% endfor %}
         {% endif %}
-        <select id="event-category" class="input-standard" name="event_category" value="{{ form.event_category.value }}" >
+        <span id="event-category-value" class="hidden" value="{{ form.event_category.value }}"></span>
+        <select id="event-category" class="input-standard" name="event_category">
             <option value="fairs" id="select-fairs">Festivals &amp; Fairs</option>
             <option value="networking" id="select-networking">Networking</option>
             <option value="education" id="select-education">Education</option>
@@ -175,12 +176,12 @@
         <span class="form-details">Only one contact method is required. <br />(If you provide an email address, a phone number is not required. If you provide a phone number, an email address is not required.)</span>
         <label for="organizer-email" class="required">
         Email:</label>
-        <input type="text" id="organizer-email" class="input-standard" name="organizer_email" placeholder="event_organizer@gmail.com" value="{{ form.event_name.value }}" />
+        <input type="text" id="organizer-email" class="input-standard" name="organizer_email" placeholder="event_organizer@gmail.com" value="{{ form.organizer_email.value }}" />
         <label for="organizer-phone" class="required">
         Phone number:</label>
-        <input type="text" id="organizer-phone" class="input-standard" name="organizer_phone" placeholder="123-456-7890" value="{{ form.event_name.value }}" />
+        <input type="text" id="organizer-phone" class="input-standard" name="organizer_phone" placeholder="123-456-7890" value="{{ form.organizer_phone.value }}" />
         <label for="organizer-url">Link to organizer's page:</label>
-        <input type="text" id="organizer-url" class="input-standard" name="organizer_url" placeholder="www.gallevent.com" value="{{ form.event_url.value }}" />
+        <input type="text" id="organizer-url" class="input-standard" name="organizer_url" placeholder="www.gallevent.com" value="{{ form.organizer_url.value }}" />
     </fieldset>
     <fieldset>
         <legend>5. When will your event happen?</legend>
