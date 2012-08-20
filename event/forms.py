@@ -28,7 +28,7 @@ class PostEventForm(forms.Form):
     organizer_url = forms.URLField(max_length=200, required=False, initial="")
     purchase_tickets = forms.BooleanField(initial=False, required=False)
     ticket_type = forms.CharField(max_length=32, required=False, initial="")
-    ticket_price = forms.DecimalField(required=False, decimal_places=2, initial=0.00)
+    ticket_price = forms.DecimalField(required=False, decimal_places=2)
     ticket_url = forms.URLField(required=False, initial="")
     latitude = forms.FloatField()
     longitude = forms.FloatField()
