@@ -18,7 +18,7 @@ class PostEventForm(forms.Form):
     start_date = forms.DateField(initial="")
     start_time = forms.TimeField(initial="", input_formats=['%I:%M%p', '%I:%M %p'])
     end_date = forms.DateField(initial="")
-    end_time = forms.TimeField(initial="", input_formats=['%I:%M%p', '%I:%M %p'])
+    end_time = forms.TimeField(initial="", input_formats=['%I:%M%p', '%I:%M %p', '%I%p', '%I %p'])
     event_name = forms.CharField(max_length=64, initial="")
     event_description = forms.CharField(max_length=1000, initial="")
     event_url = forms.URLField(required=False, initial="")

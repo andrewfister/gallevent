@@ -25,6 +25,7 @@ var PostEventView = Backbone.View.extend({
 		    });
 	    });
         
+        //Default selected option for dropdowns
         var eventState = $("#state").attr("repost");
         if ($("#state > [value=" + eventState + "]")) {
             $("#state > [value=" + eventState + "]").attr("selected", "selected");
@@ -35,29 +36,35 @@ var PostEventView = Backbone.View.extend({
             $("#select-" + eventCategory).attr("selected", "selected");
         }
         
+        this.setLocationOnMap();
+        
         //Geocode address entered in the form when there's an address change 
         //and there's enough address information
         $(".location").blur(function() {
-            var address1 = $("#address1").attr("value");
-            var address2 = $("#address2").attr("value");
-            var city = $("#city").attr("value");
-            var zipcode = $("#zip-code").attr("value");
-            
-            if (address1.length > 0 && city.length > 0 && zipcode.length > 0)
-            {
-                this.model.set({
-                    address1: address1,
-                    address2: address2,
-                    city: city,
-                    zipcode: zipcode,
-                });
-            
-                var address = this.model.getAddress();
-                this.codeAddress(address);
-            }
+            this.setLocationOnMap();
         }.bind(this));
         
         return this;
+    },
+    
+    setLocationOnMap: function() {
+        var address1 = $("#address1").attr("value");
+        var address2 = $("#address2").attr("value");
+        var city = $("#city").attr("value");
+        var zipcode = $("#zip-code").attr("value");
+        
+        if (address1.length > 0 && city.length > 0 && zipcode.length > 0)
+        {
+            this.model.set({
+                address1: address1,
+                address2: address2,
+                city: city,
+                zipcode: zipcode,
+            });
+        
+            var address = this.model.getAddress();
+            this.codeAddress(address);
+        }
     },
     
     codeAddress: function(address) {
