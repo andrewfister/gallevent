@@ -37,7 +37,10 @@ $(function() {
     {% block header %}
     <div id="header">
     	<div class="bg">
-        <a href="{% url gallevent.map.views.show %}" class="logo"><img src="/static/img/logo-gallevent-white.png" title="Gallevent Events" alt="Gallevent Events" /><b>beta</b></a>
+        	<div class="logo-block">
+                <a href="{% url gallevent.map.views.show %}" class="logo"><img src="/static/img/logo-gallevent-white.png" title="Gallevent Events" alt="Gallevent Events" /><b>beta</b></a>
+                <span class="tagline">Find Events Near You!</span>
+            </div><!-- .logo-block -->
         <span class="right">
             {% if user.is_authenticated %}
         	Howdy, {{ user.username }}! | <a href="{% url gallevent.login.views.sign_out %}">Sign Out</a>

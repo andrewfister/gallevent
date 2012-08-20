@@ -119,8 +119,17 @@ h3, .h3 {
 	color:#fff;
 	font-weight:bold;
 	}
+#header .logo-block {
+	float:left;
+	margin:0 0 0 0;
+	}
+.logo-block .tagline {
+	display:block;
+	margin:0 0 0 59px;
+	font-style: italic;
+	}
 #header a.logo {
-	margin:24px 0 0 20px;
+	margin:20px 0 0 20px;
 	height:42px;
 	display:block;
 	float:left;
@@ -635,6 +644,13 @@ textarea:focus {
 	}
 .form-comment {
 	color:#f9882b;
+	}
+/* Form comment under text-area or input */
+.under {
+	display:block;
+	margin-bottom:1em;
+	text-align:right;
+	width:73%;
 	}
 
 form .radio-btn-1,
