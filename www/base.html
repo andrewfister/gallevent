@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="/static/css/layout-main.css" />
 {% block css %}{% endblock css %}
 
+{% block prejavascript %}{% endblock prejavascript %}
 <script type="text/javascript" src="/static/js/jquery-1.7.2.js"></script>
 <script type="text/javascript" src="/static/js/jquery.watermark.js"></script>
 <script type="text/javascript" src="/static/js/mustache/mustache-0.3.0.js"></script>
@@ -17,14 +18,8 @@
 <script type="text/javascript" src="/static/js/underscore.js"></script>
 <script type="text/javascript" src="/static/js/backbone.js"></script>
 <script type="text/javascript" src="/static/js/jquery-ui-1.8.22.custom.min.js"></script>
-<script>
-$(function() {
-	$( "#date1" ).datepicker();
-	$( "#date2" ).datepicker();
-	$( "#start-date" ).datepicker();
-	$( "#end-date" ).datepicker();
-});
-</script>
+<script type="text/javascript" src="/static/js/grand-central-dispatch.js"></script>
+<script type="text/javascript" src="/static/js/views/header-view.js"></script>
 {% block javascript %}{% endblock javascript %}
 
 </head>
@@ -38,7 +33,7 @@ $(function() {
     <div id="header">
     	<div class="bg">
         	<div class="logo-block">
-                <a href="{% url gallevent.map.views.show %}" class="logo"><img src="/static/img/logo-gallevent-white.png" title="Gallevent Events" alt="Gallevent Events" /><b>beta</b></a>
+                <a href="{% url gallevent.event.views.show_front_page_events %}" class="logo"><img src="/static/img/logo-gallevent-white.png" title="Gallevent Events" alt="Gallevent Events" /><b>beta</b></a>
                 <span class="tagline">Find Events Near You!</span>
             </div><!-- .logo-block -->
         <span class="right">

@@ -3,11 +3,19 @@ from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
+from django.core import serializers
 
 from djangbone.views import BackboneAPIView
 
 from gallevent.event import forms
 from gallevent.event import models
+
+def show_front_page_events(request):
+    events = models.Event.objects.all()
+
+    return render_to_response('index.html', {
+    'events': events,
+    }, context_instance=RequestContext(request))
 
 @login_required
 def post_event(request):
@@ -64,8 +72,8 @@ class EventView(BackboneAPIView):
     
     serialize_fields = ['id', 'user_id', 'address1', 'address2', 'city', 'state', 'zipcode',
                         'name', 'category', 'ticket_price', 'start_date', 'end_date', 
-                        'description', 'organizer_email', 'organizer_phone', 'organizer_url', 
-                        'latitude', 'longitude']
+                        'description', 'organizer_email', 'organizer_phone', 'organizer_url', 'latitude',
+                        'longitude']
     
     def dispatch(self, request, *args, **kwargs):
         if request.GET.has_key('userId'):

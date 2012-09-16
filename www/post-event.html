@@ -1,6 +1,12 @@
 {% extends "base-profile.html" %}
 {% load map_tags %}
 
+{% block prejavascript %}
+<script>
+var eventsJSON = [];
+</script>
+{% endblock %}
+
 {% block javascript %}
 <script type="text/javascript" src="/static/js/models/event-model.js"></script>
 <script type="text/javascript" src="/static/js/views/post-event-view.js"></script>

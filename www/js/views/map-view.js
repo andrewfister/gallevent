@@ -3,9 +3,9 @@ var MapView = Backbone.View.extend({
         this.collection.on("reset", function(events) {
             this.removeMarkers();
             this.setAllMarkers();
-        }.bind(this));
+        }, this);
     },
-
+    
     id: "map_canvas",
     
     template: Mustache.template('marker').render,
@@ -24,11 +24,7 @@ var MapView = Backbone.View.extend({
                 myOptions);
 
             google.maps.event.addListener(this.map, 'tilesloaded', function() {
-                this.collection.fetch({success: function(collection, response) {
-                        this.setAllMarkers();
-                    }.bind(this)
-                });
-                
+                this.setAllMarkers();
                 google.maps.event.clearListeners(this.map, 'tilesloaded');
             }.bind(this));
         }.bind(this));
@@ -79,14 +75,4 @@ var MapView = Backbone.View.extend({
             marker.setMap(null);
         }, this);
     },
-});
-
-var mapEvents = new EventCollection;
-
-$(function() {
-    var mapView = new MapView({
-        collection: mapEvents,
-        id: 'map_canvas',
-    });
-    mapView.render();
 });

@@ -76,7 +76,7 @@ var PostEventView = Backbone.View.extend({
                 this.model.set({latitude: location.lat(), longitude: location.lng()});
                 $("#latitude").attr("value", location.lat());
                 $("#longitude").attr("value", location.lng());
-                mapEvents.reset([this.model]);
+                events.reset([this.model]);
             } else {
                 alert("Geocode was not successful for the following reason: " + status); 
             }
@@ -92,7 +92,6 @@ var PostEventView = Backbone.View.extend({
 
 
 $(function(){  // on page load
-    mapEvents.url = "/event/events/?userId=0";
 
     var event = new Event();
     var postEventView = new PostEventView({

@@ -36,7 +36,7 @@ $(function(){  // on page load
             	<span class="event-data">
             		<span class="event-name">{{ event.name }}</span><span class="date-time">Starts on: <br /><strong>{{ event.start_date.date }}</strong> at <strong>{{ event.start_date.time }}</strong></span><span class="date-time">Ends on: <br /><strong>{{ event.end_date.date }}</strong> at <strong>{{ event.end_date.time }}</strong></span><span class="address">{{ event.address1 }} {{ event.address2 }}, {{ event.city }}, {{ event.zipcode }}</span>
                 </span>
-                <span class="mod-event"><a class="btn-manage" href="{% url gallevent.event.views.manage_events %}">Manage</a><a class="btn-edit" href="{% url gallevent.event.views.edit_event %}">Edit</a><a class="btn-delete" href="#">Delete</a></span>
+                <span class="mod-event"><a class="btn-manage" href="{% url gallevent.event.views.manage_events %}">Manage</a><a class="btn-edit" href="{% url gallevent.event.views.edit_event %}">Edit</a><a class="btn-delete" href="#" onclick="">Delete</a></span>
             </li>
         {% endfor %}
         </ul>

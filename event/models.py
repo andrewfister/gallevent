@@ -24,5 +24,3 @@ class Event(models.Model):
     user_id = models.IntegerField()
     longitude = models.FloatField()
     latitude = models.FloatField()
-    
-    
