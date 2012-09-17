@@ -875,15 +875,23 @@ ul.form-people-list {
 
 /* = Event List */
 ul.form-event-list li {
-	border:2px solid #3CC;
+	border-bottom:1px solid #e9eaea;
 	float:left;
 	display:block;
-	background:#e4f3f4;
+	width:100%;
+	padding:0;
 	}
 ul.form-event-list li:hover {
-	border:2px solid #85C440;
-	background:#f0f8e8;
+	border-bottom:1px solid #e9eaea;
+	background:#e4f3f4;
 	text-decoration:none;
+	}
+
+ul.archived-events li {
+	border:2px solid #ccc;
+	float:left;
+	display:block;
+	background:#ededed;
 	}
 
 .form-event-list .event-data {
@@ -937,7 +945,6 @@ ul.form-event-list li:hover .edit {
 .form-event-list .list-dining,
 .form-event-list .list-parties,
 .form-event-list .list-jobs {
-	padding:.5em .75em .5em 3.3125em;
 	float:left;
 	}
 
@@ -1476,13 +1483,11 @@ input.btn-s-post-event:hover {
 	}
 
 /* = Your Posts */
-.your-posts .group {
-	float:left;
-	margin:1em 0 1.5em 0;
+.your-posts fieldset {
+	width:96%;
+	padding:1em 9px 0 9px;
 	}
-.your-posts .group .h3 {
-	float:left;
-	}
+
 
 /* = Your Posts: Manage Your Event */
 .your-posts-mng .col {
