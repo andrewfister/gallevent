@@ -11,7 +11,7 @@ from gallevent.event import forms
 from gallevent.event import models
 
 def show_front_page_events(request):
-    events = models.Event.objects.all()
+    events = models.Event.objects.filter(status=1)
 
     return render_to_response('index.html', {
     'events': events,
@@ -49,7 +49,7 @@ def edit_event(request):
 
 @login_required
 def show_events(request):
-    events = models.Event.objects.filter(user_id=request.user.id)
+    events = models.Event.objects.filter(user_id=request.user.id, status=1)
 
     return render_to_response('your-posts.html', {
     'selected_page': 'your-posts',
@@ -68,20 +68,24 @@ def manage_events(request):
     }, context_instance=RequestContext(request))
     
 class EventView(BackboneAPIView):
-    base_queryset = models.Event.objects.all()
+    base_queryset = models.Event.objects.filter(status=1)
+    
+    edit_form_class = forms.ArchiveEventForm
     
     serialize_fields = ['id', 'user_id', 'address1', 'address2', 'city', 'state', 'zipcode',
                         'name', 'category', 'ticket_price', 'start_date', 'end_date', 
                         'description', 'organizer_email', 'organizer_phone', 'organizer_url', 'latitude',
-                        'longitude']
+                        'longitude', 'status']
     
     def dispatch(self, request, *args, **kwargs):
-        import logging
-        logging.debug('method: ' + request.method)
-        
         if request.GET.has_key('userId'):
-            self.base_queryset = models.Event.objects.filter(user_id=request.GET['userId'])
+            self.base_queryset = models.Event.objects.filter(user_id=request.GET['userId'], status=1)
         elif request.GET.has_key('category'):
-            self.base_queryset = models.Event.objects.filter(user_id=request.GET['category'])
+            self.base_queryset = models.Event.objects.filter(user_id=request.GET['category'], status=1)
         
         return super(EventView, self).dispatch(request, *args, **kwargs)
+    
+    def validation_error_response(self, form_errors):
+        import logging
+        logging.debug(form_errors)
+        return str(form_errors)
