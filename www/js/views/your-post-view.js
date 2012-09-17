@@ -2,10 +2,10 @@ var YourPostView = Backbone.View.extend({
     className: 'list-post',
         
     events: {
-        "click .mod-event .btn-delete":    "destroy",
+        "click .mod-event .btn-archive":    "archive",
     },
     
-    destroy: function() {
+    archive: function() {
         this.model.on('change:status', function() {
             this.remove();
         }, this);
