@@ -473,7 +473,7 @@ form#top-search #date2 {
 	color:#34859F;
 	}
 .map-popup .event-name a:hover {
-	color:#85c440;
+	color:#85c440; /* green */
 	}
 .event-name .pop-up-banner {
 	position:relative;
@@ -600,7 +600,7 @@ span.error {
 	}
 
 span.error + .input-standard,
-span.error + div>.input-standard {
+span.error + div .input-standard {
 	border:2px solid #f9882b; /* Orange */
 	background:#fefbe3;
 	}
@@ -644,13 +644,14 @@ input.search {
 	}
 
 .input-required {
-	border:2px solid #f9882b; /* Orange */
+	border:2px solid #5EBF31; /* Green */
 	background:#fefbe3;
 	}
 input:focus,
-textarea:focus {
-	border:2px solid #85c440;
-	background:#f0f8e8;
+textarea:focus,
+select:focus {
+	border:2px solid #56D8D8;
+	background:#fff;
 	outline: none;
 	}
 .input-standard {
@@ -666,7 +667,7 @@ textarea:focus {
 	margin:0 0 0.9em 0;
 	}
 .form-comment {
-	color:#f9882b;
+	color:#239ea2;
 	}
 /* Form comment under text-area or input */
 .under {
@@ -736,8 +737,9 @@ form label {
 	display:block;
 	margin:0 0 .2em 0;
 	}
+.required,
 label.required {
-	color:#f9882b;
+	color:#5EBF31; /* Green */
 	}
 
 form input,
@@ -822,7 +824,11 @@ form input#end-date,
 form input#end-time {
 	width:100px;
 	}
-	
+
+.sort {
+	float:right; /* Used to place the sort label and dropdown next to the category heading on Your Post Page */
+	}
+
 .sort label {
 	float:left;
 	clear:none;
@@ -1139,20 +1145,20 @@ form#top-search .btn-search:hover {
 	font-weight:bold;
 	background:transparent;
 	font-size:90%;
-	color:#70b820;
+	color:#239ea2;
 	width:50%;
 	text-align:left;
 	margin:0 0 2em 0;
 	display:block;
 	}
 .btn-add-ticket-type:hover {
-	color:#239ea2;
+	color:#33C1C4;
 	}
 .btn-add-ticket-type:hover span {
-	background:#239ea2;
+	background:#33C1C4;
 	}
 .btn-add-ticket-type span {
-	background:#70b820;
+	background:#239ea2;
 	color:#fff;
 	font-size:180%;
 	display:inline-block;
@@ -1190,16 +1196,28 @@ ul.form-event-list .mod-event a.btn-watch {
 	text-decoration:none;
 	}
 
+ul.form-event-list .mod-event a.btn-archive,
+ul.form-event-list .mod-event .btn-archive {
+	color:#f68d1f;
+	text-decoration:underline;
+	}
+ul.form-event-list .mod-event a.btn-archive:hover,
+ul.form-event-list .mod-event .btn-archive:hover {
+	color:#F2B31F;
+	text-decoration:none;
+	}
+
 ul.form-event-list .mod-event a.btn-delete,
 ul.form-event-list .mod-event .btn-delete {
-	color:#f68d1f;
+	color:#d62121;
 	text-decoration:underline;
 	}
 ul.form-event-list .mod-event a.btn-delete:hover,
 ul.form-event-list .mod-event .btn-delete:hover {
-	color:#d62121;
+	color:#E25451;
 	text-decoration:none;
 	}
+
 
 a.btn-manage,
 a.btn-view,
@@ -1455,6 +1473,15 @@ input.btn-s-post-event:hover {
 	}
 .your-profile .profile-links a {
 	display:block;
+	}
+
+/* = Your Posts */
+.your-posts .group {
+	float:left;
+	margin:1em 0 1.5em 0;
+	}
+.your-posts .group .h3 {
+	float:left;
 	}
 
 /* = Your Posts: Manage Your Event */
