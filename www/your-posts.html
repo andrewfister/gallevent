@@ -24,8 +24,8 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
 <p>Events you have RSVPed to, events you are following, <br />and events you have attended.</p>
 {% endifequal %}{% endifequal %}
 <form id="your-posts">    
-    <span class="group">
-        <span class="h3">Active Posts</span>
+	<fieldset>
+    	<legend>Active Posts</legend>
         <span class="sort">
             <label for="active-sort-by1">Sort:</label>
             <select id="active-sort-by1">
@@ -33,8 +33,8 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
                 <option value="date-descending">Date Descending</option>
                 <option value="date-category">Category</option>
             </select>
-        </span>
-        <ul class="form-event-list active-events">
+        </span><!-- .sort -->
+        <ul class="form-event-list">
         {% for event in events %}
         	<li id='your-post-{{ event.id }}' class="list-{{ event.category }} list-post">
             	<span class="event-data">
@@ -45,17 +45,19 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         {% endfor %}
         </ul>
         <a href="{% url gallevent.event.views.show_events %}" class="more-link">More Active Posts &raquo;</a>
-    </span>
+    </fieldset>
     
     {% ifequal selected_page 'your-posts' %}
     <span class="group">
         <span class="h3">Archived Posts</span>
-        <label for="active-sort-by3">Sort:</label>
-        <select id="active-sort-by3">
-            <option value="date-ascending">Date Ascending</option>
-            <option value="date-descending">Date Descending</option>
-            <option value="date-category">Category</option>
-        </select>
+        <span class="sort">
+            <label for="active-sort-by3">Sort:</label>
+            <select id="active-sort-by3">
+                <option value="date-ascending">Date Ascending</option>
+                <option value="date-descending">Date Descending</option>
+                <option value="date-category">Category</option>
+            </select>
+        </span><!-- .sort -->
         <ul class="form-event-list archived-events">
             <li class="list-jobs">
             	<span class="event-data">
