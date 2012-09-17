@@ -473,7 +473,7 @@ form#top-search #date2 {
 	color:#34859F;
 	}
 .map-popup .event-name a:hover {
-	color:#85c440;
+	color:#85c440; /* green */
 	}
 .event-name .pop-up-banner {
 	position:relative;
@@ -644,13 +644,14 @@ input.search {
 	}
 
 .input-required {
-	border:2px solid #f9882b; /* Orange */
+	border:2px solid #5EBF31; /* Green */
 	background:#fefbe3;
 	}
 input:focus,
-textarea:focus {
-	border:2px solid #85c440;
-	background:#f0f8e8;
+textarea:focus,
+select:focus {
+	border:2px solid #56D8D8;
+	background:#fff;
 	outline: none;
 	}
 .input-standard {
@@ -666,7 +667,7 @@ textarea:focus {
 	margin:0 0 0.9em 0;
 	}
 .form-comment {
-	color:#f9882b;
+	color:#239ea2;
 	}
 /* Form comment under text-area or input */
 .under {
@@ -736,8 +737,9 @@ form label {
 	display:block;
 	margin:0 0 .2em 0;
 	}
+.required,
 label.required {
-	color:#f9882b;
+	color:#5EBF31; /* Green */
 	}
 
 form input,

@@ -41,7 +41,7 @@ var eventsJSON = [];
 	<div class="top-error"><h3>Oops!</h3><span class="left">There are some errors in your event post.<br />Please review the form below and correct the errors.</span></div>
 {% endif %}
 <h2>Post Your Event on Gallevent</h2>
-<p><em class="form-comment">Required items are in <b>orange</b>.</em></p>
+<p class="required"><em>Required items are in <b>green</b>.</em></p>
 {% endif %}
 <form id="post-event" method="post">
 	<fieldset>
@@ -240,7 +240,7 @@ var eventsJSON = [];
     </fieldset>
     <fieldset>
     	<legend>6. Ticketing</legend>
-        <span class="form-details">Leave this section blank if guests do not need tickets to attend your event.</span>
+        <span class="form-details">Ignore this section if guests do NOT need tickets to attend your event.</span>
         <label for="ticket-type">Ticket type 1:</label>
         <input type="text" id="ticket-type" class="input-standard" name="ticket_type" placeholder="General Admission" value="{{ form.ticket_type.value }}" checked />
         <label for="ticket-price">Price for ticket type 1:</label>
