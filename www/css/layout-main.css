@@ -466,19 +466,34 @@ form#top-search #date2 {
 .map-popup .event-name {
 	font-weight:bold;
 	font-size:120%;
-	color:#239ea2;
-	padding:0 .5em .5em 35px;
+	color:#34859F;
+	padding:0 0 .5em 0;
 	}
 .map-popup .event-name a {
-	color:#239ea2;
+	color:#34859F;
 	}
 .map-popup .event-name a:hover {
 	color:#85c440;
 	}
+.event-name .pop-up-banner {
+	position:relative;
+	z-index:900;
+	}
+.event-name .category-icon {
+	float:left;
+	margin-right:0.5em;
+	}
+.event-name .pop-up-banner+.category-icon {
+	float:right;
+	margin:-20px 10px 0 0;
+	border:2px solid #fff;
+	position:relative;
+	z-index:1000;
+	}
 
 .map-popup .price,
 .map-popup .date-time {
-	color:#239ea2;
+	color:#34859F;
 	}
 .map-popup .price {
 	font-size:110%;
@@ -518,9 +533,12 @@ form#top-search #date2 {
 	color:#F2581C;
 	}
 
+/*
 .cb-networking {
 	background:url(../img/cbi-networking.png) top left no-repeat;
+	margin-right:1em;
 	}
+*/
 
 /* = Footer */
 #footer {
