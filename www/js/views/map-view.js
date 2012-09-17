@@ -4,6 +4,10 @@ var MapView = Backbone.View.extend({
             this.removeMarkers();
             this.setAllMarkers();
         }, this);
+        
+        this.collection.on("remove", function(evt, collection, options) {
+            this.destroyMarker(options.index);
+        }, this);
     },
     
     id: "map_canvas",
@@ -75,4 +79,9 @@ var MapView = Backbone.View.extend({
             marker.setMap(null);
         }, this);
     },
+    
+    destroyMarker: function(index) {
+        this.markers[index].setMap(null);
+        this.markers.splice(index, 1);
+    }
 });

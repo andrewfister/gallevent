@@ -13,9 +13,9 @@ $(function() {
     
     if ($('#your-posts').length)
     {
-        events.on('destroy', function(evt, collection, options) {
-            collection.remove(collection[options.index]);
-        });
+        events.on('change:status', function(evt, index, options) {
+            this.remove(this.models[index]);
+        }, events);
     
         _.each(events.models, function(item, index, items) {
             var yourPostView = new YourPostView({

@@ -6,7 +6,9 @@ var YourPostView = Backbone.View.extend({
     },
     
     destroy: function() {
-        this.model.destroy();
-        this.remove();
+        this.model.on('change:status', function() {
+            this.remove();
+        }, this);
+        this.model.save({'status': 0})
     },
 });

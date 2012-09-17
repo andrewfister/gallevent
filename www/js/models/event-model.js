@@ -14,6 +14,7 @@ var Event = Backbone.Model.extend({
         'ticket_price': 10.00,
         'latitude': 0,
         'longitude': 0,
+        'rsvp_limit': 0,
     },
     
     getAddress: function() {

@@ -93,3 +93,11 @@ class PostEventForm(forms.Form):
         
     def set_request(self, request):
         self.request = request
+
+
+class ArchiveEventForm(forms.ModelForm):
+    class Meta:
+        model = models.Event
+
+    def set_request(self, request):
+        self.request = request
