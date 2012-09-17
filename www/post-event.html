@@ -10,16 +10,6 @@ var eventsJSON = [];
 {% block javascript %}
 <script type="text/javascript" src="/static/js/models/event-model.js"></script>
 <script type="text/javascript" src="/static/js/views/post-event-view.js"></script>
-<!-- START Limit characters in textarea http://www.devcurry.com/2009/08/limit-number-of-characters-in-textarea.html -->
-<script type='text/javascript'>
-        $(document).ready(function() {
-            $('#event-description').keyup(function() {
-                var len = this.value.length;
-                $('#charLeft').text(1000 - len);
-            });
-        });
-</script>
-<!-- END Limit characters in textarea -->
 <!-- START Timepicker -->
 <script type="text/javascript" src="/static/js/jquery.timepicker.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/static/css/jquery.timepicker.css" />

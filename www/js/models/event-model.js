@@ -28,7 +28,9 @@ var Event = Backbone.Model.extend({
         address += this.get("city") + " " + this.get("zipcode");
         
         return address;
-    }
+    },
+    
+    urlRoot: '/event/events',
 });
 
 var EventCollection = Backbone.Collection.extend({

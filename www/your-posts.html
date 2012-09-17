@@ -7,6 +7,10 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
 </script>
 {% endblock %}
 
+{% block javascript %}
+<script type="text/javascript" src="/static/js/views/your-post-view.js"></script>
+{% endblock %}
+
 {% block selected_page %}{{ selected_page }}{% endblock %}
 
 {% block active_tab_content_width %}side{% endblock %}
@@ -30,11 +34,11 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         </select>
         <ul class="form-event-list">
         {% for event in events %}
-        	<li class="list-{{ event.category }}">
+        	<li id='your-post-{{ event.id }}' class="list-{{ event.category }} list-post">
             	<span class="event-data">
             		<span class="event-name">{{ event.name }}</span><span class="date-time">Starts on: <br /><strong>{{ event.start_date.date }}</strong> at <strong>{{ event.start_date.time }}</strong></span><span class="date-time">Ends on: <br /><strong>{{ event.end_date.date }}</strong> at <strong>{{ event.end_date.time }}</strong></span><span class="address">{{ event.address1 }} {{ event.address2 }}, {{ event.city }}, {{ event.zipcode }}</span>
                 </span>
-                <span class="mod-event"><a class="btn-manage" href="{% url gallevent.event.views.manage_events %}">Manage</a><a class="btn-edit" href="{% url gallevent.event.views.edit_event %}">Edit</a><a class="btn-delete" href="#" onclick="">Delete</a></span>
+                <span class="mod-event"><a class="btn-manage" href="{% url gallevent.event.views.manage_events %}">Manage</a><a class="btn-edit" href="{% url gallevent.event.views.edit_event %}">Edit</a><a class="btn-delete" href="#">Delete</a></span>
             </li>
         {% endfor %}
         </ul>

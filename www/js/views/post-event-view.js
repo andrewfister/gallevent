@@ -1,6 +1,13 @@
 var PostEventView = Backbone.View.extend({
     id: "post-event",
     render: function() {
+        //START Limit characters in textarea 
+        //http://www.devcurry.com/2009/08/limit-number-of-characters-in-textarea.html
+        $('#event-description').keyup(function() {
+            var len = this.value.length;
+            $('#charLeft').text(1000 - len);
+        });
+    
         // Watermark all input tags:
 	    $("input[type='text']").each(function(index, input) {  // Find each input tag
 	        input = $(input);              // each gives you a raw HTML element; wrap it back in input
@@ -88,15 +95,4 @@ var PostEventView = Backbone.View.extend({
     redirectToYourPosts: function() {
         window.location = "/event/show";
     }
-});
-
-
-$(function(){  // on page load
-
-    var event = new Event();
-    var postEventView = new PostEventView({
-        id: 'post-event',
-        model: event,
-    });
-    postEventView.render();
 });
