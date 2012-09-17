@@ -600,7 +600,7 @@ span.error {
 	}
 
 span.error + .input-standard,
-span.error + div>.input-standard {
+span.error + div .input-standard {
 	border:2px solid #f9882b; /* Orange */
 	background:#fefbe3;
 	}
@@ -824,7 +824,11 @@ form input#end-date,
 form input#end-time {
 	width:100px;
 	}
-	
+
+.sort {
+	float:right; /* Used to place the sort label and dropdown next to the category heading on Your Post Page */
+	}
+
 .sort label {
 	float:left;
 	clear:none;
@@ -1141,20 +1145,20 @@ form#top-search .btn-search:hover {
 	font-weight:bold;
 	background:transparent;
 	font-size:90%;
-	color:#70b820;
+	color:#239ea2;
 	width:50%;
 	text-align:left;
 	margin:0 0 2em 0;
 	display:block;
 	}
 .btn-add-ticket-type:hover {
-	color:#239ea2;
+	color:#33C1C4;
 	}
 .btn-add-ticket-type:hover span {
-	background:#239ea2;
+	background:#33C1C4;
 	}
 .btn-add-ticket-type span {
-	background:#70b820;
+	background:#239ea2;
 	color:#fff;
 	font-size:180%;
 	display:inline-block;
@@ -1192,16 +1196,28 @@ ul.form-event-list .mod-event a.btn-watch {
 	text-decoration:none;
 	}
 
+ul.form-event-list .mod-event a.btn-archive,
+ul.form-event-list .mod-event .btn-archive {
+	color:#f68d1f;
+	text-decoration:underline;
+	}
+ul.form-event-list .mod-event a.btn-archive:hover,
+ul.form-event-list .mod-event .btn-archive:hover {
+	color:#F2B31F;
+	text-decoration:none;
+	}
+
 ul.form-event-list .mod-event a.btn-delete,
 ul.form-event-list .mod-event .btn-delete {
-	color:#f68d1f;
+	color:#d62121;
 	text-decoration:underline;
 	}
 ul.form-event-list .mod-event a.btn-delete:hover,
 ul.form-event-list .mod-event .btn-delete:hover {
-	color:#d62121;
+	color:#E25451;
 	text-decoration:none;
 	}
+
 
 a.btn-manage,
 a.btn-view,
@@ -1457,6 +1473,15 @@ input.btn-s-post-event:hover {
 	}
 .your-profile .profile-links a {
 	display:block;
+	}
+
+/* = Your Posts */
+.your-posts .group {
+	float:left;
+	margin:1em 0 1.5em 0;
+	}
+.your-posts .group .h3 {
+	float:left;
 	}
 
 /* = Your Posts: Manage Your Event */
