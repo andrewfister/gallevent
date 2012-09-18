@@ -10,7 +10,7 @@ from gallevent.event import models
 class PostEventForm(forms.ModelForm):
     class Meta:
         model = models.Event
-        exclude = ('status',)
+        exclude = ('status','user_id',)
 
     start_time = forms.TimeField(initial="", input_formats=['%I:%M%p', '%I:%M %p'])
     end_time = forms.TimeField(initial="", input_formats=['%I:%M%p', '%I:%M %p', '%I%p', '%I %p'])
@@ -25,10 +25,9 @@ class PostEventForm(forms.ModelForm):
     def clean_rsvp_limit(self):
         return self.cleaned_data['rsvp_limit'] or 0
 
-
 class ArchiveEventForm(forms.ModelForm):
     class Meta:
         model = models.Event
 
     def set_request(self, request):
-        self.request = request        
+        self.request = request

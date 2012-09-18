@@ -22,7 +22,7 @@ def post_event(request):
     import logging
     logging.debug('post event')
     if request.method == 'POST':
-        form = forms.PostEventForm(request.POST, instance=models.Event())
+        form = forms.PostEventForm(request.POST, instance=models.Event(user_id=request.user.id))
         logging.debug('created a form')
         
         if form.is_valid():
@@ -33,7 +33,7 @@ def post_event(request):
         else:
             logging.debug(form.errors)
     else:
-        form = forms.PostEventForm(instance=models.Event())
+        form = forms.PostEventForm(instance=models.Event(user_id=request.user.id))
 
     return render_to_response('post-event.html', {
     'edit': False,
