@@ -27,7 +27,6 @@ def post_event(request):
         
         if form.is_valid():
             logging.debug('form is valid. the user is: ' + str(request.user.id))
-            form.set_request(request);
             form.save()
             
             return HttpResponseRedirect('/event/show')

@@ -22,9 +22,6 @@ class PostEventForm(forms.ModelForm):
     
     def clean_rsvp_limit(self):
         return self.cleaned_data['rsvp_limit'] or 0
-    
-    def set_request(self, request):
-        self.request = request
 
 
 class ArchiveEventForm(forms.ModelForm):
