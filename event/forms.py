@@ -9,10 +9,12 @@ from gallevent.event import models
 
 class PostEventForm(forms.ModelForm):
     class Meta:
-        model = models.Event(rsvp_limit=0)
+        model = models.Event
+        exclude = ('status',)
 
     start_time = forms.TimeField(initial="", input_formats=['%I:%M%p', '%I:%M %p'])
     end_time = forms.TimeField(initial="", input_formats=['%I:%M%p', '%I:%M %p', '%I%p', '%I %p'])
+    rsvp_limit = forms.IntegerField(initial=0, required=False)
     
     def clean_purchase_tickets(self):
         return self.cleaned_data['purchase_tickets'] == "yes"
@@ -29,4 +31,4 @@ class ArchiveEventForm(forms.ModelForm):
         model = models.Event
 
     def set_request(self, request):
-        self.request = request
+        self.request = request        
