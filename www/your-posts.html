@@ -38,7 +38,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         {% for event in events %}
         	<li id='your-post-{{ event.id }}' class="list-{{ event.category }} list-post">
             	<span class="event-data">
-            		<span class="event-name">{{ event.name }}</span><span class="date-time">Starts on: <br /><strong>{{ event.start_date.date }}</strong> at <strong>{{ event.start_date.time }}</strong></span><span class="date-time">Ends on: <br /><strong>{{ event.end_date.date }}</strong> at <strong>{{ event.end_date.time }}</strong></span><span class="address">{{ event.address1 }} {{ event.address2 }}, {{ event.city }}, {{ event.zipcode }}</span>
+            		<span class="event-name">{{ event.name }}</span><span class="date-time"><span>Starts:</span> <br /><strong>{{ event.start_date.date }}</strong> at <strong>{{ event.start_date.time }}</strong></span><span class="date-time"><span>Ends:</span> <br /><strong>{{ event.end_date.date }}</strong> at <strong>{{ event.end_date.time }}</strong></span><span class="address">{{ event.address1 }} {{ event.address2 }}, {{ event.city }}, {{ event.zipcode }}</span>
                 </span>
                 <span class="mod-event"><a class="btn-manage" href="{% url gallevent.event.views.manage_events %}">Manage</a><a class="btn-edit" href="{% url gallevent.event.views.edit_event %}">Edit</a><a class="btn-archive" href="#">Archive</a></span>
             </li>
@@ -61,13 +61,13 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         <ul class="form-event-list archived-events">
             <li class="list-jobs">
             	<span class="event-data">
-            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
+            		<span class="event-name">Event Name</span><span class="date-time"><span>Started:</span> <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time"><span>Ended:</span> <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
                 </span>
                 <span class="mod-event"><a class="btn-manage" href="{% url gallevent.event.views.manage_events %}">Manage</a><a class="btn-edit" href="{% url gallevent.event.views.edit_event %}">Edit</a><a class="btn-delete" href="#">Delete</a></span>
             </li>
             <li class="list-jobs">
             	<span class="event-data">
-            		<span class="event-name">Event Name</span><span class="date-time">Starts on: <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time">Ends on: <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
+            		<span class="event-name">Event Name</span><span class="date-time"><span>Started:</span> <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time"><span>Ended:</span> <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
                 </span>
                 <span class="mod-event"><a class="btn-manage" href="{% url gallevent.event.views.manage_events %}">Manage</a><a class="btn-edit" href="{% url gallevent.event.views.edit_event %}">Edit</a><a class="btn-delete" href="#">Delete</a></span>
             </li>
