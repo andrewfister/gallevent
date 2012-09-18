@@ -43,7 +43,7 @@ p {
 .address,
 .city {
 	font-style:italic;
-	color:#999;
+	color:#888;
 	}
 
 /* = Headings
@@ -878,8 +878,11 @@ ul.form-event-list li {
 	border-bottom:1px solid #e9eaea;
 	float:left;
 	display:block;
-	width:100%;
-	padding:0;
+	width:auto;
+	padding:8px 7px 12px 51px;
+	}
+ul.form-event-list li:last-child {
+	border-bottom:1px solid #fff;
 	}
 ul.form-event-list li:hover {
 	border-bottom:1px solid #e9eaea;
@@ -888,10 +891,7 @@ ul.form-event-list li:hover {
 	}
 
 ul.archived-events li {
-	border:2px solid #ccc;
-	float:left;
-	display:block;
-	background:#ededed;
+	background:#f2f2f2;
 	}
 
 .form-event-list .event-data {
@@ -922,7 +922,7 @@ ul.form-people-list li a .name {
 	font-weight:bold;
 	font-size:115%;
 	clear:both;
-	width:100%;
+	width:90%;
 	color:#292929;
 	}
 
@@ -1485,9 +1485,11 @@ input.btn-s-post-event:hover {
 /* = Your Posts */
 .your-posts fieldset {
 	width:96%;
-	padding:1em 9px 0 9px;
+	padding:0.6em 9px 0.5em 9px;
 	}
-
+.your-posts .sort {
+	margin-top:-1.8em;
+	}
 
 /* = Your Posts: Manage Your Event */
 .your-posts-mng .col {
