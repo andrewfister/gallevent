@@ -8,6 +8,8 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
 {% endblock %}
 
 {% block javascript %}
+{% load mustachejs %}
+{% mustachejs "your-post" %}
 <script type="text/javascript" src="/static/js/views/your-post-view.js"></script>
 {% endblock %}
 

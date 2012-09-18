@@ -72,10 +72,10 @@ class EventView(BackboneAPIView):
     
     edit_form_class = forms.ArchiveEventForm
     
-    serialize_fields = ['id', 'user_id', 'address1', 'address2', 'city', 'state', 'zipcode',
-                        'name', 'category', 'ticket_price', 'start_date', 'end_date', 
-                        'description', 'organizer_email', 'organizer_phone', 'organizer_url', 'latitude',
-                        'longitude', 'status']
+    serialize_fields = ['id', 'user_id', 'address1', 'address2', 'city', 'state',
+    'zipcode', 'name', 'category', 'ticket_price', 'start_date', 'start_time',
+    'end_date', 'end_time', 'description', 'organizer_email', 'organizer_phone',
+    'organizer_url', 'latitude', 'longitude', 'status']
     
     def dispatch(self, request, *args, **kwargs):
         if request.GET.has_key('userId'):

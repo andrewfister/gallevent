@@ -83,7 +83,6 @@ var PostEventView = Backbone.View.extend({
                 this.model.set({latitude: location.lat(), longitude: location.lng()});
                 $("#latitude").attr("value", location.lat());
                 $("#longitude").attr("value", location.lng());
-                events.reset([this.model]);
             } else {
                 alert("Geocode was not successful for the following reason: " + status); 
             }
