@@ -49,7 +49,7 @@ def edit_event(request):
 
 @login_required
 def show_events(request):
-    events = models.Event.objects.filter(user_id=request.user.id, status=1)
+    events = models.Event.objects.filter(user_id=request.user.id).exclude(status=0)
 
     return render_to_response('your-posts.html', {
     'selected_page': 'your-posts',
@@ -68,7 +68,7 @@ def manage_events(request):
     }, context_instance=RequestContext(request))
     
 class EventView(BackboneAPIView):
-    base_queryset = models.Event.objects.filter(status=1)
+    base_queryset = models.Event.objects.exclude(status=0)
     
     edit_form_class = forms.ArchiveEventForm
     
@@ -79,9 +79,9 @@ class EventView(BackboneAPIView):
     
     def dispatch(self, request, *args, **kwargs):
         if request.GET.has_key('userId'):
-            self.base_queryset = models.Event.objects.filter(user_id=request.GET['userId'], status=1)
+            self.base_queryset = models.Event.objects.filter(user_id=request.GET['userId']).exclude(status=0)
         elif request.GET.has_key('category'):
-            self.base_queryset = models.Event.objects.filter(user_id=request.GET['category'], status=1)
+            self.base_queryset = models.Event.objects.filter(user_id=request.GET['category']).exclude(status=0)
         
         return super(EventView, self).dispatch(request, *args, **kwargs)
     
