@@ -7,7 +7,7 @@ from django.forms.util import ErrorList
 from gallevent.event import models
 
 
-class PostEventForm(forms.Form):
+class PostEventForm(forms.ModelForm):
     class Meta:
         model = models.Event(rsvp_limit=0)
 
