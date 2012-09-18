@@ -632,6 +632,20 @@ fieldset {
 	width:100%;
 	}
 
+#full-content fieldset {
+	width:auto;
+	padding:0.6em 16px 0.5em 9px;
+	}
+
+/* = Your Posts */
+.your-posts fieldset {
+	width:96%;
+	padding:0.6em 9px 0.5em 9px;
+	}
+.your-posts .sort {
+	margin-top:-1.8em;
+	}
+
 legend {
 	background:#239ea2;
 	color:#fff;
@@ -641,6 +655,11 @@ legend {
 	margin:0 0 0 -15%;
 	font-weight:bold;
 	clear:both;
+	}
+
+#full-content legend {
+	padding:0.7em 4% 0.7em 3%;
+	margin:0 0 0 -5%;
 	}	
 
 input.search {
@@ -1197,10 +1216,11 @@ form#top-search .btn-search:hover {
 .btn-watch,
 .btn-edit,
 .btn-submit,
-ul.form-event-list .mod-event a.btn-manage,
-ul.form-event-list .mod-event a.btn-view,
-ul.form-event-list .mod-event a.btn-edit,
-ul.form-event-list .mod-event a.btn-watch {
+a.btn-manage,
+a.btn-message,
+a.btn-view,
+a.btn-edit,
+a.btn-watch {
 	color:#fff;
 	}
 
@@ -1502,15 +1522,6 @@ input.btn-s-post-event:hover {
 	display:block;
 	}
 
-/* = Your Posts */
-.your-posts fieldset {
-	width:96%;
-	padding:0.6em 9px 0.5em 9px;
-	}
-.your-posts .sort {
-	margin-top:-1.8em;
-	}
-
 /* = Your Posts: Manage Your Event */
 .your-posts-mng #full-content .col {
 	margin:0 0 0 23%;
@@ -1555,10 +1566,6 @@ input.btn-s-post-event:hover {
 	font-size:95%;
 	}
 
-.your-posts-mng form.rsvps fieldset {
-	width:auto;
-	padding:0.6em 9px 0.5em 9px;
-	}
 
 /* = Special Classes
 ----------------------------------------------------------------------*/
