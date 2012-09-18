@@ -3,7 +3,7 @@
 ** Description: Positioning of most site-wide elemenets
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-28-2012
-** Updated: 09-17-2012
+** Updated: 09-18-2012
 ************************************** */
 
 /* = General Styles
@@ -855,13 +855,6 @@ form input#end-time {
 	margin-bottom:.5em;
 	}
 
-ul.form-event-list,
-ul.form-people-list {
-	list-style:none;
-	float:left;
-	display:block;
-	}
-
 .more-link {
 	float:left;
 	text-align:right;
@@ -878,21 +871,50 @@ ul.form-people-list {
 	margin:0.5em 0 0.5em 0;
 	}
 
-/* = Event List */
-ul.form-event-list li {
+ul.form-event-list,
+ul.form-people-list {
+	list-style:none;
+	float:left;
+	display:block;
+	}
+
+ul.form-event-list li,
+ul.form-people-list li {
 	border-bottom:1px solid #e9eaea;
 	float:left;
 	display:block;
 	width:auto;
-	padding:8px 7px 12px 51px;
 	}
-ul.form-event-list li:last-child {
+ul.form-event-list li:last-child,
+ul.form-people-list li:last-child {
 	border-bottom:1px solid #fff;
 	}
-ul.form-event-list li:hover {
+ul.form-event-list li:hover,
+ul.form-people-list li:hover {
 	border-bottom:1px solid #e9eaea;
 	background:#e4f3f4;
 	text-decoration:none;
+	}
+
+ul.form-event-list .event-name,
+ul.form-people-list li a .name {
+	font-weight:bold;
+	font-size:115%;
+	color:#2b2c2f;
+	}
+
+.form-event-list .mod-event,
+.form-people-list .mod-event {
+	float:right;
+	width:17%;
+	}
+.form-people-list .mod-event {
+	margin-right:7px;
+	}
+
+/* = Event List */
+ul.form-event-list li {
+	padding:8px 7px 12px 51px;
 	}
 
 ul.archived-events li {
@@ -909,11 +931,6 @@ ul.form-people-list {
 	font-size:90%;
 	}
 
-.form-event-list .mod-event {
-	float:right;
-	width:17%;
-	}
-
 ul.form-event-list .event-name,
 ul.form-event-list .date-time,
 ul.form-event-list .address {
@@ -923,15 +940,6 @@ ul.form-event-list .address {
 	}
 
 ul.form-event-list .date-time span {
-	color:#2b2c2f;
-	}
-
-ul.form-event-list .event-name,
-ul.form-people-list li a .name {
-	font-weight:bold;
-	font-size:115%;
-	clear:both;
-	width:90%;
 	color:#2b2c2f;
 	}
 
@@ -1019,53 +1027,45 @@ ul.form-event-list a.list-jobs {
 	}
 
 /* = People List */
-ul.form-people-list .person-summary:hover {
-	color:#70b820;
-	}
-
 ul.form-people-list li {
-	float:left;
-	display:block;
-	background:#fff;
-	width:98%;
-	padding:1em 1em 2em 1em;
-	color:#292929;
+	padding:8px 0 12px 7px;
+	width:100%;
 	}
-ul.form-people-list li:hover {
-	background:#e4f3f4;
-	text-decoration:none;
-	}
-
-ul.form-people-list li a .name,
-ul.form-people-list li a .city,
-ul.form-people-list li a .categories-label,
-ul.form-people-list li a .pins,
-ul.form-people-list li a .keywords {
+ul.form-people-list li .name,
+ul.form-people-list li .city,
+ul.form-people-list li .categories-label,
+ul.form-people-list li .pins,
+ul.form-people-list li .keywords {
 	display:block;
 	float:left;
 	clear:both;
 	}
-
-ul.form-people-list li a .city,
-ul.form-people-list li a .pins {
+ul.form-people-list li .name {
+	font-weight:bold;
+	font-size:115%;
+	clear:both;
+	width:90%;
+	color:#2b2c2f;
+	}
+ul.form-people-list li .city,
+ul.form-people-list li .pins {
 	margin-bottom:.5em;
 	}
-
-ul.form-people-list li a .categories-label,
-ul.form-people-list li a .keywords strong {
+ul.form-people-list li .categories-label,
+ul.form-people-list li .keywords strong {
 	font-weight:bold;
 	color:#169496;
 	}
-
-ul.form-people-list li a .pins,
-ul.form-people-list li a .keywords-label {
+ul.form-people-list li .pins,
+ul.form-people-list li .keywords-label {
 	clear:left;
 	}
-	
+
 ul.form-people-list .person-summary {
 	display:block;
 	float:left;
 	margin:0 0 0 15px;
+	width:60%;
 	}
 .profile-pic {
 	display:block;
@@ -1192,6 +1192,7 @@ form#top-search .btn-search:hover {
 
 .btn-manage,
 .btn-view,
+.btn-message,
 .btn-edit,
 .btn-watch,
 .btn-edit,
@@ -1224,12 +1225,14 @@ ul.form-event-list .mod-event .btn-archive:hover {
 	}
 
 ul.form-event-list .mod-event a.btn-delete,
-ul.form-event-list .mod-event .btn-delete {
+ul.form-event-list .mod-event .btn-delete,
+a.btn-block {
 	color:#d62121;
 	text-decoration:underline;
 	}
 ul.form-event-list .mod-event a.btn-delete:hover,
-ul.form-event-list .mod-event .btn-delete:hover {
+ul.form-event-list .mod-event .btn-delete:hover,
+a.btn-block:hover {
 	color:#E25451;
 	text-decoration:none;
 	}
@@ -1237,9 +1240,11 @@ ul.form-event-list .mod-event .btn-delete:hover {
 
 a.btn-manage,
 a.btn-view,
+a.btn-message,
 a.btn-edit,
 a.btn-watch,
-.mod-event .btn-delete {
+.mod-event .btn-delete,
+a.btn-block {
 	float:right;
 	padding:.4em .6em .4em .6em;
 	-moz-border-radius:    3px;
@@ -1259,13 +1264,16 @@ a.btn-watch,
 .btn-manage:hover,
 .btn-view:hover {
 	background:#34bec2;
+	color:#fff;
 	}
 
 .btn-edit,
-.btn-submit {
+.btn-submit,
+.btn-message {
 	background:#85c440;
 	}
 .btn-edit:hover,
+.btn-message:hover,
 .btn-submit:hover {
 	color:#fff;
 	background:#97E03E;
@@ -1504,7 +1512,12 @@ input.btn-s-post-event:hover {
 	}
 
 /* = Your Posts: Manage Your Event */
-.your-posts-mng .col {
+.your-posts-mng #full-content .col {
+	margin:0 0 0 23%;
+	width:50%;
+	float:left;
+	}
+.your-posts-mng #side-content .col {
 	margin:0 0 0 35%;
 	width:60%;
 	float:left;
@@ -1540,6 +1553,11 @@ input.btn-s-post-event:hover {
 .your-posts-mng #active-tab-content .description p {
 	margin:0.3em 0 0 0;
 	font-size:95%;
+	}
+
+.your-posts-mng form.rsvps fieldset {
+	width:auto;
+	padding:0.6em 9px 0.5em 9px;
 	}
 
 /* = Special Classes
