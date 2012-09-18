@@ -38,8 +38,7 @@ $(function() {
         _.each(archivedEvents.models, function(item, index, items) {
             var yourArchivedPostView = new YourArchivedPostView({
                 model: item,
-                id: 'your-post-' + item.id,
-                el: $('#your-post-' + item.id),
+                el: $('.archived-events'),
             });
             yourArchivedPostView.render();
         });
