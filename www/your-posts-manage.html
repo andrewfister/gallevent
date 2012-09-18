@@ -1,8 +1,24 @@
 {% extends "base-profile.html" %}
+{% load map_tags %}
+
+{% block prejavascript %}
+<script>
+var eventsJSON = [];
+</script>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="/static/js/models/event-model.js"></script>
+<script type="text/javascript" src="/static/js/views/post-event-view.js"></script>
+<!-- START Timepicker -->
+<script type="text/javascript" src="/static/js/jquery.timepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/jquery.timepicker.css" />
+<!-- END Timepicker -->
+{% endblock javascript %}
 
 {% block selected_page %}your-posts-mng{% endblock %}
 
-{% block active_tab_content_width %}full{% endblock %}
+{% block active_tab_content_width %}side{% endblock %}
 
 {% block active_tab_content %}
 <ul id="side-page-links">
@@ -25,3 +41,7 @@
     <a class="btn-edit" href="{% url gallevent.event.views.edit_event %}">Edit</a>
 </div><!-- .col -->
 {% endblock active_tab_content %}
+
+{% block right_side_content %}
+    {% show_map %}
+{% endblock right_side_content %}

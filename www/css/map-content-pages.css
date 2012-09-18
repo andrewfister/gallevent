@@ -36,6 +36,10 @@ html, body {
 	width:50%;
 	}
 
+.your-posts-mng #map_canvas { /* Made map less wide on Your Posts Manage page */
+	width:38%;
+	}
+
 /* = Header */
 #header {
 	background:#F99E1A url(../img/bg-orange-full-r.jpg) top left repeat-x;
@@ -72,6 +76,10 @@ html, body {
 
 .your-post-event #side-content {  /* Made side content wider on Post Event form page */
 	width:48%;
+	}
+
+.your-posts-mng #side-content { /* Make side content wider on Your Posts Manage page */
+	width:60%;
 	}
 
 #post-event {  /* Form container on Post Event Page */

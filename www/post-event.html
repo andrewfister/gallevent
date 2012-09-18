@@ -1,10 +1,6 @@
 {% extends "base-profile.html" %}
 {% load map_tags %}
 
-{% block css %}
-<link rel="stylesheet" type="text/css" href="/static/css/jquery.timepicker.css" />
-{% endblock %}
-
 {% block prejavascript %}
 <script>
 var eventsJSON = [];
@@ -14,7 +10,10 @@ var eventsJSON = [];
 {% block javascript %}
 <script type="text/javascript" src="/static/js/models/event-model.js"></script>
 <script type="text/javascript" src="/static/js/views/post-event-view.js"></script>
+<!-- START Timepicker -->
 <script type="text/javascript" src="/static/js/jquery.timepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/jquery.timepicker.css" />
+<!-- END Timepicker -->
 {% endblock javascript %}
 
 {% block selected_page %}your-post-event{% endblock %}
