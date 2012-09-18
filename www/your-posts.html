@@ -3,7 +3,7 @@
 
 {% block prejavascript %}
 <script>
-var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ event.user_id }},address1: "{{ event.address1|escapejs }}",address2: "{{ event.address2|escapejs }}",city: "{{ event.city|escapejs }}",state: "{{ event.state|escapejs }}",zipcode: "{{ event.zipcode|escapejs }}",name: "{{ event.name|escapejs }}",category: "{{ event.category|escapejs }}",ticket_price: {{ event.ticket_price }},start_date: "{{ event.start_date|escapejs }}",end_date: "{{ event.end_date|escapejs }}",description: "{{ event.description|escapejs }}",organizer_email: "{{ event.organizer_email|escapejs }}",organizer_phone: "{{ event.organizer_phone|escapejs }}",organizer_url: "{{ event.organizer_url|escapejs }}",latitude: {{ event.latitude }},longitude: {{ event.longitude }} }, {% endfor %} ];
+var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ event.user_id }},address1: "{{ event.address1|escapejs }}",address2: "{{ event.address2|escapejs }}",city: "{{ event.city|escapejs }}",state: "{{ event.state|escapejs }}",zipcode: "{{ event.zipcode|escapejs }}",name: "{{ event.name|escapejs }}",category: "{{ event.category|escapejs }}",ticket_price: {{ event.ticket_price }},start_date: "{{ event.start_date|escapejs }}",end_date: "{{ event.end_date|escapejs }}",description: "{{ event.description|escapejs }}",organizer_email: "{{ event.organizer_email|escapejs }}",organizer_phone: "{{ event.organizer_phone|escapejs }}",organizer_url: "{{ event.organizer_url|escapejs }}",latitude: {{ event.latitude }},longitude: {{ event.longitude }},status: {{ event.status }} }, {% endfor %} ];
 </script>
 {% endblock %}
 
@@ -34,15 +34,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
                 <option value="date-category">Category</option>
             </select>
         </span><!-- .sort -->
-        <ul class="form-event-list">
-        {% for event in events %}
-        	<li id='your-post-{{ event.id }}' class="list-{{ event.category }} list-post">
-            	<span class="event-data">
-            		<span class="event-name">{{ event.name }}</span><span class="date-time"><span>Starts:</span> <br /><strong>{{ event.start_date.date }}</strong> at <strong>{{ event.start_date.time }}</strong></span><span class="date-time"><span>Ends:</span> <br /><strong>{{ event.end_date.date }}</strong> at <strong>{{ event.end_date.time }}</strong></span><span class="address">{{ event.address1 }} {{ event.address2 }}, {{ event.city }}, {{ event.zipcode }}</span>
-                </span>
-                <span class="mod-event"><a class="btn-manage" href="{% url gallevent.event.views.manage_events %}">Manage</a><a class="btn-edit" href="{% url gallevent.event.views.edit_event %}">Edit</a><a class="btn-archive" href="#">Archive</a></span>
-            </li>
-        {% endfor %}
+        <ul class="form-event-list active-events">
         </ul>
         <a href="{% url gallevent.event.views.show_events %}" class="more-link">More Active Posts &raquo;</a>
     </fieldset>
@@ -59,18 +51,6 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
             </select>
         </span><!-- .sort -->
         <ul class="form-event-list archived-events">
-            <li class="list-jobs">
-            	<span class="event-data">
-            		<span class="event-name">Event Name</span><span class="date-time"><span>Started:</span> <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time"><span>Ended:</span> <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
-                </span>
-                <span class="mod-event"><a class="btn-manage" href="{% url gallevent.event.views.manage_events %}">Manage</a><a class="btn-edit" href="{% url gallevent.event.views.edit_event %}">Edit</a><a class="btn-delete" href="#">Delete</a></span>
-            </li>
-            <li class="list-jobs">
-            	<span class="event-data">
-            		<span class="event-name">Event Name</span><span class="date-time"><span>Started:</span> <br /><strong>02/02/2012</strong> at <strong>5:00 pm</strong></span><span class="date-time"><span>Ended:</span> <br /><strong>02/02/2012</strong> at <strong>9:00 pm</strong></span><span class="address">1234 Fun Street #8, San Francisco, CA 94123</span>
-                </span>
-                <span class="mod-event"><a class="btn-manage" href="{% url gallevent.event.views.manage_events %}">Manage</a><a class="btn-edit" href="{% url gallevent.event.views.edit_event %}">Edit</a><a class="btn-delete" href="#">Delete</a></span>
-            </li>
         </ul>
         <a href="#" class="more-link">More Expired Posts &raquo;</a>
     </fieldset>
