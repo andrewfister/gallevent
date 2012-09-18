@@ -5,20 +5,19 @@ var YourPostView = Backbone.View.extend({
         attributes['btn-text'] = "Archive";
         return Mustache.template('your-post').render(attributes);
     },
-        
-    events: {
-        "click .mod-event .btn-archive":    "archive",
-    },
-    
-    archive: function() {
-        this.model.on('change:status', function() {
-            this.remove();
-        }, this);
-        this.model.save({'status': 2})
-    },
     
     render: function() {
-        $(this.el).append(this.template(this.model.attributes));
+        $('.active-events').append(this.template(this.model.attributes));
+        
+        this.el = $('#your-post-' + this.model.id);
+        
+        $("#btn-archive-" + this.model.id).bind("click", function() {
+            this.model.on('change:status', function() {
+                $('#your-post-' + this.model.id).remove();
+            }, this);
+            this.model.save({'status': 2});
+        }.bind(this));
+        
         return this;
     },
 });
@@ -31,19 +30,18 @@ var YourArchivedPostView = Backbone.View.extend({
         return Mustache.template('your-post').render(attributes);
     },
     
-    events: {
-        "click .mod-event .btn-delete":    "destroy",
-    },
-    
-    destroy: function() {
-        this.model.on('change:status', function() {
-            this.remove();
-        }, this);
-        this.model.save({'status': 0})
-    },
-    
     render: function() {
-        $(this.el).append(this.template(this.model.attributes));
+        $('.archived-events').append(this.template(this.model.attributes));
+        
+        this.el = $('#your-post-' + this.model.id);
+        
+        $("#btn-delete-" + this.model.id).bind("click", function() {
+            this.model.on('change:status', function() {
+                $('#your-post-' + this.model.id).remove();
+            }, this);
+            this.model.save({'status': 0});
+        }.bind(this));
+        
         return this;
     },
 });

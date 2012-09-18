@@ -17,7 +17,7 @@ $(function() {
         _.each(events.models, function(item, index, items) {
             var yourPostView = new YourPostView({
                 model: item,
-                el: $('.active-events'),
+                id: 'your-post-' + item.id,
             });
             yourPostView.render();
         });
@@ -38,7 +38,7 @@ $(function() {
         _.each(archivedEvents.models, function(item, index, items) {
             var yourArchivedPostView = new YourArchivedPostView({
                 model: item,
-                el: $('.archived-events'),
+                id: 'your-post-' + item.id,
             });
             yourArchivedPostView.render();
         });
