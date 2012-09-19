@@ -16,7 +16,7 @@ var eventsJSON = [];
 <!-- END Timepicker -->
 {% endblock javascript %}
 
-{% block selected_page %}your-post-event{% endblock %}
+{% block selected_page %}{% if edit %}your-posts{% else %}your-post-event{% endif %}{% endblock %}
 
 {% block active_tab_content_width %}side{% endblock %}
 

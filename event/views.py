@@ -18,7 +18,7 @@ def show_front_page_events(request):
     }, context_instance=RequestContext(request))
 
 @login_required
-def post_event(request):
+def post_event(request, event_id=None, edit=False):
     import logging
     logging.debug('post event')
     if request.method == 'POST':
@@ -32,19 +32,20 @@ def post_event(request):
             return HttpResponseRedirect('/event/show')
         else:
             logging.debug(form.errors)
-    else:
+    elif event_id != None and edit == True:
+        event = models.Event.objects.get(id=event_id)
+        form = forms.PostEventForm(instance=event)
+    else:   
         form = forms.PostEventForm(instance=models.Event(user_id=request.user.id))
 
     return render_to_response('post-event.html', {
-    'edit': False,
+    'edit': edit,
     'form': form,
     }, context_instance=RequestContext(request))
 
 @login_required
-def edit_event(request):
-    return render_to_response('post-event.html', {
-    'edit': True
-    }, context_instance=RequestContext(request))
+def edit_event(request, event_id):
+    return post_event(request, event_id=event_id, edit=True)
 
 @login_required
 def show_events(request):
