@@ -6,12 +6,10 @@
 
 {% block active_tab_content %}
 <ul id="side-page-links">
-	<li><a href="#">Event Details</a></li>
-    <li><a href="#" class="active">Ticket Types</a></li>
-    <li><a href="#">RSVPs</a></li>
-    <li><a href="#">Followers</a></li>
-    <li><a href="#">Invitations</a></li>
-    <li><a href="#">Updates</a></li>
+	<li><a href="/event/manage">Event Details</a></li>
+    <li><a href="/event/manage/tickets" class="active">Ticket Types</a></li>
+    <li><a href="/event/manage/rsvps">RSVPs</a></li>
+    <li><a href="/event/manage/followers">Followers</a></li>
 </ul>
 <div class="col">
 	<h2>Ticket Types</h2>
@@ -24,7 +22,10 @@
     <div class="description">
     	<p>Everything from general admission + a back stage pass.</p>
     </div><!-- .description -->
-    
     <a class="btn-edit" href="{% url gallevent.event.views.edit_event %}">Edit</a>
 </div><!-- .col -->
+<div class="ads-col">
+	<img src="/static/ads/gallevent-180x150.jpg" />
+    <img src="/static/ads/pixelkeet-180x150.gif" />
+</div>
 {% endblock active_tab_content %}
