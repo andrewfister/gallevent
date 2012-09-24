@@ -201,7 +201,7 @@ var eventsJSON = [];
          		<span class="error">{{ error }}</span>
          	{% endfor %}
         {% endif %}
-        <div><input type="text" id="start-date" class="input-standard" name="start_date"  placeholder="6/20/2012" value="{{ form.start_date.value }}" /> at 
+        <div><input type="text" id="start-date" class="input-standard" name="start_date"  placeholder="06/20/2012" value="{{ form.start_date.value|date }}" /> at 
         <script>
 		  $(function() {
 			$('#start-time').timepicker();
@@ -213,20 +213,20 @@ var eventsJSON = [];
          		<br /><span class="error">{{ error }}</span><br />
          	{% endfor %}
         {% endif %}     
-        <input type="text" id="start-time" class="input-standard" name="start_time" placeholder="3:00pm" value="{{ form.start_time.value }}" /></div>
+        <input type="text" id="start-time" class="input-standard" name="start_time" placeholder="3:00pm" value="{{ form.start_time.value|time }}" /></div>
         <label for="end-date" class="required">End Date &amp; Time:</label>
         {% if form.end_date.errors %}
          	{% for error in form.end_date.errors %}
          		<span class="error">{{ error }}</span>
          	{% endfor %}
         {% endif %}
-        <div><input type="text" id="end-date" class="input-standard" name="end_date" placeholder="6/20/2012" value="{{ form.end_date.value }}" /> at 
+        <div><input type="text" id="end-date" class="input-standard" name="end_date" placeholder="06/20/2012" value="{{ form.end_date.value|date }}" /> at 
         {% if form.end_time.errors %}
          	{% for error in form.end_time.errors %}
          		<br /><span class="error">{{ error }}</span><br />
          	{% endfor %}
         {% endif %} 
-        <input type="text" id="end-time" class="input-standard" name="end_time" placeholder="9:00pm" value="{{ form.end_time.value }}" /></div>
+        <input type="text" id="end-time" class="input-standard" name="end_time" placeholder="9:00pm" value="{{ form.end_time.value|time }}" /></div>
     </fieldset>
     <fieldset>
     	<legend>6. Ticketing</legend>

@@ -92,6 +92,11 @@ from mustachejs import conf
 conf.conf.MUSTACHEJS_DIRS = local_settings.JSTEMPLATE_DIRS_LOCAL
 conf.conf.MUSTACHEJS_APP_DIRNAMES = []
 
+#Include more date formats
+USE_L10N=False
+TIME_FORMAT='g:iA'
+DATE_FORMAT='m/d/y'
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',

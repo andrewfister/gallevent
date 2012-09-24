@@ -12,6 +12,20 @@ class PostEventForm(forms.ModelForm):
         model = models.Event
         exclude = ('status','user_id',)
     
+    date_input_formats = [
+        '%m/%d/%Y',       # '10/25/2006'
+        '%b %d, %Y',      # 'Oct 25, 2006'
+        '%Y-%m-%d',       # '2006-10-25'
+        '%m/%d/%y',       # '10/25/06'
+        '%b %m %d',       # 'Oct 25 2006'
+        '%d %b %Y',       # '25 Oct 2006'
+        '%d %b, %Y',      # '25 Oct, 2006'
+        '%B %d %Y',       # 'October 25 2006'
+        '%B %d, %Y',      # 'October 25, 2006'
+        '%d %B %Y',       # '25 October 2006'
+        '%d %B, %Y',      # '25 October, 2006'
+    ]
+    
     address1 = forms.CharField(max_length=255, initial="")
     address2 = forms.CharField(max_length=64, required=False, initial="")
     city = forms.CharField(max_length=64, initial="")
@@ -19,9 +33,9 @@ class PostEventForm(forms.ModelForm):
     zipcode = forms.CharField(max_length=16, initial="")
     category = forms.CharField(max_length=64, initial="")
     keywords = forms.CharField(max_length=255, required=False, initial="")
-    start_date = forms.DateField(initial="")
+    start_date = forms.DateField(initial="", input_formats=date_input_formats)
     start_time = forms.TimeField(initial="", input_formats=['%I:%M%p', '%I:%M %p'])
-    end_date = forms.DateField(initial="")
+    end_date = forms.DateField(initial="", input_formats=date_input_formats)
     end_time = forms.TimeField(initial="", input_formats=['%I:%M%p', '%I:%M %p', '%I%p', '%I %p'])
     name = forms.CharField(max_length=64, initial="")
     description = forms.CharField(max_length=1000, initial="")

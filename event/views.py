@@ -41,7 +41,7 @@ def post_event(request, event_id=None, edit=False):
         form = forms.PostEventForm(instance=event)
     else:   
         form = forms.PostEventForm(instance=models.Event(user_id=request.user.id))
-
+    
     return render_to_response('post-event.html', {
     'edit': edit,
     'form': form,

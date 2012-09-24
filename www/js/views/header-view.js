@@ -1,9 +1,9 @@
 var HeaderView = Backbone.View.extend({
     id: "front-page",
     render: function() {
-        $( "#date1" ).datepicker();
-	    $( "#date2" ).datepicker();
-	    $( "#start-date" ).datepicker();
-	    $( "#end-date" ).datepicker();
+        $( "#date1" ).datepicker({ dateFormat: "mm/dd/yyyy" });
+	    $( "#date2" ).datepicker({ dateFormat: "mm/dd/yyyy" });
+	    $( "#start-date" ).datepicker({ dateFormat: "mm/dd/yyyy" });
+	    $( "#end-date" ).datepicker({ dateFormat: "mm/dd/yyyy" });
     }
 });
