@@ -53,7 +53,7 @@ def edit_event(request, event_id):
 
 @login_required
 def show_events(request):
-    events = models.Event.objects.filter(user_id=request.user.id).exclude(status=0)
+    events = models.Event.objects.filter(user_id=request.user.id).exclude(status=0).order_by('start_date', 'start_time', 'end_date', 'end_time')
 
     return render_to_response('your-posts.html', {
     'selected_page': 'your-posts',
