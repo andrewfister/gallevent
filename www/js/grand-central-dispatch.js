@@ -3,6 +3,19 @@ $(function() {
     var events = new EventCollection;
     events.reset(eventsJSON);
     
+    if ($('#pin-key').length)
+    {
+        var categories = ['networking', 'education', 'fairs', 'athletic', 'art', 'dancing', 'dining', 'parties'];
+        $('.key').click(function() {
+            _.each(categories, function(item, index, items) {
+                $('.'+item).click(function() {
+                    events.reset(eventsJSON);
+                    events.reset(events.where({category: item}));
+                });
+            });
+        });
+    }
+    
     if ($('#your-posts').length)
     {
         var archivedEvents = new EventCollection(events.where({status: 2}));
