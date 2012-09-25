@@ -13,7 +13,7 @@ from gallevent.event import forms
 from gallevent.event import models
 
 def show_front_page_events(request):
-    events = models.Event.objects.filter(status=1).extra(where=['start_date >= CURRENT_TIMESTAMP']).order_by('start_date','start_time').reverse()[:100]
+    events = models.Event.objects.filter(status=1).extra(where=['end_date >= CURRENT_TIMESTAMP']).order_by('start_date','start_time').reverse()[:100]
 
     return render_to_response('index.html', {
     'events': events,
