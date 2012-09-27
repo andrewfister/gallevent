@@ -77,7 +77,7 @@ var eventsJSON = [];
          		<span class="error">{{ error }}</span>
          	{% endfor %}
         {% endif %}
-        <input type="text" id="address2" class="input-standard" name="address2" placeholder="Suite 201" value="{{ form.address2.value }}" />
+        <input type="text" id="address2" class="input-standard" name="address2" placeholder="Suite 201"  />
         <label for="city" class="required">City:</label>
         {% if form.city.errors %}
          	{% for error in form.city.errors %}
