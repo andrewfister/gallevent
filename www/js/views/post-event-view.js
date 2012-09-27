@@ -60,7 +60,8 @@ var PostEventView = Backbone.View.extend({
         var city = $("#city").attr("value");
         var zipcode = $("#zip-code").attr("value");
         
-        if (address1.length > 0 && city.length > 0 && zipcode.length > 0)
+        if (address1.length > 0 && city.length > 0 
+            && (zipcode.length > 0 || state.length > 0))
         {
             this.model.set({
                 address1: address1,

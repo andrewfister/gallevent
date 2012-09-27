@@ -64,6 +64,11 @@ $(function() {
         var postEventView = new PostEventView({
             model: event,
         });
+        
+        postEventView.model.on("change:longitude", function() {
+            events.reset([this]);
+        });
+        
         postEventView.render();
     }
     
