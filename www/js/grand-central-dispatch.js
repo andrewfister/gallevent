@@ -18,6 +18,7 @@ $(function() {
     
     if ($('#your-posts').length)
     {
+        console.log("SEE THIS SHIT COME UP");
         var archivedEvents = new EventCollection(events.where({status: 2}));
         events.reset(events.where({status: 1}));
     
@@ -63,6 +64,11 @@ $(function() {
         var postEventView = new PostEventView({
             model: event,
         });
+        
+        postEventView.model.on("change:longitude", function() {
+            events.reset([this]);
+        });
+        
         postEventView.render();
     }
     

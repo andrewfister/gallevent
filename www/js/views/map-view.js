@@ -1,8 +1,11 @@
 var MapView = Backbone.View.extend({
     initialize: function() {
         this.collection.on("reset", function(events) {
-            this.removeMarkers();
-            this.setAllMarkers();
+            if (this.map != null)
+            {
+                this.removeMarkers();
+                this.setAllMarkers();
+            }
         }, this);
         
         this.collection.on("remove", function(evt, collection, options) {
