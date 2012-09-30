@@ -234,7 +234,7 @@ var eventsJSON = [];
         <label for="ticket-type">Ticket type 1:</label>
         <input type="text" id="ticket-type" class="input-standard" name="ticket_type" placeholder="General Admission" value="{{ form.ticket_type.value }}" checked />
         <label for="ticket-price">Price for ticket type 1:</label>
-        <input type="text" id="ticket-price" class="input-standard" name="ticket_price" placeholder="$0.00" value="{{ form.ticket_price.value }}" /><em class="form-comment">Your event is free!</em>
+        <input type="text" id="ticket-price" class="input-standard" name="ticket_price" placeholder="$0.00" value="{{ form.ticket_price.value|default_if_none:"" }}" /><em class="form-comment">Your event is free!</em>
         <button class="btn-add-ticket-type"><span>+</span> Add another ticket type</button>
         <label for="ticket-link">Link to get tickets:</label>
         <input type="text" id="ticket-link" class="input-standard" name="ticket_url" placeholder="www.gallevent.com" value="{{ form.ticket_url.value }}" />
