@@ -53,13 +53,13 @@
         <form id="top-search" method="post">
         	<span class="left">
                 <label for="event">Search for Events:</label>
-                <input type="text" id="event" name="search_query" placeholder="Salsa Dancing San Francisco" onchange="javascript:codeAddress(this);"  />
+                <input type="text" id="event" name="search_query" placeholder="Salsa Dancing San Francisco" onchange="javascript:codeAddress(this);" value="{{ form.search_query.value }}" />
             </span>
             <span class="left">
                 <label for="date1">Select Dates:</label>
-                <input type="type" id="date1" name="start_date" placeholder="07/22/2012" />
+                <input type="type" id="date1" name="start_date" placeholder="07/22/2012" value="{{ form.start_date.value }}" />
                 to
-                <input type="type" id="date2" name="end_date" placeholder="07/22/2012" />
+                <input type="type" id="date2" name="end_date" placeholder="07/22/2012" value="{{ form.end_date.value }}" />
             </span>
             <span class="left">
             	<input class="btn-search" type="submit" value="Search" />

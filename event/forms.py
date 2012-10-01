@@ -80,6 +80,6 @@ class EventSearchForm(forms.Form):
         '%d %B, %Y',      # '25 October, 2006'
     ]
 
-    search_query = forms.CharField(max_length=255)
+    search_query = forms.CharField(max_length=255, initial="")
     start_date = forms.DateField(required=False, initial="", input_formats=date_input_formats)
     end_date = forms.DateField(required=False, initial="", input_formats=date_input_formats)

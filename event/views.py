@@ -27,9 +27,12 @@ def show_front_page_events(request):
                 events = events.filter(end_date__gte=form.cleaned_data['start_date'])
             if form.cleaned_data['end_date']:
                 events = events.filter(start_date__lte=form.cleaned_data['end_date'])
+    else:
+        form = forms.EventSearchForm()
 
     return render_to_response('index.html', {
     'events': events,
+    'form': form,
     }, context_instance=RequestContext(request))
 
 @login_required
