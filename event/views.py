@@ -1,4 +1,5 @@
 import time
+import logging
 
 from django.shortcuts import render_to_response
 from django.template import RequestContext
@@ -13,7 +14,15 @@ from gallevent.event import forms
 from gallevent.event import models
 
 def show_front_page_events(request):
-    events = models.Event.objects.filter(status=1).extra(where=['end_date >= CURRENT_TIMESTAMP']).order_by('start_date','start_time').reverse()[:100]
+    events = models.Event.objects.filter(status=1).extra(where=['end_date >= CURRENT_TIMESTAMP']).order_by('start_date','start_time').reverse()
+
+    if request.method == 'POST':
+        logging.debug('post request: ' + str(request.POST))
+        form = forms.EventSearchForm(request.POST)
+        
+        if form.is_valid():
+            logging.debug('found a search query: ' + form.cleaned_data['search_query'])
+            events = events.filter(description__search="'" + form.cleaned_data['search_query'] + "'")
 
     return render_to_response('index.html', {
     'events': events,
