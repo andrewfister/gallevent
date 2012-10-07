@@ -229,16 +229,85 @@ var eventsJSON = [];
         <input type="text" id="end-time" class="input-standard" name="end_time" placeholder="9:00pm" value="{{ form.end_time.value|time }}" /></div>
     </fieldset>
     <fieldset>
-    	<legend>6. Ticketing</legend>
-        <span class="form-details">Ignore this section if guests do NOT need tickets to attend your event.</span>
-        <label for="ticket-type">Ticket type 1:</label>
-        <input type="text" id="ticket-type" class="input-standard" name="ticket_type" placeholder="General Admission" value="{{ form.ticket_type.value }}" checked />
-        <label for="ticket-price">Price for ticket type 1:</label>
-        <input type="text" id="ticket-price" class="input-standard" name="ticket_price" placeholder="$0.00" value="{{ form.ticket_price.value }}" /><em class="form-comment">Your event is free!</em>
-        <button class="btn-add-ticket-type"><span>+</span> Add another ticket type</button>
-        <label for="ticket-link">Link to get tickets:</label>
-        <input type="text" id="ticket-link" class="input-standard" name="ticket_url" placeholder="www.gallevent.com" value="{{ form.ticket_url.value }}" />
+        <legend>6. Managing Guests</legend>
+        <span class="form-details">How will you manage guests for this event?</span>
+        <div class="guest-l-or-tickets-btns">
+        	<div class="btn-guest-l">Guest List</div>
+            <div class="or">or</div>
+            <div class="btn-tickets">Tickets</div>
+        </div><!-- .guestl-or-tickets-btns -->
+        
+        <br />&nbsp;<br />
+        
+        <div class="guest-l-or-tickets-btns">
+        	<div class="btn-guest-l active">Guest List</div>
+            <div class="or">or</div>
+            <div class="btn-tickets inactive">Tickets</div>
+        </div><!-- .guest-l-or-tickets-btns -->
+        <div class="opt-guest-l">
+        	<label class="required" for="rsvp-limit">How many people may RSVP?</label>
+            <span class="form-details">The number you enter below will limit how many Gallevent Members can RSVP to this event. You will be able to view or print your guest list from your account.</span>
+            {% if form.rsvp_limit.errors %}
+                {% for error in form.rsvp_limit.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+            {% endif %}
+            <input type="text" id="rsvp-limit" class="input-standard" name="rsvp_limit" value="{{ form.rsvp_limit.value }}" /><em class="form-comment">0 Gallevent Members may RSVP to this event.</em>
+        	<label class="required" for="rsvp-close-date">When will RSVP close?</label>
+        	<span class="form-details">Gallevent Members will no longer be able to RSVP after the date and time below.</span>
+        	<input type="text" id="rsvp-close-date" class="input-standard" name="rsvp_close_date" placeholder="06/20/2012" value="{{ form.end_date.value|date }}" /> at 
+        	<input type="text" id="rsvp-close-time" class="input-standard" name="rsvp_close_time" placeholder="9:00pm" value="{{ form.end_time.value|time }}" />
+            <span class="form-details">Include the entry fee for your event below. This is the price that will be charged to guests at the door. If you have several different types of entry fees, please include each type of entry fee below.</span>
+            <label class="required" for="ticket-type1">Entry type 1:</label>
+        	<input type="text" id="ticket-type1" class="input-standard" name="ticket-type1" placeholder="General Admission" value="General Admission" />
+            <label class="required" for="ticket-price1">Price for Entry type 1:</label>
+            <input type="text" id="ticket-price" class="input-standard" name="ticket_price" placeholder="$0.00" value="{{ form.ticket_price.value }}" /><em class="form-comment">This type of entry is FREE!</em>
+            <button class="btn-add-type"><span>+</span> Add another entry type</button>
+        </div>
+        
+        <br />&nbsp;<br />
+        
+        <div class="guest-l-or-tickets-btns">
+        	<div class="btn-guest-l inactive">Guest List</div>
+            <div class="or">or</div>
+            <div class="btn-tickets active">Tickets</div>
+        </div><!-- .guest-l-or-tickets-btns -->
+        <div class="opt-tickets">
+        	<label class="required" for="ticket-link">Link to get tickets:</label>
+            <input type="text" id="ticket-link" class="input-standard" name="ticket_url" placeholder="www.gallevent.com" value="{{ form.ticket_url.value }}" />
+            <span class="form-details">If you are selling several different types of tickets for your event, please include each ticket type below. You must have at lease one ticket type.</span>
+        	<label class="required" for="ticket-type1">Ticket type 1:</label>
+        	<input type="text" id="ticket-type1" class="input-standard" name="ticket-type1" placeholder="General Admission" value="General Admission" />
+            <label class="required" for="ticket-price1">Price for ticket type 1:</label>
+            <input type="text" id="ticket-price" class="input-standard" name="ticket_price" placeholder="$0.00" value="{{ form.ticket_price.value }}" /><em class="form-comment">This type of ticket is FREE!</em>
+            <button class="btn-add-type"><span>+</span> Add another ticket type</button>
+        </div>
+        
     </fieldset>
+        
+        <!--
+        
+        
+        <div class="">
+                	<label for="rsvp-limit">How many people may RSVP?</label>
+        <span class="form-details">The number you enter below will limit how many Gallevent Members can RSVP to this event.</span>
+        {% if form.rsvp_limit.errors %}
+         	{% for error in form.rsvp_limit.errors %}
+         		<span class="error">{{ error }}</span>
+         	{% endfor %}
+        {% endif %}
+        <div><input type="text" id="rsvp-limit" class="input-standard" name="rsvp_limit" value="{{ form.rsvp_limit.value }}" /><em class="form-comment">0 Gallevent Members may RSVP to this event.</em></div>
+        <label for="rsvp-close-date">When will RSVP close?</label>
+        <span class="form-details">Gallevent Members will no longer be able to RSVP after the date and time below.</span>
+        <input type="text" id="rsvp-close-date" class="input-standard" name="rsvp_close_date" placeholder="06/20/2012" value="{{ form.end_date.value|date }}" /> at 
+        <input type="text" id="rsvp-close-time" class="input-standard" name="rsvp_close_time" placeholder="9:00pm" value="{{ form.end_time.value|time }}" />
+        <span class="form-details">You will be able to view or print your guest list from your account.</span>
+                </dd>
+            </div>
+        
+        
+    </fieldset>
+    -->
     <input class="btn-s-post-event" type="submit" value="Post Event" />
 </form>
 {% endblock active_tab_content %}
