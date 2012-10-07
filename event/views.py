@@ -1,4 +1,5 @@
 import time
+import logging
 
 from django.shortcuts import render_to_response
 from django.template import RequestContext
@@ -13,10 +14,25 @@ from gallevent.event import forms
 from gallevent.event import models
 
 def show_front_page_events(request):
-    events = models.Event.objects.filter(status=1).extra(where=['end_date >= CURRENT_TIMESTAMP']).order_by('start_date','start_time').reverse()[:100]
+    events = models.Event.objects.filter(status=1).extra(where=['end_date >= CURRENT_TIMESTAMP']).order_by('start_date','start_time').reverse()
+
+    if request.method == 'POST':
+        form = forms.EventSearchForm(request.POST)
+        
+        if form.is_valid():
+            #events = events.filter(description__search="'" + form.cleaned_data['search_query'] + "'")
+            events = events.extra(where=['match (description,name,keywords) against ("' + form.cleaned_data['search_query'] + '" in boolean mode)'])
+            
+            if form.cleaned_data['start_date']:
+                events = events.filter(end_date__gte=form.cleaned_data['start_date'])
+            if form.cleaned_data['end_date']:
+                events = events.filter(start_date__lte=form.cleaned_data['end_date'])
+    else:
+        form = forms.EventSearchForm()
 
     return render_to_response('index.html', {
     'events': events,
+    'form': form,
     }, context_instance=RequestContext(request))
 
 @login_required
@@ -92,6 +108,5 @@ class EventView(BackboneAPIView):
         return super(EventView, self).dispatch(request, *args, **kwargs)
     
     def validation_error_response(self, form_errors):
-        import logging
         logging.debug(form_errors)
         return str(form_errors)

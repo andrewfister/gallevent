@@ -64,3 +64,22 @@ class ArchiveEventForm(forms.ModelForm):
 
     def set_request(self, request):
         self.request = request
+
+class EventSearchForm(forms.Form):
+    date_input_formats = [
+        '%m/%d/%Y',       # '10/25/2006'
+        '%b %d, %Y',      # 'Oct 25, 2006'
+        '%Y-%m-%d',       # '2006-10-25'
+        '%m/%d/%y',       # '10/25/06'
+        '%b %m %d',       # 'Oct 25 2006'
+        '%d %b %Y',       # '25 Oct 2006'
+        '%d %b, %Y',      # '25 Oct, 2006'
+        '%B %d %Y',       # 'October 25 2006'
+        '%B %d, %Y',      # 'October 25, 2006'
+        '%d %B %Y',       # '25 October 2006'
+        '%d %B, %Y',      # '25 October, 2006'
+    ]
+
+    search_query = forms.CharField(max_length=255, initial="")
+    start_date = forms.DateField(required=False, initial="", input_formats=date_input_formats)
+    end_date = forms.DateField(required=False, initial="", input_formats=date_input_formats)
