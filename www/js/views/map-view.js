@@ -25,7 +25,7 @@ var MapView = Backbone.View.extend({
         google.maps.event.addDomListener(window, 'load', function() {
             var myOptions = {
                 center: this.location,
-                zoom: 9,
+                zoom: 13,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
 
