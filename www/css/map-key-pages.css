@@ -71,8 +71,13 @@ a.key {
 	float:left;
 	padding:1em 0 1em 55px;
 	}
+	
+#pin-key .inactive {
+	background-color:#eee;
+	}
+
 a.key:hover {
-	background-color:#fef7d2;
+	background-color:#F5FFED !important;
 	}
 
 .networking {

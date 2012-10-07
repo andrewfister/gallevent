@@ -3,7 +3,7 @@
 ** Description: Positioning of most site-wide elemenets
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-28-2012
-** Updated: 09-18-2012
+** Updated: 09-30-2012
 ************************************** */
 
 /* = General Styles
@@ -845,9 +845,69 @@ form input#rsvp-limit {
 form input#start-date,
 form input#start-time,
 form input#end-date,
-form input#end-time {
+form input#end-time,
+form input#rsvp-close-date,
+form input#rsvp-close-time {
 	width:100px;
 	}
+
+/* = Guest List or Tickets */
+.guest-l-or-tickets-btns div {
+	width:42%;
+	float:left;
+	background:#239EA2;
+	color:#fff;
+	font-weight:bold;
+	padding:1em 0 1em 0;
+	text-align:center;
+	font-size:120%;
+	margin:0;
+	}
+.guest-l-or-tickets-btns div.or {
+	background:#fff;
+	color:#239EA2;
+	width:16%;
+	font-weight:bold;
+	padding:1em 0 1em 0;
+	text-align:center;
+	font-size:120%;
+	margin:0;
+	}
+.btn-guest-l:hover,
+.btn-tickets:hover {
+	background:#27C1C4;
+	}
+
+.guest-l-or-tickets-btns .active {
+	background:#70b820;
+	}
+
+.opt-guest-l,
+.opt-tickets {
+	border:2px solid #70B820;
+	padding:1em;
+	float:left;
+	margin:0;
+	}
+
+
+
+/*
+form dl.guest-list-or-tickets .btn-guest-list {
+	background:#ff0;
+	width:40%;
+	float:left;
+	}
+form dl.guest-list-or-tickets .btn-tickets {
+	background:#099;
+	width:40%;
+	float:right;
+	}
+form dl.guest-list-or-tickets .opt-guest-list dd,
+form dl.guest-list-or-tickets .opt-tickets dd {
+	
+	}
+*/
 
 .sort {
 	float:right; /* Used to place the sort label and dropdown next to the category heading on Your Post Page */
@@ -1176,7 +1236,7 @@ form#top-search .btn-search:hover {
 	margin-top:1.2em;
 	}
 
-.btn-add-ticket-type {
+.btn-add-type {
 	font-weight:bold;
 	background:transparent;
 	font-size:90%;
@@ -1186,13 +1246,13 @@ form#top-search .btn-search:hover {
 	margin:0 0 2em 0;
 	display:block;
 	}
-.btn-add-ticket-type:hover {
+.btn-add-type:hover {
 	color:#33C1C4;
 	}
-.btn-add-ticket-type:hover span {
+.btn-add-type:hover span {
 	background:#33C1C4;
 	}
-.btn-add-ticket-type span {
+.btn-add-type span {
 	background:#239ea2;
 	color:#fff;
 	font-size:180%;
@@ -1205,7 +1265,7 @@ form#top-search .btn-search:hover {
     -khtml-border-radius:  5px;
     border-radius:         5px;
 	}
-.btn-add-ticket-type span:hover {
+.btn-add-type span:hover {
 	background:#239ea2;
 	}
 
