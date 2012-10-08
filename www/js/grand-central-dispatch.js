@@ -2,6 +2,7 @@
 $(function() {
     var events = new EventCollection;
     events.reset(eventsJSON);
+
     
     if ($('#pin-key').length)
     {
@@ -17,8 +18,17 @@ $(function() {
     }
     
     if ($('#your-posts').length)
-    {
-        console.log("SEE THIS SHIT COME UP");
+    {  
+        var archivedEvents = new EventCollection(events.where({status: 2}));
+        var yourActivePostsView = new YourActivePostsView({collection : events});
+        yourActivePostsView.render();
+        //events.reset(eventsJSON);  
+        var yourArchivedPostsView = new YourArchivedPostsView({collection : archivedEvents});
+        yourArchivedPostsView.render();
+    }
+/*
+    if ($('#your-posts').length)
+    {  
         var archivedEvents = new EventCollection(events.where({status: 2}));
         events.reset(events.where({status: 1}));
     
@@ -35,7 +45,7 @@ $(function() {
             });
             yourPostView.render();
         });
-        
+
         archivedEvents.on('change:status', function(evt, index, options) {
             var deleteEvent = evt.collection.get(evt.id);
             this.remove(deleteEvent);
@@ -57,6 +67,7 @@ $(function() {
             yourArchivedPostView.render();
         });
     }
+*/
     
     if ($('#post-event').length)
     {
