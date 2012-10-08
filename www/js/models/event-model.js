@@ -36,5 +36,56 @@ var Event = Backbone.Model.extend({
 
 var EventCollection = Backbone.Collection.extend({
     model: Event,
-    url: '/event/events'
+    url: '/event/events',
+
+    initialize: function() {
+        this._orderDateAscend = this.comparator;
+    },
+
+    comparator: function(e) {
+        return sortableDate(e.get("start_date"), e.get("start_time"));
+    },
+
+    orderDateAscend: function() {
+        console.log("Date Ascend");
+        this.comparator = this._orderDateAscend;
+        this.sort();
+    },
+
+    orderDateDescend: function() {
+        console.log("Date Descend");
+        this.comparator = this._orderDateDescend;
+        this.sort();
+    },
+
+    orderCategory: function() {
+        console.log("Order Category");
+        this.comparator = this._orderCategory;
+        this.sort();
+    },
+
+    _orderDateDescend: function(e) {
+        return -sortableDate(e.get("start_date"), e.get("start_time"));
+    },
+
+    _orderCategory: function(e) {
+        return e.get("category");
+    }
+
 });
+
+var sortableDate = function(date, time){
+   // var formatDate = date.split("/").reverse().join("");
+   // var formatTime = parseInt(time.split(":").join("").slice(0,-2));
+   // // Adjust for PM
+   // formatTime += (time.indexOf("PM") === -1 ? 0 : 1200 - formatTime);
+   // return formatDate + "" + formatTime;
+
+   var formatDate = date.split("/");
+   var formatTime = time.split(/[:AP]/);
+   formatTime[0] = parseInt(formatTime[0]) + (parseInt(time.indexOf("AM") == -1) && (formatTime[0] < 12) ? 0 : 12);
+   var date = new Date(formatDate[2], formatDate[0], formatDate[1], formatTime[0], formatTime[1]);
+   return date.getTime();
+};
+
+

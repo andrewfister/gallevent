@@ -1,4 +1,4 @@
-<li id='your-post-{{ id }}' class="list-{{ category }} list-post">
+<li id='your-post-{{ id }}' class="list-{{ category }} list-post {{ list-status }}">
 	<span class="event-data">
 		<span class="event-name">{{ name }}</span><span class="date-time">Starts on: <br /><strong>{{ start_date }}</strong> at <strong>{{ start_time }}</strong></span><span class="date-time">Ends on: <br /><strong>{{ end_date }}</strong> at <strong>{{ end_time }}</strong></span><span class="address">{{ address1 }}{{#address2}}, {{ address2 }}{{/address2}}, {{ city }}, {{ state }} {{ zipcode }}</span>
     </span>
