@@ -17,4 +17,7 @@ urlpatterns = patterns('',
     
     #Admin page
     (r'^admin/', include(admin.site.urls)),
+    
+    #haystack search
+    (r'^search/', include('haystack.urls')),
 )
