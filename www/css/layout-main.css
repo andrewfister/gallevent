@@ -46,6 +46,9 @@ p {
 	font-style:italic;
 	color:#888;
 	}
+.company {
+	color:#686868;
+	}
 .event-name,
 .date-time {
 	color:#34859F;
@@ -1112,6 +1115,7 @@ ul.form-people-list li {
 	}
 ul.form-people-list li .name,
 ul.form-people-list li .city,
+ul.form-people-list li .company,
 ul.form-people-list li .categories-label,
 ul.form-people-list li .pins,
 ul.form-people-list li .keywords {
@@ -1157,6 +1161,25 @@ ul.form-people-list .person-summary {
 .person-summary .description {
 	font-size:90%;
 	}
+
+/* = Manage Event Guest Management Views */
+.list-info {
+	float:left;
+	width:100%;
+	background:#F1F2F3;
+	margin-bottom:1.5em;
+	}
+/* = Quick View */
+.quick-view ul.form-people-list li {
+	width:48%;
+	}
+.quick-view ul.form-people-list li:nth-child(even) {
+	float:right;
+	}
+.quick-view .profile-pic {
+	height:40px;
+	}
+/* = Checklist */
 
 /* = Select Categories Checkboxes - Used on: Your Profile */
 .slt-categories {
@@ -1246,12 +1269,6 @@ form#top-search .btn-search:hover {
 	margin:0 0 2em 0;
 	display:block;
 	}
-.btn-add-type:hover {
-	color:#33C1C4;
-	}
-.btn-add-type:hover span {
-	background:#33C1C4;
-	}
 .btn-add-type span {
 	background:#239ea2;
 	color:#fff;
@@ -1265,8 +1282,11 @@ form#top-search .btn-search:hover {
     -khtml-border-radius:  5px;
     border-radius:         5px;
 	}
-.btn-add-type span:hover {
-	background:#239ea2;
+.btn-add-type:hover {
+	color:#33C1C4;
+	}
+.btn-add-type:hover span {
+	background:#33C1C4;
 	}
 
 .btn-manage,
@@ -1458,6 +1478,26 @@ input.btn-s-post-event:hover {
 	-webkit-border-radius: 0 3px 3px 0;
     -khtml-border-radius:  0 3px 3px 0;
     border-radius:         0 3px 3px 0;
+	}
+
+/* = Guest Management View Buttons */
+.list-view-btns {
+	float:right;
+	}
+.list-view-btns a {
+	display:inline-block;
+	background:#f1f2f3;
+	padding:0.5em 0.8em 0.5em 0.8em;
+	margin-left:2px;
+	color:#239EA2;
+	}
+.list-view-btns a:hover {
+	background:#BABEC2;
+	color:#fff;
+	}
+.list-view-btns a.active {
+	background:#239EA2;
+	color:#fff;
 	}
 
 /* = Buttons on Map Pop-Up */
