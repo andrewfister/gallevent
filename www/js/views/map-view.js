@@ -55,7 +55,7 @@ var MapView = Backbone.View.extend({
     },
     
     setMarker: function(latitude, longitude, address, category, info) {
-
+        console.log("||||DROPING PIN");
         var image = '/static/img/pin-map-' + category + '.png';
 
         var infoWindow = new google.maps.InfoWindow({
