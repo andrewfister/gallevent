@@ -24,6 +24,13 @@ DATABASE_PASSWORD = 'oreborestore'         # Not used with sqlite3.
 DATABASE_HOST = local_settings.DATABASE_HOST_LOCAL             # Set to empty string for localhost. Not used with sqlite3.
 DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
 
+HAYSTACK_SITECONF = 'gallevent.search_sites'
+HAYSTACK_SEARCH_ENGINE = 'solr'
+HAYSTACK_SOLR_URL = 'http://127.0.0.1:8389/solr'
+HAYSTACK_INCLUDE_SPELLING = True
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 10
+
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -104,6 +111,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'mustachejs',
+    'haystack',
     'gallevent.map',
     'gallevent.login',
     'gallevent.event',

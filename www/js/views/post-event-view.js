@@ -1,5 +1,21 @@
 var PostEventView = Backbone.View.extend({
     id: "post-event",
+
+    initialize: function() {
+    
+        $('.opt-tickets').hide();
+
+        $(".btn-guest-l").click(function(b) {
+            console.log("CLICK");
+            $('.opt-guest-l').show();
+            $('.opt-tickets').hide();
+        });
+
+        $(".btn-tickets").click(function(b) {
+            $('.opt-guest-l').hide();
+            $('.opt-tickets').show();
+        });
+    },
     render: function() {
         //START Limit characters in textarea 
         //http://www.devcurry.com/2009/08/limit-number-of-characters-in-textarea.html
@@ -72,6 +88,7 @@ var PostEventView = Backbone.View.extend({
         
             var address = this.model.getAddress();
             this.codeAddress(address);
+            
         }
     },
     

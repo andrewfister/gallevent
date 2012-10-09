@@ -25,7 +25,7 @@ var MapView = Backbone.View.extend({
         google.maps.event.addDomListener(window, 'load', function() {
             var myOptions = {
                 center: this.location,
-                zoom: 9,
+                zoom: 13,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
 
@@ -55,7 +55,7 @@ var MapView = Backbone.View.extend({
     },
     
     setMarker: function(latitude, longitude, address, category, info) {
-
+        console.log("||||DROPING PIN");
         var image = '/static/img/pin-map-' + category + '.png';
 
         var infoWindow = new google.maps.InfoWindow({
