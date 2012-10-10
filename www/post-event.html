@@ -237,13 +237,6 @@ var eventsJSON = [];
             <div class="btn-tickets">Tickets</div>
         </div><!-- .guestl-or-tickets-btns -->
         
-        <br />&nbsp;<br />
-        
-        <div class="guest-l-or-tickets-btns">
-        	<div class="btn-guest-l active">Guest List</div>
-            <div class="or">or</div>
-            <div class="btn-tickets inactive">Tickets</div>
-        </div><!-- .guest-l-or-tickets-btns -->
         <div class="opt-guest-l">
         	<label class="required" for="rsvp-limit">How many people may RSVP?</label>
             <span class="form-details">The number you enter below will limit how many Gallevent Members can RSVP to this event. You will be able to view or print your guest list from your account.</span>
@@ -264,14 +257,7 @@ var eventsJSON = [];
             <input type="text" id="ticket-price" class="input-standard" name="ticket_price" placeholder="$0.00" value="{{ form.ticket_price.value }}" /><em class="form-comment">This type of entry is FREE!</em>
             <button class="btn-add-type"><span>+</span> Add another entry type</button>
         </div>
-        
-        <br />&nbsp;<br />
-        
-        <div class="guest-l-or-tickets-btns">
-        	<div class="btn-guest-l inactive">Guest List</div>
-            <div class="or">or</div>
-            <div class="btn-tickets active">Tickets</div>
-        </div><!-- .guest-l-or-tickets-btns -->
+ 
         <div class="opt-tickets">
         	<label class="required" for="ticket-link">Link to get tickets:</label>
             <input type="text" id="ticket-link" class="input-standard" name="ticket_url" placeholder="www.gallevent.com" value="{{ form.ticket_url.value }}" />

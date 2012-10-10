@@ -5,16 +5,29 @@ var PostEventView = Backbone.View.extend({
         // Hide and show the guest list/ ticket sections
         // if the corresponding button is pushed
         $('.opt-tickets').hide();
+        $('.opt-guest-l').hide();
+        $('.btn-tickets').removeClass('active');
+        $('.btn-guest-l').removeClass('active');
 
-        $(".btn-guest-l").click(function(b) {
-            console.log("CLICK");
+
+        $(".btn-guest-l").click(function() {
+        
             $('.opt-guest-l').show();
+            $('.btn-guest-l').addClass("active");
+
             $('.opt-tickets').hide();
+            $('.btn-tickets').removeClass("active");
+
         });
 
-        $(".btn-tickets").click(function(b) {
+        $(".btn-tickets").click(function() {
+        
             $('.opt-guest-l').hide();
+            $('.btn-guest-l').removeClass("active");
+
             $('.opt-tickets').show();
+            $('.btn-tickets').addClass("active");
+
         });
     },
     render: function() {
