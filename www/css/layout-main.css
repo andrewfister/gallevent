@@ -958,6 +958,7 @@ ul.form-people-list {
 	list-style:none;
 	float:left;
 	display:block;
+	width:100%;
 	}
 
 ul.form-event-list li,
@@ -1168,10 +1169,24 @@ ul.form-people-list .person-summary {
 	width:100%;
 	background:#F1F2F3;
 	margin-bottom:1.5em;
+	padding-left:7px;
 	}
+.list-info strong {
+	font-size:120%;
+	display:inline-block;
+	padding-top:0.75em;
+	font-weight:normal;
+	color:#777;
+	margin-left:0.3em;
+	}
+.list-info strong b {
+	color:#239ea2; /* blue */
+	}
+
 /* = Quick View */
 .quick-view ul.form-people-list li {
 	width:48%;
+	padding-bottom:6px;
 	}
 .quick-view ul.form-people-list li:nth-child(even) {
 	float:right;
@@ -1179,7 +1194,22 @@ ul.form-people-list .person-summary {
 .quick-view .profile-pic {
 	height:40px;
 	}
+.quick-view .form-people-list .mod-event {
+	width:auto;
+	}
+
 /* = Checklist */
+.checklist-view ul.form-people-list li {
+	padding-bottom:0;
+	}
+.checklist-view ul.form-people-list li input[type="checkbox"] {
+	float:left;
+	width:20px;
+	}
+.checklist-view ul.form-people-list li label {
+	float:left;
+	clear:none;
+	}
 
 /* = Select Categories Checkboxes - Used on: Your Profile */
 .slt-categories {
@@ -1379,6 +1409,29 @@ a.btn-block {
 	background:#97E03E;
 	}
 
+
+/* = Manage Guests Views */
+/* = Quick View */
+.quick-view .btn-message,
+.quick-view .btn-block {
+	width:28px;
+	text-indent:-9999px;
+	}
+.quick-view .btn-message {
+	background-image:url(../img/icon-email-24x15.png);
+	background-position:center;
+	background-repeat:no-repeat;
+	height:27px;
+	}
+.quick-view .btn-block {
+	background:url(../img/icon-red-x-13x14.png) center no-repeat;
+	height:14px;
+	margin-top:5px;
+	}
+.quick-view .btn-block:hover {
+	opacity:0.5;
+	}
+
 input.btn-submit { /* Used on Your Profile Form */
 	width:auto;
 	-moz-border-radius:    3px;
@@ -1487,16 +1540,21 @@ input.btn-s-post-event:hover {
 .list-view-btns a {
 	display:inline-block;
 	background:#f1f2f3;
-	padding:0.5em 0.8em 0.5em 0.8em;
-	margin-left:2px;
+	padding:1em 0.8em 1em 0.8em;
+	border-left:2px solid #fff;
 	color:#239EA2;
 	}
 .list-view-btns a:hover {
 	background:#BABEC2;
 	color:#fff;
 	}
-.list-view-btns a.active {
-	background:#239EA2;
+.quick-view .btn-quick-view,
+.detailed-view .btn-detailed-view,
+.checklist-view .btn-checklist-view,
+.quick-view .btn-quick-view:hover,
+.detailed-view .btn-detailed-view:hover,
+.checklist-view .btn-checklist-view:hover {
+	background:#239EA2 url(../img/top-link-arrow.png) center bottom no-repeat;
 	color:#fff;
 	}
 
