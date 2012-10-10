@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* Title: Layout
+** Description: Advertisement Containers throughout site
+** Author: Jessica Greenwalt - www.jgreenwalt.com
+** Created: 09-18-2012
+** Updated: 09-18-2012
+************************************** */
+
+/* = Manage Posts Section
+----------------------------------- */
+
+/* = Ticket Types, RSVPS, Followers, Invitations, and Updates Pages */
+.ads-col {
+	float:right;
+	width:182px;
+	padding:0.5em;
+	}
+.ads-col img {
+	border:1px solid #ccc;
+	}
