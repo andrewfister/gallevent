@@ -2,7 +2,8 @@ var PostEventView = Backbone.View.extend({
     id: "post-event",
 
     initialize: function() {
-    
+        // Hide and show the guest list/ ticket sections
+        // if the corresponding button is pushed
         $('.opt-tickets').hide();
 
         $(".btn-guest-l").click(function(b) {
