@@ -20,13 +20,13 @@ def show_front_page_events(request):
         form = forms.EventSearchForm(request.POST)
         
         if form.is_valid():
-            #events = events.filter(description__search="'" + form.cleaned_data['search_query'] + "'")
-            events = events.extra(where=['match (description,name,keywords) against ("' + form.cleaned_data['search_query'] + '" in boolean mode)'])
+            #events = events.extra(where=['match (description,name,keywords) against ("' + form.cleaned_data['search_query'] + '" in boolean mode)'])
             
-            if form.cleaned_data['start_date']:
-                events = events.filter(end_date__gte=form.cleaned_data['start_date'])
-            if form.cleaned_data['end_date']:
-                events = events.filter(start_date__lte=form.cleaned_data['end_date'])
+            #if form.cleaned_data['start_date']:
+            #    events = events.filter(end_date__gte=form.cleaned_data['start_date'])
+            #if form.cleaned_data['end_date']:
+            #    events = events.filter(start_date__lte=form.cleaned_data['end_date'])
+            events = form.search()
     else:
         form = forms.EventSearchForm()
 
@@ -37,7 +37,6 @@ def show_front_page_events(request):
 
 @login_required
 def post_event(request, event_id=None, edit=False):
-    import logging
     logging.debug('post event')
     if request.method == 'POST':
         if event_id != None and edit == True:
