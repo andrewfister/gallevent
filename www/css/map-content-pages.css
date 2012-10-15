@@ -15,7 +15,7 @@ html, body {
 	}
 
 #container {
-	height:78%;
+	height:76%;
 	}
 
 /* = Map */
@@ -65,7 +65,6 @@ html, body {
 #side-content {
 	background:#fff;
 	width:38%;
-	/* width:35%; */
 	height:100%;
 	float:left;
 	z-index:888;
@@ -80,6 +79,11 @@ html, body {
 
 .your-posts-mng #side-content { /* Make side content wider on Your Posts Manage page */
 	width:60%;
+	/* The styles below create the sidebar background */
+	background-color:#fff;
+	background-image:url(../img/sidebar-bg-f1f2f3.png);
+	background-size:32.3%;
+	background-repeat:repeat-y;
 	}
 
 #post-event {  /* Form container on Post Event Page */
