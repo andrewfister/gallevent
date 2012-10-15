@@ -1205,10 +1205,19 @@ ul.form-people-list .person-summary {
 .checklist-view ul.form-people-list li input[type="checkbox"] {
 	float:left;
 	width:20px;
+	margin-right:12px;
 	}
 .checklist-view ul.form-people-list li label {
 	float:left;
 	clear:none;
+	}
+.checked {
+	background:#F1F2F3;
+	}
+.checked label {
+	text-decoration:line-through;
+	color:#999 !important;
+	font-weight:normal !important;
 	}
 
 /* = Select Categories Checkboxes - Used on: Your Profile */
@@ -1539,7 +1548,7 @@ input.btn-s-post-event:hover {
 	}
 .list-view-btns a {
 	display:inline-block;
-	background:#f1f2f3;
+	background:#d7d9dc;
 	padding:1em 0.8em 1em 0.8em;
 	border-left:2px solid #fff;
 	color:#239EA2;
