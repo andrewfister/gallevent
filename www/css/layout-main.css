@@ -11,6 +11,7 @@
 html,
 body {
 	font-family:Arial, Helvetica, sans-serif;
+	font-smooth: always;
 	color:#2b2c2f;
 	font-size:15px;
 	}
@@ -112,7 +113,8 @@ h2 em {
 	}
 
 h3, .h3 {
-	color:#239ea2;
+	color:#2B7384;
+	/* color:#239ea2; */
 	display:block;
 	font-size:130%;
 	margin:0 0 .6em 0;
@@ -495,6 +497,7 @@ form#top-search #date2 {
 	float:right;
 	margin:-20px 10px 0 0;
 	border:2px solid #fff;
+	background:#fff;
 	position:relative;
 	z-index:1000;
 	}
@@ -1613,13 +1616,17 @@ input.btn-s-post-event:hover {
 ----------------------------------- */
 /* = Full Content */
 #full-content {
-	background:#fff;
 	width:100%;
 	height:100%;
 	float:left;
 	z-index:888;
 	overflow-x:hidden;
 	overflow-y:scroll;
+	/* The styles below create the sidebar background */
+	background-color:#fff;
+	background-image:url(../img/sidebar-bg-f1f2f3.png);
+	background-size:20.05%;
+	background-repeat:repeat-y;
 	}
 
 #active-tab-content {
@@ -1639,20 +1646,18 @@ input.btn-s-post-event:hover {
 	}
 
 #side-page-links {
-	background:#f1f2f3;
 	height:100%;
 	width:20%;
 	float:left;
 	position:fixed;
-	-moz-box-shadow:    inset 0 0 15px -5px rgba(0,0,0,0.6);
-	-webkit-box-shadow: inset 0 0 15px -5px rgba(0,0,0,0.6);
-	box-shadow:         inset 0 0 15px -5px rgba(0,0,0,0.1);
 	z-index:888;
 	list-style:none;
 	left:0;
 	}
+
 #side-page-links a,
 #side-page-links a:link {
+	font-weight:normal;
 	display:block;
 	font-size:135%;
 	color:#239ea2;
