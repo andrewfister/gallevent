@@ -30,6 +30,7 @@ var Event = Backbone.Model.extend({
         
         return address;
     },
+
     
     urlRoot: '/event/events',
 });

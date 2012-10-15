@@ -102,7 +102,11 @@ var PostEventView = Backbone.View.extend({
         
             var address = this.model.getAddress();
             this.codeAddress(address);
-            
+
+            this.model.on('pinDropped', function() {
+            this.model.trigger('open');
+            }, this);
+
         }
     },
     

@@ -78,21 +78,23 @@ var MapView = Backbone.View.extend({
         }.bind(this));
 
         this.markers.push(marker);
+
+        var makeOpenMarker = function(marker, infoWindow, map)
+        {
+            return  function() {
+                console.log("IT WORKED");
+                infoWindow.close();
+                infoWindow.open(map,marker);
+            }
+        }
+
+        var openMarker = makeOpenMarker(marker, infoWindow, this.map);
+
         
-        event.on('open', this.openMarker, marker, infoWindow);
+        event.on('open', openMarker);
+        event.trigger('pinDropped');
     },
     
-    addMarker: function(event) {
-        this.setMarker(event, event.get("latitude"), 
-            event.get("longitude"), 
-            event.getAddress(),
-            event.get("category"),
-            this.template(event.toJSON()));
-    },
-    
-    openMarker: function(event, marker, infoWindow) {
-        infoWindow.open(this.map,marker);
-    },
     
     removeMarkers: function() {
         _.each(this.markers, function(marker, index, markers) {
