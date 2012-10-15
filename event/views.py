@@ -27,6 +27,7 @@ def show_front_page_events(request):
             #if form.cleaned_data['end_date']:
             #    events = events.filter(start_date__lte=form.cleaned_data['end_date'])
             events = form.search()
+            logging.debug('events: ' + str(events))
     else:
         form = forms.EventSearchForm()
 

@@ -88,7 +88,9 @@ class EventSearchForm(SearchForm):
     
     def search(self):
         # First, store the SearchQuerySet received from other processing.
-        sqs = super(EventSearchForm, self).search()
+        sqs = super(EventSearchForm, self).search().filter(content=self.cleaned_data['search_query'])
+        import logging
+        logging.debug('sqs: ' + str(sqs))
 
         # Check to see if a start_date was chosen.
         if self.cleaned_data['start_date']:
