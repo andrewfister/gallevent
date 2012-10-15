@@ -26,7 +26,7 @@ DATABASE_PORT = ''             # Set to empty string for default. Not used with 
 
 HAYSTACK_SITECONF = 'gallevent.search_sites'
 HAYSTACK_SEARCH_ENGINE = 'solr'
-HAYSTACK_SOLR_URL = local_settings.DATABASE_HOST_LOCAL + ':8983/'
+HAYSTACK_SOLR_URL = local_settings.HAYSTACK_HOST_LOCAL + ':8983/solr'
 HAYSTACK_INCLUDE_SPELLING = True
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 10
 

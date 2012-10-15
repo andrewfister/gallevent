@@ -4,6 +4,8 @@ import datetime
 from django import forms
 from django.forms.util import ErrorList
 
+from haystack.forms import SearchForm
+
 from gallevent.event import models
 
 
@@ -65,7 +67,7 @@ class ArchiveEventForm(forms.ModelForm):
     def set_request(self, request):
         self.request = request
 
-class EventSearchForm(forms.Form):
+class EventSearchForm(SearchForm):
     date_input_formats = [
         '%m/%d/%Y',       # '10/25/2006'
         '%b %d, %Y',      # 'Oct 25, 2006'
@@ -83,3 +85,17 @@ class EventSearchForm(forms.Form):
     search_query = forms.CharField(max_length=255, initial="")
     start_date = forms.DateField(required=False, initial="", input_formats=date_input_formats)
     end_date = forms.DateField(required=False, initial="", input_formats=date_input_formats)
+    
+    def search(self):
+        # First, store the SearchQuerySet received from other processing.
+        sqs = super(EventSearchForm, self).search()
+
+        # Check to see if a start_date was chosen.
+        if self.cleaned_data['start_date']:
+            sqs = sqs.filter(end_date__gte=self.cleaned_data['start_date'])
+
+        # Check to see if an end_date was chosen.
+        if self.cleaned_data['end_date']:
+            sqs = sqs.filter(start_date__lte=self.cleaned_data['end_date'])
+
+        return sqs
