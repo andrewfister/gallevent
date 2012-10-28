@@ -13,7 +13,7 @@ class Event(models.Model):
     end_date = models.DateField()
     end_time = models.TimeField()
     name = models.CharField(max_length=64)
-    description = models.TextField()
+    description = models.CharField(max_length=1024)
     event_url = models.URLField(blank=True, null=False)
     rsvp_limit = models.IntegerField(default=0)
     organizer_email = models.EmailField(blank=True, null=False)

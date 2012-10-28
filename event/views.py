@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.core import serializers
 
 from djangbone.views import BackboneAPIView
+from haystack.views import basic_search
 
 from gallevent.event import forms
 from gallevent.event import models
@@ -28,6 +29,8 @@ def show_front_page_events(request):
             #    events = events.filter(start_date__lte=form.cleaned_data['end_date'])
             events = form.search()
             logging.debug('events: ' + str(events))
+            
+            return basic_search(request, template='index.html', load_all=True, form_class=forms.EventSearchForm, searchqueryset=None, context_class=RequestContext, extra_context=None, results_per_page=30)
     else:
         form = forms.EventSearchForm()
 
