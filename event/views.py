@@ -59,6 +59,7 @@ def post_event(request, event_id=None, edit=False):
     elif event_id != None and edit == True:
         event = models.Event.objects.get(id=event_id)
         form = forms.PostEventForm(instance=event)
+        logging.debug('event to edit: ' + str(form))
     else:   
         form = forms.PostEventForm(instance=models.Event(user_id=request.user.id))
     
