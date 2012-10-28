@@ -318,7 +318,7 @@ form#top-search #date2 {
 	border-bottom-style:solid;
 	}
 	
-.your-post-event #tabs {
+.post-event #tabs {
 	border-bottom-color:#85C440;
 	}
 .your-posts #tabs,
@@ -349,7 +349,7 @@ form#top-search #date2 {
 #tabs a.tab-post-event {
 	background:#85C440;
 	}
-.your-post-event #tabs a.tab-post-event {
+.post-event #tabs a.tab-post-event {
 	-webkit-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
 	-moz-box-shadow:0px -2px 6px rgba(0,0,0,0.5);
 	box-shadow:0px -2px 6px rgba(0,0,0,0.5);
@@ -643,15 +643,6 @@ fieldset {
 	padding:0.6em 16px 0.5em 9px;
 	}
 
-/* = Your Posts */
-.your-posts fieldset {
-	width:96%;
-	padding:0.6em 9px 0.5em 9px;
-	}
-.your-posts .sort {
-	margin-top:-1.8em;
-	}
-
 legend {
 	background:#239ea2;
 	color:#fff;
@@ -859,7 +850,7 @@ form input#rsvp-close-time {
 
 /* = Guest List or Tickets */
 .guest-l-or-tickets-btns div {
-	width:42%;
+	width:41%;
 	float:left;
 	background:#239EA2;
 	color:#fff;
@@ -867,7 +858,7 @@ form input#rsvp-close-time {
 	padding:1em 0 1em 0;
 	text-align:center;
 	font-size:120%;
-	margin:0;
+	margin:0.5em 0 0 0;
 	}
 .guest-l-or-tickets-btns div.or {
 	background:#fff;
@@ -1460,8 +1451,7 @@ input.btn-submit { /* Used on Your Profile Form */
 	}
 
 .your-posts-mng .btn-edit,
-.your-profile .btn-edit,
-.your-posts-manage .btn-edit {
+.your-profile .btn-edit {
 	width:40px;
 	float:left;
 	margin-top:1em;
