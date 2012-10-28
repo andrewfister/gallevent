@@ -50,7 +50,7 @@
         	<a href="{% url gallevent.login.views.invite_request %}">Join Gallevent</a> | <a href="{% url gallevent.login.views.sign_in %}">Sign In</a>
         	{% endif %}
         </span><!-- .right -->
-        <form id="top-search" method="post">
+        <form id="top-search" method="get">
         	<span class="left">
                 <label for="event">Search for Events:</label>
                 <input type="text" id="event" name="q" placeholder="Salsa Dancing San Francisco" onchange="javascript:codeAddress(this);" value="{{ form.q.value }}" />

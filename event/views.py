@@ -17,8 +17,8 @@ from gallevent.event import models
 def show_front_page_events(request):
     events = models.Event.objects.filter(status=1).extra(where=['end_date >= CURRENT_TIMESTAMP']).order_by('start_date','start_time').reverse()
 
-    if request.method == 'POST':
-        form = forms.EventSearchForm(request.POST)
+    if request.GET.get('q'):
+        form = forms.EventSearchForm(request.GET)
         
         if form.is_valid():
             #events = events.extra(where=['match (description,name,keywords) against ("' + form.cleaned_data['search_query'] + '" in boolean mode)'])
@@ -27,10 +27,9 @@ def show_front_page_events(request):
             #    events = events.filter(end_date__gte=form.cleaned_data['start_date'])
             #if form.cleaned_data['end_date']:
             #    events = events.filter(start_date__lte=form.cleaned_data['end_date'])
-            events = form.search()
+            results = form.search()
+            events = [ result.object for result in results ]
             logging.debug('events: ' + str(events))
-            
-            return basic_search(request, template='index.html', load_all=True, form_class=forms.EventSearchForm, searchqueryset=None, context_class=RequestContext, extra_context=None, results_per_page=30)
     else:
         form = forms.EventSearchForm()
 
