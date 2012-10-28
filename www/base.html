@@ -53,7 +53,7 @@
         <form id="top-search" method="get">
         	<span class="left">
                 <label for="event">Search for Events:</label>
-                <input type="text" id="event" name="q" placeholder="Salsa Dancing San Francisco" onchange="javascript:codeAddress(this);" value="{{ form.q.value }}" />
+                <input type="text" id="event" name="q" placeholder="Salsa Dancing San Francisco" onchange="javascript:codeAddress(this);" value="{{ request.GET.q }}" />
             </span>
             <span class="left">
                 <label for="date1">Select Dates:</label>
