@@ -16,7 +16,7 @@ var eventsJSON = [];
 <!-- END Timepicker -->
 {% endblock javascript %}
 
-{% block selected_page %}{% if edit %}your-posts{% else %}your-post-event{% endif %}{% endblock %}
+{% block selected_page %}{% if edit %}your-posts{% else %}post-event{% endif %}{% endblock %}
 
 {% block active_tab_content_width %}side{% endblock %}
 
@@ -183,7 +183,7 @@ var eventsJSON = [];
     </fieldset>
     <fieldset>
     	<legend>4. Event organizer</legend>
-        <span class="form-details">Only one contact method is required. <br />(If you provide an email address, a phone number is not required. If you provide a phone number, an email address is not required.)</span>
+        <span class="form-details">At least one contact method is required.</span>
         <label for="organizer-email" class="required">
         Email:</label>
         <input type="text" id="organizer-email" class="input-standard" name="organizer_email" placeholder="event_organizer@gmail.com" value="{{ form.organizer_email.value }}" />
@@ -229,8 +229,7 @@ var eventsJSON = [];
         <input type="text" id="end-time" class="input-standard" name="end_time" placeholder="9:00pm" value="{{ form.end_time.value|time }}" /></div>
     </fieldset>
     <fieldset>
-        <legend>6. Managing Guests</legend>
-        <span class="form-details">How will you manage guests for this event?</span>
+        <legend>6. How will you manage guests?</legend>
         <div class="guest-l-or-tickets-btns">
         	<div class="btn-guest-l">Guest List</div>
             <div class="or">or</div>

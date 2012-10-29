@@ -25,18 +25,14 @@ html, body {
 	
 #map_canvas {
 	height:100%;
-	width:60%;
-	/* width:63%; */
+	width:50%;
 	float:right;
 	position:relative;
 	z-index:100;
 	}
 
-.your-post-event #map_canvas { /* Made map less wide on Post Event form page */
-	width:50%;
-	}
-
-.your-posts-mng #map_canvas { /* Made map less wide on Your Posts Manage page */
+.your-posts-mng #map_canvas {
+	/* Makes map less wide on Your Posts Manage page */
 	width:38%;
 	}
 
@@ -64,7 +60,7 @@ html, body {
 /* = Side Content */
 #side-content {
 	background:#fff;
-	width:38%;
+	width:48%;
 	height:100%;
 	float:left;
 	z-index:888;
@@ -73,11 +69,8 @@ html, body {
 	overflow-y:scroll;
 	}
 
-.your-post-event #side-content {  /* Made side content wider on Post Event form page */
-	width:48%;
-	}
-
-.your-posts-mng #side-content { /* Make side content wider on Your Posts Manage page */
+.your-posts-mng #side-content {
+	/* Makes side content wider on Your Posts Manage page */
 	width:60%;
 	/* The styles below create the sidebar background */
 	background-color:#fff;
@@ -86,12 +79,10 @@ html, body {
 	background-repeat:repeat-y;
 	}
 
-#post-event {  /* Form container on Post Event Page */
-	width:88%;
-	}
+#post-event, /* Form container on Post Event Page */
 #your-posts, /* Form container on Your Post Page */
 #your-profile {  /* Form container on Your Profile Page */
-	width:95%;
+	width:89%;
 	}
 
 /* = Media Queries
