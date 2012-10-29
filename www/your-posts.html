@@ -29,12 +29,12 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
 	<fieldset>
     	<legend>Active Posts</legend>
         <span class="sort">
-            <label for="active-sort-by1">Sort:</label>
             <select id="active-sort-by1">
                 <option value="date-ascending">Date Ascending</option>
                 <option value="date-descending">Date Descending</option>
                 <option value="date-category">Category</option>
             </select>
+            <label for="active-sort-by1">Sort:</label>
         </span><!-- .sort -->
         <ul class="form-event-list active-events">
         </ul>
