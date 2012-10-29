@@ -27,3 +27,7 @@ class Event(models.Model):
     longitude = models.FloatField()
     latitude = models.FloatField()
     status = models.IntegerField(default=1)
+    
+    def get_location(self):
+        from django.contrib.gis.geos import Point
+        return Point(self.longitude, self.latitude)
