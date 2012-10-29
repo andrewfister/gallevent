@@ -1,6 +1,7 @@
 # Django settings for gallevent project.
 import local_settings
 import django
+import requests
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
