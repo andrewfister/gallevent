@@ -902,12 +902,16 @@ form input#rsvp-close-time {
 .sort {
 	float:right; /* Used to place the sort label and dropdown next to the category heading on Your Post Page */
 	margin-top:-1.5em;
+	width:50%;
+	text-align:right;
 	}
-
 .sort label {
-	float:left;
+	float:right;
 	clear:none;
 	margin:0 0.5em 1em 0;
+	}
+.sort select {
+	float:right;
 	}
 
 #active-sort-by1,
