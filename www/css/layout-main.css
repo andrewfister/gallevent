@@ -849,8 +849,12 @@ form input#rsvp-close-time {
 	}
 
 /* = Guest List or Tickets */
+.guest-l-or-tickets-btns {
+	float:left;
+	width:98%;
+	}
 .guest-l-or-tickets-btns div {
-	width:41%;
+	width:42%;
 	float:left;
 	background:#239EA2;
 	color:#fff;
@@ -865,10 +869,14 @@ form input#rsvp-close-time {
 	color:#239EA2;
 	width:16%;
 	font-weight:bold;
-	padding:1em 0 1em 0;
+	padding:1.4em 0 1em 0;
 	text-align:center;
 	font-size:120%;
 	margin:0;
+	}
+.btn-tickets {
+	position:relative;
+	right:-4px;
 	}
 .btn-guest-l:hover,
 .btn-tickets:hover {
@@ -882,32 +890,18 @@ form input#rsvp-close-time {
 .opt-guest-l,
 .opt-tickets {
 	border:2px solid #70B820;
-	padding:1em;
+	width:98%;
 	float:left;
 	margin:0;
 	}
-
-
-
-/*
-form dl.guest-list-or-tickets .btn-guest-list {
-	background:#ff0;
-	width:40%;
-	float:left;
+.opt-guest-l .content,
+.opt-tickets .content {
+	padding:1em;
 	}
-form dl.guest-list-or-tickets .btn-tickets {
-	background:#099;
-	width:40%;
-	float:right;
-	}
-form dl.guest-list-or-tickets .opt-guest-list dd,
-form dl.guest-list-or-tickets .opt-tickets dd {
-	
-	}
-*/
 
 .sort {
 	float:right; /* Used to place the sort label and dropdown next to the category heading on Your Post Page */
+	margin-top:-1.5em;
 	}
 
 .sort label {
@@ -978,6 +972,7 @@ ul.form-people-list li a .name {
 	font-weight:bold;
 	font-size:115%;
 	color:#2b2c2f;
+	width:90%;
 	}
 
 .form-event-list .mod-event,
@@ -1377,6 +1372,7 @@ a.btn-message,
 a.btn-edit,
 a.btn-watch,
 .mod-event .btn-delete,
+.mod-event .btn-archive,
 a.btn-block {
 	float:right;
 	padding:.4em .6em .4em .6em;
