@@ -29,7 +29,6 @@ def show_front_page_events(request):
             #    events = events.filter(start_date__lte=form.cleaned_data['end_date'])
             results = form.search()
             events = [ result.object for result in results ]
-            logging.debug('events: ' + str(events))
     else:
         form = forms.EventSearchForm()
 
@@ -40,17 +39,14 @@ def show_front_page_events(request):
 
 @login_required
 def post_event(request, event_id=None, edit=False):
-    logging.debug('post event')
     if request.method == 'POST':
         if event_id != None and edit == True:
             event = models.Event.objects.get(id=event_id)
         else:
             event = models.Event(user_id=request.user.id)
         form = forms.PostEventForm(request.POST, instance=event)
-        logging.debug('created a form')
         
         if form.is_valid():
-            logging.debug('form is valid. the user is: ' + str(request.user.id))
             form.save()
             
             return HttpResponseRedirect('/event/show')
@@ -59,7 +55,6 @@ def post_event(request, event_id=None, edit=False):
     elif event_id != None and edit == True:
         event = models.Event.objects.get(id=event_id)
         form = forms.PostEventForm(instance=event)
-        logging.debug('event to edit: ' + str(form))
     else:   
         form = forms.PostEventForm(instance=models.Event(user_id=request.user.id))
     
