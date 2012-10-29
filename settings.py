@@ -38,11 +38,20 @@ elif django.VERSION[1] == 3:
     DATABASE_HOST = local_settings.DATABASE_HOST_LOCAL             # Set to empty string for localhost. Not used with sqlite3.
     DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
 
-HAYSTACK_SITECONF = 'gallevent.search_sites'
-HAYSTACK_SEARCH_ENGINE = 'solr'
-HAYSTACK_SOLR_URL = local_settings.HAYSTACK_HOST_LOCAL + ':8983/solr'
-HAYSTACK_INCLUDE_SPELLING = False
-HAYSTACK_SEARCH_RESULTS_PER_PAGE = 30
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
+        'URL': local_settings.HAYSTACK_HOST_LOCAL + ':8983/solr'
+        # ...or for multicore...
+        # 'URL': 'http://127.0.0.1:8983/solr/mysite',
+    },
+}
+
+#HAYSTACK_SITECONF = 'gallevent.search_sites'
+#HAYSTACK_SEARCH_ENGINE = 'solr'
+#HAYSTACK_SOLR_URL = local_settings.HAYSTACK_HOST_LOCAL + ':8983/solr'
+#HAYSTACK_INCLUDE_SPELLING = False
+#HAYSTACK_SEARCH_RESULTS_PER_PAGE = 30
 
 
 # Local time zone for this installation. Choices can be found here:
