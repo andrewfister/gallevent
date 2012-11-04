@@ -1,7 +1,6 @@
 # Django settings for gallevent project.
 import local_settings
 import django
-import requests
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -42,7 +41,7 @@ elif django.VERSION[1] == 3:
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
-        'URL': 'http://127.0.0.1:9200/',
+        'URL': local_settings.HAYSTACK_HOST_LOCAL +':9200/',
         'INDEX_NAME': 'haystack',
     },
 }
