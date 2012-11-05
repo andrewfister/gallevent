@@ -55,8 +55,8 @@ def post_event(request, event_id=None, edit=False):
     elif event_id != None and edit == True:
         event = models.Event.objects.get(id=event_id)
         form = forms.PostEventForm(instance=event)
-    else:   
-        form = forms.PostEventForm(instance=models.Event(user_id=request.user.id))
+    else:
+        form = forms.PostEventForm()
 
     return render_to_response('post-event.html', {
     'edit': edit,
