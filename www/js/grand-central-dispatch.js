@@ -17,6 +17,7 @@ $(function() {
                     events.reset(events.where({category: item}));
                     $('.key').addClass('inactive');
                     $('.'+item).removeClass('inactive');
+                    $('.'+item).addClass('active');
                 }
                 else
                 {
