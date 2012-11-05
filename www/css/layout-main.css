@@ -1279,9 +1279,9 @@ form#top-search .btn-search {
 	font-size:16px;
 	font-weight:bold;
 	color:#fff;
-	text-shadow: 0px 1px 5px #71AA2A;
-	padding:0 10px 0 10px;
+	text-shadow:0px 1px 5px #71AA2A;
 	text-align:center;
+	padding:0 10px 2px 10px;
 	height:35px;
 	width:auto;
 	margin:20px 0 0 10px;
@@ -1504,6 +1504,9 @@ input.btn-submit { /* Used on Your Profile Form */
 	background: -ms-linear-gradient(top,  #9fd247 0%,#7cb72f 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  #9fd247 0%,#7cb72f 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9fd247', endColorstr='#7cb72f',GradientType=0 ); /* IE6-8 */
+	-moz-box-shadow:	0px 2px 4px #666;
+	-webkit-box-shadow:	0px 2px 4px #666;
+	box-shadow:			0px 2px 4px #666;
 	}
 #pin-key a.btn-post-event img {
 	position:relative;
@@ -1511,7 +1514,7 @@ input.btn-submit { /* Used on Your Profile Form */
 	left:-10px;
 	}
 #pin-key a.btn-post-event:hover {
-	text-shadow: 0px 1px 5px #CE7F00;
+	text-shadow: 0px 1px 2px #C47500;
 	background: #f8c71d; /* Old browsers */
 	background: -moz-linear-gradient(top,  #f8c71d 0%, #f8a21c 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8c71d), color-stop(100%,#f8a21c)); /* Chrome,Safari4+ */
