@@ -21,6 +21,8 @@ var MapView = Backbone.View.extend({
     
     location: new google.maps.LatLng(37.88397, -122.2644),
     
+    infoWindow: new google.maps.InfoWindow(),
+    
     render: function() {
         google.maps.event.addDomListener(window, 'load', function() {
             var myOptions = {
@@ -57,10 +59,6 @@ var MapView = Backbone.View.extend({
     setMarker: function(event, latitude, longitude, address, category, info) {
         var image = '/static/img/pin-map-' + category + '.png';
 
-        var infoWindow = new google.maps.InfoWindow({
-            content: info
-        });
-
         var location = new google.maps.LatLng(latitude, longitude);
         
         var marker = new google.maps.Marker({
@@ -73,8 +71,9 @@ var MapView = Backbone.View.extend({
         });
 
         google.maps.event.addListener(marker, 'click', function() {
-            infoWindow.close();
-            infoWindow.open(this.map,marker);
+            this.infoWindow.close();
+            this.infoWindow.setContent(info);
+            this.infoWindow.open(this.map,marker);
         }.bind(this));
 
         this.markers.push(marker);
@@ -84,12 +83,12 @@ var MapView = Backbone.View.extend({
             return  function() {
                 console.log("IT WORKED");
                 infoWindow.close();
+                infoWindow.setContent(info);
                 infoWindow.open(map,marker);
             }
         }
 
-        var openMarker = makeOpenMarker(marker, infoWindow, this.map);
-
+        var openMarker = makeOpenMarker(marker, this.infoWindow, this.map);
         
         event.on('open', openMarker);
         event.trigger('pinDropped');
