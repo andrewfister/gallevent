@@ -245,14 +245,14 @@ var eventsJSON = [];
                         <span class="error">{{ error }}</span>
                     {% endfor %}
                 {% endif %}
-                <input type="text" id="rsvp-limit" class="input-standard" name="rsvp_limit" value="{{ form.rsvp_limit.value }}" /><em class="form-comment">0 Gallevent Members may RSVP to this event.</em>
+                <input type="text" id="rsvp-limit" class="input-standard" name="rsvp_limit" placeholder="Unlimited" value="{{ form.rsvp_limit.value }}" /><em class="form-comment">0 Gallevent Members may RSVP to this event.</em>
                 <label class="required" for="rsvp-close-date">When will RSVP close?</label>
                 <span class="form-details">Gallevent Members will no longer be able to RSVP after the date and time below.</span>
                 <input type="text" id="rsvp-close-date" class="input-standard" name="rsvp_close_date" placeholder="06/20/2012" value="{{ form.end_date.value|date }}" /> at 
                 <input type="text" id="rsvp-close-time" class="input-standard" name="rsvp_close_time" placeholder="9:00pm" value="{{ form.end_time.value|time }}" />
                 <span class="form-details">Include the entry fee for your event below. This is the price that will be charged to guests at the door. If you have different types of entry fees, please include each type of entry fee below.</span>
                 <label class="required" for="ticket-type1">Entry type 1:</label>
-                <input type="text" id="ticket-type1" class="input-standard" name="ticket-type1" placeholder="General Admission" value="General Admission" />
+                <input type="text" id="ticket-type1" class="input-standard" name="ticket-type1" placeholder="General Admission" value="" />
                 <label class="required" for="ticket-price1">Price for Entry type 1:</label>
                 <input type="text" id="ticket-price" class="input-standard" name="ticket_price" placeholder="$0.00" value="{{ form.ticket_price.value }}" /><em class="form-comment">This type of entry is FREE!</em>
                 <button class="btn-add-type"><span>+</span> Add another entry type</button>
