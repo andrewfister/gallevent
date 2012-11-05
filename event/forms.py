@@ -42,7 +42,7 @@ class PostEventForm(forms.ModelForm):
     name = forms.CharField(max_length=64, initial="")
     description = forms.CharField(max_length=1000, initial="")
     event_url = forms.URLField(required=False, initial="")
-    rsvp_limit = forms.IntegerField(required=False, initial=0)
+    rsvp_limit = forms.IntegerField(required=False, initial="")
     organizer_email = forms.CharField(max_length=64, required=False, initial="")
     organizer_phone = forms.CharField(max_length=24, required=False, initial="")
     organizer_url = forms.URLField(max_length=200, required=False, initial="")
