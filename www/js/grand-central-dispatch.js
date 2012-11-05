@@ -7,12 +7,13 @@ $(function() {
     if ($('#pin-key').length)
     {
         var categories = ['networking', 'education', 'fairs', 'athletic', 'art', 'dancing', 'dining', 'parties'];
-        $('.key').click(function() {
-            _.each(categories, function(item, index, items) {
-                $('.'+item).click(function() {
-                    events.reset(eventsJSON);
-                    events.reset(events.where({category: item}));
-                });
+        
+        _.each(categories, function(item, index, items) {
+            $('.'+item).click(function() {
+                events.reset(eventsJSON);
+                events.reset(events.where({category: item}));
+                $('.key').addClass('inactive');
+                $('.'+item).removeClass('inactive');
             });
         });
     }
