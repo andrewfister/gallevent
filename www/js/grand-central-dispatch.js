@@ -11,6 +11,7 @@ $(function() {
         _.each(categories, function(item, index, items) {
             $('.'+item).click(function() {
                 events.reset(eventsJSON);
+                $('.key').removeClass('active');
                 
                 if ($('.'+item).hasClass('inactive') || !$('.key').hasClass('inactive'))
                 {
