@@ -11,9 +11,19 @@ $(function() {
         _.each(categories, function(item, index, items) {
             $('.'+item).click(function() {
                 events.reset(eventsJSON);
-                events.reset(events.where({category: item}));
-                $('.key').addClass('inactive');
-                $('.'+item).removeClass('inactive');
+                $('.key').removeClass('active');
+                
+                if ($('.'+item).hasClass('inactive') || !$('.key').hasClass('inactive'))
+                {
+                    events.reset(events.where({category: item}));
+                    $('.key').addClass('inactive');
+                    $('.'+item).removeClass('inactive');
+                    $('.'+item).addClass('active');
+                }
+                else
+                {
+                    $('.key').removeClass('inactive');
+                }
             });
         });
     }
