@@ -14,7 +14,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
 {% block content %}
 <div id="container" >
 	<ul id="pin-key">
-        <li><a href="#" class="key networking inactive">Networking</a></li>
+        <li><a class="key networking inactive"href="#">Networking</a></li>
         <li><a href="#" class="key education">Education</a></li>
         <li><a href="#" class="key fairs">Fairs &amp; Festivals</a></li>
         <li><a href="#" class="key athletic">Athletic</a></li>
@@ -22,7 +22,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         <li><a href="#" class="key dancing">Dancing</a></li>
         <li><a href="#" class="key dining">Dining</a></li>
         <li><a href="#" class="key parties">Nightlife &amp; Parties</a></li>
-        <li class="btn-post-event"><a href="{% url gallevent.event.views.post_event %}">Post Your Event on Gallevent!</a></li>
+        <li><a class="btn-post-event" href="{% url gallevent.event.views.post_event %}"><img src="/static/img/icon-add-event.png" title="Add Event Icon" />Post an Event</a></li>
 	</ul>
 	{% show_map %}
 </div>

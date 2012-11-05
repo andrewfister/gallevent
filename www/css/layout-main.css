@@ -3,7 +3,7 @@
 ** Description: Positioning of most site-wide elemenets
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-28-2012
-** Updated: 09-30-2012
+** Updated: 11-04-2012
 ************************************** */
 
 /* = General Styles
@@ -1276,15 +1276,39 @@ ul.form-people-list .person-summary {
 /* = Buttons and Edit Links
 ----------------------------------- */
 form#top-search .btn-search {
-	background:url(../img/btn-search.png) top left no-repeat;
-	width:78px;
-	height:36px;
-	border:none;
-	text-indent:-9999px;
-	margin:18px 0 0 10px;
+	font-size:16px;
+	font-weight:bold;
+	color:#fff;
+	text-shadow: 0px 1px 5px #71AA2A;
+	padding:0 10px 0 10px;
+	text-align:center;
+	height:35px;
+	width:auto;
+	margin:20px 0 0 10px;
+	border:2px solid #fff;
+	-moz-border-radius:		7px;
+    -webkit-border-radius:	7px;
+    -khtml-border-radius:	7px;
+    border-radius:			7px;
+	background: #9fd247; /* Old browsers */
+	background: -moz-linear-gradient(top,  #9fd247 0%, #7cb72f 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#9fd247), color-stop(100%,#7cb72f)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #9fd247 0%,#7cb72f 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #9fd247 0%,#7cb72f 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #9fd247 0%,#7cb72f 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #9fd247 0%,#7cb72f 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9fd247', endColorstr='#7cb72f',GradientType=0 ); /* IE6-8 */
 	}
 form#top-search .btn-search:hover {
-	background:url(../img/btn-search-h.png) top left no-repeat;
+	text-shadow: 0px 1px 5px #f89f1c;
+	background: #f8c71d; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f8c71d 0%, #f8a21c 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8c71d), color-stop(100%,#f8a21c)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f8c71d 0%,#f8a21c 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f8c71d 0%,#f8a21c 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f8c71d 0%,#f8a21c 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #f8c71d 0%,#f8a21c 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8c71d', endColorstr='#f8a21c',GradientType=0 ); /* IE6-8 */
 	}
 
 .map-popup .btns {
@@ -1457,28 +1481,45 @@ input.btn-submit { /* Used on Your Profile Form */
 	margin-top:1em;
 	}
 
-.btn-post-event {
-	background:url(../img/btn-post-event-h.png) 0 7px no-repeat;
+#pin-key a.btn-post-event {
 	display:block;
 	float:left;
-	width:234px;
-	height:79px;
-	margin:0 0 0 10px;
+	font-size:18px;
+	font-weight:normal;
+	color:#fff;
+	text-shadow: 0px 1px 2px #487200;
+	text-align:center;
+	padding:2px 0 22px 0;
+	width:220px;
+	margin:10px 0 0 10px;
+	-moz-border-radius:		7px;
+    -webkit-border-radius:	7px;
+    -khtml-border-radius:	7px;
+    border-radius:			7px;
+	background: #9fd247; /* Old browsers */
+	background: -moz-linear-gradient(top,  #9fd247 0%, #7cb72f 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#9fd247), color-stop(100%,#7cb72f)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #9fd247 0%,#7cb72f 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #9fd247 0%,#7cb72f 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #9fd247 0%,#7cb72f 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #9fd247 0%,#7cb72f 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9fd247', endColorstr='#7cb72f',GradientType=0 ); /* IE6-8 */
 	}
-.btn-post-event a {
-	background:url(../img/btn-post-event.png) 0 7px no-repeat;
-	display:block;
-	float:left;
-	width:234px;
-	height:79px;
-	text-indent:-9999px;
-	-webkit-transition: opacity .4s ease-in-out;
-	-moz-transition: opacity .4s ease-in-out;
-	-o-transition: opacity .4s ease-in-out;
-	transition: opacity .4s ease-in-out; 
+#pin-key a.btn-post-event img {
+	position:relative;
+	top:13px;
+	left:-10px;
 	}
-.btn-post-event a:hover {
-	opacity: 0;
+#pin-key a.btn-post-event:hover {
+	text-shadow: 0px 1px 5px #CE7F00;
+	background: #f8c71d; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f8c71d 0%, #f8a21c 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8c71d), color-stop(100%,#f8a21c)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f8c71d 0%,#f8a21c 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f8c71d 0%,#f8a21c 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f8c71d 0%,#f8a21c 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #f8c71d 0%,#f8a21c 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8c71d', endColorstr='#f8a21c',GradientType=0 ); /* IE6-8 */
 	}
 
 input.btn-s-post-event {
