@@ -89,9 +89,9 @@ def sign_in(request):
         if form.is_valid():
             query_email = form.cleaned_data['email']
             query_password = form.cleaned_data['password']
-            user = authenticate(username=query_email, password=query_password)
             logging.debug('email: ' + query_email)
             logging.debug('password: ' + query_password)
+            user = authenticate(username=query_email, password=query_password)
         
             if user is not None:
                 if user.is_active:
