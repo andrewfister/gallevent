@@ -16,6 +16,8 @@ class Event(models.Model):
     description = models.CharField(max_length=1024)
     event_url = models.URLField(blank=True, null=False)
     rsvp_limit = models.IntegerField(default=0)
+    rsvp_end_date = models.DateField(blank=True, null=False)
+    rsvp_end_time = models.TimeField(blank=True, null=False)
     organizer_email = models.EmailField(blank=True, null=False)
     organizer_phone = models.CharField(max_length=24, blank=True, null=False)
     organizer_url = models.URLField(blank=True, null=False)
