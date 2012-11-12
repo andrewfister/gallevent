@@ -40,8 +40,8 @@ elif django.VERSION[1] == 3:
 
 HAYSTACK_CONNECTIONS = {
     'default': {
-        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
-        'URL': local_settings.HAYSTACK_HOST_LOCAL +':9200/',
+        'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
+        'URL': local_settings.HAYSTACK_HOST_LOCAL +':8983/',
         'INDEX_NAME': 'haystack',
     },
 }
