@@ -10,7 +10,7 @@ class EventIndex(indexes.SearchIndex, indexes.Indexable):
     description = indexes.CharField(model_attr='description')
     start_date = indexes.DateField(model_attr='start_date')
     end_date = indexes.DateField(model_attr='end_date')
-    #location = indexes.LocationField(model_attr='get_location')
+    location = indexes.LocationField(model_attr='get_location')
 
     def get_model(self):
         return Event
