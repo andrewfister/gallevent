@@ -33,3 +33,14 @@ class Event(models.Model):
     def get_location(self):
         from django.contrib.gis.geos import Point
         return Point(self.longitude, self.latitude)
+
+
+class GuestType(models.Model):
+    guest_type_name = models.CharField(max_length=64)
+    price = models.FloatField()
+
+class Guest(models.Model):
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    email = models.EmailField()
+    user_id = models.IntegerField(blank=True, null=False)
