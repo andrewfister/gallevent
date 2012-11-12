@@ -41,7 +41,7 @@ elif django.VERSION[1] == 3:
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
-        'URL': local_settings.HAYSTACK_HOST_LOCAL +':8983/',
+        'URL': local_settings.HAYSTACK_HOST_LOCAL +':8983/solr',
         'INDEX_NAME': 'haystack',
     },
 }
