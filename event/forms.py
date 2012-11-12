@@ -53,9 +53,6 @@ class PostEventForm(forms.ModelForm):
     ticket_price = forms.DecimalField(required=False, decimal_places=2, initial="")
     ticket_url = forms.URLField(required=False, initial="")
     
-    def __init__(self, questions, *args, **kwargs):
-        pass
-    
     def clean_purchase_tickets(self):
         return self.cleaned_data['purchase_tickets'] == "yes"
     
