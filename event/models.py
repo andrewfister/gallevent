@@ -44,3 +44,5 @@ class Guest(models.Model):
     last_name = models.CharField(max_length=30)
     email = models.EmailField()
     user_id = models.IntegerField(blank=True, null=False)
+    event_id = models.IntegerField()
+    guest_type_id = models.IntegerField()
