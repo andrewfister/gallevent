@@ -38,6 +38,7 @@ class Event(models.Model):
 class GuestType(models.Model):
     guest_type_name = models.CharField(max_length=64)
     price = models.FloatField()
+    event_id = models.IntegerField()
 
 class Guest(models.Model):
     first_name = models.CharField(max_length=30)

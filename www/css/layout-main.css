@@ -3,7 +3,7 @@
 ** Description: Positioning of most site-wide elemenets
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-28-2012
-** Updated: 11-04-2012
+** Updated: 11-11-2012
 ************************************** */
 
 /* = General Styles
@@ -54,6 +54,48 @@ p {
 .date-time {
 	color:#34859F;
 	}
+
+.help {
+	display:inline-block;
+	width:12px;
+	height:12px;
+	font-size:12px;
+	background:#c1c1c1;
+	text-align:center;
+	text-indent:-1px;
+	color:#fff;
+	position:relative;
+	top:0px;
+	border-radius:6px 6px 6px 6px;
+	margin-left:0.5em;
+	}
+.help:hover {
+	background:#59BDBF;
+	}
+.help span {
+	display:none;
+	position:absolute;
+	top:-24px;
+	left:20px;
+	width:200px;
+	padding:20px;
+	border:3px solid #59BDBF;
+	background:#eee;
+	border-radius:6px 6px 6px 6px;
+	z-index:800;
+	color:#555;
+	-webkit-box-shadow:	0px 0px 4px rgba(0,0,0,0.3);
+	-moz-box-shadow:	0px 0px 4px rgba(0,0,0,0.3);
+	box-shadow:			0px 0px 4px rgba(0,0,0,0.3);
+	font-weight:normal;
+	font-size:14px;
+	line-height:1.3em;
+	text-align:left;
+	}
+.help:hover span {
+	display:block;
+	}
+
 
 /* = Headings
 ----------------------------------- */
@@ -288,16 +330,6 @@ form#top-search #date2 {
 #footer ul li {
 	display:inline;
 	margin-right:1em;
-	}
-
-/* = Pin Key */
-#pin-key a {
-	color:#000;
-	font-size:100%;
-	font-weight:bold;
-	}
-#pin-key a:hover {
-	text-decoration:none;
 	}
 
 /* = Columns */
@@ -688,7 +720,8 @@ select:focus {
 	margin:0 0 0.9em 0;
 	}
 .form-comment {
-	color:#239ea2;
+	color:#999;
+	/* color:#239ea2; */
 	}
 /* Form comment under text-area or input */
 .under {
@@ -1279,9 +1312,9 @@ form#top-search .btn-search {
 	font-size:16px;
 	font-weight:bold;
 	color:#fff;
-	text-shadow: 0px 1px 5px #71AA2A;
-	padding:0 10px 0 10px;
+	text-shadow:0px 1px 5px #71AA2A;
 	text-align:center;
+	padding:0 10px 2px 10px;
 	height:35px;
 	width:auto;
 	margin:20px 0 0 10px;
@@ -1504,6 +1537,9 @@ input.btn-submit { /* Used on Your Profile Form */
 	background: -ms-linear-gradient(top,  #9fd247 0%,#7cb72f 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  #9fd247 0%,#7cb72f 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9fd247', endColorstr='#7cb72f',GradientType=0 ); /* IE6-8 */
+	-moz-box-shadow:	0px 2px 4px #666;
+	-webkit-box-shadow:	0px 2px 4px #666;
+	box-shadow:			0px 2px 4px #666;
 	}
 #pin-key a.btn-post-event img {
 	position:relative;
@@ -1511,7 +1547,7 @@ input.btn-submit { /* Used on Your Profile Form */
 	left:-10px;
 	}
 #pin-key a.btn-post-event:hover {
-	text-shadow: 0px 1px 5px #CE7F00;
+	text-shadow: 0px 1px 2px #C47500;
 	background: #f8c71d; /* Old browsers */
 	background: -moz-linear-gradient(top,  #f8c71d 0%, #f8a21c 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8c71d), color-stop(100%,#f8a21c)); /* Chrome,Safari4+ */

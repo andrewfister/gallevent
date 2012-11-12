@@ -238,23 +238,21 @@ var eventsJSON = [];
         
         <div class="opt-guest-l">
         	<div class="content">
-                <label class="required" for="rsvp-limit">How many people may RSVP?</label>
-                <span class="form-details">The number you enter below will limit how many Gallevent Members can RSVP to this event. You will be able to view or print your guest list from your account.</span>
+                <label class="required" for="rsvp-limit">How many people may RSVP? <span class="help">? <span>You may limit the number of people who can RSVP for this event through Gallevent. You will be able to view or print your guest list from your account.</span></span></label>
                 {% if form.rsvp_limit.errors %}
                     {% for error in form.rsvp_limit.errors %}
                         <span class="error">{{ error }}</span>
                     {% endfor %}
                 {% endif %}
                 <input type="text" id="rsvp-limit" class="input-standard" name="rsvp_limit" placeholder="Unlimited" value="{{ form.rsvp_limit.value }}" /><em class="form-comment">0 Gallevent Members may RSVP to this event.</em>
-                <label class="required" for="rsvp-close-date">When will RSVP close?</label>
-                <span class="form-details">Gallevent Members will no longer be able to RSVP after the date and time below.</span>
-                <input type="text" id="rsvp-end-date" class="input-standard" name="rsvp_end_date" placeholder="06/20/2012" value="{{ form.rsvp_end_date.value }}" /> at 
-                <input type="text" id="rsvp-end-time" class="input-standard" name="rsvp_end_time" placeholder="9:00pm" value="{{ form.rsvp_end_time.value }}" />
-                <span class="form-details">Include the entry fee for your event below. This is the price that will be charged to guests at the door. If you have different types of entry fees, please include each type of entry fee below.</span>
+                <label class="required" for="rsvp-close-date">When will RSVP close? <span class="help">? <span>People will no longer be able to RSVP for this event through Gallevent after this date and time.</span></span></label>
+                <input type="text" id="rsvp-close-date" class="input-standard" name="rsvp_close_date" placeholder="06/20/2012" value="{{ form.end_date.value|date }}" /> at 
+                <input type="text" id="rsvp-close-time" class="input-standard" name="rsvp_close_time" placeholder="9:00pm" value="{{ form.end_time.value|time }}" />
+                <span class="form-details">Include the entry fees for your event below. This is the price that will be charged to guests at the door. If you have different types of entry fees, please include each type of entry fee below.</span>
                 <label class="required" for="ticket-type1">Entry type 1:</label>
                 <input type="text" id="ticket-type1" class="input-standard" name="ticket-type1" placeholder="General Admission" value="" />
                 <label class="required" for="ticket-price1">Price for Entry type 1:</label>
-                <input type="text" id="ticket-price" class="input-standard" name="ticket_price" placeholder="$0.00" value="{{ form.ticket_price.value }}" /><em class="form-comment">This type of entry is FREE!</em>
+                <input type="text" id="ticket-price" class="input-standard" name="ticket_price" placeholder="$0.00" value="{{ form.ticket_price.value }}" />
                 <button class="btn-add-type"><span>+</span> Add another entry type</button>
             </div><!-- .content -->
         </div><!-- .opt-guest-l -->
@@ -263,12 +261,8 @@ var eventsJSON = [];
         	<div class="content">
         	<label class="required" for="ticket-link">Link to get tickets:</label>
             <input type="text" id="ticket-link" class="input-standard" name="ticket_url" placeholder="www.gallevent.com" value="{{ form.ticket_url.value }}" />
-            <span class="form-details">If you are selling different types of tickets for your event, please include each ticket type below. You must have at lease one ticket type.</span>
-        	<label class="required" for="ticket-type1">Ticket type 1:</label>
-        	<input type="text" id="ticket-type1" class="input-standard" name="ticket-type1" placeholder="General Admission" value="" />
-            <label class="required" for="ticket-price1">Price for ticket type 1:</label>
-            <input type="text" id="ticket-price" class="input-standard" name="ticket_price" placeholder="$0.00" value="{{ form.ticket_price.value }}" /><em class="form-comment">This type of ticket is FREE!</em>
-            <button class="btn-add-type"><span>+</span> Add another ticket type</button>
+            <label class="required" for="ticket-price1">Starting ticket price:</label>
+            <input type="text" id="ticket-price" class="input-standard" name="ticket_price" placeholder="$0.00" value="{{ form.ticket_price.value }}" /><em class="form-comment">Your event is FREE!</em>
             </div><!-- .content -->
         </div><!-- .opt-tickets -->
     </fieldset>
