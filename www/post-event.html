@@ -250,7 +250,7 @@ var eventsJSON = [];
                 <input type="text" id="rsvp-close-time" class="input-standard" name="rsvp_close_time" placeholder="9:00pm" value="{{ form.end_time.value|time }}" />
                 <span class="form-details">Include the entry fees for your event below. This is the price that will be charged to guests at the door. If you have different types of entry fees, please include each type of entry fee below.</span>
                 <label class="required" for="ticket-type1">Entry type 1:</label>
-                <input type="text" id="ticket-type1" class="input-standard" name="ticket-type1" placeholder="General Admission" value="" />
+                <input type="text" id="guest_type_name1" class="input-standard" name="guest_type_name1" placeholder="General Admission" value="{{ form.guest_type_name1.value }}" />
                 <label class="required" for="ticket-price1">Price for Entry type 1:</label>
                 <input type="text" id="ticket-price" class="input-standard" name="ticket_price" placeholder="$0.00" value="{{ form.ticket_price.value }}" />
                 <button class="btn-add-type"><span>+</span> Add another entry type</button>
