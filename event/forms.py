@@ -3,6 +3,7 @@ import datetime
 
 from django import forms
 from django.forms.util import ErrorList
+from haystack.utils.geo import Point, D
 
 from haystack.forms import SearchForm
 
@@ -86,12 +87,21 @@ class EventSearchForm(SearchForm):
 
     start_date = forms.DateField(required=False, initial="", input_formats=date_input_formats)
     end_date = forms.DateField(required=False, initial="", input_formats=date_input_formats)
+    latitude = forms.FloatField(initial=-122.2644)
+    longitude = forms.FloatField(initial=37.774929)
+    distance = forms.FloatField(initial=5.08)
     
     def search(self):
-        sqs = super(EventSearchForm, self).search()#.filter(content=self.cleaned_data['search_query'])
+        sqs = super(EventSearchForm, self).search()
+        
         # First, store the SearchQuerySet received from other processing.
         import logging
         logging.debug('sqs: ' + str(sqs.all()))
+
+        if self.cleaned_data['longitude'] and self.cleaned_data['latitude'] and self.cleaned_data['distance']:
+            map_center = Point(self.cleaned_data['longitude'], self.cleaned_data['latitude'])
+            distance = D(mi=self.cleaned_data['distance'])
+            sqs = sqs.dwithin('location', map_center, distance)
 
         # Check to see if a start_date was chosen.
         if self.cleaned_data['start_date']:
