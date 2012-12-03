@@ -87,8 +87,8 @@ class EventSearchForm(SearchForm):
 
     start_date = forms.DateField(required=False, initial="", input_formats=date_input_formats)
     end_date = forms.DateField(required=False, initial="", input_formats=date_input_formats)
-    latitude = forms.FloatField(initial=-122.2644)
-    longitude = forms.FloatField(initial=37.774929)
+    latitude = forms.FloatField(initial=37.774929)
+    longitude = forms.FloatField(initial=-122.2644)
     distance = forms.FloatField(initial=5.08)
     
     def search(self):
