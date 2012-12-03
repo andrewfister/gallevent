@@ -36,10 +36,19 @@ var MapView = Backbone.View.extend({
 
             navigator.geolocation.getCurrentPosition(this.foundUserLocation.bind(this),this.noUserLocation.bind(this),{timeout:10000});
 
+            //Listen for tiles loaded
             google.maps.event.addListener(this.map, 'tilesloaded', function() {
                 this.map.setCenter(this.location);
                 this.setAllMarkers();
                 google.maps.event.clearListeners(this.map, 'tilesloaded');
+            }.bind(this));
+            
+            google.maps.event.addListener(this.map, 'center_changed', function(data) {
+                this.location = this.location;
+            }.bind(this));
+            
+            google.maps.event.addListener(this.map, 'zoom_changed', function() {
+                this.location = this.location;
             }.bind(this));
         }.bind(this));
         
