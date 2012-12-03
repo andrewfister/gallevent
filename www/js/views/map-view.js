@@ -43,12 +43,14 @@ var MapView = Backbone.View.extend({
                 google.maps.event.clearListeners(this.map, 'tilesloaded');
             }.bind(this));
             
-            google.maps.event.addListener(this.map, 'center_changed', function(data) {
-                this.location = this.location;
+            google.maps.event.addListener(this.map, 'dragend', function(data) {
+                var center = this.map.getCenter();
+                $('#user-latitude').attr('value', parseFloat(center.lat()));
+                $('#user-longitude').attr('value', parseFloat(center.lng()));
             }.bind(this));
             
             google.maps.event.addListener(this.map, 'zoom_changed', function() {
-                this.location = this.location;
+                $('#map-radius').attr('value', parseFloat(this.mapRadius()));
             }.bind(this));
         }.bind(this));
         
