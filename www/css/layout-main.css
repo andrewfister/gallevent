@@ -680,6 +680,7 @@ legend {
 	color:#fff;
 	display:block;
 	font-size:130%;
+	letter-spacing:0.02em;
 	padding:0.7em 5% 0.7em 11%;
 	margin:0 0 0 -15%;
 	font-weight:bold;
@@ -790,6 +791,8 @@ form label {
 	color:#239ea2;
 	display:block;
 	margin:0 0 .2em 0;
+	font-size:110%;
+	letter-spacing:0.02em;
 	}
 .required,
 label.required {

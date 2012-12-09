@@ -31,12 +31,12 @@ var eventsJSON = [];
 	<div class="top-error"><h3>Oops!</h3><span class="left">There are some errors in your event post.<br />Please review the form below and correct the errors.</span></div>
 {% endif %}
 <h2>Post Your Event on Gallevent</h2>
-<p class="required"><em>Required items are in <b>green</b>.</em></p>
+<p class="form-comment">Required items are in <b class="required">green</b>.</p>
 {% endif %}
 <form id="post-event" method="post">
 	<fieldset>
         <legend>1. What type of event is this?</legend>
-        <label for="event-category" class="required">Select an Event Category:</label>
+        <label for="event-category" class="required">Select an event category:</label>
         {% if form.category.errors %}
          	{% for error in form.category.errors %}
          		<span class="error">{{ error }}</span>
@@ -53,24 +53,17 @@ var eventsJSON = [];
             <option value="dining" id="select-dining">Dining</option>
             <option value="parties" id="select-parties">Nightlife &amp; Parties</option>
         </select>
-        <label for="event-keywords">Keywords:</label>
-        {% if form.keywords.errors %}
-         	{% for error in form.keywords.errors %}
-         		<span class="error">{{ error }}</span>
-         	{% endfor %}
-        {% endif %}
-        <span class="form-details">List up to three words that descibe your event.</span>
-        <input type="text" id="event-keywords" class="input-standard" name="keywords" placeholder="Art, Live Music, Dancing" value="{{ form.keywords.value }}" />
     </fieldset>
     <fieldset>
     	<legend>2. Where will your event be?</legend>
-        <label for="address1" class="required">Address Line 1:</label>
+        <label for="address1" class="required">Street address:</label>
         {% if form.address1.errors %}
         	{% for error in form.address1.errors %}
          		<span class="error">{{ error }}</span>
          	{% endfor %}
         {% endif %}
         <input type="text" id="address1" class="input-standard location" name="address1" placeholder="123 Your Street" value="{{ form.address1.value }}" />
+        <!--
         <label for="address2">Address Line 2:</label>
         {% if form.address2.errors %}
          	{% for error in form.address2.errors %}
@@ -152,50 +145,13 @@ var eventsJSON = [];
          	{% endfor %}
         {% endif %}
         <input type="text" id="zip-code" class="input-standard location" name="zipcode" placeholder="94114" value="{{ form.zipcode.value }}" />
+        -->
         <input type="text" id="latitude" class="hidden" name="latitude" />
         <input type="text" id="longitude" class="hidden" name="longitude" />
     </fieldset>
     <fieldset>
-    	<legend>3. About your event</legend>
-        <label for="event-name" class="required">Name your event:</label>
-        {% if form.name.errors %}
-         	{% for error in form.name.errors %}
-         		<span class="error">{{ error }}</span>
-         	{% endfor %}
-        {% endif %}
-        <input type="text" id="event-name" class="input-standard" name="name" placeholder="The Best Event Ever" value="{{ form.name.value }}" />
-        <label for="event-description" class="required">Describe your event:</label>
-        {% if form.description.errors %}
-         	{% for error in form.description.errors %}
-         		<span class="error">{{ error }}</span>
-         	{% endfor %}
-        {% endif %}
-        <textarea id="event-description" class="input-standard" name="description" placeholder="Don't miss out on this year's Best Event Ever! We'll have it all..." >{{ form.description.value }}</textarea>
-        <em class="form-comment under"><span id="charLeft">1000</span> characters left</em>
-
-        <label for="event-url">Link to event page:</label>
-        {% if form.event_url.errors %}
-         	{% for error in form.event_url.errors %}
-         		<span class="error">{{ error }}</span>
-         	{% endfor %}
-        {% endif %}
-        <input type="text" id="event-url" class="input-standard" name="event_url" placeholder="www.gallevent.com" value="{{ form.event_url.value }}" />
-    </fieldset>
-    <fieldset>
-    	<legend>4. Event organizer</legend>
-        <span class="form-details">At least one contact method is required.</span>
-        <label for="organizer-email" class="required">
-        Email:</label>
-        <input type="text" id="organizer-email" class="input-standard" name="organizer_email" placeholder="event_organizer@gmail.com" value="{{ form.organizer_email.value }}" />
-        <label for="organizer-phone" class="required">
-        Phone number:</label>
-        <input type="text" id="organizer-phone" class="input-standard" name="organizer_phone" placeholder="123-456-7890" value="{{ form.organizer_phone.value }}" />
-        <label for="organizer-url" class="required">Link to organizer's page:</label>
-        <input type="text" id="organizer-url" class="input-standard" name="organizer_url" placeholder="www.gallevent.com" value="{{ form.organizer_url.value }}" />
-    </fieldset>
-    <fieldset>
-        <legend>5. When will your event happen?</legend>
-        <label for="start-date" class="required">Start Date &amp; Time:</label>
+        <legend>3. When will your event happen?</legend>
+        <label for="start-date" class="required">Start date &amp; time:</label>
         {% if form.start_date.errors %}
          	{% for error in form.start_date.errors %}
          		<span class="error">{{ error }}</span>
@@ -214,7 +170,7 @@ var eventsJSON = [];
          	{% endfor %}
         {% endif %}     
         <input type="text" id="start-time" class="input-standard" name="start_time" placeholder="3:00pm" value="{{ form.start_time.value }}" /></div>
-        <label for="end-date" class="required">End Date &amp; Time:</label>
+        <label for="end-date" class="required">End date &amp; time:</label>
         {% if form.end_date.errors %}
          	{% for error in form.end_date.errors %}
          		<span class="error">{{ error }}</span>
@@ -229,6 +185,51 @@ var eventsJSON = [];
         <input type="text" id="end-time" class="input-standard" name="end_time" placeholder="9:00pm" value="{{ form.end_time.value }}" /></div>
     </fieldset>
     <fieldset>
+    	<legend>4. About your event</legend>
+        <label for="event-name" class="required">Name your event:</label>
+        {% if form.name.errors %}
+         	{% for error in form.name.errors %}
+         		<span class="error">{{ error }}</span>
+         	{% endfor %}
+        {% endif %}
+        <input type="text" id="event-name" class="input-standard" name="name" placeholder="The Best Event Ever" value="{{ form.name.value }}" />
+        <label for="event-description" class="required">Describe your event:</label>
+        {% if form.description.errors %}
+         	{% for error in form.description.errors %}
+         		<span class="error">{{ error }}</span>
+         	{% endfor %}
+        {% endif %}
+        <textarea id="event-description" class="input-standard" name="description" placeholder="Don't miss out on this year's Best Event Ever! We'll have it all..." >{{ form.description.value }}</textarea>
+        <em class="form-comment under"><span id="charLeft">1000</span> characters left</em>
+        <label for="event-keywords">Keywords:</label>
+        {% if form.keywords.errors %}
+         	{% for error in form.keywords.errors %}
+         		<span class="error">{{ error }}</span>
+         	{% endfor %}
+        {% endif %}
+        <span class="form-details">List up to three words that descibe your event.</span>
+        <input type="text" id="event-keywords" class="input-standard" name="keywords" placeholder="Art, Live Music, Dancing" value="{{ form.keywords.value }}" />
+        <label for="event-url">Link to event page:</label>
+        {% if form.event_url.errors %}
+         	{% for error in form.event_url.errors %}
+         		<span class="error">{{ error }}</span>
+         	{% endfor %}
+        {% endif %}
+        <input type="text" id="event-url" class="input-standard" name="event_url" placeholder="www.gallevent.com" value="{{ form.event_url.value }}" />
+    </fieldset>
+    <fieldset>
+    	<legend>5. Event organizer</legend>
+        <span class="form-details">At least one contact method is required.</span>
+        <label for="organizer-email" class="required">
+        Email:</label>
+        <input type="text" id="organizer-email" class="input-standard" name="organizer_email" placeholder="event_organizer@gmail.com" value="{{ form.organizer_email.value }}" />
+        <label for="organizer-phone" class="required">
+        Phone number:</label>
+        <input type="text" id="organizer-phone" class="input-standard" name="organizer_phone" placeholder="123-456-7890" value="{{ form.organizer_phone.value }}" />
+        <label for="organizer-url" class="required">Link to organizer's page:</label>
+        <input type="text" id="organizer-url" class="input-standard" name="organizer_url" placeholder="www.gallevent.com" value="{{ form.organizer_url.value }}" />
+    </fieldset>
+    <fieldset>
         <legend>6. How will you manage guests?</legend>
         <div class="guest-l-or-tickets-btns">
         	<div class="btn-guest-l">Guest List</div>
@@ -238,7 +239,12 @@ var eventsJSON = [];
         
         <div class="opt-guest-l">
         	<div class="content">
-                <label class="required" for="rsvp-limit">How many people may RSVP? <span class="help">? <span>You may limit the number of people who can RSVP for this event through Gallevent. You will be able to view or print your guest list from your account.</span></span></label>
+                <span class="form-details">Include the entry fees for your event below. This is the price that will be charged to guests at the door. If you have different types of entry fees, please include each type of entry fee below.</span>
+                <label class="required" for="ticket-type1">Entry type 1:</label>
+                <input type="text" id="guest_type_name1" class="input-standard" name="guest_type_name1" placeholder="General Admission" value="{{ form.guest_type_name1.value }}" />
+                <label class="required" for="ticket-price1">Price for Entry type 1:</label>
+                <input type="text" id="ticket-price" class="input-standard" name="ticket_price" placeholder="$0.00" value="{{ form.ticket_price.value }}" />
+                <label for="rsvp-limit">Limit entry type: <span class="help">? <span>You may limit the number of people who can RSVP for this event through Gallevent. You will be able to view or print your guest list from your account.</span></span></label>
                 {% if form.rsvp_limit.errors %}
                     {% for error in form.rsvp_limit.errors %}
                         <span class="error">{{ error }}</span>
@@ -248,11 +254,6 @@ var eventsJSON = [];
                 <label class="required" for="rsvp-close-date">When will RSVP close? <span class="help">? <span>People will no longer be able to RSVP for this event through Gallevent after this date and time.</span></span></label>
                 <input type="text" id="rsvp-close-date" class="input-standard" name="rsvp_close_date" placeholder="06/20/2012" value="{{ form.end_date.value|date }}" /> at 
                 <input type="text" id="rsvp-close-time" class="input-standard" name="rsvp_close_time" placeholder="9:00pm" value="{{ form.end_time.value|time }}" />
-                <span class="form-details">Include the entry fees for your event below. This is the price that will be charged to guests at the door. If you have different types of entry fees, please include each type of entry fee below.</span>
-                <label class="required" for="ticket-type1">Entry type 1:</label>
-                <input type="text" id="guest_type_name1" class="input-standard" name="guest_type_name1" placeholder="General Admission" value="{{ form.guest_type_name1.value }}" />
-                <label class="required" for="ticket-price1">Price for Entry type 1:</label>
-                <input type="text" id="ticket-price" class="input-standard" name="ticket_price" placeholder="$0.00" value="{{ form.ticket_price.value }}" />
                 <button class="btn-add-type"><span>+</span> Add another entry type</button>
             </div><!-- .content -->
         </div><!-- .opt-guest-l -->
