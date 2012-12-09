@@ -15,18 +15,13 @@ from gallevent.event import forms
 from gallevent.event import models
 
 def show_front_page_events(request):
+    logging.debug('front page')
     events = models.Event.objects.filter(status=1).extra(where=['end_date >= CURRENT_TIMESTAMP']).order_by('start_date','start_time').reverse()
 
     if request.GET.get('q'):
         form = forms.EventSearchForm(request.GET)
         
         if form.is_valid():
-            #events = events.extra(where=['match (description,name,keywords) against ("' + form.cleaned_data['search_query'] + '" in boolean mode)'])
-            
-            #if form.cleaned_data['start_date']:
-            #    events = events.filter(end_date__gte=form.cleaned_data['start_date'])
-            #if form.cleaned_data['end_date']:
-            #    events = events.filter(start_date__lte=form.cleaned_data['end_date'])
             results = form.search()
             events = [ result.object for result in results ]
     else:
