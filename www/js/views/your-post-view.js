@@ -68,7 +68,6 @@ var YourActivePostsView = Backbone.View.extend({
 
    
     render: function() {
-        console.log("Calling this render function");
           var archivedEvents = new EventCollection(this.collection.where({status: 2}));
           this.collection.reset(this.collection.where({status: 1}));
 
@@ -83,8 +82,9 @@ var YourActivePostsView = Backbone.View.extend({
                 model: item,
                 id: 'your-post-' + item.id
             });
+            
             yourPostView.render();
-            });
+        });
     }
 
 });
@@ -131,5 +131,4 @@ var YourArchivedPostsView = Backbone.View.extend({
         });
     }
 });
-
 

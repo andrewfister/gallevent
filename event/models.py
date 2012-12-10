@@ -1,8 +1,10 @@
 from django.db import models
 
 class Event(models.Model):
-    address1 = models.CharField(max_length=1000)
-    address2 = models.CharField(max_length=64, blank=True, null=True)
+    address = models.CharField(max_length=1000)
+    street_number = models.CharField(max_length=64)
+    street = models.CharField(max_length=255)
+    subpremise = models.CharField(max_length=64, blank=True, null=True)
     city = models.CharField(max_length=64)
     state = models.CharField(max_length=2)
     zipcode = models.CharField(max_length=16)

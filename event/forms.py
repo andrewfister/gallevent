@@ -29,8 +29,10 @@ class PostEventForm(forms.ModelForm):
         '%d %B, %Y',      # '25 October, 2006'
     ]
     
-    address1 = forms.CharField(max_length=255, initial="")
-    address2 = forms.CharField(max_length=64, required=False, initial="")
+    address = forms.CharField(max_length=1000)
+    street_number = forms.CharField(max_length=64)
+    street = forms.CharField(max_length=255)
+    subpremise = forms.CharField(max_length=64, initial="")
     city = forms.CharField(max_length=64, initial="")
     state = forms.CharField(max_length=2, initial="") 
     zipcode = forms.CharField(max_length=16, initial="")

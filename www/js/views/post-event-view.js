@@ -85,22 +85,10 @@ var PostEventView = Backbone.View.extend({
     },
     
     setLocationOnMap: function() {
-        var address1 = $("#address1").attr("value");
-        var address2 = $("#address2").attr("value");
-        var city = $("#city").attr("value");
-        var zipcode = $("#zip-code").attr("value");
-        
-        if (address1.length > 0 && city.length > 0 
-            && (zipcode.length > 0 || state.length > 0))
+        var address = $("#address").attr("value");
+    
+        if (address.length > 0)
         {
-            this.model.set({
-                address1: address1,
-                address2: address2,
-                city: city,
-                zipcode: zipcode,
-            });
-        
-            var address = this.model.getAddress();
             this.codeAddress(address);
 
             this.model.on('pinDropped', function() {
@@ -119,6 +107,48 @@ var PostEventView = Backbone.View.extend({
                 this.model.set({latitude: location.lat(), longitude: location.lng()});
                 $("#latitude").attr("value", location.lat());
                 $("#longitude").attr("value", location.lng());
+                $("#address").attr("value", results[0].formatted_address);
+                
+                var addressComponents = results[0].address_components;
+                for (var i = 0; i < addressComponents.length; i++)
+                {
+                    var addressComponent = addressComponents[i];
+                    var componentName = addressComponent.long_name;
+                    var componentTypes = addressComponent.types;
+                    
+                    for (var j = 0; j < componentTypes.length; j++)
+                    {
+                        var componentType = componentTypes[j];
+                        var addressComponentElementId = "";
+                        switch (componentType)
+                        {
+                            case 'street_number':
+                                addressComponentElementId = "street_number";
+                            break;
+                            case 'route':
+                                addressComponentElementId = "street";
+                            break;
+                            case 'subpremise':
+                                addressComponentElementId = "subpremise";
+                            break;
+                            case 'locality':
+                                addressComponentElementId = "city";
+                            break;
+                            case 'administrative_area_level_1':
+                                addressComponentElementId = "state";
+                                componentName = addressComponent.short_name;
+                            break;
+                            case 'postal_code':
+                                addressComponentElementId = "zipcode";
+                            break;
+                        }
+                        
+                        if (addressComponentElementId.length > 0)
+                        {
+                            $('#' + addressComponentElementId).attr("value", componentName);
+                        }
+                    }
+                }
             } else {
                 alert("Geocode was not successful for the following reason: " + status); 
             }
