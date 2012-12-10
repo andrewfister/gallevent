@@ -42,6 +42,8 @@ def invite_code(request):
         
         email = request.POST['email']
         invite_code = request.POST['invite_code']
+    elif request.method == 'GET':
+        invite_code = request.GET['invite_code']
     
     return render_to_response('invite-code.html', {
         'email': email,
@@ -142,7 +144,7 @@ def manage_invites(request):
             invite_data.save()
             
             send_mail('Thank you for your interest in Gallevent', 
-                    'Here is your invite code: '+ invite_data.code, 
+                    'You can register by clicking this url: http://www.gallevent.com/login/invite_code?invite_code='+ invite_data.code, 
                     'gallevent.main@gmail.com', 
                     [invite_email])  
         

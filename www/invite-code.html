@@ -7,14 +7,13 @@
 <div id="content">
     <div id="container">
         <form method='post'>
-            <label>Invitation Code:</label>
-            <input type="text" class="input-standard" name="invite_code">{{ invite_code }}</input>
             <label>Email Address:</label>
             <input type="text" class="input-standard" name="email">{{ email }}</input>
             <label>Password:</label>
             <input type="password" class="input-standard" name="password"/>
             <label>Repeat Password:</label>
             <input type="password" class="input-standard" name="confirm_password"/>
+            <input type="text" class="hidden" name="invite_code" value="{{ invite_code }}" />
             <input class="btn-create-account" type="submit" value="Create Account" />
         </form>
         <div class="right">
