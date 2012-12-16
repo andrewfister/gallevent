@@ -145,8 +145,10 @@ def manage_invites(request):
             invite_data.save()
             
             send_mail('Thank you for your interest in Gallevent', 
-                    'You can register by clicking this url: http://froggi.andrewfister.com/login/invite_code?invite_code='+ invite_data.code + '&email=' + invite_email, 
-                    'gallevent.main@gmail.com', 
+                    invite_email + ' is using Gallevent&trade;, a place to find events and discover awesome things to do, and is inviting you to join.
+					http://froggi.andrewfister.com/login/invite_code?invite_code='+ invite_data.code + '&email=' + invite_email, 
+                    'gallevent.main@gmail.com',
+					Membership to Gallevent&trade; is by invitation only. Each user receives a limited number of invitations, which they may share with their friends.
                     [invite_email])  
         
     
