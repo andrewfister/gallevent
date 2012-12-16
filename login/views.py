@@ -44,10 +44,11 @@ def invite_code(request):
         invite_code = request.POST['invite_code']
     elif request.method == 'GET':
         invite_code = request.GET['invite_code']
+        email = request.GET['email']
     
     return render_to_response('invite-code.html', {
         'email': email,
-        'invite_code': invite_code
+        'invite_code': invite_code,
     }, context_instance=RequestContext(request))
     
         
