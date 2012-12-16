@@ -38,7 +38,7 @@ def invite_code(request):
                 logging.debug('invalid login')
                 print 'invalid login'
             
-            return HttpResponseRedirect('/event/show/')
+            return HttpResponseRedirect('/profile/show/')
         
         email = request.POST['email']
         invite_code = request.POST['invite_code']
