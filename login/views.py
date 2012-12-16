@@ -145,7 +145,7 @@ def manage_invites(request):
             invite_data.save()
             
             send_mail('Thank you for your interest in Gallevent', 
-                    'You can register by clicking this url: http://www.gallevent.com/login/invite_code?invite_code='+ invite_data.code + '&email=' + invite_email, 
+                    'You can register by clicking this url: http://froggi.andrewfister.com/login/invite_code?invite_code='+ invite_data.code + '&email=' + invite_email, 
                     'gallevent.main@gmail.com', 
                     [invite_email])  
         
