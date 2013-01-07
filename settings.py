@@ -131,6 +131,9 @@ USE_L10N=False
 TIME_FORMAT='g:iA'
 DATE_FORMAT='m/d/y'
 
+#Some settings for the events
+MAX_EVENTS = 50
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
