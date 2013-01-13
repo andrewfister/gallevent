@@ -7,21 +7,30 @@
 <title>{% block title %}Gallevent - Find events near you!{% endblock title %}</title>
 
 <link rel="stylesheet" type="text/css" href="/static/css/reset.css" />
-<link rel="stylesheet" type="text/css" href="/static/css/layout-main.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/html-boilerplate.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/global-styles.css" />
 {% block css %}{% endblock css %}
 
 {% block prejavascript %}{% endblock prejavascript %}
-<script type="text/javascript" src="/static/js/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/static/js/jquery.watermark.js"></script>
 <script type="text/javascript" src="/static/js/mustache/mustache-0.3.0.js"></script>
 <script type="text/javascript" src="/static/js/mustache/django.mustache.js"></script>
 <script type="text/javascript" src="/static/js/underscore.js"></script>
 <script type="text/javascript" src="/static/js/backbone.js"></script>
-<script type="text/javascript" src="/static/js/jquery-ui-1.8.22.custom.min.js"></script>
 <script type="text/javascript" src="/static/js/views/header-view.js"></script>
 <script type="text/javascript" src="/static/js/grand-central-dispatch.js"></script>
-{% block javascript %}{% endblock javascript %}
 
+<!-- START Modal -->
+<script type="text/javascript">
+	$(function() {  
+		$("#header").toggleClass("open");
+	}); 
+</script>
+<!-- END Modal -->
+{% block javascript %}{% endblock javascript %}
 </head>
 <body>
     {% block preheader %}{% endblock preheader %}
@@ -31,61 +40,35 @@
     </div>
     {% block header %}
     <div id="header">
-    	<div class="bg">
-        	<div class="logo-block">
-                <a href="{% url gallevent.event.views.show_front_page_events %}" class="logo"><img src="/static/img/logo-gallevent-white.png" title="Gallevent Events" alt="Gallevent Events" /><b>beta</b></a>
-                <span class="tagline">Find Events Near You!</span>
-            </div><!-- .logo-block -->
-        <span class="right">
-            {% if user.is_authenticated %}
-        	Howdy, <a href="{% url gallevent.user_profile.views.show_profile %}">{{ user.username }}</a>! | <a href="{% url gallevent.login.views.sign_out %}">Sign Out</a>
-        	<div class="hidden">
-        	    <span id="user-id">{{ user.id }}</span>
-        	    <span id="user-username">{{ user.username }}</span>
-        	    <span id="user-firstname">{{ user.firstname }}</span>
-        	    <span id="user-lastname">{{ user.lastname }}</span>
-        	    <span id="user-email">{{ user.email }}</span>
-        	</div>
-            {% else %}
-        	<a href="{% url gallevent.login.views.invite_request %}">Join Gallevent</a> | <a href="{% url gallevent.login.views.sign_in %}">Sign In</a>
-        	{% endif %}
-        </span><!-- .right -->
-        <form id="top-search" method="get">
-        	<span class="left">
-                <label for="event">Search for Events:</label>
-                <input type="text" id="event" name="q" placeholder="Salsa Dancing San Francisco" onchange="javascript:codeAddress(this);" value="{{ request.GET.q }}" />
-            </span>
-            <span class="left">
-                <label for="date1">Select Dates:</label>
-                <input type="type" id="date1" name="start_date" placeholder="07/22/2012" value="{{ form.start_date.value }}" />
-                to
-                <input type="type" id="date2" name="end_date" placeholder="07/22/2012" value="{{ form.end_date.value }}" />
-            </span>
-            <span class="left">
-            	<input class="btn-search" type="submit" value="Search" />
-            </span>
-            
-            <input type="hidden" id="user-latitude" name="latitude" value="37.88397" />
-            <input type="hidden" id="user-longitude" name="longitude" value="-122.2644" />
-            <input type="hidden" id="map-radius" name="distance" value="5.08" />
-        </form><!-- #top-nav -->
+    	<a href="{% url gallevent.event.views.show_front_page_events %}" class="logo">Gallevent&trade <b>beta</b></a>
+        <span class="tagline">Find Events Near You!</span>
+        {% if user.is_authenticated %}
+        <span class="sign-in-status">Howdy, <a href="{% url gallevent.user_profile.views.show_profile %}">{{ user.username }}</a>! | <a href="{% url gallevent.login.views.sign_out %}">Sign Out</a></span>
+        {% else %}
+        <span class="sign-in-status"><a href="{% url gallevent.login.views.invite_request %}">Join Gallevent</a> | <a href="{% url gallevent.login.views.sign_in %}">Sign In</a></span>
+        <div class="hidden">
+            <span id="user-id">{{ user.id }}</span>
+            <span id="user-username">{{ user.username }}</span>
+            <span id="user-firstname">{{ user.firstname }}</span>
+            <span id="user-lastname">{{ user.lastname }}</span>
+            <span id="user-email">{{ user.email }}</span>
         </div>
+        {% endif %}
+        <form class="sign-in-form" method="post">
+            <label>Email Address:</label>
+            <input type="text" class="input-standard" name="email" />
+            <label>Password:</label>
+            <input type="password" class="input-standard" name="password" />
+            <input type="text" class="hidden" name="next" value="{{ next }}" />
+            <input class="btn-sign-in" type="submit" value="Sign In" />
+        </form>
     </div><!-- #header -->
     {% endblock header %}
     
     {% block content %}{% endblock content %}
     
     {% block footer %}
-    <div id="footer">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Post an Event</a></li>
-            <li><a href="#">About Gallevent</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-        </ul>
-        <span class="copyright">&copy; Copyright 2012. All Rights Reserved.</span>
-    </div><!-- #footer -->
+    
     {% endblock footer %}
     {% block postfooter %}{% endblock postfooter %}
 </body>
