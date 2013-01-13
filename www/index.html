@@ -7,7 +7,7 @@
 
 {% block prejavascript %}
 <script>
-var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ event.user_id }},address1: "{{ event.address1|escapejs }}",address2: "{{ event.address2|escapejs }}",city: "{{ event.city|escapejs }}",state: "{{ event.state|escapejs }}",zipcode: "{{ event.zipcode|escapejs }}",name: "{{ event.name|escapejs }}",category: "{{ event.category|escapejs }}",ticket_price: {{ event.ticket_price }},start_date: "{{ event.start_date|escapejs }}",end_date: "{{ event.end_date|escapejs }}",description: "{{ event.description|escapejs }}",organizer_email: "{{ event.organizer_email|escapejs }}",organizer_phone: "{{ event.organizer_phone|escapejs }}",organizer_url: "{{ event.organizer_url|escapejs }}",latitude: {{ event.latitude }},longitude: {{ event.longitude }} }, {% endfor %} ];
+var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ event.user_id }},address: "{{ event.address|escapejs }}",subpremise: "{{ event.subpremise|escapejs }}",city: "{{ event.city|escapejs }}",state: "{{ event.state|escapejs }}",zipcode: "{{ event.zipcode|escapejs }}",name: "{{ event.name|escapejs }}",category: "{{ event.category|escapejs }}",ticket_price: {{ event.ticket_price }},start_date: "{{ event.start_date|escapejs }}",end_date: "{{ event.end_date|escapejs }}",description: "{{ event.description|escapejs }}",organizer_email: "{{ event.organizer_email|escapejs }}",organizer_phone: "{{ event.organizer_phone|escapejs }}",organizer_url: "{{ event.organizer_url|escapejs }}",latitude: {{ event.latitude }},longitude: {{ event.longitude }} }, {% endfor %} ];
 </script>
 {% endblock %}
 
@@ -17,7 +17,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
 	<form id="top-search" method="get">
         	<span class="left">
                 <label for="event">Search for Events:</label>
-                <input type="text" id="event" name="q" placeholder="Salsa Dancing San Francisco" onchange="javascript:codeAddress(this);" value="{{ request.GET.q }}" />
+                <input type="text" id="event" name="q" placeholder="Salsa Dancing San Francisco" value="{{ request.GET.q }}" />
             </span>
             <span class="left">
                 <label for="date1">Select Dates:</label>

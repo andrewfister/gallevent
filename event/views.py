@@ -22,8 +22,7 @@ def show_front_page_events(request):
         form = forms.EventSearchForm(request.GET)
         
         if form.is_valid():
-            results = form.search()
-            events = [ result.object for result in results ]
+            events = form.search()
     else:
         form = forms.EventSearchForm()
 
