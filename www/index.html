@@ -11,13 +11,8 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
 {% endblock %}
 
 {% block body-class %}home{% endblock body-class %}
-{% block content %}
 
-<div id="header">
-    <div class="logo-block">
-        <a href="{% url gallevent.event.views.show_front_page_events %}" class="logo">Gallevent&trade <b>beta</b></a>
-        <span class="tagline">Find Events Near You!</span>
-    </div>
+{% block signin-form %}
     {% if user.is_authenticated %}
     <span class="sign-in-status"><a href="{% url gallevent.user_profile.views.show_profile %}">{{ user.username }}</a>! | <a href="{% url gallevent.login.views.sign_out %}">Sign Out</a></span>
     {% else %}
@@ -38,7 +33,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         <input type="text" class="hidden" name="next" value="{{ next }}" />
         <input class="btn-sign-in" type="submit" value="Sign In" />
     </form>
-</div><!-- #header -->
+{% endblock signin-form %}
 
 <div id="map-controls" >
 	<form id="top-search" method="get">

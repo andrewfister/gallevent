@@ -4,14 +4,6 @@
 {% endblock css %}
 
 {% block content %}
-<div id="container">
-    <div id="header">
-    	<div class="logo-block">
-        	<a href="{% url gallevent.event.views.show_front_page_events %}" class="logo">Gallevent&trade <b>beta</b></a>
-        	<span class="tagline">Find Events Near You!</span>
-    	</div>
-        <span class="sign-in-status"><a href="{% url gallevent.user_profile.views.show_profile %}">{{ user.username }}</a>! | <a href="{% url gallevent.login.views.sign_out %}">Sign Out</a></span>
-    </div><!-- #header -->
 	<ul class="tabs">
     	<li><a class="tab-post-event" href="{% url gallevent.event.views.post_event %}">Post an Event</a></li>
         <li><a class="tab-your-posts" href="{% url gallevent.event.views.show_events %}">Your Posts</a></li>
@@ -23,6 +15,4 @@
             {% block active_tab_content %}{% endblock active_tab_content %}
         </div><!-- #active-tab-content -->
     </div>
-</div>
-{% block right_side_content %}{% endblock right_side_content %}
 {% endblock content %}
