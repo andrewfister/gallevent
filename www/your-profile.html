@@ -1,11 +1,9 @@
-{% extends "base-profile.html" %}
+{% extends "base-user-control.html" %}
 
-{% block selected_page %}your-profile{% endblock %}
-
-{% block active_tab_content_width %}full{% endblock %}
+{% block body-class %}user-control your-profile{% endblock body-class %}
 
 {% block active_tab_content %}
-<ul id="side-page-links">
+<ul id="sub-links">
 	<li><a href="#" class="active">Profile</a></li>
     <li><a href="#">Event Preferences</a></li>
 </ul>

@@ -1,4 +1,7 @@
-{% extends "base-profile.html" %}
+{% extends "base-user-control.html" %}
+
+{% block body-class %}user-control your-posts{% endblock body-class %}
+
 {% load map_tags %}
 
 {% block prejavascript %}
@@ -12,10 +15,6 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
 {% mustachejs "your-post" %}
 <script type="text/javascript" src="/static/js/views/your-post-view.js"></script>
 {% endblock %}
-
-{% block selected_page %}{{ selected_page }}{% endblock %}
-
-{% block active_tab_content_width %}side{% endblock %}
 
 {% block active_tab_content %}
 {% ifequal selected_page 'your-posts' %}

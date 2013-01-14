@@ -2,7 +2,6 @@
 {% load map_tags %}
 
 {% block css %}
-<!-- <link rel="stylesheet" type="text/css" href="/static/css/map-key-pages.css" /> -->
 {% endblock %}
 
 {% block prejavascript %}
@@ -11,32 +10,53 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
 </script>
 {% endblock %}
 
+{% block body-class %}home{% endblock body-class %}
 {% block content %}
+<div id="header">
+    <div class="logo-block">
+        <a href="{% url gallevent.event.views.show_front_page_events %}" class="logo">Gallevent&trade <b>beta</b></a>
+        <span class="tagline">Find Events Near You!</span>
+    </div>
+    {% if user.is_authenticated %}
+    <span class="sign-in-status"><a href="{% url gallevent.user_profile.views.show_profile %}">{{ user.username }}</a>! | <a href="{% url gallevent.login.views.sign_out %}">Sign Out</a></span>
+    {% else %}
+    <span class="sign-in-status"><a href="{% url gallevent.login.views.invite_request %}">Join Gallevent</a> | <a href="{% url gallevent.login.views.sign_in %}">Sign In</a></span>
+    <div class="hidden">
+        <span id="user-id">{{ user.id }}</span>
+        <span id="user-username">{{ user.username }}</span>
+        <span id="user-firstname">{{ user.firstname }}</span>
+        <span id="user-lastname">{{ user.lastname }}</span>
+        <span id="user-email">{{ user.email }}</span>
+    </div>
+    {% endif %}
+    <form class="sign-in-form" method="post">
+        <label>Email Address:</label>
+        <input type="text" class="input-standard" name="email" />
+        <label>Password:</label>
+        <input type="password" class="input-standard" name="password" />
+        <input type="text" class="hidden" name="next" value="{{ next }}" />
+        <input class="btn-sign-in" type="submit" value="Sign In" />
+    </form>
+</div><!-- #header -->
 {% show_map %}
 <div id="map-controls" >
 	<form id="top-search" method="get">
-        	<span class="left">
-                <label for="event">Search for Events:</label>
-                <input type="text" id="event" name="q" placeholder="Salsa Dancing San Francisco" value="{{ request.GET.q }}" />
-            </span>
-            <span class="left">
-                <label for="date1">Select Dates:</label>
-                <select name="timeSpan">
-                    <option value="dayOf">Day of</option>
-                    <option value="weekOf">Week of</option>
-                    <option value="weekendOf">Weekend of</option>
-                </select>
-                to
-                <input type="type" id="date1" name="start_date" placeholder="07/22/2012" value="{{ form.start_date.value }}" />
-            </span>
-            <span class="right">
-            	<input class="btn-search" type="submit" value="Search" />
-            </span>
-            
-            <input type="hidden" id="user-latitude" name="latitude" value="37.88397" />
-            <input type="hidden" id="user-longitude" name="longitude" value="-122.2644" />
-            <input type="hidden" id="map-radius" name="distance" value="5.08" />
-        </form><!-- #top-nav -->
+        <label for="event">Search for Events:</label>
+        <input type="text" id="event" name="q" placeholder="Salsa Dancing San Francisco" value="{{ request.GET.q }}" />
+        <label for="time-span">Select Dates:</label>
+        <select id="time-span" name="timeSpan">
+            <option value="day_of">Day of</option>
+            <option value="week_of">Week of</option>
+            <option value="weekend_of">Weekend of</option>
+        </select>
+        <span class="connecting-block">to</span>
+        <input type="type" id="date1" name="start_date" placeholder="07/22/2012" value="{{ form.start_date.value }}" />
+        <input class="btn-search" type="submit" value="Search" />
+        
+        <input type="hidden" id="user-latitude" name="latitude" value="37.88397" />
+        <input type="hidden" id="user-longitude" name="longitude" value="-122.2644" />
+        <input type="hidden" id="map-radius" name="distance" value="5.08" />
+	</form><!-- #top-nav -->
 	<ul id="pin-key">
         <li><a href="#" class="key networking"><b>Networking</b><i>Industry Mixers, Conferences, Startup Events...</i></a></li>
         <li><a href="#" class="key education"><b>Education</b><i>Classes, Study Groups, Lectures...</i></a></li>

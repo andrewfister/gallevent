@@ -275,6 +275,7 @@ sub {
  * Addresses margins set differently in IE 6/7.
  */
 
+/*
 dl,
 menu,
 ol,
@@ -285,16 +286,19 @@ ul {
 dd {
     margin: 0 0 0 40px;
 }
+*/
 
 /*
  * Addresses paddings set differently in IE 6/7.
  */
 
+/*
 menu,
 ol,
 ul {
     padding: 0 0 0 40px;
 }
+*/
 
 /*
  * Corrects list images handled incorrectly in IE 7.

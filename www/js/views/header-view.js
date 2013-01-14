@@ -5,5 +5,6 @@ var HeaderView = Backbone.View.extend({
 	    $( "#date2" ).datepicker({ dateFormat: "mm/dd/yyyy" });
 	    $( "#start-date" ).datepicker({ dateFormat: "mm/dd/yy" });
 	    $( "#end-date" ).datepicker({ dateFormat: "mm/dd/yy" });
+		$("#header").toggleClass("open");
     }
 });

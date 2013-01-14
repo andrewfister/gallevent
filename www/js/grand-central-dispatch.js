@@ -1,8 +1,10 @@
 // on dom load
 $(function() {
-    var events = new EventCollection;
-    events.reset(eventsJSON);
-
+	if (typeof eventsJSON != 'undefined')
+	{
+    	var events = new EventCollection;
+    	events.reset(eventsJSON);
+	}
     
     if ($('#pin-key').length)
     {
