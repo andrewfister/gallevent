@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/static/css/map-content-pages.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/ad-styles.css" />
+{% endblock css %}
+
+{% block content %}
+<div id="container" class="{% block selected_page %}{% endblock %}">
+	<div id="tabs">
+    	<a class="tab-post-event" href="{% url gallevent.event.views.post_event %}">Post an Event</a><a class="tab-your-posts" href="{% url gallevent.event.views.show_events %}">Your Posts</a><a class="tab-events" href="{% url gallevent.event.views.show_lineup %}">Your Lineup</a><a class="tab-your-profile" href="{% url gallevent.user_profile.views.show_profile %}">Your Profile</a>
+    </div><!-- #tabs -->
+	<div id="{% block active_tab_content_width %}{% endblock %}-content">
+        <div id="active-tab-content">
+            {% block active_tab_content %}{% endblock active_tab_content %}
+        </div><!-- #active-tab-content -->
+    </div>
+    {% block right_side_content %}{% endblock right_side_content %}
+</div>
+{% endblock content %}
