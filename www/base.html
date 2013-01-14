@@ -23,6 +23,7 @@
 <script type="text/javascript" src="/static/js/backbone.js"></script>
 <script type="text/javascript" src="/static/js/models/event-model.js"></script>
 <script type="text/javascript" src="/static/js/views/header-view.js"></script>
+{% block mapjavascript %}{% endblock mapjavascript %}
 <script type="text/javascript" src="/static/js/grand-central-dispatch.js"></script>
 {% block javascript %}{% endblock javascript %}
 </head>
@@ -35,9 +36,5 @@
     
     {% block content %}{% endblock content %}
     
-    {% block footer %}
-    {% endblock footer %}
-    {% block postfooter %}{% endblock postfooter %}
 </body>
-
 </html>

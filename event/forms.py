@@ -94,8 +94,8 @@ class EventSearchForm(SearchForm):
 
     start_date = forms.DateField(required=False, initial="", input_formats=date_input_formats)
     end_date = forms.DateField(required=False, initial="", input_formats=date_input_formats)
-    latitude = forms.FloatField(initial=37.774929)
-    longitude = forms.FloatField(initial=-122.2644)
+    latitude = forms.FloatField(initial=0)
+    longitude = forms.FloatField(initial=0)
     distance = forms.FloatField(initial=5.08)
     
     eb_category_map = {
@@ -123,6 +123,7 @@ class EventSearchForm(SearchForm):
             eb_client_query['latitude'] = self.cleaned_data['latitude']
             eb_client_query['longitude'] = self.cleaned_data['longitude']
             eb_client_query['within'] = int(self.cleaned_data['distance'])
+            logging.debug('within: ' + str(eb_client_query['within']))
 
         # Check to see if a start_date was chosen.
         if self.cleaned_data['start_date']:
@@ -136,8 +137,11 @@ class EventSearchForm(SearchForm):
         events = [ result.object for result in sqs ]
 
         if sqs.count() < settings.MAX_EVENTS:
-            eb_events = self.searchEventBrite(eb_client_query, settings.MAX_EVENTS - sqs.count())
-            events.extend(eb_events)
+            try:
+                eb_events = self.searchEventBrite(eb_client_query, settings.MAX_EVENTS - sqs.count())
+                events.extend(eb_events)
+            except EnvironmentError:
+                pass
 
         return events
 

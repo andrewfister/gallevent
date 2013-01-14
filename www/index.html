@@ -12,6 +12,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
 
 {% block body-class %}home{% endblock body-class %}
 {% block content %}
+
 <div id="header">
     <div class="logo-block">
         <a href="{% url gallevent.event.views.show_front_page_events %}" class="logo">Gallevent&trade <b>beta</b></a>
@@ -38,7 +39,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         <input class="btn-sign-in" type="submit" value="Sign In" />
     </form>
 </div><!-- #header -->
-{% show_map %}
+
 <div id="map-controls" >
 	<form id="top-search" method="get">
         <label for="event">Search for Events:</label>
@@ -79,4 +80,5 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         <span class="copyright">&copy; Copyright 2012. All Rights Reserved.</span>
     </div><!-- #footer -->
 </div>
+{% show_map %}
 {% endblock %}
