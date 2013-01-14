@@ -35,45 +35,36 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
     </form>
 {% endblock signin-form %}
 
-<div id="map-controls" >
-	<form id="top-search" method="get">
-        <label for="event">Search for Events:</label>
-        <input type="text" id="event" name="q" placeholder="Salsa Dancing San Francisco" value="{{ request.GET.q }}" />
-        <label for="time-span">Select Dates:</label>
-        <select id="time-span" name="timeSpan">
-            <option value="day_of">Day of</option>
-            <option value="week_of">Week of</option>
-            <option value="weekend_of">Weekend of</option>
-        </select>
-        <span class="connecting-block">to</span>
-        <input type="type" id="date1" name="start_date" placeholder="07/22/2012" value="{{ form.start_date.value }}" />
-        <input class="btn-search" type="submit" value="Search" />
-        
-        <input type="hidden" id="user-latitude" name="latitude" value="{{form.latitude.value|default:0}}" />
-        <input type="hidden" id="user-longitude" name="longitude" value="{{form.longitude.value|default:0}}" />
-        <input type="hidden" id="map-radius" name="distance" value="{{form.distance.value|default:5.08}}" />
-	</form><!-- #top-nav -->
-	<ul id="pin-key">
-        <li><a href="#" class="key networking"><b>Networking</b><i>Industry Mixers, Conferences, Startup Events...</i></a></li>
-        <li><a href="#" class="key education"><b>Education</b><i>Classes, Study Groups, Lectures...</i></a></li>
-        <li><a href="#" class="key fairs"><b>Fairs &amp; Festivals</b><i>Street Fairs, Food Fairs, Cultural Festivals...</i></a></li>
-        <li><a href="#" class="key athletic"><b>Athletic</b><i>Street Fairs, Food Fairs, Cultural Festivals...</i></a></li>
-        <li><a href="#" class="key art"><b>Art &amp; Music</b><i>Gallery Shows, Concerts, Crafting Meetups...</i></a></li>
-        <li><a href="#" class="key dancing"><b>Dancing</b><i>Dance Classes, Dance Parties, Flash Mobs...</i></a></li>
-        <li><a href="#" class="key dining"><b>Dining</b><i>Events for Foodies...</i></a></li>
-        <li><a href="#" class="key parties"><b>Nightlife &amp; Parties</b><i>Club Events, Drinking, Comedy Shows...</i></a></li>
-	</ul>
-    <a class="btn-post-event" href="{% url gallevent.event.views.post_event %}">Post an Event</a>
-    <div id="footer">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Post an Event</a></li>
-            <li><a href="#">About Gallevent</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-        </ul>
-        <span class="copyright">&copy; Copyright 2012. All Rights Reserved.</span>
-    </div><!-- #footer -->
-</div>
-{% show_map %}
-{% endblock %}
+{% block content %}
+<form id="top-search" method="get">
+    <label for="event">Search for Events:</label>
+    <input type="text" id="event" name="q" placeholder="Salsa Dancing San Francisco" value="{{ request.GET.q }}" />
+    <label for="time-span">Select Dates:</label>
+    <select id="time-span" name="timeSpan">
+        <option value="day_of">Day of</option>
+        <option value="week_of">Week of</option>
+        <option value="weekend_of">Weekend of</option>
+    </select>
+    <span class="connecting-block">to</span>
+    <input type="type" id="date1" name="start_date" placeholder="07/22/2012" value="{{ form.start_date.value }}" />
+    <input class="btn-search" type="submit" value="Search" />
+    
+    <input type="hidden" id="user-latitude" name="latitude" value="37.88397" />
+    <input type="hidden" id="user-longitude" name="longitude" value="-122.2644" />
+    <input type="hidden" id="map-radius" name="distance" value="5.08" />
+</form><!-- #top-nav -->
+<ul id="pin-key">
+    <li><a href="#" class="key networking"><b>Networking</b><i>Industry Mixers, Conferences, Startup Events...</i></a></li>
+    <li><a href="#" class="key education"><b>Education</b><i>Classes, Study Groups, Lectures...</i></a></li>
+    <li><a href="#" class="key fairs"><b>Fairs &amp; Festivals</b><i>Street Fairs, Food Fairs, Cultural Festivals...</i></a></li>
+    <li><a href="#" class="key athletic"><b>Athletic</b><i>Street Fairs, Food Fairs, Cultural Festivals...</i></a></li>
+    <li><a href="#" class="key art"><b>Art &amp; Music</b><i>Gallery Shows, Concerts, Crafting Meetups...</i></a></li>
+    <li><a href="#" class="key dancing"><b>Dancing</b><i>Dance Classes, Dance Parties, Flash Mobs...</i></a></li>
+    <li><a href="#" class="key dining"><b>Dining</b><i>Events for Foodies...</i></a></li>
+    <li><a href="#" class="key parties"><b>Nightlife &amp; Parties</b><i>Club Events, Drinking, Comedy Shows...</i></a></li>
+</ul>
+<a class="btn-post-event" href="{% url gallevent.event.views.post_event %}">Post an Event</a>
+{% endblock content %}
+{% block map %}
+	{% show_map %}
+{% endblock map %}
