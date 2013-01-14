@@ -11,6 +11,8 @@ var MapView = Backbone.View.extend({
         this.collection.on("remove", function(evt, collection, options) {
             this.destroyMarker(options.index);
         }, this);
+        
+        navigator.geolocation.getCurrentPosition(this.foundUserLocation.bind(this),this.noUserLocation.bind(this),{timeout:10000});
     },
     
     id: "map_canvas",
@@ -19,14 +21,16 @@ var MapView = Backbone.View.extend({
     
     markers: new Array(),
     
-    location: new google.maps.LatLng(37.88397, -122.2644),
+    userLocation: new google.maps.LatLng(37.88397, -122.2644),
+    
+    mapLocation: new google.maps.LatLng(parseFloat($('#user-latitude').attr('value')), parseFloat($('#user-longitude').attr('value'))),
     
     infoWindow: new google.maps.InfoWindow(),
     
     render: function() {
         google.maps.event.addDomListener(window, 'load', function() {
             var myOptions = {
-                center: this.location,
+                center: this.mapLocation,
                 zoom: 13,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
@@ -34,19 +38,20 @@ var MapView = Backbone.View.extend({
             this.map = new google.maps.Map($("#map_canvas").get(0),
                 myOptions);
 
-            navigator.geolocation.getCurrentPosition(this.foundUserLocation.bind(this),this.noUserLocation.bind(this),{timeout:10000});
-
             //Listen for tiles loaded
             google.maps.event.addListener(this.map, 'tilesloaded', function() {
-                this.map.setCenter(this.location);
+                this.centerMap(this.mapLocation);
                 this.setAllMarkers();
                 google.maps.event.clearListeners(this.map, 'tilesloaded');
             }.bind(this));
             
             google.maps.event.addListener(this.map, 'dragend', function(data) {
                 var center = this.map.getCenter();
-                $('#user-latitude').attr('value', parseFloat(center.lat()));
-                $('#user-longitude').attr('value', parseFloat(center.lng()));
+                var lat = parseFloat(center.lat());
+                var lon = parseFloat(center.lng());
+                $('#user-latitude').attr('value', lat);
+                $('#user-longitude').attr('value', lon);
+                this.mapLocation = new google.maps.LatLng(lat, lon);
             }.bind(this));
             
             google.maps.event.addListener(this.map, 'zoom_changed', function() {
@@ -118,19 +123,27 @@ var MapView = Backbone.View.extend({
     },
     
     foundUserLocation: function(position) {
-        this.location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        this.userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         
-        if (this.map != null)
+        if ($('#user-latitude').attr('value') == 0 && $('#user-longitude').attr('value') == 0)
         {
-            this.map.setCenter(this.location);
+            this.mapLocation = this.userLocation;
+            this.centerMap(this.mapLocation);
         }
-        
-        $('#user-latitude').attr('value', parseFloat(position.coords.latitude));
-        $('#user-longitude').attr('value', parseFloat(position.coords.longitude));
-        $('#map-radius').attr('value', parseFloat(this.mapRadius()));
     },
     
     noUserLocation: function() {
+    },
+    
+    centerMap: function(latLng) {
+        if (this.map != null)
+        {
+            this.map.setCenter(latLng);
+        }
+        
+        $('#user-latitude').attr('value', parseFloat(latLng.lat()));
+        $('#user-longitude').attr('value', parseFloat(latLng.lng()));
+        $('#map-radius').attr('value', parseFloat(this.mapRadius()));
     },
     
     mapRadius: function(){

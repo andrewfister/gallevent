@@ -19,6 +19,7 @@
 <script type="text/javascript" src="/static/js/backbone.js"></script>
 <script type="text/javascript" src="/static/js/jquery-ui-1.8.22.custom.min.js"></script>
 <script type="text/javascript" src="/static/js/views/header-view.js"></script>
+{% block mapjavascript %}{% endblock mapjavascript %}
 <script type="text/javascript" src="/static/js/grand-central-dispatch.js"></script>
 {% block javascript %}{% endblock javascript %}
 
@@ -65,9 +66,9 @@
             	<input class="btn-search" type="submit" value="Search" />
             </span>
             
-            <input type="hidden" id="user-latitude" name="latitude" value="37.88397" />
-            <input type="hidden" id="user-longitude" name="longitude" value="-122.2644" />
-            <input type="hidden" id="map-radius" name="distance" value="5.08" />
+            <input type="hidden" id="user-latitude" name="latitude" value="{{ form.latitude.value|default:0 }}" />
+            <input type="hidden" id="user-longitude" name="longitude" value="{{ form.longitude.value|default:0 }}" />
+            <input type="hidden" id="map-radius" name="distance" value="{{ form.distance.value|default:5.08 }}" />
         </form><!-- #top-nav -->
         </div>
     </div><!-- #header -->
