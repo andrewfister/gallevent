@@ -1,0 +1,120 @@
+@charset "utf-8";
+/* Title: Customize Pages
+** Description: Custom Styles for Specific Pages
+** Author: Jessica Greenwalt - www.jgreenwalt.com
+** Created: 01-13-2013
+** Updated: 01-13-2013
+************************************** */
+
+/* = Home Page
+----------------------------------- */
+.home #header {
+	position:fixed;
+	top:0;
+	width:216px;
+	margin-left:1%;
+	padding:20px 1% 20px 1%;
+	}
+
+.home #header.open {
+	height:20em;
+	margin-top:0px;
+	}
+
+.home .sign-in-status {
+	margin-top:1em;
+ 	margin-bottom:1em;
+	text-align:center;
+	}
+
+.home .sign-in-form {
+	margin-left:21px;
+	}
+
+.home .sign-in-form label {
+	display:block;
+	margin-top:0.5em;
+	color:#fff;
+	font-weight:bold;
+	}
+
+.home .sign-in-form  input[type="text"],
+.home .sign-in-form  input[type="password"] {
+	width:171px;
+	padding:0.5em 10px 0.5em 10px;
+	}
+
+
+/* = User Control Pages
+----------------------------------- */
+
+#container {
+	z-index:400;
+	position:relative;
+	float:left;
+	margin-left:1%;
+	width:50%;
+	background:#f7f7f7;
+	}
+
+.user-control #header {
+	width:96%;
+	position:relative;
+	}
+.user-control #header.open {
+	height:5em;
+	}
+
+.user-control .logo-block {
+	float:left;
+	}
+
+.user-control .sign-in-status {
+	float:right;
+	margin:1.5em 7px 0 0;
+	}
+
+.user-control ul.tabs {
+	z-index:700;
+	position:relative;
+	list-style:none;
+	background:#ff0;
+	}
+
+.user-control ul.tabs li a  {
+	float:left;
+	display:block;
+	width:25%;
+	margin-top:-0.4em;
+	padding:1.4em 0 1em 0;
+	text-align:center;
+	font-weight:bold;
+	color:#fff;
+	}
+.user-control ul.tabs li a.tab-post-event {
+	background:#01a1ad;
+	}
+.user-control ul.tabs li a.tab-your-posts {
+	background:#81c341;
+	}
+.user-control ul.tabs li a.tab-events {
+	background:#fbbc12;
+	}
+.user-control ul.tabs li a.tab-your-profile {
+	background:#f37377;
+	}
+
+.user-control #map-box,
+.user-control #map_canvas {
+	z-index:200;
+	position:fixed;
+	top:0;
+	right:0 !important;
+	width:50%;
+	height:100%;
+	}
+
+.your-profile #active-tab-content {
+	float:left;
+	border-top:6px solid #f37377;
+	}
