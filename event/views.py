@@ -3,7 +3,7 @@ import logging
 
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, QueryDict
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.core import serializers
@@ -20,11 +20,11 @@ def show_front_page_events(request):
 
     if request.GET.get('q'):
         form = forms.EventSearchForm(request.GET)
-        
-        if form.is_valid():
-            events = form.search()
     else:
         form = forms.EventSearchForm()
+    
+    if form.is_valid():
+        events = form.search()
 
     return render_to_response('index.html', {
     'events': events,

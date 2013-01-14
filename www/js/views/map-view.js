@@ -11,8 +11,6 @@ var MapView = Backbone.View.extend({
         this.collection.on("remove", function(evt, collection, options) {
             this.destroyMarker(options.index);
         }, this);
-        
-        navigator.geolocation.getCurrentPosition(this.foundUserLocation.bind(this),this.noUserLocation.bind(this),{timeout:10000});
     },
     
     id: "map_canvas",
@@ -28,7 +26,11 @@ var MapView = Backbone.View.extend({
     infoWindow: new google.maps.InfoWindow(),
     
     render: function() {
-        google.maps.event.addDomListener(window, 'load', function() {
+        navigator.geolocation.getCurrentPosition(this.foundUserLocation.bind(this),this.noUserLocation.bind(this),{timeout:10000});
+    },
+    
+    loadMap: function() {
+        //google.maps.event.addDomListener(window, 'load', function() {
             var myOptions = {
                 center: this.mapLocation,
                 zoom: 13,
@@ -57,7 +59,7 @@ var MapView = Backbone.View.extend({
             google.maps.event.addListener(this.map, 'zoom_changed', function() {
                 $('#map-radius').attr('value', parseFloat(this.mapRadius()));
             }.bind(this));
-        }.bind(this));
+        //}.bind(this));
         
         return this;
     },
@@ -130,9 +132,12 @@ var MapView = Backbone.View.extend({
             this.mapLocation = this.userLocation;
             this.centerMap(this.mapLocation);
         }
+        
+        this.loadMap();
     },
     
     noUserLocation: function() {
+        this.loadMap();
     },
     
     centerMap: function(latLng) {
