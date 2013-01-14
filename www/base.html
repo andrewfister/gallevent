@@ -34,7 +34,33 @@
         <img src="/static/img/icon-cal-arrow-r-h.png" alt="arrow" />
     </div>
     
-    {% block content %}{% endblock content %}
-    
+    <div id="container">
+    {% block header %}
+        <div id="header">
+            <div class="logo-block">
+            <a href="{% url gallevent.event.views.show_front_page_events %}" class="logo">Gallevent&trade <b>beta</b></a>
+            <span class="tagline">Find Events Near You!</span>
+        	</div><!-- .logo-block -->
+        {% block signin-form %}
+        {% endblock signin-form %}
+        </div><!-- #header -->
+    {% endblock header %}
+        <div id="content">
+            {% block content %}{% endblock content %}
+            {% block footer %}
+                <div id="footer">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Post an Event</a></li>
+                        <li><a href="#">About Gallevent</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                    <span class="copyright">&copy; Copyright 2012. All Rights Reserved.</span>
+                </div><!-- #footer -->
+            {% endblock footer %}
+        </div><!-- #content -->
+    </div><!-- #container -->
+    {% block map %}{% endblock map %}
 </body>
 </html>

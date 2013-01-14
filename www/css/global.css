@@ -167,7 +167,8 @@ a:hover {
 	width:22%;
 	}
 
-#map-controls {
+/* #map-controls */
+.home #content {
 	z-index:800;
 	position:absolute;
 	box-shadow:			0px 0px 4px rgba(0,0,0,0.3);
@@ -266,7 +267,7 @@ a:hover {
 	background:#01a1ad;
 	}
 	
-#map-controls a.btn-post-event {
+.home a.btn-post-event {
 	clear:both;
 	display:block;
 	margin:0 auto;
@@ -283,7 +284,7 @@ a:hover {
 	font-weight:bold;
 	font-size:115%;
 	}
-#map-controls a.btn-post-event:hover {
+.home a.btn-post-event:hover {
 	background:#01a1ad;
 	}
 	

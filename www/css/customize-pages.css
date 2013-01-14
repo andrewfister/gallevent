@@ -8,6 +8,7 @@
 
 /* = Home Page
 ----------------------------------- */
+
 .home #header {
 	position:fixed;
 	top:0;
@@ -48,7 +49,7 @@
 /* = User Control Pages
 ----------------------------------- */
 
-#container {
+.user-control #container {
 	z-index:400;
 	position:relative;
 	float:left;
