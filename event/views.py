@@ -19,14 +19,14 @@ def show_front_page_events(request):
     events = models.Event.objects.filter(status=1).extra(where=['end_date >= CURRENT_TIMESTAMP']).order_by('start_date','start_time').reverse()
 
     if request.GET.get('q'):
+        #logging.debug('search request: ' + str(request.GET))
         form = forms.EventSearchForm(request.GET)
+        if form.is_valid():
+            events = form.search()
     else:
         form = forms.EventSearchForm()
-    
-    if form.is_valid():
-        events = form.search()
 
-    logging.debug('latlng: ' + str(form))
+    logging.debug('latlng: ' + str(request.GET))
 
     return render_to_response('index.html', {
     'events': events,
@@ -88,7 +88,7 @@ class EventView(BackboneAPIView):
     
     edit_form_class = forms.ArchiveEventForm
     
-    serialize_fields = ['id', 'user_id', 'address', 'street_number', 'street', 
+    serialize_fields = ['id', 'user_id', 'address', 'subpremise',
     'city', 'state', 'zipcode', 'name', 'category', 'ticket_price', 'start_date', 
     'start_time', 'end_date', 'end_time', 'description', 'organizer_email', 
     'organizer_phone', 'organizer_url', 'latitude', 'longitude', 'status']
@@ -104,3 +104,19 @@ class EventView(BackboneAPIView):
     def validation_error_response(self, form_errors):
         logging.debug(form_errors)
         return str(form_errors)
+
+
+class FrontPageSearchView(BackboneAPIView):
+    base_queryset = models.Event.objects.filter(status=1).extra(where=['end_date >= CURRENT_TIMESTAMP']).order_by('start_date','start_time').reverse()
+    
+    serialize_fields = ['id', 'user_id', 'address', 'subpremise',
+    'city', 'state', 'zipcode', 'name', 'category', 'ticket_price', 'start_date', 
+    'start_time', 'end_date', 'end_time', 'description', 'organizer_email', 
+    'organizer_phone', 'organizer_url', 'latitude', 'longitude', 'status']
+    
+    def dispatch(self, request, *args, **kwargs):
+        form = forms.EventSearchForm(request.GET)
+        if form.is_valid():
+            events = form.search()
+        
+        return super(EventView, self).dispatch(request, *args, **kwargs)

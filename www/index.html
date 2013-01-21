@@ -54,6 +54,11 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
     <span class="connecting-block">to</span>
     <input type="text" id="date1" name="start_date" placeholder="07/22/2012" value="{{ form.start_date.value }}" />
     <input class="btn-search" type="submit" value="Search" />
+    
+    <input type="hidden" id="user-latitude" name="latitude" value="{{ request.GET.latitude|default:0 }}" />
+    <input type="hidden" id="user-longitude" name="longitude" value="{{ request.GET.longitude|default:0 }}" />
+    <input type="hidden" id="map-radius" name="distance" value="{{ request.GET.distance|default:5.08 }}" />
+    
 </form><!-- #top-nav -->
 <ul id="pin-key">
     <li><a href="#" class="key networking"><b>Networking</b><i>Industry Mixers, Conferences, Startup Events...</i></a></li>
