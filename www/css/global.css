@@ -270,8 +270,95 @@ select {
 	}
 
 
+/* = Map Pop-Ups
+----------------------------------- */
+.map-popup {
+	width:300px;
+	color:#333;
+	overflow-y:hidden;
+	}
+
+.map-popup .event-name {
+	font-size:150%;
+	line-height:1.1em;
+	margin-bottom:0.35em;
+	color:#01A1AD;
+	}
+.map-popup .event-name a {
+	color:#34859F;
+	}
+.map-popup .event-name a:hover {
+	color:#85c440; /* green */
+	}
+.event-name .pop-up-banner {
+	position:relative;
+	z-index:900;
+	}
+.event-name .category-icon {
+	float:left;
+	margin-right:0.5em;
+	}
+.event-name .pop-up-banner+.category-icon {
+	float:right;
+	margin:-1.2em 10px 0 0;
+	border:2px solid #fff;
+	position:relative;
+	z-index:1000;
+	}
+
+.map-popup .price,
+.map-popup .date-time {
+	color:#34859F;
+	}
+.map-popup .price {
+	font-size:110%;
+	}
+.map-popup .price strong {
+	color:#70b820;
+	}
+
+.map-popup .description,
+.map-popup .address {
+	margin:.5em 0 0 0;
+	}
+
+.map-popup .mod-event {
+	margin-top:1.2em;
+	}
+.map-popup .mod-event a {
+	font-style:italic;
+	text-decoration:underline;
+	color:#f68d1f;
+	}
+.map-popup .mod-event a:hover {
+	text-decoration:none;
+	color:#85c440;
+	}
+.map-popup .mod-event .warning {
+	float:right;
+	}
+.map-popup .mod-event a.warning {
+	font-style:italic;
+	text-decoration:underline;
+	color:#d62121;
+	}
+.map-popup .mod-event a.warning:hover {
+	text-decoration:none;
+	color:#F2581C;
+	}
+
+
 /* = Buttons
 ----------------------------------- */
+#top-search input[type="submit"],
+.sign-in-form input[type="submit"],
+.map-popup .btn-rsvp,
+.map-popup .btn-watch {
+	border-radius:6px;
+	color:#fff;
+	font-weight:bold;
+	}
+
 #top-search input[type="submit"],
 .sign-in-form input[type="submit"] {
 	border:2px solid #fff;
@@ -315,6 +402,26 @@ input[type="submit"]:hover,
 #top-search input[type="submit"]:hover,
 a.btn-post-event:hover {
 	background-color:#01a1ad;
+	}
+
+.map-popup .btn-rsvp,
+.map-popup .btn-watch {
+	margin-right:5px;
+	padding:.4em .6em .4em .6em;
+	}
+
+.map-popup .btn-rsvp {
+	background:#66C13F;
+	}
+
+.map-popup .btn-rsvp:hover {
+	background:#8cd734;
+	}
+.map-popup .btn-watch {
+	background:#F9A21C;
+	}
+.map-popup .btn-watch:hover {
+	background:#fcb510;
 	}
 	
 	
