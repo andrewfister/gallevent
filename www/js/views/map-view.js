@@ -21,7 +21,7 @@ var MapView = Backbone.View.extend({
     
     userLocation: new google.maps.LatLng(37.88397, -122.2644),
     
-    mapLocation: new google.maps.LatLng(parseFloat($('#user-latitude').attr('value')), parseFloat($('#user-longitude').attr('value'))),
+    mapLocation: new google.maps.LatLng(37.88397, -122.2644),
     
     infoWindow: new google.maps.InfoWindow(),
     
@@ -51,13 +51,16 @@ var MapView = Backbone.View.extend({
                 var center = this.map.getCenter();
                 var lat = parseFloat(center.lat());
                 var lon = parseFloat(center.lng());
-                $('#user-latitude').attr('value', lat);
-                $('#user-longitude').attr('value', lon);
+                if ($('#user-latitude').length)
+                    $('#user-latitude').attr('value', lat);
+                if ($('#user-longitude').length)
+                    $('#user-longitude').attr('value', lon);
                 this.mapLocation = new google.maps.LatLng(lat, lon);
             }.bind(this));
             
             google.maps.event.addListener(this.map, 'zoom_changed', function() {
-                $('#map-radius').attr('value', parseFloat(this.mapRadius()));
+                if ($('#map-radius').length)
+                    $('#map-radius').attr('value', parseFloat(this.mapRadius()));
             }.bind(this));
         //}.bind(this));
         
@@ -99,7 +102,6 @@ var MapView = Backbone.View.extend({
         var makeOpenMarker = function(marker, infoWindow, map)
         {
             return  function() {
-                console.log("IT WORKED");
                 infoWindow.close();
                 infoWindow.setContent(info);
                 infoWindow.open(map,marker);
@@ -127,7 +129,7 @@ var MapView = Backbone.View.extend({
     foundUserLocation: function(position) {
         this.userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         
-        if ($('#user-latitude').attr('value') == 0 && $('#user-longitude').attr('value') == 0)
+        if ($('#user-latitude').length && $('#user-latitude').attr('value') == 0 && $('#user-longitude').length && $('#user-longitude').attr('value') == 0)
         {
             this.mapLocation = this.userLocation;
         }
@@ -145,9 +147,12 @@ var MapView = Backbone.View.extend({
             this.map.setCenter(latLng);
         }
         
-        //$('#user-latitude').attr('value', parseFloat(latLng.lat()));
-        //$('#user-longitude').attr('value', parseFloat(latLng.lng()));
-        $('#map-radius').attr('value', parseFloat(this.mapRadius()));
+        if ($('#user-latitude').length)
+            $('#user-latitude').attr('value', parseFloat(latLng.lat()));
+        if ($('#user-longitude').length)
+            $('#user-longitude').attr('value', parseFloat(latLng.lng()));
+        if ($('#map-radius').length)
+            $('#map-radius').attr('value', parseFloat(this.mapRadius()));
     },
     
     mapRadius: function(){

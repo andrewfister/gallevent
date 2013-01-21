@@ -14,9 +14,10 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
 
 {% block signin-form %}
     {% if user.is_authenticated %}
-    <span class="sign-in-status"><a href="{% url gallevent.user_profile.views.show_profile %}">{{ user.username }}</a>! | <a href="{% url gallevent.login.views.sign_out %}">Sign Out</a></span>
+    <span class="sign-in-status"><a href="{% url gallevent.user_profile.views.show_profile %}">{{ user.username }}</a>
+    <a href="{% url gallevent.login.views.sign_out %}">Sign Out</a></span>
     {% else %}
-    <span class="sign-in-status"><a href="{% url gallevent.login.views.invite_request %}">Join Gallevent</a> | <a href="{% url gallevent.login.views.sign_in %}">Sign In</a></span>
+    <span class="sign-in-status"><a href="{% url gallevent.login.views.invite_request %}">Join Gallevent</a> | <a href="#">Sign In</a></span>
     <div class="hidden">
         <span id="user-id">{{ user.id }}</span>
         <span id="user-username">{{ user.username }}</span>
@@ -46,12 +47,13 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         <option value="weekend_of">Weekend of</option>
     </select>
     <span class="connecting-block">to</span>
-    <input type="type" id="date1" name="start_date" placeholder="07/22/2012" value="{{ form.start_date.value }}" />
+    <input type="text" id="date1" name="start_date" placeholder="07/22/2012" value="{{ form.start_date.value }}" />
     <input class="btn-search" type="submit" value="Search" />
     
     <input type="hidden" id="user-latitude" name="latitude" value="{{ request.GET.latitude|default:0 }}" />
     <input type="hidden" id="user-longitude" name="longitude" value="{{ request.GET.longitude|default:0 }}" />
     <input type="hidden" id="map-radius" name="distance" value="{{ request.GET.distance|default:5.08 }}" />
+    
 </form><!-- #top-nav -->
 <ul id="pin-key">
     <li><a href="#" class="key networking"><b>Networking</b><i>Industry Mixers, Conferences, Startup Events...</i></a></li>

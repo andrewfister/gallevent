@@ -22,19 +22,19 @@ var eventsJSON = [];
 {% block selected_page %}{% if edit %}your-posts{% else %}post-event{% endif %}{% endblock %}
 
 {% block active_tab_content %}
-    {% if edit %}
-    <div class="hidden">
-    <img src="/static/img/btn-s-post-event-h.png" alt="Post Event Button Hover" />
-    </div><!-- .hidden -->
-    <h2><a href="{% url gallevent.event.views.show_events %}">Your Posts</a>: Edit Your Event</h2>
-    {% else %}
-    {% if form.errors %}
-    <div class="top-error"><h3>Oops!</h3><span class="left">There are some errors in your event post.<br />Please review the form below and correct the errors.</span></div>
-    {% endif %}
-    <h2>Post Your Event on Gallevent</h2>
-    <p class="form-comment">Required items are in <b class="required">green</b>.</p>
-    {% endif %}
-    <form method="post">
+{% if edit %}
+<div class="hidden">
+	<img src="/static/img/btn-s-post-event-h.png" alt="Post Event Button Hover" />
+</div><!-- .hidden -->
+<h2><a href="{% url gallevent.event.views.show_events %}">Your Posts</a>: Edit Your Event</h2>
+{% else %}
+{% if form.errors %}
+	<div class="top-error"><h3>Oops!</h3><span class="left">There are some errors in your event post.<br />Please review the form below and correct the errors.</span></div>
+{% endif %}
+<h2>Post Your Event on Gallevent</h2>
+<p class="form-comment">Required items are in <b class="required">green</b>.</p>
+{% endif %}
+<form id="post-event" method="post">
 	<fieldset>
         <legend>1. What type of event is this?</legend>
         <label for="event-category" class="required">Select an event category:</label>
@@ -193,7 +193,7 @@ var eventsJSON = [];
     </fieldset>
         
     <input class="btn-s-post-event" type="submit" value="Post Event" />
-	</form>
+</form>
 {% endblock active_tab_content %}
 {% block map %}
 	{% show_map %}
