@@ -32,3 +32,12 @@ hgroup, nav, section { display:block; }
 ins { background-color:#ff9; color:#000; text-decoration:none; }
 
 del { text-decoration: line-through; }
+
+select, option, input, type {
+	padding:0;
+	margin:0;
+	border:0;
+	outline:0;
+	font-size:100%;
+	vertical-align:baseline;
+	}

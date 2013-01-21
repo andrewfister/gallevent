@@ -34,6 +34,41 @@ a:hover {
 	text-decoration:none;
 	}
 
+/* = Global Form Elements
+----------------------------------- */
+input,
+select {
+	padding-top:0.6em;
+	padding-bottom:0.6em;
+	padding-left:2.5%;
+	padding-right:2.5%;
+	}
+
+select {
+	background:#fff url(../img/btn-select-dwn-arrow.png) right center no-repeat;
+	background-size:contain;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-background-clip: padding;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-ms-border-radius: 0;
+	-o-border-radius: 0;
+	border-radius: 0;
+	-webkit-appearance: none;
+	outline: 0;
+	margin: 0;
+	text-align: left;
+	vertical-align: top;
+	*padding-top: 2px;
+	*padding-bottom: 1px;
+	*height: auto;
+	}
+
+
 /* = Global Rounded Corners
 ----------------------------------- */
 #header {
@@ -126,8 +161,8 @@ a:hover {
 
 /* = Global Map Styles
 ----------------------------------- */
-.home #map-box,
-.home #map_canvas {
+#map-box,
+#map_canvas {
 	z-index:200;
 	position:fixed;
 	top:0;
@@ -148,11 +183,13 @@ a:hover {
 	color:#fff;
 	font-weight:bold;
 	}
-#top-search #event,
-#top-search #time-span,
-#top-search #date1 {
-	padding:0.5em 2.5% 0.5em 2.5%;
+/*
+#top-search input[type=text],
+#top-search select {
+	padding-left:2.5%;
+	padding-right:2.5%;
 	}
+*/
 #top-search #event {
 	width:95%;
 	}
@@ -168,17 +205,6 @@ a:hover {
 	}
 
 /* #map-controls */
-.home #content {
-	z-index:800;
-	position:absolute;
-	box-shadow:			0px 0px 4px rgba(0,0,0,0.3);
-	top:0;
-	right:0;
-	width:32%;
-	margin-right:1%;
-	background:#f7f7f7;
-	}
-
 #pin-key {
 	float:left;
 	margin:0 0 1.5em 0;
@@ -251,20 +277,22 @@ a:hover {
 
 /* = Buttons
 ----------------------------------- */
-#top-search input[type="submit"] {
-	float:right;
-	box-shadow:			0px 0px 4px rgba(225,114,0,0.4);
+#top-search input[type="submit"],
+.sign-in-form input[type="submit"] {
 	border:2px solid #fff;
 	border-radius:6px;
-	width:20%;
-	padding:0.5em 2.5% 0.5em 2.5%;
-	/* background:#85c440; */
 	background:#66C13F;
 	color:#fff;
 	font-weight:bold;
 	}
-#top-search input[type="submit"]:hover {
-	background:#01a1ad;
+
+.sign-in-form input[type="submit"] {
+	margin-top:1em;
+	}
+
+#top-search input[type="submit"] {
+	float:right;
+	width:20%;
 	}
 	
 .home a.btn-post-event {
@@ -277,15 +305,21 @@ a:hover {
 	border:2px solid #fff;
 	border-radius:6px;
 	padding:1em;
-	background:#66C13F;
+	background-color:#66C13F;
+	background-image:url(../img/icon-pin-add.png);
+	background-position:8% center;
+	background-repeat:no-repeat;
 	color:#fff;
-	text-align:center;
+	text-indent:11%;
 	text-decoration:none;
 	font-weight:bold;
 	font-size:115%;
 	}
-.home a.btn-post-event:hover {
-	background:#01a1ad;
+	
+input[type="submit"]:hover,
+#top-search input[type="submit"]:hover,
+a.btn-post-event:hover {
+	background-color:#01a1ad;
 	}
 	
 	

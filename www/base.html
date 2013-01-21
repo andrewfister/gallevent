@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
 <title>{% block title %}Gallevent - Find events near you!{% endblock title %}</title>
@@ -27,8 +26,14 @@
 <script type="text/javascript" src="/static/js/grand-central-dispatch.js"></script>
 {% block javascript %}{% endblock javascript %}
 </head>
+
 <body class="{% block body-class %}{% endblock body-class %}">
     {% block preheader %}{% endblock preheader %}
+    <form>
+    	<input type="hidden" id="user-latitude" name="latitude" value="37.88397" />
+    	<input type="hidden" id="user-longitude" name="longitude" value="-122.2644" />
+    	<input type="hidden" id="map-radius" name="distance" value="5.08" />
+    </form>
     <div class="hidden">
     	<img src="/static/img/icon-cal-arrow-l-h.png" alt="arrow" />
         <img src="/static/img/icon-cal-arrow-r-h.png" alt="arrow" />
