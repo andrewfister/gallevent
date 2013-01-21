@@ -174,8 +174,9 @@ select {
 /* = Global Map Control
 ----------------------------------- */
 #top-search {
-	background:#f9a21c;
 	padding:20px 6% 2.6em 6%;
+	color:#fff;
+	background:#f9a21c;
 	}
 #top-search label {
 	display:block;
@@ -183,13 +184,7 @@ select {
 	color:#fff;
 	font-weight:bold;
 	}
-/*
-#top-search input[type=text],
-#top-search select {
-	padding-left:2.5%;
-	padding-right:2.5%;
-	}
-*/
+
 #top-search #event {
 	width:95%;
 	}
@@ -325,19 +320,16 @@ a.btn-post-event:hover {
 	
 /* = Main Containers
 ----------------------------------- */
-
 #header {
 	z-index:800;
 	box-shadow:			0px 0px 4px rgba(0,0,0,0.3);
-	height:0px;
+	height:auto;
 	padding:20px 2% 20px 2%;
-	/* padding:20px 16px 20px 16px; */
 	background:#f9a21c;
-	overflow:hidden;
-	transition: 		height 2s, margin-top 2s;
-	-moz-transition:	height 2s, margin-top 2s; /* Firefox 4 */
-	-webkit-transition:	height 2s, margin-top 2s; /* Safari and Chrome */
-	-o-transition:		height 2s, margin-top 2s; /* Opera */
+	}
+
+#header a:hover {
+	color:#01A1AD;
 	}
 
 .logo-block {
@@ -345,6 +337,7 @@ a.btn-post-event:hover {
 	}
 .logo {
 	display:block;
+	overflow:hidden;
 	width:217px;
 	height:45px;
 	margin-left:0;
@@ -375,3 +368,35 @@ a.btn-post-event:hover {
 	display:inline;
 	margin-left:1em;
 	}
+
+/* = Media Queries
+----------------------------------- */
+@media screen and (max-width: 600px),
+screen and (max-device-width: 480px) {
+	html {
+		-ms-text-size-adjust: none;
+		-webkit-text-size-adjust: none;
+	}
+}
+
+@media all and (max-width: 960px) {
+#top-search label {
+	display:block;
+	margin-top:0.5em;
+	color:#fff;
+	font-weight:bold;
+	}
+#top-search #time-span {
+	width:40%;
+	}
+#top-search .connecting-block {
+	position:relative;
+	top:0.5em;
+	width:10%;
+	padding:0.6em 0 0.6em 0;
+	}
+#top-search #date1 {
+	width:40%;
+	float:right;
+	}
+}
