@@ -130,7 +130,6 @@ var MapView = Backbone.View.extend({
         if ($('#user-latitude').attr('value') == 0 && $('#user-longitude').attr('value') == 0)
         {
             this.mapLocation = this.userLocation;
-            this.centerMap(this.mapLocation);
         }
         
         this.loadMap();
@@ -146,8 +145,8 @@ var MapView = Backbone.View.extend({
             this.map.setCenter(latLng);
         }
         
-        $('#user-latitude').attr('value', parseFloat(latLng.lat()));
-        $('#user-longitude').attr('value', parseFloat(latLng.lng()));
+        //$('#user-latitude').attr('value', parseFloat(latLng.lat()));
+        //$('#user-longitude').attr('value', parseFloat(latLng.lng()));
         $('#map-radius').attr('value', parseFloat(this.mapRadius()));
     },
     

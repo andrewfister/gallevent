@@ -159,7 +159,7 @@ class EventSearchForm(SearchForm):
         for eb_event in eb_response['events'][1:]:
             eb_event = eb_event['event']
             eb_event_venue = eb_event['venue']
-            logging.debug('eb event address: ' + eb_event_venue['address'])
+            #logging.debug('eb event address: ' + eb_event_venue['address'])
             if len(eb_event_venue['address']) == 0 or eb_event_venue['address'] == 'TBA' or eb_event['category'] == 'sales':
                 continue
             
