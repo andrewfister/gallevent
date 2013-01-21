@@ -79,7 +79,7 @@ var MapView = Backbone.View.extend({
     
     setMarker: function(event, latitude, longitude, address, category, info) {
         var image = '/static/img/pin-map-' + category + '.png';
-
+        
         var location = new google.maps.LatLng(latitude, longitude);
         
         var marker = new google.maps.Marker({
@@ -129,9 +129,16 @@ var MapView = Backbone.View.extend({
     foundUserLocation: function(position) {
         this.userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         
-        if ($('#user-latitude').length && $('#user-latitude').attr('value') == 0 && $('#user-longitude').length && $('#user-longitude').attr('value') == 0)
+        if ($('#user-latitude').length && $('#user-longitude').length)
         {
-            this.mapLocation = this.userLocation;
+            if ($('#user-latitude').attr('value') == 0 && $('#user-longitude').attr('value') == 0)
+            {
+                this.mapLocation = this.userLocation;
+            }
+            else
+            {
+                this.mapLocation = new google.maps.LatLng($('#user-latitude').attr('value'), $('#user-longitude').attr('value'));
+            }
         }
         
         this.loadMap();
