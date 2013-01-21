@@ -274,7 +274,7 @@ select {
 ----------------------------------- */
 .map-popup {
 	width:300px;
-	color:#333;
+	color:#58595b;
 	overflow-y:hidden;
 	}
 
@@ -285,7 +285,7 @@ select {
 	color:#01A1AD;
 	}
 .map-popup .event-name a {
-	color:#34859F;
+	color:#01A1AD;
 	}
 .map-popup .event-name a:hover {
 	color:#85c440; /* green */
@@ -293,6 +293,7 @@ select {
 .event-name .pop-up-banner {
 	position:relative;
 	z-index:900;
+	margin-bottom:0.5em;
 	}
 .event-name .category-icon {
 	float:left;
@@ -306,11 +307,8 @@ select {
 	z-index:1000;
 	}
 
-.map-popup .price,
-.map-popup .date-time {
-	color:#34859F;
-	}
 .map-popup .price {
+	color:#01A1AD;
 	font-size:110%;
 	}
 .map-popup .price strong {
@@ -320,6 +318,9 @@ select {
 .map-popup .description,
 .map-popup .address {
 	margin:.5em 0 0 0;
+	}
+.map-popup .address {
+	font-style:italic;
 	}
 
 .map-popup .mod-event {
@@ -408,6 +409,8 @@ a.btn-post-event:hover {
 .map-popup .btn-watch {
 	margin-right:5px;
 	padding:.4em .6em .4em .6em;
+	margin:1em 0 0 0;
+  	float:left;
 	}
 
 .map-popup .btn-rsvp {
