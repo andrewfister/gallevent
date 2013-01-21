@@ -26,6 +26,8 @@ def show_front_page_events(request):
     if form.is_valid():
         events = form.search()
 
+    logging.debug('latlng: ' + str(form))
+
     return render_to_response('index.html', {
     'events': events,
     'form': form,
