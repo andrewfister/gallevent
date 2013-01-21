@@ -111,7 +111,7 @@ class EventSearchForm(SearchForm):
     
     def search(self):
         sqs = super(EventSearchForm, self).search()
-        eb_client_query = {}
+        eb_client_query = {'keywords': self.cleaned_data['q']}
         
         # First, store the SearchQuerySet received from other processing.
         logging.debug('sqs: ' + str(sqs.all()))
