@@ -46,11 +46,13 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
     <label for="event">Search for Events:</label>
     <input type="text" id="event" name="q" placeholder="Salsa Dancing San Francisco" value="{{ request.GET.q }}" />
     <label for="time-span">Select Dates:</label>
-    <select id="time-span" name="timeSpan">
-        <option value="day_of">Day of</option>
-        <option value="week_of">Week of</option>
-        <option value="weekend_of">Weekend of</option>
-    </select>
+    <span class="select">
+        <select id="time-span" name="timeSpan">
+            <option value="day_of">Day of</option>
+            <option value="week_of">Week of</option>
+            <option value="weekend_of">Weekend of</option>
+        </select>
+    </span>
     <span class="connecting-block">to</span>
     <input type="text" id="date1" name="start_date" placeholder="07/22/2012" value="{{ form.start_date.value }}" />
     <input class="btn-search" type="submit" value="Search" />

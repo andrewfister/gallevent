@@ -45,27 +45,13 @@ select {
 	}
 
 select {
+	background:transparent;
+	}
+
+.select {
 	background:#fff url(../img/btn-select-dwn-arrow.png) right center no-repeat;
 	background-size:contain;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	-webkit-background-clip: padding;
-	-moz-background-clip: padding;
-	background-clip: padding-box;
-	-webkit-border-radius: 0;
-	-moz-border-radius: 0;
-	-ms-border-radius: 0;
-	-o-border-radius: 0;
-	border-radius: 0;
-	-webkit-appearance: none;
-	outline: 0;
-	margin: 0;
-	text-align: left;
-	vertical-align: top;
-	*padding-top: 2px;
-	*padding-bottom: 1px;
-	*height: auto;
+	overflow:hidden;
 	}
 
 
@@ -189,9 +175,14 @@ select {
 	width:95%;
 	}
 
-#top-search #time-span {
+#top-search .select {
+  	float:left;
 	width:40%;
 	}
+#top-search select#time-span {
+	width:150%;
+	}
+
 #top-search .connecting-block {
 	width:10%;
 	}
@@ -321,10 +312,11 @@ select {
 	}
 .map-popup .address {
 	font-style:italic;
+	color:#868789;
 	}
 
 .map-popup .mod-event {
-	margin-top:1.2em;
+	clear:both;
 	}
 .map-popup .mod-event a {
 	font-style:italic;
@@ -405,11 +397,15 @@ a.btn-post-event:hover {
 	background-color:#01a1ad;
 	}
 
+.map-popup .btns {
+	margin:0 0 0.5em 0;
+	float:left;
+	}
+
 .map-popup .btn-rsvp,
 .map-popup .btn-watch {
-	margin-right:5px;
 	padding:.4em .6em .4em .6em;
-	margin:1em 0 0 0;
+	margin:1em 0.5em 0 0;
   	float:left;
 	}
 
