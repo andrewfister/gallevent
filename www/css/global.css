@@ -185,6 +185,9 @@ select {
 
 #top-search .connecting-block {
 	width:10%;
+	float:left;
+	text-align:center;
+	line-height:2em;
 	}
 #top-search #date1 {
 	width:22%;
