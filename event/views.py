@@ -19,7 +19,7 @@ def show_front_page_events(request):
     events = models.Event.objects.filter(status=1).extra(where=['end_date >= CURRENT_TIMESTAMP']).order_by('start_date','start_time').reverse()
 
     if request.GET.get('q'):
-        #logging.debug('search request: ' + str(request.GET))
+        logging.debug('search request: ' + str(request.GET))
         form = forms.EventSearchForm(request.GET)
         if form.is_valid():
             events = form.search()

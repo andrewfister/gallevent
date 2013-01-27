@@ -58,8 +58,6 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
     <input type="hidden" id="user-latitude" name="latitude" value="{{ request.GET.latitude|default:0 }}" />
     <input type="hidden" id="user-longitude" name="longitude" value="{{ request.GET.longitude|default:0 }}" />
     <input type="hidden" id="map-radius" name="distance" value="{{ request.GET.distance|default:5.08 }}" />
-    <input type="hidden" id="lat" value="{{ request.GET.latitude|default:0 }}"/>
-    <input type="hidden" id="lon" value="{{ request.GET.longitude|default:0 }}"/>
     
 </form><!-- #top-nav -->
 <ul id="pin-key">
