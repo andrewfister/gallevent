@@ -128,7 +128,9 @@ class EventSearchForm(SearchForm):
         # Check to see if a start_date was chosen.
         if self.cleaned_data['start_date']:
             sqs = sqs.filter(end_date__gte=self.cleaned_data['start_date'])
+            logging.debug('raw start date: ' + self.cleaned_data['start_date'])
             eb_client_query['date'] = datetime.strptime(self.cleaned_data['start_date'],'%m/%d/%Y').strftime('%Y-%m-%d')
+            logging.debug('parsed start date: ' + eb_client_query['date'])
 
         # Check to see if an end_date was chosen.
         if self.cleaned_data['end_date']:
@@ -161,7 +163,6 @@ class EventSearchForm(SearchForm):
         for eb_event in eb_response['events'][1:]:
             eb_event = eb_event['event']
             eb_event_venue = eb_event['venue']
-            #logging.debug('eb event address: ' + eb_event_venue['address'])
             if len(eb_event_venue['address']) == 0 or eb_event_venue['address'] == 'TBA' or eb_event['category'] == 'sales':
                 continue
             
