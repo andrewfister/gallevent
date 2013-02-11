@@ -1,17 +1,13 @@
 var HeaderView = Backbone.View.extend({
     id: "front-page",
     render: function() {
-        $( "#date1" ).datepicker({ dateFormat: "mm/dd/yy", onSelect: this.changeDate, firstDay: 1, beforeShowDay: this.styleDateRange, minDate: new Date() });
+        $( "#date1" ).datepicker({ dateFormat: "mm/dd/yy", onSelect: this.changeDate, firstDay: 1, beforeShowDay: this.styleDates, minDate: new Date(), constrainInput: true });
         $("#time-span").change(this.changeDate);
 		$("#header").slideToggle(600);
 		
 		if ($("#date1").attr('value').length == 0)
 		{
 		    var today = new Date();
-		    /*var dd = ('0'+(today.getDate())).slice(-2);
-		    var mm = ('0'+(today.getMonth()+1)).slice(-2);
-		    var yyyy = today.getFullYear();
-		    var formatToday = mm + '/' + dd + '/' + yyyy;*/
 		    $("#date1").attr('value', $.datepicker.formatDate("mm/dd/yy", today));
 		}
 		
@@ -50,9 +46,9 @@ var HeaderView = Backbone.View.extend({
         }
     },
     
-    styleDateRange: function(date) {
+    styleDates: function(date) {
         var now = new Date();
-        var today = new Date(now.getFullYear(), now.getMonth(), now.getDay());
+        var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
         var selectable = date.valueOf() >= today.valueOf();
         var style = "";
         var date1 = $.datepicker.parseDate('mm/dd/yy', $( "#date1" ).attr('value'));
@@ -61,10 +57,6 @@ var HeaderView = Backbone.View.extend({
         if (date.valueOf() >= date1.valueOf() && date.valueOf() <= date2.valueOf())
         {
             style = "ui-datepicker-today";
-        }
-        else if (date.valueOf() == today.valueOf())
-        {
-            style = "";
         }
         
         return [selectable, style];
