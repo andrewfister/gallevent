@@ -27,10 +27,16 @@ def show_front_page_events(request):
         form = forms.EventSearchForm()
 
     logging.debug('latlng: ' + str(request.GET))
+    
+    try:
+        timeSpan = request.GET['timeSpan']
+    except KeyError:
+        timeSpan = ""
 
     return render_to_response('index.html', {
     'events': events,
     'form': form,
+    'timeSpan': timeSpan
     }, context_instance=RequestContext(request))
 
 @login_required

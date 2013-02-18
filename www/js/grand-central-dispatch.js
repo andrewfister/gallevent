@@ -110,4 +110,11 @@ $(function() {
         });
         headerView.render();
     }
+    
+    if ($('#top-search').length)
+    {
+        var searchView = new SearchView({
+        });
+        searchView.render();
+    }
 });

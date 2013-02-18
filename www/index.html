@@ -8,7 +8,11 @@
 <script>
 var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ event.user_id }},address: "{{ event.address|escapejs }}",subpremise: "{{ event.subpremise|escapejs }}",city: "{{ event.city|escapejs }}",state: "{{ event.state|escapejs }}",zipcode: "{{ event.zipcode|escapejs }}",name: "{{ event.name|escapejs }}",category: "{{ event.category|escapejs }}",ticket_price: {{ event.ticket_price }},start_date: "{{ event.start_date|escapejs }}",end_date: "{{ event.end_date|escapejs }}",description: "{{ event.description|escapejs }}",organizer_email: "{{ event.organizer_email|escapejs }}",organizer_phone: "{{ event.organizer_phone|escapejs }}",organizer_url: "{{ event.organizer_url|escapejs }}",latitude: {{ event.latitude }},longitude: {{ event.longitude }} }, {% endfor %} ];
 </script>
-{% endblock %}
+{% endblock prejavascript %}
+
+{% block viewjavascript %}
+<script type="text/javascript" src="/static/js/views/search-view.js"></script>
+{% endblock viewjavascript %}
 
 {% block body-class %}home{% endblock body-class %}
 
@@ -48,18 +52,19 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
     <label for="time-span">Select Dates:</label>
     <span class="select">
         <select id="time-span" name="timeSpan">
-            <option value="day_of">Day of</option>
-            <option value="week_of">Week of</option>
-            <option value="weekend_of">Weekend of</option>
+            <option value="day_of" {% if timeSpan == "day_of" %}selected="selected"{% endif %}>Day of</option>
+            <option value="week_of" {% if timeSpan == "week_of" %}selected="selected"{% endif %}>Week of</option>
+            <option value="weekend_of" {% if timeSpan == "weekend_of" %}selected="selected"{% endif %}>Weekend of</option>
         </select>
     </span>
     <span class="connecting-block">to</span>
-    <input type="text" id="date1" name="start_date" placeholder="{{ form.today.value }}" value="{{ form.start_date.value }}" />
+    <input type="text" id="date" placeholder="{{ form.today.value }}" value="{{ form.start_date.value }}" />
     <input class="btn-search" type="submit" value="Search" />
     
     <input type="hidden" id="user-latitude" name="latitude" value="{{ request.GET.latitude|default:0 }}" />
     <input type="hidden" id="user-longitude" name="longitude" value="{{ request.GET.longitude|default:0 }}" />
     <input type="hidden" id="map-radius" name="distance" value="{{ request.GET.distance|default:5.08 }}" />
+    <input type="hidden" id="date1" name="start_date" value="{{ form.start_date.value }}"/>
     <input type="hidden" id="date2" name="end_date" value="{{ form.end_date.value|default:form.start_date.value }}"/>
     
 </form><!-- #top-nav -->
