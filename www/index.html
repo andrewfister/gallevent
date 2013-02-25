@@ -57,7 +57,6 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
             <option value="weekend_of" {% if timeSpan == "weekend_of" %}selected="selected"{% endif %}>Weekend of</option>
         </select>
     </span>
-    <span class="connecting-block">to</span>
     <input type="text" id="date" placeholder="{{ form.today.value }}" value="{{ form.start_date.value }}" />
     <input class="btn-search" type="submit" value="Search" />
     

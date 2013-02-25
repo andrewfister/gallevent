@@ -3,7 +3,7 @@
 ** Description: Positioning of most site-wide elemenets
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-06-2013
-** Updated: 01-13-2013
+** Updated: 01-24-2013
 ************************************** */
 
 /* = Global Fonts */
@@ -36,8 +36,7 @@ a:hover {
 
 /* = Global Form Elements
 ----------------------------------- */
-input,
-select {
+input {
 	padding-top:0.6em;
 	padding-bottom:0.6em;
 	padding-left:2.5%;
@@ -45,14 +44,23 @@ select {
 	}
 
 select {
-	background:transparent;
+	-webkit-appearance: none;
+	background-color:transparent !important;
+	-webkit-background-clip: padding;
+  	-moz-background-clip: padding;
+	height:100%;
 	}
 
 .select {
+	padding-top:0.42em;
+	padding-bottom:0.42em;
+	padding-left:2.5%;
+	padding-right:2.5%;
 	background:#fff url(../img/btn-select-dwn-arrow.png) right center no-repeat;
 	background-size:contain;
 	overflow:hidden;
 	}
+
 
 
 /* = Global Rounded Corners
@@ -160,7 +168,9 @@ select {
 /* = Global Map Control
 ----------------------------------- */
 #top-search {
-	padding:20px 6% 2.6em 6%;
+	float:left;
+	width:88%;
+	padding:20px 6% 1.2em 6%;
 	color:#fff;
 	background:#f9a21c;
 	}
@@ -177,20 +187,15 @@ select {
 
 #top-search .select {
   	float:left;
-	width:40%;
+	width:35%;
 	}
 #top-search select#time-span {
-	width:150%;
+	width:150%; /* Pushes browser default arrow out of view */
 	}
 
-#top-search .connecting-block {
-	width:10%;
-	float:left;
-	text-align:center;
-	line-height:2em;
-	}
-#top-search #date1 {
-	width:22%;
+#top-search #date {
+	float:right;
+	width:50%;
 	}
 
 /* #map-controls */
@@ -369,7 +374,9 @@ select {
 	}
 
 #top-search input[type="submit"] {
+	clear:both;
 	float:right;
+	margin-top:1em;
 	width:20%;
 	}
 	
@@ -463,7 +470,7 @@ a.btn-post-event:hover {
 	}
 
 #footer {
-	padding:2em 6% 2em 6%;
+	padding:0em 6% 2em 6%;
 	text-align:center;
 	font-size:85%;
 	color:#555659;
@@ -504,7 +511,7 @@ screen and (max-device-width: 480px) {
 	width:10%;
 	padding:0.6em 0 0.6em 0;
 	}
-#top-search #date1 {
+#top-search #date {
 	width:40%;
 	float:right;
 	}
