@@ -229,7 +229,7 @@ select {
 	font-weight:normal;
 	}
 #pin-key li a:hover {
-	padding:0.3em 6% 0.3em 6%;
+	padding:0.3em 6% 0.35em 6%;
 	background-color:#fff;
 	}
 #pin-key li a:hover i {
