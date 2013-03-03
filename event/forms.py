@@ -34,6 +34,13 @@ class PostEventForm(forms.ModelForm):
         '%d %B, %Y',      # '25 October, 2006'
     ]
     
+    time_input_formats = [
+        '%I:%M%p', 
+        '%I:%M %p', 
+        '%I%p', 
+        '%I %p'
+    ]
+    
     address = forms.CharField(max_length=1000)
     street_number = forms.CharField(max_length=64)
     street = forms.CharField(max_length=255)
@@ -44,15 +51,15 @@ class PostEventForm(forms.ModelForm):
     category = forms.CharField(max_length=64, initial="")
     keywords = forms.CharField(max_length=255, required=False, initial="")
     start_date = forms.DateField(initial="", input_formats=date_input_formats)
-    start_time = forms.TimeField(initial="", input_formats=['%I:%M%p', '%I:%M %p'])
+    start_time = forms.TimeField(initial="", input_formats=time_input_formats)
     end_date = forms.DateField(initial="", input_formats=date_input_formats)
-    end_time = forms.TimeField(initial="", input_formats=['%I:%M%p', '%I:%M %p', '%I%p', '%I %p'])
+    end_time = forms.TimeField(initial="", input_formats=time_input_formats)
     name = forms.CharField(max_length=64, initial="")
     description = forms.CharField(max_length=1000, initial="")
     event_url = forms.URLField(required=False, initial="")
     rsvp_limit = forms.IntegerField(required=False, initial="")
     rsvp_end_date = forms.DateField(required=False, initial="", input_formats=date_input_formats)
-    rsvp_end_time = forms.TimeField(required=False, initial="", input_formats=['%I:%M%p', '%I:%M %p', '%I%p', '%I %p'])
+    rsvp_end_time = forms.TimeField(required=False, initial="", input_formats=time_input_formats)
     organizer_email = forms.CharField(max_length=64, required=False, initial="")
     organizer_phone = forms.CharField(max_length=24, required=False, initial="")
     organizer_url = forms.URLField(max_length=200, required=False, initial="")
@@ -109,6 +116,10 @@ class EventSearchForm(SearchForm):
     gallevent_categories = ['art', 'athletic', 'dancing', 'dining', 'education', 
                             'fairs', 'jobs', 'networking', 'parties', 'sales']
     
+    #TODO: Next time I add another source, modularize each event source
+    #Current search sources:
+    #Gallevent
+    #EventBrite
     def search(self):
         sqs = super(EventSearchForm, self).search()
         eb_client_query = {'keywords': self.cleaned_data['q']}
@@ -128,14 +139,14 @@ class EventSearchForm(SearchForm):
         # Check to see if a start_date was chosen.
         if self.cleaned_data['start_date']:
             sqs = sqs.filter(end_date__gte=self.cleaned_data['start_date'])
-            logging.debug('raw start date: ' + self.cleaned_data['start_date'])
-            eb_client_query['date'] = datetime.strptime(self.cleaned_data['start_date'],'%m/%d/%Y').strftime('%Y-%m-%d')
+            logging.debug('raw start date: ' + str(self.cleaned_data['start_date']))
+            eb_client_query['date'] = str(self.cleaned_data['start_date'])
             logging.debug('parsed start date: ' + eb_client_query['date'])
 
         # Check to see if an end_date was chosen.
         if self.cleaned_data['end_date']:
             sqs = sqs.filter(start_date__lte=self.cleaned_data['end_date'])
-            eb_client_query['date'] += ' ' + datetime.date(self.cleaned_data['end_date'])
+            eb_client_query['date'] += ' ' + str(self.cleaned_data['end_date'])
         
         # Get a list of Event objects so we can append these results with other sources
         events = [ result.object for result in sqs ]

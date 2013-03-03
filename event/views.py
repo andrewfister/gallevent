@@ -19,7 +19,7 @@ def show_front_page_events(request):
     events = models.Event.objects.filter(status=1).extra(where=['end_date >= CURRENT_TIMESTAMP']).order_by('start_date','start_time').reverse()
 
     if request.GET.get('q'):
-        logging.debug('search request: ' + str(request.GET))
+        logging.debug('doing a search')
         form = forms.EventSearchForm(request.GET)
         if form.is_valid():
             events = form.search()
@@ -88,9 +88,10 @@ def show_lineup(request):
 def manage_events(request):
     return render_to_response('your-posts-manage.html', {
     }, context_instance=RequestContext(request))
-    
-class EventView(BackboneAPIView):
-    base_queryset = models.Event.objects.exclude(status=0)
+
+#REST API for searching Gallevent
+class EventSearchView(BackboneAPIView):
+    base_queryset = models.Event.objects.filter(status=1).extra(where=['end_date >= CURRENT_TIMESTAMP']).order_by('start_date','start_time').reverse()
     
     edit_form_class = forms.ArchiveEventForm
     
@@ -104,25 +105,13 @@ class EventView(BackboneAPIView):
             self.base_queryset = models.Event.objects.filter(user_id=request.GET['userId']).exclude(status=0)
         elif request.GET.has_key('category'):
             self.base_queryset = models.Event.objects.filter(user_id=request.GET['category']).exclude(status=0)
+        else:
+            form = forms.EventSearchForm(request.GET)
+            if form.is_valid():
+                events = form.search()
         
-        return super(EventView, self).dispatch(request, *args, **kwargs)
+        return super(EventSearchView, self).dispatch(request, *args, **kwargs)
     
     def validation_error_response(self, form_errors):
         logging.debug(form_errors)
         return str(form_errors)
-
-
-class FrontPageSearchView(BackboneAPIView):
-    base_queryset = models.Event.objects.filter(status=1).extra(where=['end_date >= CURRENT_TIMESTAMP']).order_by('start_date','start_time').reverse()
-    
-    serialize_fields = ['id', 'user_id', 'address', 'subpremise',
-    'city', 'state', 'zipcode', 'name', 'category', 'ticket_price', 'start_date', 
-    'start_time', 'end_date', 'end_time', 'description', 'organizer_email', 
-    'organizer_phone', 'organizer_url', 'latitude', 'longitude', 'status']
-    
-    def dispatch(self, request, *args, **kwargs):
-        form = forms.EventSearchForm(request.GET)
-        if form.is_valid():
-            events = form.search()
-        
-        return super(EventView, self).dispatch(request, *args, **kwargs)
