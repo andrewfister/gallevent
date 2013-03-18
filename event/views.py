@@ -1,43 +1,61 @@
-import time
 import logging
+import json
 
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from django.http import HttpResponseRedirect, QueryDict
-from django.utils.decorators import method_decorator
+from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
-from django.core import serializers
 
 from djangbone.views import BackboneAPIView
-from haystack.views import basic_search
+from django.views.generic.base import TemplateView, View
 
-from gallevent.event import forms
-from gallevent.event import models
+from event import forms
+from event import models
 
-def show_front_page_events(request):
-    logging.debug('front page')
-    events = models.Event.objects.filter(status=1).extra(where=['end_date >= CURRENT_TIMESTAMP']).order_by('start_date','start_time').reverse()
-
-    if request.GET.get('q'):
-        logging.debug('doing a search')
-        form = forms.EventSearchForm(request.GET)
-        if form.is_valid():
-            events = form.search()
-    else:
-        form = forms.EventSearchForm()
-
-    logging.debug('latlng: ' + str(request.GET))
+class FrontPageView(TemplateView):
+    template_name = "index.html"
     
-    try:
-        timeSpan = request.GET['timeSpan']
-    except KeyError:
-        timeSpan = ""
+    def get(self, request):
+        logging.debug('front page')
+        
+        try:
+            timeSpan = request.GET['timeSpan']
+        except KeyError:
+            timeSpan = ""
 
-    return render_to_response('index.html', {
-    'events': events,
-    'form': form,
-    'timeSpan': timeSpan
-    }, context_instance=RequestContext(request))
+        return self.render_to_response({
+            'timeSpan': timeSpan
+            })
+
+
+class SearchView(View):
+    def get(self, request):
+        logging.debug('search')
+        events = models.Event.objects.filter(status=1).extra(where=['end_date >= CURRENT_TIMESTAMP']).order_by('start_date','start_time').reverse()
+
+        if request.GET.get('q'):
+            form = forms.EventBriteSearchForm(request.GET)
+            if form.is_valid():
+                logging.debug('doing a search')
+                events = form.search()
+            else:
+                logging.debug(str(request.GET))
+        
+        try:
+            timeSpan = request.GET['timeSpan']
+        except KeyError:
+            timeSpan = ""
+        
+        if len(events) == 0:
+            events = "[]"
+
+        events_json = json.dumps(events)
+        response = json.dumps({
+            'search_result': events_json,
+            'timeSpan': timeSpan
+            })
+
+        return HttpResponse(response, content_type="application/json")
 
 @login_required
 def post_event(request, event_id=None, edit=False):

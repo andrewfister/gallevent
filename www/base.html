@@ -34,12 +34,12 @@
     	<img src="/static/img/icon-cal-arrow-l-h.png" alt="arrow" />
         <img src="/static/img/icon-cal-arrow-r-h.png" alt="arrow" />
     </div>
-    
+
     <div id="container">
     {% block header %}
         <div id="header" style="display:none;">
             <div class="logo-block">
-            <a href="{% url gallevent.event.views.show_front_page_events %}" class="logo">Gallevent&trade <b>beta</b></a>
+            <a href="{% url 'front_page' %}" class="logo">Gallevent&trade <b>beta</b></a>
             <span class="tagline">Find Events Near You!</span>
         	</div><!-- .logo-block -->
         {% block signin-form %}

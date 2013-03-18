@@ -19,7 +19,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-if django.VERSION[1] == 4:
+if django.VERSION[1] > 3:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
@@ -41,7 +41,7 @@ elif django.VERSION[1] == 3:
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
-        'URL': local_settings.HAYSTACK_HOST_LOCAL +':8983/solr',
+        'URL': local_settings.HAYSTACK_HOST_LOCAL + ':8983/solr',
         #'INDEX_NAME': 'haystack',
     },
 }
@@ -127,9 +127,9 @@ conf.conf.MUSTACHEJS_DIRS = local_settings.JSTEMPLATE_DIRS_LOCAL
 conf.conf.MUSTACHEJS_APP_DIRNAMES = []
 
 #Include more date formats
-USE_L10N=False
-TIME_FORMAT='g:iA'
-DATE_FORMAT='m/d/y'
+USE_L10N = False
+TIME_FORMAT = 'g:iA'
+DATE_FORMAT = 'm/d/y'
 
 #Some settings for the events
 MAX_EVENTS = 50
@@ -142,7 +142,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'mustachejs',
     'haystack',
-    'gallevent.map',
-    'gallevent.login',
-    'gallevent.event',
+    'tastypie',
+    'map',
+    'login',
+    'event',
 )
