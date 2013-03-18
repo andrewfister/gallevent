@@ -38,8 +38,8 @@ class SearchView(View):
             if form.is_valid():
                 logging.debug('doing a search')
                 events = form.search()
-            else:
-                logging.debug(str(request.GET))
+        
+        logging.debug('request data: ' + str(request.GET))
         
         try:
             timeSpan = request.GET['timeSpan']
@@ -50,12 +50,8 @@ class SearchView(View):
             events = "[]"
 
         events_json = json.dumps(events)
-        response = json.dumps({
-            'search_result': events_json,
-            'timeSpan': timeSpan
-            })
 
-        return HttpResponse(response, content_type="application/json")
+        return HttpResponse(events_json, content_type="application/json")
 
 @login_required
 def post_event(request, event_id=None, edit=False):

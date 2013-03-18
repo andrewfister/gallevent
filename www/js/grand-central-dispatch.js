@@ -1,8 +1,9 @@
 // on dom load
 $(function() {
+    var events = new EventCollection;
+    
 	if (typeof eventsJSON != 'undefined')
 	{
-    	var events = new EventCollection;
     	events.reset(eventsJSON);
 	}
     
@@ -114,6 +115,7 @@ $(function() {
     if ($('#top-search').length)
     {
         var searchView = new SearchView({
+            collection: events
         });
         searchView.render();
     }

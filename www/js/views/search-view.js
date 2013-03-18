@@ -1,5 +1,6 @@
 var SearchView = Backbone.View.extend({
     id: "top-search",
+    
     render: function() {
         $( "#date" ).datepicker({ dateFormat: "mm/dd/yy", onSelect: this.changeDate, firstDay: 1, beforeShowDay: this.styleDates, minDate: new Date(), constrainInput: true });
         $("#time-span").change(this.changeDate);
@@ -22,6 +23,8 @@ var SearchView = Backbone.View.extend({
 		{
 		    $("#date2").attr('value', $( "#date1" ).attr('value'));
 		}
+		
+		$('.btn-search').click(this.submitSearch.bind(this));
     },
     
     changeDate: function() {
@@ -68,5 +71,21 @@ var SearchView = Backbone.View.extend({
         }
         
         return [selectable, style];
+    },
+    
+    submitSearch: function() {
+        var searchCollection = new EventSearchCollection();
+        var serializedSearch = $('#top-search').serializeArray();
+        var searchData = {};
+        for (var i = 0; i < serializedSearch.length; i++)
+        {
+            searchData[serializedSearch[i]['name']] = serializedSearch[i]['value'];
+        }
+        searchCollection.fetch({
+            data: searchData, 
+            success: function(collection, response, options) {
+                this.collection.reset(response);
+            }.bind(this)
+        });
     }
 });

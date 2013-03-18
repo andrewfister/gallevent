@@ -58,7 +58,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         </select>
     </span>
     <input type="text" id="date" placeholder="" value="" />
-    <input class="btn-search" type="submit" value="Search" />
+    <input class="btn-search" type="button" value="Search" />
     
     <input type="hidden" id="user-latitude" name="latitude" value="{{ request.GET.latitude|default:0 }}" />
     <input type="hidden" id="user-longitude" name="longitude" value="{{ request.GET.longitude|default:0 }}" />
