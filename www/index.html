@@ -28,6 +28,8 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         <span id="user-firstname">{{ user.firstname }}</span>
         <span id="user-lastname">{{ user.lastname }}</span>
         <span id="user-email">{{ user.email }}</span>
+        <span id="user-latitude">{{ request.GET.latitude|default:0 }}</span>
+        <span id="user-longitude">{{ request.GET.longitude|default:0 }}</span>
     </div>
     <script>
 		$("#signIn").click(function(){
@@ -58,10 +60,10 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         </select>
     </span>
     <input type="text" id="date" placeholder="" value="" />
-    <input class="btn-search" type="button" value="Search" />
+    <button class="btn-search" type="button" value="Search" />
     
-    <input type="hidden" id="user-latitude" name="latitude" value="{{ request.GET.latitude|default:0 }}" />
-    <input type="hidden" id="user-longitude" name="longitude" value="{{ request.GET.longitude|default:0 }}" />
+    <input type="hidden" id="map-latitude" name="latitude" value="{{ request.GET.latitude|default:0 }}" />
+    <input type="hidden" id="map-longitude" name="longitude" value="{{ request.GET.longitude|default:0 }}" />
     <input type="hidden" id="map-radius" name="distance" value="{{ request.GET.distance|default:5.08 }}" />
     <input type="hidden" id="date1" name="start_date" value=""/>
     <input type="hidden" id="date2" name="end_date" value=""/>

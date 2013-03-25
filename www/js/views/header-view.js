@@ -1,5 +1,5 @@
 var HeaderView = Backbone.View.extend({
-    id: "front-page",
+    id: "header",
     render: function() {
 		$("#header").slideToggle(600);
     },

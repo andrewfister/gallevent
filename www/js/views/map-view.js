@@ -51,10 +51,10 @@ var MapView = Backbone.View.extend({
                 var center = this.map.getCenter();
                 var lat = parseFloat(center.lat());
                 var lon = parseFloat(center.lng());
-                if ($('#user-latitude').length)
-                    $('#user-latitude').attr('value', lat);
-                if ($('#user-longitude').length)
-                    $('#user-longitude').attr('value', lon);
+                if ($('#map-latitude').length)
+                    $('#map-latitude').attr('value', lat);
+                if ($('#map-longitude').length)
+                    $('#map-longitude').attr('value', lon);
                 this.mapLocation = new google.maps.LatLng(lat, lon);
             }.bind(this));
             
@@ -126,25 +126,54 @@ var MapView = Backbone.View.extend({
         this.markers.splice(index, 1);
     },
     
-    foundUserLocation: function(position) {
-        this.userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-        
-        if ($('#user-latitude').length && $('#user-longitude').length)
+    setMapLocation: function() {
+        if ($('#map-latitude').length && $('#map-longitude').length)
         {
-            if ($('#user-latitude').attr('value') == 0 && $('#user-longitude').attr('value') == 0)
+            if ($('#map-latitude').attr('value') == 0 && $('#map-longitude').attr('value') == 0)
             {
                 this.mapLocation = this.userLocation;
             }
             else
             {
-                this.mapLocation = new google.maps.LatLng($('#user-latitude').attr('value'), $('#user-longitude').attr('value'));
+                this.mapLocation = new google.maps.LatLng($('#map-latitude').attr('value'), $('#map-longitude').attr('value'));
             }
         }
+    },
+    
+    foundUserLocation: function(position) {
+        this.userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        
+        var mapLatitude = parseFloat(this.userLocation.lat());
+        var mapLongitude = parseFloat(this.userLocation.lng());
+        
+        //Set user location data on page and in cookie
+        if ($('#user-latitude').length)
+        {
+            $('#user-latitude').html(mapLatitude);
+            $.cookie('user-latitude', mapLatitude, { expires: 365, path: '/' });
+        }
+        if ($('#user-longitude').length)
+        {
+            $('#user-longitude').html(mapLongitude);
+            $.cookie('user-longitude', mapLongitude, { expires: 365, path: '/' });
+        }
+        
+        this.setMapLocation();
         
         this.loadMap();
     },
     
     noUserLocation: function() {
+        var userLatitude = $.cookie('user-latitude');
+        var userLongitude = $.cookie('user-longitude');
+        
+        if (userLatitude.length && userLongitude.length)
+        {
+            this.userLocation = new google.maps.LatLng(userLatitude, userLongitude);
+        }
+        
+        this.setMapLocation();
+        
         this.loadMap();
     },
     
@@ -154,10 +183,14 @@ var MapView = Backbone.View.extend({
             this.map.setCenter(latLng);
         }
         
-        if ($('#user-latitude').length)
-            $('#user-latitude').attr('value', parseFloat(latLng.lat()));
-        if ($('#user-longitude').length)
-            $('#user-longitude').attr('value', parseFloat(latLng.lng()));
+        var mapLatitude = parseFloat(latLng.lat());
+        var mapLongitude = parseFloat(latLng.lng());
+        
+        //Set map data
+        if ($('#map-latitude').length)
+            $('#map-latitude').attr('value', mapLatitude);
+        if ($('#map-longitude').length)
+            $('#map-longitude').attr('value', mapLongitude);
         if ($('#map-radius').length)
             $('#map-radius').attr('value', parseFloat(this.mapRadius()));
     },
