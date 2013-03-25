@@ -4,7 +4,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.core.validators import validate_email
 
-from gallevent.login import models
+from login import models
 
 
 class RequestInviteForm(forms.Form):

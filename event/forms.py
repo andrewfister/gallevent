@@ -1,24 +1,20 @@
-import re
-import datetime
 import logging
-import cgi
 
 import eventbrite
 
 from django import forms
-from django.forms.util import ErrorList
 
 from haystack.utils.geo import Point, D
 from haystack.forms import SearchForm
 
-from gallevent.event import models
+from event import models
 from gallevent import settings
 
 
 class PostEventForm(forms.ModelForm):
     class Meta:
         model = models.Event
-        exclude = ('status','user_id',)
+        exclude = ('status', 'user_id')
     
     date_input_formats = [
         '%m/%d/%Y',       # '10/25/2006'
@@ -105,17 +101,6 @@ class EventSearchForm(SearchForm):
     longitude = forms.FloatField(initial=0)
     distance = forms.FloatField(initial=5.08)
     
-    eb_category_map = {
-        'seminars': 'education',
-        'social': 'parties',
-        'entertainment': 'fairs',
-        'music': 'art',
-        'sports': 'athletic',
-    }
-    
-    gallevent_categories = ['art', 'athletic', 'dancing', 'dining', 'education', 
-                            'fairs', 'jobs', 'networking', 'parties', 'sales']
-    
     #TODO: Next time I add another source, modularize each event source
     #Current search sources:
     #Gallevent
@@ -149,7 +134,7 @@ class EventSearchForm(SearchForm):
             eb_client_query['date'] += ' ' + str(self.cleaned_data['end_date'])
         
         # Get a list of Event objects so we can append these results with other sources
-        events = [ result.object for result in sqs ]
+        events = [result.object for result in sqs]
 
         if sqs.count() < settings.MAX_EVENTS:
             try:
@@ -160,6 +145,46 @@ class EventSearchForm(SearchForm):
 
         return events
 
+
+class EventBriteSearchForm(EventSearchForm):
+    eb_category_map = {
+        'seminars': 'education',
+        'social': 'parties',
+        'entertainment': 'fairs',
+        'music': 'art',
+        'sports': 'athletic',
+    }
+    
+    gallevent_categories = ['art', 'athletic', 'dancing', 'dining', 'education', 
+                            'fairs', 'jobs', 'networking', 'parties', 'sales']
+
+    def search(self):
+        eb_client_query = {'keywords': self.cleaned_data['q']}
+
+        if self.cleaned_data['longitude'] and \
+            self.cleaned_data['latitude'] and \
+            self.cleaned_data['distance']:
+            eb_client_query['latitude'] = self.cleaned_data['latitude']
+            eb_client_query['longitude'] = self.cleaned_data['longitude']
+            eb_client_query['within'] = int(self.cleaned_data['distance'])
+            logging.debug('within: ' + str(eb_client_query['within']))
+
+        # Check to see if a start_date was chosen.
+        if self.cleaned_data['start_date']:
+            logging.debug('raw start date: ' + str(self.cleaned_data['start_date']))
+            eb_client_query['date'] = str(self.cleaned_data['start_date'])
+            logging.debug('parsed start date: ' + eb_client_query['date'])
+
+        # Check to see if an end_date was chosen.
+        if self.cleaned_data['end_date']:
+            eb_client_query['date'] += ' ' + str(self.cleaned_data['end_date'])
+        
+        try:
+            events = self.searchEventBrite(eb_client_query, settings.MAX_EVENTS)
+        except EnvironmentError:
+            events = []
+
+        return events
 
     def searchEventBrite(self, eb_client_query, max_events):
         eb_auth_tokens = {'app_key': 'K4FQTKYHI34GPW6HSS'}
@@ -188,8 +213,8 @@ class EventSearchForm(SearchForm):
             eb_event_start_date = eb_event_start[0]
             eb_event_start_time = eb_event_start[1]
             eb_event_end = eb_event['end_date'].split()
-            eb_event_end_date = eb_event_start[0]
-            eb_event_end_time = eb_event_start[1]
+            eb_event_end_date = eb_event_end[0]
+            eb_event_end_time = eb_event_end[1]
             eb_event_categories = eb_event['category'].split(',')
             
             try:
@@ -197,32 +222,31 @@ class EventSearchForm(SearchForm):
             except KeyError:
                 eb_event_ticket_price = 0.00
                 
-            eb_events.append(models.Event(
-                            id=eb_event['id'],
-                            user_id=eb_event['organizer']['id'],
-                            name=eb_event['title'],                
-                            address=eb_event_address,
-                            street=eb_event_venue['address'],
-                            subpremise=eb_event_venue['address_2'],
-                            city=eb_event_venue['city'],
-                            state=eb_event_venue['region'],
-                            zipcode=eb_event_venue['postal_code'],
-                            latitude=eb_event_venue['latitude'],
-                            longitude=eb_event_venue['longitude'],
-                            keywords=eb_event['tags'],
-                            category=self.get_category_from_eb(eb_event_categories[0]),
-                            description='description',#cgi.escape(eb_event['description'], True),
-                            event_url=eb_event['url'],
-                            start_date=eb_event_start_date,
-                            start_time=eb_event_start_time,
-                            end_date=eb_event_end_date,
-                            end_time=eb_event_end_time,
-                            ticket_price=eb_event_ticket_price,
-                            ))
+            eb_events.append({
+                            "id": eb_event['id'],
+                            "user_id": eb_event['organizer']['id'],
+                            "name": eb_event['title'],                
+                            "address": eb_event_address,
+                            "street": eb_event_venue['address'],
+                            "subpremise": eb_event_venue['address_2'],
+                            "city": eb_event_venue['city'],
+                            "state": eb_event_venue['region'],
+                            "zipcode": eb_event_venue['postal_code'],
+                            "latitude": eb_event_venue['latitude'],
+                            "longitude": eb_event_venue['longitude'],
+                            "keywords": eb_event['tags'],
+                            "category": self.get_category_from_eb(eb_event_categories[0]),
+                            "description": 'description',#cgi.escape(eb_event['description'], True),
+                            "event_url": eb_event['url'],
+                            "start_date": eb_event_start_date,
+                            "start_time": eb_event_start_time,
+                            "end_date": eb_event_end_date,
+                            "end_time": eb_event_end_time,
+                            "ticket_price": eb_event_ticket_price,
+                            })
        
         return eb_events
         
-    
     def get_category_from_eb(self, category):
         if category in self.gallevent_categories:
             return category

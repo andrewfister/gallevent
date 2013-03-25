@@ -70,6 +70,11 @@ var EventCollection = Backbone.Collection.extend({
 
 });
 
+var EventSearchCollection = EventCollection.extend({
+    model: Event,
+    url: '/event/search'
+});
+
 var sortableDate = function(date, time){
    // var formatDate = date.split("/").reverse().join("");
    // var formatTime = parseInt(time.split(":").join("").slice(0,-2));

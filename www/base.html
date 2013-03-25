@@ -16,12 +16,14 @@
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/static/js/jquery.watermark.js"></script>
+<script type="text/javascript" src="/static/js/jquery.cookie.js"></script>
 <script type="text/javascript" src="/static/js/mustache/mustache-0.3.0.js"></script>
 <script type="text/javascript" src="/static/js/mustache/django.mustache.js"></script>
 <script type="text/javascript" src="/static/js/underscore.js"></script>
 <script type="text/javascript" src="/static/js/backbone.js"></script>
 <script type="text/javascript" src="/static/js/models/event-model.js"></script>
 <script type="text/javascript" src="/static/js/views/header-view.js"></script>
+<script type="text/javascript" src="/static/js/views/user-view.js"></script>
 {% block mapjavascript %}{% endblock mapjavascript %}
 {% block viewjavascript %}{% endblock viewjavascript %}
 <script type="text/javascript" src="/static/js/grand-central-dispatch.js"></script>
@@ -34,12 +36,12 @@
     	<img src="/static/img/icon-cal-arrow-l-h.png" alt="arrow" />
         <img src="/static/img/icon-cal-arrow-r-h.png" alt="arrow" />
     </div>
-    
+
     <div id="container">
     {% block header %}
         <div id="header" style="display:none;">
             <div class="logo-block">
-            <a href="{% url gallevent.event.views.show_front_page_events %}" class="logo">Gallevent&trade <b>beta</b></a>
+            <a href="{% url 'front_page' %}" class="logo">Gallevent&trade <b>beta</b></a>
             <span class="tagline">Find Events Near You!</span>
         	</div><!-- .logo-block -->
         {% block signin-form %}

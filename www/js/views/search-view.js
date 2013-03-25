@@ -1,10 +1,11 @@
 var SearchView = Backbone.View.extend({
     id: "top-search",
+    
     render: function() {
         $( "#date" ).datepicker({ dateFormat: "mm/dd/yy", onSelect: this.changeDate, firstDay: 1, beforeShowDay: this.styleDates, minDate: new Date(), constrainInput: true });
         $("#time-span").change(this.changeDate);
-		
-		if ($("#date").attr('value').length == 0)
+        
+		if ($("#date").attr('value').length === 0)
 		{
 		    var today = new Date();
 		    var todayText = $.datepicker.formatDate("mm/dd/yy", today);
@@ -13,40 +14,48 @@ var SearchView = Backbone.View.extend({
 		    $("#date2").attr('value', todayText);
 		}
 		
-		if ($("#date1").attr('value').length == 0)
+		if ($("#date1").attr('value').length === 0)
 		{
 		    $("#date1").attr('value', $( "#date" ).attr('value'));
 		}
 		
-		if ($("#date2").attr('value').length == 0)
+		if ($("#date2").attr('value').length === 0)
 		{
 		    $("#date2").attr('value', $( "#date1" ).attr('value'));
 		}
+		
+		$('.btn-search').click(this.submitSearch.bind(this));
+		$('#map-latitude').change(this.submitSearch.bind(this));
+		$('#map-longitude').change(this.submitSearch.bind(this));
     },
     
     changeDate: function() {
-        if ($("#time-span").attr('value') == "day_of")
+        var date;
+        var dayOfWeek;
+        var date2;
+    
+        if ($("#time-span").attr('value') === "day_of")
         {
             $("#date1").attr('value', $( "#date" ).attr('value'));
             $("#date2").attr('value', $( "#date" ).attr('value'));
         }
-        else if ($("#time-span").attr('value') == "week_of")
+        else if ($("#time-span").attr('value') === "week_of")
         {
-            var date = $.datepicker.parseDate('mm/dd/yy', $( "#date" ).attr('value'));
-            var dayOfWeek = (date.getDay() + 6) % 7;
+            date = $.datepicker.parseDate('mm/dd/yy', $( "#date" ).attr('value'));
+            dayOfWeek = (date.getDay() + 6) % 7;
             date.setDate(date.getDate() - dayOfWeek);
-            var date2 = new Date();
+            date2 = new Date();
             date2.setDate(date.getDate() + 6);
             
             $("#date1").attr('value', $.datepicker.formatDate('mm/dd/yy', date));
             $("#date2").attr('value', $.datepicker.formatDate('mm/dd/yy', date2));
         }
-        else if ($("#time-span").attr('value') == "weekend_of")
+        else if ($("#time-span").attr('value') === "weekend_of")
         {
-            var date = $.datepicker.parseDate('mm/dd/yy', $( "#date" ).attr('value'));
-            var dayOfWeek = (date.getDay() + 6) % 7;
+            date = $.datepicker.parseDate('mm/dd/yy', $( "#date" ).attr('value'));
+            dayOfWeek = (date.getDay() + 6) % 7;
             date.setDate(date.getDate() - dayOfWeek + 4);
-            var date2 = new Date();
+            date2 = new Date();
             date2.setDate(date.getDate() + 2);
             
             $("#date1").attr('value', $.datepicker.formatDate('mm/dd/yy', date));
@@ -68,5 +77,22 @@ var SearchView = Backbone.View.extend({
         }
         
         return [selectable, style];
+    },
+    
+    submitSearch: function() {
+        var searchCollection = new EventSearchCollection();
+        var serializedSearch = $('#top-search').serializeArray();
+        var searchData = {'q': 'event'};
+        var i;
+        for (i = 0; i < serializedSearch.length; i++)
+        {
+            searchData[serializedSearch[i].name] = serializedSearch[i].value;
+        }
+        searchCollection.fetch({
+            data: searchData, 
+            success: function(collection, response, options) {
+                this.collection.reset(response);
+            }.bind(this)
+        });
     }
 });

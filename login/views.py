@@ -1,11 +1,11 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
-from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.template import RequestContext
 
-from gallevent.login import forms
-from gallevent.login import models
+from login import forms
+from login import models
+
 
 def invite_code(request):
     email = ''
@@ -24,7 +24,7 @@ def invite_code(request):
             user = authenticate(username=query_email, password=query_password)
             logging.debug('email: ' + query_email)
             logging.debug('password: ' + query_password)
-        
+
             if user is not None:
                 if user.is_active:
                     logging.debug('logging in')
@@ -70,8 +70,8 @@ def invite_request(request):
             
             from django.core.mail import send_mail
             send_mail('Thank you for your interest in Gallevent', 
-                        'Your invite is on the way!', 
-                        'gallevent.main@gmail.com', 
+                        'Your invite is on the way!',
+                        'gallevent.main@gmail.com',
                         [new_email_address])
             
             return HttpResponseRedirect('/login/invite_request_received/') # Redirect after POST

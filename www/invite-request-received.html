@@ -1,5 +1,5 @@
 {% extends "base-login.html" %}
-{% block login-link %}<a href="/login/invite_code">Have your code? Click here to sign up!</a> | <a href="{% url gallevent.login.views.sign_in %}">Sign In</a>{% endblock %}
+{% block login-link %}<a href="/login/invite_code">Have your code? Click here to sign up!</a> | <a href="{% url login.views.sign_in %}">Sign In</a>{% endblock %}
 
 {% block content %}
 <div id="content">
@@ -9,7 +9,7 @@
             <p>If qualify to join Gallevent, you will receive an email with your <br /><b>invitation code</b> within the next 48 hours.</p>
             <p>In the meantime, check out the awesome events on Gallevent's <a href="/">Event Map</a>!</p>
             <p style="margin:2em 0 2em 0;"><a href="/" style="font-size:160%;">Click here to find events now!</a></p>
-            <p style="margin:2em 0 2em 0;"><a href="{% url gallevent.login.views.invite_code %}" style="font-size:160%;">Already have your invite code? <br />Click here to create your account.</a></p>
+            <p style="margin:2em 0 2em 0;"><a href="{% url login.views.invite_code %}" style="font-size:160%;">Already have your invite code? <br />Click here to create your account.</a></p>
             <p class="form-details" style="margin-top:2em;">If you aren't receiving confirmation emails from Gallevent, check the spam folder in your email account. Occasionally, email spam filters incorrectly classify valid emails as spam. To ensure you receive important notifications from us, please add gallevent.main@gmail.com to your address book.</p>
         </div>
     </div><!-- #container -->

@@ -1,9 +1,16 @@
 // on dom load
 $(function() {
-	if (typeof eventsJSON != 'undefined')
+    var events = new EventCollection();
+    
+	if (typeof eventsJSON !== 'undefined')
 	{
-    	var events = new EventCollection;
-    	events.reset(eventsJSON);
+        events.reset(eventsJSON);
+	}
+	
+	if ($('.sign-in-status').length)
+	{
+	    var userView = new UserView({});
+	    userView.render();
 	}
     
     if ($('#pin-key').length)
@@ -30,8 +37,8 @@ $(function() {
         });
     }
     
-    if ($('#your-posts').length)
-    {  
+/*    if ($('#your-posts').length)
+    {
         var archivedEvents = new EventCollection(events.where({status: 2}));
         var yourActivePostsView = new YourActivePostsView({collection : events});
         yourActivePostsView.render();
@@ -39,7 +46,7 @@ $(function() {
         var yourArchivedPostsView = new YourArchivedPostsView({collection : archivedEvents});
         yourArchivedPostsView.render();
     }
-/*
+
     if ($('#your-posts').length)
     {  
         var archivedEvents = new EventCollection(events.where({status: 2}));
@@ -80,7 +87,7 @@ $(function() {
             yourArchivedPostView.render();
         });
     }
-*/
+
     
     if ($('#post-event').length)
     {
@@ -94,12 +101,12 @@ $(function() {
         });
         
         postEventView.render();
-    }
+    }*/
     
     if ($('#map_canvas').length)
     {   
         var mapView = new MapView({
-            collection: events
+            collection: events,
         });
         mapView.render();
     }
@@ -114,6 +121,7 @@ $(function() {
     if ($('#top-search').length)
     {
         var searchView = new SearchView({
+            collection: events,
         });
         searchView.render();
     }

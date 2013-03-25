@@ -1,3 +1,3 @@
 var UserView = Backbone.View.extend({
-    id: 'user',
+    id: 'sign-in-status',
 });

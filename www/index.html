@@ -18,8 +18,8 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
 
 {% block signin-form %}
     {% if user.is_authenticated %}
-    <span class="sign-in-status"><a href="{% url gallevent.user_profile.views.show_profile %}">{{ user.username }}</a>
-    <a href="{% url gallevent.login.views.sign_out %}">Sign Out</a></span>
+    <span class="sign-in-status"><a href="{% url 'user_profile.views.show_profile' %}">{{ user.username }}</a>
+    <a href="{% url 'login.views.sign_out' %}">Sign Out</a></span>
     {% else %}
     <span class="sign-in-status"><a class="btn-join" href="{% url gallevent.login.views.invite_request %}">Join Gallevent</a><span class="bar-vertical">|</span><a id="signIn" href="#">Sign In</a></span>
     <div class="hidden">
@@ -28,6 +28,8 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         <span id="user-firstname">{{ user.firstname }}</span>
         <span id="user-lastname">{{ user.lastname }}</span>
         <span id="user-email">{{ user.email }}</span>
+        <span id="user-latitude">{{ request.GET.latitude|default:0 }}</span>
+        <span id="user-longitude">{{ request.GET.longitude|default:0 }}</span>
     </div>
     <script>
 		$("#signIn").click(function(){
@@ -72,11 +74,11 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         <button class="btn-search"><span class="icon-looking-glass">icon</span> Search</button>
     </span>
     
-    <input type="hidden" id="user-latitude" name="latitude" value="{{ request.GET.latitude|default:0 }}" />
-    <input type="hidden" id="user-longitude" name="longitude" value="{{ request.GET.longitude|default:0 }}" />
+    <input type="hidden" id="map-latitude" name="latitude" value="{{ request.GET.latitude|default:0 }}" />
+    <input type="hidden" id="map-longitude" name="longitude" value="{{ request.GET.longitude|default:0 }}" />
     <input type="hidden" id="map-radius" name="distance" value="{{ request.GET.distance|default:5.08 }}" />
-    <input type="hidden" id="date1" name="start_date" value="{{ form.start_date.value }}"/>
-    <input type="hidden" id="date2" name="end_date" value="{{ form.end_date.value|default:form.start_date.value }}"/>
+    <input type="hidden" id="date1" name="start_date" value=""/>
+    <input type="hidden" id="date2" name="end_date" value=""/>
     
 </form><!-- #top-nav -->
 <ul id="pin-key">
@@ -89,7 +91,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
     <li><a href="#" class="key dining"><b>Dining</b><i>Events for Foodies...</i></a></li>
     <li><a href="#" class="key parties"><b>Nightlife &amp; Parties</b><i>Club Events, Drinking, Comedy Shows...</i></a></li>
 </ul>
-<a class="btn-post-event" href="{% url gallevent.event.views.post_event %}">Post an Event</a>
+<a class="btn-post-event" href="{% url 'event.views.post_event' %}">Post an Event</a>
 {% endblock content %}
 {% block map %}
 	{% show_map %}
