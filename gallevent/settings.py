@@ -141,7 +141,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'mustachejs',
-    'haystack',
+    #'haystack',
     'tastypie',
     'map',
     'login',

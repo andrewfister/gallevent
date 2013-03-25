@@ -1,6 +1,6 @@
 import datetime
 from haystack import indexes
-from gallevent.event.models import Event
+from event.models import Event
 
 
 class EventIndex(indexes.SearchIndex, indexes.Indexable):
