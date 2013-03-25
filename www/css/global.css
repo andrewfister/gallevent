@@ -3,7 +3,7 @@
 ** Description: Positioning of most site-wide elemenets
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-06-2013
-** Updated: 01-24-2013
+** Updated: 03-17-2013
 ************************************** */
 
 /* = Global Fonts */
@@ -61,12 +61,43 @@ select {
 	overflow:hidden;
 	}
 
+/* = Global Drop Shadow
+----------------------------------- */
+label,
+button,
+.btn-join,
+.sign-in-status #signIn,
+a.btn-post-event {
+	text-shadow: 	1px 1px 2px rgba(0, 0, 0, 0.25);
+	}
+
+.home input,
+.home .select {
+	box-shadow:		1px 1px 2px rgba(0, 0, 0, 0.25);
+	}
+
+#header,
+.logo-block,
+a.btn-post-event,
+.home #content {
+	box-shadow:		0px 0px 4px rgba(0,0,0,0.3);
+	}
 
 
 /* = Global Rounded Corners
 ----------------------------------- */
-#header {
+#header,
+.logo-block,
+.home .sign-in-form {
 	border-radius:0px 0px 8px 8px;
+	}
+
+.sign-in-status .btn-join {
+	border-radius:0px 0px 0px 8px;
+	}
+	
+.sign-in-status #signIn {
+	border-radius:0px 0px 8px 0px;
 	}
 
 /* = Global Calendar Datepicker
@@ -170,32 +201,65 @@ select {
 #top-search {
 	float:left;
 	width:88%;
-	padding:20px 6% 1.2em 6%;
+	padding:26px 6% 2.6em 6%;
 	color:#fff;
-	background:#f9a21c;
+	background:#01a1ad url(../img/sprite-map-horizontal-repeats.png) repeat-x 0 0;
 	}
+
 #top-search label {
 	display:block;
-	margin-top:0.5em;
 	color:#fff;
 	font-weight:bold;
+	letter-spacing:0.02em;
+	}
+
+/* = Top Search Label Icons */
+#top-search label.icon {
+	float:left;
+	clear:none;
+	margin-top:5px;
+	height:28px;
+	width:8%;
+	text-indent:-9999px;
+	background:transparent url(../img/sprite-map-logos-icons-bgs.png) no-repeat;
+	}
+
+#top-search label.find-event {
+	background-position:-3px -3px;
+	}
+#top-search label.clock {
+	background-position:-3px -46px;
+	}
+#top-search label.price {
+	background-position:-3px -91px;
+	}
+
+/* Top Search Fields */
+#top-search .row {
+	float:left;
+	width:100%;
+	margin-top:0.5em;
 	}
 
 #top-search #event {
-	width:95%;
+	float:right;
+	width:85%;
 	}
 
 #top-search .select {
   	float:left;
-	width:35%;
+	margin-left:2%;
+	width:46%;
 	}
-#top-search select#time-span {
+#top-search select#time-span,
+#top-search select#price {
 	width:150%; /* Pushes browser default arrow out of view */
 	}
 
 #top-search #date {
 	float:right;
-	width:50%;
+	width:32%;
+	background:#fff url(../img/icon-calendar.png) no-repeat 95% 50%;
 	}
 
 /* #map-controls */
@@ -351,8 +415,8 @@ select {
 
 /* = Buttons
 ----------------------------------- */
-#top-search input[type="submit"],
-.sign-in-form input[type="submit"],
+#top-search button,
+.btn-sign-in,
 .map-popup .btn-rsvp,
 .map-popup .btn-watch {
 	border-radius:6px;
@@ -360,24 +424,53 @@ select {
 	font-weight:bold;
 	}
 
-#top-search input[type="submit"],
-.sign-in-form input[type="submit"] {
+#top-search button,
+.btn-sign-in {
 	border:2px solid #fff;
-	border-radius:6px;
 	background:#66C13F;
-	color:#fff;
-	font-weight:bold;
 	}
 
-.sign-in-form input[type="submit"] {
-	margin-top:1em;
-	}
-
-#top-search input[type="submit"] {
-	clear:both;
+.btn-sign-in {
 	float:right;
 	margin-top:1em;
-	width:20%;
+	background:#01a1ad;
+	padding:0.5em 1em 0.5em 1em;
+	}
+.btn-sign-in:hover {
+	background:#66C13F;
+	}
+
+.sign-in-status .btn-join,
+.sign-in-status #signIn {
+	float:left;
+	clear:none;
+	width:129px;
+	padding:1.4em 0 1em 0;
+	text-align:center;
+	background:#01a1ad url(../img/sprite-map-horizontal-repeats.png) repeat-x 0 -327px;
+	}
+
+.sign-in-status .btn-join:hover,
+.sign-in-status #signIn:hover {
+	color:#fff !important;
+	background:#66C13F;
+	}
+
+#top-search button {
+	float:right;
+	width:37%;
+	padding:0.2em 0 0.4em 0;
+	}
+
+#top-search button .icon-looking-glass {
+	overflow:hidden;
+	display:inline-block;
+	position:relative;
+	top:0.3em;
+	width:20px;
+	height:19px;
+	text-indent:-9999px;
+	background:url(../img/sprite-map-logos-icons-bgs.png) no-repeat -44px -94px;
 	}
 	
 .home a.btn-post-event {
@@ -386,7 +479,6 @@ select {
 	margin:0 auto;
 	width:70%;
 	max-width:200px;
-	box-shadow:			0px 0px 4px rgba(0,0,0,0.3);
 	border:2px solid #fff;
 	border-radius:6px;
 	padding:1em;
@@ -402,7 +494,7 @@ select {
 	}
 	
 input[type="submit"]:hover,
-#top-search input[type="submit"]:hover,
+#top-search button:hover,
 a.btn-post-event:hover {
 	background-color:#01a1ad;
 	}
@@ -438,10 +530,9 @@ a.btn-post-event:hover {
 ----------------------------------- */
 #header {
 	z-index:800;
-	box-shadow:			0px 0px 4px rgba(0,0,0,0.3);
 	height:auto;
 	padding:20px 2% 20px 2%;
-	background:#f9a21c;
+	background:#f9a21c url(../img/sprite-map.png) no-repeat -76px -376px;
 	}
 
 #header a:hover {
