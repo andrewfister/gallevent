@@ -21,7 +21,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
     <span class="sign-in-status"><a href="{% url 'user_profile.views.show_profile' %}">{{ user.username }}</a>
     <a href="{% url 'login.views.sign_out' %}">Sign Out</a></span>
     {% else %}
-    <span class="sign-in-status"><a class="btn-join" href="{% url gallevent.login.views.invite_request %}">Join Gallevent</a><span class="bar-vertical">|</span><a id="signIn" href="#">Sign In</a></span>
+    <span class="sign-in-status"><a class="btn-join" href="{% url 'login.views.invite_request' %}">Join Gallevent</a><span class="bar-vertical">|</span><a id="signIn" href="#">Sign In</a></span>
     <div class="hidden">
         <span id="user-id">{{ user.id }}</span>
         <span id="user-username">{{ user.username }}</span>
