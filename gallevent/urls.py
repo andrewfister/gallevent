@@ -1,6 +1,7 @@
 from django.conf.urls import include,url,patterns
 from django.contrib import admin
 from django.conf import settings
+from django.views.generic.base import TemplateView
 
 from event.views import FrontPageView
 
@@ -22,4 +23,7 @@ urlpatterns = patterns('',
     
     #haystack search
     (r'^search/', include('haystack.urls')),
+	
+	#Sponsors page
+	url('^sponsors.html$', TemplateView.as_view(template_name='sponsors.html', content_type='text/html')),
 )

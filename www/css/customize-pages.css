@@ -3,7 +3,7 @@
 ** Description: Custom Styles for Specific Pages
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-13-2013
-** Updated: 01-13-2013
+** Updated: 01-29-2013
 ************************************** */
 
 /* = Home Page
@@ -21,7 +21,7 @@
 	background:transparent;
 	}
 
-.logo-block {
+.home .logo-block {
 	position:relative;
 	z-index:800;
 	width:217px;
@@ -92,9 +92,7 @@
 .user-control #header {
 	width:96%;
 	position:relative;
-	}
-.user-control #header.open {
-	height:5em;
+	min-height:4.5em;
 	}
 
 .user-control .logo-block {
@@ -173,6 +171,7 @@
 
 /* = Media Queries
 ----------------------------------- */
+/*
 @media all and (max-width: 1250px) {
 	.home #content {
 	width:33%;
@@ -203,3 +202,4 @@
 		width:217px;
 	}
 }
+*/

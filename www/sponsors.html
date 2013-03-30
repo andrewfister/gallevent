@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block body-class %}user-control sponsors{% endblock body-class %}
+
+{% load map_tags %}
+
+{% block prejavascript %}
+<script>
+var eventsJSON = [];
+</script>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="/static/js/models/event-model.js"></script>
+<script type="text/javascript" src="/static/js/views/post-event-view.js"></script>
+<!-- START Timepicker -->
+<script type="text/javascript" src="/static/js/jquery.timepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/jquery.timepicker.css" />
+<!-- END Timepicker -->
+{% endblock javascript %}
+
+{% block content %}
+
+	<div class="inside-container">
+        <h1>Our Sponsors</h1>
+        <p>We are truly greatful for all our wonderful friends and sponsors who have helped make this project possible.</p>
+        
+        <h2>Gallevent Silver Sponsors</h2>
+        <ul>
+            <li><a href="http://www.wolfpaklabs.com" title="Startup Consulting and Mobile App Development" target="_blank">WolfPak Labs</a></li>
+        </ul>
+        
+        <h2>Gallevent Socialites</h2>
+        <ul>
+            <li>Andrew Fister Jr.</li>
+            <li>AnnaLise Hoopes</li>
+            <li>Chase Nelson</li>
+            <li>Emily Mano</li>
+            <li>Matthias Goerner</li>
+            <li>Todd Greenwalt</li>
+            <li>Katharine Randall</li>
+            <li>Kian Thelen</li>
+            <li>Robert Lee</li>
+            <li>Thomas Bouldin</li>
+        </ul>
+    </div>
+
+{% endblock content %}
+
+{% block map %}
+	{% show_map %}
+{% endblock map %}

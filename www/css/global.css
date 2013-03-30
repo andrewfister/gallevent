@@ -3,15 +3,43 @@
 ** Description: Positioning of most site-wide elemenets
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-06-2013
-** Updated: 03-17-2013
+** Updated: 03-29-2013
 ************************************** */
 
-/* = Global Fonts */
+/* = Global Typography */
 html,
 body {
 	background:#a5bfdd;
 	font-family:Arial, Helvetica, sans-serif;
 	}
+
+h1 {
+	color:#01a1ad;
+	font-weight:200;
+	font-size:210%;
+	margin:0;
+	}
+
+h2 {
+	color:#66C13F;
+	font-weight:200;
+	font-size:160%;
+	margin:1em 0 0 0;
+	}
+
+p,
+ul,
+ol {
+	font-size:120%;
+	margin:0.6em 0 0 0;
+	}
+
+ul,
+ol {
+	font-size:120%;
+	margin:0.6em 0 0 2em;
+	}
+	
 
 a,
 a:link {
@@ -77,9 +105,10 @@ a.btn-post-event {
 	}
 
 #header,
-.logo-block,
+.home .logo-block,
 a.btn-post-event,
-.home #content {
+.home #content,
+#ui-datepicker-div {
 	box-shadow:		0px 0px 4px rgba(0,0,0,0.3);
 	}
 
@@ -88,7 +117,8 @@ a.btn-post-event,
 ----------------------------------- */
 #header,
 .logo-block,
-.home .sign-in-form {
+.home .sign-in-form,
+#content {
 	border-radius:0px 0px 8px 8px;
 	}
 
@@ -104,12 +134,8 @@ a.btn-post-event,
 ----------------------------------- */
 #ui-datepicker-div {
 	background:#fff;
-	border:3px solid #e5e5e5;
-	margin:18px 0 0 2px;
-	-moz-border-radius:0 0 5px 5px;
-	-webkit-border-radius:0 0 5px 5px;
-	border-radius:0 0 5px 5px; /* future proofing */
-	-khtml-border-radius:0 0 5px 5px; /* for old Konqueror browsers */
+	border:1px solid #B3E3E7;
+	margin:8px 0 0 -10px;
 	position:static;
 	}
 .ui-datepicker {
@@ -123,15 +149,17 @@ a.btn-post-event,
 	}
 .ui-datepicker-header {
 	color:#239ea2;
-	margin:-23px 5px 0 -3px;
-	padding:38px 0 16px 0;
+	margin:-13px 0 0 0;
+	padding:20px 0 0.4em 0;
 	font-size:105%;
 	font-weight:bold;
 	text-align:center;
-	background:url(../img/cal-top-arrow.png) 0 0 no-repeat;
+	background:transparent url(../img/cal-top-arrow.png) no-repeat 50% 0;
 	}
 .ui-datepicker-prev,
 .ui-datepicker-next {
+	position:relative;
+	top:0.1em;
 	width:11px;
 	height:18px;
 	text-indent:-9999px;
@@ -139,7 +167,7 @@ a.btn-post-event,
 .ui-datepicker-prev {
 	float:left;
 	background:url(../img/icon-cal-arrow-l.png) 0 0 no-repeat;
-	margin-left:15px;
+	margin-left:9px;
 	}
 .ui-datepicker-prev:hover {
 	background:url(../img/icon-cal-arrow-l-h.png) 0 0 no-repeat;
@@ -147,20 +175,23 @@ a.btn-post-event,
 .ui-datepicker-next {
 	float:right;
 	background:url(../img/icon-cal-arrow-r.png) 0 0 no-repeat;
-	margin-right:7px;
+	margin-right:9px;
 	}
 .ui-datepicker-next:hover {
 	background:url(../img/icon-cal-arrow-r-h.png) 0 0 no-repeat;
 	}
 .ui-datepicker-calendar {
-	margin:0 5px 5px 5px;
+	margin:0 4px 4px 4px;
 	}
 #ui-datepicker-div table {
-	border-collapse:collapse !important;
 	font-size:90%;
 	}
 #ui-datepicker-div table td {
-	padding:4px 5px 4px 5px;
+	border:1px solid #fff;
+	background:#f0f0f0;
+	text-align:center;
+	width:30px !important;
+	padding:0.3em 0 0.3em 0;
 	}
 #ui-datepicker-div table td:hover {
 	background:#EDF2F2;
@@ -174,14 +205,18 @@ a.btn-post-event,
 	background:#239ea2;
 	}
 #ui-datepicker-div thead tr {
-	height:2em;
 	}
+#ui-datepicker-div thead th {
+	text-align:center;
+	padding:0.3em 0 0.3em 0;
+	}
+
 .ui-datepicker-today {
-	border:1px solid #239ea2;
+	background:#85c440 !important;
 	font-weight:bold;
 	}
 .ui-datepicker-today a {
-	color:#239ea2 !important;
+	color:#fff !important;
 	}
 
 /* = Global Map Styles
@@ -265,6 +300,7 @@ a.btn-post-event,
 /* #map-controls */
 #pin-key {
 	float:left;
+	font-size:100%;
 	margin:0 0 1.5em 0;
 	width:100%;
 	list-style:none;
@@ -274,7 +310,7 @@ a.btn-post-event,
 #pin-key li a {
 	width:88%;
 	float:left;
-	padding:1em 6% 1em 6%;
+	padding:1em 6% 0.9em 6%;
 	border-bottom:1px solid #d2d2d2;
 	background-color:#f7f7f7;
 	background-position: 6% 8px;
@@ -560,6 +596,10 @@ a.btn-post-event:hover {
 	font-size:15px;
 	}
 
+.inside-container {
+	margin:2em 1em 2em 1.4em;
+	}
+
 #footer {
 	padding:0em 6% 2em 6%;
 	text-align:center;
@@ -578,6 +618,7 @@ a.btn-post-event:hover {
 
 /* = Media Queries
 ----------------------------------- */
+/*
 @media screen and (max-width: 600px),
 screen and (max-device-width: 480px) {
 	html {
@@ -607,3 +648,4 @@ screen and (max-device-width: 480px) {
 	float:right;
 	}
 }
+*/
