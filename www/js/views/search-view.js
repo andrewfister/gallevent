@@ -44,7 +44,7 @@ var SearchView = Backbone.View.extend({
             date = $.datepicker.parseDate('mm/dd/yy', $( "#date" ).attr('value'));
             dayOfWeek = (date.getDay() + 6) % 7;
             date.setDate(date.getDate() - dayOfWeek);
-            date2 = new Date();
+            date2 = new Date(date);
             date2.setDate(date.getDate() + 6);
             
             $("#date1").attr('value', $.datepicker.formatDate('mm/dd/yy', date));
@@ -55,7 +55,7 @@ var SearchView = Backbone.View.extend({
             date = $.datepicker.parseDate('mm/dd/yy', $( "#date" ).attr('value'));
             dayOfWeek = (date.getDay() + 6) % 7;
             date.setDate(date.getDate() - dayOfWeek + 4);
-            date2 = new Date();
+            date2 = new Date(date);
             date2.setDate(date.getDate() + 2);
             
             $("#date1").attr('value', $.datepicker.formatDate('mm/dd/yy', date));

@@ -6,7 +6,6 @@ from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
-##from djangbone.views import BackboneAPIView
 from django.views.generic.base import TemplateView, View
 
 from event import forms
@@ -101,7 +100,6 @@ def post_event(request, event_id=None, edit=False):
 #    return render_to_response('your-posts-manage.html', {
 #    }, context_instance=RequestContext(request))
 
-##REST API for searching Gallevent
 #class EventSearchView(BackboneAPIView):
 #    base_queryset = models.Event.objects.filter(status=1).extra(where=['end_date >= CURRENT_TIMESTAMP']).order_by('start_date','start_time').reverse()
 #    

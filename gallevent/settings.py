@@ -19,24 +19,16 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-if django.VERSION[1] > 3:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'galleventdb',
-            'USER': 'galleventdbadmin',
-            'PASSWORD': 'oreborestore',
-            'HOST': local_settings.DATABASE_HOST_LOCAL,
-            'PORT': '',
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'galleventdb',
+        'USER': 'galleventdbadmin',
+        'PASSWORD': 'oreborestore',
+        'HOST': local_settings.DATABASE_HOST_LOCAL,
+        'PORT': '',
     }
-elif django.VERSION[1] == 3:
-    DATABASE_ENGINE = 'mysql'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-    DATABASE_NAME = 'galleventdb'             # Or path to database file if using sqlite3.
-    DATABASE_USER = 'galleventdbadmin'             # Not used with sqlite3.
-    DATABASE_PASSWORD = 'oreborestore'         # Not used with sqlite3.
-    DATABASE_HOST = local_settings.DATABASE_HOST_LOCAL             # Set to empty string for localhost. Not used with sqlite3.
-    DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
+}
 
 HAYSTACK_CONNECTIONS = {
     'default': {
@@ -141,7 +133,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'mustachejs',
-    #'haystack',
+    'haystack',
     'tastypie',
     'map',
     'login',
