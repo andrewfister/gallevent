@@ -5,11 +5,10 @@
 <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
 <title>{% block title %}Gallevent - Find events near you!{% endblock title %}</title>
 
-<link rel="stylesheet" type="text/css" href="/static/css/reset.css" />
-<link rel="stylesheet" type="text/css" href="/static/css/normalize.css" />
-<link rel="stylesheet" type="text/css" href="/static/css/html-boilerplate.css" />
-<link rel="stylesheet" type="text/css" href="/static/css/global.css" />
-<link rel="stylesheet" type="text/css" href="/static/css/customize-pages.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/framework/reset.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/framework/normalize.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/framework/html-boilerplate.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/custom/gallevent-template.css" />
 {% block css %}{% endblock css %}
 
 {% block prejavascript %}{% endblock prejavascript %}
@@ -39,7 +38,7 @@
 
     <div id="container">
     {% block header %}
-        <div id="header" style="display:none;">
+        <div id="header">
             <div class="logo-block">
             <a href="{% url 'front_page' %}" class="logo">Gallevent&trade <b>beta</b></a>
             <span class="tagline">Find Events Near You!</span>

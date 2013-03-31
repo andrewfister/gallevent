@@ -1,9 +1,9 @@
 @charset "utf-8";
-/* Title: Global Styles
-** Description: Positioning of most site-wide elemenets
+/* Title: Gallevent Template
+** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-06-2013
-** Updated: 03-29-2013
+** Updated: 03-31-2013
 ************************************** */
 
 /* = Global Typography */
@@ -84,7 +84,7 @@ select {
 	padding-bottom:0.42em;
 	padding-left:2.5%;
 	padding-right:2.5%;
-	background:#fff url(../img/btn-select-dwn-arrow.png) right center no-repeat;
+	background:#fff url(../../img/btn-select-dwn-arrow.png) right center no-repeat;
 	background-size:contain;
 	overflow:hidden;
 	}
@@ -154,7 +154,7 @@ a.btn-post-event,
 	font-size:105%;
 	font-weight:bold;
 	text-align:center;
-	background:transparent url(../img/cal-top-arrow.png) no-repeat 50% 0;
+	background:transparent url(../../img/cal-top-arrow.png) no-repeat 50% 0;
 	}
 .ui-datepicker-prev,
 .ui-datepicker-next {
@@ -166,19 +166,19 @@ a.btn-post-event,
 	}
 .ui-datepicker-prev {
 	float:left;
-	background:url(../img/icon-cal-arrow-l.png) 0 0 no-repeat;
+	background:url(../../img/icon-cal-arrow-l.png) 0 0 no-repeat;
 	margin-left:9px;
 	}
 .ui-datepicker-prev:hover {
-	background:url(../img/icon-cal-arrow-l-h.png) 0 0 no-repeat;
+	background:url(../../img/icon-cal-arrow-l-h.png) 0 0 no-repeat;
 	}
 .ui-datepicker-next {
 	float:right;
-	background:url(../img/icon-cal-arrow-r.png) 0 0 no-repeat;
+	background:url(../../img/icon-cal-arrow-r.png) 0 0 no-repeat;
 	margin-right:9px;
 	}
 .ui-datepicker-next:hover {
-	background:url(../img/icon-cal-arrow-r-h.png) 0 0 no-repeat;
+	background:url(../../img/icon-cal-arrow-r-h.png) 0 0 no-repeat;
 	}
 .ui-datepicker-calendar {
 	margin:0 4px 4px 4px;
@@ -235,10 +235,10 @@ a.btn-post-event,
 ----------------------------------- */
 #top-search {
 	float:left;
-	width:88%;
-	padding:26px 6% 2.6em 6%;
+	width:93%;
+	padding:0.9em 3.5% 1.5em 3.5%;
 	color:#fff;
-	background:#01a1ad url(../img/sprite-map-horizontal-repeats.png) repeat-x 0 0;
+	background:#01a1ad url(../../img/sprite-map-horizontal-repeats.png) repeat-x 0 0;
 	}
 
 #top-search label {
@@ -256,7 +256,7 @@ a.btn-post-event,
 	height:28px;
 	width:8%;
 	text-indent:-9999px;
-	background:transparent url(../img/sprite-map-logos-icons-bgs.png) no-repeat;
+	background:transparent url(../../img/sprite-map-logos-icons-bgs.png) no-repeat;
 	}
 
 #top-search label.find-event {
@@ -294,160 +294,8 @@ a.btn-post-event,
 #top-search #date {
 	float:right;
 	width:32%;
-	background:#fff url(../img/icon-calendar.png) no-repeat 95% 50%;
+	background:#fff url(../../img/icon-calendar.png) no-repeat 95% 50%;
 	}
-
-/* #map-controls */
-#pin-key {
-	float:left;
-	font-size:100%;
-	margin:0 0 1.5em 0;
-	width:100%;
-	list-style:none;
-	padding:0;
-	horizontal-overflow:hidden;
-	}
-#pin-key li a {
-	width:88%;
-	float:left;
-	padding:1em 6% 0.9em 6%;
-	border-bottom:1px solid #d2d2d2;
-	background-color:#f7f7f7;
-	background-position: 6% 8px;
-	background-repeat:no-repeat;
-	font-weight:bold;
-	color:#000;
-	text-decoration:none;
-	}
-#pin-key li a b,
-#pin-key li a i {
-	margin-left:45px;
-	}
-#pin-key li a i {
-	display:none;
-	color:#555659;
-	font-weight:normal;
-	}
-#pin-key li a:hover {
-	padding:0.3em 6% 0.35em 6%;
-	background-color:#fff;
-	}
-#pin-key li a:hover i {
-	display:block;
-	}
-
-.networking {
-	background-image:url(../img/pin-key-networking.png);
-	
-	}
-.education {
-	background:url(../img/pin-key-education.png) 10px 8px no-repeat;
-	}
-.fairs {
-	background:url(../img/pin-key-fairs.png) 10px 8px no-repeat;
-	}
-.athletic {
-	background:url(../img/pin-key-athletic.png) 10px 8px no-repeat;
-	}
-.art {
-	background:url(../img/pin-key-art.png) 10px 8px no-repeat;
-	}
-.dancing {
-	background:url(../img/pin-key-dancing.png) 10px 8px no-repeat;
-	}
-.sales {
-	background:url(../img/pin-key-sales.png) 10px 8px no-repeat;
-	}
-.dining {
-	background:url(../img/pin-key-dining.png) 10px 8px no-repeat;
-	}
-.parties {
-	background:url(../img/pin-key-parties.png) 10px 8px no-repeat;
-	}
-.jobs {
-	background:url(../img/pin-key-jobs.png) 10px 8px no-repeat;
-	}
-
-
-/* = Map Pop-Ups
------------------------------------ */
-.map-popup {
-	width:300px;
-	color:#58595b;
-	overflow-y:hidden;
-	}
-
-.map-popup .event-name {
-	font-size:150%;
-	line-height:1.1em;
-	margin-bottom:0.35em;
-	color:#01A1AD;
-	}
-.map-popup .event-name a {
-	color:#01A1AD;
-	}
-.map-popup .event-name a:hover {
-	color:#85c440; /* green */
-	}
-.event-name .pop-up-banner {
-	position:relative;
-	z-index:900;
-	margin-bottom:0.5em;
-	}
-.event-name .category-icon {
-	float:left;
-	margin-right:0.5em;
-	}
-.event-name .pop-up-banner+.category-icon {
-	float:right;
-	margin:-1.2em 10px 0 0;
-	border:2px solid #fff;
-	position:relative;
-	z-index:1000;
-	}
-
-.map-popup .price {
-	color:#01A1AD;
-	font-size:110%;
-	}
-.map-popup .price strong {
-	color:#70b820;
-	}
-
-.map-popup .description,
-.map-popup .address {
-	margin:.5em 0 0 0;
-	}
-.map-popup .address {
-	font-style:italic;
-	color:#868789;
-	}
-
-.map-popup .mod-event {
-	clear:both;
-	}
-.map-popup .mod-event a {
-	font-style:italic;
-	text-decoration:underline;
-	color:#f68d1f;
-	}
-.map-popup .mod-event a:hover {
-	text-decoration:none;
-	color:#85c440;
-	}
-.map-popup .mod-event .warning {
-	float:right;
-	}
-.map-popup .mod-event a.warning {
-	font-style:italic;
-	text-decoration:underline;
-	color:#d62121;
-	}
-.map-popup .mod-event a.warning:hover {
-	text-decoration:none;
-	color:#F2581C;
-	}
-
 
 /* = Buttons
 ----------------------------------- */
@@ -483,7 +331,7 @@ a.btn-post-event,
 	width:129px;
 	padding:1.4em 0 1em 0;
 	text-align:center;
-	background:#01a1ad url(../img/sprite-map-horizontal-repeats.png) repeat-x 0 -327px;
+	background:#01a1ad url(../../img/sprite-map-horizontal-repeats.png) repeat-x 0 -327px;
 	}
 
 .sign-in-status .btn-join:hover,
@@ -495,18 +343,16 @@ a.btn-post-event,
 #top-search button {
 	float:right;
 	width:37%;
-	padding:0.2em 0 0.4em 0;
+	padding:0.4em 0 0.4em 0;
 	}
 
 #top-search button .icon-looking-glass {
 	overflow:hidden;
 	display:inline-block;
-	position:relative;
-	top:0.3em;
 	width:20px;
 	height:19px;
 	text-indent:-9999px;
-	background:url(../img/sprite-map-logos-icons-bgs.png) no-repeat -44px -94px;
+	background:url(../../img/sprite-map-logos-icons-bgs.png) no-repeat -44px -94px;
 	}
 	
 .home a.btn-post-event {
@@ -519,7 +365,7 @@ a.btn-post-event,
 	border-radius:6px;
 	padding:1em;
 	background-color:#66C13F;
-	background-image:url(../img/icon-pin-add.png);
+	background-image:url(../../img/icon-pin-add.png);
 	background-position:8% center;
 	background-repeat:no-repeat;
 	color:#fff;
@@ -534,33 +380,6 @@ input[type="submit"]:hover,
 a.btn-post-event:hover {
 	background-color:#01a1ad;
 	}
-
-.map-popup .btns {
-	margin:0 0 0.5em 0;
-	float:left;
-	}
-
-.map-popup .btn-rsvp,
-.map-popup .btn-watch {
-	padding:.4em .6em .4em .6em;
-	margin:1em 0.5em 0 0;
-  	float:left;
-	}
-
-.map-popup .btn-rsvp {
-	background:#66C13F;
-	}
-
-.map-popup .btn-rsvp:hover {
-	background:#8cd734;
-	}
-.map-popup .btn-watch {
-	background:#F9A21C;
-	}
-.map-popup .btn-watch:hover {
-	background:#fcb510;
-	}
-	
 	
 /* = Main Containers
 ----------------------------------- */
@@ -568,7 +387,7 @@ a.btn-post-event:hover {
 	z-index:800;
 	height:auto;
 	padding:20px 2% 20px 2%;
-	background:#f9a21c url(../img/sprite-map.png) no-repeat -76px -376px;
+	background:#f9a21c url(../../img/sprite-map.png) no-repeat -76px -376px;
 	}
 
 #header a:hover {
@@ -584,7 +403,7 @@ a.btn-post-event:hover {
 	width:217px;
 	height:45px;
 	margin-left:0;
-	background:url(../img/logo-gallevent-white.png) top left no-repeat;
+	background:url(../../img/logo-gallevent-white.png) top left no-repeat;
 	text-indent:-100%;
 	}
 .tagline {
@@ -601,7 +420,7 @@ a.btn-post-event:hover {
 	}
 
 #footer {
-	padding:0em 6% 2em 6%;
+	padding:0em 3.5% 2em 3.5%;
 	text-align:center;
 	font-size:85%;
 	color:#555659;
@@ -618,34 +437,33 @@ a.btn-post-event:hover {
 
 /* = Media Queries
 ----------------------------------- */
-/*
-@media screen and (max-width: 600px),
-screen and (max-device-width: 480px) {
-	html {
-		-ms-text-size-adjust: none;
-		-webkit-text-size-adjust: none;
+@media screen and (max-width: 940px) {
+	/* = Top Search */
+	#top-search {
+		border-radius:8px 8px 0px 0px;
+		}
+	
+	/* = Top Search Label Icons */
+	#top-search label.icon {
+		width:11%;
+		}
+	
+	/* Top Search Fields */	
+	#top-search #event {
+		width:82%;
+		}
+	#top-search .select {
+		margin-bottom:0.5em;
+		width:82%;
+		}
+	#top-search #date {
+		width:82%;
+		}
+	
+	/* Top Search Button */	
+	#top-search button {
+	width:87%;
+	padding:0.4em 0 0.4em 0;
 	}
-}
 
-@media all and (max-width: 960px) {
-#top-search label {
-	display:block;
-	margin-top:0.5em;
-	color:#fff;
-	font-weight:bold;
-	}
-#top-search #time-span {
-	width:40%;
-	}
-#top-search .connecting-block {
-	position:relative;
-	top:0.5em;
-	width:10%;
-	padding:0.6em 0 0.6em 0;
-	}
-#top-search #date {
-	width:40%;
-	float:right;
-	}
 }
-*/

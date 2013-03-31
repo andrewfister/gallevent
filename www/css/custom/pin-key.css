@@ -1,0 +1,91 @@
+@charset "utf-8";
+/* Title: Pin Key
+** Description: Control for Event Categories
+** Author: Jessica Greenwalt - www.jgreenwalt.com
+** Created: 03-31-2013
+** Updated: 03-31-2013
+************************************** */
+
+/* = Position Pin Key Within Container */
+#pin-key {
+	float:left;
+	font-size:100%;
+	margin:0 0 1.5em 0;
+	width:100%;
+	list-style:none;
+	padding:0;
+	horizontal-overflow:hidden;
+	}
+
+/* = Pin Key Category */
+#pin-key li a {
+	width:93%;
+	float:left;
+	padding:1em 3.5% 0.9em 3.5%;
+	border-bottom:1px solid #d2d2d2;
+	background-color:#f7f7f7;
+	background-position: 3.5% 8px;
+	background-repeat:no-repeat;
+	font-weight:bold;
+	color:#000;
+	text-decoration:none;
+	}
+
+/* = Pin Key Category Title */
+#pin-key li a b {
+	margin-left:45px;
+	}
+
+/* = Pin Key Category Description */
+#pin-key li a i {
+	display:none;
+	color:#555659;
+	font-weight:normal;
+	}
+#pin-key li a:hover {
+	background-color:#fff;
+	}
+#pin-key li a:hover i {
+	display:inline;
+	margin-left:0.5em;
+	}
+
+/* = Specific Cateogry Styles */
+.networking {
+	background-image:url(../../img/pin-key-networking.png);
+	}
+.education {
+	background:url(../../img/pin-key-education.png) 10px 8px no-repeat;
+	}
+.fairs {
+	background:url(../../img/pin-key-fairs.png) 10px 8px no-repeat;
+	}
+.athletic {
+	background:url(../../img/pin-key-athletic.png) 10px 8px no-repeat;
+	}
+.art {
+	background:url(../../img/pin-key-art.png) 10px 8px no-repeat;
+	}
+.dancing {
+	background:url(../../img/pin-key-dancing.png) 10px 8px no-repeat;
+	}
+.sales {
+	background:url(../../img/pin-key-sales.png) 10px 8px no-repeat;
+	}
+.dining {
+	background:url(../../img/pin-key-dining.png) 10px 8px no-repeat;
+	}
+.parties {
+	background:url(../../img/pin-key-parties.png) 10px 8px no-repeat;
+	}
+.jobs {
+	background:url(../../img/pin-key-jobs.png) 10px 8px no-repeat;
+	}
+
+/* = Media Queries
+----------------------------------- */
+@media screen and (max-width: 1230px) {
+	#pin-key li a:hover i {
+		display:none;
+		}
+}

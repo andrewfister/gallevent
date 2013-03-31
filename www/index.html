@@ -2,6 +2,9 @@
 {% load map_tags %}
 
 {% block css %}
+<link rel="stylesheet" type="text/css" href="/static/css/custom/home-page.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/custom/pin-key.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/custom/map-pop-ups.css" />
 {% endblock %}
 
 {% block prejavascript %}
@@ -71,7 +74,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
                 <option value="under_20" {% if timeSpan == "weekend_of" %}selected="selected"{% endif %}>Under $20</option>
             </select>
         </span>
-        <button class="btn-search"><span class="icon-looking-glass">icon</span> Search</button>
+        <button class="btn-search"><img src="/static/img/icon-search.png" alt="&nbsp;" /> Search</button>
     </span>
     
     <input type="hidden" id="map-latitude" name="latitude" value="{{ request.GET.latitude|default:0 }}" />
@@ -82,14 +85,14 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
     
 </form><!-- #top-nav -->
 <ul id="pin-key">
-    <li><a href="#" class="key networking"><b>Networking</b><i>Industry Mixers, Conferences, Startup Events...</i></a></li>
+    <li><a href="#" class="key networking"><b>Networking</b><i>Meetups, Mixers, Conferences...</i></a></li>
     <li><a href="#" class="key education"><b>Education</b><i>Classes, Study Groups, Lectures...</i></a></li>
-    <li><a href="#" class="key fairs"><b>Fairs &amp; Festivals</b><i>Street Fairs, Food Fairs, Cultural Festivals...</i></a></li>
-    <li><a href="#" class="key athletic"><b>Athletic</b><i>Street Fairs, Food Fairs, Cultural Festivals...</i></a></li>
-    <li><a href="#" class="key art"><b>Art &amp; Music</b><i>Gallery Shows, Concerts, Crafting Meetups...</i></a></li>
-    <li><a href="#" class="key dancing"><b>Dancing</b><i>Dance Classes, Dance Parties, Flash Mobs...</i></a></li>
+    <li><a href="#" class="key fairs"><b>Fairs &amp; Festivals</b><i>Street, Food, Cultural...</i></a></li>
+    <li><a href="#" class="key athletic"><b>Athletic</b><i>Running, biking, hiking...</i></a></li>
+    <li><a href="#" class="key art"><b>Art &amp; Music</b><i>Shows, Concerts, Crafting...</i></a></li>
+    <li><a href="#" class="key dancing"><b>Dancing</b><i>Classes, Parties, Flash Mobs...</i></a></li>
     <li><a href="#" class="key dining"><b>Dining</b><i>Events for Foodies...</i></a></li>
-    <li><a href="#" class="key parties"><b>Nightlife &amp; Parties</b><i>Club Events, Drinking, Comedy Shows...</i></a></li>
+    <li><a href="#" class="key parties"><b>Nightlife &amp; Parties</b><i>Club, Drinking, Comedy...</i></a></li>
 </ul>
 <!-- <a class="btn-post-event" href="{% url 'event.views.post_event' %}">Post an Event</a> -->
 {% endblock content %}
