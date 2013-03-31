@@ -1,4 +1,4 @@
-from django.conf.urls import url, patterns
+from django.conf.urls import include, url, patterns
 
 #from gallevent.event.views import EventSearchView
 from event.api.resources import EventResource
@@ -21,5 +21,5 @@ urlpatterns = patterns('event.views',
 #    url(r'^events/$', EventSearchView.as_view()),
 #    url(r'^events/(?P<id>\d+)', EventSearchView.as_view()),
     
-#    url(r'^api/', include(event_resource.urls))
+    url(r'^api/', include(event_resource.urls))
 )

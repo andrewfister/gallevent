@@ -44,7 +44,7 @@ var SearchView = Backbone.View.extend({
             date = $.datepicker.parseDate('mm/dd/yy', $( "#date" ).attr('value'));
             dayOfWeek = (date.getDay() + 6) % 7;
             date.setDate(date.getDate() - dayOfWeek);
-            date2 = new Date();
+            date2 = new Date(date);
             date2.setDate(date.getDate() + 6);
             
             $("#date1").attr('value', $.datepicker.formatDate('mm/dd/yy', date));
@@ -55,7 +55,7 @@ var SearchView = Backbone.View.extend({
             date = $.datepicker.parseDate('mm/dd/yy', $( "#date" ).attr('value'));
             dayOfWeek = (date.getDay() + 6) % 7;
             date.setDate(date.getDate() - dayOfWeek + 4);
-            date2 = new Date();
+            date2 = new Date(date);
             date2.setDate(date.getDate() + 2);
             
             $("#date1").attr('value', $.datepicker.formatDate('mm/dd/yy', date));
@@ -82,12 +82,18 @@ var SearchView = Backbone.View.extend({
     submitSearch: function() {
         var searchCollection = new EventSearchCollection();
         var serializedSearch = $('#top-search').serializeArray();
-        var searchData = {'q': 'event'};
+        var searchData = {};
         var i;
         for (i = 0; i < serializedSearch.length; i++)
         {
             searchData[serializedSearch[i].name] = serializedSearch[i].value;
         }
+        
+        if (searchData.q.length == 0)
+        {
+            searchData.q = "event";
+        }
+        
         searchCollection.fetch({
             data: searchData, 
             success: function(collection, response, options) {

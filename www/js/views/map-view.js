@@ -52,10 +52,15 @@ var MapView = Backbone.View.extend({
                 var lat = parseFloat(center.lat());
                 var lon = parseFloat(center.lng());
                 if ($('#map-latitude').length)
+                {
                     $('#map-latitude').attr('value', lat);
+                    
+                }
                 if ($('#map-longitude').length)
+                {
                     $('#map-longitude').attr('value', lon);
-                this.mapLocation = new google.maps.LatLng(lat, lon);
+                }
+                this.setMapLocation();
             }.bind(this));
             
             google.maps.event.addListener(this.map, 'zoom_changed', function() {
@@ -138,6 +143,8 @@ var MapView = Backbone.View.extend({
                 this.mapLocation = new google.maps.LatLng($('#map-latitude').attr('value'), $('#map-longitude').attr('value'));
             }
         }
+        
+        $('#map-latitude').change();
     },
     
     foundUserLocation: function(position) {
