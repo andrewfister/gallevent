@@ -91,7 +91,7 @@ var SearchView = Backbone.View.extend({
         
         if (searchData.q.length == 0)
         {
-            searchData.q = "event";
+            searchData.q = "party OR drinks OR dancing OR performance OR show OR concert OR meetup OR group OR event";
         }
         
         searchCollection.fetch({
