@@ -82,12 +82,18 @@ var SearchView = Backbone.View.extend({
     submitSearch: function() {
         var searchCollection = new EventSearchCollection();
         var serializedSearch = $('#top-search').serializeArray();
-        var searchData = {'q': 'event'};
+        var searchData = {};
         var i;
         for (i = 0; i < serializedSearch.length; i++)
         {
             searchData[serializedSearch[i].name] = serializedSearch[i].value;
         }
+        
+        if (searchData.q.length == 0)
+        {
+            searchData.q = "event";
+        }
+        
         searchCollection.fetch({
             data: searchData, 
             success: function(collection, response, options) {
