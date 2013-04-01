@@ -19,12 +19,11 @@ $(function() {
         
         _.each(categories, function(item, index, items) {
             $('.'+item).click(function() {
-                events.reset(eventsJSON);
                 $('.key').removeClass('active');
                 
                 if ($('.'+item).hasClass('inactive') || !$('.key').hasClass('inactive'))
                 {
-                    events.reset(events.where({category: item}));
+                    mapView.collection.reset(events.where({category: item}));
                     $('.key').addClass('inactive');
                     $('.'+item).removeClass('inactive');
                     $('.'+item).addClass('active');
@@ -104,9 +103,14 @@ $(function() {
     }*/
     
     if ($('#map_canvas').length)
-    {   
+    {
+        var mapEvents = new EventCollection();
+        events.on('reset', function() { 
+            mapEvents.reset(events.models);
+        });
+        
         var mapView = new MapView({
-            collection: events,
+            collection: mapEvents
         });
         mapView.render();
     }
@@ -121,7 +125,7 @@ $(function() {
     if ($('#top-search').length)
     {
         var searchView = new SearchView({
-            collection: events,
+            collection: events
         });
         searchView.render();
     }
