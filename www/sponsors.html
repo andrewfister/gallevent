@@ -2,6 +2,7 @@
 
 {% block css %}
 <link rel="stylesheet" type="text/css" href="/static/css/custom/user-control-pages.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/custom/sponsor-page.css" />
 {% endblock %}
 
 {% block body-class %}user-control sponsors{% endblock body-class %}
@@ -27,10 +28,10 @@ var eventsJSON = [];
 
 	<div class="inside-container">
         <h1>Our Sponsors</h1>
-        <p>We are truly greatful for all our wonderful friends and sponsors who have helped make this project possible.</p>
+        <p>These are the fabulous folks who have helped make this project possible. <br />We are truly greatful for their guidance and support.</p>
+        <p>Thank you sponsors!</p>
         
         <h2>Gallevent Silver Sponsors</h2>
-        <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps/ms?ll=36.949892,-83.320312&amp;spn=48.098316,51.503906&amp;t=m&amp;z=4&amp;msa=0&amp;msid=203140481847501893946.0004d9437b48ed90fd9f1"></iframe>
         
         <ul>
             <li><a href="http://www.wolfpaklabs.com" title="Startup Consulting and Mobile App Development" target="_blank">WolfPak Labs</a></li>
@@ -54,5 +55,7 @@ var eventsJSON = [];
 {% endblock content %}
 
 {% block map %}
-	<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps/ms?ll=36.949892,-83.320312&amp;spn=48.098316,51.503906&amp;t=m&amp;z=4&amp;msa=0&amp;msid=203140481847501893946.0004d9437b48ed90fd9f1"></iframe>
+	<div id="map-box">
+        	<iframe id="map_canvas" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps/ms?msa=0&amp;msid=203140481847501893946.0004d9437b48ed90fd9f1&amp;ie=UTF8&amp;t=m&amp;ll=43.197167,-139.833984&amp;spn=22.405719,37.441406&amp;z=4&amp;output=embed"></iframe>
+	</div>
 {% endblock map %}

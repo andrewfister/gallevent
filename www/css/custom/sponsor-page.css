@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* Title: Sponsors Page
+** Description: Styles Specific to Sponsors Page
+** Author: Jessica Greenwalt - www.jgreenwalt.com
+** Created: 03-31-2013
+** Updated: 03-31-2013
+************************************** */
+
+.sponsors .inside-container ul {
+	list-style:none;
+	font-size:130%;
+	margin-left:1em;
+	}
+
+.sponsors .inside-container ul li:before {
+	content:"» ";
+	font-size:140%;
+	font-weight:bold;
+	color:#66C13F;
+	}
