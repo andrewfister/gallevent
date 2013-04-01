@@ -133,3 +133,13 @@
 		margin-top:10em;
 		}
 }
+
+@media screen and (max-width: 650px) {
+	.home #header {
+		width:45%;
+		}
+	.home #content {
+		width:45%;
+		border-radius:8px;	
+		}
+}
