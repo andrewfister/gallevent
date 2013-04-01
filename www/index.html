@@ -74,7 +74,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
                 <option value="under_20" {% if timeSpan == "weekend_of" %}selected="selected"{% endif %}>Under $20</option>
             </select>
         </span>
-        <button class="btn-search" type="button"><span class="icon-looking-glass">icon</span> Search</button>
+        <button class="btn-search" type="button"><img src="/static/img/icon-search.png" alt="&nbsp;" title="Search Icon" /> Search</button>
     </span>
     
     <input type="hidden" id="map-latitude" name="latitude" value="{{ request.GET.latitude|default:0 }}" />
