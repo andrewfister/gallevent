@@ -26,4 +26,7 @@ urlpatterns = patterns('',
 	
 	#Sponsors page
 	url('^sponsors.html$', TemplateView.as_view(template_name='sponsors.html', content_type='text/html')),
+	
+	#About Gallevent page
+	url('^about-gallevent.html$', TemplateView.as_view(template_name='about-gallevent.html', content_type='text/html')),
 )
