@@ -111,12 +111,12 @@ $(function() {
         mapView.render();
     }
     
-    if ($('#header').length)
+    /*if ($('#header').length)
     {
         var headerView = new HeaderView({
         });
         headerView.render();
-    }
+    }*/
     
     if ($('#top-search').length)
     {
