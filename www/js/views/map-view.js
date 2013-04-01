@@ -144,7 +144,17 @@ var MapView = Backbone.View.extend({
             }
         }
         
-        $('#map-latitude').change();
+        var hasVisibleMarkers = false;
+        
+        _.each(this.collection.models, function(item, index, items) {
+            var latLng = new google.maps.LatLng(item.get('latitude'), 
+                                                item.get('longitude'));
+            if (this.map.getBounds().contains(latLng))
+                hasVisibleMarkers = true;
+        }, this);
+        
+        if (hasVisibleMarkers === false)
+            $('#map-latitude').change();
     },
     
     foundUserLocation: function(position) {
