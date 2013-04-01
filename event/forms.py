@@ -201,7 +201,7 @@ class EventBriteSearchForm(EventSearchForm):
         
         for eb_event in eb_response['events'][1:]:
             eb_event = eb_event['event']
-            eb_event_venue = eb_event['venue'] if eb_event.has_key('venue') else ''
+            eb_event_venue = eb_event['venue'] if eb_event.has_key('venue') else []
             if len(eb_event_venue['address']) == 0 or eb_event_venue['address'] == 'TBA' or eb_event['category'] == 'sales':
                 continue
             
