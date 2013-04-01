@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/static/css/custom/user-control-pages.css" />
+{% endblock %}
+
+{% block body-class %}user-control sponsors{% endblock body-class %}
+
+{% load map_tags %}
+
+{% block prejavascript %}
+<script>
+var eventsJSON = [];
+</script>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="/static/js/models/event-model.js"></script>
+<script type="text/javascript" src="/static/js/views/post-event-view.js"></script>
+<!-- START Timepicker -->
+<script type="text/javascript" src="/static/js/jquery.timepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/jquery.timepicker.css" />
+<!-- END Timepicker -->
+{% endblock javascript %}
+
+{% block content %}
+
+	<div class="inside-container">
+        <h1>About Gallevent</h1>
+        
+        <h2>What is Gallevent?</h2>
+        <p>Gallevent is a website that makes it easy to find events of any type happening at any time in any location. It's awesome. <a href="index.html" title="Gallevent - Find Events">Just try it</a>.</p>
+        
+        <h2>Our Team</h2>
+        <p><a href="http://www.jgreenwalt.com" title="Freelance Graphic Designer">Jessica Greenwalt</a> and <a href="#">Andrew Fister</a> are two San Franciscans who are always looking for crazy things to do in the city. Jessica got tired of accessing several different sources for event details and convinced Andrew to help her build a site for the sake of her social life.</p>
+        <p>Jessica Greenwalt is a Graphic Designer, Web Developer, and Illustrator. She works on Gallevent's site design and marketing materials.</p>
+        <p>Andrew Fister is a Software Engineer. He handles Gallevent's server infrastructure, back-end development, and front-end development.</p>
+        <p>Nuggie Soto works on rewriting code by sitting on unattended computer keyboards.</p>
+        <p>Naka works as a seat warmer.</p>
+        
+        <h2>Our Mascot, the Unipegi</h2>
+        <p>The Unipegi is a majestic beast that is part unicorn, part pegisus, part corgie, and all AWESOME. Unipegi can be found on <a href="https://www.facebook.com/unipegi" title="Unipegi on Facebook">Facebook</a> and throughout the Gallevent website. If you find a Unipegi in the wild, please send us a photo!</p>
+    </div>
+
+{% endblock content %}
+
+{% block map %}
+	<div id="map-box">
+        	<iframe id="map_canvas" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps/ms?msa=0&amp;msid=203140481847501893946.0004d9437b48ed90fd9f1&amp;ie=UTF8&amp;t=m&amp;ll=43.197167,-139.833984&amp;spn=22.405719,37.441406&amp;z=4&amp;output=embed"></iframe>
+	</div>
+{% endblock map %}

@@ -54,7 +54,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
 <form id="top-search" method="get">
     <label>Search for Events</label>
     <span class="row"><label class="icon find-event" for="event">Search for Events</label>
-    <input type="text" id="event" name="q" placeholder="Example: Dancing San Francisco" value="{{ request.GET.q }}" /></span>
+    <input type="text" id="event" name="q" placeholder="Example: Dancing" value="{{ request.GET.q }}" /></span>
     <span class="row"><label class="icon clock" for="time-span">Time</label>
         <span class="select">
             <select id="time-span" name="timeSpan">
@@ -69,9 +69,12 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         <label class="icon price" for="price">Price</label>
         <span class="select">
             <select id="price" name="price">
-                <option value="free" {% if timeSpan == "day_of" %}selected="selected"{% endif %}>Free</option>
-                <option value="under_10" {% if timeSpan == "week_of" %}selected="selected"{% endif %}>Under $10</option>
-                <option value="under_20" {% if timeSpan == "weekend_of" %}selected="selected"{% endif %}>Under $20</option>
+            	<option value="any_price">Any Price</option>
+                <!--
+                <option value="free">Free</option>
+                <option value="under_10">Under $10</option>
+                <option value="under_20">Under $20</option>
+                -->
             </select>
         </span>
         <button class="btn-search" type="button"><img src="/static/img/icon-search.png" alt="&nbsp;" title="Search Icon" /> Search</button>
