@@ -1,6 +1,8 @@
 import logging
 
 import eventbrite
+from lxml import html
+from lxml.html.soupparser import fromstring
 
 from django import forms
 
@@ -159,6 +161,7 @@ class EventBriteSearchForm(EventSearchForm):
                             'fairs', 'jobs', 'networking', 'parties', 'sales']
 
     def search(self):
+        logging.debug('searching eventbrite')
         eb_client_query = {'keywords': self.cleaned_data['q']}
 
         if self.cleaned_data['longitude'] and \
@@ -198,7 +201,12 @@ class EventBriteSearchForm(EventSearchForm):
         
         for eb_event in eb_response['events'][1:]:
             eb_event = eb_event['event']
-            eb_event_venue = eb_event['venue']
+            
+            try:
+                eb_event_venue = eb_event['venue']
+            except KeyError:
+                continue
+            
             if len(eb_event_venue['address']) == 0 or eb_event_venue['address'] == 'TBA' or eb_event['category'] == 'sales':
                 continue
             
@@ -216,6 +224,13 @@ class EventBriteSearchForm(EventSearchForm):
             eb_event_end_date = eb_event_end[0]
             eb_event_end_time = eb_event_end[1]
             eb_event_categories = eb_event['category'].split(',')
+            logging.debug('trying to get description')
+            eb_event_description = fromstring(eb_event['description']).text_content()
+            eb_event_short_description = eb_event_description[:50] + '...'
+            try:
+                eb_event_title = html.fragment_fromstring(eb_event['title']).text_content()
+            except:
+                eb_event_title = eb_event['title']
             
             try:
                 eb_event_ticket_price = eb_event['tickets'][0]['ticket']['price'].replace(',','')
@@ -225,7 +240,7 @@ class EventBriteSearchForm(EventSearchForm):
             eb_events.append({
                             "id": eb_event['id'],
                             "user_id": eb_event['organizer']['id'],
-                            "name": eb_event['title'],                
+                            "name": eb_event_title,
                             "address": eb_event_address,
                             "street": eb_event_venue['address'],
                             "subpremise": eb_event_venue['address_2'],
@@ -236,7 +251,8 @@ class EventBriteSearchForm(EventSearchForm):
                             "longitude": eb_event_venue['longitude'],
                             "keywords": eb_event['tags'],
                             "category": self.get_category_from_eb(eb_event_categories[0]),
-                            "description": 'description',#cgi.escape(eb_event['description'], True),
+                            "short_description": eb_event_short_description,
+                            "description": eb_event_description,
                             "event_url": eb_event['url'],
                             "start_date": eb_event_start_date,
                             "start_time": eb_event_start_time,
