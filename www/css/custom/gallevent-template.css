@@ -188,7 +188,8 @@ a.btn-post-event,
 	}
 #ui-datepicker-div table td {
 	border:1px solid #fff;
-	background:#f0f0f0;
+	background:#d9d9d9;
+	/* background:#f0f0f0; */
 	text-align:center;
 	width:30px !important;
 	padding:0.3em 0 0.3em 0;
@@ -200,6 +201,12 @@ a.btn-post-event,
 #ui-datepicker-div td:hover a {
 	color:#70b820;
 	}
+
+.ui-state-disabled {
+	color:#989898;
+	background:#f0f0f0 !important;
+	}
+
 #ui-datepicker-div thead {
 	color:#fff;
 	background:#239ea2;
