@@ -3,7 +3,7 @@ var SearchView = Backbone.View.extend({
     
     render: function() {
         $( "#date" ).datepicker({ dateFormat: "mm/dd/yy", onSelect: this.changeDate, firstDay: 1, beforeShowDay: this.styleDates, minDate: new Date(), constrainInput: true });
-        $("#time-span").change(this.changeDate);
+        $("#time-span").change(this.changeTimeSpan.bind(this));
         
 		if ($("#date").attr('value').length === 0)
 		{
@@ -27,6 +27,11 @@ var SearchView = Backbone.View.extend({
 		$('.btn-search').click(this.submitSearch.bind(this));
 		$('#map-latitude').change(this.submitSearch.bind(this));
 		$('#map-longitude').change(this.submitSearch.bind(this));
+    },
+    
+    changeTimeSpan: function() {
+        this.changeDate();
+        $('#date').datepicker('show');
     },
     
     changeDate: function() {
@@ -89,7 +94,7 @@ var SearchView = Backbone.View.extend({
             searchData[serializedSearch[i].name] = serializedSearch[i].value;
         }
         
-        if (searchData.q.length == 0)
+        if (searchData.q.length === 0)
         {
             searchData.q = "party%20OR%20drinks%20OR%20dancing%20OR%20performance%20OR%20show%20OR%20concert%20OR%20meetup%20OR%20group%20OR%20event";
         }
