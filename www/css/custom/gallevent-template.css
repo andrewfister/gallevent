@@ -64,11 +64,15 @@ a:hover {
 
 /* = Global Form Elements
 ----------------------------------- */
+input,
+select {
+  padding-left:2%;
+  padding-right:2%;
+  }
+
 input {
 	padding-top:0.6em;
 	padding-bottom:0.6em;
-	padding-left:2.5%;
-	padding-right:2.5%;
 	}
 
 select {
@@ -82,8 +86,6 @@ select {
 .select {
 	padding-top:0.42em;
 	padding-bottom:0.42em;
-	padding-left:2.5%;
-	padding-right:2.5%;
 	background:#fff url(../../img/btn-select-dwn-arrow.png) right center no-repeat;
 	background-size:contain;
 	overflow:hidden;
@@ -105,6 +107,7 @@ a.btn-post-event {
 	}
 
 #header,
+#top-search,
 .home .logo-block,
 a.btn-post-event,
 .home #content,
@@ -125,7 +128,8 @@ a.btn-post-event,
 .sign-in-status .btn-join {
 	border-radius:0px 0px 0px 8px;
 	}
-	
+
+#top-search,
 .sign-in-status #signIn {
 	border-radius:0px 0px 8px 0px;
 	}
@@ -241,9 +245,11 @@ a.btn-post-event,
 /* = Global Map Control
 ----------------------------------- */
 #top-search {
+  position:relative;
+  z-index:777;
 	float:left;
-	width:93%;
-	padding:0.9em 3.5% 1.5em 3.5%;
+	width:96%;
+	padding:1em 2% 1.2em 2%;
 	color:#fff;
 	background:#01a1ad url(../../img/sprite-map-horizontal-repeats.png) repeat-x 0 0;
 	}
@@ -260,8 +266,9 @@ a.btn-post-event,
 	float:left;
 	clear:none;
 	margin-top:5px;
+  margin-right:0.5%;
 	height:28px;
-	width:8%;
+	width:3%;
 	text-indent:-9999px;
 	background:transparent url(../../img/sprite-map-logos-icons-bgs.png) no-repeat;
 	}
@@ -277,30 +284,38 @@ a.btn-post-event,
 	}
 
 /* Top Search Fields */
-#top-search .row {
-	float:left;
-	width:100%;
-	margin-top:0.5em;
-	}
+#top-search #event,
+#top-search .select,
+#top-search #date,
+#top-search button {
+  float:left;
+  }
+
+#top-search #event,
+#top-search .select,
+#top-search #date {
+  margin-right:2%;
+  }
 
 #top-search #event {
-	float:right;
-	width:85%;
+	width:24%;
 	}
 
 #top-search .select {
-  	float:left;
-	margin-left:2%;
-	width:46%;
+	width:12%;
 	}
 #top-search select#time-span,
 #top-search select#price {
 	width:150%; /* Pushes browser default arrow out of view */
 	}
 
+#top-search .time-span {
+  margin-right:1%;
+  }
+
 #top-search #date {
-	float:right;
-	width:32%;
+  margin-right:1.5%;
+	width:11%;
 	background:#fff url(../../img/icon-calendar.png) no-repeat 95% 50%;
 	}
 
@@ -331,25 +346,8 @@ a.btn-post-event,
 	background:#66C13F;
 	}
 
-.sign-in-status .btn-join,
-.sign-in-status #signIn {
-	float:left;
-	clear:none;
-	width:129px;
-	padding:1.4em 0 1em 0;
-	text-align:center;
-	background:#01a1ad url(../../img/sprite-map-horizontal-repeats.png) repeat-x 0 -327px;
-	}
-
-.sign-in-status .btn-join:hover,
-.sign-in-status #signIn:hover {
-	color:#fff !important;
-	background:#66C13F;
-	}
-
 #top-search button {
-	float:right;
-	width:37%;
+	width:12%;
 	padding:0.4em 0 0.4em 0;
 	}
 

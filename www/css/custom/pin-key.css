@@ -3,37 +3,60 @@
 ** Description: Control for Event Categories
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 03-31-2013
+** Updated: 04-07-2013
 ************************************** */
 
 /* = Position Pin Key Within Container */
 #pin-key {
 	float:left;
 	font-size:100%;
-	margin:0 0 1.5em 0;
+	margin:0;
 	width:100%;
 	list-style:none;
 	padding:0;
-	horizontal-overflow:hidden;
 	}
 
 /* = Pin Key Category */
+#pin-key li {
+  display:inline;
+  }
+
 #pin-key li a {
-	width:93%;
+  position:relative;
+  width:5%;
 	float:left;
-	padding:1em 3.5% 0.9em 3.5%;
-	border-bottom:1px solid #d2d2d2;
+	border-right:1px solid #d2d2d2;
+	padding:3.4em 0.85% 0.3em 0.85%;
 	background-color:#f7f7f7;
-	background-position: 3.5% 8px;
+	background-position: center;
 	background-repeat:no-repeat;
 	font-weight:bold;
 	color:#000;
 	text-decoration:none;
 	}
 
+#pin-key li a .arrow {
+  display:none;
+  position:absolute;
+  }
+
+#pin-key li a.active .arrow {
+  display:block;
+  width:100%;
+  left:-0.85%;
+  right:-0.85%;
+  height:20px;
+  background:url(../../img/pin-block-down-arrow.png) no-repeat 100% 100%;
+  background-size:contain;
+  }
+
+#pin-key li a.active {
+  background-color:#fff;
+  }
+
 /* = Pin Key Category Title */
 #pin-key li a b {
-	margin-left:45px;
+  display:none;
 	}
 
 /* = Pin Key Category Description */
@@ -46,8 +69,6 @@
 	background-color:#fff;
 	}
 #pin-key li a:hover i {
-	display:inline;
-	margin-left:0.5em;
 	}
 
 /* = Specific Cateogry Styles */
