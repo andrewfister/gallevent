@@ -76,29 +76,29 @@ def post_event(request, event_id=None, edit=False):
     'form': form,
     }, context_instance=RequestContext(request))
 
-#@login_required
-#def edit_event(request, event_id):
-#    return post_event(request, event_id=event_id, edit=True)
+@login_required
+def edit_event(request, event_id):
+    return post_event(request, event_id=event_id, edit=True)
 
-#@login_required
-#def show_events(request):
-#    events = models.Event.objects.filter(user_id=request.user.id).exclude(status=0).order_by('start_date', 'start_time', 'end_date', 'end_time').reverse()
+@login_required
+def show_events(request):
+    events = models.Event.objects.filter(user_id=request.user.id).exclude(status=0).order_by('start_date', 'start_time', 'end_date', 'end_time').reverse()
 
-#    return render_to_response('your-posts.html', {
-#    'selected_page': 'your-posts',
-#    'events': events,
-#    }, context_instance=RequestContext(request))
+    return render_to_response('your-posts.html', {
+    'selected_page': 'your-posts',
+    'events': events,
+    }, context_instance=RequestContext(request))
 
-#@login_required
-#def show_lineup(request):
-#    return render_to_response('your-posts.html', {
-#    'selected_page': 'your-events'
-#    }, context_instance=RequestContext(request))
+@login_required
+def show_lineup(request):
+    return render_to_response('your-posts.html', {
+    'selected_page': 'your-events'
+    }, context_instance=RequestContext(request))
 
-#@login_required
-#def manage_events(request):
-#    return render_to_response('your-posts-manage.html', {
-#    }, context_instance=RequestContext(request))
+@login_required
+def manage_events(request):
+    return render_to_response('your-posts-manage.html', {
+    }, context_instance=RequestContext(request))
 
 #class EventSearchView(BackboneAPIView):
 #    base_queryset = models.Event.objects.filter(status=1).extra(where=['end_date >= CURRENT_TIMESTAMP']).order_by('start_date','start_time').reverse()
