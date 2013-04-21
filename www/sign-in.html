@@ -1,25 +1,23 @@
 {% extends "base-login.html" %}
 
+{% block body-class %}center-content{% endblock body-class %}
+
 {% block content %}
-<div id="content">
-    <div id="container">
-        <form method="post">
-            <label>Email Address:</label>
-            <input type="text" class="input-standard" name="email" />
-            <label>Password:</label>
-            <input type="password" class="input-standard" name="password" />
-            <input type="text" class="hidden" name="next" value="{{ next }}" />
-            <input class="btn-sign-in" type="submit" value="Sign In" />
-        </form>
-        <div class="right">
-            <h2>Welcome back!</h2>
-            <p>Sign in to your account to manage your events, edit your profile, and update your settings.</p>
-            <h2>Gallevent is the best place to post and find events!</h2>
-            <p>Post your event and watch your guest list grow.</p>
-            <h2>Gallevent membership is currently by invitation only</h2>
-            <p>If you would like to request an invitation to join Gallevent, send us your email address and we'll send you a message when more invitations become available.</p>
-            <p><a href="{% url 'login.views.invite_request' %}">Get on the list &raquo;</a></p>
-        </div>
-    </div><!-- #container -->
-</div><!-- #content -->
+<form method="post">
+  <label>Email Address:</label>
+  <input type="text" class="input-standard" name="email" />
+  <label>Password:</label>
+  <input type="password" class="input-standard" name="password" />
+  <input type="text" class="hidden" name="next" value="{{ next }}" />
+  <input class="btn-sign-in" type="submit" value="Sign In" />
+</form>
+<div class="left">
+  <h2>Welcome back!</h2>
+  <p>Sign in to your account to manage your events, edit your profile, and update your settings.</p>
+  <h2>Gallevent is the best place to post and find events!</h2>
+  <p>Post your event and watch your guest list grow.</p>
+  <h2>Gallevent membership is currently by invitation only</h2>
+  <p>If you would like to request an invitation to join Gallevent, send us your email address and we'll send you a message when more invitations become available.</p>
+  <p><a href="{% url 'login.views.invite_request' %}">Get on the list &raquo;</a></p>
+</div>
 {% endblock %}

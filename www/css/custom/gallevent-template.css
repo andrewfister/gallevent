@@ -40,7 +40,6 @@ ol {
 	margin:0.6em 0 0 2em;
 	}
 	
-
 a,
 a:link {
 	color:#01a1ad;
@@ -249,7 +248,7 @@ a.btn-post-event,
   z-index:777;
 	float:left;
 	width:96%;
-	padding:1em 2% 1.2em 2%;
+	padding:0.5em 2% .7em 2%;
 	color:#fff;
 	background:#01a1ad url(../../img/sprite-map-horizontal-repeats.png) repeat-x 0 0;
 	}
@@ -390,8 +389,10 @@ a.btn-post-event:hover {
 ----------------------------------- */
 #header {
 	z-index:800;
+  margin:0 auto;
 	height:auto;
-	padding:20px 2% 20px 2%;
+  width:91%;
+	padding:0.4em 2% 0.5em 2%;
 	background:#f9a21c url(../../img/sprite-map.png) no-repeat -76px -376px;
 	}
 
@@ -419,6 +420,26 @@ a.btn-post-event:hover {
 	font-weight:bold;
 	font-size:15px;
 	}
+
+.center-content #content {
+  position:relative;
+  float:left;
+  margin-left:12%;
+  width:75%;
+  padding:1em 2% 3em 2%;
+  background:#fff;
+  border-radius:8px;
+  }
+
+.center-content #content form {
+  float:right;
+  width:50%;
+  }
+
+.center-content #content .left {
+  padding:0 2% 0 2%;
+  width:46%;
+  }
 
 .inside-container {
 	margin:2em 1em 2em 1.4em;

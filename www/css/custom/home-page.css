@@ -3,7 +3,7 @@
 ** Description: Styles Specific to Home Page
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-13-2013
-** Updated: 04-07-2013
+** Updated: 04-21-2013
 ************************************** */
 
 /* = Remove Border on Form Inputs and Selects */
@@ -26,7 +26,7 @@
 	position:relative;
 	z-index:800;
 	width:100%;
-	padding:0.7em 0 0.9em 0;
+	padding:0.4em 0 0.5em 0;
 	background:#f9a21c url(../../img/sprite-map-logos-icons-bgs.png) no-repeat -86px -64px;
 	}
 
@@ -54,7 +54,7 @@
 	float:left;
 	clear:none;
 	width:49.5%;
-	padding:1.4em 0 1em 0;
+	padding:1em 0 .7em 0;
 	text-align:center;
 	background:#01a1ad url(../../img/sprite-map-horizontal-repeats.png) repeat-x 0 -327px;
 	}
@@ -69,7 +69,7 @@
 	float:left;
 	width:1%;
 	height:100%;
-	padding:1.4em 0 1em 0;
+	padding:1em 0 .7em 0;
 	text-indent:-9999px;
 	background:url(../../img/sprite-map-vertical-repeats.png) repeat-y 0 0;
 	}
