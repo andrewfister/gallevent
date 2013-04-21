@@ -150,6 +150,7 @@ class EventSearchForm(SearchForm):
         return events
 
 
+#Search EventBrite with their API
 class EventBriteSearchForm(EventSearchForm):
     eb_category_map = {
         'seminars': 'education',
@@ -275,39 +276,45 @@ class EventBriteSearchForm(EventSearchForm):
             return 'networking'
 
 
+#Search Meetup with their non-existant python integration
 class MeetupSearchForm(SearchForm):
     def search(self):
         logging.debug('searching meetup')
+        logging.debug('searching meetup')
+        
         
         meetup_client_query = {'text': self.cleaned_data['q']}
+        logging.debug('searching meetup')
         
-        if self.cleaned_data['longitude'] and \
-            self.cleaned_data['latitude'] and \
-            self.cleaned_data['distance']:
-            meetup_client_query['lat'] = self.cleaned_data['latitude']
-            meetup_client_query['lon'] = self.cleaned_data['longitude']
-            meetup_client_query['radius'] = int(self.cleaned_data['distance'])
-            logging.debug('within: ' + str(meetup_client_query['radius']))
+#        if self.cleaned_data['longitude'] and \
+#            self.cleaned_data['latitude'] and \
+#            self.cleaned_data['distance']:
+#            meetup_client_query['lat'] = self.cleaned_data['latitude']
+#            meetup_client_query['lon'] = self.cleaned_data['longitude']
+#            meetup_client_query['radius'] = int(self.cleaned_data['distance'])
+#            logging.debug('within: ' + str(meetup_client_query['radius']))
 
+        logging.debug('searching meetup')
         logging.debug('meetup search query: ' + str(meetup_client_query))
         meetup_client_query['time'] = ''
 
         # Check to see if a start_date was chosen.
-        if self.cleaned_data['start_date']:
-            logging.debug('raw start date: ' + str(self.cleaned_data['start_date']))
-            meetup_client_query['time'] = str(datetime.strptime(self.cleaned_data['start_date']))
-            logging.debug('parsed start date: ' + meetup_client_query['date'])
+#        if self.cleaned_data['start_date']:
+#            logging.debug('raw start date: ' + str(self.cleaned_data['start_date']))
+#            meetup_client_query['time'] = str(datetime.strptime(self.cleaned_data['start_date']))
+#            logging.debug('parsed start date: ' + meetup_client_query['date'])
 
-        if self.cleaned_data['start_date'] or self.cleaned_data['end_date']:
-            meetup_client_query['time'] += ','
+#        if self.cleaned_data['start_date'] or self.cleaned_data['end_date']:
+#            meetup_client_query['time'] += ','
 
-        # Check to see if an end_date was chosen.
-        if self.cleaned_data['end_date']:
-            meetup_client_query['time'] += ' ' + str(datetime.strptime(self.cleaned_data['end_date']))
+#        # Check to see if an end_date was chosen.
+#        if self.cleaned_data['end_date']:
+#            meetup_client_query['time'] += ' ' + str(datetime.strptime(self.cleaned_data['end_date']))
         
         meetup_client_query['text_format'] = 'plain'
         
         try:
+            logging.debug('try to call meetup')
             events = self.searchMeetup(meetup_client_query, settings.MAX_EVENTS)
         except EnvironmentError:
             events = []
@@ -315,9 +322,10 @@ class MeetupSearchForm(SearchForm):
         return events
     
     def searchMeetup(self, meetup_client_query, max_events):
-        meetup_client = \
-            meetup_api_client.Meetup(api_key='237e2a627822653b453365385e652f67')
+        logging.debug('inside search meetup: ' + str(meetup_client_query))
+        meetup_client = meetup_api_client.Meetup(api_key='237e2a627822653b453365385e652f67')
         
+        logging.debug('right before meetup call: ' + str(meetup_client))
         meetup_response = meetup_client.get_open_events(meetup_client_query)
         logging.debug('meetup search response: ' + meetup_response)
         meetup_events = []

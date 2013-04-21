@@ -36,7 +36,7 @@ class SearchView(View):
         #        .order_by('start_date','start_time').reverse()
 
         if request.GET.get('q'):
-            form = forms.EventBriteSearchForm(request.GET)
+            form = forms.MeetupSearchForm(request.GET)
             if form.is_valid():
                 logging.debug('doing a search')
                 events = form.search()
