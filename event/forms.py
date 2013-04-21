@@ -1,6 +1,8 @@
 import logging
+import datetime
 
 import eventbrite
+from meetup_api_client import meetup_api_client
 from lxml import html
 from lxml.html.soupparser import fromstring
 
@@ -271,3 +273,94 @@ class EventBriteSearchForm(EventSearchForm):
             return self.eb_category_map[category]
         except KeyError:
             return 'networking'
+
+
+class MeetupSearchForm(SearchForm):
+    def search(self):
+        logging.debug('searching meetup')
+        
+        meetup_client_query = {'text': self.cleaned_data['q']}
+        
+        if self.cleaned_data['longitude'] and \
+            self.cleaned_data['latitude'] and \
+            self.cleaned_data['distance']:
+            meetup_client_query['lat'] = self.cleaned_data['latitude']
+            meetup_client_query['lon'] = self.cleaned_data['longitude']
+            meetup_client_query['radius'] = int(self.cleaned_data['distance'])
+            logging.debug('within: ' + str(meetup_client_query['radius']))
+
+        logging.debug('meetup search query: ' + str(meetup_client_query))
+        meetup_client_query['time'] = ''
+
+        # Check to see if a start_date was chosen.
+        if self.cleaned_data['start_date']:
+            logging.debug('raw start date: ' + str(self.cleaned_data['start_date']))
+            meetup_client_query['time'] = str(datetime.strptime(self.cleaned_data['start_date']))
+            logging.debug('parsed start date: ' + meetup_client_query['date'])
+
+        if self.cleaned_data['start_date'] or self.cleaned_data['end_date']:
+            meetup_client_query['time'] += ','
+
+        # Check to see if an end_date was chosen.
+        if self.cleaned_data['end_date']:
+            meetup_client_query['time'] += ' ' + str(datetime.strptime(self.cleaned_data['end_date']))
+        
+        meetup_client_query['text_format'] = 'plain'
+        
+        try:
+            events = self.searchMeetup(meetup_client_query, settings.MAX_EVENTS)
+        except EnvironmentError:
+            events = []
+
+        return events
+    
+    def searchMeetup(self, meetup_client_query, max_events):
+        meetup_client = \
+            meetup_api_client.Meetup(api_key='237e2a627822653b453365385e652f67')
+        
+        meetup_response = meetup_client.get_open_events(meetup_client_query)
+        logging.debug('meetup search response: ' + meetup_response)
+        meetup_events = []
+        
+        for meetup_event in meetup_response.results:
+            meetup_event_description = meetup_event['description']
+            meetup_event_short_description = meetup_event_description[:50] + '...'
+            try:
+                meetup_event_group = meetup_event['group']
+                meetup_event_venue = meetup_event['venue']
+            except KeyError:
+                continue
+                
+            meetup_event_address_parts = [meetup_event_venue['address_1'], 
+                                    meetup_event_venue['address_2'], 
+                                    meetup_event_venue['city'], 
+                                    meetup_event_venue['state'], 
+                                    meetup_event_venue['zip']]
+            meetup_event_address_parts = [value for value in meetup_event_address_parts if value != '']
+            meetup_event_address = ', '.join(meetup_event_address_parts)
+            
+            meetup_events.append({
+                            "id": meetup_event['id'],
+                            "user_id": meetup_event['event_hosts'][0]['id'],
+                            "name": meetup_event['name'],
+                            "address": meetup_event_address,
+                            "street": meetup_event_venue['address_1'],
+                            "subpremise": meetup_event_venue['address_2'],
+                            "city": meetup_event_venue['city'],
+                            "state": meetup_event_venue['state'],
+                            "zipcode": meetup_event_venue['zip'],
+                            "latitude": meetup_event_venue['latitude'],
+                            "longitude": meetup_event_venue['longitude'],
+                            #"keywords": meetup_event_group['topics'],
+                            #"category": meetup_event_group['category'],
+                            "short_description": meetup_event_short_description,
+                            "description": meetup_event_description,
+                            "event_url": meetup_event['event_url'],
+                            "start_date": meetup_event_start_date,
+                            "start_time": meetup_event_start_time,
+                            "end_date": meetup_event_end_date,
+                            "end_time": meetup_event_end_time,
+                            "ticket_price": meetup_event['fee']['amount'],
+                            })
+        
+        return meetup_events

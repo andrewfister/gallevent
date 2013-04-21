@@ -30,44 +30,45 @@ var MapView = Backbone.View.extend({
     },
     
     loadMap: function() {
-        //google.maps.event.addDomListener(window, 'load', function() {
-            var myOptions = {
-                center: this.mapLocation,
-                zoom: 13,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
+        var myOptions = {
+            center: this.mapLocation,
+            zoom: 13,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            mapTypeControl: false,
+            panControl: false,
+            zoomControlOptions: {position: google.maps.ControlPosition.LEFT_CENTER}
+        };
 
-            this.map = new google.maps.Map($("#map_canvas").get(0),
-                myOptions);
+        this.map = new google.maps.Map($("#map_canvas").get(0),
+            myOptions);
 
-            //Listen for tiles loaded
-            google.maps.event.addListener(this.map, 'tilesloaded', function() {
-                this.centerMap(this.mapLocation);
-                this.setAllMarkers();
-                google.maps.event.clearListeners(this.map, 'tilesloaded');
-            }.bind(this));
-            
-            google.maps.event.addListener(this.map, 'dragend', function(data) {
-                var center = this.map.getCenter();
-                var lat = parseFloat(center.lat());
-                var lon = parseFloat(center.lng());
-                if ($('#map-latitude').length)
-                {
-                    $('#map-latitude').attr('value', lat);
-                    
-                }
-                if ($('#map-longitude').length)
-                {
-                    $('#map-longitude').attr('value', lon);
-                }
-                this.setMapLocation();
-            }.bind(this));
-            
-            google.maps.event.addListener(this.map, 'zoom_changed', function() {
-                if ($('#map-radius').length)
-                    $('#map-radius').attr('value', parseFloat(this.mapRadius()));
-            }.bind(this));
-        //}.bind(this));
+        //Listen for tiles loaded
+        google.maps.event.addListener(this.map, 'tilesloaded', function() {
+            this.centerMap(this.mapLocation);
+            this.setAllMarkers();
+            google.maps.event.clearListeners(this.map, 'tilesloaded');
+        }.bind(this));
+        
+        google.maps.event.addListener(this.map, 'dragend', function(data) {
+            var center = this.map.getCenter();
+            var lat = parseFloat(center.lat());
+            var lon = parseFloat(center.lng());
+            if ($('#map-latitude').length)
+            {
+                $('#map-latitude').attr('value', lat);
+                
+            }
+            if ($('#map-longitude').length)
+            {
+                $('#map-longitude').attr('value', lon);
+            }
+            this.setMapLocation();
+        }.bind(this));
+        
+        google.maps.event.addListener(this.map, 'zoom_changed', function() {
+            if ($('#map-radius').length)
+                $('#map-radius').attr('value', parseFloat(this.mapRadius()));
+        }.bind(this));
         
         return this;
     },
