@@ -326,7 +326,7 @@ class MeetupSearchForm(SearchForm):
         meetup_client = meetup_api_client.Meetup(api_key='237e2a627822653b453365385e652f67')
         
         logging.debug('right before meetup call: ' + str(meetup_client))
-        meetup_response = meetup_client.get_open_events(meetup_client_query)
+        meetup_response = meetup_client.get_open_events()
         logging.debug('meetup search response: ' + meetup_response)
         meetup_events = []
         
