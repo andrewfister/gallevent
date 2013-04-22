@@ -24,6 +24,8 @@ var SearchView = Backbone.View.extend({
 		    $("#date2").attr('value', $( "#date1" ).attr('value'));
 		}
 		
+		this.changeDate();
+		
 		$('.btn-search').click(this.submitSearch.bind(this));
 		$('#map-latitude').change(this.submitSearch.bind(this));
 		$('#map-longitude').change(this.submitSearch.bind(this));

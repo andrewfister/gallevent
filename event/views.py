@@ -21,7 +21,7 @@ class FrontPageView(TemplateView):
         try:
             timeSpan = request.GET['timeSpan']
         except KeyError:
-            timeSpan = ""
+            timeSpan = "week_of"
 
         return self.render_to_response({
             'timeSpan': timeSpan
