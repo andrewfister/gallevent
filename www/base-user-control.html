@@ -8,14 +8,12 @@
 <nav>
 	<ul class="tabs">
     	<li><a class="tab-post-event" href="{% url 'event.views.post_event' %}">Post an Event</a></li>
-        <!-- <li><a class="tab-your-posts" href="{% url 'event.views.show_events' %}">Your Posts</a></li> -->
+      <li><a class="tab-your-posts" href="{% url 'event.views.show_events' %}">Your Posts</a></li>
         <li><a class="tab-events" href="{% url 'event.views.show_lineup' %}">Your Lineup</a></li>
         <li><a class="tab-your-profile" href="{% url 'user_profile.views.show_profile' %}">Your Profile</a></li>
     </ul><!-- .tabs -->
 </nav>
-	<div id="{% block active_tab_content_width %}{% endblock %}-content">
-        <div id="active-tab-content">
-            {% block active_tab_content %}{% endblock active_tab_content %}
-        </div><!-- #active-tab-content -->
-    </div>
+    <div id="active-tab-content">
+      {% block active_tab_content %}{% endblock active_tab_content %}
+    </div><!-- #active-tab-content -->
 {% endblock content %}
