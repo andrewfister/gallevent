@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-06-2013
-** Updated: 03-31-2013
+** Updated: 04-21-2013
 ************************************** */
 
 /* = Global Typography */
@@ -63,6 +63,27 @@ a:hover {
 
 /* = Global Form Elements
 ----------------------------------- */
+fieldset {
+  border:2px solid #e9eaea;
+  padding:1em 5% 1.5em 5%;
+  margin-bottom:1.5em;
+  display:block;
+  float:left;
+  clear:left;
+  width:90%;
+  }
+
+legend {
+  background:#239ea2;
+  color:#fff;
+  display:block;
+  font-size:110%;
+  padding:0.7em 5% 0.7em 6%;
+  margin:0 0 0 -12.1%;
+  font-weight:bold;
+  clear:both;
+  } 
+
 input,
 select {
   padding-left:2%;
@@ -73,6 +94,22 @@ input {
 	padding-top:0.6em;
 	padding-bottom:0.6em;
 	}
+
+.input-required {
+  border:2px solid #5EBF31; /* Green */
+  background:#fefbe3;
+  }
+input:focus,
+textarea:focus,
+select:focus {
+  border:2px solid #56D8D8;
+  background:#fff;
+  outline: none;
+  }
+.input-standard {
+  border:2px solid #59BDBF;
+  background:#F4F7F7;
+  }
 
 select {
 	-webkit-appearance: none;
@@ -90,9 +127,191 @@ select {
 	overflow:hidden;
 	}
 
+.form-details {
+  width:100%;
+  display:block;
+  color:#555;
+  font-size:95%;
+  margin:0 0 0.9em 0;
+  }
+.form-comment {
+  color:#239ea2;
+  }
+
+/* Form comment under text-area or input */
+.under {
+  display:block;
+  margin-bottom:1em;
+  margin-top:-0.5em;
+  text-align:right;
+  width:73%;
+  }
+
+form .radio-btn-1,
+form .radio-btn-2 {
+  display:block;
+  }
+form .radio-btn-1,
+form .radio-btn-2 .head {
+  padding:1em 1em 0.3em 1em;
+  }
+form .radio-btn-2 {
+  border:2px solid #fff;
+  width:90%;
+  }
+form .radio-btn-2 {
+  border:2px solid #239ea2;
+  }
+form .radio-btn-2 .head {
+  background:#239ea2;
+  }
+
+form .radio-btn-1 label,
+form .radio-btn-2 label {
+  display:inline;
+  margin-left:0.6em;
+  }
+form .radio-btn-2 label {
+  color:#fff;
+  }
+
+form .radio-btn-1 input,
+form .radio-btn-2 input {
+  width:auto;
+  }
+form .formOptional {
+  background:#fff;
+  margin:1em 0 0 0;
+  }
+form .formOptional label {
+  color:#239ea2;
+  clear:both;
+  display:block;
+  margin-left:1em;
+  }
+
+form .formOptional input {
+  margin-left:1em;
+  }
+
+form .formOptional input {
+  width:300px;
+  }
+
+form label {
+  clear:both;
+  font-weight:bold;
+  color:#239ea2;
+  display:block;
+  margin:0 0 .2em 0;
+  }
+.required,
+label.required {
+color:#5EBF31; /* Green */
+}
+
+form input,
+form textarea,
+form select#state,
+form select#event-category {
+font-size:110%;
+width:70%;
+padding:.5em;
+margin-bottom:0.99em;
+}
+form textarea {
+min-height:12.5em;
+}
+form select#state,
+form select#event-category {
+padding:0 0 0 .5em;
+line-height:2em;
+height:2.5em;
+}
+
+/* = Select Categories Dropdown */
+#select-fairs,
+#select-networking,
+#select-education,
+#select-athletic,
+#select-art,
+#select-dancing,
+#select-sales,
+#select-dining,
+#select-parties,
+#select-jobs {
+height:2em;
+padding:5px 5px 0 40px;
+}
+
+#select-fairs {
+background:url(../img/pin-key-fairs.png) top left no-repeat;
+}
+#select-networking {
+background:url(../img/pin-key-networking.png) top left no-repeat;
+}
+#select-education {
+background:url(../img/pin-key-education.png) top left no-repeat;
+}
+#select-athletic {
+background:url(../img/pin-key-athletic.png) top left no-repeat;
+}
+#select-art {
+  background:url(../img/pin-key-art.png) top left no-repeat;
+    }
+    #select-dancing {
+        background:url(../img/pin-key-dancing.png) top left no-repeat;
+          }
+          #select-sales {
+                                                                                              background:url(../img/pin-key-sales.png) top left no-repeat;
+                                                                                                }
+                                                                                                #select-dining {
+                                                                                                    background:url(../img/pin-key-dining.png) top left no-repeat;
+                                                                                                      }
+                                                                                                      #select-parties {
+                                                                                                          background:url(../img/pin-key-parties.png) top left no-repeat;
+                                                                                                            }
+                                                                                                            #select-jobs {
+                                                                                                                background:url(../img/pin-key-jobs.png) top left no-repeat;
+                                                                                                                  }
+
+                                                                                                                  form input#city {
+                                                                                                                      width:40%;
+                                                                                                                        }
+
+                                                                                                                        form input#zip-code,
+                                                                                                                        form input#ticket-price,
+                                                                                                                        form input#rsvp-limit {
+                                                                                                                            width:20%;
+                                                                                                                              margin-right:15px;
+                                                                                                                                }
+
+                                                                                                                                form input#start-date,
+                                                                                                                                form input#start-time,
+                                                                                                                                form input#end-date,
+                                                                                                                                form input#end-time {
+                                                                                                                                    width:100px;
+                                                                                                                                      }
+
+                                                                                                                                      .sort {
+                                                                                                                                          float:right; /* Used to place the sort label and dropdown next to the category heading on Your Post Page */
+                                                                                                                                            }
+
+                                                                                                                                            .sort label {
+                                                                                                                                                float:left;
+                                                                                                                                                  clear:none;
+                                                                                                                                                    margin:0 0.5em 1em 0;
+                                                                                                                                                      }
+
+                                                                                                                                                      #active-sort-by1,
+                                                                                                                                                      #active-sort-by2,
+                                                                                                                                                      #active-sort-by3 {
+                                                                                                                                                          margin-bottom:.5em;
+                                                                                                                                                            }
+
 /* = Global Drop Shadow
 ----------------------------------- */
-label,
+#top-search label,
 button,
 .btn-join,
 .sign-in-status #signIn,
@@ -109,7 +328,7 @@ a.btn-post-event {
 #top-search,
 .home .logo-block,
 a.btn-post-event,
-.home #content,
+#content,
 #ui-datepicker-div {
 	box-shadow:		0px 0px 4px rgba(0,0,0,0.3);
 	}
@@ -427,7 +646,7 @@ a.btn-post-event:hover {
   margin-left:12%;
   width:75%;
   padding:1em 2% 3em 2%;
-  background:#fff;
+  background:#F7F7F7;
   border-radius:8px;
   }
 
@@ -437,8 +656,8 @@ a.btn-post-event:hover {
   }
 
 .center-content #content .left {
-  padding:0 2% 0 2%;
-  width:46%;
+  padding:0 4% 0 2%;
+  width:42%;
   }
 
 .inside-container {

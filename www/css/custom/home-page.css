@@ -110,6 +110,7 @@
 .home #top-search input {
   padding-left:1%;
   padding-right:1%;
+  margin-bottom:0;
   }
 .home #top-search #date {
   padding-right:2%;
@@ -125,8 +126,8 @@
   position:fixed;
   float:left;
   bottom:0;
-  margin:0 2.5% 0 2.5%;
-  width:91%;
+  margin:0 0 0 30%;
+  width:40%;
   padding:1em 2% 1em 2%;
   background:#f7f7f7;
   border-radius:8px 8px 0 0;

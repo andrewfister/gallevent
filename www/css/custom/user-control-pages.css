@@ -3,7 +3,7 @@
 ** Description: Styles for User Control Section Pages
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 03-31-2013
+** Updated: 04-21-2013
 ************************************** */
 
 .user-control #container {
@@ -33,7 +33,9 @@
 .user-control ul.tabs {
 	z-index:700;
 	position:relative;
+  margin:0;
 	list-style:none;
+  font-size:100%;
 	background:#ff0;
 	}
 
@@ -41,8 +43,8 @@
 	float:left;
 	display:block;
 	width:25%;
-	margin-top:-0.4em;
-	padding:1.4em 0 1em 0;
+	margin-top:-1em;
+	padding:1.7em 0 0.7em 0;
 	text-align:center;
 	font-weight:bold;
 	color:#fff;
@@ -76,6 +78,8 @@
 	float:left;
 	border-top-width:6px;
 	border-top-style:solid;
+  width:90%;
+  padding:0 5% 0 5%;
 	}
 
 .post-event #active-tab-content {
@@ -93,3 +97,6 @@
 .your-profile #active-tab-content {
 	border-color:#f37377;
 	}
+
+.user-control #active-tab-content form {
+  }
