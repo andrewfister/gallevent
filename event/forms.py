@@ -1,5 +1,6 @@
 import logging
-import datetime
+import calendar
+from datetime import datetime
 
 import eventbrite
 from meetup_api_client import meetup_api_client
@@ -99,8 +100,8 @@ class EventSearchForm(SearchForm):
         '%d %B, %Y',      # '25 October, 2006'
     ]
 
-    start_date = forms.DateField(required=False, initial="", input_formats=date_input_formats)
-    end_date = forms.DateField(required=False, initial="", input_formats=date_input_formats)
+    start_date = forms.DateTimeField(required=False, initial="", input_formats=date_input_formats)
+    end_date = forms.DateTimeField(required=False, initial="", input_formats=date_input_formats)
     latitude = forms.FloatField(initial=0)
     longitude = forms.FloatField(initial=0)
     distance = forms.FloatField(initial=5.08)
@@ -277,7 +278,7 @@ class EventBriteSearchForm(EventSearchForm):
 
 
 #Search Meetup with their non-existant python integration
-class MeetupSearchForm(SearchForm):
+class MeetupSearchForm(EventSearchForm):
     def search(self):
         meetup_client_query = {'text': self.cleaned_data['q']}
         logging.debug('searching meetup' + str(self.cleaned_data))
@@ -289,21 +290,19 @@ class MeetupSearchForm(SearchForm):
 
         logging.debug('searching meetup')
         logging.debug('meetup search query: ' + str(meetup_client_query))
-        if self.cleaned_data.has_key('start_date') or self.cleaned_data.has_key('end_date'):
-            meetup_client_query['time'] = ''
 
         # Check to see if a start_date was chosen.
         if self.cleaned_data.has_key('start_date'):
             logging.debug('raw start date: ' + str(self.cleaned_data['start_date']))
-            meetup_client_query['time'] = str(datetime.strptime(self.cleaned_data['start_date']))
-            logging.debug('parsed start date: ' + meetup_client_query['date'])
+            meetup_client_query['time'] = str(calendar.timegm(self.cleaned_data['start_date'].utctimetuple()) * 1000)
+            logging.debug('parsed start date: ' + meetup_client_query['time'])
 
         if self.cleaned_data.has_key('start_date') or self.cleaned_data.has_key('end_date'):
             meetup_client_query['time'] += ','
 
         # Check to see if an end_date was chosen.
         if self.cleaned_data.has_key('end_date'):
-            meetup_client_query['time'] += ' ' + str(datetime.strptime(self.cleaned_data['end_date']))
+            meetup_client_query['time'] += str(calendar.timegm(self.cleaned_data['end_date'].utctimetuple()) * 1000)
         
         meetup_client_query['text_format'] = 'plain'
         
@@ -335,6 +334,11 @@ class MeetupSearchForm(SearchForm):
                 continue
             
             logging.debug('venue: ' + str(meetup_event_venue))
+            if not meetup_event_venue.has_key('address_2'):
+                meetup_event_venue['address_2'] = ''
+            if not meetup_event_venue.has_key('zip'):
+                meetup_event_venue['zip'] = ''
+            
             meetup_event_address_parts = [meetup_event_venue['address_1'], 
                                     meetup_event_venue['address_2'], 
                                     meetup_event_venue['city'], 
@@ -342,19 +346,39 @@ class MeetupSearchForm(SearchForm):
                                     meetup_event_venue['zip']]
             meetup_event_address_parts = [value for value in meetup_event_address_parts if value != '']
             meetup_event_address = ', '.join(meetup_event_address_parts)
+            meetup_event_start = datetime.fromtimestamp(int(meetup_event.time)/1000)
+            
+            try:
+                duration = meetup_event.duration
+            except AttributeError:
+                duration = 86400000
+            
+            meetup_event_end = datetime.fromtimestamp(int(meetup_event.time + duration)/1000)
+            
+            try:
+                meetup_event_fee = meetup_event.fee['amount']
+            except AttributeError:
+                meetup_event_fee = 0
+            
+            meetup_event_start_date = meetup_event_start.strftime("%m/%d/%Y")
+            meetup_event_start_time = meetup_event_start.strftime("%I:%M%p")
+            meetup_event_end_date = meetup_event_end.strftime("%m/%d/%Y")
+            meetup_event_end_time = meetup_event_end.strftime("%I:%M%p")
+            
+            
             
             meetup_events.append({
                             "id": meetup_event.id,
-                            "user_id": meetup_event.event_hosts[0]['id'],
+                            #"user_id": meetup_event.event_hosts[0]['id'],
                             "name": meetup_event.name,
                             "address": meetup_event_address,
-                            "street": meetup_event_venue.address_1,
-                            "subpremise": meetup_event_venue.address_2,
-                            "city": meetup_event_venue.city,
-                            "state": meetup_event_venue.state,
-                            "zipcode": meetup_event_venue.zip,
-                            "latitude": meetup_event_venue.latitude,
-                            "longitude": meetup_event_venue.longitude,
+                            "street": meetup_event_venue['address_1'],
+                            "subpremise": meetup_event_venue['address_2'],
+                            "city": meetup_event_venue['city'],
+                            "state": meetup_event_venue['state'],
+                            "zipcode": meetup_event_venue['zip'],
+                            "latitude": meetup_event_venue['lat'],
+                            "longitude": meetup_event_venue['lon'],
                             #"keywords": meetup_event_group['topics'],
                             #"category": meetup_event_group['category'],
                             "short_description": meetup_event_short_description,
@@ -364,7 +388,7 @@ class MeetupSearchForm(SearchForm):
                             "start_time": meetup_event_start_time,
                             "end_date": meetup_event_end_date,
                             "end_time": meetup_event_end_time,
-                            "ticket_price": meetup_event.fee['amount'],
+                            "ticket_price": meetup_event_fee,
                             })
         
         return meetup_events

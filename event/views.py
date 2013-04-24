@@ -30,7 +30,7 @@ class FrontPageView(TemplateView):
 
 class SearchView(View):
     def get(self, request):
-        logging.debug('search')
+        logging.debug('search: ' + str(request.GET))
         #events = models.Event.objects.filter(status=1) \
         #        .extra(where=['end_date >= CURRENT_TIMESTAMP']) \
         #        .order_by('start_date','start_time').reverse()
