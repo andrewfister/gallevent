@@ -163,10 +163,18 @@ class EventBriteSearchForm(EventSearchForm):
     
     gallevent_categories = ['art', 'athletic', 'dancing', 'dining', 'education', 
                             'fairs', 'jobs', 'networking', 'parties', 'sales']
+                            
+    default_query = "party%20OR%20drinks%20OR%20dancing%20OR%20performance%20OR%20show%20OR%20concert%20OR%20meetup%20OR%20group%20OR%20event"
 
-    def search(self):
+    def search(self, max_events=settings.MAX_EVENTS):
         logging.debug('searching eventbrite')
-        eb_client_query = {'keywords': self.cleaned_data['q']}
+        
+        try:
+            query = self.cleaned_data['q']
+        except KeyError:
+            query = self.default_query
+        
+        eb_client_query = {'keywords': query}
 
         if self.cleaned_data['longitude'] and \
             self.cleaned_data['latitude'] and \
@@ -178,16 +186,16 @@ class EventBriteSearchForm(EventSearchForm):
 
         # Check to see if a start_date was chosen.
         if self.cleaned_data['start_date']:
-            logging.debug('raw start date: ' + str(self.cleaned_data['start_date']))
-            eb_client_query['date'] = str(self.cleaned_data['start_date'])
+            logging.debug('raw start date: ' + str(self.cleaned_data['start_date'].strftime('%Y-%m-%d')))
+            eb_client_query['date'] = str(self.cleaned_data['start_date'].strftime('%Y-%m-%d'))
             logging.debug('parsed start date: ' + eb_client_query['date'])
 
         # Check to see if an end_date was chosen.
         if self.cleaned_data['end_date']:
-            eb_client_query['date'] += ' ' + str(self.cleaned_data['end_date'])
+            eb_client_query['date'] += ' ' + str(self.cleaned_data['end_date'].strftime('%Y-%m-%d'))
         
         try:
-            events = self.searchEventBrite(eb_client_query, settings.MAX_EVENTS)
+            events = self.searchEventBrite(eb_client_query, max_events)
         except EnvironmentError:
             events = []
 
@@ -199,6 +207,8 @@ class EventBriteSearchForm(EventSearchForm):
         
         #Only get as many events as we need from EventBrite
         eb_client_query['max'] = max_events
+        
+        logging.debug('eb query: ' + str(eb_client_query))
         eb_response = eb_client.event_search(eb_client_query)
         logging.debug('eb response: ' + str(eb_response['events'][1]))
         eb_events = []
@@ -279,7 +289,7 @@ class EventBriteSearchForm(EventSearchForm):
 
 #Search Meetup with their non-existant python integration
 class MeetupSearchForm(EventSearchForm):
-    def search(self):
+    def search(self, max_events=settings.MAX_EVENTS):
         meetup_client_query = {'text': self.cleaned_data['q']}
         logging.debug('searching meetup' + str(self.cleaned_data))
         
@@ -308,7 +318,7 @@ class MeetupSearchForm(EventSearchForm):
         
         try:
             logging.debug('try to call meetup')
-            events = self.searchMeetup(meetup_client_query, settings.MAX_EVENTS)
+            events = self.searchMeetup(meetup_client_query, max_events)
         except EnvironmentError:
             events = []
 
@@ -365,8 +375,6 @@ class MeetupSearchForm(EventSearchForm):
             meetup_event_end_date = meetup_event_end.strftime("%m/%d/%Y")
             meetup_event_end_time = meetup_event_end.strftime("%I:%M%p")
             
-            
-            
             meetup_events.append({
                             "id": meetup_event.id,
                             #"user_id": meetup_event.event_hosts[0]['id'],
@@ -391,4 +399,4 @@ class MeetupSearchForm(EventSearchForm):
                             "ticket_price": meetup_event_fee,
                             })
         
-        return meetup_events
+        return meetup_events[:50]

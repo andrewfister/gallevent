@@ -10,6 +10,7 @@ from django.views.generic.base import TemplateView, View
 
 from event import forms
 from event import models
+from gallevent import settings
 
 
 class FrontPageView(TemplateView):
@@ -35,11 +36,17 @@ class SearchView(View):
         #        .extra(where=['end_date >= CURRENT_TIMESTAMP']) \
         #        .order_by('start_date','start_time').reverse()
 
-        if request.GET.get('q'):
-            form = forms.MeetupSearchForm(request.GET)
+        searchForms = [forms.EventBriteSearchForm, forms.MeetupSearchForm]
+        events = []
+        
+        for SearchForm in searchForms:    
+            if len(events) >= settings.MAX_EVENTS:
+                break
+            
+            form = SearchForm(request.GET)
             if form.is_valid():
                 logging.debug('doing a search')
-                events = form.search()
+                events.extend(form.search())
         
         logging.debug('request data: ' + str(request.GET))
         
