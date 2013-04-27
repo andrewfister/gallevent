@@ -399,4 +399,4 @@ class MeetupSearchForm(EventSearchForm):
                             "ticket_price": meetup_event_fee,
                             })
         
-        return meetup_events[:50]
+        return meetup_events[:max_events]
