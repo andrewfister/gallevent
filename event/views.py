@@ -46,7 +46,7 @@ class SearchView(View):
             form = SearchForm(request.GET)
             if form.is_valid():
                 logging.debug('doing a search')
-                events.extend(form.search())
+                events.extend(form.search(settings.MAX_EVENTS - len(events)))
         
         logging.debug('request data: ' + str(request.GET))
         
@@ -54,6 +54,7 @@ class SearchView(View):
             events = "[]"
 
         events_json = json.dumps(events)
+        logging.debug('event search response json: ' + events_json)
 
         return HttpResponse(events_json, content_type="application/json")
 

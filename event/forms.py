@@ -169,9 +169,9 @@ class EventBriteSearchForm(EventSearchForm):
     def search(self, max_events=settings.MAX_EVENTS):
         logging.debug('searching eventbrite')
         
-        try:
+        if not self.cleaned_data['q'] == 'default': 
             query = self.cleaned_data['q']
-        except KeyError:
+        else:
             query = self.default_query
         
         eb_client_query = {'keywords': query}
@@ -289,8 +289,15 @@ class EventBriteSearchForm(EventSearchForm):
 
 #Search Meetup with their non-existant python integration
 class MeetupSearchForm(EventSearchForm):
+    default_query = "party OR drinks OR dancing OR performance OR show OR concert OR meetup OR group OR event"
+
     def search(self, max_events=settings.MAX_EVENTS):
-        meetup_client_query = {'text': self.cleaned_data['q']}
+        if not self.cleaned_data['q'] == 'default': 
+            query = self.cleaned_data['q']
+        else:
+            query = self.default_query
+    
+        meetup_client_query = {'text': query}
         logging.debug('searching meetup' + str(self.cleaned_data))
         
         meetup_client_query['lat'] = self.cleaned_data['latitude']

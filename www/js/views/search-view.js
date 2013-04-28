@@ -2,7 +2,7 @@ var SearchView = Backbone.View.extend({
     id: "top-search",
     
     render: function() {
-        $( "#date" ).datepicker({ dateFormat: "mm/dd/yy", onSelect: this.changeDate, firstDay: 1, beforeShowDay: this.styleDates, minDate: new Date(), constrainInput: true });
+        $("#date").datepicker({ dateFormat: "mm/dd/yy", onSelect: this.changeDate, firstDay: 1, beforeShowDay: this.styleDates, minDate: new Date(), constrainInput: true });
         $("#time-span").change(this.changeTimeSpan.bind(this));
         
 		if ($("#date").attr('value').length === 0)

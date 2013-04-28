@@ -56,7 +56,6 @@ var MapView = Backbone.View.extend({
             if ($('#map-latitude').length)
             {
                 $('#map-latitude').attr('value', lat);
-                
             }
             if ($('#map-longitude').length)
             {
@@ -135,9 +134,13 @@ var MapView = Backbone.View.extend({
     setMapLocation: function() {
         if ($('#map-latitude').length && $('#map-longitude').length)
         {
-            if ($('#map-latitude').attr('value') == 0 && $('#map-longitude').attr('value') == 0)
+            if ($('#map-latitude').attr('value') == "0" && $('#map-longitude').attr('value') == "0")
             {
                 this.mapLocation = this.userLocation;
+                if ($('#map-latitude').length)
+                    $('#map-latitude').attr('value', this.mapLocation.lat());
+                if ($('#map-longitude').length)
+                    $('#map-longitude').attr('value', this.mapLocation.lng());
             }
             else
             {
@@ -189,7 +192,7 @@ var MapView = Backbone.View.extend({
         {
             this.userLocation = new google.maps.LatLng(userLatitude, userLongitude);
         }
-        
+                
         this.setMapLocation();
         
         this.loadMap();
