@@ -342,9 +342,9 @@ class MeetupSearchForm(EventSearchForm):
         
         for meetup_event in meetup_response.results:
             logging.debug('an event response: ' + str(meetup_event))
-            meetup_event_description = meetup_event.description
-            meetup_event_short_description = meetup_event_description[:50] + '...'
             try:
+                meetup_event_description = meetup_event.description
+                meetup_event_short_description = meetup_event_description[:50] + '...'
                 meetup_event_group = meetup_event.group
                 meetup_event_venue = meetup_event.venue
             except AttributeError:
@@ -355,6 +355,8 @@ class MeetupSearchForm(EventSearchForm):
                 meetup_event_venue['address_2'] = ''
             if not meetup_event_venue.has_key('zip'):
                 meetup_event_venue['zip'] = ''
+            if not meetup_event_venue.has_key('state'):
+                meetup_event_venue['state'] = ''
             
             meetup_event_address_parts = [meetup_event_venue['address_1'], 
                                     meetup_event_venue['address_2'], 
