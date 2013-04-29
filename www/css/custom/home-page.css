@@ -3,7 +3,7 @@
 ** Description: Styles Specific to Home Page
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-13-2013
-** Updated: 04-21-2013
+** Updated: 04-28-2013
 ************************************** */
 
 /* = Remove Border on Form Inputs and Selects */
@@ -35,6 +35,8 @@
   }
 
 .home .logo-block .tagline {
+  position:relative;
+  right:15px;
   margin:0 auto;
   margin-top:-0.3em;
   width:217px;
@@ -147,67 +149,128 @@
 
 /* = Media Queries
 ----------------------------------- */
-/*
-@media screen and (max-width: 1230px) {
-	.home #content {
-		width:35%;
-		border-radius:8px;	
-		}
+@media screen and (max-width: 1300px) {
+  .home #header {
+    margin-left:0;
+    }    
+  .home #content {
+    margin-right:0;
+    width:80%;
+    }
 }
 
-@media screen and (max-width: 940px) {
-	.home #header {
-		right:0;
-		width:35%;
-		}
-	.home .logo-block {
-		width:93%;
-		padding-left:3.5%;
-		padding-right:3.5%;	
-		}
-	
-	.home .sign-in-status {
-		width:100%;
-		background:#ff0;
-		border:1px solid #000;
-		}
-	.sign-in-status .btn-join,
-	.sign-in-status #signIn {
-		width:49.5%;
-		}
-	
-	
-	.home .sign-in-status .bar-vertical {
-		width:1%;
-		background-color:#25768A;
-	}
-	
-	.home .sign-in-form {
-		width:80%;
-		padding-right:10%;
-		padding-left:10%;
-		}
-	
-	.home .sign-in-form input[type="text"],
-	.home .sign-in-form input[type="password"] {
-	width: 90%;
-	}
+@media screen and (max-width: 1148px) {
+  .home #header {
+    width:12%;
+    }
+  .home .logo {
+    width:75px;
+    height:46px;
+    background:url(../../img/sprite-map-logos-icons-bgs.png) no-repeat -314px -3px;
+    }
+  .home .tagline {
+    display:none;
+    }
 
-	
-	
-	.home #content {
-		margin-right:0;
-		margin-top:10em;
-		}
+  .home .sign-in-status .btn-join,
+  .home .sign-in-status #signIn {
+	  width:100%;
+    border-radius:0 0 8px 8px;
+	  }
+  .home .sign-in-status .btn-join {
+    border-radius:0;
+    }
+  .home .sign-in-status #signIn {
+    border-radius:0 0 8px 8px;
+    }
+  .home .sign-in-status .bar-vertical {
+    display:none;
+    }
+
+  .home #content {
+    width:88%;
+    }
 }
 
-@media screen and (max-width: 650px) {
-	.home #header {
-		width:45%;
-		}
-	.home #content {
-		width:45%;
-		border-radius:8px;	
-		}
+@media screen and (max-width: 1030px) {
+  .home #top-search label.icon {
+    display:none;
+    }
+  .home #top-search .select {
+    width:15%;
+    }
+  .home #top-search #date {
+    width:17%;
+    }
 }
-  */
+
+@media screen and (max-width: 780px) {
+  .home #header {
+    width:21%;
+    }
+  .home #content {
+    top:auto;
+    bottom:0;
+    width:100%; 
+    }
+  .home #top-search {
+    border-radius:0;
+    }
+  .home #top-search .select {
+    width:16%;
+    }
+  .home #top-search button {
+    position:relative;
+	  width:10%;
+    text-indent:9999px;
+	  }
+  .home #top-search button img {
+    position:absolute;
+    top:.6em;
+    left:35%;
+    }
+}
+
+@media screen and (max-width: 680px) {
+  .home #top-search label {
+    display:block !important;
+    width:5%;
+    }
+  .home #top-search #event {
+    width:90.5%; 
+    margin-bottom:0.5em;
+    }
+  .home #top-search .select {
+    width:21%;
+    }
+  .home #top-search #date {
+    width:22%;
+    }
+  .home #top-search button {
+    width:10.5%;
+    }
+}
+
+@media screen and (max-width: 560px) {
+  .home #top-search label {
+    width:6.5%;
+    }
+  .home #top-search #event {
+    width:88%;
+    }
+  .home #top-search .select {
+    width:53.5%;
+    }
+  .home #top-search #date {
+    width:30%;
+    margin-bottom:0.5em;
+    }
+  .home #top-search button {
+    width:32%;
+    text-indent:0;
+    } 
+  .home #top-search button img {
+    top:.6em;
+    left:10%;
+    }
+}

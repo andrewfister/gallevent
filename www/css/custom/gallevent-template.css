@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-06-2013
-** Updated: 04-21-2013
+** Updated: 04-28-2013
 ************************************** */
 
 /* = Global Typography */
@@ -120,8 +120,8 @@ select {
 	}
 
 .select {
-	padding-top:0.42em;
-	padding-bottom:0.42em;
+	padding-top:0.52em;
+	padding-bottom:0.52em;
 	background:#fff url(../../img/btn-select-dwn-arrow.png) right center no-repeat;
 	background-size:contain;
 	overflow:hidden;
@@ -326,6 +326,7 @@ a.btn-post-event {
 
 #header,
 #top-search,
+button,
 .home .logo-block,
 a.btn-post-event,
 #content,
@@ -533,7 +534,7 @@ a.btn-post-event,
 
 #top-search #date {
   margin-right:1.5%;
-	width:11%;
+	width:13%;
 	background:#fff url(../../img/icon-calendar.png) no-repeat 95% 50%;
 	}
 
@@ -550,8 +551,9 @@ a.btn-post-event,
 
 #top-search button,
 .btn-sign-in {
-	border:2px solid #fff;
+	border:none;
 	background:#66C13F;
+  letter-spacing:0.08em;
 	}
 
 .btn-sign-in {
@@ -566,7 +568,7 @@ a.btn-post-event,
 
 #top-search button {
 	width:12%;
-	padding:0.4em 0 0.4em 0;
+	padding:0.65em 0 0.6em 0;
 	}
 
 #top-search button .icon-looking-glass {
@@ -625,10 +627,10 @@ a.btn-post-event:hover {
 .logo {
 	display:block;
 	overflow:hidden;
-	width:217px;
-	height:45px;
+	width:216px;
+	height:46px;
 	margin-left:0;
-	background:url(../../img/logo-gallevent-white.png) top left no-repeat;
+	background:url(../../img/sprite-map-logos-icons-bgs.png) no-repeat -81px -3px;
 	text-indent:-100%;
 	}
 .tagline {
@@ -684,16 +686,19 @@ a.btn-post-event:hover {
 ----------------------------------- */
 @media screen and (max-width: 940px) {
 	/* = Top Search */
+  /*
 	#top-search {
 		border-radius:8px 8px 0px 0px;
 		}
-	
+	*/
 	/* = Top Search Label Icons */
+/*
 	#top-search label.icon {
 		width:11%;
 		}
-	
+	*/
 	/* Top Search Fields */	
+/*
 	#top-search #event {
 		width:82%;
 		}
@@ -704,11 +709,12 @@ a.btn-post-event:hover {
 	#top-search #date {
 		width:82%;
 		}
-	
+	*/
 	/* Top Search Button */	
+/*
 	#top-search button {
 	width:87%;
 	padding:0.4em 0 0.4em 0;
 	}
-
+    */
 }
