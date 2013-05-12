@@ -127,7 +127,7 @@
 	#pin-key li a:hover i {
 		}
 }
-
+/*
 @media screen and (max-width: 780px) {
   #pin-key li a,
   #pin-key li a:hover {
@@ -141,8 +141,9 @@
     display:none;
     }
 }
+*/
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 780px) {
   #pin-key {
 	position:absolute;
 	z-index:699;
@@ -160,4 +161,15 @@
 	background:url(../../img/pin-block-up-arrow.png) no-repeat 0 0;
 	background-size:100% 15px;
 	}
+  #pin-key li a,
+  #pin-key li a:hover {
+    width:10.7%;
+    background-position:center;
+    }  
+  #pin-key li:last-of-type a {
+    border-right:none;
+    }
+  #pin-key li a:hover .details {
+    display:none;
+    }
 }
