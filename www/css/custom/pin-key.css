@@ -3,7 +3,7 @@
 ** Description: Control for Event Categories
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 04-21-2013
+** Updated: 05-12-2013
 ************************************** */
 
 /* = Position Pin Key Within Container */
@@ -33,7 +33,7 @@
 	font-weight:bold;
 	color:#000;
 	text-decoration:none;
-  transition: width 0.5s;
+  	transition: width 0.5s;
 	}
 
 #pin-key li a .arrow {
@@ -127,8 +127,40 @@
 	#pin-key li a:hover i {
 		}
 }
+/*
+@media screen and (max-width: 780px) {
+  #pin-key li a,
+  #pin-key li a:hover {
+    width:10.7%;
+    background-position:center;
+    }  
+  #pin-key li:last-of-type a {
+    border-right:none;
+    }
+  #pin-key li a:hover .details {
+    display:none;
+    }
+}
+*/
 
 @media screen and (max-width: 780px) {
+  #pin-key {
+	position:absolute;
+	z-index:699;
+	top:-3.1em;
+	width:100%;
+	background:#f7f7f7;
+	}
+  #pin-key li a.active .arrow {
+	display:block;
+	width:100%;
+	top:-0.9em;
+	left:-0.85%;
+	right:-0.85%;
+	height:15px;
+	background:url(../../img/pin-block-up-arrow.png) no-repeat 0 0;
+	background-size:100% 15px;
+	}
   #pin-key li a,
   #pin-key li a:hover {
     width:10.7%;
