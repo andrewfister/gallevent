@@ -1,13 +1,22 @@
 var User = Backbone.Model.extend({
     defaults: {
         'id': 0,
-        'username': 'example@domain.com',
-        'first_name': '',
-        'last_name': '',
-        'email': 'example@domain.com',
+        'username': '',
+        'firstName': '',
+        'lastName': '',
+        'email': '',
         'latitude': 0,
         'longitude': 0
     },
+    
+    signIn: function(success, failure=null) {
+        $.ajax(this.signInUrl, {
+            success: success,
+            failure: failure
+        });
+    },
+    
+    signInUrl: '/login/sign_in',
 
-    url: '/profile/user'
+    urlRoot: '/profile/user'
 });

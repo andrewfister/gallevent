@@ -15,16 +15,44 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
 
 {% block viewjavascript %}
 <script type="text/javascript" src="/static/js/views/search-view.js"></script>
+<script type="text/javascript" src="/static/js/views/sign-in-view.js"></script>
 {% endblock viewjavascript %}
 
 {% block body-class %}home{% endblock body-class %}
 
 {% block signin-form %}
     {% if user.is_authenticated %}
-    <span class="sign-in-status"><a href="{% url 'user_profile.views.show_profile' %}">{{ user.username }}</a>
-    <a href="{% url 'login.views.sign_out' %}">Sign Out</a></span>
+    <span class="sign-in-status">
+        <a href="{% url 'user_profile.views.show_profile' %}">{{ user.username }}</a>
+        <a href="{% url 'login.views.sign_out' %}">Sign Out</a>
+        <a class="hidden btn-join" href="#">Join</a>
+        <span class="hidden bar-vertical">|</span>
+        <a class="hidden" id="signIn" href="#">Sign In</a>
+    </span>
+    <form class="hidden sign-in-form" style="display:none;" method="post">
+        <label>Email Address:</label>
+        <input type="text" class="input-standard" id="email" />
+        <label>Password:</label>
+        <input type="password" class="input-standard" id="password" />
+        <button class="btn-sign-in" type="button">Sign In</button>
+    </form>
     {% else %}
-    <span class="sign-in-status"><a class="btn-join" href="#">Join</a><span class="bar-vertical">|</span><a id="signIn" href="#">Sign In</a></span>
+    <span class="sign-in-status">
+        <a class="hidden" href="{% url 'user_profile.views.show_profile' %}"></a>
+        <a class="hidden" href="{% url 'login.views.sign_out' %}">Sign Out</a>
+        <a class="btn-join" href="#">Join</a>
+        <span class="bar-vertical">|</span>
+        <a id="signIn" href="#">Sign In</a>
+    </span>
+    <form class="sign-in-form" style="display:none;" method="post">
+        <label>Email Address:</label>
+        <input type="text" class="input-standard" id="email" />
+        <label>Password:</label>
+        <input type="password" class="input-standard" id="password" />
+        <button class="btn-sign-in" type="button">Sign In</button>
+    </form>
+    {% endif %}
+    
     <div class="hidden">
         <span id="user-id">{{ user.id }}</span>
         <span id="user-username">{{ user.username }}</span>
@@ -34,20 +62,6 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         <span id="user-latitude">{{ request.GET.latitude|default:0 }}</span>
         <span id="user-longitude">{{ request.GET.longitude|default:0 }}</span>
     </div>
-    <script>
-		$("#signIn").click(function(){
-			$(".sign-in-form").slideToggle(600);
-		});
-	</script>
-    <form class="sign-in-form" style="display:none;" method="post">
-        <label>Email Address:</label>
-        <input type="text" class="input-standard" name="email" />
-        <label>Password:</label>
-        <input type="password" class="input-standard" name="password" />
-        <input type="text" class="hidden" name="next" value="{{ next }}" />
-        <button class="btn-sign-in">Sign In</button>
-    </form>
-    {% endif %}
 {% endblock signin-form %}
 
 {% block content %}
@@ -73,6 +87,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
             -->
         </select>
     </span>
+    
     <button class="btn-search" type="button"><img src="/static/img/icon-search.png" alt="&nbsp;" title="Search Icon" /> Search</button>
     
     <input type="hidden" id="map-latitude" name="latitude" value="{{ request.GET.latitude|default:0 }}" />

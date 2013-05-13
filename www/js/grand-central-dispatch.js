@@ -9,8 +9,16 @@ $(function() {
 	
 	if ($('.sign-in-status').length)
 	{
-	    var userView = new UserView({});
-	    userView.render();
+	    var signInUser = new User({
+	        
+	    });
+	    var signInView = new SignInView({
+	        el: $('.sign-in-status'), 
+	        model: signInUser
+	    });
+	    
+	    //Nothing extra to render right now
+	    //signInView.render();
 	}
     
     if ($('#pin-key').length)

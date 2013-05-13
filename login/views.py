@@ -1,11 +1,43 @@
+import json
+
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.template import RequestContext
+from django.views.generic.base import TemplateView, View
 
 from login import forms
 from login import models
 
+
+class SignInView(View):
+    def post(self, request):
+        form = forms.SignInForm(request.POST)
+        if form.is_valid():
+            query_email = form.cleaned_data['email']
+            query_password = form.cleaned_data['password']
+            logging.debug('email: ' + query_email)
+            logging.debug('password: ' + query_password)
+            user = authenticate(username=query_email, password=query_password)
+            login_response = {}
+        
+            if user is not None:
+                if user.is_active:
+                    logging.debug('logging in')
+                    login(request, user)
+                    
+                    login_response['success'] = True
+                    login_response['user'] = user
+                    return HttpResponse(json.dumps(login_response), content_type="application/json")
+                else:
+                    logging.debug('disabled account')
+                    print 'disabled account'
+            else:
+                logging.debug('invalid login')
+                print 'invalid login'
+    
+        login_response['success'] = False
+        return HttpResponse(json.dumps(login_response), content_type="application/json")
 
 def invite_code(request):
     email = ''

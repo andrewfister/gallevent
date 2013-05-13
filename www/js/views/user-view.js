@@ -1,3 +1,3 @@
-var UserView = Backbone.View.extend({
+var SignInView = Backbone.View.extend({
     id: 'sign-in-status',
 });
