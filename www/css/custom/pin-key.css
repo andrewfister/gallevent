@@ -127,21 +127,6 @@
 	#pin-key li a:hover i {
 		}
 }
-/*
-@media screen and (max-width: 780px) {
-  #pin-key li a,
-  #pin-key li a:hover {
-    width:10.7%;
-    background-position:center;
-    }  
-  #pin-key li:last-of-type a {
-    border-right:none;
-    }
-  #pin-key li a:hover .details {
-    display:none;
-    }
-}
-*/
 
 @media screen and (max-width: 780px) {
   #pin-key {
