@@ -1,7 +1,8 @@
 import json
+import logging
 
 from django.shortcuts import render_to_response
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.template import RequestContext
 from django.views.generic.base import TemplateView, View
@@ -27,7 +28,13 @@ class SignInView(View):
                     login(request, user)
                     
                     login_response['success'] = True
-                    login_response['user'] = user
+                    login_response['user'] = {
+                        'id': user.id,
+                        'userName': user.username,
+                        'firstName': user.first_name,
+                        'lastName': user.last_name, 
+                        'email': user.email
+                    }
                     return HttpResponse(json.dumps(login_response), content_type="application/json")
                 else:
                     logging.debug('disabled account')
@@ -38,6 +45,17 @@ class SignInView(View):
     
         login_response['success'] = False
         return HttpResponse(json.dumps(login_response), content_type="application/json")
+
+
+class SignOutView(View):
+    def post(self, request):
+        if request.user.is_authenticated():
+            logout(request)
+    
+        login_response = {'success': request.user.is_authenticated()}
+        
+        return HttpResponse(json.dumps(login_response), content_type="application/json")        
+
 
 def invite_code(request):
     email = ''

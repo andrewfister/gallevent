@@ -6,6 +6,6 @@ urlpatterns = patterns('login.views',
     (r'^invite_request/$', 'invite_request'),
     (r'^invite_request_received/$', 'invite_request_received'),
     url(r'^sign_in/$', views.SignInView.as_view(), name='sign_in'),
-    (r'^sign_out/$', 'sign_out'),
+    url(r'^sign_out/$', views.SignOutView.as_view(), name='sign_out'),
     (r'^manage_invites/$', 'manage_invites'),
 )

@@ -3,30 +3,36 @@ var SignInView = Backbone.View.extend({
     
     events: {
         'click .btn-sign-in': 'signIn',
+        'click .btn-sign-out': 'signOut',
         'click #signIn': 'showSignIn',
-        'click .btn-sign-out': 'signOut'
     },
     
     render: function() {
     },
     
-    renderSignedIn: function() {
-        this.el.empty();
-        this.el.append("<a href='" + this.model.urlRoot + "'>" + this.model.username + "</a><a class='.btn-sign-out'>Sign Out</a></span>");
+    renderSignedIn: function(response, success, request) {
+        this.model.set(response.user);
+        $('.username').text(this.model.get('userName'));
+        $('.signed-out').addClass('hidden');
+        $('.signed-in').removeClass('hidden');
     },
     
     renderSignedOut: function() {
+        $('.username').text("");
+        $('.signed-in').addClass('hidden');
+        $('.signed-out').removeClass('hidden');
     },
     
     showSignIn: function() {
         $(".sign-in-form").slideToggle(600);
+        $(".btn-sign-in").click(this.signIn.bind(this));
     },
     
     signIn: function() {
-        this.model.signIn(this.renderSignedIn);
+        this.model.signIn(this.renderSignedIn.bind(this));
     },
     
     signOut: function() {
-        this.model.signOut(this.renderSignedOut);
+        this.model.signOut(this.renderSignedOut.bind(this));
     }
 });

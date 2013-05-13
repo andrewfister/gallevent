@@ -23,32 +23,32 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
 {% block signin-form %}
     {% if user.is_authenticated %}
     <span class="sign-in-status">
-        <a href="{% url 'user_profile.views.show_profile' %}">{{ user.username }}</a>
-        <a href="{% url 'login.views.sign_out' %}">Sign Out</a>
-        <a class="hidden btn-join" href="#">Join</a>
-        <span class="hidden bar-vertical">|</span>
-        <a class="hidden" id="signIn" href="#">Sign In</a>
+        <a class="signed-in username" href="{% url 'user_profile.views.show_profile' %}">{{ user.username }}</a>
+        <a class="signed-in btn-sign-out" href="#">Sign Out</a>
+        <a class="hidden signed-out btn-join" href="#">Join</a>
+        <span class="hidden signed-out bar-vertical">|</span>
+        <a class="hidden signed-out" id="signIn" href="#">Sign In</a>
     </span>
-    <form class="hidden sign-in-form" style="display:none;" method="post">
+    <form class="hidden signed-out sign-in-form" style="display:none;" method="post">
         <label>Email Address:</label>
-        <input type="text" class="input-standard" id="email" />
+        <input type="text" class="input-standard" name="email" />
         <label>Password:</label>
-        <input type="password" class="input-standard" id="password" />
+        <input type="password" class="input-standard" name="password" />
         <button class="btn-sign-in" type="button">Sign In</button>
     </form>
     {% else %}
     <span class="sign-in-status">
-        <a class="hidden" href="{% url 'user_profile.views.show_profile' %}"></a>
-        <a class="hidden" href="{% url 'login.views.sign_out' %}">Sign Out</a>
-        <a class="btn-join" href="#">Join</a>
-        <span class="bar-vertical">|</span>
-        <a id="signIn" href="#">Sign In</a>
+        <a class="hidden signed-in username" href="{% url 'user_profile.views.show_profile' %}"></a>
+        <a class="hidden signed-in btn-sign-out" href="#">Sign Out</a>
+        <a class="signed-out btn-join" href="#">Join</a>
+        <span class="signed-out bar-vertical">|</span>
+        <a class="signed-out" id="signIn" href="#">Sign In</a>
     </span>
-    <form class="sign-in-form" style="display:none;" method="post">
+    <form class="signed-out sign-in-form" style="display:none;" method="post">
         <label>Email Address:</label>
-        <input type="text" class="input-standard" id="email" />
+        <input type="text" class="input-standard" name="email" />
         <label>Password:</label>
-        <input type="password" class="input-standard" id="password" />
+        <input type="password" class="input-standard" name="password" />
         <button class="btn-sign-in" type="button">Sign In</button>
     </form>
     {% endif %}

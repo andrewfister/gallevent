@@ -9,9 +9,7 @@ $(function() {
 	
 	if ($('.sign-in-status').length)
 	{
-	    var signInUser = new User({
-	        
-	    });
+	    var signInUser = new User();
 	    var signInView = new SignInView({
 	        el: $('.sign-in-status'), 
 	        model: signInUser
