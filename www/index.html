@@ -65,40 +65,6 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
 {% endblock signin-form %}
 
 {% block content %}
-<<<<<<< HEAD
-<form id="top-search" method="get">
-    <label class="icon find-event" for="event">Search for Events</label><input type="text" id="event" name="q" placeholder="Example: Dancing" value="{{ request.GET.q }}" />
-    <label class="icon clock" for="time-span">Time</label>
-    <span class="select time-span">
-        <select id="time-span" name="timeSpan">
-            <option value="day_of" {% if timeSpan == "day_of" %}selected="selected"{% endif %}>Day of</option>
-            <option value="week_of" {% if timeSpan == "week_of" %}selected="selected"{% endif %}>Week of</option>
-            <option value="weekend_of" {% if timeSpan == "weekend_of" %}selected="selected"{% endif %}>Weekend of</option>
-        </select>
-    </span>
-    <input type="text" id="date" placeholder="{{ form.today.value }}" value="{{ form.start_date.value }}" />
-    <label class="icon price" for="price">Price</label>
-    <span class="select">
-        <select id="price" name="price">
-            <option value="any_price">Any Price</option>
-            <!--
-            <option value="free">Free</option>
-            <option value="under_10">Under $10</option>
-            <option value="under_20">Under $20</option>
-            -->
-        </select>
-    </span>
-    
-    <button class="btn-search" type="button"><img src="/static/img/icon-search.png" alt="&nbsp;" title="Search Icon" /> Search</button>
-    
-    <input type="hidden" id="map-latitude" name="latitude" value="{{ request.GET.latitude|default:0 }}" />
-    <input type="hidden" id="map-longitude" name="longitude" value="{{ request.GET.longitude|default:0 }}" />
-    <input type="hidden" id="map-radius" name="distance" value="{{ request.GET.distance|default:5.08 }}" />
-    <input type="hidden" id="date1" name="start_date" value=""/>
-    <input type="hidden" id="date2" name="end_date" value=""/>
-    
-</form><!-- #top-search -->
-=======
 <div id="top-search-container" tabindex="0">
 	<div class="btn-search-events">Search Events</div>
     <form id="top-search" method="get">
@@ -133,7 +99,6 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         
     </form>
 </div><!-- #top-search-container -->
->>>>>>> 27fefe9c0e1e2b89c84c3599c730e7da1e9d2631
 <ul id="pin-key">
     <li>
     	<a href="#" class="key networking">
