@@ -2,3 +2,4 @@ local_settings
 wsgi.py
 *.pyc
 *\~
+\.*
