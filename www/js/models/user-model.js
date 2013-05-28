@@ -9,7 +9,7 @@ var User = Backbone.Model.extend({
         'longitude': 0
     },
     
-    signIn: function(success, failure=null) {
+    signIn: function(success, failure) {
         var serializedSignIn = $('.sign-in-form').serializeArray();
         
         var signInParams = {};
@@ -27,7 +27,7 @@ var User = Backbone.Model.extend({
         });
     },
     
-    signOut: function(success, failure=null) {
+    signOut: function(success, failure) {
         $.ajax(this.signOutUrl, {
             type: 'POST',
             success: success,
