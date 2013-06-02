@@ -588,6 +588,23 @@ a.btn-post-event,
 	background:#fff url(../../img/icon-calendar.png) no-repeat 95% 50%;
 	}
 
+
+/* = Alerts
+----------------------------------- */
+.loading {
+	position:absolute;
+	z-index:880;
+	margin-top:20%;
+	text-align:center;
+	width:100%;
+	}
+.loading img {
+	width:365px;
+	height:179px;
+	opacity:0.8;
+	}
+
+
 /* = Buttons
 ----------------------------------- */
 #top-search button,
