@@ -3,7 +3,7 @@
 ** Description: Styles Specific to Home Page
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-13-2013
-** Updated: 06-02-2013
+** Updated: 05-12-2013
 ************************************** */
 
 /* = Remove Border on Form Inputs and Selects */
@@ -17,6 +17,7 @@
 	position:fixed;
 	top:0;
 	width:20%;
+	margin-left:2.5%;
 	padding:0;
 	background:transparent;
 	}
@@ -106,7 +107,8 @@
 	position:absolute;
 	top:0;
 	right:0;
-	width:80%;
+	width:75%;
+	margin-right:2.5%;
 	background:#f7f7f7;
 	}
 
@@ -148,14 +150,6 @@
 .home #footer .copyright {
   float:right;
   }
-
-
-/* = Map */
-#map-box,
-#map_canvas {
-	top:3.39em;
-	}
-
 
 /* = Media Queries
 ----------------------------------- */

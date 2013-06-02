@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-06-2013
-** Updated: 05-12-2013
+** Updated: 05-19-2013
 ************************************** */
 
 /* = Global Typography */
@@ -51,8 +51,10 @@ a:hover {
 
 .sign-in-status {
 	display:block;
+	background:#66C13F;
 	color:#fff;
 	font-size:0.9em;
+	overflow-x:hidden;
 	}
 .sign-in-status a,
 .sign-in-status a:link {
@@ -60,6 +62,44 @@ a:hover {
 	font-weight:bold;
 	text-decoration:none;
 	}
+
+.signed-in {
+	text-align:center;
+	}
+.signed-in a:hover {
+	color:#FFE066 !important;
+	}
+
+.signed-in.username,
+.sign-in-status:hover .signed-in.btn-sign-out {
+	display:block;
+	float:left;
+	width:100%;
+	}
+
+.signed-in.username {
+	padding:1em 0 0.6em 0;
+	}
+
+.signed-in.btn-sign-out {
+	display:none;
+	}
+
+.sign-in-status:hover .signed-in.btn-sign-out {
+	padding:0 0 1em 0;
+	}
+
+/*
+a.username,
+a.btn-sign-out {
+	display:block;
+	float:left;
+	padding:1.5em 1em 1em 1em;
+	}
+a.btn-sign-out {
+	padding:1.5em 1em 1em 1em;
+	}
+*/
 
 /* = Global Form Elements
 ----------------------------------- */
@@ -339,6 +379,7 @@ a.btn-post-event,
 ----------------------------------- */
 #header,
 .logo-block,
+.sign-in-status,
 .home .sign-in-form,
 #content {
 	border-radius:0px 0px 8px 8px;
@@ -546,6 +587,23 @@ a.btn-post-event,
 	width:13%;
 	background:#fff url(../../img/icon-calendar.png) no-repeat 95% 50%;
 	}
+
+
+/* = Alerts
+----------------------------------- */
+.loading {
+	position:absolute;
+	z-index:880;
+	margin-top:20%;
+	text-align:center;
+	width:100%;
+	}
+.loading img {
+	width:365px;
+	height:179px;
+	opacity:0.8;
+	}
+
 
 /* = Buttons
 ----------------------------------- */
