@@ -99,6 +99,9 @@ class EventSearchForm(SearchForm):
         '%d %B %Y',       # '25 October 2006'
         '%d %B, %Y',      # '25 October, 2006'
     ]
+    
+    gallevent_categories = ['art', 'athletic', 'dancing', 'dining', 'education', 
+                            'fairs', 'jobs', 'networking', 'parties', 'sales']
 
     start_date = forms.DateTimeField(required=False, initial="", input_formats=date_input_formats)
     end_date = forms.DateTimeField(required=False, initial="", input_formats=date_input_formats)
@@ -160,9 +163,6 @@ class EventBriteSearchForm(EventSearchForm):
         'music': 'art',
         'sports': 'athletic',
     }
-    
-    gallevent_categories = ['art', 'athletic', 'dancing', 'dining', 'education', 
-                            'fairs', 'jobs', 'networking', 'parties', 'sales']
                             
     default_query = "party%20OR%20drinks%20OR%20dancing%20OR%20performance%20OR%20show%20OR%20concert%20OR%20meetup%20OR%20group%20OR%20event"
 
@@ -193,6 +193,9 @@ class EventBriteSearchForm(EventSearchForm):
         # Check to see if an end_date was chosen.
         if self.cleaned_data['end_date']:
             eb_client_query['date'] += ' ' + str(self.cleaned_data['end_date'].strftime('%Y-%m-%d'))
+        
+        if self.cleaned_data['price']:
+            eb_client_query['price'] = self.cleaned_data['price']
         
         try:
             events = self.searchEventBrite(eb_client_query, max_events)
@@ -248,6 +251,7 @@ class EventBriteSearchForm(EventSearchForm):
             
             try:
                 eb_event_ticket_price = eb_event['tickets'][0]['ticket']['price'].replace(',','')
+                if 
             except KeyError:
                 eb_event_ticket_price = 0.00
                 
@@ -321,6 +325,9 @@ class MeetupSearchForm(EventSearchForm):
         if self.cleaned_data.has_key('end_date'):
             meetup_client_query['time'] += str(calendar.timegm(self.cleaned_data['end_date'].utctimetuple()) * 1000)
         
+        if self.cleaned_data['price']:
+            meetup_client_query['price'] = self.cleaned_data['price']
+        
         meetup_client_query['text_format'] = 'plain'
         
         try:
@@ -378,6 +385,14 @@ class MeetupSearchForm(EventSearchForm):
                 meetup_event_fee = meetup_event.fee['amount']
             except AttributeError:
                 meetup_event_fee = 0
+            
+            if (meetup_event_fee >= 0 \
+                and meetup_client_query['price'] == 'free') \
+                or (meetup_event_fee >= 10 \
+                and meetup_client_query['price'] == 'under_10') \
+                or (meetup_event_fee >= 20 \
+                and meetup_client_query['price'] == 'under_20')
+                continue
             
             meetup_event_start_date = meetup_event_start.strftime("%m/%d/%Y")
             meetup_event_start_time = meetup_event_start.strftime("%I:%M%p")

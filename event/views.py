@@ -1,10 +1,12 @@
 import logging
 import json
+import pickle
 
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from django.core.cache import cache
 
 from django.views.generic.base import TemplateView, View
 
@@ -39,6 +41,11 @@ class SearchView(View):
         searchForms = [forms.EventBriteSearchForm, forms.MeetupSearchForm]
         events = []
         
+        #Attempt to grab cached result from this search
+#        cached_search_result = cache.get(form.cleaned_data['q'])
+#        if len(cached_result) > 0:
+#            events = pickle.loads(cached_search_result)
+#        else:
         for SearchForm in searchForms:    
             if len(events) >= settings.MAX_EVENTS:
                 break
@@ -47,7 +54,10 @@ class SearchView(View):
             if form.is_valid():
                 logging.debug('doing a search')
                 events.extend(form.search(settings.MAX_EVENTS - len(events)))
-        
+            
+#            pickled_search_result = pickle.dumps(events)
+#            cache.set(form.cleaned_data['q'], pickled_search_result)
+                
         logging.debug('request data: ' + str(request.GET))
         
         if len(events) == 0:

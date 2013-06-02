@@ -102,10 +102,16 @@ var SearchView = Backbone.View.extend({
         }
         
         searchCollection.fetch({
-            data: searchData, 
+            data: searchData,
             success: function(collection, response, options) {
                 this.collection.reset(response);
-            }.bind(this)
+                $('.loading').addClass('hidden');
+            }.bind(this),
+            error: function(collection, response, options) {
+                $('.loading').addClass('hidden');
+            }
         });
+        
+        $('.loading').removeClass('hidden');
     }
 });
