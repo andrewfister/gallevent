@@ -108,6 +108,7 @@ class EventSearchForm(SearchForm):
     latitude = forms.FloatField(initial=0)
     longitude = forms.FloatField(initial=0)
     distance = forms.FloatField(initial=5.08)
+    price = forms.CharField(initial="any_price")
     
     #TODO: Next time I add another source, modularize each event source
     #Current search sources:
@@ -194,9 +195,6 @@ class EventBriteSearchForm(EventSearchForm):
         if self.cleaned_data['end_date']:
             eb_client_query['date'] += ' ' + str(self.cleaned_data['end_date'].strftime('%Y-%m-%d'))
         
-        if self.cleaned_data['price']:
-            eb_client_query['price'] = self.cleaned_data['price']
-        
         try:
             events = self.searchEventBrite(eb_client_query, max_events)
         except EnvironmentError:
@@ -205,6 +203,7 @@ class EventBriteSearchForm(EventSearchForm):
         return events
 
     def searchEventBrite(self, eb_client_query, max_events):
+        logging.debug('try to search EB')
         eb_auth_tokens = {'app_key': 'K4FQTKYHI34GPW6HSS'}
         eb_client = eventbrite.EventbriteClient(eb_auth_tokens)
         
@@ -227,6 +226,27 @@ class EventBriteSearchForm(EventSearchForm):
             if len(eb_event_venue['address']) == 0 or eb_event_venue['address'] == 'TBA' or eb_event['category'] == 'sales':
                 continue
             
+            try:
+                eb_event_ticket_price = float(eb_event['tickets'][0]['ticket']['price'].replace(',',''))
+
+            except KeyError:
+                eb_event_ticket_price = 0.00
+            
+            try:
+                eb_price_choice = self.cleaned_data['price']
+                logging.debug('testing price: ' + eb_price_choice)
+                if (eb_event_ticket_price > 0 \
+                    and eb_price_choice == 'free') \
+                    or (eb_event_ticket_price >= 10 \
+                    and eb_price_choice == 'under_10') \
+                    or (eb_event_ticket_price >= 20 \
+                    and eb_price_choice == 'under_20'):
+                    logging.debug('bad price: ' + str(eb_event_ticket_price))
+                    continue
+            except KeyError:
+                pass
+                
+            logging.debug('composing event')
             eb_event_address_parts = [eb_event_venue['address'], 
                                     eb_event_venue['address_2'], 
                                     eb_event_venue['city'], 
@@ -248,12 +268,6 @@ class EventBriteSearchForm(EventSearchForm):
                 eb_event_title = html.fragment_fromstring(eb_event['title']).text_content()
             except:
                 eb_event_title = eb_event['title']
-            
-            try:
-                eb_event_ticket_price = eb_event['tickets'][0]['ticket']['price'].replace(',','')
-                if 
-            except KeyError:
-                eb_event_ticket_price = 0.00
                 
             eb_events.append({
                             "id": eb_event['id'],
@@ -325,9 +339,6 @@ class MeetupSearchForm(EventSearchForm):
         if self.cleaned_data.has_key('end_date'):
             meetup_client_query['time'] += str(calendar.timegm(self.cleaned_data['end_date'].utctimetuple()) * 1000)
         
-        if self.cleaned_data['price']:
-            meetup_client_query['price'] = self.cleaned_data['price']
-        
         meetup_client_query['text_format'] = 'plain'
         
         try:
@@ -348,16 +359,16 @@ class MeetupSearchForm(EventSearchForm):
         meetup_events = []
         
         for meetup_event in meetup_response.results:
-            logging.debug('an event response: ' + str(meetup_event))
+            #logging.debug('an event response: ' + str(meetup_event))
             try:
                 meetup_event_description = meetup_event.description
                 meetup_event_short_description = meetup_event_description[:50] + '...'
-                meetup_event_group = meetup_event.group
+                #meetup_event_group = meetup_event.group
                 meetup_event_venue = meetup_event.venue
             except AttributeError:
                 continue
             
-            logging.debug('venue: ' + str(meetup_event_venue))
+            #logging.debug('venue: ' + str(meetup_event_venue))
             if not meetup_event_venue.has_key('address_2'):
                 meetup_event_venue['address_2'] = ''
             if not meetup_event_venue.has_key('zip'):
@@ -386,13 +397,17 @@ class MeetupSearchForm(EventSearchForm):
             except AttributeError:
                 meetup_event_fee = 0
             
-            if (meetup_event_fee >= 0 \
-                and meetup_client_query['price'] == 'free') \
-                or (meetup_event_fee >= 10 \
-                and meetup_client_query['price'] == 'under_10') \
-                or (meetup_event_fee >= 20 \
-                and meetup_client_query['price'] == 'under_20')
-                continue
+            try:
+                meetup_price_choice = self.cleaned_data['price']
+                if (meetup_event_fee > 0 \
+                    and meetup_price_choice == 'free') \
+                    or (meetup_event_fee >= 10 \
+                    and meetup_price_choice == 'under_10') \
+                    or (meetup_event_fee >= 20 \
+                    and meetup_price_choice == 'under_20'):
+                    continue
+            except KeyError:
+                pass
             
             meetup_event_start_date = meetup_event_start.strftime("%m/%d/%Y")
             meetup_event_start_time = meetup_event_start.strftime("%I:%M%p")

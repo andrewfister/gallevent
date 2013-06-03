@@ -64,7 +64,7 @@ class SearchView(View):
             events = "[]"
 
         events_json = json.dumps(events)
-        logging.debug('event search response json: ' + events_json)
+        #logging.debug('event search response json: ' + events_json)
 
         return HttpResponse(events_json, content_type="application/json")
 
