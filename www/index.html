@@ -87,7 +87,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
                 <option value="under_20">Under $20</option>
             </select>
         </span>
-        <button class="btn-search" type="button"><img src="/static/img/icon-search.png" alt="&nbsp;" title="Search Icon" /> Search</button>
+        <button class="btn-search" type="button"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="18px" height="17px" viewBox="0 0 18 17" enable-background="new 0 0 18 17" xml:space="preserve"><path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M7.008 0c-3.81 0-6.894 3.052-6.894 6.8 c0 3.8 3.1 6.8 6.9 6.825c1.646 0 3.146-0.573 4.334-1.524c0.055 0.1 0.1 0.2 0.2 0.271l4.29 4.3 C16.057 16.9 16.4 17 16.7 17c0.309 0 0.618-0.115 0.857-0.355c0.471-0.464 0.471-1.228 0-1.692l-4.288-4.257 c-0.123-0.117-0.257-0.201-0.402-0.264c0.665-1.043 1.052-2.28 1.052-3.609C13.894 3.1 10.8 0 7 0z M7.008 2.1 c2.627 0 4.8 2.1 4.8 4.722c0 0.881-0.255 1.739-0.726 2.498l-0.433 0.687l-0.61 0.487c-0.858 0.688-1.893 1.051-2.998 1.1 c-2.636 0-4.775-2.117-4.775-4.722C2.232 4.2 4.4 2.1 7 2.101z"/></svg> Search</button>
         
         <input type="hidden" id="map-latitude" name="latitude" value="{{ request.GET.latitude|default:0 }}" />
         <input type="hidden" id="map-longitude" name="longitude" value="{{ request.GET.longitude|default:0 }}" />

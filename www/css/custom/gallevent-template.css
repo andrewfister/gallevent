@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-06-2013
-** Updated: 05-19-2013
+** Updated: 06-22-2013
 ************************************** */
 
 /* = Global Typography */
@@ -535,21 +535,21 @@ a.btn-post-event,
 	float:left;
 	clear:none;
 	margin-top:5px;
-  margin-right:0.5%;
+  	margin-right:8px;
 	height:28px;
-	width:3%;
+	width:26px;
 	text-indent:-9999px;
-	background:transparent url(../../img/sprite-map-logos-icons-bgs.png) no-repeat;
 	}
 
 #top-search label.find-event {
-	background-position:-3px -3px;
+	background:url(../../img/data/icon-event-pin-question-26x26.svg) 0 0 no-repeat;
 	}
 #top-search label.clock {
-	background-position:-3px -46px;
+	background:url(../../img/data/icon-clock-26x26.svg) 0 0 no-repeat;
 	}
 #top-search label.price {
-	background-position:-3px -91px;
+	width:15px;
+	background:url(../../img/data/icon-dollar-sign-15x26.svg) 0 0 no-repeat;
 	}
 
 /* Top Search Fields */
@@ -585,7 +585,7 @@ a.btn-post-event,
 #top-search #date {
   margin-right:1.5%;
 	width:13%;
-	background:#fff url(../../img/icon-calendar.png) no-repeat 95% 50%;
+	background:#fff url(../../img/data/icon-calendar-25x24.svg) no-repeat 95% 50%;
 	}
 
 
@@ -637,16 +637,11 @@ a.btn-post-event,
 	width:12%;
 	padding:0.65em 0 0.6em 0;
 	}
-
-#top-search button .icon-looking-glass {
-	overflow:hidden;
-	display:inline-block;
-	width:20px;
-	height:19px;
-	text-indent:-9999px;
-	background:url(../../img/sprite-map-logos-icons-bgs.png) no-repeat -44px -94px;
+#top-search .btn-search svg {
+	position:relative;
+	top:2px;
 	}
-	
+
 .home a.btn-post-event {
 	clear:both;
 	display:block;
@@ -697,7 +692,7 @@ a.btn-post-event:hover {
 	width:216px;
 	height:46px;
 	margin-left:0;
-	background:url(../../img/sprite-map-logos-icons-bgs.png) no-repeat -81px -3px;
+	background:url(../../img/data/logo-gallevent-white-209x34.svg)  7px 5px no-repeat;
 	text-indent:-100%;
 	}
 .tagline {
