@@ -49,8 +49,6 @@ var SearchView = Backbone.View.extend({
         else if ($("#time-span").attr('value') === "week_of")
         {
             date = $.datepicker.parseDate('mm/dd/yy', $( "#date" ).attr('value'));
-            dayOfWeek = (date.getDay() + 6) % 7;
-            date.setDate(date.getDate() - dayOfWeek);
             date2 = new Date(date);
             date2.setDate(date.getDate() + 6);
             
