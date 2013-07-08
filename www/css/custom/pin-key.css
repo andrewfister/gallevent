@@ -3,7 +3,7 @@
 ** Description: Control for Event Categories
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 05-12-2013
+** Updated: 07-07-2013
 ************************************** */
 
 /* = Position Pin Key Within Container */
@@ -47,7 +47,7 @@
   left:-0.85%;
   right:-0.85%;
   height:15px;
-  background:url(../../img/pin-block-down-arrow.png) no-repeat 0 0;
+  background:url(../../img/pin-block-down-arrow.png) no-repeat center 0;
   background-size:contain;
   }
 
@@ -106,7 +106,7 @@
 	background:url(../../img/data/pin-arts-31x32.svg) no-repeat;
 	}
 .dancing {
-	background:url(../../img/data/pin-dancing-31x32.svg) no-repeat;
+	background:url(../../img/data/pin-dancing-v2-31x32.svg) no-repeat;
 	}
 .sales {
 	background:url(../../img/data/pin-sales-31x32.svg) no-repeat;

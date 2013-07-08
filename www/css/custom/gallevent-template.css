@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-06-2013
-** Updated: 06-22-2013
+** Updated: 07-07-2013
 ************************************** */
 
 /* = Global Typography */
@@ -162,9 +162,13 @@ select {
 .select {
 	padding-top:0.52em;
 	padding-bottom:0.52em;
-	background:#fff url(../../img/btn-select-dwn-arrow.png) right center no-repeat;
+	background:#fff url(../../img/data/drop-down-arrow.svg) right center no-repeat;
 	background-size:contain;
 	overflow:hidden;
+	}
+.select:hover {
+	background:#fff url(../../img/data/drop-down-arrow-h.svg) right center no-repeat;
+	background-size:contain;
 	}
 
 .form-details {
@@ -356,7 +360,6 @@ button,
 .btn-join,
 .sign-in-status #signIn,
 a.btn-post-event {
-	text-shadow: 	1px 1px 2px rgba(0, 0, 0, 0.25);
 	}
 
 .home input,
@@ -587,6 +590,9 @@ a.btn-post-event,
 	width:13%;
 	background:#fff url(../../img/data/icon-calendar-25x24.svg) no-repeat 95% 50%;
 	}
+#top-search #date:hover {
+	background:#fff url(../../img/data/icon-calendar-25x24-h.svg) no-repeat 95% 50%;
+	}
 
 
 /* = Alerts
@@ -613,7 +619,7 @@ a.btn-post-event,
 .map-popup .btn-watch {
 	border-radius:6px;
 	color:#fff;
-	font-weight:bold;
+	font-weight:400;
 	}
 
 #top-search button,
@@ -635,11 +641,22 @@ a.btn-post-event,
 
 #top-search button {
 	width:12%;
-	padding:0.65em 0 0.6em 0;
+	max-width:115px;
+	padding:0.4em 0 0.5em 0;
+	border:0.15em solid #fff;
+	background: #66c13f; /* Old browsers */
+	background: -moz-linear-gradient(top,  #66c13f 0%, #43a035 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#66c13f), color-stop(100%,#43a035)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #66c13f 0%,#43a035 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #66c13f 0%,#43a035 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #66c13f 0%,#43a035 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #66c13f 0%,#43a035 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66c13f', endColorstr='#43a035',GradientType=0 ); /* IE6-9 */
 	}
 #top-search .btn-search svg {
 	position:relative;
-	top:2px;
+	top:0.15em;
+	margin-right:3px;
 	}
 
 .home a.btn-post-event {
@@ -665,16 +682,24 @@ a.btn-post-event,
 input[type="submit"]:hover,
 #top-search button:hover,
 a.btn-post-event:hover {
-	background-color:#01a1ad;
+	background: #01a1ad; /* Old browsers */
+	background: -moz-linear-gradient(top,  #01a1ad 0%, #019399 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#01a1ad), color-stop(100%,#019399)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #01a1ad 0%,#019399 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #01a1ad 0%,#019399 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #01a1ad 0%,#019399 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #01a1ad 0%,#019399 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#01a1ad', endColorstr='#019399',GradientType=0 ); /* IE6-9 */
 	}
-	
+
+
 /* = Main Containers
 ----------------------------------- */
 #header {
 	z-index:800;
-  margin:0 auto;
+	margin:0 auto;
 	height:auto;
-  width:91%;
+	width:91%;
 	padding:0.4em 2% 0.5em 2%;
 	background:#f9a21c url(../../img/sprite-map.png) no-repeat -76px -376px;
 	}
