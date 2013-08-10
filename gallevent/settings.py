@@ -39,9 +39,9 @@ CACHES = {
 
 HAYSTACK_CONNECTIONS = {
     'default': {
-        'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
-        'URL': local_settings.HAYSTACK_HOST_LOCAL + ':8983/solr',
-        #'INDEX_NAME': 'haystack',
+        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'URL': local_settings.HAYSTACK_HOST_LOCAL + ':9200/',
+        'INDEX_NAME': 'haystack',
     },
 }
 

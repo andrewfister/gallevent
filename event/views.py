@@ -1,12 +1,11 @@
 import logging
-import json
-import pickle
 
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from django.core.cache import cache
+from django.core import serializers
+import json
 
 from django.views.generic.base import TemplateView, View
 
@@ -61,9 +60,13 @@ class SearchView(View):
         logging.debug('request data: ' + str(request.GET))
         
         if len(events) == 0:
-            events = "[]"
-
-        events_json = json.dumps(events)
+            events_json = "[]"
+        
+        eventJSONSerializer = models.EventJSONSerializer()
+        events_json = eventJSONSerializer.serialize(events)
+        #events_json = []
+        #for event in events:
+        #    events_json.append(json.dumps(event))
         #logging.debug('event search response json: ' + events_json)
 
         return HttpResponse(events_json, content_type="application/json")
