@@ -209,6 +209,9 @@ class EventBriteSearchForm(EventSearchForm):
     def get_category_from_eb(self, category):
         if category in self.gallevent_categories:
             return category
+        
+        if len(category) == 0:
+            return 'networking'
             
         try:
             return self.eb_category_map[category]
@@ -332,6 +335,7 @@ class MeetupSearchForm(EventSearchForm):
                             longitude=meetup_event_venue['lon'],
                             #"keywords": meetup_event_group['topics'],
                             #"category": meetup_event_group['category'],
+                            category="networking",
                             short_description=meetup_event_short_description.encode('utf-8').strip(),
                             description=meetup_event_description.encode('utf-8').strip(),
                             event_url=meetup_event.event_url,
