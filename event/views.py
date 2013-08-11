@@ -1,14 +1,10 @@
 import logging
-import json
 
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from django.core import serializers
 from django.views.generic.base import TemplateView, View
-
-from haystack.query import SearchQuerySet
 
 from event import forms
 from event import models
@@ -38,6 +34,7 @@ class SearchView(View):
         #        .extra(where=['end_date >= CURRENT_TIMESTAMP']) \
         #        .order_by('start_date','start_time').reverse()
 
+        #searchForms = [forms.EventSearchForm, forms.EventBriteSearchForm, forms.MeetupSearchForm]
         searchForms = [forms.EventSearchForm]
         events = []
         
@@ -46,8 +43,9 @@ class SearchView(View):
 #        if len(cached_result) > 0:
 #            events = pickle.loads(cached_search_result)
 #        else:
-        for SearchForm in searchForms:    
+        for SearchForm in searchForms:
             if len(events) >= settings.MAX_EVENTS:
+                events = events[:settings.MAX_EVENTS]
                 break
             
             form = SearchForm(request.GET)

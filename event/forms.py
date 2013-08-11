@@ -11,6 +11,7 @@ from django import forms
 from django.db import IntegrityError
 
 from haystack.forms import SearchForm
+from haystack.utils.geo import Point, D
 
 from event import models
 from gallevent import settings
@@ -40,8 +41,8 @@ class EventSearchForm(SearchForm):
     
     default_query = "party drinks dancing performance show concert meetup group event"
 
-    start_date = forms.DateTimeField(required=False, initial="", input_formats=date_input_formats)
-    end_date = forms.DateTimeField(required=False, initial="", input_formats=date_input_formats)
+    start_date = forms.DateTimeField(initial="", input_formats=date_input_formats)
+    end_date = forms.DateTimeField(initial="", input_formats=date_input_formats)
     latitude = forms.FloatField(initial=0)
     longitude = forms.FloatField(initial=0)
     distance = forms.FloatField(initial=5.08)
@@ -52,7 +53,6 @@ class EventSearchForm(SearchForm):
     def clean_q(self):
         query = self.cleaned_data['q']
         if query == 'default':
-            #query = "event" 
             query = self.default_query
             logging.debug('default_query: ' + query)
     
@@ -65,6 +65,24 @@ class EventSearchForm(SearchForm):
     def search(self, max_events=settings.MAX_EVENTS):
         sqs = super(EventSearchForm, self).search()
         
+        if self.cleaned_data['latitude'] and \
+            self.cleaned_data['longitude'] and \
+            self.cleaned_data['distance']:
+            center = Point(self.cleaned_data['longitude'], self.cleaned_data['latitude'])
+            radius = D(mi=self.cleaned_data['distance'])
+            sqs = sqs.dwithin('location', center, radius).load_all()
+        else:
+            return []
+        
+        if self.cleaned_data['start_date']:
+            sqs = sqs.filter(end_date__gte=self.cleaned_data['start_date'])
+        else:
+            return []
+        
+        if self.cleaned_data['end_date']:
+            sqs = sqs.filter(start_date__lte=self.cleaned_data['end_date'])
+        else:
+            return []
         
         # Get a list of Event objects so we can append these results with other sources
         events = [result.object for result in sqs]
@@ -88,6 +106,7 @@ class EventBriteSearchForm(EventSearchForm):
     default_query = "party%20OR%20drinks%20OR%20dancing%20OR%20performance%20OR%20show%20OR%20concert%20OR%20meetup%20OR%20group%20OR%20event"
 
     def search(self, max_events=settings.MAX_EVENTS):
+        logging.debug('search eventbrite')
         if not self.cleaned_data['q'] == 'default': 
             query = self.cleaned_data['q']
         else:
@@ -230,6 +249,7 @@ class MeetupSearchForm(EventSearchForm):
     default_query = "party OR drinks OR dancing OR performance OR show OR concert OR meetup OR group OR event"
     
     def search(self, max_events=settings.MAX_EVENTS):
+        logging.debug('search meetup')
         if not self.cleaned_data['q'] == 'default': 
             query = self.cleaned_data['q']
         else:
