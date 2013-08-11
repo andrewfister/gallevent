@@ -39,7 +39,7 @@ class EventSearchForm(SearchForm):
     gallevent_categories = ['art', 'athletic', 'dancing', 'dining', 'education', 
                             'fairs', 'jobs', 'networking', 'parties', 'sales']
     
-    default_query = "party drinks dancing performance show concert meetup group event"
+    default_query = "event"
 
     start_date = forms.DateTimeField(initial="", input_formats=date_input_formats)
     end_date = forms.DateTimeField(initial="", input_formats=date_input_formats)
