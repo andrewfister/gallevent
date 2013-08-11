@@ -58,31 +58,21 @@ class EventSearchForm(SearchForm):
     
         return query
     
-    #TODO: Next time I add another source, modularize each event source
     #Current search sources:
     #Gallevent
     #EventBrite
     def search(self, max_events=settings.MAX_EVENTS):
         sqs = super(EventSearchForm, self).search()
         
-        if self.cleaned_data['latitude'] and \
-            self.cleaned_data['longitude'] and \
-            self.cleaned_data['distance']:
-            center = Point(self.cleaned_data['longitude'], self.cleaned_data['latitude'])
-            radius = D(mi=self.cleaned_data['distance'])
-            sqs = sqs.dwithin('location', center, radius).load_all()
-        else:
-            return []
+        if not self.is_valid():
+            return self.no_query_found()
         
-        if self.cleaned_data['start_date']:
-            sqs = sqs.filter(end_date__gte=self.cleaned_data['start_date'])
-        else:
-            return []
+        center = Point(self.cleaned_data['longitude'], self.cleaned_data['latitude'])
+        radius = D(mi=self.cleaned_data['distance'])
+        sqs = sqs.dwithin('location', center, radius).load_all()
         
-        if self.cleaned_data['end_date']:
-            sqs = sqs.filter(start_date__lte=self.cleaned_data['end_date'])
-        else:
-            return []
+        sqs = sqs.filter(end_date__gte=self.cleaned_data['start_date'])
+        sqs = sqs.filter(start_date__lte=self.cleaned_data['end_date'])
         
         # Get a list of Event objects so we can append these results with other sources
         events = [result.object for result in sqs]
