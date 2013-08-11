@@ -45,6 +45,8 @@ HAYSTACK_CONNECTIONS = {
     },
 }
 
+HAYSTACK_DEFAULT_OPERATOR = 'OR'
+
 #HAYSTACK_SITECONF = 'gallevent.search_sites'
 #HAYSTACK_SEARCH_ENGINE = 'solr'
 #HAYSTACK_SOLR_URL = local_settings.HAYSTACK_HOST_LOCAL + ':8983/solr'

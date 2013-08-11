@@ -1,13 +1,14 @@
 import logging
+import json
 
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.core import serializers
-import json
-
 from django.views.generic.base import TemplateView, View
+
+from haystack.query import SearchQuerySet
 
 from event import forms
 from event import models
@@ -32,12 +33,12 @@ class FrontPageView(TemplateView):
 
 class SearchView(View):
     def get(self, request):
-        logging.debug('search: ' + str(request.GET))
+        #logging.debug('search: ' + str(request.GET))
         #events = models.Event.objects.filter(status=1) \
         #        .extra(where=['end_date >= CURRENT_TIMESTAMP']) \
         #        .order_by('start_date','start_time').reverse()
 
-        searchForms = [forms.EventBriteSearchForm, forms.MeetupSearchForm]
+        searchForms = [forms.EventSearchForm]
         events = []
         
         #Attempt to grab cached result from this search
@@ -57,7 +58,7 @@ class SearchView(View):
 #            pickled_search_result = pickle.dumps(events)
 #            cache.set(form.cleaned_data['q'], pickled_search_result)
                 
-        logging.debug('request data: ' + str(request.GET))
+        #logging.debug('request data: ' + str(request.GET))
         
         if len(events) == 0:
             events_json = "[]"

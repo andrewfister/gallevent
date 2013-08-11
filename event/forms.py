@@ -38,7 +38,7 @@ class EventSearchForm(SearchForm):
     gallevent_categories = ['art', 'athletic', 'dancing', 'dining', 'education', 
                             'fairs', 'jobs', 'networking', 'parties', 'sales']
     
-    default_query = "party OR drinks OR dancing OR performance OR show OR concert OR meetup OR group OR event"
+    default_query = "party drinks dancing performance show concert meetup group event"
 
     start_date = forms.DateTimeField(required=False, initial="", input_formats=date_input_formats)
     end_date = forms.DateTimeField(required=False, initial="", input_formats=date_input_formats)
@@ -49,22 +49,25 @@ class EventSearchForm(SearchForm):
     
     search_forms = ['EventBriteSearchForm', 'MeetupSearchForm']
     
+    def clean_q(self):
+        query = self.cleaned_data['q']
+        if query == 'default':
+            #query = "event" 
+            query = self.default_query
+            logging.debug('default_query: ' + query)
+    
+        return query
+    
     #TODO: Next time I add another source, modularize each event source
     #Current search sources:
     #Gallevent
     #EventBrite
-    def search(self):
+    def search(self, max_events=settings.MAX_EVENTS):
         sqs = super(EventSearchForm, self).search()
         
         
         # Get a list of Event objects so we can append these results with other sources
         events = [result.object for result in sqs]
-
-        if sqs.count() < settings.MAX_EVENTS:
-            try:
-                events = []
-            except EnvironmentError:
-                pass
 
         return events
 
@@ -224,6 +227,8 @@ class MeetupSearchForm(EventSearchForm):
     Search Meetup with their non-existant python integration
     """
     
+    default_query = "party OR drinks OR dancing OR performance OR show OR concert OR meetup OR group OR event"
+    
     def search(self, max_events=settings.MAX_EVENTS):
         if not self.cleaned_data['q'] == 'default': 
             query = self.cleaned_data['q']
@@ -254,7 +259,7 @@ class MeetupSearchForm(EventSearchForm):
             
             try:
                 models.Event.objects.bulk_create(events)
-            except IntegrityError:
+            except (IntegrityError,Warning):
                 pass
         except EnvironmentError:
             events = []
@@ -268,7 +273,7 @@ class MeetupSearchForm(EventSearchForm):
         meetup_events = []
         
         for meetup_event in meetup_response.results:
-            logging.debug("Meetup Event: " + str(meetup_event) + "\n\n")
+            #logging.debug("Meetup Event: " + str(meetup_event) + "\n\n")
             try:
                 meetup_event_description = meetup_event.description
                 meetup_event_short_description = meetup_event_description[:50] + '...'
