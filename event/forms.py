@@ -19,7 +19,7 @@ from gallevent import settings
 
 class EventSearchForm(SearchForm):
     """
-    Implementation of the abstract search form for Event objects.
+    Implementation of the search form for Event objects.
     """
 
     date_input_formats = [
@@ -69,10 +69,11 @@ class EventSearchForm(SearchForm):
         
         center = Point(self.cleaned_data['longitude'], self.cleaned_data['latitude'])
         radius = D(mi=self.cleaned_data['distance'])
-        sqs = sqs.dwithin('location', center, radius).load_all()
+        sqs = sqs.dwithin('location', center, radius)
         
         sqs = sqs.filter(end_date__gte=self.cleaned_data['start_date'])
         sqs = sqs.filter(start_date__lte=self.cleaned_data['end_date'])
+        sqs = sqs.load_all()
         
         # Get a list of Event objects so we can append these results with other sources
         events = [result.object for result in sqs]

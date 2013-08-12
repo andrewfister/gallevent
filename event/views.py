@@ -35,7 +35,6 @@ class SearchView(View):
 
         for SearchForm in self.searchForms:
             if len(events) >= settings.MAX_EVENTS:
-                events = events[:settings.MAX_EVENTS]
                 break
             
             form = SearchForm(request.GET)
