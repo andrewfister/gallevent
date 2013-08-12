@@ -46,13 +46,7 @@ HAYSTACK_CONNECTIONS = {
 }
 
 HAYSTACK_DEFAULT_OPERATOR = 'AND'
-
-#HAYSTACK_SITECONF = 'gallevent.search_sites'
-#HAYSTACK_SEARCH_ENGINE = 'solr'
-#HAYSTACK_SOLR_URL = local_settings.HAYSTACK_HOST_LOCAL + ':8983/solr'
-#HAYSTACK_INCLUDE_SPELLING = False
-#HAYSTACK_SEARCH_RESULTS_PER_PAGE = 30
-
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
