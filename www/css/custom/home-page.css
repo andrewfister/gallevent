@@ -3,7 +3,7 @@
 ** Description: Styles Specific to Home Page
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-13-2013
-** Updated: 06-22-2013
+** Updated: 08-11-2013
 ************************************** */
 
 /* = Remove Border on Form Inputs and Selects */
@@ -54,17 +54,15 @@
 	height:auto;
 	}
 
-.home .sign-in-status .btn-join,
 .home .sign-in-status #signIn {
 	float:left;
 	clear:none;
-	width:49.5%;
+	width:100%;
 	padding:1em 0 .7em 0;
 	text-align:center;
 	background:#01a1ad url(../../img/sprite-map-horizontal-repeats.png) repeat-x 0 -327px;
 	}
 
-.home .sign-in-status .btn-join:hover,
 .home .sign-in-status #signIn:hover {
 	color:#fff !important;
 	background:#66C13F;
@@ -81,9 +79,9 @@
 
 .home .sign-in-form {
 	float:left;
-	margin-top:-8px;
+	margin-top:-60px;
 	width:85%;
-	padding:1.2em 7.5% 1.5em 7.5%;
+	padding:60px 7.5% 1.5em 7.5%;
 	background:#66C13F;
 	}
 
@@ -182,14 +180,10 @@
     display:none;
     }
 
-  .home .sign-in-status .btn-join,
   .home .sign-in-status #signIn {
 	width:100%;
     border-radius:0 0 8px 8px;
 	}
-  .home .sign-in-status .btn-join {
-    border-radius:0;
-    }
   .home .sign-in-status #signIn {
     border-radius:0 0 8px 8px;
     }
@@ -291,22 +285,11 @@
     width:50%;
     }
   
-  .home .sign-in-status .btn-join,
   .home .sign-in-status #signIn {
-    float:left;
-    clear:none;
-    width:49.5%;
     padding:1.2em 0 0.85em 0;
-    text-align:center;
-    background:#01a1ad url(../../img/sprite-map-horizontal-repeats.png) repeat-x 0 -327px;
     }
   .home .sign-in-status #signIn {
     border-radius:0;
-    }
-
-  .home .sign-in-status .bar-vertical {
-    display:block;
-    padding:1.2em 0 0.85em 0;
     }
 
   .home .sign-in-form {

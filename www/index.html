@@ -25,9 +25,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
     <span class="sign-in-status">
         <span class="signed-in">Hi, <a class="username" href="{% url 'user_profile.views.show_profile' %}">{{ user.username }}</a></span>
         <span class="signed-in btn-sign-out"><a href="#">Sign Out</a></span>
-        <a class="hidden signed-out btn-join" href="#">Join</a>
-        <span class="hidden signed-out bar-vertical">|</span>
-        <a class="hidden signed-out" id="signIn" href="#">Sign In</a>
+        <a class="hidden signed-out" id="signIn" href="#">Sign In or Join</a>
     </span>
     <form class="hidden signed-out sign-in-form" style="display:none;" method="post">
         <label>Email Address:</label>
@@ -41,9 +39,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
     <span class="sign-in-status">
         <span class="signed-in username hidden">Hi, <a href="{% url 'user_profile.views.show_profile' %}"></a></span>
         <span class="signed-in btn-sign-out hidden"><a href="#">Sign Out</a></span>
-        <a class="signed-out btn-join" href="#">Join</a>
-        <span class="signed-out bar-vertical">|</span>
-        <a class="signed-out" id="signIn" href="#">Sign In</a>
+        <a class="signed-out" id="signIn" href="#">Sign In or Join</a>
     </span>
     <form class="signed-out sign-in-form" style="display:none;" method="post">
         <label>Email Address:</label>

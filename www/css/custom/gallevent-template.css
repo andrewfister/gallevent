@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-06-2013
-** Updated: 07-07-2013
+** Updated: 08-11-2013
 ************************************** */
 
 /* = Global Typography */
@@ -53,7 +53,7 @@ a:hover {
 	display:block;
 	background:#66C13F;
 	color:#fff;
-	font-size:0.9em;
+	font-size:1em;
 	overflow-x:hidden;
 	}
 .sign-in-status a,
@@ -380,6 +380,21 @@ a.btn-post-event,
 
 /* = Global Rounded Corners
 ----------------------------------- */
+.logo-block,
+.sign-in-status,
+.sign-in-status #signIn,
+.sign-in-status .signed-in,
+.home #header,
+.home .sign-in-form {
+	border-radius:0 0 8px 0;
+	}
+	
+.home #header {
+	background:transparent;
+	}
+
+
+/*
 #header,
 .logo-block,
 .sign-in-status,
@@ -388,14 +403,11 @@ a.btn-post-event,
 	border-radius:0px 0px 8px 8px;
 	}
 
-.sign-in-status .btn-join {
-	border-radius:0px 0px 0px 8px;
-	}
-
 #top-search,
 .sign-in-status #signIn {
 	border-radius:0px 0px 8px 0px;
 	}
+	*/
 
 /* = Global Calendar Datepicker
 ----------------------------------- */
@@ -767,4 +779,11 @@ a.btn-post-event:hover {
 #footer ul li {
 	display:inline;
 	margin-left:1em;
+	}
+
+/* = Special Classes
+----------------------------------- */
+.sign-in-status #signIn.active {
+	background:#66C13F !important;
+	border-radius:0;
 	}

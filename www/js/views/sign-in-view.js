@@ -30,7 +30,9 @@ var SignInView = Backbone.View.extend({
     },
     
     showSignIn: function() {
-        $(".sign-in-form").slideToggle(600);
+        $(".sign-in-form").slideToggle(600, function() {
+			$(".signed-out").toggleClass('active');
+		});
         $(".btn-sign-in").click(this.signIn.bind(this));
     },
     
