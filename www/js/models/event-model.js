@@ -72,7 +72,7 @@ var EventCollection = Backbone.Collection.extend({
 
 var EventSearchCollection = EventCollection.extend({
     model: Event,
-    url: '/event/search'
+    url: '/event/search/'
 });
 
 var sortableDate = function(date, time){

@@ -1,14 +1,10 @@
 import logging
-import json
 
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from django.core import serializers
 from django.views.generic.base import TemplateView, View
-
-from haystack.query import SearchQuerySet
 
 from event import forms
 from event import models
@@ -32,21 +28,12 @@ class FrontPageView(TemplateView):
 
 
 class SearchView(View):
-    def get(self, request):
-        #logging.debug('search: ' + str(request.GET))
-        #events = models.Event.objects.filter(status=1) \
-        #        .extra(where=['end_date >= CURRENT_TIMESTAMP']) \
-        #        .order_by('start_date','start_time').reverse()
+    searchForms = [forms.EventSearchForm, forms.EventBriteSearchForm, forms.MeetupSearchForm]
 
-        searchForms = [forms.EventSearchForm]
+    def get(self, request):        
         events = []
-        
-        #Attempt to grab cached result from this search
-#        cached_search_result = cache.get(form.cleaned_data['q'])
-#        if len(cached_result) > 0:
-#            events = pickle.loads(cached_search_result)
-#        else:
-        for SearchForm in searchForms:    
+
+        for SearchForm in self.searchForms:
             if len(events) >= settings.MAX_EVENTS:
                 break
             
@@ -54,21 +41,12 @@ class SearchView(View):
             if form.is_valid():
                 logging.debug('doing a search')
                 events.extend(form.search(settings.MAX_EVENTS - len(events)))
-            
-#            pickled_search_result = pickle.dumps(events)
-#            cache.set(form.cleaned_data['q'], pickled_search_result)
-                
-        #logging.debug('request data: ' + str(request.GET))
         
         if len(events) == 0:
             events_json = "[]"
         
         eventJSONSerializer = models.EventJSONSerializer()
         events_json = eventJSONSerializer.serialize(events)
-        #events_json = []
-        #for event in events:
-        #    events_json.append(json.dumps(event))
-        #logging.debug('event search response json: ' + events_json)
 
         return HttpResponse(events_json, content_type="application/json")
 
@@ -122,28 +100,3 @@ def manage_events(request):
     return render_to_response('your-posts-manage.html', {
     }, context_instance=RequestContext(request))
 
-#class EventSearchView(BackboneAPIView):
-#    base_queryset = models.Event.objects.filter(status=1).extra(where=['end_date >= CURRENT_TIMESTAMP']).order_by('start_date','start_time').reverse()
-#    
-#    edit_form_class = forms.ArchiveEventForm
-#    
-#    serialize_fields = ['id', 'user_id', 'address', 'subpremise',
-#    'city', 'state', 'zipcode', 'name', 'category', 'ticket_price', 'start_date', 
-#    'start_time', 'end_date', 'end_time', 'description', 'organizer_email', 
-#    'organizer_phone', 'organizer_url', 'latitude', 'longitude', 'status']
-#    
-#    def dispatch(self, request, *args, **kwargs):
-#        if request.GET.has_key('userId'):
-#            self.base_queryset = models.Event.objects.filter(user_id=request.GET['userId']).exclude(status=0)
-#        elif request.GET.has_key('category'):
-#            self.base_queryset = models.Event.objects.filter(user_id=request.GET['category']).exclude(status=0)
-#        else:
-#            form = forms.EventSearchForm(request.GET)
-#            if form.is_valid():
-#                events = form.search()
-#        
-#        return super(EventSearchView, self).dispatch(request, *args, **kwargs)
-#    
-#    def validation_error_response(self, form_errors):
-#        logging.debug(form_errors)
-#        return str(form_errors)

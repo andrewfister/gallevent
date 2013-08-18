@@ -15,4 +15,6 @@ class EventIndex(indexes.SearchIndex, indexes.Indexable):
     def get_model(self):
         return Event
 
-
+    def index_queryset(self, using=None):
+        """Used when the entire index for model is updated."""
+        return self.get_model().objects.filter(end_date__gte=datetime.datetime.now())
