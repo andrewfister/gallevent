@@ -36,7 +36,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
     </form>
     {% else %}
     <span class="sign-in-status">
-        <span class="signed-in username hidden">Hi, <a href="{% url 'user_profile.views.show_profile' %}"></a></span>
+        <span class="signed-in hidden">Hi, <a class="username" href="{% url 'user_profile.views.show_profile' %}"></a></span>
         <span class="signed-in btn-sign-out hidden"><a href="#">Sign Out</a></span>
         <a class="signed-out" id="signIn" href="#">Sign In or Join</a>
     </span>
