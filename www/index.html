@@ -23,7 +23,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
 {% block signin-form %}
     {% if user.is_authenticated %}
     <span class="sign-in-status">
-        <span class="signed-in username">Hi, <a href="{% url 'user_profile.views.show_profile' %}">{{ user.username }}</a></span>
+        <span class="signed-in">Hi, <a class="username" href="{% url 'user_profile.views.show_profile' %}">{{ user.username }}</a></span>
         <span class="signed-in btn-sign-out"><a href="#">Sign Out</a></span>
         <a class="hidden signed-out btn-join" href="#">Join</a>
         <span class="hidden signed-out bar-vertical">|</span>
