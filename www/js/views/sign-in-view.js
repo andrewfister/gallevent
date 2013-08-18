@@ -11,10 +11,16 @@ var SignInView = Backbone.View.extend({
     },
     
     renderSignedIn: function(response, success, request) {
-        this.model.set(response.user);
-        $('.username').text(this.model.get('userName'));
-        $('.signed-out').addClass('hidden');
-        $('.signed-in').removeClass('hidden');
+        if (response.success) {
+            this.model.set(response.user);
+            $('.username').text(this.model.get('userName'));
+            $('.signed-out').addClass('hidden');
+            $('.signed-in').removeClass('hidden');
+            $('.sign-in-message').text('');
+        }
+        else {
+            $('.sign-in-message').text('Incorrect email or password');
+        }
     },
     
     renderSignedOut: function() {
@@ -29,10 +35,11 @@ var SignInView = Backbone.View.extend({
     },
     
     signIn: function() {
-        this.model.signIn(this.renderSignedIn.bind(this));
+        this.model.signIn(this.renderSignedIn.bind(this), this.render);
     },
     
     signOut: function() {
-        this.model.signOut(this.renderSignedOut.bind(this));
+        this.model.signOut(this.renderSignedOut.bind(this), this.render);
+        this.model.clear();
     }
 });

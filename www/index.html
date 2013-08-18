@@ -34,6 +34,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         <input type="text" class="input-standard" name="email" />
         <label>Password:</label>
         <input type="password" class="input-standard" name="password" />
+        <em class="sign-in-message"></em>
         <button class="btn-sign-in" type="button">Sign In</button>
     </form>
     {% else %}
@@ -49,6 +50,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         <input type="text" class="input-standard" name="email" />
         <label>Password:</label>
         <input type="password" class="input-standard" name="password" />
+        <em class="sign-in-message"></em>
         <button class="btn-sign-in" type="button">Sign In</button>
     </form>
     {% endif %}
