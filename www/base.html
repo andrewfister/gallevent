@@ -58,7 +58,7 @@
                             <li><a class="{% if user.is_authenticated %}hidden{% endif %} signed-out" id="btn-show-join" href="#">Join</a></li>
                             <li><a class="{% if user.is_authenticated %}hidden{% endif %} signed-out" id="btn-show-sign-in" href="#">Sign In</a></li>
                         </span>
-                        <form class="signed-out sign-in-form" style="display:none;" method="post">
+                        <form class="{% if user.is_authenticated %}hidden{% endif %} signed-out sign-in-form" style="display:none;" method="post">
                             <label>Email Address:</label>
                             <input type="text" class="input-standard" name="email" />
                             <label>Password:</label>
