@@ -40,12 +40,27 @@
     {% block header %}
         <div id="header">
             <div class="logo-block">
-              <a href="{% url 'front_page' %}" class="logo">Gallevent&trade;</a>
-              <span class="tagline">Find Events Near You!</span>
-        	  </div><!-- .logo-block -->
-        {% block signin-form %}
-        {% endblock signin-form %}
-        </div><!-- #header -->
+                <a href="{% url 'front_page' %}" class="logo">Gallevent&trade;</a>
+                <span class="tagline">Find Events Near You!</span>
+        	</div><!-- .logo-block -->
+            <nav id="top-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Post an Event</a></li>
+                    <li><a href="#">About Gallevent</a></li>
+                    <li><a href="#">Sponsors</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <span class="right">
+                        <li><a href="#">Join</a></li>
+                        <li><a href="#">Sign In</a></li>
+                    </span>
+                </ul>
+        	</nav>
+        	{% block signin-form %}
+        	{% endblock signin-form %}
+        	{% block top-search %}
+        	{% endblock top-search %}
+    	</div><!-- #header -->
     {% endblock header %}
         <div id="content">
             {% block content %}{% endblock content %}
@@ -65,7 +80,8 @@
             </div><!-- #footer -->
         {% endblock footer %}
     </div><!-- #container -->
-    {% block map %}{% endblock map %}
+    {% block map %}
+    {% endblock map %}
     
     <!-- Google Analytics -->
     <script type="text/javascript">

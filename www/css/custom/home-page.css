@@ -3,7 +3,7 @@
 ** Description: Styles Specific to Home Page
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-13-2013
-** Updated: 08-11-2013
+** Updated: 08-18-2013
 ************************************** */
 
 /* = Remove Border on Form Inputs and Selects */
@@ -13,14 +13,8 @@
 	}
 
 /* = Place Header in Upper Left for Default View */
-.home #header {
-	position:fixed;
-	top:0;
-	width:20%;
-	padding:0;
-	background:transparent;
-	}
 
+/*
 .home .logo-block {
 	position:relative;
 	z-index:800;
@@ -45,6 +39,7 @@
 	width:217px;
 	text-align:right;
 	}
+*/
   
 .home .sign-in-status {
 	position:relative;
