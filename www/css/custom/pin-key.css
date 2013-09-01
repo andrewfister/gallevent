@@ -3,20 +3,53 @@
 ** Description: Control for Event Categories
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 08-11-2013
+** Updated: 09-01-2013
 ************************************** */
 
 /* = Position Pin Key Within Container */
 #pin-key {
-	float:left;
-	font-size:100%;
+	position:relative;
+	z-index:400;
+	float:right;
 	margin:0;
-	width:100%;
-	list-style:none;
+	width:25%;
 	padding:0;
+	list-style:none;
+	font-size:100%;
+	background:#f7f7f7;
+	box-shadow:		-1px 1px 2px rgba(0, 0, 0, 0.25);
 	}
 
+#pin-key li {
+	border-bottom:1px solid #d2d2d2;
+	}
+
+#pin-key li a {
+	display:block;
+	margin:1em 45px 0 20px;
+	min-height:32px;
+	padding:0 0 0 45px;
+	color:#303d40;
+  	}
+
+#pin-key li a .details b {
+	display:block;
+	margin:0.2em 0 0 0;
+	}
+
+#pin-key li a .details i {
+  	display:none;
+	}
+
+#pin-key li a:hover .details i {
+	display:block;
+	margin-bottom:-1em;
+	color:#555;
+	font-size:95%;
+ 	}
+
 /* = Pin Key Category */
+/*
 #pin-key li {
   display:inline;
   }
@@ -54,8 +87,10 @@
 #pin-key li a.active {
   background-color:#fff;
   }
+ */
 
 /* = Pin Key Category Details */
+/*
 #pin-key li a .details {
   display:none;
 	}
@@ -76,8 +111,10 @@
   color:#555;
   font-size:95%;
   }
+ */
 
 /* = Pin Key Category Description */
+/*
 #pin-key li a i {
 	display:none;
 	color:#555659;
@@ -88,6 +125,7 @@
 	}
 #pin-key li a:hover i {
 	}
+*/
 
 /* = Specific Cateogry Styles */
 .networking {
@@ -123,6 +161,7 @@
 
 /* = Media Queries
 ----------------------------------- */
+/*
 @media screen and (max-width: 1230px) {
 	#pin-key li a:hover i {
 		}
@@ -158,3 +197,4 @@
     display:none;
     }
 }
+*/

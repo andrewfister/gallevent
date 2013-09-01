@@ -458,8 +458,11 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 	position:fixed;
 	top:0;
 	left:0;
-	width:100%;
-	height:100%;
+	height:800px;
+	}
+
+.home #map-box {
+	width:75%;
 	}
 
 /* = Global Map Control
@@ -743,6 +746,7 @@ a.btn-post-event:hover {
 #top-nav a:hover {
 	}
 
+/*
 .center-content #content {
   position:relative;
   float:left;
@@ -762,6 +766,7 @@ a.btn-post-event:hover {
   padding:0 4% 0 2%;
   width:42%;
   }
+  */
 
 .inside-container {
 	margin:2em 1em 2em 1.4em;

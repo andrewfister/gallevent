@@ -62,9 +62,11 @@
         	{% endblock top-search %}
     	</div><!-- #header -->
     {% endblock header %}
+        
         <div id="content">
             {% block content %}{% endblock content %}
         </div><!-- #content -->
+        
         {% block footer %}
             <div id="footer">
                 <ul>
@@ -80,8 +82,6 @@
             </div><!-- #footer -->
         {% endblock footer %}
     </div><!-- #container -->
-    {% block map %}
-    {% endblock map %}
     
     <!-- Google Analytics -->
     <script type="text/javascript">
