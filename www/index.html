@@ -20,52 +20,6 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
 
 {% block body-class %}home{% endblock body-class %}
 
-{% block signin-form %}
-    {% if user.is_authenticated %}
-    <span class="sign-in-status">
-        <span class="signed-in">Hi, <a class="username" href="{% url 'user_profile.views.show_profile' %}">{{ user.username }}</a></span>
-        <span class="signed-in btn-sign-out"><a href="#">Sign Out</a></span>
-        <a class="hidden signed-out" id="signIn" href="#">Sign In or Join</a>
-    </span>
-    <!--
-    <form class="hidden signed-out sign-in-form" style="display:none;" method="post">
-        <label>Email Address:</label>
-        <input type="text" class="input-standard" name="email" />
-        <label>Password:</label>
-        <input type="password" class="input-standard" name="password" />
-        <em class="sign-in-message"></em>
-        <button class="btn-sign-in" type="button">Sign In</button>
-    </form>
-    -->
-    {% else %}
-    <!--
-    <span class="sign-in-status">
-        <span class="signed-in hidden">Hi, <a class="username" href="{% url 'user_profile.views.show_profile' %}"></a></span>
-        <span class="signed-in btn-sign-out hidden"><a href="#">Sign Out</a></span>
-        <a class="signed-out" id="signIn" href="#">Sign In or Join</a>
-    </span>
-    <form class="signed-out sign-in-form" style="display:none;" method="post">
-        <label>Email Address:</label>
-        <input type="text" class="input-standard" name="email" />
-        <label>Password:</label>
-        <input type="password" class="input-standard" name="password" />
-        <em class="sign-in-message"></em>
-        <button class="btn-sign-in" type="button">Sign In</button>
-    </form>
-    -->
-    {% endif %}
-    
-    <div class="hidden">
-        <span id="user-id">{{ user.id }}</span>
-        <span id="user-username">{{ user.username }}</span>
-        <span id="user-firstname">{{ user.firstname }}</span>
-        <span id="user-lastname">{{ user.lastname }}</span>
-        <span id="user-email">{{ user.email }}</span>
-        <span id="user-latitude">{{ request.GET.latitude|default:0 }}</span>
-        <span id="user-longitude">{{ request.GET.longitude|default:0 }}</span>
-    </div>
-{% endblock signin-form %}
-
 {% block top-search %}
 <div id="top-search-container" tabindex="0">
     <form id="top-search" method="get">

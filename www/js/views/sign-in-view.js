@@ -4,7 +4,8 @@ var SignInView = Backbone.View.extend({
     events: {
         'click .btn-sign-in': 'signIn',
         'click .btn-sign-out': 'signOut',
-        'click #signIn': 'showSignIn',
+        'click #btn-show-sign-in': 'showSignIn',
+        'click #btn-show-join': 'showSignIn',
     },
     
     render: function() {

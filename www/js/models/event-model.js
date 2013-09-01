@@ -70,6 +70,10 @@ var EventCollection = Backbone.Collection.extend({
 
 });
 
+var EventLocalCollection = EventCollection.extend({
+    model: Event
+});
+
 var EventSearchCollection = EventCollection.extend({
     model: Event,
     url: '/event/search/'
