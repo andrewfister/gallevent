@@ -17,6 +17,8 @@ from event import models
 from gallevent import settings
 
 
+logger = logging.getLogger('gallevent')
+
 class EventSearchForm(SearchForm):
     """
     Implementation of the search form for Event objects.
@@ -48,13 +50,10 @@ class EventSearchForm(SearchForm):
     distance = forms.FloatField(initial=5.08)
     price = forms.CharField(initial="any_price")
     
-    search_forms = ['EventBriteSearchForm', 'MeetupSearchForm']
-    
     def clean_q(self):
         query = self.cleaned_data['q']
         if query == 'default':
             query = self.default_query
-            logging.debug('default_query: ' + query)
     
         return query
     
@@ -97,7 +96,6 @@ class EventBriteSearchForm(EventSearchForm):
     default_query = "party%20OR%20drinks%20OR%20dancing%20OR%20performance%20OR%20show%20OR%20concert%20OR%20meetup%20OR%20group%20OR%20event"
 
     def search(self, max_events=settings.MAX_EVENTS):
-        logging.debug('search eventbrite')
         if not self.cleaned_data['q'] == 'default': 
             query = self.cleaned_data['q']
         else:
@@ -150,7 +148,9 @@ class EventBriteSearchForm(EventSearchForm):
             except KeyError:
                 continue
             
-            if len(eb_event_venue['address']) == 0 or eb_event_venue['address'] == 'TBA' or eb_event['category'] == 'sales':
+            if (len(eb_event_venue['address']) == 0 
+                or eb_event_venue['address'] == 'TBA'
+                or eb_event['category'] == 'sales'):
                 continue
             
             try:
@@ -161,12 +161,12 @@ class EventBriteSearchForm(EventSearchForm):
             
             try:
                 eb_price_choice = self.cleaned_data['price']
-                if (eb_event_ticket_price > 0 \
-                    and eb_price_choice == 'free') \
-                    or (eb_event_ticket_price >= 10 \
-                    and eb_price_choice == 'under_10') \
-                    or (eb_event_ticket_price >= 20 \
-                    and eb_price_choice == 'under_20'):
+                if ((eb_event_ticket_price > 0
+                    and eb_price_choice == 'free')
+                    or (eb_event_ticket_price >= 10
+                    and eb_price_choice == 'under_10')
+                    or (eb_event_ticket_price >= 20
+                    and eb_price_choice == 'under_20')):
                     continue
             except KeyError:
                 pass
@@ -240,7 +240,6 @@ class MeetupSearchForm(EventSearchForm):
     default_query = "party OR drinks OR dancing OR performance OR show OR concert OR meetup OR group OR event"
     
     def search(self, max_events=settings.MAX_EVENTS):
-        logging.debug('search meetup')
         if not self.cleaned_data['q'] == 'default': 
             query = self.cleaned_data['q']
         else:
@@ -284,7 +283,6 @@ class MeetupSearchForm(EventSearchForm):
         meetup_events = []
         
         for meetup_event in meetup_response.results:
-            #logging.debug("Meetup Event: " + str(meetup_event) + "\n\n")
             try:
                 meetup_event_description = meetup_event.description
                 meetup_event_short_description = meetup_event_description[:50] + '...'
@@ -322,12 +320,12 @@ class MeetupSearchForm(EventSearchForm):
             
             try:
                 meetup_price_choice = self.cleaned_data['price']
-                if (meetup_event_fee > 0 \
-                    and meetup_price_choice == 'free') \
-                    or (meetup_event_fee >= 10 \
-                    and meetup_price_choice == 'under_10') \
-                    or (meetup_event_fee >= 20 \
-                    and meetup_price_choice == 'under_20'):
+                if ((meetup_event_fee > 0
+                    and meetup_price_choice == 'free')
+                    or (meetup_event_fee >= 10
+                    and meetup_price_choice == 'under_10')
+                    or (meetup_event_fee >= 20
+                    and meetup_price_choice == 'under_20')):
                     continue
             except KeyError:
                 pass

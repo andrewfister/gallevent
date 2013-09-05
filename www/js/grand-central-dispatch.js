@@ -1,6 +1,6 @@
 // on dom load
 $(function() {
-    var events = new EventCollection();
+    var events = new EventSearchCollection();
     
 	if (typeof eventsJSON !== 'undefined')
 	{

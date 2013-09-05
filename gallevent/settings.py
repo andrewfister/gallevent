@@ -5,14 +5,6 @@ import django
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-import logging
-logging.basicConfig(
-    level = logging.DEBUG,
-    format = '%(asctime)s %(levelname)s %(message)s',
-    filename = '/tmp/gallevent.log',
-    filemode = 'w'
-)
-
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
 )
@@ -127,7 +119,7 @@ TIME_FORMAT = 'g:iA'
 DATE_FORMAT = 'm/d/y'
 
 #Some settings for the events
-MAX_EVENTS = 50
+MAX_EVENTS = 25
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -142,3 +134,40 @@ INSTALLED_APPS = (
     'login',
     'event',
 )
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'django.utils.log.NullHandler',
+        },
+        'logfile':{
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'formatter': 'simple',
+            'filename': '/tmp/gallevent.log',
+            'mode': 'a',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['null'],
+            'propagate': True,
+            'level': 'INFO',
+        },
+        'gallevent': {
+            'handlers': ['logfile'],
+            'level': 'INFO',
+        }
+    }
+}

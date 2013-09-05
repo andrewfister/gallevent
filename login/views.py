@@ -14,13 +14,14 @@ from login import models
 class SignInView(View):
     def post(self, request):
         form = forms.SignInForm(request.POST)
+        login_response = {}
+        
         if form.is_valid():
             query_email = form.cleaned_data['email']
             query_password = form.cleaned_data['password']
             logging.debug('email: ' + query_email)
             logging.debug('password: ' + query_password)
             user = authenticate(username=query_email, password=query_password)
-            login_response = {}
         
             if user is not None:
                 if user.is_active:
@@ -45,6 +46,31 @@ class SignInView(View):
     
         login_response['success'] = False
         return HttpResponse(json.dumps(login_response), content_type="application/json")
+    
+    def put(self, request):
+        register_response = {}
+        form = forms.RegistrationForm(request.PUT)
+        if form.is_valid():
+            form.save()
+            query_email = form.cleaned_data['email']
+            query_password = form.cleaned_data['password']
+            user = authenticate(username=query_email, password=query_password)
+            
+            if user is not None:
+                if user.is_active:
+                    logging.debug('logging in')
+                    login(request, user)
+                    
+                    return HttpResponseRedirect('/profile/show/')
+                else:
+                    logging.debug('disabled account')
+                    print 'disabled account'
+            else:
+                logging.debug('invalid login')
+                print 'invalid login'
+        
+        register_response['success'] = False
+        return HttpResponse(json.dumps(register_response), content_type="application/json")
 
 
 class SignOutView(View):
@@ -53,7 +79,6 @@ class SignOutView(View):
             logout(request)
     
         login_response = {'success': request.user.is_authenticated()}
-        
         return HttpResponse(json.dumps(login_response), content_type="application/json")        
 
 

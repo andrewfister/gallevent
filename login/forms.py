@@ -34,9 +34,9 @@ class RequestInviteForm(forms.Form):
 
 class RegistrationForm(forms.Form):
     email = forms.CharField(max_length=64)
-    invite_code = forms.CharField(max_length=64)
+    invite_code = forms.CharField(required=False, max_length=64)
     password = forms.CharField(max_length=32)
-    confirm_password = forms.CharField(max_length=32)
+    confirm_password = forms.CharField(required=False, max_length=32)
     
     def clean_email(self):
         email = self.cleaned_data['email']

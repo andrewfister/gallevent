@@ -19,7 +19,7 @@ var Event = Backbone.Model.extend({
         'rsvp_limit': 0,
         'organizer_email': '',
         'organizer_phone': '555-555-5555',
-        'organizer_url': 'http://www.gallevent.com',
+        'organizer_url': 'http://www.gallevent.com'
     },
     
     getAddress: function() {
@@ -27,8 +27,22 @@ var Event = Backbone.Model.extend({
     },
 
     
-    urlRoot: '/event/events',
+    urlRoot: '/event/events'
 });
+
+var sortableDate = function(date, time){
+   // var formatDate = date.split("/").reverse().join("");
+   // var formatTime = parseInt(time.split(":").join("").slice(0,-2));
+   // // Adjust for PM
+   // formatTime += (time.indexOf("PM") === -1 ? 0 : 1200 - formatTime);
+   // return formatDate + "" + formatTime;
+
+   var formatDate = date.split("/");
+   var formatTime = time.split(/[:AP]/);
+   formatTime[0] = parseInt(formatTime[0], 10) + (parseInt(time.indexOf("AM") === -1, 10) && (formatTime[0] < 12) ? 0 : 12);
+   date = new Date(formatDate[2], formatDate[0], formatDate[1], formatTime[0], formatTime[1]);
+   return date.getTime();
+};
 
 var EventCollection = Backbone.Collection.extend({
     model: Event,
@@ -70,27 +84,12 @@ var EventCollection = Backbone.Collection.extend({
 
 });
 
-var EventLocalCollection = EventCollection.extend({
-    model: Event
-});
-
 var EventSearchCollection = EventCollection.extend({
-    model: Event,
-    url: '/event/search/'
+    url: '/event/search/',
+    
+    storeLocally: function(searchData) {
+        $.localStorage('');
+    }
 });
-
-var sortableDate = function(date, time){
-   // var formatDate = date.split("/").reverse().join("");
-   // var formatTime = parseInt(time.split(":").join("").slice(0,-2));
-   // // Adjust for PM
-   // formatTime += (time.indexOf("PM") === -1 ? 0 : 1200 - formatTime);
-   // return formatDate + "" + formatTime;
-
-   var formatDate = date.split("/");
-   var formatTime = time.split(/[:AP]/);
-   formatTime[0] = parseInt(formatTime[0]) + (parseInt(time.indexOf("AM") == -1) && (formatTime[0] < 12) ? 0 : 12);
-   var date = new Date(formatDate[2], formatDate[0], formatDate[1], formatTime[0], formatTime[1]);
-   return date.getTime();
-};
 
 

@@ -78,8 +78,8 @@ class Guest(models.Model):
 
 class EventJSONEncoder(DjangoJSONEncoder):
     """
-JSONEncoder subclass that knows how to encode date/time and decimal types.
-"""
+    JSONEncoder subclass that knows how to encode date/time and decimal types.
+    """
     def default(self, o):
         # See "Date Time String Format" in the ECMA-262 specification.
         if isinstance(o, datetime.datetime):

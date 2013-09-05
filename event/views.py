@@ -10,13 +10,12 @@ from event import forms
 from event import models
 from gallevent import settings
 
+logger = logging.getLogger('gallevent')
 
 class FrontPageView(TemplateView):
     template_name = "index.html"
     
     def get(self, request):
-        logging.debug('front page')
-        
         try:
             timeSpan = request.GET['timeSpan']
         except KeyError:
@@ -39,7 +38,6 @@ class SearchView(View):
             
             form = SearchForm(request.GET)
             if form.is_valid():
-                logging.debug('doing a search')
                 events.extend(form.search(settings.MAX_EVENTS - len(events)))
         
         if len(events) == 0:
@@ -64,7 +62,7 @@ def post_event(request, event_id=None, edit=False):
             
             return HttpResponseRedirect('/event/show')
         else:
-            logging.debug(form.errors)
+            logger.debug(form.errors)
     elif event_id != None and edit == True:
         event = models.Event.objects.get(id=event_id)
         form = forms.PostEventForm(instance=event)
