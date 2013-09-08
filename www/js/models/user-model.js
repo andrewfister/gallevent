@@ -33,8 +33,18 @@ var User = Backbone.Model.extend({
     },
 
     signOut: function(success, failure) {
+        var serializedSignIn = $('.sign-in-form').serializeArray();
+
+        var signInParams = {};
+        var i;
+        for (i = 0; i < serializedSignIn.length; i++)
+        {
+            signInParams[serializedSignIn[i].name] = serializedSignIn[i].value;
+        }
+    
         $.ajax(this.signOutUrl, {
             type: 'POST',
+            data: signInParams,
             success: success,
             failure: failure
         });

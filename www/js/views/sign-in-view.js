@@ -5,7 +5,12 @@ var SignInView = Backbone.View.extend({
         'click .btn-sign-in': 'signIn',
         'click .btn-sign-out': 'signOut',
         'click #btn-show-sign-in': 'showSignIn',
-        'click #btn-show-join': 'showJoin'
+        'click #btn-show-join': 'showJoin',
+        'click .alt-sign-in': 'switchForm',
+    },
+    
+    initialize: function() {
+        this.showJoinForm = true;
     },
     
     render: function() {
@@ -31,33 +36,40 @@ var SignInView = Backbone.View.extend({
     },
     
     showSignIn: function() {
-        /*$(".sign-in-form").slideToggle(600, function() {
-			
-		});*/
-		$(".signed-out").toggleClass('active');
+        $(".sign-in-form").slideToggle(600, function() {
+		    $(".signed-out").toggleClass('active');
+		});
 		
-        $(".btn-sign-in").text('Sign In')
-                        .click(this.signIn.bind(this));
-        $(".sign-in-form").removeClass('join-form');
+		this.showJoinForm = true;
+        this.switchForm();
     },
     
     showJoin: function() {
-        /*$(".sign-in-form").slideToggle(600, function() {
-			
-		});*/
-		$(".signed-out").toggleClass('active');
-        $(".btn-sign-in").text('Join')
-                        .click(this.signIn.bind(this));
-        $(".sign-in-form").addClass('join-form');
+        $(".sign-in-form").slideToggle(600, function() {
+			$(".signed-out").toggleClass('active');
+		});
+        
+        this.showJoinForm = false;
+        this.switchForm();
     },
     
     signIn: function() {
-        var callJoin = false;
-        if ($(".sign-in-form").hasClass("join-form")) {
-            callJoin = true;
+        this.model.signIn(this.renderSignedIn.bind(this), this.render, this.showJoinForm);
+    },
+    
+    switchForm: function() {
+        if (this.showJoinForm) {
+            $(".btn-sign-in").text('Sign In')
+                        .click(this.signIn.bind(this));
+            $(".alt-sign-in").text('Join');
+            this.showJoinForm = false;
         }
-        
-        this.model.signIn(this.renderSignedIn.bind(this), this.render, callJoin);
+        else {
+            $(".btn-sign-in").text('Join')
+                        .click(this.signIn.bind(this));
+            $(".alt-sign-in").text('Sign In');
+            this.showJoinForm = true;
+        }
     },
     
     signOut: function() {
