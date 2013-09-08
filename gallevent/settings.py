@@ -131,7 +131,7 @@ INSTALLED_APPS = (
     'haystack',
     'tastypie',
     'map',
-    'login',
+    'signin',
     'event',
 )
 
