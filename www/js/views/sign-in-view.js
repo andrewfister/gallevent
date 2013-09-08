@@ -18,6 +18,10 @@ var SignInView = Backbone.View.extend({
     
     renderSignedIn: function(response, success, request) {
         if (response.success) {
+            if (this.showJoinForm) {
+                location.href = "/profile/show";
+            }
+        
             this.model.set(response.user);
             $('.username').text(this.model.get('userName'));
             $('.signed-out').addClass('hidden');
@@ -36,21 +40,21 @@ var SignInView = Backbone.View.extend({
     },
     
     showSignIn: function() {
+        this.showJoinForm = true;
+        this.switchForm();
+        
         $(".sign-in-form").slideToggle(600, function() {
 		    $(".signed-out").toggleClass('active');
 		});
-		
-		this.showJoinForm = true;
-        this.switchForm();
     },
     
     showJoin: function() {
+        this.showJoinForm = false;
+        this.switchForm();
+        
         $(".sign-in-form").slideToggle(600, function() {
 			$(".signed-out").toggleClass('active');
 		});
-        
-        this.showJoinForm = false;
-        this.switchForm();
     },
     
     signIn: function() {
@@ -59,14 +63,12 @@ var SignInView = Backbone.View.extend({
     
     switchForm: function() {
         if (this.showJoinForm) {
-            $(".btn-sign-in").text('Sign In')
-                        .click(this.signIn.bind(this));
+            $(".btn-sign-in").text('Sign In');
             $(".alt-sign-in").text('Join');
             this.showJoinForm = false;
         }
         else {
-            $(".btn-sign-in").text('Join')
-                        .click(this.signIn.bind(this));
+            $(".btn-sign-in").text('Join');
             $(".alt-sign-in").text('Sign In');
             this.showJoinForm = true;
         }

@@ -71,15 +71,16 @@ class JoinView(View):
                     logging.debug('logging in')
                     login(request, user)
 
-                    return HttpResponseRedirect('/profile/show/')
+                    register_response['success'] = True
                 else:
+                    register_response['success'] = False
                     logging.debug('disabled account')
                     print 'disabled account'
             else:
+                register_response['success'] = False
                 logging.debug('invalid login')
                 print 'invalid login'
 
-        register_response['success'] = False
         return HttpResponse(json.dumps(register_response), content_type="application/json")
         
 
