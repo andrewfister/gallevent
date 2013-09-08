@@ -31,9 +31,10 @@ var SignInView = Backbone.View.extend({
     },
     
     showSignIn: function() {
-        $(".sign-in-form").slideToggle(600, function() {
-			$(".signed-out").toggleClass('active');
-		});
+        /*$(".sign-in-form").slideToggle(600, function() {
+			
+		});*/
+		$(".signed-out").toggleClass('active');
 		
         $(".btn-sign-in").text('Sign In')
                         .click(this.signIn.bind(this));
@@ -41,16 +42,22 @@ var SignInView = Backbone.View.extend({
     },
     
     showJoin: function() {
-        $(".sign-in-form").slideToggle(600, function() {
-			$(".signed-out").toggleClass('active');
-		});
+        /*$(".sign-in-form").slideToggle(600, function() {
+			
+		});*/
+		$(".signed-out").toggleClass('active');
         $(".btn-sign-in").text('Join')
                         .click(this.signIn.bind(this));
         $(".sign-in-form").addClass('join-form');
     },
     
     signIn: function() {
-        this.model.signIn(this.renderSignedIn.bind(this), this.render);
+        var callJoin = false;
+        if ($(".sign-in-form").hasClass("join-form")) {
+            callJoin = true;
+        }
+        
+        this.model.signIn(this.renderSignedIn.bind(this), this.render, callJoin);
     },
     
     signOut: function() {

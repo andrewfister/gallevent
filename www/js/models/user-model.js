@@ -9,7 +9,7 @@ var User = Backbone.Model.extend({
         'longitude': 0
     },
 
-    signIn: function(success, failure) {
+    signIn: function(success, failure, callJoin) {
         var serializedSignIn = $('.sign-in-form').serializeArray();
 
         var signInParams = {};
@@ -18,8 +18,13 @@ var User = Backbone.Model.extend({
         {
             signInParams[serializedSignIn[i].name] = serializedSignIn[i].value;
         }
+        
+        var ajaxUrl = this.signInUrl;
+        if (callJoin) {
+            ajaxUrl = this.joinUrl;
+        }
 
-        $.ajax(this.signInUrl, {
+        $.ajax(ajaxUrl, {
             type: 'POST',
             data: signInParams,
             success: success,

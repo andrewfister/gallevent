@@ -1,6 +1,5 @@
 # Django settings for gallevent project.
 import local_settings
-import django
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -57,39 +56,46 @@ SITE_ID = 1
 # to load the internationalization machinery.
 USE_I18N = True
 
-# Absolute path to the directory that holds media.
-# Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = local_settings.MEDIA_ROOT_LOCAL
+# Don't put anything in this directory yourself; store your static files
+# in apps' "static/" subdirectories and in STATICFILES_DIRS.
+# Example: "/var/www/example.com/static/"
+STATIC_ROOT = ''
 
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash if there is a path component (optional in other cases).
-# Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = '/static/'
+# URL prefix for static files.
+# Example: "http://example.com/static/", "http://static.example.com/"
+STATIC_URL = '/static/'
 
-# URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
-# trailing slash.
-# Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/media/'
+# Additional locations of static files
+STATICFILES_DIRS = (
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    local_settings.MEDIA_ROOT_LOCAL,
+)
+
+# List of finder classes that know how to find static files in
+# various locations.
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'pubm$v5&ig#6$o*ihd^jqv!z74mh1xqtl_w3^%#ne&hek$@)dg'
 
 # List of callables that know how to import templates from various sources.
-if django.VERSION[1] == 3:
-    TEMPLATE_LOADERS = (
-        'django.template.loaders.filesystem.load_template_source',
-        'django.template.loaders.app_directories.load_template_source',
-    )
-elif django.VERSION[1] == 4:
-    TEMPLATE_LOADERS = (
-        'django.template.loaders.filesystem.Loader',
-        'django.template.loaders.app_directories.Loader',
-    )
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+)
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -104,8 +110,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 ROOT_URLCONF = 'gallevent.urls'
 
-LOGIN_URL = '/login/sign_in'
-LOGOUT_URL = '/login/sign_out'
+LOGIN_URL = '/signin/sign_in'
+LOGOUT_URL = '/signin/sign_out'
 
 TEMPLATE_DIRS = local_settings.TEMPLATE_DIRS_LOCAL
 
@@ -127,6 +133,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
+    'django.contrib.staticfiles',
     'mustachejs',
     'haystack',
     'tastypie',
