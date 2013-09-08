@@ -546,16 +546,22 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 
 #top-search button,
 .btn-sign-in {
-	border:none;
-	background:#66C13F;
 	letter-spacing:0.08em;
 	}
 
 .btn-sign-in {
-	float:right;
-	margin-top:1em;
-	background:#01a1ad;
-	padding:0.5em 1em 0.5em 1em;
+	float:left;
+	margin:0.25em 0 0 0;
+	border:0.15em solid #fff;
+	padding:0.4em 1em 0.6em 1em;
+	background: #2e89a1; /* Old browsers */
+	background: -moz-linear-gradient(top,  #01a1ad 0%, #2e89a1 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#01a1ad), color-stop(100%,#2e89a1)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #01a1ad 0%,#2e89a1 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #01a1ad 0%,#2e89a1 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #01a1ad 0%,#2e89a1 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #01a1ad 0%,#2e89a1 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#01a1ad', endColorstr='#2e89a1',GradientType=0 ); /* IE6-9 */
 	}
 .btn-sign-in:hover {
 	background:#66C13F;
@@ -566,8 +572,8 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 	margin-right:1em;
 	width:12%;
 	max-width:115px;
-	padding:0.4em 0 0.5em 0;
 	border:0.15em solid #fff;
+	padding:0.4em 0 0.5em 0;
 	background: #85c440; /* Old browsers */
 	background: -moz-linear-gradient(top,  #85c440 0%, #53ad3a 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#85c440), color-stop(100%,#53ad3a)); /* Chrome,Safari4+ */
@@ -635,7 +641,6 @@ a.btn-post-event:hover {
 	}
 #header a:hover {
 	color:#fff;
-	text-decoration:underline;
 	}
 
 .logo-block {
@@ -674,10 +679,32 @@ a.btn-post-event:hover {
 	letter-spacing:0.1em;
 	}
 
+#top-nav a {
+	color:#fff;
+	}
+
+#top-nav ul {
+	margin:0 0 0 270px;
+	}
+
+#top-nav li {
+	display:inline-block;
+	}
+#top-nav li a {
+	display:inline-block;
+	padding:0.6em 10px 0.9em 10px;
+	}
+#top-nav li a:hover {
+	background:#97cd5c;
+	}
+
+
+
 #top-nav .right {
+	min-width:7.5em;
 	min-height:44px;
-	margin:-0.6em 0 0 0;
-	padding:0 0.4em 0 100px;
+	margin:0;
+	padding:0 0 0 100px;
 	text-align:right;
 	background:transparent url(../../img/data/green-angle.svg) 0 0 no-repeat;
 	}
@@ -689,18 +716,22 @@ a.btn-post-event:hover {
 
 #top-nav a#btn-show-join,
 #top-nav a#btn-show-sign-in {
-	position:relative;
-	top:0.6em;
-	margin-right:1em;
+	display:inline-block;
+	float:left;
+	width:auto;
+	margin:0.6em 1em 1em 0;
 	}
 
 #top-nav .right .signed-out {
 	width:0px;
+	height:0;
 	transition: width 2s;
 	-webkit-transition: width 2s; /* Safari */
 	}
 #top-nav .right .signed-out.active {
-	width:30em;
+	width:38em;
+	height:44px;
+	overflow:hidden;
 	}
 
 #top-nav .right .signed-out.active#btn-show-join {
@@ -709,6 +740,7 @@ a.btn-post-event:hover {
 	width:auto;
 	clear:none;
 	}
+#top-nav .right .signed-out.active#btn-show-join,
 #top-nav .right .signed-out.active#btn-show-sign-in {
 	display:none;
 	}
@@ -729,21 +761,18 @@ a.btn-post-event:hover {
 	display:none;
 	}
 
-#top-nav ul {
-	margin:0 0 0 280px;
-	padding:0.6em 0 0.3em 0;
+#top-nav .sign-in-status .form-actions {
+	float:left;
 	}
 
-#top-nav li {
-	display:inline;
-	margin-right:1em;
+#top-nav .sign-in-status .form-actions span {
+	float:left;
+	margin:0.6em 0em 0 0.5em;
+	font-weight:normal;
 	}
 
-#top-nav a {
-	color:#fff;
-	}
-#top-nav a:hover {
-	}
+
+
 
 /*
 .center-content #content {

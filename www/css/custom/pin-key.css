@@ -3,7 +3,7 @@
 ** Description: Control for Event Categories
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 09-01-2013
+** Updated: 09-08-2013
 ************************************** */
 
 /* = Position Pin Key Within Container */
@@ -23,14 +23,26 @@
 #pin-key li {
 	border-bottom:1px solid #d2d2d2;
 	}
+#pin-key li:hover {
+	background:#fff;
+  	}
 
 #pin-key li a {
 	display:block;
-	margin:1em 45px 0 20px;
+	margin:0 45px 0 20px;
 	min-height:32px;
-	padding:0 0 0 45px;
+	padding:1em 0 0 45px;
 	color:#303d40;
+	transition: min-height 2s;
+	-webkit-transition: min-height 2s; /* Safari */
   	}
+
+#pin-key li a:hover {
+	/*
+	min-height:7em;
+	*/
+  	}
+
 
 #pin-key li a .details b {
 	display:block;
@@ -38,14 +50,20 @@
 	}
 
 #pin-key li a .details i {
-  	display:none;
+	display:block;
+	height:0;
+	color:#555;
+	font-size:95%;
+	opacity:0;
+	overflow:hidden;
+	transition: height 1s, opacity 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+	-webkit-transition: height 1s, opacity 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19); /* Safari */
 	}
 
 #pin-key li a:hover .details i {
-	display:block;
 	margin-bottom:0em;
-	color:#555;
-	font-size:95%;
+	height:1.5em;
+	opacity:1;
  	}
 
 /* = Pin Key Category */
@@ -129,34 +147,34 @@
 
 /* = Specific Cateogry Styles */
 .networking {
-	background:url(../../img/data/pin-networking-31x32.svg) no-repeat;
+	background:url(../../img/data/pin-networking-31x32.svg) 0 1em no-repeat;
 	}
 .education {
-	background:url(../../img/data/pin-education-31x32.svg) no-repeat;
+	background:url(../../img/data/pin-education-31x32.svg) 0 1em no-repeat;
 	}
 .fairs {
-	background:url(../../img/data/pin-fairs-festivals-31x32.svg) no-repeat;
+	background:url(../../img/data/pin-fairs-festivals-31x32.svg) 0 1em no-repeat;
 	}
 .athletic {
-	background:url(../../img/data/pin-athletic-31x32.svg) no-repeat;
+	background:url(../../img/data/pin-athletic-31x32.svg) 0 1em no-repeat;
 	}
 .art {
-	background:url(../../img/data/pin-arts-31x32.svg) no-repeat;
+	background:url(../../img/data/pin-arts-31x32.svg) 0 1em no-repeat;
 	}
 .dancing {
-	background:url(../../img/data/pin-dancing-v2-31x32.svg) no-repeat;
+	background:url(../../img/data/pin-dancing-v2-31x32.svg) 0 1em no-repeat;
 	}
 .sales {
-	background:url(../../img/data/pin-sales-31x32.svg) no-repeat;
+	background:url(../../img/data/pin-sales-31x32.svg) 0 1em no-repeat;
 	}
 .dining {
-	background:url(../../img/data/pin-dining-31x32.svg) no-repeat;
+	background:url(../../img/data/pin-dining-31x32.svg) 0 1em no-repeat;
 	}
 .parties {
-	background:url(../../img/data/pin-nightlife-parties-31x32.svg) no-repeat;
+	background:url(../../img/data/pin-nightlife-parties-31x32.svg) 0 1em no-repeat;
 	}
 .jobs {
-	background:url(../../img/data/pin-jobs-31x32.svg) no-repeat;
+	background:url(../../img/data/pin-jobs-31x32.svg) 0 1em no-repeat;
 	}
 
 /* = Media Queries
