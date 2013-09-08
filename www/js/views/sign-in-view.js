@@ -37,6 +37,7 @@ var SignInView = Backbone.View.extend({
 		
         $(".btn-sign-in").text('Sign In')
                         .click(this.signIn.bind(this));
+        $(".sign-in-form").removeClass('join-form');
     },
     
     showJoin: function() {
@@ -45,6 +46,7 @@ var SignInView = Backbone.View.extend({
 		});
         $(".btn-sign-in").text('Join')
                         .click(this.signIn.bind(this));
+        $(".sign-in-form").addClass('join-form');
     },
     
     signIn: function() {
