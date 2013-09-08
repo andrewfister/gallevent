@@ -8,17 +8,17 @@ var User = Backbone.Model.extend({
         'latitude': 0,
         'longitude': 0
     },
-    
+
     signIn: function(success, failure) {
         var serializedSignIn = $('.sign-in-form').serializeArray();
-        
+
         var signInParams = {};
         var i;
         for (i = 0; i < serializedSignIn.length; i++)
         {
             signInParams[serializedSignIn[i].name] = serializedSignIn[i].value;
         }
-    
+
         $.ajax(this.signInUrl, {
             type: 'POST',
             data: signInParams,
@@ -26,7 +26,7 @@ var User = Backbone.Model.extend({
             failure: failure
         });
     },
-    
+
     signOut: function(success, failure) {
         $.ajax(this.signOutUrl, {
             type: 'POST',
@@ -34,8 +34,9 @@ var User = Backbone.Model.extend({
             failure: failure
         });
     },
-    
-    signInUrl: '/login/sign_in/',
-    signOutUrl: '/login/sign_out/',
+
+    signInUrl: '/signin/sign_in/',
+    signOutUrl: '/signin/sign_out/',
+    joinUrl: '/signin/join/',
     urlRoot: '/profile/user/'
 });

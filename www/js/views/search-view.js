@@ -31,8 +31,8 @@ var SearchView = Backbone.View.extend({
         $('#map-latitude').change(this.submitSearch.bind(this));
         $('#map-longitude').change(this.submitSearch.bind(this));
         $('#' + this.id).keypress(function(event) {
-            if (event.which == 13) {
-                this.submitSearch(event);
+            if (event.which === 13) {
+                this.submitSearch();
             }
         }.bind(this));
     },

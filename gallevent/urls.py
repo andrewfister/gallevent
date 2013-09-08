@@ -10,19 +10,19 @@ admin.autodiscover()
 urlpatterns = patterns('',
     #Links to views
     url(r'^$', FrontPageView.as_view(), name='front_page'),
-    (r'^login/', include('login.urls')),
-    (r'^event/', include('event.urls')),
-    (r'^profile/', include('user_profile.urls')),
+    url(r'^signin/', include('signin.urls')),
+    url(r'^event/', include('event.urls')),
+    url(r'^profile/', include('user_profile.urls')),
     
     #Static files like css, js, and images
-    (r'^static/(?P<path>.*)$', 'django.views.static.serve',
+    url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': settings.MEDIA_ROOT}),
     
     #Admin page
-    (r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
     
     #haystack search
-    (r'^search/', include('haystack.urls')),
+    url(r'^search/', include('haystack.urls')),
 	
 	#Sponsors page
 	url('^sponsors.html$', TemplateView.as_view(template_name='sponsors.html', content_type='text/html')),

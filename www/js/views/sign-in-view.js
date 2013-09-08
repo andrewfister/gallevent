@@ -5,7 +5,7 @@ var SignInView = Backbone.View.extend({
         'click .btn-sign-in': 'signIn',
         'click .btn-sign-out': 'signOut',
         'click #btn-show-sign-in': 'showSignIn',
-        'click #btn-show-join': 'showSignIn'
+        'click #btn-show-join': 'showJoin'
     },
     
     render: function() {
@@ -34,7 +34,19 @@ var SignInView = Backbone.View.extend({
         $(".sign-in-form").slideToggle(600, function() {
 			$(".signed-out").toggleClass('active');
 		});
-        $(".btn-sign-in").click(this.signIn.bind(this));
+		
+        $(".btn-sign-in").text('Sign In')
+                        .click(this.signIn.bind(this));
+        $(".sign-in-form").removeClass('join-form');
+    },
+    
+    showJoin: function() {
+        $(".sign-in-form").slideToggle(600, function() {
+			$(".signed-out").toggleClass('active');
+		});
+        $(".btn-sign-in").text('Join')
+                        .click(this.signIn.bind(this));
+        $(".sign-in-form").addClass('join-form');
     },
     
     signIn: function() {
