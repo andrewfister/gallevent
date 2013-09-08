@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-06-2013
-** Updated: 09-01-2013
+** Updated: 09-08-2013
 ************************************** */
 
 /* = Global Typography */
@@ -49,56 +49,6 @@ a:hover {
 	color:#66C13F;
 	}
 
-.sign-in-status {
-	display:block;
-	color:#fff;
-	font-size:1em;
-	overflow-x:hidden;
-	}
-.sign-in-status a,
-.sign-in-status a:link {
-	color:#fff;
-	font-weight:bold;
-	text-decoration:none;
-	}
-
-.signed-in {
-	text-align:center;
-	}
-.signed-in a:hover {
-	color:#FFE066 !important;
-	}
-
-.signed-in.username,
-.sign-in-status:hover .signed-in.btn-sign-out {
-	display:block;
-	float:left;
-	width:100%;
-	}
-
-.signed-in.username {
-	padding:1em 0 0.6em 0;
-	}
-
-.signed-in.btn-sign-out {
-	display:none;
-	}
-
-.sign-in-status:hover .signed-in.btn-sign-out {
-	padding:0 0 1em 0;
-	}
-
-/*
-a.username,
-a.btn-sign-out {
-	display:block;
-	float:left;
-	padding:1.5em 1em 1em 1em;
-	}
-a.btn-sign-out {
-	padding:1.5em 1em 1em 1em;
-	}
-*/
 
 /* = Global Form Elements
 ----------------------------------- */
@@ -350,8 +300,6 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
                                                                                                                                                           margin-bottom:.5em;
                                                                                                                                                             }
 
-/* = Global Drop Shadow
------------------------------------ */
 
 /* = Global Calendar Datepicker
 ----------------------------------- */
@@ -682,8 +630,12 @@ a.btn-post-event:hover {
 	box-shadow:		0 1px 2px rgba(0, 0, 0, 0.25);
 	}
 
+#header a {
+	color:#fff;
+	}
 #header a:hover {
-	color:#01A1AD;
+	color:#fff;
+	text-decoration:underline;
 	}
 
 .logo-block {
@@ -715,7 +667,7 @@ a.btn-post-event:hover {
 
 #top-nav {
 	margin:0;
-	min-height:40px;
+	min-height:44px;
 	background:#85c440;
 	color:#fff;
 	font-size:80%;
@@ -723,10 +675,23 @@ a.btn-post-event:hover {
 	}
 
 #top-nav .right {
-	margin:-1em 0 -1em 0;
-	padding:1em 0.4em 1em 100px;
+	min-height:44px;
+	margin:-0.6em 0 0 0;
+	padding:0 0.4em 0 100px;
 	text-align:right;
 	background:transparent url(../../img/data/green-angle.svg) 0 0 no-repeat;
+	}
+
+.sign-in-status {
+	color:#fff;
+	font-size:1em;
+	}
+
+#top-nav a#btn-show-join,
+#top-nav a#btn-show-sign-in {
+	position:relative;
+	top:0.6em;
+	margin-right:1em;
 	}
 
 #top-nav .right .signed-out {
@@ -741,20 +706,23 @@ a.btn-post-event:hover {
 #top-nav .right .signed-out.active#btn-show-join {
 	float:left;
 	text-align:left;
-	background:#ff0;
 	width:auto;
 	clear:none;
 	}
 #top-nav .right .signed-out.active#btn-show-sign-in {
 	display:none;
 	}
-
-#top-nav .sign-in-form.active label,
+	
 #top-nav .sign-in-form.active input {
 	float:left;
 	clear:none;
-	width:100px;
-	background:#ff0;
+	margin:0.2em 0.6em -1em 0;
+	}
+#top-nav .sign-in-form.active input.email {
+	width:40%;
+	}
+#top-nav .sign-in-form.active input.password {
+	width:20%;
 	}
 
 #top-nav .sign-in-form.active label {
@@ -763,7 +731,7 @@ a.btn-post-event:hover {
 
 #top-nav ul {
 	margin:0 0 0 280px;
-	padding:0.48em 0 0.3em 0;
+	padding:0.6em 0 0.3em 0;
 	}
 
 #top-nav li {
