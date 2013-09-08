@@ -49,7 +49,6 @@
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Post an Event</a></li>
                     <li><a href="#">About Gallevent</a></li>
-                    <li><a href="#">Sponsors</a></li>
                     <li><a href="#">Contact Us</a></li>
                     <span class="right">
                         {% block signin-form %}
@@ -60,9 +59,9 @@
                             <a class="{% if user.is_authenticated %}hidden{% endif %} signed-out" id="btn-show-sign-in" href="#">Sign In</a>
                             <form class="{% if user.is_authenticated %}hidden{% endif %} signed-out sign-in-form" style="display:none;" method="post">
                                 <label>Email Address:</label>
-                                <input type="text" class="input-standard" name="email" />
+                                <input type="text" class="input-standard email" name="email" />
                                 <label>Password:</label>
-                                <input type="password" class="input-standard" name="password" />
+                                <input type="password" class="input-standard password" name="password" />
                                 <em class="sign-in-message"></em>
                                 <button class="hidden btn-sign-in" type="button">Sign In</button>
                                 <button class="hiden btn-join" type="button">Join</button>
