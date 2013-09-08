@@ -34,7 +34,7 @@
 
 #pin-key li a .details b {
 	display:block;
-	margin:0.2em 0 0 0;
+	padding:0.2em 0 0 0;
 	}
 
 #pin-key li a .details i {
@@ -43,7 +43,7 @@
 
 #pin-key li a:hover .details i {
 	display:block;
-	margin-bottom:-1em;
+	margin-bottom:0em;
 	color:#555;
 	font-size:95%;
  	}

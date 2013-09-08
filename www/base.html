@@ -55,19 +55,19 @@
                         {% block signin-form %}
                         <span class="sign-in-status">
                             <span class="signed-in {% if not user.is_authenticated %}hidden{% endif %}">Hi, <a class="username" href="{% url 'user_profile.views.show_profile' %}">{{ user.username }}</a></span>
-                            <span class="signed-in btn-sign-out {% if not user.is_authenticated %}hidden{% endif %}"><a href="#">Sign Out</a></span>
-                            <li><a class="{% if user.is_authenticated %}hidden{% endif %} signed-out" id="btn-show-join" href="#">Join</a></li>
-                            <li><a class="{% if user.is_authenticated %}hidden{% endif %} signed-out" id="btn-show-sign-in" href="#">Sign In</a></li>
+                            <a class="signed-in btn-sign-out {% if not user.is_authenticated %}hidden{% endif %}" href="#">Sign Out</a>
+                            <a class="{% if user.is_authenticated %}hidden{% endif %} signed-out" id="btn-show-join" href="#">Join</a>
+                            <a class="{% if user.is_authenticated %}hidden{% endif %} signed-out" id="btn-show-sign-in" href="#">Sign In</a>
+                            <form class="{% if user.is_authenticated %}hidden{% endif %} signed-out sign-in-form" style="display:none;" method="post">
+                                <label>Email Address:</label>
+                                <input type="text" class="input-standard" name="email" />
+                                <label>Password:</label>
+                                <input type="password" class="input-standard" name="password" />
+                                <em class="sign-in-message"></em>
+                                <button class="hidden btn-sign-in" type="button">Sign In</button>
+                                <button class="hiden btn-join" type="button">Join</button>
+                        	</form>
                         </span>
-                        <form class="{% if user.is_authenticated %}hidden{% endif %} signed-out sign-in-form" style="display:none;" method="post">
-                            <label>Email Address:</label>
-                            <input type="text" class="input-standard" name="email" />
-                            <label>Password:</label>
-                            <input type="password" class="input-standard" name="password" />
-                            <em class="sign-in-message"></em>
-                            <button class="hidden btn-sign-in" type="button">Sign In</button>
-                            <button class="hiden btn-join" type="button">Join</button>
-                        </form>
                         
                         <div class="hidden">
                             <span id="user-id">{{ user.id }}</span>

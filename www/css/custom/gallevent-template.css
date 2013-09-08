@@ -51,7 +51,6 @@ a:hover {
 
 .sign-in-status {
 	display:block;
-	background:#66C13F;
 	color:#fff;
 	font-size:1em;
 	overflow-x:hidden;
@@ -728,6 +727,38 @@ a.btn-post-event:hover {
 	padding:1em 0.4em 1em 100px;
 	text-align:right;
 	background:transparent url(../../img/data/green-angle.svg) 0 0 no-repeat;
+	}
+
+#top-nav .right .signed-out {
+	width:0px;
+	transition: width 2s;
+	-webkit-transition: width 2s; /* Safari */
+	}
+#top-nav .right .signed-out.active {
+	width:30em;
+	}
+
+#top-nav .right .signed-out.active#btn-show-join {
+	float:left;
+	text-align:left;
+	background:#ff0;
+	width:auto;
+	clear:none;
+	}
+#top-nav .right .signed-out.active#btn-show-sign-in {
+	display:none;
+	}
+
+#top-nav .sign-in-form.active label,
+#top-nav .sign-in-form.active input {
+	float:left;
+	clear:none;
+	width:100px;
+	background:#ff0;
+	}
+
+#top-nav .sign-in-form.active label {
+	display:none;
 	}
 
 #top-nav ul {
