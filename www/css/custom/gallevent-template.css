@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-06-2013
-** Updated: 09-08-2013
+** Updated: 09-15-2013
 ************************************** */
 
 /* = Global Typography */
@@ -13,24 +13,32 @@ body {
 	font-family:Arial, Helvetica, sans-serif;
 	}
 
+/*
 h1 {
+	margin:0;
 	color:#01a1ad;
 	font-weight:200;
 	font-size:210%;
-	margin:0;
+	}
+*/
+
+h1 {
+	margin:1em 0 0 0;
+	color:#01a1ad;
+	font-weight:200;
+	font-size:180%;
 	}
 
 h2 {
+	margin:0 0 1em 0;
 	color:#66C13F;
 	font-weight:200;
-	font-size:160%;
-	margin:1em 0 0 0;
+	font-size:130%;
 	}
 
 p,
 ul,
 ol {
-	font-size:120%;
 	margin:0.6em 0 0 0;
 	}
 
@@ -47,6 +55,16 @@ a:link {
 	}
 a:hover {
 	color:#66C13F;
+	}
+
+.address {
+	font-style:italic;
+	color:#868789;
+	}
+
+/* = Global Special Styles */
+.invisible {
+	opacity:0;
 	}
 
 
@@ -539,21 +557,27 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 .btn-sign-in,
 .map-popup .btn-rsvp,
 .map-popup .btn-watch {
+	
+	
+	}
+
+button {
 	border-radius:6px;
+	border:0.15em solid #fff;
+	padding:0.4em 1em 0.6em 1em;
+/*	padding:0.4em 0.8em 0.5em 0.8em; */
+	letter-spacing:0.08em;
 	color:#fff;
 	font-weight:400;
 	}
 
-#top-search button,
-.btn-sign-in {
-	letter-spacing:0.08em;
-	}
+
+/* = Blue Buttons */
 
 .btn-sign-in {
 	float:left;
 	margin:0;
-	border:0.15em solid #fff;
-	padding:0.4em 1em 0.6em 1em;
+	
 	background: #2e89a1; /* Old browsers */
 	background: -moz-linear-gradient(top,  #01a1ad 0%, #2e89a1 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#01a1ad), color-stop(100%,#2e89a1)); /* Chrome,Safari4+ */
@@ -567,13 +591,14 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 	background:#66C13F;
 	}
 
+
+/* = Green Buttons */
+
 #top-search button {
 	float:right;
 	margin-right:1em;
 	width:12%;
 	max-width:115px;
-	border:0.15em solid #fff;
-	padding:0.4em 0 0.5em 0;
 	background: #85c440; /* Old browsers */
 	background: -moz-linear-gradient(top,  #85c440 0%, #53ad3a 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#85c440), color-stop(100%,#53ad3a)); /* Chrome,Safari4+ */
