@@ -3,3 +3,4 @@ wsgi.py
 *.pyc
 *\~
 \.*
+static/
