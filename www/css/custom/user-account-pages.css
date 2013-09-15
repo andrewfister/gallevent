@@ -3,62 +3,47 @@
 ** Description: Styles for User Control Section Pages
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 04-21-2013
+** Updated: 09-15-2013
 ************************************** */
 
-.user-control #container {
-	z-index:400;
+.user-account #container {
+	/*z-index:400;
 	position:relative;
 	float:left;
 	margin-left:1%;
 	width:50%;
+	*/
 	background:#f7f7f7;
 	}
 
-.user-control #header {
-	width:96%;
+.user-account ul.tabs {
+	z-index:600;
 	position:relative;
-	min-height:4.5em;
-	}
-
-.user-control .logo-block {
-	float:left;
-	}
-
-.user-control .sign-in-status {
-	float:right;
-	margin:1.5em 7px 0 0;
-	}
-
-.user-control ul.tabs {
-	z-index:700;
-	position:relative;
-  margin:0;
+	margin:0 0 0 200px;
 	list-style:none;
-  font-size:100%;
-	background:#ff0;
+	font-size:100%;
 	}
 
-.user-control ul.tabs li a  {
+.user-account ul.tabs li a  {
 	float:left;
 	display:block;
 	width:25%;
-	margin-top:-1em;
-	padding:1.7em 0 0.7em 0;
-	text-align:center;
-	font-weight:bold;
-	color:#fff;
+	padding:1.2em 0 1.3em 30px;
+	margin-right:-30px;
+/*	padding:1.7em 0 0.7em 0; */
 	}
-.user-control ul.tabs li a.tab-post-event {
+.user-account ul.tabs li a.tab-post-event {
 	background:#01a1ad;
+	padding-left:80px;
+	margin-right:-80px;
 	}
-.user-control ul.tabs li a.tab-your-posts {
+.user-account ul.tabs li a.tab-your-posts {
 	background:#81c341;
 	}
-.user-control ul.tabs li a.tab-events {
+.user-account ul.tabs li a.tab-events {
 	background:#fbbc12;
 	}
-.user-control ul.tabs li a.tab-your-profile {
+.user-account ul.tabs li a.tab-your-profile {
 	background:#f37377;
 	}
 
@@ -80,6 +65,7 @@
 	border-top-style:solid;
   width:90%;
   padding:0 5% 0 5%;
+  background:#f7f7f7;
 	}
 
 .post-event #active-tab-content {

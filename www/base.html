@@ -50,6 +50,7 @@
                     <li><a href="#">Post an Event</a></li>
                     <li><a href="#">About Gallevent</a></li>
                     <li><a href="#">Contact Us</a></li>
+                </ul>
                     <span class="right">
                         {% block signin-form %}
                         <span class="sign-in-status">
@@ -65,7 +66,7 @@
                                 <input type="password" class="input-standard password" name="password" />
                                 <em class="sign-in-message"></em>
                                 <span class="form-actions">
-                                    <button class="btn-sign-in" type="button">Sign In</button> <span>or <a class="alt-sign-in">Join</a></span>
+                                    <button class="btn-sign-in" type="button">Sign In</button><span>or <a class="alt-sign-in">Join</a></span>
                                 </span>
                         	</form>
                         </span>
@@ -81,10 +82,12 @@
                         </div>
                         {% endblock signin-form %}
                     </span>
-                </ul>
+                
         	</nav>
             	{% block top-search %}
             	{% endblock top-search %}
+                {% block subnav %}
+                {% endblock subnav %}
         	</div><!-- #header -->
         {% endblock header %}
         <div id="content">
