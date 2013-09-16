@@ -76,7 +76,7 @@ var SignInView = Backbone.View.extend({
         this.showJoinForm = false;
         this.switchForm();
         
-        $(".sign-in-form").removeClass("hidden").slideToggle(600, function() {
+        $(".sign-in-form").removeClass("hidden").slideToggle(1000, function() {
 	        $(".signed-out").toggleClass('active');
 	        $(".sign-in-form").fadeToggle("slow").removeClass("invisible");
         });
