@@ -59,7 +59,7 @@
                             <a class="signed-in btn-sign-out {% if not user.is_authenticated %}hidden{% endif %}" href="#">Sign Out</a>
                             <a class="{% if user.is_authenticated %}hidden{% endif %} signed-out" id="btn-show-join" href="#">Join</a>
                             <a class="{% if user.is_authenticated %}hidden{% endif %} signed-out" id="btn-show-sign-in" href="#">Sign In</a>
-                            <form class="{% if user.is_authenticated %}hidden{% endif %} signed-out sign-in-form" style="display:none;" method="post">
+                            <form class="invisible hidden signed-out sign-in-form" method="post">
                                 {% csrf_token %}
                                 <label>Email Address:</label>
                                 <input type="text" class="input-standard email" name="email" />

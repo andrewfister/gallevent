@@ -4,8 +4,8 @@ var SignInView = Backbone.View.extend({
     events: {
         'click .btn-sign-in': 'signIn',
         'click .btn-sign-out': 'signOut',
-        'click #btn-show-sign-in': 'showSignIn',
-        'click #btn-show-join': 'showJoin',
+        'click #btn-show-sign-in': 'showJoinOrSignIn',
+        'click #btn-show-join': 'showJoinOrSignIn',
         'click .alt-sign-in': 'switchForm',
     },
     
@@ -23,10 +23,16 @@ var SignInView = Backbone.View.extend({
             }
         
             this.model.set(response.user);
-            $('.username').text(this.model.get('userName'));
-            $('.signed-out').addClass('hidden');
-            $('.signed-in').removeClass('hidden');
-            $('.sign-in-message').text('');
+            
+            $('.signed-out').fadeOut(600, function() {
+                $('.signed-out').addClass('hidden');
+            });
+            
+            $('.signed-in').fadeIn(600, function() {
+                $('.username').text(this.model.get('userName'));
+                $('.sign-in-message').text('');
+                $('.signed-in').removeClass('hidden');
+            });
         }
         else {
             $('.sign-in-message').text('Incorrect email or password');
@@ -34,9 +40,27 @@ var SignInView = Backbone.View.extend({
     },
     
     renderSignedOut: function() {
-        $('.username').text("");
-        $('.signed-in').addClass('hidden');
-        $('.signed-out').removeClass('hidden');
+        $('.signed-in').fadeOut(600, function() {
+            $('.username').text("");
+            $('.signed-in').addClass('hidden');
+        });
+        
+        $('.signed-out').fadeIn(600, function() {
+            $('.signed-out').removeClass('hidden');
+        });
+    },
+    
+    showJoinOrSignIn: function(event) {
+        $("#btn-show-join").fadeOut(600);
+        
+        $("#btn-show-sign-in").fadeOut(600, function() {
+            if (event.target.id == "btn-show-sign-in") {
+                this.showSignIn();
+            }
+            else {
+                this.showJoin();
+            }
+        }.bind(this));
     },
     
     showSignIn: function() {
@@ -44,17 +68,18 @@ var SignInView = Backbone.View.extend({
         this.switchForm();
         
         $(".sign-in-form").slideToggle(600, function() {
-		    $(".signed-out").toggleClass('active');
-		});
+	        $(".signed-out").toggleClass('active');
+	    });
     },
     
     showJoin: function() {
         this.showJoinForm = false;
         this.switchForm();
         
-        $(".sign-in-form").slideToggle(600, function() {
-			$(".signed-out").toggleClass('active');
-		});
+        $(".sign-in-form").removeClass("hidden").slideToggle(600, function() {
+	        $(".signed-out").toggleClass('active');
+	        $(".sign-in-form").fadeToggle("slow").removeClass("invisible");
+        });
     },
     
     signIn: function() {
