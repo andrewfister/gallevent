@@ -6,7 +6,7 @@ var SignInView = Backbone.View.extend({
         'click .btn-sign-out': 'signOut',
         'click #btn-show-sign-in': 'showJoinOrSignIn',
         'click #btn-show-join': 'showJoinOrSignIn',
-        'click .alt-sign-in': 'switchForm',
+        'click .alt-sign-in': 'switchFormToAlt',
     },
     
     initialize: function() {
@@ -87,19 +87,23 @@ var SignInView = Backbone.View.extend({
     },
     
     switchForm: function() {
+        if (this.showJoinForm) {
+            $(".btn-sign-in").text('Sign In');
+            $(".alt-sign-in").text('Join');
+            this.showJoinForm = false;
+        }
+        else {
+            $(".btn-sign-in").text('Join');
+            $(".alt-sign-in").text('Sign In');
+            this.showJoinForm = true;
+        }
+    },
+    
+    switchFormToAlt: function() {
         $(".sign-in-form").fadeOut(600, function() {
-            if (this.showJoinForm) {
-                $(".btn-sign-in").text('Sign In');
-                $(".alt-sign-in").text('Join');
-                this.showJoinForm = false;
-            }
-            else {
-                $(".btn-sign-in").text('Join');
-                $(".alt-sign-in").text('Sign In');
-                this.showJoinForm = true;
-            }
+            this.switchForm();
             $(".sign-in-form").fadeIn(600);
-        });
+        }.bind(this));
     },
     
     signOut: function() {
