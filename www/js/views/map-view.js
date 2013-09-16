@@ -18,6 +18,8 @@ var MapView = Backbone.View.extend({
     template: Mustache.template('marker').render,
 
     markers: [],
+    
+    categoryCounts: {},
 
     userLocation: new google.maps.LatLng(37.88397, -122.2644),
 

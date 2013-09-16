@@ -67,9 +67,9 @@ var SignInView = Backbone.View.extend({
         this.showJoinForm = true;
         this.switchForm();
         
-        $(".sign-in-form").removeClass("hidden").slideToggle(1000, function() {
+        $(".sign-in-form").removeClass("hidden", function() {
 	        $(".signed-out").toggleClass('active');
-	        $(".sign-in-form").fadeToggle("slow").removeClass("invisible");
+	        $(".sign-in-form").removeClass("invisible");
         });
     },
     
@@ -77,9 +77,9 @@ var SignInView = Backbone.View.extend({
         this.showJoinForm = false;
         this.switchForm();
         
-        $(".sign-in-form").removeClass("hidden").slideToggle(1000, function() {
+        $(".sign-in-form").removeClass("hidden", function() {
 	        $(".signed-out").toggleClass('active');
-	        $(".sign-in-form").fadeToggle("slow").removeClass("invisible");
+	        $(".sign-in-form").removeClass("invisible");
         });
     },
     
