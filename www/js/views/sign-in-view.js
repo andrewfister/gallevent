@@ -87,16 +87,19 @@ var SignInView = Backbone.View.extend({
     },
     
     switchForm: function() {
-        if (this.showJoinForm) {
-            $(".btn-sign-in").text('Sign In');
-            $(".alt-sign-in").text('Join');
-            this.showJoinForm = false;
-        }
-        else {
-            $(".btn-sign-in").text('Join');
-            $(".alt-sign-in").text('Sign In');
-            this.showJoinForm = true;
-        }
+        $(".sign-in-form").fadeOut(600, function() {
+            if (this.showJoinForm) {
+                $(".btn-sign-in").text('Sign In');
+                $(".alt-sign-in").text('Join');
+                this.showJoinForm = false;
+            }
+            else {
+                $(".btn-sign-in").text('Join');
+                $(".alt-sign-in").text('Sign In');
+                this.showJoinForm = true;
+            }
+            $(".sign-in-form").fadeIn(600);
+        });
     },
     
     signOut: function() {
