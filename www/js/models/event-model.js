@@ -25,7 +25,6 @@ var Event = Backbone.Model.extend({
     getAddress: function() {
         return this.get("address");
     },
-
     
     urlRoot: '/event/events'
 });
@@ -49,7 +48,29 @@ var EventCollection = Backbone.Collection.extend({
     url: '/event/events',
 
     initialize: function() {
+        this.categoryCounts = {'networking': 0, 'education': 0, 'fairs': 0, 
+                                'athletic': 0, 'art': 0, 'dancing': 0, 
+                                'dining': 0, 'parties': 0};
+        
         this._orderDateAscend = this.comparator;
+        
+        this.on("add", function(events) {
+            _.each(events, function(event, index, items) {
+                this.categoryCounts[event.attributes.category] += 1;
+            }, this);
+        }, this);
+        
+        this.on("reset", function(events) {
+            _.each(events.models, function(event, index, items) {
+                this.categoryCounts[event.attributes.category] += 1;
+            }, this);
+        }, this);
+        
+        this.on("remove", function(events) {
+            _.each(events, function(event, index, items) {
+                this.categoryCounts[event.attributes.category] -= 1;
+            }, this);
+        }, this);
     },
 
     comparator: function(e) {

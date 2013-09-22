@@ -426,12 +426,16 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 #map_canvas {
 	z-index:200;
 	position:fixed;
-	top:0;
 	left:0;
 	height:100%;
 	}
 
+.home #map-canvas {
+    top: 0;
+    }
+
 .home #map-box {
+    top:105px;
 	width:75%;
 	}
 
