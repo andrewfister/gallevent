@@ -1,10 +1,10 @@
 // on dom load
 $(function() {
-    var events = new EventSearchCollection();
+    window.events = new EventSearchCollection();
     
 	if (typeof eventsJSON !== 'undefined')
 	{
-        events.reset(eventsJSON);
+        window.events.reset(eventsJSON);
 	}
 	
 	if ($('.sign-in-status').length)
@@ -18,29 +18,6 @@ $(function() {
 	    //Nothing extra to render right now
 	    //signInView.render();
 	}
-    
-    if ($('#pin-key').length)
-    {
-        var categories = ['networking', 'education', 'fairs', 'athletic', 'art', 'dancing', 'dining', 'parties'];
-        
-        _.each(categories, function(item, index, items) {
-            $('.'+item).click(function() {
-                $('.key').removeClass('active');
-                
-                if ($('.'+item).hasClass('inactive') || !$('.key').hasClass('inactive'))
-                {
-                    mapView.collection.reset(events.where({category: item}));
-                    $('.key').addClass('inactive');
-                    $('.'+item).removeClass('inactive');
-                    $('.'+item).addClass('active');
-                }
-                else
-                {
-                    $('.key').removeClass('inactive');
-                }
-            });
-        });
-    }
     
 /*    if ($('#your-posts').length)
     {
