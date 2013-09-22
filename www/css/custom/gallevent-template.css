@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-06-2013
-** Updated: 09-15-2013
+** Updated: 09-22-2013
 ************************************** */
 
 /* = Global Typography */
@@ -322,10 +322,11 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 /* = Global Calendar Datepicker
 ----------------------------------- */
 #ui-datepicker-div {
+	z-index:800 !important;
 	background:#fff;
 	border:1px solid #B3E3E7;
-	margin:8px 0 0 -10px;
-	position:static;
+	margin:12px 0 0 -2em;
+	
 	}
 .ui-datepicker {
 	position:static;
@@ -752,6 +753,10 @@ a.btn-post-event:hover {
 	float:right;
 	width:auto;
 	margin:0.26em 1em 1em 0;
+	}
+#top-nav .sign-in-status .signed-in {
+	position:relative;
+	top:0.4em;
 	}
 
 #top-nav a#btn-show-join {
