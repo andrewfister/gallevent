@@ -417,12 +417,16 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 
 /* = Global Map Styles
 ----------------------------------- */
+#map-feature {
+	height:40em;
+	}
+
 #map-box,
 #map_canvas {
 	z-index:200;
 	position:fixed;
 	left:0;
-	height:800px;
+	height:100%;
 	}
 
 .home #map-canvas {
@@ -611,7 +615,7 @@ button {
 
 #top-search button {
 	float:right;
-	margin-right:1em;
+	margin:-0.19em 1em 0 0;
 	min-width:115px;
 	}
 
@@ -705,8 +709,9 @@ a.btn-post-event:hover {
 #top-nav {
 	position:relative;
 	z-index:700;
+	overflow:hidden;
 	margin:0;
-	min-height:44px;
+	height:3.5em;
 	background:#85c440;
 	color:#fff;
 	font-size:80%;
@@ -720,7 +725,7 @@ a.btn-post-event:hover {
 
 #top-nav ul {
 	float:left;
-	margin:0 0 0 270px;
+	margin:0.05em 0 0 270px;
 	}
 
 #top-nav li {
@@ -737,7 +742,7 @@ a.btn-post-event:hover {
 
 
 #top-nav .right {
-	min-width:7.5em;
+	min-width:8em;
 	min-height:44px;
 	margin:0;
 	padding:0 0 0 100px;
@@ -750,7 +755,7 @@ a.btn-post-event:hover {
 	display:inline-block;
 	float:right;
 	width:auto;
-	margin:0.5em 1em 1em 0;
+	margin:0.26em 1em 1em 0;
 	}
 
 #top-nav a#btn-show-join {
@@ -760,16 +765,6 @@ a.btn-post-event:hover {
 #top-nav .right .signed-out {
 	width:0px;
 	height:0;
-	/*
-	transition: width 2s;
-	-webkit-transition: width 2s; */
-	/* Safari */
-	}
-#top-nav .right .signed-out.active {
-	margin:-0.25em 0 -1.25em 0;
-	width:36em;
-	height:44px;
-	overflow:hidden;
 	}
 
 #top-nav .right .signed-out.active#btn-show-join {
@@ -778,9 +773,32 @@ a.btn-post-event:hover {
 	width:auto;
 	clear:none;
 	}
+#top-nav .right #btn-show-join,
+#top-nav .right #btn-show-sign-in {
+	position:relative;
+	top:0.4em;
+	}
+
 #top-nav .right .signed-out.active#btn-show-join,
 #top-nav .right .signed-out.active#btn-show-sign-in {
 	display:none;
+	}
+
+#top-nav .sign-in-form {
+	display:block !important;
+	min-height:2.35em !important;
+	overflow:hidden;
+	}
+	
+#top-nav .sign-in-form.hidden {
+	width:0 !important;
+	opacity:0 !important;
+	}
+#top-nav .sign-in-form.active {
+	width:35em !important;
+	opacity:1 !important;
+	transition: width 2s, opacity 2s;
+	-webkit-transition: width 2s, opacity 2s; /* Safari */
 	}
 	
 #top-nav .sign-in-form.active input {
@@ -801,12 +819,18 @@ a.btn-post-event:hover {
 
 #top-nav .sign-in-status .form-actions {
 	float:left;
+	opacity:0 !important;
+	transition: opacity 5s;
+	-webkit-transition: opacity 5s; /* Safari */
 	}
 
-#top-nav .sign-in-status .form-actions span {
+#top-nav .sign-in-form.active .form-actions {
+	opacity:1 !important;
+	}
+
+#top-nav .sign-in-form.active .form-actions span {
 	float:left;
 	margin:0.4em 0 0 0.5em;
-	/* margin:0.6em 0em 0 0.5em; */
 	font-weight:normal;
 	}
 
