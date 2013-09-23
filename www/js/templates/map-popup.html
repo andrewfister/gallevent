@@ -1,9 +1,11 @@
 <div class="map-popup">
     <div class="event-name"><a href="{{ event_url }}" target="_blank"><!-- <img class="pop-up-banner" src="/static/img/pop-up-banner3.jpg" /> --><img class="category-icon" src="/static/img/cbi-{{ category }}.png" /><span>{{ name }}</span></a></div>
-    <div class="price">Price: <strong>{{ ticket_price }}</strong></div>
-    <div class="date-time"><strong>{{ start_date }}</strong> to <strong>{{ end_date }}</strong></div>
-    <div class="description">{{ short_description }} <a href="{{ event_url }}" target="_blank">More &raquo;</a></div>
-    <div class="address">{{ address }}</div>
-    <div class="btns"><span class="btn-rsvp"><span>RSVP</span></span><span class="btn-watch"><span>Watch</span></span></div>
-    <div class="mod-event"><a href="{{ event_url }}" target="_blank">Is this your event?</a><a href="mailto:gallevent.main@gmail.com" class="warning" target="_blank">Report this event</a></div>
+    <div class="event-info">
+        <div class="price">Price: <em>{{ ticket_price }}</em></div>
+        <div class="date-time"><strong>{{ start_date }}</strong> to <strong>{{ end_date }}</strong></div>
+        <div class="description">{{ short_description }} <a href="{{ event_url }}" target="_blank">More &raquo;</a></div>
+        <div class="address">{{ address }}</div>
+        <div class="btns"><a class="btn-rsvp">RSVP</a><a class="btn-watch">Watch</a></div>
+        <div class="mod-event"><a href="{{ event_url }}" target="_blank">Is this your event?</a><a href="mailto:gallevent.main@gmail.com" class="warning" target="_blank">Report this event</a></div>
+    </div>
 </div>
