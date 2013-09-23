@@ -18,7 +18,7 @@ var PinKeyView = Backbone.View.extend({
                         this.collection.reset(window.events.models);
                     }
                     else {
-                        $(e.target).addClass('selected');
+                        this.pinKeys[category].addClass('selected');
                         this.collection.reset(window.events.where({category: category}));
                         this.selectedCategory = category;
                     }
