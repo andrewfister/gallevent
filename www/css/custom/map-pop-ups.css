@@ -13,18 +13,24 @@
 	overflow-y:hidden;
 	}
 
+
 .map-popup .event-name {
-	font-size:150%;
+	margin-top:0.15em;
+	}
+.map-popup .event-name span {
+	font-size:140%;
+	font-weight:bold;
 	line-height:1.1em;
 	margin-bottom:0.35em;
-	color:#01A1AD;
 	}
 .map-popup .event-name a {
 	color:#01A1AD;
 	}
+
 .map-popup .event-name a:hover {
 	color:#85c440; /* green */
 	}
+
 .event-name .pop-up-banner {
 	position:relative;
 	z-index:900;
@@ -32,7 +38,7 @@
 	}
 .event-name .category-icon {
 	float:left;
-	margin-right:0.5em;
+	margin:-0.15em 0.5em 0 0;
 	}
 .event-name .pop-up-banner+.category-icon {
 	float:right;
@@ -57,6 +63,7 @@
 .map-popup .address {
 	
 	}
+
 
 /* = Map Pin Pop-Up Action Links */
 .map-popup .mod-event {
