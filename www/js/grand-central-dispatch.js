@@ -1,115 +1,43 @@
 // on dom load
-$(function() {
+$(document).ready(function() {
     window.events = new EventSearchCollection();
-    
-	if (typeof eventsJSON !== 'undefined')
-	{
+
+    if (typeof eventsJSON !== 'undefined') {
         window.events.reset(eventsJSON);
-	}
-	
-	if ($('.sign-in-status').length)
-	{
-	    var signInUser = new User();
-	    var signInView = new SignInView({
-	        el: $('.sign-in-status'), 
-	        model: signInUser
-	    });
-	    
-	    //Nothing extra to render right now
-	    //signInView.render();
-	}
-    
-/*    if ($('#your-posts').length)
-    {
-        var archivedEvents = new EventCollection(events.where({status: 2}));
-        var yourActivePostsView = new YourActivePostsView({collection : events});
-        yourActivePostsView.render();
-        //events.reset(eventsJSON);  
-        var yourArchivedPostsView = new YourArchivedPostsView({collection : archivedEvents});
-        yourArchivedPostsView.render();
     }
 
-    if ($('#your-posts').length)
-    {  
-        var archivedEvents = new EventCollection(events.where({status: 2}));
-        events.reset(events.where({status: 1}));
-    
-        events.on('change:status', function(evt, index, options) {
-            var archiveEvent = evt.collection.get(evt.id);
-            this.remove(archiveEvent);
-            archivedEvents.add(archiveEvent);
-        }, events);
-    
-        _.each(events.models, function(item, index, items) {
-            var yourPostView = new YourPostView({
-                model: item,
-                id: 'your-post-' + item.id,
-            });
-            yourPostView.render();
+    if ($('.sign-in-status').length) {
+        window.signInUser = new User();
+        window.signInView = new SignInView({
+            el: $('.sign-in-status'),
+            model: window.signInUser
         });
-
-        archivedEvents.on('change:status', function(evt, index, options) {
-            var deleteEvent = evt.collection.get(evt.id);
-            this.remove(deleteEvent);
-        }, archivedEvents);
-        
-        archivedEvents.on('add', function(evt, collection, options) {
-            var yourArchivedPostView = new YourArchivedPostView({
-                model: collection.models[options.index],
-                el: $('.archived-events'),
-            });
-            yourArchivedPostView.render();
-        }, archivedEvents);
-        
-        _.each(archivedEvents.models, function(item, index, items) {
-            var yourArchivedPostView = new YourArchivedPostView({
-                model: item,
-                id: 'your-post-' + item.id,
-            });
-            yourArchivedPostView.render();
-        });
+        window.signInView.render();
     }
 
-    
-    if ($('#post-event').length)
-    {
-        var event = new Event();
-        var postEventView = new PostEventView({
-            model: event,
+    if ($('#map_canvas').length) {
+        window.mapEvents = new EventCollection();
+        window.events.on('reset', function() {
+            window.mapEvents.reset(events.models);
         });
-        
-        postEventView.model.on("change:longitude", function() {
-            events.reset([this]);
+
+        window.mapView = new MapView({
+            collection: window.mapEvents
         });
-        
-        postEventView.render();
-    }*/
-    
-    if ($('#map_canvas').length)
-    {
-        var mapEvents = new EventCollection();
-        events.on('reset', function() { 
-            mapEvents.reset(events.models);
-        });
-        
-        var mapView = new MapView({
-            collection: mapEvents
-        });
-        mapView.render();
+        window.mapView.render();
+
+        if ($('#pin-key').length) {
+            window.pinKeyView = new PinKeyView({
+                collection: window.mapEvents
+            });
+            window.pinKeyView.render();
+        }
     }
-    
-    /*if ($('#header').length)
-    {
-        var headerView = new HeaderView({
+
+    if ($('#top-search').length) {
+        window.searchView = new SearchView({
+            collection: window.events
         });
-        headerView.render();
-    }*/
-    
-    if ($('#top-search').length)
-    {
-        var searchView = new SearchView({
-            collection: events
-        });
-        searchView.render();
+        window.searchView.render();
     }
 });

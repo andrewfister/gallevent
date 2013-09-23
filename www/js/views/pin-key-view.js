@@ -1,22 +1,27 @@
-var PinKeyView = new Backbone.View.extend({
+var PinKeyView = Backbone.View.extend({
     id: 'pin-key',
     
+    categories: ['networking', 'education', 'fairs', 'athletic', 'art', 'dancing', 'dining', 'parties'],
+    
     initialize: function() {
-        _.each(this.categories, function(item, index, items) {
-            $('.'+item).click(function() {
-                $('.key').removeClass('active');
-                
-                if (window.events.categoryCounts[item] > 0
-                    && ($('.'+item).hasClass('inactive') 
-                    || !$('.key').hasClass('inactive')))
-                {
-                    this.collection.reset(window.events.where({category: item}));
-                    $('.key').addClass('inactive');
-                    $('.'+item).removeClass('inactive').addClass('active');
-                }
-                else
-                {
-                    $('.key').removeClass('inactive');
+        this.pinKeys = {};
+        this.selectedCategory = "";
+    
+        _.each(this.categories, function(category, index, categories) {
+            this.pinKeys[category] = $('.' + category);
+            
+            this.pinKeys[category].click(function( e ) {
+                if (window.events.categoryCounts[category] > 0) {
+                    $('.key').removeClass('selected');
+                    
+                    if (this.selectedCategory == category) {
+                        this.collection.reset(window.events.models);
+                    }
+                    else {
+                        $(e.target).addClass('selected');
+                        this.collection.reset(window.events.where({category: category}));
+                        this.selectedCategory = category;
+                    }
                 }
             }.bind(this));
         }, this);

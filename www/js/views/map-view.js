@@ -19,8 +19,6 @@ var MapView = Backbone.View.extend({
 
     markers: [],
     
-    categories: ['networking', 'education', 'fairs', 'athletic', 'art', 'dancing', 'dining', 'parties'],
-    
     userLocation: new google.maps.LatLng(37.88397, -122.2644),
 
     mapLocation: new google.maps.LatLng(37.88397, -122.2644),
