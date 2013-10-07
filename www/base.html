@@ -57,8 +57,8 @@
                     <span class="right">
                         {% block signin-form %}
                         <span class="sign-in-status">
-                            <span class="signed-in {% if not user.is_authenticated %}hidden{% endif %}">Hi, <a class="username" href="{% url 'user_profile.views.show_profile' %}">{{ user.username }}</a></span>
-                            <a class="signed-in btn-sign-out {% if not user.is_authenticated %}hidden{% endif %}" href="#">Sign Out</a>
+                            <span class="signed-in{% if not user.is_authenticated %} hidden{% endif %}">Hi, <a class="username" href="{% url 'user_profile.views.show_profile' %}">{{ user.username }}</a></span>
+                            <a class="signed-in btn-sign-out{% if not user.is_authenticated %} hidden{% endif %}" href="#">Sign Out</a>
                             <a class="{% if user.is_authenticated %}hidden{% endif %} signed-out" id="btn-show-join" href="#">Join</a>
                             <a class="{% if user.is_authenticated %}hidden{% endif %} signed-out" id="btn-show-sign-in" href="#">Sign In</a>
                             <form class="invisible hidden signed-out sign-in-form" method="post">
