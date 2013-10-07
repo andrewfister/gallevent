@@ -3,7 +3,7 @@
 ** Description: Control for Event Categories
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 09-22-2013
+** Updated: 10-06-2013
 ************************************** */
 
 /* = Position Pin Key Within Container */
@@ -13,7 +13,7 @@
 	float:right;
 	margin:0;
 	width:25%;
-	height:120%;
+	height:100%;
 	padding:0;
 	list-style:none;
 	font-size:100%;

@@ -3,16 +3,19 @@
 ** Description: Pins and Pop-Ups Used on Map
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 09-22-2013
+** Updated: 10-06-2013
 ************************************** */
 
 /* = Map Pin Pop-Up */
 .map-popup {
-	width:300px;
+	width:325px;
 	color:#58595b;
 	overflow-y:hidden;
 	}
 
+.map-popup .event-info {
+	margin-left:37px;
+	}
 
 .map-popup .event-name,
 .map-popup .event-name span,
@@ -20,7 +23,6 @@
 	float:left;
 	}
 .map-popup .event-name span {
-	margin-bottom:0.35em;
 	width:250px;
 	font-size:140%;
 	font-weight:bold;
@@ -51,30 +53,30 @@
 	z-index:1000;
 	}
 
-.map-popup .event-info {
-	margin:0 0 0.5em 40px;
+.map-popup .price,
+.map-popup .date-time {
+	clear:both;
 	}
 
 .map-popup .price,
 .map-popup .date-time,
 .map-popup .description,
 .map-popup .address {
-	font-size:110% !important;
+	float:left;
+	margin-top:0.4em;
+	}
+
+.map-popup .date-time,
+.map-popup .description,
+.map-popup .address {
+	font-size:115% !important;
 	}
 
 
 .map-popup .price {
-	color:#01A1AD;
+	color:#85c440; /* green */
 	font-weight:bold !important;
-	}
-.map-popup .price em {
-	color:#70b820;
-	font-style:normal;
-	}
-
-.map-popup .description,
-.map-popup .address {
-	margin:.5em 0 0 0;
+	font-size:140% !important;
 	}
 
 
@@ -113,9 +115,11 @@
 
 .map-popup .btns a {
 	float:left;
-	margin:1em 0.5em 0 0;
+	/* margin:1em 0.5em 0 0; */
+	margin:1em 0.5em 0.5em 0;
 	border-radius:4px;
-	padding:.4em .6em .4em .6em;
+	/* padding:.4em .6em .4em .6em; */
+	padding:.5em .6em .6em .6em;
 	font-weight:bold !important;
 	font-size:110%;
 	color:#fff;
@@ -123,6 +127,8 @@
 
 .map-popup .btn-rsvp {
 	background:#66C13F;
+	width:200%;
+	text-align:center;
 	}
 
 .map-popup .btn-rsvp:hover {
