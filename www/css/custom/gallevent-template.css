@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-06-2013
-** Updated: 09-22-2013
+** Updated: 10-06-2013
 ************************************** */
 
 /* = Global Typography */
@@ -324,7 +324,6 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 #ui-datepicker-div {
 	z-index:800 !important;
 	background:#fff;
-	border:1px solid #B3E3E7;
 	margin:12px 0 0 -2em;
 	
 	}
@@ -392,7 +391,11 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 	color:#70b820;
 	}
 
-.ui-state-disabled {
+.ui-datepicker-prev.ui-state-disabled {
+	background:#fff;
+	}
+
+.ui-datepicker-calendar .ui-state-disabled {
 	color:#989898;
 	background:#f0f0f0 !important;
 	}
@@ -419,6 +422,30 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 /* = Global Map Styles
 ----------------------------------- */
 #map-feature {
+	overflow:hidden;
+	float:left;
+	width:100%;
+	height:40em;
+	}
+
+#map-box,
+#map_canvas {
+	float:left;
+	z-index:200;
+	}
+
+#map-box {
+	width:75%;
+	}
+
+#map_canvas {
+	width:100%;
+	height:40em;
+	}
+
+
+/*
+#map-feature {
 	height:40em;
 	}
 
@@ -427,7 +454,7 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 	z-index:200;
 	position:fixed;
 	left:0;
-	height:100%;
+	height:40em;
 	}
 
 .home #map-canvas {
@@ -438,6 +465,7 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
     top:105px;
 	width:75%;
 	}
+*/
 
 /* = Global Map Control
 ----------------------------------- */
