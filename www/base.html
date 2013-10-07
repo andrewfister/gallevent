@@ -12,8 +12,8 @@
 {% block css %}{% endblock css %}
 
 {% block prejavascript %}{% endblock prejavascript %}
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/static/js/jquery.watermark.js"></script>
 <script type="text/javascript" src="/static/js/jquery.cookie.js"></script>
 <script type="text/javascript" src="/static/js/mustache/mustache-0.3.0.js"></script>
@@ -48,8 +48,8 @@
             <nav id="top-nav">
                 <ul>
                     <li><a href="#">Home</a></li>
-                    <!--
-                    <li><a href="#">Post an Event</a></li>
+					<!--
+                    <li><a href="{% url 'post_event' %}">Post an Event</a></li>
                     <li><a href="#">About Gallevent</a></li>
                     <li><a href="#">Contact Us</a></li>
                     -->
@@ -57,8 +57,8 @@
                     <span class="right">
                         {% block signin-form %}
                         <span class="sign-in-status">
-                            <span class="signed-in {% if not user.is_authenticated %}hidden{% endif %}">Hi, <a class="username" href="{% url 'user_profile.views.show_profile' %}">{{ user.username }}</a></span>
-                            <a class="signed-in btn-sign-out {% if not user.is_authenticated %}hidden{% endif %}" href="#">Sign Out</a>
+                            <span class="signed-in{% if not user.is_authenticated %} hidden{% endif %}">Hi, <a class="username" href="{% url 'user_profile.views.show_profile' %}">{{ user.username }}</a></span>
+                            <a class="signed-in btn-sign-out{% if not user.is_authenticated %} hidden{% endif %}" href="#">Sign Out</a>
                             <a class="{% if user.is_authenticated %}hidden{% endif %} signed-out" id="btn-show-join" href="#">Join</a>
                             <a class="{% if user.is_authenticated %}hidden{% endif %} signed-out" id="btn-show-sign-in" href="#">Sign In</a>
                             <form class="invisible hidden signed-out sign-in-form" method="post">

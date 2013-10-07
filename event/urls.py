@@ -6,7 +6,7 @@ from event.views import SearchView
 event_resource = EventResource()
 
 urlpatterns = patterns('event.views',
-    (r'^post/$', 'post_event'),
+    url(r'^post/$', 'post_event', name='post_event'),
     (r'^edit/(?P<event_id>\d+)$', 'edit_event'),
     (r'^show/$', 'show_events'),
     (r'^lineup/$', 'show_lineup'),

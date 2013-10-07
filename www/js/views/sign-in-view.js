@@ -32,10 +32,10 @@ var SignInView = Backbone.View.extend({
                 $('.username').text(this.model.get('userName'));
                 $('.sign-in-message').text('');
                 $('.signed-in').removeClass('hidden');
-            });
+            }.bind(this));
         }
         else {
-            $('.sign-in-message').text('Incorrect email or password');
+            //$('.sign-in-message').text('Incorrect email or password');
         }
     },
     

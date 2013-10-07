@@ -22,8 +22,17 @@ var Event = Backbone.Model.extend({
         'organizer_url': 'http://www.gallevent.com'
     },
     
+    initialize: function() {
+        this.set({formatted_ticket_price: this.formattedTicketPrice()});
+    },
+    
     getAddress: function() {
         return this.get("address");
+    },
+    
+    formattedTicketPrice: function() {
+        var price = this.get("ticket_price");
+        return price > 0 ? "$" + price : "FREE"; 
     },
     
     urlRoot: '/event/events'
