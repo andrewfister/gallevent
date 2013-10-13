@@ -27,15 +27,21 @@ var PinKeyView = Backbone.View.extend({
             }.bind(this));
         }, this);
         
-        this.collection.on('reset', this.disablePinKeys.bind(this));
+        this.collection.on('reset', this.updatePinKeys.bind(this));
     },
     
-    disablePinKeys: function() {
+    updatePinKeys: function() {
         $('.key').removeClass('disabled');
         
         _.each(this.categories, function(category, index, categories) {
-            if (window.events.categoryCounts[category] === 0) {
+            var categoryCount = window.events.categoryCounts[category];
+        
+            if (categoryCount === 0) {
                 this.pinKeys[category].addClass('disabled');
+            }
+            else
+            {
+                $('.' + category + ' .category-count').text(categoryCount);
             }
         }, this);
     }
