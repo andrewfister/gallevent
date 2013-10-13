@@ -6,11 +6,17 @@ var SignInView = Backbone.View.extend({
         'click .btn-sign-out': 'signOut',
         'click #btn-show-sign-in': 'showJoinOrSignIn',
         'click #btn-show-join': 'showJoinOrSignIn',
-        'click .alt-sign-in': 'switchFormToAlt',
+        'click .alt-sign-in': 'switchFormToAlt'
     },
     
     initialize: function() {
         this.showJoinForm = true;
+        
+        $('.sign-in-form').keypress(function(event) {
+            if (event.which === 13) {
+                this.signIn();
+            }
+        }.bind(this));
     },
     
     render: function() {
@@ -34,9 +40,6 @@ var SignInView = Backbone.View.extend({
                 $('.signed-in').removeClass('hidden');
             }.bind(this));
         }
-        else {
-            //$('.sign-in-message').text('Incorrect email or password');
-        }
     },
     
     renderSignedOut: function() {
@@ -54,7 +57,7 @@ var SignInView = Backbone.View.extend({
         $("#btn-show-join").fadeOut(600);
         
         $("#btn-show-sign-in").fadeOut(600, function() {
-            if (event.target.id == "btn-show-sign-in") {
+            if (event.target.id === "btn-show-sign-in") {
                 this.showSignIn();
             }
             else {
