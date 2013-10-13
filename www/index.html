@@ -2,7 +2,7 @@
 {% load map_tags %}
 
 {% block css %}
-<!-- <link rel="stylesheet" type="text/css" href="/static/css/custom/home-page.css" /> -->
+<link rel="stylesheet" type="text/css" href="/static/css/custom/home-page.css" />
 <link rel="stylesheet" type="text/css" href="/static/css/custom/pin-key.css" />
 <link rel="stylesheet" type="text/css" href="/static/css/custom/map-pop-ups.css" />
 {% endblock %}
@@ -135,4 +135,59 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         </li>
     </ul><!-- #pin-key -->
     </div><!-- #map-feature -->
+    <!--
+    <div id="marketing">
+    	<div class="angled-block">
+        	<h2>The new way to <strong>find events</strong></h2>
+            <p>Gallevent&trade; searches the web for events and brings them all to you in one place, on one easy to use map.</p>
+        </div>
+    </div>
+    <div id="sponsors">
+    	<div class="row1">
+        	<div class="col1">
+            	col1
+            </div>
+            <div class="col2">
+            	<div class="row1">
+                	col 2 1
+                </div>
+                <div class="row2">
+                	col 2 2
+                </div>
+            </div>
+            <div class="col3">
+            	<div class="row1">
+                	col 3 1
+                </div>
+                <div class="row2">
+                	col 3 2
+                </div>
+            </div>
+            <div class="col4">
+            	<div class="row1">
+                	col 4 1
+                </div>
+                <div class="row2">
+                	col 4 2
+                </div>
+            </div>
+            <div class="col5">
+            	<div class="row1">
+                	col 5 1
+                </div>
+                <div class="row2">
+                	col 5 2
+                </div>
+            </div>
+            <div class="col6">
+            	<div class="row1">
+                	col 6 1
+                </div>
+                <div class="row2">
+                	col 6 2
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
 {% endblock content %}
