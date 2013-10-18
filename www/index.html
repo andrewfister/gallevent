@@ -2,7 +2,7 @@
 {% load map_tags %}
 
 {% block css %}
-<!-- <link rel="stylesheet" type="text/css" href="/static/css/custom/home-page.css" /> -->
+<link rel="stylesheet" type="text/css" href="/static/css/custom/home-page.css" />
 <link rel="stylesheet" type="text/css" href="/static/css/custom/pin-key.css" />
 <link rel="stylesheet" type="text/css" href="/static/css/custom/map-pop-ups.css" />
 {% endblock %}
@@ -72,7 +72,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         <li>
             <a href="#" class="key networking">
                 <span class="details">
-                    <b>Networking</b><i>Meetups, Mixers, Conferences...</i>
+                    <strong>Networking <span class="category-count">0</span></strong><i>Meetups, Mixers, Conferences...</i>
                 </span>
                 <span class="arrow">&nbsp;</span>
             </a>
@@ -80,7 +80,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         <li>
             <a href="#" class="key education">
                 <span class="details">
-                    <b>Education</b><i>Classes, Study Groups, Lectures...</i>
+                    <strong>Education <span class="category-count">0</span></strong><i>Classes, Study Groups, Lectures...</i>
                 </span>
                 <span class="arrow">&nbsp;</span>
             </a>
@@ -88,7 +88,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         <li>
             <a href="#" class="key fairs">
                 <span class="details">
-                    <b>Fairs &amp; Festivals</b><i>Street, Food, Cultural...</i>
+                    <strong>Fairs &amp; Festivals <span class="category-count">0</span></strong><i>Street, Food, Cultural...</i>
                 </span>
                 <span class="arrow">&nbsp;</span>
             </a>
@@ -96,7 +96,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         <li>
             <a href="#" class="key athletic">
                 <span class="details">
-                    <b>Athletic</b><i>Running, biking, hiking...</i>
+                    <strong>Athletic <span class="category-count">0</span></strong><i>Running, biking, hiking...</i>
                 </span>
                 <span class="arrow">&nbsp;</span>
             </a>
@@ -104,7 +104,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         <li>
             <a href="#" class="key art">
                 <span class="details">
-                    <b>Art &amp; Music</b><i>Shows, Concerts, Crafting...</i>
+                    <strong>Art &amp; Music <span class="category-count">0</span></strong><i>Shows, Concerts, Crafting...</i>
                 </span>
                 <span class="arrow">&nbsp;</span>
             </a>
@@ -112,7 +112,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         <li>
             <a href="#" class="key dancing">
                 <span class="details">
-                    <b>Dancing</b><i>Classes, Parties, Flash Mobs...</i>
+                    <strong>Dancing <span class="category-count">0</span></strong><i>Classes, Parties, Flash Mobs...</i>
                 </span>
                 <span class="arrow">&nbsp;</span>
             </a>
@@ -120,7 +120,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         <li>
             <a href="#" class="key dining">
                 <span class="details">
-                    <b>Dining</b><i>Events for Foodies...</i>
+                    <strong>Dining <span class="category-count">0</span></strong><i>Events for Foodies...</i>
                 </span>
                 <span class="arrow">&nbsp;</span>
             </a>
@@ -128,11 +128,66 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         <li>
             <a href="#" class="key parties">
                 <span class="details">
-                    <b>Nightlife &amp; Parties</b><i>Club, Drinking, Comedy...</i>
+                    <strong>Nightlife &amp; Parties <span class="category-count">0</span></strong><i>Club, Drinking, Comedy...</i>
                 </span>
                 <span class="arrow">&nbsp;</span>
             </a>
         </li>
     </ul><!-- #pin-key -->
     </div><!-- #map-feature -->
+    <!--
+    <div id="marketing">
+    	<div class="angled-block">
+        	<h2>The new way to <strong>find events</strong></h2>
+            <p>Gallevent&trade; searches the web for events and brings them all to you in one place, on one easy to use map.</p>
+        </div>
+    </div>
+    <div id="sponsors">
+    	<div class="row1">
+        	<div class="col1">
+            	col1
+            </div>
+            <div class="col2">
+            	<div class="row1">
+                	col 2 1
+                </div>
+                <div class="row2">
+                	col 2 2
+                </div>
+            </div>
+            <div class="col3">
+            	<div class="row1">
+                	col 3 1
+                </div>
+                <div class="row2">
+                	col 3 2
+                </div>
+            </div>
+            <div class="col4">
+            	<div class="row1">
+                	col 4 1
+                </div>
+                <div class="row2">
+                	col 4 2
+                </div>
+            </div>
+            <div class="col5">
+            	<div class="row1">
+                	col 5 1
+                </div>
+                <div class="row2">
+                	col 5 2
+                </div>
+            </div>
+            <div class="col6">
+            	<div class="row1">
+                	col 6 1
+                </div>
+                <div class="row2">
+                	col 6 2
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
 {% endblock content %}
