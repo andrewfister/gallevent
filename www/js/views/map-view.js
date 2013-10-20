@@ -101,12 +101,6 @@ var MapView = Backbone.View.extend({
             this.infoWindow.setContent(info);
             this.infoWindow.open(this.map,marker);
         }.bind(this));
-        
-        google.maps.event.addListener(marker, 'mouseover', function() {
-            this.infoWindow.close();
-            this.infoWindow.setContent(info);
-            this.infoWindow.open(this.map,marker);
-        }.bind(this));
 
         this.markers.push(marker);
 
