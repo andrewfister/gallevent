@@ -93,7 +93,6 @@ var MapView = Backbone.View.extend({
             draggable: false,
             position: location,
             icon: image,
-            title : address,
             animation: google.maps.Animation.DROP
         });
 

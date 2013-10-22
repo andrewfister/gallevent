@@ -154,6 +154,17 @@ class EventBriteSearchForm(EventSearchForm):
                 or eb_event['category'] == 'sales'):
                 continue
 
+            eb_event_start = eb_event['start_date'].split()
+            eb_event_start_date = datetime.strptime(eb_event_start[0], '%Y-%m-%d').date()
+            eb_event_start_time = datetime.strptime(eb_event_start[1], '%H:%M:%S').time()
+            eb_event_end = eb_event['end_date'].split()
+            eb_event_end_date = datetime.strptime(eb_event_end[0], '%Y-%m-%d').date()
+            eb_event_end_time = datetime.strptime(eb_event_end[1], '%H:%M:%S').time()
+            
+            if (eb_event_start_date > self.cleaned_data['end_date'].date() or 
+                eb_event_end_date < self.cleaned_data['start_date'].date()):
+                continue
+
             try:
                 eb_event_ticket_price = float(eb_event['tickets'][0]['ticket']['price'].replace(',', ''))
 
@@ -179,12 +190,6 @@ class EventBriteSearchForm(EventSearchForm):
                                     eb_event_venue['postal_code']]
             eb_event_address_parts = [value for value in eb_event_address_parts if value != '']
             eb_event_address = ', '.join(eb_event_address_parts)
-            eb_event_start = eb_event['start_date'].split()
-            eb_event_start_date = datetime.strptime(eb_event_start[0], '%Y-%m-%d').date()
-            eb_event_start_time = datetime.strptime(eb_event_start[1], '%H:%M:%S').time()
-            eb_event_end = eb_event['end_date'].split()
-            eb_event_end_date = datetime.strptime(eb_event_end[0], '%Y-%m-%d').date()
-            eb_event_end_time = datetime.strptime(eb_event_end[1], '%H:%M:%S').time()
             eb_event_categories = eb_event['category'].split(',')
             eb_event_description = fromstring(eb_event['description']).text_content()
             eb_event_short_description = eb_event_description[:50] + '...'
