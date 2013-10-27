@@ -56,6 +56,9 @@ var EventCollection = Backbone.Collection.extend({
     model: Event,
     url: '/event/events',
 
+    categories: ['networking', 'education', 'fairs', 'athletic', 'art', 
+                    'dancing', 'dining', 'parties'],
+
     initialize: function() {
         this.categoryCounts = {'networking': 0, 'education': 0, 'fairs': 0, 
                                 'athletic': 0, 'art': 0, 'dancing': 0, 
@@ -70,6 +73,10 @@ var EventCollection = Backbone.Collection.extend({
         }, this);
         
         this.on("reset", function(events) {
+            _.each(this.categories, function(category, index, categories) {
+                this.categoryCounts[category] = 0;
+            }, this);
+            
             _.each(events.models, function(event, index, items) {
                 this.categoryCounts[event.attributes.category] += 1;
             }, this);
