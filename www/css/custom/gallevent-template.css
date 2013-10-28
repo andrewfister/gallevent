@@ -897,11 +897,14 @@ a.btn-post-event:hover {
 
 #footer {
 	float:left;
-	margin-top:2em;
+	margin:5.5em 0 1.5em 0;
 	width:100%;
 	text-align:center;
 	font-size:85%;
-	color:#555659;
+	color:#303d40;
+	}
+#footer .copyright {
+	opacity:0.6;
 	}
 #footer ul {
 	list-style:none;

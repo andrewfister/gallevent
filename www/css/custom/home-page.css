@@ -10,8 +10,11 @@
 	}
 
 #sponsors {
+	position:relative;
+	z-index:999;
 	float:left;
 	width:100%;
+	box-shadow:0 -8px 15px rgba(0, 0, 0, 0.04);
 	}
 
 #sponsors .center {
@@ -35,8 +38,31 @@
 	background: url(../../img/data/angle-2side-blue-361x55.svg) center no-repeat;
 	}
 
+#sponsors .green-and-go {
+	position:relative;
+	top:7px;
+	}
+
+#sponsors .wolfpak-labs {
+	position:relative;
+	top:-15px;
+	margin:0 80px;
+	}
+
+#sponsors .pixelkeet {
+	position:relative;
+	top:24px;
+	}
+
+#sponsors .center ul {
+	margin: 0 auto;
+	margin-top: 1.4em;
+	max-width: 1000px;
+	}
+
 #sponsors .center ul li {
-	display:inline;
+	display:inline-block;
+	margin:0 1em 0.5em 0;
 	font-size:120%;
 	color:#303d40;
 	opacity:0.65;
