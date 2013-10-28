@@ -43,7 +43,7 @@ class EventSearchForm(SearchForm):
                             'fairs', 'jobs', 'networking', 'parties', 'sales']
 
     default_query = "event"
-    short_description_length = 100
+    short_description_length = 140
 
     start_date = forms.DateTimeField(initial="", input_formats=date_input_formats)
     end_date = forms.DateTimeField(initial="", input_formats=date_input_formats)
