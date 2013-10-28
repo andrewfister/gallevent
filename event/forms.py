@@ -43,6 +43,7 @@ class EventSearchForm(SearchForm):
                             'fairs', 'jobs', 'networking', 'parties', 'sales']
 
     default_query = "event"
+    short_description_length = 140
 
     start_date = forms.DateTimeField(initial="", input_formats=date_input_formats)
     end_date = forms.DateTimeField(initial="", input_formats=date_input_formats)
@@ -192,7 +193,7 @@ class EventBriteSearchForm(EventSearchForm):
             eb_event_address = ', '.join(eb_event_address_parts)
             eb_event_categories = eb_event['category'].split(',')
             eb_event_description = fromstring(eb_event['description']).text_content()
-            eb_event_short_description = eb_event_description[:50] + '...'
+            eb_event_short_description = eb_event_description[:self.short_description_length] + '...'
             try:
                 eb_event_title = html.fragment_fromstring(eb_event['title']).text_content()
             except:
@@ -291,7 +292,7 @@ class MeetupSearchForm(EventSearchForm):
         for meetup_event in meetup_response.results:
             try:
                 meetup_event_description = meetup_event.description
-                meetup_event_short_description = meetup_event_description[:50] + '...'
+                meetup_event_short_description = meetup_event_description[:self.short_description_length] + '...'
                 meetup_event_venue = meetup_event.venue
             except AttributeError:
                 continue
