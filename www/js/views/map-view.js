@@ -15,7 +15,9 @@ var MapView = Backbone.View.extend({
 
     id: "map_canvas",
 
-    template: Mustache.template('map-popup').render,
+    popUpTemplate: Mustache.template('map-popup').render,
+    
+    hoverTemplate: Mustache.template('map-hover').render,
 
     markers: [],
     
@@ -24,6 +26,8 @@ var MapView = Backbone.View.extend({
     mapLocation: new google.maps.LatLng(37.88397, -122.2644),
 
     infoWindow: new google.maps.InfoWindow(),
+
+    overlay: new google.maps.OverlayView(),
 
     render: function() {
         navigator.geolocation.getCurrentPosition(this.foundUserLocation.bind(this),this.noUserLocation.bind(this),{timeout:10000});
@@ -47,18 +51,19 @@ var MapView = Backbone.View.extend({
             this.centerMap(this.mapLocation);
             this.setAllMarkers();
             google.maps.event.clearListeners(this.map, 'tilesloaded');
+            
+            this.overlay.draw = function() {};
+            this.overlay.setMap(this.map);
         }.bind(this));
 
         google.maps.event.addListener(this.map, 'dragend', function(data) {
             var center = this.map.getCenter();
             var lat = parseFloat(center.lat());
             var lon = parseFloat(center.lng());
-            if ($('#map-latitude').length)
-            {
+            if ($('#map-latitude').length) {
                 $('#map-latitude').attr('value', lat);
             }
-            if ($('#map-longitude').length)
-            {
+            if ($('#map-longitude').length) {
                 $('#map-longitude').attr('value', lon);
             }
             this.setMapLocation();
@@ -79,7 +84,7 @@ var MapView = Backbone.View.extend({
                             item.get("longitude"),
                             item.getAddress(),
                             item.get("category"),
-                            this.template(item.toJSON()));
+                            this.popUpTemplate(item.toJSON()));
         }, this);
     },
 
@@ -114,6 +119,25 @@ var MapView = Backbone.View.extend({
         };
 
         var openMarker = makeOpenMarker(marker, this.infoWindow, this.map);
+        marker.hoverInfo = $(this.hoverTemplate(event.toJSON()))[0];
+        
+        if (!this.mapPanes) {
+            this.mapPanes = this.overlay.getPanes();
+        }
+        this.mapPanes.overlayMouseTarget.appendChild(marker.hoverInfo);
+        var projection = this.overlay.getProjection();
+        var markerLatLng = marker.getPosition();
+        var markerPosition = projection.fromLatLngToDivPixel(markerLatLng);
+        marker.hoverInfo.style.left = (markerPosition.x + 18) + 'px';
+        marker.hoverInfo.style.top = (markerPosition.y - 36) + 'px';
+
+        google.maps.event.addListener(marker, 'mouseover', function() {
+            $(marker.hoverInfo).removeClass('hidden');
+        }.bind(this));
+        
+        google.maps.event.addListener(marker, 'mouseout', function() {
+            $(marker.hoverInfo).addClass('hidden');
+        }.bind(this));
 
         event.on('open', openMarker);
         event.trigger('pinDropped');
