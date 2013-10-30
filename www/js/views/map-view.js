@@ -216,7 +216,7 @@ var MapView = Backbone.View.extend({
         var userLatitude = $.cookie('user-latitude');
         var userLongitude = $.cookie('user-longitude');
 
-        if (userLatitude == null && userLongitude == null)
+        if (userLatitude != null && userLongitude != null)
         {
             this.userLocation = new google.maps.LatLng(userLatitude, userLongitude);
         }
