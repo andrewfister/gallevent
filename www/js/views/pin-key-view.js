@@ -38,10 +38,12 @@ var PinKeyView = Backbone.View.extend({
         
             if (categoryCount === 0) {
                 this.pinKeys[category].addClass('disabled');
+                $('.' + category + ' .category-count').addClass("hidden");
             }
-            
-            $('.' + category + ' .category-count').text(categoryCount)
-                                                .removeClass("hidden");
+            else {
+                $('.' + category + ' .category-count').text(categoryCount)
+                                                    .removeClass("hidden");
+            }
         }, this);
     },
     
