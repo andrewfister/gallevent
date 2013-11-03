@@ -119,6 +119,29 @@ var MapView = Backbone.View.extend({
         };
 
         var openMarker = makeOpenMarker(marker, this.infoWindow, this.map);
+        this.setMarkerHover(marker, event);
+
+        google.maps.event.addListener(marker, 'mouseover', function() {
+            $(marker.hoverInfo).removeClass('hidden');
+        }.bind(this));
+        
+        google.maps.event.addListener(marker, 'mouseout', function() {
+            $(marker.hoverInfo).addClass('hidden');
+        }.bind(this));
+        
+        google.maps.event.addListener(this.map, 'zoom_changed', function() {
+            this.setMarkerHover(marker, event);
+        }.bind(this));
+        
+        google.maps.event.addListener(this.map, 'dragend', function() {
+            this.setMarkerHover(marker, event);
+        }.bind(this));
+
+        event.on('open', openMarker);
+        event.trigger('pinDropped');
+    },
+
+    setMarkerHover: function(marker, event) {
         marker.hoverInfo = $(this.hoverTemplate(event.toJSON()))[0];
         
         if (!this.mapPanes) {
@@ -130,19 +153,7 @@ var MapView = Backbone.View.extend({
         var markerPosition = projection.fromLatLngToDivPixel(markerLatLng);
         marker.hoverInfo.style.left = (markerPosition.x + 25) + 'px';
         marker.hoverInfo.style.top = (markerPosition.y - 30) + 'px';
-
-        google.maps.event.addListener(marker, 'mouseover', function() {
-            $(marker.hoverInfo).removeClass('hidden');
-        }.bind(this));
-        
-        google.maps.event.addListener(marker, 'mouseout', function() {
-            $(marker.hoverInfo).addClass('hidden');
-        }.bind(this));
-
-        event.on('open', openMarker);
-        event.trigger('pinDropped');
     },
-
 
     removeMarkers: function() {
         _.each(this.markers, function(marker, index, markers) {
