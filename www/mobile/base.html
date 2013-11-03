@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+<title>{% block title %}Gallevent - Find events near you!{% endblock title %}</title>
+
+<link rel="stylesheet" type="text/css" href="/static/css/framework/reset.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/framework/normalize.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/framework/html-boilerplate.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/custom/gallevent-template.css" />
+{% block css %}{% endblock css %}
+
+{% block prejavascript %}{% endblock prejavascript %}
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.watermark.js"></script>
+<script type="text/javascript" src="/static/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/static/js/mustache/mustache-0.3.0.js"></script>
+<script type="text/javascript" src="/static/js/mustache/django.mustache.js"></script>
+<script type="text/javascript" src="/static/js/underscore-min.js"></script>
+<script type="text/javascript" src="/static/js/backbone-min.js"></script>
+<script type="text/javascript" src="/static/js/models/event-model.js"></script>
+<script type="text/javascript" src="/static/js/models/user-model.js"></script>
+<script type="text/javascript" src="/static/js/views/header-view.js"></script>
+<script type="text/javascript" src="/static/js/views/sign-in-view.js"></script>
+{% block mapjavascript %}{% endblock mapjavascript %}
+{% block viewjavascript %}{% endblock viewjavascript %}
+<script type="text/javascript" src="/static/js/grand-central-dispatch.js"></script>
+{% block javascript %}{% endblock javascript %}
+</head>
+
+<body class="{% block body-class %}{% endblock body-class %}">
+    {% block preheader %}{% endblock preheader %}
+    <div class="hidden">
+    	<img src="/static/img/icon-cal-arrow-l-h.png" alt="arrow" />
+        <img src="/static/img/icon-cal-arrow-r-h.png" alt="arrow" />
+    </div>
+
+    <div id="container">
+    {% block header %}
+        <div id="header">
+            <div class="logo-block">
+                <a href="{% url 'front_page' %}" class="logo">Gallevent&trade;</a>
+        	</div><!-- .logo-block -->
+            	
+        </div><!-- #header -->
+        {% endblock header %}
+        <div id="content">
+            {% block content %}{% endblock content %}
+            {% block top-search %}
+            {% endblock top-search %}
+            {% block subnav %}
+            {% endblock subnav %}
+        </div><!-- #content -->
+    </div><!-- #container -->
+    
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-39734700-1']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	
+	</script>
+    
+</body>
+</html>
