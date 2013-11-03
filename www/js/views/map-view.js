@@ -17,7 +17,7 @@ var MapView = Backbone.View.extend({
 
     popUpTemplate: Mustache.template('map-popup').render,
     
-    hoverTemplate: Mustache.template('map-hover').render,
+    hoverTemplate: Mustache.template('pin-hover').render,
 
     markers: [],
     
@@ -128,8 +128,8 @@ var MapView = Backbone.View.extend({
         var projection = this.overlay.getProjection();
         var markerLatLng = marker.getPosition();
         var markerPosition = projection.fromLatLngToDivPixel(markerLatLng);
-        marker.hoverInfo.style.left = (markerPosition.x + 18) + 'px';
-        marker.hoverInfo.style.top = (markerPosition.y - 36) + 'px';
+        marker.hoverInfo.style.left = (markerPosition.x + 25) + 'px';
+        marker.hoverInfo.style.top = (markerPosition.y - 30) + 'px';
 
         google.maps.event.addListener(marker, 'mouseover', function() {
             $(marker.hoverInfo).removeClass('hidden');
