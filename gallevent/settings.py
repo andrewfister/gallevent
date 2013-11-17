@@ -85,9 +85,9 @@ SECRET_KEY = 'pubm$v5&ig#6$o*ihd^jqv!z74mh1xqtl_w3^%#ne&hek$@)dg'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
+    'django_mobile.loader.Loader',
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-    'django_mobile.loader.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
