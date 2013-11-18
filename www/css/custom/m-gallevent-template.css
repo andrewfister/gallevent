@@ -500,7 +500,7 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 
 #top-search #event {
 	margin:0 1.6% 0.5em 2%;
-	width:46%;
+	width:40%;
 	}
 
 #top-search .select.time-span {
@@ -848,12 +848,11 @@ a.btn-post-event:hover {
 
 /* = Media Queries
 ----------------------------------- */
-@media (max-width: 295px) {
+@media (min-width: 264px) {
 	#top-search #event {
-	width:45%;
+	width:44%;
 	}
 	}
-
 
 @media (min-width: 320px) {
 	#top-search #event {
