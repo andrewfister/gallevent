@@ -501,6 +501,7 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 #top-search #event {
 	margin:0 1.6% 0.5em 2%;
 	width:40%;
+	display:none;
 	}
 
 #top-search .select.time-span {
@@ -888,22 +889,17 @@ a.btn-post-event:hover {
 	}
 	
 	#top-search #event {
-	margin:0 1.6% 0.5em 0;
+	margin-left:0;
 	width:40%;
 	}
 
 #top-search .select.time-span {
 	margin-bottom:1em;
 	margin-left:0;
-	width:39%;
 	}
-#top-search .select.price{
+
+#top-search .select.price {
 	width:30%;
-	}
-
-
-#top-search .time-span {
-	margin-right:1%;
 	}
 
 #top-search #date {
@@ -953,10 +949,6 @@ a.btn-post-event:hover {
 	clear:none;
 		}
 	
-	#top-search .time-span {
-	  margin-right:1%;
-	  }
-	  
 	  #top-search button {
 		float:right;
 		margin-right:1em;
@@ -983,10 +975,6 @@ a.btn-post-event:hover {
 	margin-left:0;
 	clear:none;
 		}
-	
-	#top-search .time-span {
-	  margin-right:1%;
-	  }
 	
 	#top-search #date {
 		width:13%;
