@@ -42,17 +42,77 @@
         <div id="header">
             <div class="logo-block">
                 <a href="{% url 'front_page' %}" class="logo">Gallevent&trade;</a>
+                <span class="tagline">Find Events Near You!</span>
         	</div><!-- .logo-block -->
-            	
-        </div><!-- #header -->
+            <nav id="top-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#sponsors">Project Sponsors</a></li>
+					<!--
+                    <li><a href="#">Post an Event</a></li>
+                    <li><a href="#">About Gallevent</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    -->
+                </ul>
+                <!--
+                    <span class="right">
+                        {% block signin-form %}
+                        <span class="sign-in-status">
+                            <span class="signed-in{% if not user.is_authenticated %} hidden{% endif %}">Hi, <a class="username" href="{% url 'user_profile.views.show_profile' %}">{{ user.username }}</a></span>
+                            <a class="signed-in btn-sign-out{% if not user.is_authenticated %} hidden{% endif %}" href="#">Sign Out</a>
+                            <a class="{% if user.is_authenticated %}hidden{% endif %} signed-out" id="btn-show-join" href="#">Join</a>
+                            <a class="{% if user.is_authenticated %}hidden{% endif %} signed-out" id="btn-show-sign-in" href="#">Sign In</a>
+                            <form class="invisible hidden signed-out sign-in-form" method="post">
+                                {% csrf_token %}
+                                <label>Email Address:</label>
+                                <input type="text" class="input-standard email" name="email" />
+                                <label>Password:</label>
+                                <input type="password" class="input-standard password" name="password" />
+                                <em class="sign-in-message"></em>
+                                <span class="form-actions">
+                                    <button class="btn-sign-in" type="button">Sign In</button><span>or <a class="alt-sign-in">Join</a></span>
+                                </span>
+                        	</form>
+                        </span>
+                        
+                        <div class="hidden">
+                            <span id="user-id">{{ user.id }}</span>
+                            <span id="user-username">{{ user.username }}</span>
+                            <span id="user-firstname">{{ user.firstname }}</span>
+                            <span id="user-lastname">{{ user.lastname }}</span>
+                            <span id="user-email">{{ user.email }}</span>
+                            <span id="user-latitude">{{ request.GET.latitude|default:0 }}</span>
+                            <span id="user-longitude">{{ request.GET.longitude|default:0 }}</span>
+                        </div>
+                        {% endblock signin-form %}
+                    </span>
+                -->
+        	</nav>
+            	{% block top-search %}
+            	{% endblock top-search %}
+                {% block subnav %}
+                {% endblock subnav %}
+        	</div><!-- #header -->
         {% endblock header %}
         <div id="content">
             {% block content %}{% endblock content %}
-            {% block top-search %}
-            {% endblock top-search %}
-            {% block subnav %}
-            {% endblock subnav %}
         </div><!-- #content -->
+        
+        {% block footer %}
+            <div id="footer">
+            	<!-- 
+                <ul>
+                    <li><a href="sponsors.html">Our Sponsors</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Post an Event</a></li>
+                    <li><a href="#">About Gallevent</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+                -->
+                <span class="copyright">&copy; 2013. All Rights Reserved.</span>
+            </div><!-- #footer -->
+        {% endblock footer %}
     </div><!-- #container -->
     
     <!-- Google Analytics -->
