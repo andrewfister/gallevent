@@ -507,7 +507,8 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 	}
 
 #top-search .select.time-span {
-	margin:0 1.6% 1em 2%;
+	margin:0 1.6% 2em 2%;
+	/*margin:0 1.6% 1em 2%;*/
 	width:39%;
 	}
 #top-search .select.price{
@@ -851,7 +852,6 @@ a.btn-post-event:hover {
 
 /* = Media Queries
 ----------------------------------- */
-/*
 @media (min-width: 264px) {
 	#top-search #event {
 	width:44%;
@@ -863,7 +863,6 @@ a.btn-post-event:hover {
 	width:46.5%;
 	}
 	}
-*/
 
 @media (min-width: 404px) {
 
