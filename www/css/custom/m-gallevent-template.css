@@ -500,7 +500,7 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 
 #top-search #event {
 	margin:0 1.6% 0.5em 2%;
-	width:46.5%;
+	width:46%;
 	}
 
 #top-search .select.time-span {
@@ -848,6 +848,19 @@ a.btn-post-event:hover {
 
 /* = Media Queries
 ----------------------------------- */
+@media (max-width: 295px) {
+	#top-search #event {
+	width:45%;
+	}
+	}
+
+
+@media (min-width: 320px) {
+	#top-search #event {
+	width:46.5%;
+	}
+	}
+
 @media (min-width: 404px) {
 
 #top-search label.icon {
@@ -897,10 +910,6 @@ a.btn-post-event:hover {
 #top-search #date {
 	margin-right:1.5%;
 	width:26%;
-	background:#fff url(../../img/data/icon-calendar-25x24.svg) no-repeat 95% 50%;
-	}
-#top-search #date:hover {
-	background:#fff url(../../img/data/icon-calendar-25x24-h.svg) no-repeat 95% 50%;
 	}
 
 #top-search button {
