@@ -500,8 +500,10 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 
 #top-search #event {
 	margin:0 1.6% 0.5em 2%;
+	width:20%;
+	/*
 	width:40%;
-	display:none;
+	*/
 	}
 
 #top-search .select.time-span {
