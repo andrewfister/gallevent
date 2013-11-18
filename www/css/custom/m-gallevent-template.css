@@ -851,6 +851,7 @@ a.btn-post-event:hover {
 
 /* = Media Queries
 ----------------------------------- */
+/*
 @media (min-width: 264px) {
 	#top-search #event {
 	width:44%;
@@ -862,6 +863,7 @@ a.btn-post-event:hover {
 	width:46.5%;
 	}
 	}
+*/
 
 @media (min-width: 404px) {
 
