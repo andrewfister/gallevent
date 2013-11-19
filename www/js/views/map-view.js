@@ -147,7 +147,7 @@ var MapView = Backbone.View.extend({
     setMarkerHover: function(marker, event) {
         marker.hoverInfo = $(this.hoverTemplate(event.toJSON()))[0];
         
-        if (!this.mapPanes) {
+        if (this.mapPanes === undefined) {
             this.mapPanes = this.overlay.getPanes();
         }
         this.mapPanes.overlayMouseTarget.appendChild(marker.hoverInfo);
