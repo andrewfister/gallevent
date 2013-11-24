@@ -38,6 +38,10 @@ var MapView = Backbone.View.extend({
     geocoder: new google.maps.Geocoder(),
 
     render: function() {
+        this.getCurrentPosition();
+    },
+    
+    getCurrentPosition: function() {
         navigator.geolocation.getCurrentPosition(this.foundUserLocation.bind(this),this.noUserLocation.bind(this),{timeout:10000});
     },
 
@@ -224,19 +228,19 @@ var MapView = Backbone.View.extend({
     foundUserLocation: function(position) {
         this.userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-        var mapLatitude = parseFloat(this.userLocation.lat());
-        var mapLongitude = parseFloat(this.userLocation.lng());
+        var userLatitude = parseFloat(this.userLocation.lat());
+        var userLongitude = parseFloat(this.userLocation.lng());
 
         //Set user location data on page and in cookie
         if ($('#user-latitude').length)
         {
-            $('#user-latitude').html(mapLatitude);
-            $.cookie('user-latitude', mapLatitude, { expires: 1, path: '/' });
+            $('#user-latitude').html(userLatitude);
+            $.cookie('user-latitude', userLatitude, { expires: 1, path: '/' });
         }
         if ($('#user-longitude').length)
         {
-            $('#user-longitude').html(mapLongitude);
-            $.cookie('user-longitude', mapLongitude, { expires: 1, path: '/' });
+            $('#user-longitude').html(userLongitude);
+            $.cookie('user-longitude', userLongitude, { expires: 1, path: '/' });
         }
 
         this.setMapLocation();
