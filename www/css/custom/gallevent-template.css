@@ -577,13 +577,19 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 	z-index:8889;
 	top:8px;
 	left:8px;
+	float:left;
+	overflow:hidden;
+	border-radius:4px;
 	height:34px;
+	width:34px;
 	background: url(../../img/bg-blue-80-3x3.png) 0 0 repeat;
 	color:#fff;
-	border-radius:4px;
+	font-size:95%;
+	transition: width 1s;
 	}
 #location-search:hover {
 	background:#069eac;
+	width:11.5em;
 	}
 
 #location-search button {
@@ -599,16 +605,24 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 
 #location-search button svg {
 	margin:6px;
+	opacity:0.8;
+	}
+#location-search button svg:hover {
+	opacity:1;
 	}
 
 #location-search button span {
 	display:none;
-	margin:0.5em 0.5em 0 0;
+	margin:0.5em 0 0 0;
+	opacity:0.8;
+	}
+
+#location-search button span:hover {
+	opacity:1;
 	}
 
 #location-search:hover button span {
 	display:block;
-	margin:0.5em 0.5em 0 0;
 	}
 	
 	
