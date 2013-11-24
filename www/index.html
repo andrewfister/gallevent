@@ -66,11 +66,10 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
 	</div><!-- .loading -->
 
 	{% show_map %}
-	
-	<div>
+	<div id="location-search">
 	    <input type="text" id="location-search" placeholder="Where do you want to go?" />
 	</div>
-{% endblock map %}
+	{% endblock map %}
 
     <ul id="pin-key">
         <li>
