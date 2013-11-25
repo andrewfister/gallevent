@@ -11,12 +11,6 @@ var MapView = Backbone.View.extend({
         this.collection.on("remove", function(evt, collection, options) {
             this.destroyMarker(options.index);
         }, this);
-        
-        $('#location-search').keypress(function(event) {
-            if (event.which === 13) {
-                this.locationSearch();
-            }
-        }.bind(this));
     },
 
     id: "map_canvas",
@@ -38,6 +32,17 @@ var MapView = Backbone.View.extend({
     geocoder: new google.maps.Geocoder(),
 
     render: function() {
+        $('#location-search-input').keypress(function(event) {
+            if (event.which === 13) {
+                this.locationSearch();
+            }
+        }.bind(this));
+        
+        $('#change-location').click(function(event) {
+            $('#change-location').addClass('hidden');
+            $('#location-search-input').removeClass('hidden');
+        });
+    
         this.getCurrentPosition();
     },
     
@@ -91,7 +96,7 @@ var MapView = Backbone.View.extend({
     },
     
     locationSearch: function() {
-        this.geocoder.geocode({ address: $('#location-search').val() }, function(results, status) {
+        this.geocoder.geocode({ address: $('#location-search-input').val() }, function(results, status) {
             if (status === google.maps.GeocoderStatus.OK) {
                 var newLocation = results[0].geometry.location;
                 this.centerMap(newLocation);
