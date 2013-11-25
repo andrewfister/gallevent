@@ -8,7 +8,7 @@
 {% block content %}
 <div id="container" class="{% block selected_page %}{% endblock %}">
 	<div id="tabs">
-    	<a class="tab-post-event" href="{% url event.views.post_event %}">Post an Event</a><a class="tab-your-posts" href="{% url event.views.show_events %}">Your Posts</a><a class="tab-events" href="{% url event.views.show_lineup %}">Your Lineup</a><a class="tab-your-profile" href="{% url user_profile.views.show_profile %}">Your Profile</a>
+    	<a class="tab-post-event" href="{% url 'event.views.post_event' %}">Post an Event</a><a class="tab-your-posts" href="{% url 'event.views.show_events' %}">Your Posts</a><a class="tab-events" href="{% url 'event.views.show_lineup' %}">Your Lineup</a><a class="tab-your-profile" href="{% url 'user_profile.views.show_profile' %}">Your Profile</a>
     </div><!-- #tabs -->
 	<div id="{% block active_tab_content_width %}{% endblock %}-content">
         <div id="active-tab-content">

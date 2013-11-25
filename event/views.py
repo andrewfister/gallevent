@@ -48,7 +48,6 @@ class SearchView(View):
 
         return HttpResponse(events_json, content_type="application/json")
 
-@login_required
 def post_event(request, event_id=None, edit=False):
     if request.method == 'POST':
         if event_id != None and edit == True:

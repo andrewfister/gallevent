@@ -1,4 +1,4 @@
-{% extends "base-user-control.html" %}
+{% extends "base-profile.html" %}
 
 {% block body-class %}user-control post-event{% endblock body-class %}
 
@@ -26,7 +26,7 @@ var eventsJSON = [];
     <div class="hidden">
     <img src="/static/img/btn-s-post-event-h.png" alt="Post Event Button Hover" />
     </div><!-- .hidden -->
-    <h2><a href="{% url gallevent.event.views.show_events %}">Your Posts</a>: Edit Your Event</h2>
+    <h2><a href="{% url 'gallevent.event.views.show_events' %}">Your Posts</a>: Edit Your Event</h2>
     {% else %}
     {% if form.errors %}
     <div class="top-error"><h3>Oops!</h3><span class="left">There are some errors in your event post.<br />Please review the form below and correct the errors.</span></div>
