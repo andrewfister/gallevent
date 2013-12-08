@@ -3,7 +3,7 @@
 ** Description: Control for Event Categories
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 10-13-2013
+** Updated: 12-01-2013
 ************************************** */
 
 /* = Position Pin Key Within Container */
@@ -30,24 +30,28 @@
 
 #pin-key li {
 	border-bottom:1px solid #d2d2d2;
+	line-height:1.2em;
 	}
 #pin-key li:hover {
-	background:#fff;
+	background:#daf1f3;
   	}
 
 #pin-key li a {
 	display:block;
-	padding:1em 45px 0 67px;
-	/* margin:0 45px 0 20px; */
+	padding:1.3em 45px 0 67px;
 	min-height:32px;
-	/* padding:1em 0 0 45px; */
 	color:#43555A;
-	transition: min-height 2s;
-	-webkit-transition: min-height 2s; /* Safari */
+	transition: min-height 2s, padding 1s;
+	-webkit-transition: min-height 2s, padding 1s; /* Safari */
   	}
+#pin-key li a:hover {
+	padding:0.7em 45px 0 67px;
+	/* padding:0.9em 45px 0 67px; */
+	}
+
 #pin-key li a.selected {
 	color:#303d40;
-	background-color:#fff;
+	background:#b3e2e6;
 	}
 #pin-key li a.disabled {
 	opacity:0.5;
@@ -65,14 +69,13 @@
 	color:#555;
 	font-size:95%;
 	opacity:0;
-	overflow:hidden;
 	transition: height 1s, opacity 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
 	-webkit-transition: height 1s, opacity 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19); /* Safari */
 	}
 
 #pin-key li a:hover .details i {
 	margin-bottom:0em;
-	height:1.5em;
+	height:0.65em;
 	opacity:1;
  	}
 

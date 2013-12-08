@@ -38,14 +38,11 @@ var MapView = Backbone.View.extend({
             }
         }.bind(this));
         
-        $('#change-location').click(function(event) {
-            $('#change-location').addClass('hidden');
-            $('#location-search-input').removeClass('hidden');
-        });
+        $('#location-search-button').click(function(event) {
+            this.locationSearch();
+        }.bind(this));
         
         $('#my-location').click(function(event) {
-            $('#change-location').removeClass('hidden');
-            $('#location-search-input').addClass('hidden');
             this.getCurrentPosition();
         }.bind(this));
     
