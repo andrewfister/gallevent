@@ -201,7 +201,7 @@ var MapView = Backbone.View.extend({
         this.markers.splice(index, 1);
     },
 
-    setMapLocation: function(setToUserLpcation = false) {
+    setMapLocation: function(setToUserLpcation) {
         if ($('#map-latitude').length && $('#map-longitude').length) {
             if (setToUserLpcation || ($('#map-latitude').val() === "0" && $('#map-longitude').val() === "0")) {
                 this.mapLocation = this.userLocation;
