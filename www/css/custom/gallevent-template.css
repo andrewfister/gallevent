@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-06-2013
-** Updated: 12-01-2013
+** Updated: 12-08-2013
 ************************************** */
 
 /* = Global Typography */
@@ -453,7 +453,6 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
   	z-index:600;
 	float:left;
 	width:100%;
-	min-height:60px;
 	color:#fff;
 	background: #2e89a1; /* Old browsers */
 	background: -moz-linear-gradient(top,  #2e89a1 0%, #01a1ad 100%); /* FF3.6+ */
@@ -466,7 +465,7 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 	}
 
 #top-search {
-	margin:0.5em 0 3em 280px;
+	margin:0.5em 0 3em 1em;
 	}
 
 #top-search label {
@@ -527,14 +526,9 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 #top-search label.clock {
 	clear:left;
 	}
-/*
-#top-search #event {
-	margin-right:1.6%;
-	width:24%;
-	}
-*/
+
 #top-search .select {
-	width:32%;
+	width:28%;
 	}
 #top-search select#time-span,
 #top-search select#price {
@@ -678,7 +672,7 @@ button {
 	padding:0.46em 0.8em 0.46em 2.2em;
 	}
 
-#top-search .btn-search svg {
+#top-search svg {
 	position:absolute;
 	top:0.45em;
 	left:0.6em;
@@ -934,6 +928,46 @@ a.btn-post-event:hover {
 
 /* = Media Queries
 ----------------------------------- */
+@media screen and (min-width: 530px) {
+	#top-search .select {
+		width:30%;
+		}
+}
+
+@media screen and (min-width: 770px) {
+	#top-search label.clock {
+		clear:none;	
+		}
+	#top-search #event {
+		width:20%;	
+		}
+	#top-search #date {
+		width:15%;	
+		}
+	#top-search .select {
+		width:17%;
+		}
+}
+
+@media all and (max-width: 1145px) and (min-width: 770px) {
+	#top-search button {
+		float:left;
+		margin:0;
+		width:auto;
+		height:2.25em;
+		padding-left: 0.6em;
+		padding-right: 0.5em;
+		}
+	#top-search svg {
+		width:18px;
+		position:static;
+		margin:0 auto;
+		}
+	#top-search button span {
+		display:none;
+		}
+	}
+
 @media screen and (min-width: 1145px) {
 	.logo-block {
 		width:269px;
@@ -960,7 +994,7 @@ a.btn-post-event:hover {
 		}
 		
 	#top-search {
-		margin:0.7em 0 0 280px;
+		margin-left:280px;
 		}
 
 	#top-search #event {
@@ -983,8 +1017,4 @@ a.btn-post-event:hover {
 	#top-search button {
 		width:auto;	
 		}
-}
-
-@media screen and (min-width: 1260px) {
-	
 }
