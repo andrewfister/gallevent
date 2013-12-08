@@ -684,7 +684,7 @@ a.btn-post-event:hover {
 
 .logo-block {
 	position:absolute;
-	width:width;
+	width:auto;
 	background:url(../../img/data/orange-angle.svg) top right no-repeat;
 	}
 

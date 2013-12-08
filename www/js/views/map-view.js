@@ -38,10 +38,10 @@ var MapView = Backbone.View.extend({
             }
         }.bind(this));
         
-        $('#change-location').click(function(event) {
-            $('#change-location').addClass('hidden');
-            $('#location-search-input').removeClass('hidden');
-        });
+    //    $('#change-location').click(function(event) {
+    //        $('#change-location').addClass('hidden');
+    //        $('#location-search-input').removeClass('hidden');
+    //    });
     
         this.getCurrentPosition();
     },
