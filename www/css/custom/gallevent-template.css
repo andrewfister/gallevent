@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-06-2013
-** Updated: 12-01-2013
+** Updated: 12-08-2013
 ************************************** */
 
 /* = Global Typography */
@@ -466,7 +466,7 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 	}
 
 #top-search {
-	margin:0.5em 0 3em 280px;
+	margin:0.5em 0 3em 1em;
 	}
 
 #top-search label {
@@ -527,14 +527,9 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 #top-search label.clock {
 	clear:left;
 	}
-/*
-#top-search #event {
-	margin-right:1.6%;
-	width:24%;
-	}
-*/
+
 #top-search .select {
-	width:32%;
+	width:28%;
 	}
 #top-search select#time-span,
 #top-search select#price {
@@ -934,6 +929,42 @@ a.btn-post-event:hover {
 
 /* = Media Queries
 ----------------------------------- */
+@media screen and (min-width: 530px) {
+	#top-search .select {
+		width:30%;
+		}
+}
+
+@media screen and (min-width: 780px) {
+	#top-search label.clock {
+		clear:none;	
+		}
+	#top-search #event {
+		width:20%;	
+		}
+	#top-search #date {
+		width:15%;	
+		}
+	#top-search .select {
+		width:17%;
+		}
+	#top-search button {
+	float:left;
+	margin:0 1em 0 0;
+	width:10%;
+	height:2.15em;
+	}
+#top-search button span {
+	display:none;
+	}
+
+#top-search .btn-search svg {
+	position:relative;
+	top:-0.2em;
+	margin:0 auto;
+	}
+}
+
 @media screen and (min-width: 1145px) {
 	.logo-block {
 		width:269px;
