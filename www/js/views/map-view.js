@@ -122,7 +122,10 @@ var MapView = Backbone.View.extend({
     },
 
     setMarker: function(event, latitude, longitude, address, category, info) {
-        var image = '/static/img/data/pin-' + category + '-31x32.svg';
+        var image = {
+						url: '/static/img/data/pin-' + category + '-31x32.svg',
+						size: new google.maps.Size(31, 32, 'px', 'px')
+					};
 
         var location = new google.maps.LatLng(latitude, longitude);
 
