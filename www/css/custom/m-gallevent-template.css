@@ -470,27 +470,7 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 
 /* = Top Search Label Icons */
 #top-search label.icon {
-	float:left;
-	clear:none;
-	margin-top:5px;
-  	margin-right:8px;
-	height:28px;
-	width:26px;
-	text-indent:-9999px;
-	}
-
-#top-search label.find-event {
-	margin-left:1em;
-	background:url(../../img/data/icon-event-pin-question-26x26.svg) 0 0 no-repeat;
-	}
-#top-search label.clock {
-	margin-left:1em;
-	clear:left;
-	background:url(../../img/data/icon-clock-26x26.svg) 0 0 no-repeat;
-	}
-#top-search label.price {
-	width:15px;
-	background:url(../../img/data/icon-dollar-sign-15x26.svg) 0 0 no-repeat;
+	display:none;
 	}
 
 /* Top Search Fields */
@@ -519,16 +499,18 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 	}
 
 #top-search #event {
-	margin:0 1.6% 0.5em 0;
+	margin:0 1.6% 0.5em 2%;
 	width:40%;
 	}
 
 #top-search .select.time-span {
-	margin-bottom:1em;
+	margin:0 1.6% 1em 2%;
 	width:39%;
 	}
 #top-search .select.price{
-	width:30%;
+	margin-bottom:0.8em;
+	/*margin-bottom:0.5em;*/
+	width:40%;
 	}
 
 #top-search select#time-span,
@@ -542,7 +524,7 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 
 #top-search #date {
 	margin-right:1.5%;
-	width:26%;
+	width:34%;
 	background:#fff url(../../img/data/icon-calendar-25x24.svg) no-repeat 95% 50%;
 	}
 #top-search #date:hover {
@@ -612,9 +594,9 @@ button {
 
 #top-search button {
 	float:left;
-	margin:0 1em 0 0;
-	width:10%;
+	width:12%;
 	height:2.15em;
+	padding:0;
 	}
 #top-search button span {
 	display:none;
@@ -622,7 +604,7 @@ button {
 
 #top-search .btn-search svg {
 	position:relative;
-	top:-0.2em;
+	top:0.1em;
 	margin:0 auto;
 	}
 
@@ -868,6 +850,72 @@ a.btn-post-event:hover {
 
 /* = Media Queries
 ----------------------------------- */
+@media (min-width: 264px) {
+	#top-search #event {
+	width:44%;
+	}
+	}
+
+@media (min-width: 320px) {
+	#top-search #event {
+	width:46.5%;
+	}
+	}
+
+@media (min-width: 404px) {
+
+#top-search label.icon {
+	display:block;
+	float:left;
+	clear:none;
+	margin-top:5px;
+  	margin-right:8px;
+	height:28px;
+	width:26px;
+	text-indent:-9999px;
+	}
+
+#top-search label.find-event {
+	margin-left:1em;
+	background:url(../../img/data/icon-event-pin-question-26x26.svg) 0 0 no-repeat;
+	}
+#top-search label.clock {
+	margin-left:1em;
+	clear:left;
+	background:url(../../img/data/icon-clock-26x26.svg) 0 0 no-repeat;
+	}
+#top-search label.price {
+	width:15px;
+	background:url(../../img/data/icon-dollar-sign-15x26.svg) 0 0 no-repeat;
+	}
+	
+	#top-search #event {
+	margin-left:0;
+	width:40%;
+	}
+
+#top-search .select.time-span {
+	margin-bottom:1em;
+	margin-left:0;
+	}
+
+#top-search .select.price {
+	width:30%;
+	}
+
+#top-search #date {
+	margin-right:1.5%;
+	width:26%;
+	}
+
+#top-search button {
+	float:left;
+	margin:0 1em 0 0;
+	width:9%;
+	height:2.15em;
+	}
+}
+
 @media (min-width: 496px) {
 	#top-search #event {
 	width:42%;
@@ -882,7 +930,7 @@ a.btn-post-event:hover {
 	  width:25%;
 	  }
 #top-search button {
-		width:10.2%;
+		width:9.5%;
 	}
 }
 
@@ -902,10 +950,6 @@ a.btn-post-event:hover {
 	clear:none;
 		}
 	
-	#top-search .time-span {
-	  margin-right:1%;
-	  }
-	  
 	  #top-search button {
 		float:right;
 		margin-right:1em;
@@ -933,10 +977,6 @@ a.btn-post-event:hover {
 	clear:none;
 		}
 	
-	#top-search .time-span {
-	  margin-right:1%;
-	  }
-	
 	#top-search #date {
 		width:13%;
 		}
@@ -945,6 +985,7 @@ a.btn-post-event:hover {
 		float:right;
 		margin:0 1em 0 0;
 		width:auto;
+		padding:0.6em 1em 0.6em 1em;
 	}
 	
 	#top-search button span {
@@ -958,5 +999,6 @@ a.btn-post-event:hover {
 	#top-search .btn-search svg {
 	float:left;
 	left:-5px;
+	top:-0.2em;
 	}
 }
