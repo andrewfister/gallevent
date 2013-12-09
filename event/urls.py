@@ -1,13 +1,13 @@
 from django.conf.urls import include, url, patterns
 
 from event.api.resources import EventResource
-from event.views import SearchView
+from event.views import SearchView, PostEventView
 
 event_resource = EventResource()
 
 urlpatterns = patterns('event.views',
-    url(r'^post/$', 'post_event', name='post_event'),
-    (r'^edit/(?P<event_id>\d+)$', 'edit_event'),
+    url(r'^post/$', PostEventView.as_view(), name='post_event'),
+    url(r'^edit/(?P<event_id>\d+)$', PostEventView.as_view(), name='edit_event'),
     (r'^show/$', 'show_events'),
     (r'^lineup/$', 'show_lineup'),
     (r'^manage/$', 'manage_events'),

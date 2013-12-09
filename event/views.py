@@ -48,8 +48,19 @@ class SearchView(View):
 
         return HttpResponse(events_json, content_type="application/json")
 
-def post_event(request, event_id=None, edit=False):
-    if request.method == 'POST':
+
+class PostEventView(TemplateView):
+    template_name = "post-event.html"
+   
+    def get(self, request):
+        form = forms.PostEventForm()
+        
+        return self.render_to_response({
+            'edit': False,
+            'form': form,
+        })
+ 
+    def post(self, request):
         if event_id != None and edit == True:
             event = models.Event.objects.get(id=event_id)
         else:
@@ -62,20 +73,21 @@ def post_event(request, event_id=None, edit=False):
             return HttpResponseRedirect('/event/show')
         else:
             logger.debug(form.errors)
-    elif event_id != None and edit == True:
+        
+        return self.render_to_response({
+            'edit': False,
+            'form': form,
+        }, context_instance=RequestContext(request))
+
+    def put(self, request):
         event = models.Event.objects.get(id=event_id)
         form = forms.PostEventForm(instance=event)
-    else:
-        form = forms.PostEventForm()
 
-    return render_to_response('post-event.html', {
-    'edit': edit,
-    'form': form,
-    }, context_instance=RequestContext(request))
+        return render_to_response({
+            'edit': True,
+            'form': form,
+        }, context_instance=RequestContext(request))
 
-@login_required
-def edit_event(request, event_id):
-    return post_event(request, event_id=event_id, edit=True)
 
 @login_required
 def show_events(request):
