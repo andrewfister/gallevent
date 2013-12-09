@@ -414,7 +414,8 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 	}
 
 #map-box {
-	width:75%;
+	margin-right:-68px;
+	width:100%;
 	}
 
 #map_canvas {
@@ -422,29 +423,6 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 	height:40em;
 	}
 
-
-/*
-#map-feature {
-	height:40em;
-	}
-
-#map-box,
-#map_canvas {
-	z-index:200;
-	position:fixed;
-	left:0;
-	height:40em;
-	}
-
-.home #map-canvas {
-    top: 0;
-    }
-
-.home #map-box {
-    top:105px;
-	width:75%;
-	}
-*/
 
 /* = Global Map Control
 ----------------------------------- */
@@ -553,11 +531,11 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 /* = Location Search */
 #location-search {
 	position:absolute;
-	z-index:8889;
+	z-index:350;
 	top:8px;
 	left:8px;
 	float:left;
-	min-width:20em;
+	min-width:30em;
 	}
 
 #location-search #btn-user-location {
@@ -966,7 +944,14 @@ a.btn-post-event:hover {
 	#top-search button span {
 		display:none;
 		}
-	}
+}
+
+@media screen and (min-width: 1000px) {
+	#map-box {
+		margin-right:0;
+		width:75%;
+		}
+}
 
 @media screen and (min-width: 1145px) {
 	.logo-block {
