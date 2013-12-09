@@ -86,9 +86,10 @@ legend {
 
 input,
 select {
-  padding-left:2%;
-  padding-right:2%;
-  }
+	border-radius:4px;
+	padding-left:2%;
+	padding-right:2%;
+	}
 
 input {
 	height:1em;
@@ -117,7 +118,6 @@ select {
 	background-color:transparent !important;
 	-webkit-background-clip: padding;
   	-moz-background-clip: padding;
-	height:1em;
 	}
 
 .select {
@@ -125,6 +125,7 @@ select {
 	background:#fff url(../../img/data/drop-down-arrow.svg) right center no-repeat;
 	background-size:contain;
 	overflow:hidden;
+	border-radius:4px;
 	}
 .select:hover {
 	background:#fff url(../../img/data/drop-down-arrow-h.svg) right center no-repeat;
@@ -316,9 +317,9 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 /* = Global Calendar Datepicker
 ----------------------------------- */
 #ui-datepicker-div {
-	z-index:800 !important;
+	z-index:8889 !important;
 	background:#fff;
-	margin:12px 0 0 -2em;
+	margin:0 0 12px -2em;
 	
 	}
 .ui-datepicker {
@@ -337,7 +338,6 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 	font-size:105%;
 	font-weight:bold;
 	text-align:center;
-	background:transparent url(../../img/cal-top-arrow.png) no-repeat 50% 0;
 	}
 .ui-datepicker-prev,
 .ui-datepicker-next {
@@ -666,17 +666,18 @@ a.btn-post-event:hover {
 
 .logo-block {
 	position:absolute;
-	width:width;
+	width:auto;
 	background:url(../../img/data/orange-angle.svg) top right no-repeat;
 	}
 
 .logo {
 	display:block;
 	overflow:hidden;
-	width:69px;
-	height:34px;
-	margin:0.35em 0.85em 0.5em 0.45em;
+	width: 69px;
+	height: 29px;
+	margin: 0.4em 0.6em 0.5em 1em;
 	background:url(../../img/data/logo-icon-gallevent-white-69x34.svg) 0 0 no-repeat;
+	background-size:contain;
 	text-indent:-9999px;
 	}
 
