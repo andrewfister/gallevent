@@ -121,7 +121,7 @@ select {
 	}
 
 .select {
-	padding:0.3em 0 0.3em 0.3em;
+	padding:0.35em 0 0.3em 0.3em;
 	background:#fff url(../../img/data/drop-down-arrow.svg) right center no-repeat;
 	background-size:contain;
 	overflow:hidden;
@@ -565,7 +565,7 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 	
 	}
 .loading img {
-	width:365px;
+	width:247px;
 	height:179px;
 	opacity:0.8;
 	}
@@ -693,7 +693,7 @@ a.btn-post-event:hover {
 	overflow:hidden;
 	width: 69px;
 	height: 29px;
-	margin: 0.4em 0.6em 0.5em 1em;
+	margin: 0.4em 0.3em 0.5em 0.5em;
 	background:url(../../img/data/logo-icon-gallevent-white-69x34.svg) 0 0 no-repeat;
 	background-size:contain;
 	text-indent:-9999px;
