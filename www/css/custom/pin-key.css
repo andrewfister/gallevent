@@ -3,7 +3,7 @@
 ** Description: Control for Event Categories
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 12-08-2013
+** Updated: 12-11-2013
 ************************************** */
 
 /* = Position Pin Key Within Container */
@@ -130,10 +130,10 @@
 @media screen and (min-width: 1349px) {
 	
 		
-		#pin-key li a:hover {
-	padding-top:0.7em;
-	padding-left:67px;
-	}
+	#pin-key li a:hover {
+		padding-top:0.7em;
+		padding-left:67px;
+		}
 
 #pin-key li a .details i {
 	display:block;
@@ -150,6 +150,10 @@
 	height:0.65em;
 	opacity:1;
  	}
-	
-	
+}
+
+@media screen and (min-width: 1400px) {
+	#pin-key {
+		width:366px;
+		}
 }
