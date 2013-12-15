@@ -14,6 +14,7 @@ var MapView = Backbone.View.extend({
         
         if (this.mobile) {
             this.popUpTemplate = Mustache.template('m-map-popup').render;
+            this.infoWindow.setOptions({maxWidth: 200});
         }
         else {
             this.popUpTemplate = Mustache.template('map-popup').render;
