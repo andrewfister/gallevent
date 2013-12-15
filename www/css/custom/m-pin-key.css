@@ -3,7 +3,7 @@
 ** Description: Control for Event Categories
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 11-17-2013
+** Updated: 12-11-2013
 ************************************** */
 
 /* = Position Pin Key Within Container */
@@ -27,7 +27,6 @@
 	}
 #pin-key li:hover {
 	background:#daf1f3;
-	/* background:#E5F9F9; */
   	}
 
 #pin-key li a {
@@ -37,13 +36,12 @@
 	color:#43555A;
   	}
 #pin-key li a.selected {
-	color:#b3e2e6;
-	background-color:#fff;
+	color:#303d40;
+	background-color:#b3e2e6;
 	}
 #pin-key li a.disabled {
 	opacity:0.5;
 	}
-
 
 /* = Specific Cateogry Styles */
 .networking,
