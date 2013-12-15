@@ -3,33 +3,8 @@
 ** Description: Pins and Pop-Ups Used on Map
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 12-10-2013
+** Updated: 12-15-2013
 ************************************** */
-
-/* probably delete this later */
-.pin-hover {
-	display:none;
-	position:relative;
-	left:20px;
-	display:block;
-	background: url(../../img/bg-blue-80-3x3.png) 0 0 repeat;
-	width:200px;
-	color:#fff;
-	border-radius:0 4px 4px 4px;
-	}
-.pin-hover .arrow {
-	position:absolute;
-	left:-7px;
-	width:7px;
-	height:7px;
-text-indent:9999px;
-	background: url(../../img/blue-arrow-80-7x7.png) 0 0 no-repeat;
-	}
-.pin-hover .event-name {
-	display:block;
-	margin:1em;
-	font-size:140%;
-	}
 
 /* = Map Pin Pop-Up */
 .map-popup {
@@ -37,8 +12,7 @@ text-indent:9999px;
 	overflow-y:hidden;
 	}
 
-.map-popup .event-name .category-icon,
-.map-popup .description {
+.map-popup .event-name .category-icon {
 	display:none;
 	}
 
