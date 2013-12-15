@@ -11,15 +11,21 @@ var MapView = Backbone.View.extend({
         this.collection.on("remove", function(evt, collection, options) {
             this.destroyMarker(options.index);
         }, this);
+        
+        if (this.mobile) {
+            this.popUpTemplate = Mustache.template('m-map-popup').render;
+        }
+        else {
+            this.popUpTemplate = Mustache.template('map-popup').render;
+            this.hoverTemplate = Mustache.template('pin-hover').render;
+        }
     },
 
     id: "map_canvas",
-
-    popUpTemplate: Mustache.template('map-popup').render,
     
-    hoverTemplate: Mustache.template('pin-hover').render,
-
     markers: [],
+    
+    mobile: $.cookie('flavour') == 'mobile',
     
     userLocation: new google.maps.LatLng(37.88397, -122.2644),
 
@@ -155,23 +161,26 @@ var MapView = Backbone.View.extend({
         };
 
         var openMarker = makeOpenMarker(marker, this.infoWindow, this.map);
-        this.setMarkerHover(marker, event);
+        
+        if (!this.mobile) {
+            this.setMarkerHover(marker, event);
 
-        google.maps.event.addListener(marker, 'mouseover', function() {
-            $(marker.hoverInfo).removeClass('hidden');
-        }.bind(this));
-        
-        google.maps.event.addListener(marker, 'mouseout', function() {
-            $(marker.hoverInfo).addClass('hidden');
-        }.bind(this));
-        
-        google.maps.event.addListener(this.map, 'zoom_changed', function() {
-            this.setMarkerHover(marker, event);
-        }.bind(this));
-        
-        google.maps.event.addListener(this.map, 'dragend', function() {
-            this.setMarkerHover(marker, event);
-        }.bind(this));
+            google.maps.event.addListener(marker, 'mouseover', function() {
+                $(marker.hoverInfo).removeClass('hidden');
+            }.bind(this));
+            
+            google.maps.event.addListener(marker, 'mouseout', function() {
+                $(marker.hoverInfo).addClass('hidden');
+            }.bind(this));
+            
+            google.maps.event.addListener(this.map, 'zoom_changed', function() {
+                this.setMarkerHover(marker, event);
+            }.bind(this));
+            
+            google.maps.event.addListener(this.map, 'dragend', function() {
+                this.setMarkerHover(marker, event);
+            }.bind(this));
+        }
 
         event.on('open', openMarker);
         event.trigger('pinDropped');
@@ -204,9 +213,9 @@ var MapView = Backbone.View.extend({
         this.markers.splice(index, 1);
     },
 
-    setMapLocation: function(setToUserLpcation) {
+    setMapLocation: function(setToUserLocation) {
         if ($('#map-latitude').length && $('#map-longitude').length) {
-            if (setToUserLpcation || ($('#map-latitude').val() === "0" && $('#map-longitude').val() === "0")) {
+            if (setToUserLocation || ($('#map-latitude').val() === "0" && $('#map-longitude').val() === "0")) {
                 this.mapLocation = this.userLocation;
             }
             else {
