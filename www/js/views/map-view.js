@@ -1,11 +1,9 @@
 var MapView = Backbone.View.extend({
     initialize: function() {
         this.collection.on("reset", function(events) {
-            if (this.map !== null && this.mapPanes !== undefined)
+            if (this.map !== null)
             {
-                if (this.markers.length > 0) {
-                    this.removeMarkers();
-                }
+                this.removeMarkers();
                 this.setAllMarkers();
             }
         }, this);
@@ -68,7 +66,7 @@ var MapView = Backbone.View.extend({
     
         this.getCurrentPosition();
         
-        //google.maps.visualRefresh = true;
+        google.maps.visualRefresh = true;
     },
     
     getCurrentPosition: function() {
@@ -82,10 +80,10 @@ var MapView = Backbone.View.extend({
         //Listen for tiles loaded
         google.maps.event.addListener(this.map, 'tilesloaded', function() {
             this.centerMap(this.mapLocation);
+            this.setAllMarkers();
             google.maps.event.clearListeners(this.map, 'tilesloaded');
             
             this.overlay.draw = function() {};
-            this.overlay.onAdd = function() { this.setAllMarkers(); };
             this.overlay.setMap(this.map);
         }.bind(this));
 
@@ -212,16 +210,11 @@ var MapView = Backbone.View.extend({
     removeMarkers: function() {
         _.each(this.markers, function(marker, index, markers) {
             marker.setMap(null);
-            marker.hoverInfo = null;
         }, this);
-        
-        this.markers = [];
     },
 
     destroyMarker: function(index) {
         this.markers[index].setMap(null);
-        this.markers[index].hoverInfo = null;
-        this.markers[index] = null;
         this.markers.splice(index, 1);
     },
 
