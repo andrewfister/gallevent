@@ -23,15 +23,12 @@ var eventsJSON = [];
 
 {% block active_tab_content %}
     {% if edit %}
-    <div class="hidden">
-    <img src="/static/img/btn-s-post-event-h.png" alt="Post Event Button Hover" />
-    </div><!-- .hidden -->
-    <h2><a href="{% url 'gallevent.event.views.show_events' %}">Your Posts</a>: Edit Your Event</h2>
+    <h1><a href="{% url 'gallevent.event.views.show_events' %}">Your Posts</a>: Edit Your Event</h1>
     {% else %}
     {% if form.errors %}
     <div class="top-error"><h3>Oops!</h3><span class="left">There are some errors in your event post.<br />Please review the form below and correct the errors.</span></div>
     {% endif %}
-    <h2>Post Your Event on Gallevent</h2>
+    <h1>Post Your Event on Gallevent</h1>
     <p class="form-comment">Required items are in <b class="required">green</b>.</p>
     {% endif %}
     <form method="post">

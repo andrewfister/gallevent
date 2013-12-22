@@ -3,55 +3,65 @@
 ** Description: Styles for User Control Section Pages
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 09-15-2013
+** Updated: 12-15-2013
 ************************************** */
 
-.user-account #container {
-	background:#f7f7f7;
-	}
-
-.user-account ul.tabs {
-	z-index:600;
+.user-control .tab-container {
 	position:relative;
-	margin:0 0 0 200px;
-	list-style:none;
-	font-size:100%;
+  	z-index:600;
+	float:left;
+	width:100%;
+	color:#fff;
+	background: #01a1ad;
+	margin-right:280px;
 	}
 
-.user-account ul.tabs li a  {
+.user-control .tabs {
+	float: left;
+	/* margin-left:236px; */
+	width: 100%;
+	}
+
+.user-control .tabs a {
+	display:inline-block;
 	float:left;
-	display:block;
-	width:25%;
-	padding:1.2em 0 1.3em 30px;
-	margin-right:-30px;
+	width: 25%;
+	padding:0.9em 0 0.9em 0;
+	text-align: center;
 	}
-.user-account ul.tabs li a.tab-post-event {
+
+/* Specific Tab Styles */
+.user-control .tab-post-event {
 	background:#01a1ad;
-	padding-left:80px;
-	margin-right:-80px;
 	}
-.user-account ul.tabs li a.tab-your-posts {
+
+.user-control .tab-your-posts {
 	background:#81c341;
 	}
-.user-account ul.tabs li a.tab-events {
+
+.user-control .tab-events {
 	background:#fbbc12;
 	}
-.user-account ul.tabs li a.tab-your-profile {
+
+.user-control .tab-your-profile {
 	background:#f37377;
 	}
 
-.user-account #active-tab-content {
-	float:left;
-	border-top-width:6px;
-	border-top-style:solid;
-	width:100%;
-	background:#f7f7f7;
+.post-event #active-tab-content-container {
+	float: left;
+	width: 50%;
+background: #fff;
+
+
+	}
+
+.post-event #active-tab-content {
+	float: left;
+	margin:0 28px 0 23px;
 	}
 
 /* = Different Top Border Colors for Sections of User Account Pages */
-.post-event #active-tab-content {
-	border-color:#01A1AD;
-	}
+
 
 .your-posts #active-tab-content {
 	border-color:#81C341;
@@ -98,22 +108,11 @@
 	margin:0 0 1em 0;
 	}
 
-
-
-/*
-
-.user-control #map-box,
-.user-control #map_canvas {
-	z-index:200;
-	position:fixed;
-	top:0;
-	right:0 !important;
-	width:50%;
-	height:100%;
-	}
-
-
-
-.user-control #active-tab-content form {
-  }
- */
+@media screen and (min-width: 1145px) {
+	.user-control .tabs {
+		margin-left:236px;
+		}
+	.user-control .tabs a {
+		width: 21%;
+		}
+}
