@@ -1,11 +1,12 @@
 var MapView = Backbone.View.extend({
     initialize: function() {
+        this.mapLoaded = false;
+        this.eventsLoaded = false;
+    
         this.collection.on("reset", function(events) {
-            if (this.map !== null && this.mapPanes !== undefined)
-            {
-                if (this.markers.length > 0) {
-                    this.removeMarkers();
-                }
+            this.eventsLoaded = true;
+            if (this.mapLoaded === true) {
+                this.removeMarkers();
                 this.setAllMarkers();
             }
         }, this);
@@ -38,7 +39,6 @@ var MapView = Backbone.View.extend({
     mapLocation: new google.maps.LatLng(37.88397, -122.2644),
 
     mapOptions: {
-            center: this.mapLocation,
             zoom: 13,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             mapTypeControl: false,
@@ -68,7 +68,7 @@ var MapView = Backbone.View.extend({
     
         this.getCurrentPosition();
         
-        //google.maps.visualRefresh = true;
+        google.maps.visualRefresh = true;
     },
     
     getCurrentPosition: function() {
@@ -76,17 +76,25 @@ var MapView = Backbone.View.extend({
     },
 
     loadMap: function() {
+        this.mapOptions.center = this.mapLocation;
+    
         this.map = new google.maps.Map($("#map_canvas").get(0),
             this.mapOptions);
 
         //Listen for tiles loaded
         google.maps.event.addListener(this.map, 'tilesloaded', function() {
-            this.centerMap(this.mapLocation);
             google.maps.event.clearListeners(this.map, 'tilesloaded');
+            this.mapLoaded = true;
             
-            this.overlay.draw = function() {};
-            this.overlay.onAdd = function() { this.setAllMarkers(); };
-            this.overlay.setMap(this.map);
+            if (!this.mobile) {
+                this.overlay.draw = function() {};
+                this.overlay.setMap(this.map);
+            }
+            
+            if (this.eventsLoaded) {
+                this.removeMarkers();
+                this.setAllMarkers();
+            }
         }.bind(this));
 
         google.maps.event.addListener(this.map, 'dragend', function(data) {
@@ -135,6 +143,7 @@ var MapView = Backbone.View.extend({
     },
 
     setMarker: function(event, latitude, longitude, address, category, info) {
+        console.log('setting marker with name: ' + event.get('name'));
         var image = {
 						url: '/static/img/data/pin-' + category + '-31x32.svg',
 						size: new google.maps.Size(31, 32, 'px', 'px')
@@ -144,16 +153,16 @@ var MapView = Backbone.View.extend({
 
         var marker = new google.maps.Marker({
             map: this.map,
+            icon: image,
             draggable: false,
             position: location,
-            icon: image,
-            animation: google.maps.Animation.DROP
+            optimized: false
         });
 
         google.maps.event.addListener(marker, 'click', function() {
             this.infoWindow.close();
             this.infoWindow.setContent(info);
-            this.infoWindow.open(this.map,marker);
+            this.infoWindow.open(this.map, marker);
         }.bind(this));
 
         this.markers.push(marker);
@@ -190,7 +199,7 @@ var MapView = Backbone.View.extend({
         }
 
         event.on('open', openMarker);
-        event.trigger('pinDropped');
+        //event.trigger('pinDropped');
     },
 
     setMarkerHover: function(marker, event) {
@@ -210,12 +219,14 @@ var MapView = Backbone.View.extend({
     },
 
     removeMarkers: function() {
-        _.each(this.markers, function(marker, index, markers) {
-            marker.setMap(null);
-            marker.hoverInfo = null;
-        }, this);
-        
-        this.markers = [];
+        if (this.markers.length > 0) {
+            _.each(this.markers, function(marker, index, markers) {
+                marker.setMap(null);
+                marker.hoverInfo = null;
+            }, this);
+            
+            this.markers = [];
+        }
     },
 
     destroyMarker: function(index) {
