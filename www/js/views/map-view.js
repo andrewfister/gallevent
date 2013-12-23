@@ -86,15 +86,6 @@ var MapView = Backbone.View.extend({
             google.maps.event.clearListeners(this.map, 'tilesloaded');
             this.mapLoaded = true;
             
-            var center = this.map.getCenter();
-            var lat = parseFloat(center.lat());
-            var lon = parseFloat(center.lng());
-            if ($('#map-latitude').length) {
-                $('#map-latitude').val(lat);
-            }
-            if ($('#map-longitude').length) {
-                $('#map-longitude').val(lon);
-            }
             this.setMapLocation(false);
             
             if (!this.mobile) {
