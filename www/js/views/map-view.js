@@ -86,6 +86,17 @@ var MapView = Backbone.View.extend({
             google.maps.event.clearListeners(this.map, 'tilesloaded');
             this.mapLoaded = true;
             
+            var center = this.map.getCenter();
+            var lat = parseFloat(center.lat());
+            var lon = parseFloat(center.lng());
+            if ($('#map-latitude').length) {
+                $('#map-latitude').val(lat);
+            }
+            if ($('#map-longitude').length) {
+                $('#map-longitude').val(lon);
+            }
+            this.setMapLocation(false);
+            
             if (!this.mobile) {
                 this.overlay.draw = function() {};
                 this.overlay.setMap(this.map);
@@ -146,7 +157,7 @@ var MapView = Backbone.View.extend({
         console.log('setting marker with name: ' + event.get('name'));
         var image = {
 						url: '/static/img/data/pin-' + category + '-31x32.svg',
-						size: new google.maps.Size(31, 32, 'px', 'px')
+						//size: new google.maps.Size(31, 32, 'px', 'px')
 					};
 
         var location = new google.maps.LatLng(latitude, longitude);
@@ -154,9 +165,7 @@ var MapView = Backbone.View.extend({
         var marker = new google.maps.Marker({
             map: this.map,
             icon: image,
-            draggable: false,
-            position: location,
-            optimized: false
+            position: location
         });
 
         google.maps.event.addListener(marker, 'click', function() {
