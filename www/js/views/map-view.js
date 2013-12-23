@@ -86,6 +86,17 @@ var MapView = Backbone.View.extend({
             google.maps.event.clearListeners(this.map, 'tilesloaded');
             this.mapLoaded = true;
             
+            var center = this.map.getCenter();
+            var lat = parseFloat(center.lat());
+            var lon = parseFloat(center.lng());
+            if ($('#map-latitude').length) {
+                $('#map-latitude').val(lat);
+            }
+            if ($('#map-longitude').length) {
+                $('#map-longitude').val(lon);
+            }
+            this.setMapLocation(false);
+            
             if (!this.mobile) {
                 this.overlay.draw = function() {};
                 this.overlay.setMap(this.map);
@@ -154,9 +165,7 @@ var MapView = Backbone.View.extend({
         var marker = new google.maps.Marker({
             map: this.map,
             icon: image,
-            draggable: false,
-            position: location,
-            optimized: false
+            position: location
         });
 
         google.maps.event.addListener(marker, 'click', function() {
