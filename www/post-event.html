@@ -41,7 +41,7 @@ var eventsJSON = [];
          	{% endfor %}
         {% endif %}
         <span id="event-category-value" class="hidden" value="{{ form.category.value }}"></span>
-        <select id="event-category" class="input-standard" name="category" repost="{{ form.category.value }}">
+        <select id="event-category" class="input-standard select" name="category" repost="{{ form.category.value }}">
             <option value="networking" id="select-networking">Networking</option>
             <option value="education" id="select-education">Education</option>
             <option value="fairs" id="select-fairs">Fairs &amp; Festivals</option>
@@ -192,6 +192,6 @@ var eventsJSON = [];
     <input class="btn-s-post-event" type="submit" value="Post Event" />
 	</form>
 {% endblock active_tab_content %}
-{% block map %}
+{% block right_side_content %}
 	{% show_map %}
-{% endblock map %}
+{% endblock right_side_content %}

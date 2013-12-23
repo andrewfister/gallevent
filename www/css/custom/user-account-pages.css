@@ -6,7 +6,34 @@
 ** Updated: 12-15-2013
 ************************************** */
 
-.user-control .tab-container {
+.user-control #container {
+	position:relative;
+	}
+
+.user-control #map-box {
+	position:fixed;
+	top:0;
+	right:0;
+	width:50%;
+	height:100%;
+	margin:0;
+	}
+.user-control #map_canvas {
+	height:100%;
+	}
+
+
+.user-control #content {
+	float:left;
+	}
+
+#footer {
+	width:50%;
+	}
+
+
+
+.tab-container {
 	position:relative;
   	z-index:600;
 	float:left;
@@ -14,6 +41,12 @@
 	color:#fff;
 	background: #01a1ad;
 	margin-right:280px;
+	}
+
+#active-tab-content-container {
+	float: left;
+	width: 50%;
+	background: #fff;
 	}
 
 .user-control .tabs {
@@ -45,14 +78,6 @@
 
 .user-control .tab-your-profile {
 	background:#f37377;
-	}
-
-.post-event #active-tab-content-container {
-	float: left;
-	width: 50%;
-background: #fff;
-
-
 	}
 
 .post-event #active-tab-content {
