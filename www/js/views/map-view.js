@@ -147,8 +147,8 @@ var MapView = Backbone.View.extend({
     setMarker: function(event, latitude, longitude, address, category, info) {
         console.log('setting marker with name: ' + event.get('name'));
         var image = {
-						url: '/static/img/data/pin-' + category + '-31x32.svg',
-						//size: new google.maps.Size(31, 32, 'px', 'px')
+						url: '/static/img/data/pin-' + category + '.svg',
+						size: new google.maps.Size(31, 32, 'px', 'px')
 					};
 
         var location = new google.maps.LatLng(latitude, longitude);
