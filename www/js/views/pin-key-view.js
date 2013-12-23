@@ -1,7 +1,7 @@
 var PinKeyView = Backbone.View.extend({
     id: 'pin-key',
     
-    categories: ['networking', 'education', 'fairs', 'athletic', 'art', 'dancing', 'dining', 'parties'],
+    categories: ['networking', 'education', 'fairs', 'athletic', 'art', 'dancing', 'dining', 'nightlife'],
     
     initialize: function() {
         this.pinKeys = {};
