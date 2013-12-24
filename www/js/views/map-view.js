@@ -86,17 +86,13 @@ var MapView = Backbone.View.extend({
             google.maps.event.clearListeners(this.map, 'tilesloaded');
             this.mapLoaded = true;
             
-            this.setMapLocation(false);
-            
             if (!this.mobile) {
                 this.overlay.draw = function() {};
                 this.overlay.setMap(this.map);
             }
             
-            if (this.eventsLoaded) {
-                this.removeMarkers();
-                this.setAllMarkers();
-            }
+            this.setMapLocation(true);
+            $('#map-latitude').change();
         }.bind(this));
 
         google.maps.event.addListener(this.map, 'dragend', function(data) {
@@ -110,11 +106,21 @@ var MapView = Backbone.View.extend({
                 $('#map-longitude').val(lon);
             }
             this.setMapLocation(false);
+            
+            if (this.hasVisibleMarkers === false) {
+                $('#map-latitude').change();
+            }
         }.bind(this));
 
         google.maps.event.addListener(this.map, 'zoom_changed', function() {
             if ($('#map-radius').length) {
                 $('#map-radius').val(parseFloat(this.mapRadius()));
+            }
+            
+            this.setMapLocation(false);
+            
+            if (this.hasVisibleMarkers === false) {
+                $('#map-latitude').change();
             }
         }.bind(this));
 
@@ -156,7 +162,8 @@ var MapView = Backbone.View.extend({
         var marker = new google.maps.Marker({
             map: this.map,
             icon: image,
-            position: location
+            position: location,
+            animation: google.maps.Animation.DROP
         });
 
         google.maps.event.addListener(marker, 'click', function() {
@@ -199,7 +206,6 @@ var MapView = Backbone.View.extend({
         }
 
         event.on('open', openMarker);
-        //event.trigger('pinDropped');
     },
 
     setMarkerHover: function(marker, event) {
@@ -250,18 +256,14 @@ var MapView = Backbone.View.extend({
             this.centerMap(this.mapLocation);
         }
 
-        var hasVisibleMarkers = false;
+        this.hasVisibleMarkers = false;
         _.each(this.collection.models, function(item, index, items) {
             var latLng = new google.maps.LatLng(item.get('latitude'),
                                                 item.get('longitude'));
             if (this.map.getBounds().contains(latLng)) {
-                hasVisibleMarkers = true;
+                this.hasVisibleMarkers = true;
             }
         }, this);
-
-        if (hasVisibleMarkers === false) {
-            $('#map-latitude').change();
-        }
     },
 
     foundUserLocation: function(position) {
@@ -281,7 +283,7 @@ var MapView = Backbone.View.extend({
             $('#user-longitude').html(userLongitude);
             $.cookie('user-longitude', userLongitude, { expires: 1, path: '/' });
         }
-
+        
         this.setMapLocation(true);
 
         this.loadMap();

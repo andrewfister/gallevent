@@ -18,7 +18,7 @@ $(document).ready(function() {
     if ($('#map_canvas').length) {
         window.mapEvents = new EventCollection();
         window.events.on('reset', function() {
-            window.mapEvents.reset(events.models);
+            window.mapEvents.reset(window.events.models);
         });
 
         window.mapView = new MapView({
