@@ -57,12 +57,12 @@ var EventCollection = Backbone.Collection.extend({
     url: '/event/events',
 
     categories: ['networking', 'education', 'fairs', 'athletic', 'art', 
-                    'dancing', 'dining', 'parties'],
+                    'dancing', 'dining', 'nightlife'],
 
     initialize: function() {
         this.categoryCounts = {'networking': 0, 'education': 0, 'fairs': 0, 
                                 'athletic': 0, 'art': 0, 'dancing': 0, 
-                                'dining': 0, 'parties': 0};
+                                'dining': 0, 'nightlife': 0};
         
         this._orderDateAscend = this.comparator;
         
