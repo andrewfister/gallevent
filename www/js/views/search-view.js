@@ -108,7 +108,7 @@ var SearchView = Backbone.View.extend({
             reset: true,
             success: function(collection, response, options) {
                 $('.loading').addClass('hidden');
-            }.bind(this),
+            },
             error: function(collection, response, options) {
                 $('.loading').addClass('hidden');
             }

@@ -40,7 +40,7 @@ class EventSearchForm(SearchForm):
     ]
 
     gallevent_categories = ['art', 'athletic', 'dancing', 'dining', 'education',
-                            'fairs', 'jobs', 'networking', 'parties', 'sales']
+                            'fairs', 'jobs', 'networking', 'nightlife', 'sales']
 
     default_query = "event"
     short_description_length = 140
@@ -89,7 +89,7 @@ class EventBriteSearchForm(EventSearchForm):
 
     eb_category_map = {
         'seminars': 'education',
-        'social': 'parties',
+        'social': 'nightlife',
         'entertainment': 'fairs',
         'music': 'art',
         'sports': 'athletic',
