@@ -248,9 +248,25 @@ class MeetupSearchForm(EventSearchForm):
         'food-drink': 'dining',
         'singles': 'networking',
         'lgbt': 'networking',
+        'socializing': 'networking',
+        'tech': 'networking',
         'outdoors-adventure': 'athletic',
         'fitness': 'athletic',
-        'sports-recreation': 'athletic'
+        'sports-recreation': 'athletic',
+        'education-learning': 'education',
+        'new-age-spirituality': 'education',
+        'music': 'art',
+        'games': 'art',
+        'movies-film': 'art',
+        'language': 'education',
+        'career-business': 'networking',
+        'arts-culture': 'art',
+        'hobbies-crafts': 'art',
+        'literature-writing': 'education',
+        'community-environment': 'education',
+        'religion-beliefs': 'education',
+        'health-wellbeing': 'education',
+        'pets-animals': 'networking',
     }
 
     default_query = "party OR drinks OR dancing OR performance OR show OR concert OR meetup OR group OR event"
@@ -394,6 +410,7 @@ class MeetupSearchForm(EventSearchForm):
         try:
             return self.meetup_category_map[category]
         except KeyError:
+            print('Category: {}'.format(category))
             return 'networking'
 
 
