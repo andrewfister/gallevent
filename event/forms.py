@@ -243,6 +243,15 @@ class MeetupSearchForm(EventSearchForm):
     """
     Search Meetup with their non-existant python integration
     """
+    
+    meetup_category_map = {
+        'food-drink': 'dining',
+        'singles': 'networking',
+        'lgbt': 'networking',
+        'outdoors-adventure': 'athletic',
+        'fitness': 'athletic',
+        'sports-recreation': 'athletic'
+    }
 
     default_query = "party OR drinks OR dancing OR performance OR show OR concert OR meetup OR group OR event"
 
@@ -270,6 +279,7 @@ class MeetupSearchForm(EventSearchForm):
             meetup_client_query['time'] += str(calendar.timegm(self.cleaned_data['end_date'].utctimetuple()) * 1000)
 
         meetup_client_query['text_format'] = 'plain'
+        meetup_client_query['fields'] = 'category'
 
         try:
             events = self.searchMeetup(meetup_client_query, max_events)
@@ -296,6 +306,11 @@ class MeetupSearchForm(EventSearchForm):
                 meetup_event_venue = meetup_event.venue
             except AttributeError:
                 continue
+
+            if hasattr(meetup_event, "group") and 'category' in meetup_event.group:
+                meetup_event_category = self.get_category_from_meetup(meetup_event.group['category']['shortname'])
+            else:
+                meetup_event_category = "networking"
 
             if not 'address_2' in meetup_event_venue:
                 meetup_event_venue['address_2'] = ''
@@ -355,8 +370,7 @@ class MeetupSearchForm(EventSearchForm):
                             latitude=meetup_event_venue['lat'],
                             longitude=meetup_event_venue['lon'],
                             #"keywords": meetup_event_group['topics'],
-                            #"category": meetup_event_group['category'],
-                            category="networking",
+                            category=meetup_event_category,
                             short_description=meetup_event_short_description.encode('utf-8').strip(),
                             description=meetup_event_description.encode('utf-8').strip(),
                             event_url=meetup_event.event_url,
@@ -369,6 +383,18 @@ class MeetupSearchForm(EventSearchForm):
                             ))
 
         return meetup_events[:max_events]
+    
+    def get_category_from_meetup(self, category):
+        if category in self.gallevent_categories:
+            return category
+
+        if len(category) == 0:
+            return 'networking'
+
+        try:
+            return self.meetup_category_map[category]
+        except KeyError:
+            return 'networking'
 
 
 class PostEventForm(forms.ModelForm):

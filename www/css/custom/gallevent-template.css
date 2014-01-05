@@ -226,7 +226,7 @@ height:2.5em;
 #select-dancing,
 #select-sales,
 #select-dining,
-#select-parties,
+#select-nightlife,
 #select-jobs {
 height:2em;
 padding:5px 5px 0 40px;
@@ -256,8 +256,8 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
                                                                                                 #select-dining {
                                                                                                     background:url(../img/pin-key-dining.png) top left no-repeat;
                                                                                                       }
-                                                                                                      #select-parties {
-                                                                                                          background:url(../img/pin-key-parties.png) top left no-repeat;
+                                                                                                      #select-nightlife {
+                                                                                                          background:url(../img/pin-key-nightlife.png) top left no-repeat;
                                                                                                             }
                                                                                                             #select-jobs {
                                                                                                                 background:url(../img/pin-key-jobs.png) top left no-repeat;

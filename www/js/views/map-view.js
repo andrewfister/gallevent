@@ -42,7 +42,8 @@ var MapView = Backbone.View.extend({
             zoom: 13,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             mapTypeControl: false,
-            panControl: false
+            panControl: false,
+            zoomControl: false
     },
 
     infoWindow: new google.maps.InfoWindow(),
@@ -86,10 +87,8 @@ var MapView = Backbone.View.extend({
             google.maps.event.clearListeners(this.map, 'tilesloaded');
             this.mapLoaded = true;
             
-            if (!this.mobile) {
-                this.overlay.draw = function() {};
-                this.overlay.setMap(this.map);
-            }
+            this.overlay.draw = function() {};
+            this.overlay.setMap(this.map);
             
             this.setMapLocation(true);
             $('#map-latitude').change();
