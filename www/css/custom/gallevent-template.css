@@ -583,9 +583,9 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 .loading {
 	position:absolute;
 	z-index:880;
-	margin-top:205px;
+	margin-top:255px;
 	text-align:center;
-	width:75%;
+	width:100%;
 	}
 .loading img {
 	width:365px;
@@ -896,6 +896,12 @@ a.btn-post-event:hover {
 		}
 }
 
+@media screen and (max-width: 770px) {
+	#location-search {
+		top:8.5em;	
+		}
+}
+
 @media screen and (min-width: 770px) {
 	#top-search label.clock {
 		clear:none;	
@@ -929,14 +935,6 @@ a.btn-post-event:hover {
 		display:none;
 		}
 }
-/*
-@media screen and (min-width: 1000px) {
-	#map-box {
-		margin-right:0;
-		width:75%;
-		}
-}
-*/
 
 @media screen and (min-width: 1145px) {
 	.logo-block {
@@ -988,11 +986,3 @@ a.btn-post-event:hover {
 		width:auto;	
 		}
 }
-/*
-@media screen and (min-width: 1400px) {
-	#map-box {
-		margin-right:-390px;
-		width:100%;
-		}
-}
-*/
