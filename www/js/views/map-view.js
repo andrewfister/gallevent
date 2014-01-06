@@ -2,37 +2,28 @@ var MapView = Backbone.View.extend({
     initialize: function() {
         this.mapLoaded = false;
         this.eventsLoaded = false;
+        this.markersLoaded = false;
+        this.hasVisibleMarkers = false;
     
         this.collection.on("reset", function(events) {
-            this.eventsLoaded = true;
-            if (this.mapLoaded === true) {
-                this.removeMarkers();
-                this.setAllMarkers();
-            }
+            this.loadMarkers();
         }, this);
 
         this.collection.on("remove", function(evt, collection, options) {
             this.destroyMarker(options.index);
         }, this);
         
-        if (this.mobile) {
-            this.popUpTemplate = Mustache.template('m-map-popup').render;
-            this.infoWindow.setOptions({maxWidth: 200});
-            this.mapOptions.zoomControl = false;
-        }
-        else {
-            this.popUpTemplate = Mustache.template('map-popup').render;
-            this.hoverTemplate = Mustache.template('pin-hover').render;
-            this.mapOptions.zoomControl = true;
-            this.mapOptions.zoomControlOptions = {position: google.maps.ControlPosition.LEFT_CENTER};
-        }
+        this.hoverTemplate = Mustache.template('pin-hover').render;
+        this.popUpTemplate = Mustache.template('map-popup').render;
+        this.infoWindow.setOptions({maxWidth: 200});
+        this.mapOptions.zoomControl = true;
+        this.mapOptions.zoomControlOptions = {position: google.maps.ControlPosition.LEFT_CENTER};
+        this.overlay = new google.maps.OverlayView();
     },
 
     id: "map_canvas",
     
     markers: [],
-    
-    mobile: $.cookie('flavour') == 'mobile',
     
     userLocation: new google.maps.LatLng(37.88397, -122.2644),
 
@@ -42,15 +33,12 @@ var MapView = Backbone.View.extend({
             zoom: 13,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             mapTypeControl: false,
-            panControl: false,
-            zoomControl: false
+            panControl: false
     },
 
     infoWindow: new google.maps.InfoWindow(),
-
-    overlay: new google.maps.OverlayView(),
     
-    geocoder: new google.maps.Geocoder(),
+    geocoder: new google.maps.Geocoder(),    
 
     render: function() {
         $('#location-search-input').keypress(function(event) {
@@ -64,12 +52,23 @@ var MapView = Backbone.View.extend({
         }.bind(this));
         
         $('#my-location').click(function(event) {
+            $('.loading').removeClass('hidden');
             this.getCurrentPosition();
         }.bind(this));
-    
-        this.getCurrentPosition();
         
-        google.maps.visualRefresh = true;
+        this.getCurrentPosition();
+    },
+    
+    loadMarkers: function() {
+        this.eventsLoaded = true;
+        if (this.mapLoaded === true) {
+            this.removeMarkers();
+            this.setAllMarkers();
+            this.markersLoaded = true;
+        }
+        else {
+            this.markersLoaded = false;
+        }
     },
     
     getCurrentPosition: function() {
@@ -78,48 +77,43 @@ var MapView = Backbone.View.extend({
 
     loadMap: function() {
         this.mapOptions.center = this.mapLocation;
+        this.setMapLatLng(this.mapLocation);
     
         this.map = new google.maps.Map($("#map_canvas").get(0),
             this.mapOptions);
+        if (!this.dragging) {
+            window.searchView.submitSearch();
+        }
 
         //Listen for tiles loaded
         google.maps.event.addListener(this.map, 'tilesloaded', function() {
-            google.maps.event.clearListeners(this.map, 'tilesloaded');
             this.mapLoaded = true;
-            
             this.overlay.draw = function() {};
             this.overlay.setMap(this.map);
-            
-            this.setMapLocation(true);
-            $('#map-latitude').change();
+            if (!this.markersLoaded) {
+                this.loadMarkers();
+            }
+        }.bind(this));
+
+        google.maps.event.addListener(this.map, 'dragstart', function(data) {
+            this.dragging = true;
         }.bind(this));
 
         google.maps.event.addListener(this.map, 'dragend', function(data) {
             var center = this.map.getCenter();
-            var lat = parseFloat(center.lat());
-            var lon = parseFloat(center.lng());
-            if ($('#map-latitude').length) {
-                $('#map-latitude').val(lat);
-            }
-            if ($('#map-longitude').length) {
-                $('#map-longitude').val(lon);
-            }
-            this.setMapLocation(false);
             
-            if (this.hasVisibleMarkers === false) {
-                $('#map-latitude').change();
-            }
+            this.dragging = false;
+            this.setMapLatLng(center);
+            this.setMapLocation(false);
         }.bind(this));
 
         google.maps.event.addListener(this.map, 'zoom_changed', function() {
-            if ($('#map-radius').length) {
-                $('#map-radius').val(parseFloat(this.mapRadius()));
-            }
-            
-            this.setMapLocation(false);
-            
-            if (this.hasVisibleMarkers === false) {
-                $('#map-latitude').change();
+            this.setMapRadius();
+        }.bind(this));
+
+        google.maps.event.addListener(this.map, 'center_changed', function() {
+            if (!this.dragging && !this.detectVisibleMarkers()) {
+                window.searchView.submitSearch();
             }
         }.bind(this));
 
@@ -130,13 +124,23 @@ var MapView = Backbone.View.extend({
         this.geocoder.geocode({ address: $('#location-search-input').val() }, function(results, status) {
             if (status === google.maps.GeocoderStatus.OK) {
                 var newLocation = results[0].geometry.location;
+                
+                this.setMapLatLng(newLocation);
                 this.centerMap(newLocation);
-                $('#map-longitude').change();
             }
             else {
                 alert("Could not find your location at the moment!");
             }
         }.bind(this));
+    },
+    
+    setMapLatLng: function(location) {
+        if ($('#map-latitude').length) {
+            $('#map-latitude').val(parseFloat(location.lat()));
+        }
+        if ($('#map-longitude').length) {
+            $('#map-longitude').val(parseFloat(location.lng()));
+        }
     },
     
     setAllMarkers: function() {
@@ -184,25 +188,23 @@ var MapView = Backbone.View.extend({
 
         var openMarker = makeOpenMarker(marker, this.infoWindow, this.map);
         
-        if (!this.mobile) {
-            this.setMarkerHover(marker, event);
+        this.setMarkerHover(marker, event);
 
-            google.maps.event.addListener(marker, 'mouseover', function() {
-                $(marker.hoverInfo).removeClass('hidden');
-            }.bind(this));
-            
-            google.maps.event.addListener(marker, 'mouseout', function() {
-                $(marker.hoverInfo).addClass('hidden');
-            }.bind(this));
-            
-            google.maps.event.addListener(this.map, 'zoom_changed', function() {
-                this.setMarkerHover(marker, event);
-            
-            }.bind(this));
-            google.maps.event.addListener(this.map, 'dragend', function() {
-                this.setMarkerHover(marker, event);
-            }.bind(this));
-        }
+        google.maps.event.addListener(marker, 'mouseover', function() {
+            $(marker.hoverInfo).removeClass('hidden');
+        }.bind(this));
+        
+        google.maps.event.addListener(marker, 'mouseout', function() {
+            $(marker.hoverInfo).addClass('hidden');
+        }.bind(this));
+        
+        google.maps.event.addListener(this.map, 'zoom_changed', function() {
+            this.setMarkerHover(marker, event);
+        
+        }.bind(this));
+        google.maps.event.addListener(this.map, 'dragend', function() {
+            this.setMarkerHover(marker, event);
+        }.bind(this));
 
         event.on('open', openMarker);
     },
@@ -254,7 +256,9 @@ var MapView = Backbone.View.extend({
         if (this.map !== undefined) {
             this.centerMap(this.mapLocation);
         }
-
+    },
+    
+    detectVisibleMarkers: function() {
         this.hasVisibleMarkers = false;
         _.each(this.collection.models, function(item, index, items) {
             var latLng = new google.maps.LatLng(item.get('latitude'),
@@ -263,6 +267,8 @@ var MapView = Backbone.View.extend({
                 this.hasVisibleMarkers = true;
             }
         }, this);
+        
+        return this.hasVisibleMarkers;
     },
 
     foundUserLocation: function(position) {
@@ -284,7 +290,7 @@ var MapView = Backbone.View.extend({
         }
         
         this.setMapLocation(true);
-
+        
         this.loadMap();
     },
 
@@ -300,32 +306,28 @@ var MapView = Backbone.View.extend({
         else {
             this.setMapLocation(false);
         }
-
+        
         this.loadMap();
     },
 
     centerMap: function(latLng) {
-        if (this.map !== null  && this.map !== undefined)
+        //Set map data
+        this.setMapLatLng(latLng);
+        this.setMapRadius();
+    
+        if (this.map !== null && this.map !== undefined)
         {
             this.map.setCenter(latLng);
         }
-
-        var mapLatitude = parseFloat(latLng.lat());
-        var mapLongitude = parseFloat(latLng.lng());
-
-        //Set map data
-        if ($('#map-latitude').length) {
-            $('#map-latitude').val(mapLatitude);
-        }
-        if ($('#map-longitude').length) {
-            $('#map-longitude').val(mapLongitude);
-        }
+    },
+    
+    setMapRadius: function() {
         if ($('#map-radius').length) {
             $('#map-radius').val(parseFloat(this.mapRadius()));
         }
     },
 
-    mapRadius: function(){
+    mapRadius: function() {
         bounds = this.map.getBounds();
 
         center = bounds.getCenter();
