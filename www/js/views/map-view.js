@@ -52,6 +52,7 @@ var MapView = Backbone.View.extend({
         }.bind(this));
         
         $('#my-location').click(function(event) {
+            $('.loading').removeClass('hidden');
             this.getCurrentPosition();
         }.bind(this));
         
