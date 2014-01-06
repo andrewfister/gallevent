@@ -62,6 +62,7 @@ class EventSearchForm(SearchForm):
     #Current search sources:
     #Gallevent
     #EventBrite
+    #Meetup
     def search(self, max_events=settings.MAX_EVENTS):
         sqs = super(EventSearchForm, self).search()
 
@@ -267,6 +268,9 @@ class MeetupSearchForm(EventSearchForm):
         'religion-beliefs': 'education',
         'health-wellbeing': 'education',
         'pets-animals': 'networking',
+        'parents-family': 'networking',
+        'cars-motorcycles': 'networking',
+        'women': 'networking',
     }
 
     default_query = "party OR drinks OR dancing OR performance OR show OR concert OR meetup OR group OR event"
@@ -296,6 +300,7 @@ class MeetupSearchForm(EventSearchForm):
 
         meetup_client_query['text_format'] = 'plain'
         meetup_client_query['fields'] = 'category'
+        meetup_client_query['desc'] = True
 
         try:
             events = self.searchMeetup(meetup_client_query, max_events)

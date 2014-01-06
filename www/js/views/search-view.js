@@ -28,7 +28,7 @@ var SearchView = Backbone.View.extend({
         this.changeDate();
 
         $('.btn-search').click(this.submitSearch.bind(this));
-        $('.map-location').change(this.submitSearch.bind(this));
+//        $('.map-location').change(this.submitSearch.bind(this));
         $('#' + this.id).keypress(function(event) {
             if (event.which === 13) {
                 this.submitSearch();
@@ -103,6 +103,7 @@ var SearchView = Backbone.View.extend({
             searchData.q = "default";
         }
 
+        console.log('send a search request');
         this.collection.fetch({
             data: searchData,
             reset: true,
