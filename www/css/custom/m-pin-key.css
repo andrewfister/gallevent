@@ -52,7 +52,7 @@
 .dancing,
 .sales,
 .dining,
-.parties,
+.nightlife,
 .jobs {
 	background-position:center;
 	background-repeat:no-repeat;
@@ -81,7 +81,7 @@
 .dining {
 	background-image:url(../../img/data/pin-dining.svg);
 	}
-.parties {
+.nightlife {
 	background-image:url(../../img/data/pin-nightlife.svg);
 	}
 .jobs {

@@ -3,113 +3,135 @@
 ** Description: Control for Event Categories
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 12-11-2013
+** Updated: 01-05-2014
 ************************************** */
 
 /* = Position Pin Key Within Container */
 #pin-key {
-	position:relative;
-	z-index:400;
+	position:absolute;
+	top:5.1em;
+	right:0;
 	float:right;
-	margin:0;
-	height:100%;
-	width:68px;
-	padding:0;
+	z-index:400;
+	width:73px;
 	list-style:none;
 	font-size:100%;
-	background:#f7f7f7;
-	box-shadow:		-1px 1px 2px rgba(0, 0, 0, 0.25);
 	}
 
 #pin-key strong span {
 	margin-left:0.85em;
-	font-size:80%;
+	font-size:90%;
 	font-weight:normal;
 	color:#7F8B8E;
 	}
 
 #pin-key li {
-	border-bottom:1px solid #d2d2d2;
+	overflow:hidden;
+	display:block;
+	float:right;
+	width:73px;
 	line-height:1.2em;
+	background: -moz-linear-gradient(left,  rgba(255,255,255,0.9) 0%, rgba(255,255,255,1) 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0.9)), color-stop(100%,rgba(255,255,255,1)));
+	background: -webkit-linear-gradient(left,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 100%);
+	background: -o-linear-gradient(left,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 100%);
+	background: -ms-linear-gradient(left,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 100%);
+	background: linear-gradient(to right,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6ffffff', endColorstr='#ffffff',GradientType=1 );
+	transition: width 0.5s;
+	-webkit-transition: width 0.5s; /* Safari */
 	}
 #pin-key li:hover {
+	width:300px;
 	background:#daf1f3;
+	background: -moz-linear-gradient(left,  rgba(255,255,255,0.9) 0%, rgba(255,255,255,1) 10%, rgba(255,255,255,1) 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0.9)), color-stop(10%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,1)));
+	background: -webkit-linear-gradient(left,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 10%,rgba(255,255,255,1) 100%);
+	background: -o-linear-gradient(left,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 10%,rgba(255,255,255,1) 100%);
+	background: -ms-linear-gradient(left,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 10%,rgba(255,255,255,1) 100%);
+	background: linear-gradient(to right,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 10%,rgba(255,255,255,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6ffffff', endColorstr='#ffffff',GradientType=1 );
   	}
 
 #pin-key li a {
 	display:block;
-	padding:1.3em 1em 0.5em 67px;
-	/*padding:1.3em 1em 0 67px;*/
-	min-height:32px;
+	padding:0.6em 1em 0.6em 73px;
 	color:#43555A;
-	transition: min-height 2s, padding 1s;
-	-webkit-transition: min-height 2s, padding 1s; /* Safari */
+	width:600px;
   	}
 
-
-#pin-key li a .details,
-#pin-key li a .details i {
-	display:none;
-  	}
-
-#pin-key li a.selected {
+#pin-key li.selected {
+	width:300px;
 	color:#303d40;
-	background-color:#b3e2e6;
+	background-color:#fff;
 	}
 #pin-key li a.disabled {
-	opacity:0.5;
+	opacity:0.4;
 	}
 
+#pin-key li a .details i {
+	display:block;
+	height:0;
+	color:#999;
+	font-size:90%;
+	}
 
 
 
 /* = Specific Cateogry Styles */
-.networking,
-.education,
-.fairs,
-.athletic,
-.art,
-.dancing,
-.sales,
-.dining,
-.parties,
-.jobs {
-	background-position:19px 1em;
+.networking a,
+.education a,
+.fairs a,
+.athletic a,
+.art a,
+.dancing a,
+.sales a,
+.dining a,
+.nightlife a,
+.jobs a {
+	background-position:21px 0.7em;
 	background-repeat:no-repeat;
 	}
-.networking {
+.networking a {
 	background-image:url(../../img/data/pin-networking.svg);
 	}
-.education {
+.education a {
 	background-image:url(../../img/data/pin-education.svg);
 	}
-.fairs {
+.fairs a {
 	background-image:url(../../img/data/pin-fairs.svg);
 	}
-.athletic {
+.athletic a {
 	background-image:url(../../img/data/pin-athletic.svg);
 	}
-.art {
+.art a {
 	background-image:url(../../img/data/pin-art.svg);
 	}
-.dancing {
+.dancing a {
 	background-image:url(../../img/data/pin-dancing.svg);
 	}
-.sales {
+.sales a {
 	background-image:url(../../img/data/pin-sales.svg);
 	}
-.dining {
+.dining a {
 	background-image:url(../../img/data/pin-dining.svg);
 	}
-.parties {
+.nightlife a {
 	background-image:url(../../img/data/pin-nightlife.svg);
 	}
-.jobs {
+.jobs a {
 	background-image:url(../../img/data/pin-jobs.svg);
 	}
 
 /* = Media Queries
 ----------------------------------- */
+@media screen and (max-width: 770px) {
+	#pin-key {
+	top:7.5em;
+	}
+}
+
+/*
 @media screen and (min-width: 1000px) {
 	#pin-key {
 		width:25%;	
@@ -126,9 +148,10 @@
 	}
 	
 }
-
+*/
+	/*
 @media screen and (min-width: 1349px) {
-	
+
 		
 	#pin-key li a:hover {
 		padding-top:0.7em;
@@ -142,7 +165,7 @@
 	font-size:95%;
 	opacity:0;
 	transition: height 1s, opacity 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
-	-webkit-transition: height 1s, opacity 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19); /* Safari */
+	-webkit-transition: height 1s, opacity 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19); 
 	}
 
 #pin-key li a:hover .details i {
@@ -151,9 +174,11 @@
 	opacity:1;
  	}
 }
-
+*/
+/*
 @media screen and (min-width: 1400px) {
 	#pin-key {
 		width:366px;
 		}
 }
+*/
