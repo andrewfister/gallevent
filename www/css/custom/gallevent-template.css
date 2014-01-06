@@ -3,9 +3,8 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-06-2013
-** Updated: 12-11-2013
+** Updated: 01-05-2014
 ************************************** */
-
 
 html,
 body {
@@ -303,8 +302,7 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 #ui-datepicker-div {
 	z-index:800 !important;
 	background:#fff;
-	margin:12px 0 0 -2em;
-	
+	margin:0px 0 0 -2em;
 	}
 .ui-datepicker {
 	position:static;
@@ -415,7 +413,6 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 	}
 
 #map-box {
-	margin-right:-68px;
 	width:100%;
 	}
 
@@ -433,14 +430,14 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 	float:left;
 	width:100%;
 	color:#fff;
-	background: #2e89a1; /* Old browsers */
-	background: -moz-linear-gradient(top,  #2e89a1 0%, #01a1ad 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2e89a1), color-stop(100%,#01a1ad)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #2e89a1 0%,#01a1ad 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #2e89a1 0%,#01a1ad 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #2e89a1 0%,#01a1ad 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #2e89a1 0%,#01a1ad 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2e89a1', endColorstr='#01a1ad',GradientType=0 ); /* IE6-9 */
+	background: #01a1ad;
+	background: -moz-linear-gradient(left,  rgba(1,161,173,0.9) 0%, rgba(1,161,173,0.9) 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(1,161,173,0.9)), color-stop(100%,rgba(1,161,173,0.9)));
+	background: -webkit-linear-gradient(left,  rgba(1,161,173,0.9) 0%,rgba(1,161,173,0.9) 100%);
+	background: -o-linear-gradient(left,  rgba(1,161,173,0.9) 0%,rgba(1,161,173,0.9) 100%);
+	background: -ms-linear-gradient(left,  rgba(1,161,173,0.9) 0%,rgba(1,161,173,0.9) 100%);
+	background: linear-gradient(to right,  rgba(1,161,173,0.9) 0%,rgba(1,161,173,0.9) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e601a1ad', endColorstr='#e601a1ad',GradientType=1 );
 	}
 
 #top-search {
@@ -533,7 +530,7 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 #location-search {
 	position:absolute;
 	z-index:350;
-	top:8px;
+	top:6.1em;
 	left:8px;
 	float:left;
 	min-width:30em;
@@ -695,7 +692,7 @@ a.btn-post-event:hover {
 ----------------------------------- */
 #header {
 	overflow:hidden;
-	position:relative;
+	position:fixed;
 	top:0;
 	z-index:800;
 	margin:0 auto;
@@ -736,11 +733,17 @@ a.btn-post-event:hover {
 	z-index:700;
 	overflow:hidden;
 	margin:0;
-	background:#85c440;
 	color:#fff;
 	font-size:80%;
 	letter-spacing:0.08em;
-	box-shadow:		0 1px 2px rgba(0, 0, 0, 0.25);
+	background:#85c440;
+	background: -moz-linear-gradient(left,  rgba(133,196,64,0.9) 0%, rgba(133,196,64,0.9) 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(133,196,64,0.9)), color-stop(100%,rgba(133,196,64,0.9)));
+	background: -webkit-linear-gradient(left,  rgba(133,196,64,0.9) 0%,rgba(133,196,64,0.9) 100%);
+	background: -o-linear-gradient(left,  rgba(133,196,64,0.9) 0%,rgba(133,196,64,0.9) 100%);
+	background: -ms-linear-gradient(left,  rgba(133,196,64,0.9) 0%,rgba(133,196,64,0.9) 100%);
+	background: linear-gradient(to right,  rgba(133,196,64,0.9) 0%,rgba(133,196,64,0.9) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e685c440', endColorstr='#e685c440',GradientType=1 );
 	}
 
 #top-nav a {
@@ -762,26 +765,6 @@ a.btn-post-event:hover {
 #top-nav li a:hover {
 	background:#97cd5c;
 	}
-
-
-/*
-#top-nav ul {
-	float:left;
-	margin:0.05em 0 0 272px;
-	}
-
-#top-nav li {
-	display:inline-block;
-	}
-#top-nav li a {
-	display:inline-block;
-	padding:0.5em 10px 0.8em 10px;
-	}
-#top-nav li a:hover {
-	background:#97cd5c;
-	}
-
-*/
 
 #top-nav .right {
 	min-width:8em;
@@ -946,13 +929,14 @@ a.btn-post-event:hover {
 		display:none;
 		}
 }
-
+/*
 @media screen and (min-width: 1000px) {
 	#map-box {
 		margin-right:0;
 		width:75%;
 		}
 }
+*/
 
 @media screen and (min-width: 1145px) {
 	.logo-block {
@@ -1004,10 +988,11 @@ a.btn-post-event:hover {
 		width:auto;	
 		}
 }
-
+/*
 @media screen and (min-width: 1400px) {
 	#map-box {
 		margin-right:-390px;
 		width:100%;
 		}
 }
+*/
