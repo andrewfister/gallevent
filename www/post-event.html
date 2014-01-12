@@ -29,7 +29,6 @@ var eventsJSON = [];
     <div class="top-error"><h3>Oops!</h3><span class="left">There are some errors in your event post.<br />Please review the form below and correct the errors.</span></div>
     {% endif %}
     <h1>Post Your Event on Gallevent</h1>
-    <p class="form-comment">Required items are in <b class="required">green</b>.</p>
     {% endif %}
     <form method="post">
 	<fieldset>
@@ -188,8 +187,10 @@ var eventsJSON = [];
             </div><!-- .content -->
         </div><!-- .opt-tickets -->
     </fieldset>
+        <div class="main-btn-holder">
+    		<input class="btn-post-event" type="submit" value="Post Event" />
+        </div><!-- .main-btn-holder -->
         
-    <input class="btn-s-post-event" type="submit" value="Post Event" />
 	</form>
 {% endblock active_tab_content %}
 {% block right_side_content %}

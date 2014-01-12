@@ -3,7 +3,7 @@
 ** Description: Styles for User Control Section Pages
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 12-15-2013
+** Updated: 01-11-2014
 ************************************** */
 
 .user-control #container {
@@ -22,7 +22,6 @@
 	height:100%;
 	}
 
-
 .user-control #content {
 	float:left;
 	}
@@ -30,8 +29,6 @@
 #footer {
 	width:50%;
 	}
-
-
 
 .tab-container {
 	position:relative;
@@ -81,8 +78,8 @@
 	}
 
 .post-event #active-tab-content {
-	float: left;
-	margin:0 28px 0 23px;
+	float:left;
+	margin:8em 28px 0 23px;
 	}
 
 /* = Different Top Border Colors for Sections of User Account Pages */
