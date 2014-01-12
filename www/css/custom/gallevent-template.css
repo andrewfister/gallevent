@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-06-2013
-** Updated: 01-05-2014
+** Updated: 01-11-2014
 ************************************** */
 
 html,
@@ -583,13 +583,11 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 .loading {
 	position:absolute;
 	z-index:880;
-	margin-top:255px;
+	margin-top:268px;
 	text-align:center;
 	width:100%;
 	}
 .loading img {
-	width:365px;
-	height:179px;
 	opacity:0.8;
 	}
 
@@ -697,7 +695,7 @@ a.btn-post-event:hover {
 	z-index:800;
 	margin:0 auto;
 	width:100%;
-	box-shadow:		0 1px 2px rgba(0, 0, 0, 0.25);
+	box-shadow:	0 1px 4px rgba(0, 0, 0, 0.16);
 	}
 
 #header a {
