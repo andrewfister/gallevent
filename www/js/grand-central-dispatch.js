@@ -15,10 +15,17 @@ $(document).ready(function() {
         window.signInView.render();
     }
 
+    if ($('#top-search').length) {
+        window.searchView = new SearchView({
+            collection: window.events
+        });
+        window.searchView.render();
+    }
+
     if ($('#map_canvas').length) {
         window.mapEvents = new EventCollection();
         window.events.on('reset', function() {
-            window.mapEvents.reset(events.models);
+            window.mapEvents.reset(window.events.models);
         });
 
         window.mapView = new MapView({
@@ -32,12 +39,5 @@ $(document).ready(function() {
             });
             window.pinKeyView.render();
         }
-    }
-
-    if ($('#top-search').length) {
-        window.searchView = new SearchView({
-            collection: window.events
-        });
-        window.searchView.render();
     }
 });

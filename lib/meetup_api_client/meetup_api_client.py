@@ -298,7 +298,7 @@ class Group(API_Item):
                    'members','created',\
                    'description','zip','lat','lon',\
                    'city','state','country','organizerProfileURL', \
-                   'topics']
+                   'topics', 'category']
     
     def __str__(self):
          return "%s (%s)" % (self.name, self.link)
