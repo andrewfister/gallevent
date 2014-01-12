@@ -582,7 +582,7 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 ----------------------------------- */
 .loading {
 	position:absolute;
-	z-index:880;
+	z-index:790;
 	margin-top:268px;
 	text-align:center;
 	width:100%;
