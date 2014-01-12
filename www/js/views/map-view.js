@@ -19,6 +19,7 @@ var MapView = Backbone.View.extend({
         this.mapOptions.zoomControl = true;
         this.mapOptions.zoomControlOptions = {position: google.maps.ControlPosition.LEFT_CENTER};
         this.overlay = new google.maps.OverlayView();
+        this.projection = this.overlay.getProjection();
     },
 
     id: "map_canvas",
@@ -36,7 +37,9 @@ var MapView = Backbone.View.extend({
             panControl: false
     },
 
-    infoWindow: new google.maps.InfoWindow(),
+    infoWindow: new google.maps.InfoWindow({
+                                        disableAutoPan: true
+    }),
     
     geocoder: new google.maps.Geocoder(),    
 
@@ -108,6 +111,14 @@ var MapView = Backbone.View.extend({
         }.bind(this));
 
         google.maps.event.addListener(this.map, 'zoom_changed', function() {
+            this.overlay = new google.maps.OverlayView();
+            this.overlay.draw = function() {};
+            this.overlay.setMap(this.map);
+            this.projection = this.overlay.getProjection();
+            var center = this.map.getCenter();
+            
+            this.setMapLatLng(center);
+            this.setMapLocation(false);
             this.setMapRadius();
         }.bind(this));
 
@@ -115,6 +126,10 @@ var MapView = Backbone.View.extend({
             if (!this.dragging && !this.detectVisibleMarkers()) {
                 window.searchView.submitSearch();
             }
+        }.bind(this));
+        
+        google.maps.event.addListener(this.map, 'idle', function() {
+            this.projection = this.overlay.getProjection();
         }.bind(this));
 
         return this;
@@ -172,7 +187,12 @@ var MapView = Backbone.View.extend({
         google.maps.event.addListener(marker, 'click', function() {
             this.infoWindow.close();
             this.infoWindow.setContent(info);
+            this.map.panTo(marker.getPosition());
+            this.map.panBy(0, -150);
             this.infoWindow.open(this.map, marker);
+            this.overlay = new google.maps.OverlayView();
+            this.overlay.draw = function() {};
+            this.overlay.setMap(this.map);
         }.bind(this));
 
         this.markers.push(marker);
@@ -182,9 +202,16 @@ var MapView = Backbone.View.extend({
             return function() {
                 infoWindow.close();
                 infoWindow.setContent(info);
-                infoWindow.open(map,marker);
-            };
-        };
+                infoWindow.open(map, marker);
+                this.overlay = new google.maps.OverlayView();
+                this.overlay.draw = function() {};
+                this.overlay.setMap(this.map);
+                this.projection = this.overlay.getProjection();
+                if (this.projection) {
+                    this.map.panBy(0, this.projection.fromLatLngToDivPixel(marker.getPosition()).y-320);
+                }
+            }.bind(this);
+        }.bind(this);
 
         var openMarker = makeOpenMarker(marker, this.infoWindow, this.map);
         
@@ -200,10 +227,6 @@ var MapView = Backbone.View.extend({
         
         google.maps.event.addListener(this.map, 'zoom_changed', function() {
             this.setMarkerHover(marker, event);
-        
-        }.bind(this));
-        google.maps.event.addListener(this.map, 'dragend', function() {
-            this.setMarkerHover(marker, event);
         }.bind(this));
 
         event.on('open', openMarker);
@@ -216,12 +239,12 @@ var MapView = Backbone.View.extend({
             this.mapPanes = this.overlay.getPanes();
         }
         this.mapPanes.overlayMouseTarget.appendChild(marker.hoverInfo);
-        var projection = this.overlay.getProjection();
-        if (projection) {
+        this.projection = this.overlay.getProjection();
+        if (this.projection) {
             var markerLatLng = marker.getPosition();
-            var markerPosition = projection.fromLatLngToDivPixel(markerLatLng);
+            var markerPosition = this.projection.fromLatLngToDivPixel(markerLatLng);
             marker.hoverInfo.style.left = (markerPosition.x + 25) + 'px';
-            marker.hoverInfo.style.top = (markerPosition.y - 30) + 'px';
+            marker.hoverInfo.style.top = (markerPosition.y- 30) + 'px';
         }
     },
 
@@ -253,7 +276,7 @@ var MapView = Backbone.View.extend({
             }
         }
 
-        if (this.map !== undefined) {
+        if (this.map !== undefined && !this.map.getCenter().equals(this.mapLocation)) {
             this.centerMap(this.mapLocation);
         }
     },
