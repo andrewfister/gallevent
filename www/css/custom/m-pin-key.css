@@ -3,7 +3,7 @@
 ** Description: Control for Event Categories
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 11-17-2013
+** Updated: 12-24-2013
 ************************************** */
 
 /* = Position Pin Key Within Container */
@@ -27,7 +27,6 @@
 	}
 #pin-key li:hover {
 	background:#daf1f3;
-	/* background:#E5F9F9; */
   	}
 
 #pin-key li a {
@@ -37,13 +36,12 @@
 	color:#43555A;
   	}
 #pin-key li a.selected {
-	color:#b3e2e6;
-	background-color:#fff;
+	color:#303d40;
+	background-color:#b3e2e6;
 	}
 #pin-key li a.disabled {
 	opacity:0.5;
 	}
-
 
 /* = Specific Cateogry Styles */
 .networking,
@@ -54,39 +52,39 @@
 .dancing,
 .sales,
 .dining,
-.parties,
+.nightlife,
 .jobs {
 	background-position:center;
 	background-repeat:no-repeat;
 	}
 .networking {
-	background-image:url(../../img/data/pin-networking-31x32.svg);
+	background-image:url(../../img/data/pin-networking.svg);
 	}
 .education {
-	background-image:url(../../img/data/pin-education-31x32.svg);
+	background-image:url(../../img/data/pin-education.svg);
 	}
 .fairs {
-	background-image:url(../../img/data/pin-fairs-31x32.svg);
+	background-image:url(../../img/data/pin-fairs.svg);
 	}
 .athletic {
-	background-image:url(../../img/data/pin-athletic-31x32.svg);
+	background-image:url(../../img/data/pin-athletic.svg);
 	}
 .art {
-	background-image:url(../../img/data/pin-art-31x32.svg);
+	background-image:url(../../img/data/pin-art.svg);
 	}
 .dancing {
-	background-image:url(../../img/data/pin-dancing-v2-31x32.svg);
+	background-image:url(../../img/data/pin-dancing.svg);
 	}
 .sales {
-	background-image:url(../../img/data/pin-sales-31x32.svg);
+	background-image:url(../../img/data/pin-sales.svg);
 	}
 .dining {
-	background-image:url(../../img/data/pin-dining-31x32.svg);
+	background-image:url(../../img/data/pin-dining.svg);
 	}
-.parties {
-	background-image:url(../../img/data/pin-parties-31x32.svg);
+.nightlife {
+	background-image:url(../../img/data/pin-nightlife.svg);
 	}
 .jobs {
-	background-image:url(../../img/data/pin-jobs-31x32.svg);
+	background-image:url(../../img/data/pin-jobs.svg);
 	}
 

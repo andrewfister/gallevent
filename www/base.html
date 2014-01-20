@@ -9,11 +9,12 @@
 <link rel="stylesheet" type="text/css" href="/static/css/framework/normalize.css" />
 <link rel="stylesheet" type="text/css" href="/static/css/framework/html-boilerplate.css" />
 <link rel="stylesheet" type="text/css" href="/static/css/custom/gallevent-template.css" />
+
 {% block css %}{% endblock css %}
 
 {% block prejavascript %}{% endblock prejavascript %}
 <script type="text/javascript" src="/static/js/jquery.min.js"></script>
-<script type="text/javascript" src="/static/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery-ui.min.js"></script> <!-- there is something about this file causing a space at the top of the home page. Doesn't matter where I move this file, it still adds space. Space goes away when you comment it out. -->
 <script type="text/javascript" src="/static/js/jquery.watermark.js"></script>
 <script type="text/javascript" src="/static/js/jquery.cookie.js"></script>
 <script type="text/javascript" src="/static/js/mustache/mustache-0.3.0.js"></script>
@@ -27,6 +28,7 @@
 {% block mapjavascript %}{% endblock mapjavascript %}
 {% block viewjavascript %}{% endblock viewjavascript %}
 <script type="text/javascript" src="/static/js/grand-central-dispatch.js"></script>
+
 {% block javascript %}{% endblock javascript %}
 </head>
 
@@ -37,7 +39,7 @@
         <img src="/static/img/icon-cal-arrow-r-h.png" alt="arrow" />
     </div>
 
-    <div id="container">
+    
     {% block header %}
         <div id="header">
             <div class="logo-block">
@@ -113,7 +115,6 @@
                 <span class="copyright">&copy; 2013. All Rights Reserved.</span>
             </div><!-- #footer -->
         {% endblock footer %}
-    </div><!-- #container -->
     
     <!-- Google Analytics -->
     <script type="text/javascript">
