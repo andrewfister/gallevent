@@ -23,16 +23,12 @@ var eventsJSON = [];
 
 {% block active_tab_content %}
     {% if edit %}
-    <div class="hidden">
-    <img src="/static/img/btn-s-post-event-h.png" alt="Post Event Button Hover" />
-    </div><!-- .hidden -->
-    <h2><a href="{% url 'gallevent.event.views.show_events' %}">Your Posts</a>: Edit Your Event</h2>
+    <h1><a href="{% url 'gallevent.event.views.show_events' %}">Your Posts</a>: Edit Your Event</h1>
     {% else %}
     {% if form.errors %}
     <div class="top-error"><h3>Oops!</h3><span class="left">There are some errors in your event post.<br />Please review the form below and correct the errors.</span></div>
     {% endif %}
-    <h2>Post Your Event on Gallevent</h2>
-    <p class="form-comment">Required items are in <b class="required">green</b>.</p>
+    <h1>Post Your Event on Gallevent</h1>
     {% endif %}
     <form method="post">
 	<fieldset>
@@ -44,7 +40,7 @@ var eventsJSON = [];
          	{% endfor %}
         {% endif %}
         <span id="event-category-value" class="hidden" value="{{ form.category.value }}"></span>
-        <select id="event-category" class="input-standard" name="category" repost="{{ form.category.value }}">
+        <select id="event-category" class="input-standard select" name="category" repost="{{ form.category.value }}">
             <option value="networking" id="select-networking">Networking</option>
             <option value="education" id="select-education">Education</option>
             <option value="fairs" id="select-fairs">Fairs &amp; Festivals</option>
@@ -191,10 +187,12 @@ var eventsJSON = [];
             </div><!-- .content -->
         </div><!-- .opt-tickets -->
     </fieldset>
+        <div class="main-btn-holder">
+    		<input class="btn-post-event" type="submit" value="Post Event" />
+        </div><!-- .main-btn-holder -->
         
-    <input class="btn-s-post-event" type="submit" value="Post Event" />
 	</form>
 {% endblock active_tab_content %}
-{% block map %}
+{% block right_side_content %}
 	{% show_map %}
-{% endblock map %}
+{% endblock right_side_content %}
