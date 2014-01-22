@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-06-2013
-** Updated: 01-11-2014
+** Updated: 01-22-2014
 ************************************** */
 
 html,
@@ -888,6 +888,35 @@ a.btn-post-event:hover {
 
 /* = Media Queries
 ----------------------------------- */
+@media screen and (max-width: 470px) {
+	#top-search label,
+	#top-search #event,
+	#top-search button span {
+		display:none;	
+		}
+	
+	#top-search .select {
+		width:27.5%;
+		}
+	
+	#top-search .select, #top-search #date {
+		margin-right: 1%;
+		}
+	
+	#top-search button {
+		float:left;
+		margin:0;
+		width:auto;
+		height:2.25em;
+		padding-left: 0.6em;
+		padding-right: 1.6em;
+		}
+	
+	#location-search {
+		top: 6.2em !important;
+		}
+}
+
 @media screen and (min-width: 530px) {
 	#top-search .select {
 		width:30%;
