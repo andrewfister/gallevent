@@ -126,10 +126,6 @@
 /* = Media Queries
 ----------------------------------- */
 @media screen and (max-width: 470px) {
-	#pin-key {
-		top: 5.1em !important;
-		}
-	
 	#pin-key li:hover {
 		width:73px;
   		}

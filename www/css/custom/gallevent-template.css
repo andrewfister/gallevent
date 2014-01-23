@@ -8,7 +8,6 @@
 
 html,
 body {
-	min-width:461px;
 	background:#e6e6e6;
 	font-family:Arial, Helvetica, sans-serif !important;
 	}
@@ -889,31 +888,46 @@ a.btn-post-event:hover {
 /* = Media Queries
 ----------------------------------- */
 @media screen and (max-width: 470px) {
+	.logo {
+		margin-right:1em;	
+		}
+	
+	.logo,
+	#top-search {
+		margin-left:0.5em;	
+		}
+	
 	#top-search label,
-	#top-search #event,
 	#top-search button span {
 		display:none;	
 		}
 	
 	#top-search .select {
-		width:27.5%;
+		width:38%;
 		}
 	
-	#top-search .select, #top-search #date {
+	#top-search .select,
+	#top-search #date {
 		margin-right: 1%;
 		}
 	
-	#top-search button {
-		float:left;
-		margin:0;
-		width:auto;
-		height:2.25em;
-		padding-left: 0.6em;
-		padding-right: 1.6em;
+	#top-search .time-span {
+		clear:both;	
 		}
 	
-	#location-search {
-		top: 6.2em !important;
+	#top-search #date {
+		width:35%;
+		}
+	
+	#top-search button {
+		margin:0;
+		width:14.5%;
+		height:2.25em;
+		padding:0;
+		}
+	
+	#top-search button svg {
+		margin-left:5%;
 		}
 }
 
