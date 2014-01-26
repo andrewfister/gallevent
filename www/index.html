@@ -9,7 +9,7 @@
 
 {% block prejavascript %}
 <script>
-var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ event.user_id }},address: "{{ event.address|escapejs }}",subpremise: "{{ event.subpremise|escapejs }}",city: "{{ event.city|escapejs }}",state: "{{ event.state|escapejs }}",zipcode: "{{ event.zipcode|escapejs }}",name: "{{ event.name|escapejs }}",category: "{{ event.category|escapejs }}",ticket_price: {{ event.ticket_price }},start_date: "{{ event.start_date|escapejs }}",end_date: "{{ event.end_date|escapejs }}",description: "{{ event.description|escapejs }}",organizer_email: "{{ event.organizer_email|escapejs }}",organizer_phone: "{{ event.organizer_phone|escapejs }}",organizer_url: "{{ event.organizer_url|escapejs }}",latitude: {{ event.latitude }},longitude: {{ event.longitude }} }, {% endfor %} ];
+window.eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ event.user_id }},address: "{{ event.address|escapejs }}",subpremise: "{{ event.subpremise|escapejs }}",city: "{{ event.city|escapejs }}",state: "{{ event.state|escapejs }}",zipcode: "{{ event.zipcode|escapejs }}",name: "{{ event.name|escapejs }}",category: "{{ event.category|escapejs }}",ticket_price: {{ event.ticket_price }},start_date: "{{ event.start_date|escapejs }}",end_date: "{{ event.end_date|escapejs }}",description: "{{ event.description|escapejs }}",organizer_email: "{{ event.organizer_email|escapejs }}",organizer_phone: "{{ event.organizer_phone|escapejs }}",organizer_url: "{{ event.organizer_url|escapejs }}",latitude: {{ event.latitude }},longitude: {{ event.longitude }} }, {% endfor %} ];
 </script>
 {% endblock prejavascript %}
 
@@ -17,6 +17,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
  <!-- there is something about these files causing a space at the top of the home page. Doesn't matter where I move this file, it still adds space. Space goes away when you comment it out. -->
 <script type="text/javascript" src="/static/js/views/search-view.js"></script>
 <script type="text/javascript" src="/static/js/views/pin-key-view.js"></script>
+<script type="text/javascript" src="/static/js/controllers/front-page-controller.js"></script>
 {% endblock viewjavascript %}
 
 {% block body-class %}home{% endblock body-class %}

@@ -6,18 +6,21 @@
 
 {% block prejavascript %}
 <script>
-var eventsJSON = [];
+var eventJSON = {};
 </script>
 {% endblock %}
 
 {% block javascript %}
-<script type="text/javascript" src="/static/js/models/event-model.js"></script>
-<script type="text/javascript" src="/static/js/views/post-event-view.js"></script>
-<!-- START Timepicker -->
 <script type="text/javascript" src="/static/js/jquery.timepicker.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/static/css/jquery.timepicker.css" />
-<!-- END Timepicker -->
 {% endblock javascript %}
+
+{% block viewjavascript %}
+<script type="text/javascript" src="/static/js/models/event-model.js"></script>
+<script type="text/javascript" src="/static/js/views/map-view.js"></script>
+<script type="text/javascript" src="/static/js/views/post-event-view.js"></script>
+<script type="text/javascript" src="/static/js/controllers/post-event-controller.js"></script>
+{% endblock viewjavascript %}
 
 {% block selected_page %}{% if edit %}your-posts{% else %}post-event{% endif %}{% endblock %}
 
@@ -30,7 +33,7 @@ var eventsJSON = [];
     {% endif %}
     <h1>Post Your Event on Gallevent</h1>
     {% endif %}
-    <form method="post">
+    <form method="post" id="post-event">
 	<fieldset>
         <legend>1. What type of event is this?</legend>
         <label for="event-category" class="required">Select an event category:</label>
@@ -48,7 +51,7 @@ var eventsJSON = [];
             <option value="art" id="select-art">Art &amp; Music</option>
             <option value="dancing" id="select-dancing">Dancing</option>
             <option value="dining" id="select-dining">Dining</option>
-            <option value="parties" id="select-parties">Nightlife &amp; Parties</option>
+            <option value="nightlife" id="select-nightlife">Nightlife &amp; Parties</option>
         </select>
     </fieldset>
     <fieldset>
