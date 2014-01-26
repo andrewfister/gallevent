@@ -3,7 +3,7 @@ $(document).ready(function() {
     window.events = new EventSearchCollection();
 
     if (typeof eventsJSON !== 'undefined') {
-        window.events.reset(eventsJSON);
+        window.events.reset(window.eventsJSON);
     }
 
     if ($('.sign-in-status').length) {
