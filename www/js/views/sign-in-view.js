@@ -17,6 +17,8 @@ var SignInView = Backbone.View.extend({
                 this.signIn();
             }
         }.bind(this));
+        
+        this.render();
     },
     
     render: function() {

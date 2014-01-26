@@ -28,6 +28,7 @@ var PinKeyView = Backbone.View.extend({
         }, this);
         
         this.collection.on('reset', this.updatePinKeys.bind(this));
+        this.render();
     },
     
     updatePinKeys: function() {

@@ -29,6 +29,8 @@ var PostEventView = Backbone.View.extend({
             $('.btn-tickets').addClass("active");
 
         });
+        
+        this.render();
     },
     render: function() {
         //START Limit characters in textarea 

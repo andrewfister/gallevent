@@ -14,7 +14,7 @@ window.eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ 
 {% endblock prejavascript %}
 
 {% block viewjavascript %}
- <!-- there is something about these files causing a space at the top of the home page. Doesn't matter where I move this file, it still adds space. Space goes away when you comment it out. -->
+<script type="text/javascript" src="/static/js/models/event-model.js"></script>
 <script type="text/javascript" src="/static/js/views/search-view.js"></script>
 <script type="text/javascript" src="/static/js/views/pin-key-view.js"></script>
 <script type="text/javascript" src="/static/js/controllers/front-page-controller.js"></script>
