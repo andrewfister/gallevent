@@ -3,7 +3,7 @@
 ** Description: Control for Event Categories
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 01-05-2014
+** Updated: 01-22-2014
 ************************************** */
 
 /* = Position Pin Key Within Container */
@@ -44,13 +44,13 @@
 #pin-key li:hover {
 	width:300px;
 	background:#daf1f3;
-	background: -moz-linear-gradient(left,  rgba(255,255,255,0.9) 0%, rgba(255,255,255,1) 10%, rgba(255,255,255,1) 100%);
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0.9)), color-stop(10%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,1)));
-	background: -webkit-linear-gradient(left,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 10%,rgba(255,255,255,1) 100%);
-	background: -o-linear-gradient(left,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 10%,rgba(255,255,255,1) 100%);
-	background: -ms-linear-gradient(left,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 10%,rgba(255,255,255,1) 100%);
-	background: linear-gradient(to right,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 10%,rgba(255,255,255,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6ffffff', endColorstr='#ffffff',GradientType=1 );
+	background: -moz-linear-gradient(left,  rgba(218,241,243,0.9) 0%, rgba(218,241,243,1) 10%, rgba(218,241,243,1) 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(218,241,243,0.9)), color-stop(10%,rgba(218,241,243,1)), color-stop(100%,rgba(218,241,243,1)));
+	background: -webkit-linear-gradient(left,  rgba(218,241,243,0.9) 0%,rgba(218,241,243,1) 10%,rgba(218,241,243,1) 100%);
+	background: -o-linear-gradient(left,  rgba(218,241,243,0.9) 0%,rgba(218,241,243,1) 10%,rgba(218,241,243,1) 100%);
+	background: -ms-linear-gradient(left,  rgba(218,241,243,0.9) 0%,rgba(218,241,243,1) 10%,rgba(218,241,243,1) 100%);
+	background: linear-gradient(to right,  rgba(218,241,243,0.9) 0%,rgba(218,241,243,1) 10%,rgba(218,241,243,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#daf1f3', endColorstr='#daf1f3',GradientType=1 );
   	}
 
 #pin-key li a {
@@ -63,7 +63,7 @@
 #pin-key li.selected {
 	width:300px;
 	color:#303d40;
-	background-color:#fff;
+	background-color:#b3e2e6;
 	}
 #pin-key li a.disabled {
 	opacity:0.4;
@@ -125,6 +125,12 @@
 
 /* = Media Queries
 ----------------------------------- */
+@media screen and (max-width: 470px) {
+	#pin-key li:hover {
+		width:73px;
+  		}
+}
+
 @media screen and (max-width: 770px) {
 	#pin-key {
 	top:7.5em;
