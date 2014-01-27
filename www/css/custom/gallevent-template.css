@@ -474,14 +474,15 @@ form input#end-time {
 
 #top-search #event,
 #top-search .select,
-#top-search #date {
-  border:1px solid #b3e3e7;
-  }
+#top-search #date,
+#location-search input {
+	border:1px solid #b3e3e7;
+	}
 
 #top-search .select,
 #top-search #date {
-  margin-right:2%;
-  }
+	margin-right:2%;
+	}
 
 #top-search #event {
 	margin-right:1.6%;
@@ -551,10 +552,6 @@ form input#end-time {
 #location-search input,
 #location-search button {
 	float:left;
-	}
-
-#location-search input {
-	border:1px solid #b3e3e7;
 	}
 
 #location-search button {
@@ -888,7 +885,7 @@ a.btn-post-event:hover {
 		height:1000px;
 		}
 }
-@media screen and (max-width: 470px) {
+@media screen and (max-width: 480px) {
 	.logo {
 		margin-right:1em;	
 		}
@@ -898,13 +895,17 @@ a.btn-post-event:hover {
 		margin-left:0.5em;	
 		}
 	
+	#top-nav ul {
+		margin-left:98px;	
+		}
+	
 	#top-search label,
 	#top-search button span {
 		display:none;	
 		}
 	
 	#top-search .select {
-		width:38%;
+		width:45%;
 		}
 	
 	#top-search .select,
@@ -928,13 +929,43 @@ a.btn-post-event:hover {
 		}
 	
 	#top-search button svg {
-		margin-left:5%;
+		margin-left:19%;
+		}
+	
+	#location-search input {
+		width:30%;
+		}
+}
+
+@media screen and (min-width: 480px) {
+	#top-search .select {
+		width:32%;
+		}
+	
+	#top-search #date {
+		width:30%;
+		}
+	
+	#top-search button {
+		float:left;
+		width:22%;
+		margin-left:1.2%;
 		}
 }
 
 @media screen and (min-width: 530px) {
 	#top-search .select {
+		width:33%;
+		}
+	
+	#top-search #date {
 		width:30%;
+		}
+	
+	#top-search button {
+		float:left;
+		width:22%;
+		margin-left:1.2%;
 		}
 }
 
@@ -952,7 +983,8 @@ a.btn-post-event:hover {
 		width:20%;	
 		}
 	#top-search #date {
-		width:15%;	
+		width:18%;
+		margin-left:1%;
 		}
 	#top-search .select {
 		width:17%;
@@ -1017,7 +1049,7 @@ a.btn-post-event:hover {
 		}
 	
 	#top-search #date {
-		width:12%;	
+		width:15%;	
 		}
 	
 	#top-search .select {
