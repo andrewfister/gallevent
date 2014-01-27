@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-06-2013
-** Updated: 01-22-2014
+** Updated: 01-26-2014
 ************************************** */
 
 html,
@@ -83,7 +83,8 @@ legend {
   } 
 
 input,
-select {
+.select {
+	font-size:100%;
 	border-radius:4px;
 	padding-left:2%;
 	padding-right:2%;
@@ -226,74 +227,65 @@ height:2.5em;
 #select-dining,
 #select-nightlife,
 #select-jobs {
-height:2em;
-padding:5px 5px 0 40px;
-}
+  height:2em;
+  padding:5px 5px 0 40px;
+  }
 
 #select-fairs {
-background:url(../img/pin-key-fairs.png) top left no-repeat;
-}
+  background:url(../img/pin-key-fairs.png) top left no-repeat;
+  }
 #select-networking {
-background:url(../img/pin-key-networking.png) top left no-repeat;
-}
+  background:url(../img/pin-key-networking.png) top left no-repeat;
+  }
 #select-education {
-background:url(../img/pin-key-education.png) top left no-repeat;
-}
+  background:url(../img/pin-key-education.png) top left no-repeat;
+  }
 #select-athletic {
-background:url(../img/pin-key-athletic.png) top left no-repeat;
-}
+  background:url(../img/pin-key-athletic.png) top left no-repeat;
+  }
 #select-art {
   background:url(../img/pin-key-art.png) top left no-repeat;
-    }
-    #select-dancing {
-        background:url(../img/pin-key-dancing.png) top left no-repeat;
-          }
-          #select-sales {
-                                                                                              background:url(../img/pin-key-sales.png) top left no-repeat;
-                                                                                                }
-                                                                                                #select-dining {
-                                                                                                    background:url(../img/pin-key-dining.png) top left no-repeat;
-                                                                                                      }
-                                                                                                      #select-nightlife {
-                                                                                                          background:url(../img/pin-key-nightlife.png) top left no-repeat;
-                                                                                                            }
-                                                                                                            #select-jobs {
-                                                                                                                background:url(../img/pin-key-jobs.png) top left no-repeat;
-                                                                                                                  }
+  }
+#select-dancing {
+  background:url(../img/pin-key-dancing.png) top left no-repeat;
+  }
+#select-sales {
+  background:url(../img/pin-key-sales.png) top left no-repeat;
+  }
+#select-dining {
+  background:url(../img/pin-key-dining.png) top left no-repeat;
+  }
+#select-nightlife {
+  background:url(../img/pin-key-nightlife.png) top left no-repeat;
+  }
+#select-jobs {
+  background:url(../img/pin-key-jobs.png) top left no-repeat;
+  }
 
-                                                                                                                  form input#city {
-                                                                                                                      width:40%;
-                                                                                                                        }
+form input#city {
+  width:40%;
+  }
 
-                                                                                                                        form input#zip-code,
-                                                                                                                        form input#ticket-price,
-                                                                                                                        form input#rsvp-limit {
-                                                                                                                            width:20%;
-                                                                                                                              margin-right:15px;
-                                                                                                                                }
+form input#zip-code,
+form input#ticket-price,
+form input#rsvp-limit {
+  width:20%;
+  margin-right:15px;
+  }
 
-                                                                                                                                form input#start-date,
-                                                                                                                                form input#start-time,
-                                                                                                                                form input#end-date,
-                                                                                                                                form input#end-time {
-                                                                                                                                    width:100px;
-                                                                                                                                      }
+form input#start-date,
+form input#start-time,
+form input#end-date,
+form input#end-time {
+  width:100px;
+  }
 
-                                                                                                                                      .sort {
-                                                                                                                                          float:right; /* Used to place the sort label and dropdown next to the category heading on Your Post Page */
-                                                                                                                                            }
+.sort {
+  float:right; /* Used to place the sort label and dropdown next to the category heading on Your Post Page */
+  }
 
-                                                                                                                                            .sort label {
-                                                                                                                                                float:left;
-                                                                                                                                                  clear:none;
-                                                                                                                                                    margin:0 0.5em 1em 0;
-                                                                                                                                                      }
-
-                                                                                                                                                      #active-sort-by1,
-                                                                                                                                                      #active-sort-by2,
-                                                                                                                                                      #active-sort-by3 {
-                                                                                                                                                          margin-bottom:.5em;
-                                                                                                                                                            }
+                                                                                                                                            .sort label {																																			float:left;																																			clear:none;																																			margin:0 0.5em 1em 0;																																					}
+																																																																				#active-sort-by1,																																			#active-sort-by2,																																					#active-sort-by3 {																																				margin-bottom:.5em;																																					  }
 
 
 /* = Global Calendar Datepicker
@@ -399,10 +391,9 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 ----------------------------------- */
 #map-feature {
 	position:relative;
-	overflow:hidden;
 	float:left;
 	width:100%;
-	height:40em;
+	height:auto;
 	}
 
 #map-box,
@@ -417,7 +408,7 @@ background:url(../img/pin-key-athletic.png) top left no-repeat;
 
 #map_canvas {
 	width:100%;
-	height:40em;
+	height:800px;
 	}
 
 
@@ -887,6 +878,16 @@ a.btn-post-event:hover {
 
 /* = Media Queries
 ----------------------------------- */
+@media screen and (min-height: 900px) {
+	#map_canvas {
+		height:900px;
+		}
+}
+@media screen and (min-height: 1000px) {
+	#map_canvas {
+		height:1000px;
+		}
+}
 @media screen and (max-width: 470px) {
 	.logo {
 		margin-right:1em;	

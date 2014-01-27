@@ -3,10 +3,104 @@
 ** Description: Styles Specific to Home Page
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 10-13-2013
-** Updated: 10-13-2013
+** Updated: 10-26-2014
 ************************************** */
 
-#marketing-find {
+.marketing,
+.photos .row1col1,
+.photos .row1col2,
+.photos .row1col3,
+.photos .row2col1,
+.photos .row2col2,
+.photos .row2col3 {
+	float:left;
+	}
+
+.marketing {
+	position:relative;
+	overflow:hidden;
+	height:32em;
+	color:#fff;
+	}
+
+.marketing .angled-block {
+	position:absolute;
+	top:0;
+	left:0;
+	width:21em;
+	height:120%;
+	padding:3em 9em 3em 3.5em;
+	background:url(../../img/data/blue-angle-80.svg) top right no-repeat;
+	}
+
+.angled-block h2 {
+	color:#fff;
+	font-size:240%;
+	}
+.angled-block h2 strong {
+	display:block;
+	margin-top: -0.2em;
+	font-size:150%;
+	font-weight:200;
+	}
+
+.angled-block p {
+	font-size:150%;
+	width:14em;
+	opacity:0.8;
+	}
+
+.photos {
+	height:100%;
+	}
+
+.photos .row1col1,
+.photos .row1col2,
+.photos .row1col3,
+.photos .row2col1,
+.photos .row2col2,
+.photos .row2col3 {
+	width:33.3333333%;
+	height:50%;
+	background-size:cover;
+	text-indent:-9999px;
+	}
+
+.photos .row2col3 {
+	position:relative;
+	text-indent:0;
+	font-size:80%;
+	text-align:right;
+	}
+
+.photos .row2col3 span {
+	position:absolute;
+	bottom:1em;
+	right:1em;
+	}
+
+.photos .row1col1 {
+	background:url(../../img/photo1-800w.jpg) center no-repeat;
+	}
+.photos .row1col2 {
+	background:url(../../img/photo2-800w.jpg) center no-repeat;
+	}
+.photos .row1col3 {
+	background:url(../../img/photo3-800w.jpg) center no-repeat;
+	}
+.photos .row2col1 {
+	background:url(../../img/photo4-800w.jpg) center no-repeat;
+	}
+.photos .row2col2 {
+	background:url(../../img/photo5-800w.jpg) center no-repeat;
+	}
+.photos .row2col3 {
+	background:url(../../img/photo6-800w.jpg) center no-repeat;
+	}
+
+
+.marketing {
+	width:100%;
 	}
 
 #sponsors {
