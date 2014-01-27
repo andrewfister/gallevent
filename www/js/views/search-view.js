@@ -1,6 +1,10 @@
 var SearchView = Backbone.View.extend({
     id: "top-search",
     searchTerms: "default",
+    
+    initialize: function() {
+        this.render()
+    },
 
     render: function() {
         $("#date").datepicker({ dateFormat: "mm/dd/yy", onSelect: this.changeDate, firstDay: 1, beforeShowDay: this.styleDates, minDate: new Date(), constrainInput: true });
