@@ -14,9 +14,10 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
 {% endblock prejavascript %}
 
 {% block viewjavascript %}
- <!-- there is something about these files causing a space at the top of the home page. Doesn't matter where I move this file, it still adds space. Space goes away when you comment it out. -->
+<script type="text/javascript" src="/static/js/models/event-model.js"></script>
 <script type="text/javascript" src="/static/js/views/search-view.js"></script>
 <script type="text/javascript" src="/static/js/views/pin-key-view.js"></script>
+<script type="text/javascript" src="/static/js/controllers/front-page-controller.js"></script>
 {% endblock viewjavascript %}
 
 {% block body-class %}home{% endblock body-class %}
@@ -143,6 +144,21 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
     </ul><!-- #pin-key -->
     </div><!-- #map-feature -->
     
+    <div id="marketing">
+    	<div class="angled-block">
+        	<h2>The best way to <strong>find events</strong></h2>
+            <p>Gallevent<sup>&trade;</sup> searches the web for events and brings them all to you in one place, on one easy to use map.</p>
+        </div>
+        <div class="photos">
+        	<div class="row1col1">Bryan Nay Photo 1</div>
+            <div class="row1col2">Bryan Nay Photo 2</div>
+            <div class="row1col3">Bryan Nay Photo 3</div>
+            <div class="row2col1">Bryan Nay Photo 4</div>
+            <div class="row2col2">Bryan Nay Photo 5</div>
+            <div class="row2col3"><span>Photography by Bryan Nay</span></div>
+        </div>
+    </div>
+    
     <div id="sponsors">
     	<div class="center">
             <h3>Project Sponsors</h3>
@@ -164,14 +180,4 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
             </ul>
     	</div><!-- .center -->
     </div><!-- #sponsors -->
-    
-    <!--
-    <div id="marketing">
-    	<div class="angled-block">
-        	<h2>The new way to <strong>find events</strong></h2>
-            <p>Gallevent&trade; searches the web for events and brings them all to you in one place, on one easy to use map.</p>
-        </div>
-    </div>
-    
-    -->
 {% endblock content %}

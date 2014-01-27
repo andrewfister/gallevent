@@ -20,6 +20,8 @@ var MapView = Backbone.View.extend({
         this.mapOptions.zoomControlOptions = {position: google.maps.ControlPosition.LEFT_CENTER};
         this.overlay = new google.maps.OverlayView();
         this.projection = this.overlay.getProjection();
+        
+        this.render();
     },
 
     id: "map_canvas",
