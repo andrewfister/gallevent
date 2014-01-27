@@ -880,11 +880,13 @@ a.btn-post-event:hover {
 		height:900px;
 		}
 }
+
 @media screen and (min-height: 1000px) {
 	#map_canvas {
 		height:1000px;
 		}
 }
+
 @media screen and (max-width: 480px) {
 	.logo {
 		margin-right:1em;	
@@ -929,11 +931,27 @@ a.btn-post-event:hover {
 		}
 	
 	#top-search button svg {
-		margin-left:16%;
+		margin-left:10%;
 		}
 	
 	#location-search input {
 		width:30%;
+		}
+}
+
+@media screen and (max-width: 350px) {
+#top-search #event {
+	width:55%;
+	}
+#top-search .select {
+		width:38%;
+		}
+#top-search #date {
+		width:40%;
+		}
+	
+	#top-search button svg {
+		margin-left:10%;
 		}
 }
 
