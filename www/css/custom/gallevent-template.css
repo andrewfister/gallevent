@@ -83,16 +83,10 @@ legend {
   } 
 
 input,
-.select {
-	font-size:100%;
+select {
 	border-radius:4px;
-	padding-left:2%;
-	padding-right:2%;
-	}
-
-input {
-	padding-top:0.6em;
-	padding-bottom:0.6em;
+	padding:0.6em 2% 0.6em 2%;
+	font-size:100%;
 	}
 
 select {
@@ -104,11 +98,10 @@ select {
 	}
 
 .select {
+	overflow:hidden;
 	border-radius:4px;
-	padding:0.45em 0 0.3em 0.3em;
 	background:#fff url(../../img/data/drop-down-arrow.svg) right center no-repeat;
 	background-size:contain;
-	overflow:hidden;
 	}
 .select:hover {
 	background:#fff url(../../img/data/drop-down-arrow-h.svg) right center no-repeat;
@@ -197,7 +190,7 @@ form label {
 label.required {
 color:#5EBF31; /* Green */
 }
-
+/*
 form input,
 form textarea,
 form select#state,
@@ -206,6 +199,7 @@ width:70%;
 padding:.5em;
 margin-bottom:0.99em;
 }
+*/
 form textarea {
 min-height:12.5em;
 }
