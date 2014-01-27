@@ -6,7 +6,7 @@
 ** Updated: 10-26-2014
 ************************************** */
 
-.marketing,
+#marketing,
 .photos .row1col1,
 .photos .row1col2,
 .photos .row1col3,
@@ -16,14 +16,14 @@
 	float:left;
 	}
 
-.marketing {
+#marketing {
 	position:relative;
 	overflow:hidden;
 	height:32em;
 	color:#fff;
 	}
 
-.marketing .angled-block {
+#marketing .angled-block {
 	position:absolute;
 	top:0;
 	left:0;
@@ -99,7 +99,7 @@
 	}
 
 
-.marketing {
+#marketing {
 	width:100%;
 	}
 
