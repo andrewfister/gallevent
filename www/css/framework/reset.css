@@ -41,4 +41,7 @@ select, option, input, type, button {
 	font-size:100%;
 	vertical-align:baseline;
 	box-shadow:none;
+	box-sizing:			border-box;
+	-moz-box-sizing:	border-box;
+	-webkit-box-sizing:	border-box;
 	}
