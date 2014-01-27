@@ -934,25 +934,25 @@ a.btn-post-event:hover {
 		margin-left:10%;
 		}
 	
-	#location-search input {
-		width:30%;
+	#location-search {
+		display:none;	
 		}
 }
 
 @media screen and (max-width: 350px) {
-#top-search #event {
-	width:55%;
-	}
-#top-search .select {
-		width:38%;
-		}
-#top-search #date {
-		width:40%;
-		}
-	
-	#top-search button svg {
-		margin-left:10%;
-		}
+		#top-search #event {
+			width:56%;
+			}
+		#top-search .select {
+			width:38%;
+			}
+		#top-search #date {
+			width:41%;
+			}
+		
+		#top-search button svg {
+			margin-left:10%;
+			}
 }
 
 @media screen and (min-width: 480px) {
