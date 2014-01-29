@@ -195,16 +195,7 @@ form label {
 label.required {
 color:#5EBF31; /* Green */
 }
-/*
-form input,
-form textarea,
-form select#state,
-form select#event-category {
-width:70%;
-padding:.5em;
-margin-bottom:0.99em;
-}
-*/
+
 form textarea {
 min-height:12.5em;
 }
@@ -419,14 +410,7 @@ form input#end-time {
 	float:left;
 	width:100%;
 	color:#fff;
-	background: #01a1ad;
-	background: -moz-linear-gradient(left,  rgba(1,161,173,0.9) 0%, rgba(1,161,173,0.9) 100%);
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(1,161,173,0.9)), color-stop(100%,rgba(1,161,173,0.9)));
-	background: -webkit-linear-gradient(left,  rgba(1,161,173,0.9) 0%,rgba(1,161,173,0.9) 100%);
-	background: -o-linear-gradient(left,  rgba(1,161,173,0.9) 0%,rgba(1,161,173,0.9) 100%);
-	background: -ms-linear-gradient(left,  rgba(1,161,173,0.9) 0%,rgba(1,161,173,0.9) 100%);
-	background: linear-gradient(to right,  rgba(1,161,173,0.9) 0%,rgba(1,161,173,0.9) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e601a1ad', endColorstr='#e601a1ad',GradientType=1 );
+	background:rgba(1,161,173,0.9);
 	}
 
 #top-search {
@@ -622,7 +606,7 @@ button {
 
 #top-search button {
 	width: 13%;
-	height:2.4em;
+	height:2.45em;
 	}
 #top-search button span {
 	margin-left:9999px;
@@ -693,7 +677,7 @@ a.btn-post-event:hover {
 	overflow:hidden;
 	width:69px;
 	height:34px;
-	margin:0.15em 1.5em 0.15em 1em;
+	margin:0.15em 1em 0.15em 0.5em;
 	background:url(../../img/data/logo-icon-gallevent-white-69x34.svg) 0 0 no-repeat;
 	text-indent:-9999px;
 	}
@@ -710,14 +694,7 @@ a.btn-post-event:hover {
 	color:#fff;
 	font-size:80%;
 	letter-spacing:0.08em;
-	background:#01828b;
-	background: -moz-linear-gradient(left,  rgba(1,130,139,0.9) 0%, rgba(1,130,139,0.9) 100%);
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(1,130,139,0.9)), color-stop(100%,rgba(1,130,139,0.9)));
-	background: -webkit-linear-gradient(left,  rgba(1,130,139,0.9) 0%,rgba(1,130,139,0.9) 100%);
-	background: -o-linear-gradient(left,  rgba(1,130,139,0.9) 0%,rgba(1,130,139,0.9) 100%);
-	background: -ms-linear-gradient(left,  rgba(1,130,139,0.9) 0%,rgba(1,130,139,0.9) 100%);
-	background: linear-gradient(to right,  rgba(1,130,139,0.9) 0%,rgba(1,130,139,0.9) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e685c440', endColorstr='#e685c440',GradientType=1 );
+	background:rgba(1,130,139,0.9);
 	}
 
 #top-nav a {
@@ -726,7 +703,7 @@ a.btn-post-event:hover {
 
 #top-nav ul {
 	float:left;
-	margin:0.05em 0px 0px 115px;
+	margin:0.05em 0px 0px 100px;
 	}
 
 #top-nav li {
@@ -737,7 +714,7 @@ a.btn-post-event:hover {
 	padding:0.5em 10px 0.65em 10px;
 	}
 #top-nav li a:hover {
-	background:#97cd5c;
+	background:rgba(1,121,130,0.6);
 	}
 
 #top-nav .right {
@@ -949,8 +926,5 @@ a.btn-post-event:hover {
 	#top-search .select,
 	#top-search #date {
 		width:12%;
-	}
-	#top-search button {
-		width: 6%;
 	}
 }
