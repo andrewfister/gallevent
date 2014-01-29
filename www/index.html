@@ -27,7 +27,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
     <form id="top-search" method="get">
         <label class="icon find-event" for="event">Search for Events</label><input type="text" id="event" name="q" placeholder="Example: Dancing" value="{{ request.GET.q }}" />
         <label class="icon price" for="price">Price</label>
-        <span class="select">
+        <span class="select price">
             <select id="price" name="price">
                 <option value="any_price">Any Price</option>
                 <option value="free">Free</option>

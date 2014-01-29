@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 01-06-2013
-** Updated: 01-26-2014
+** Updated: 01-29-2014
 ************************************** */
 
 html,
@@ -83,9 +83,10 @@ legend {
   } 
 
 input,
-select {
+select,
+button {
 	border-radius:4px;
-	padding:0.6em 2% 0.6em 2%;
+	padding:0.6em 0.5em 0.6em 0.5em;
 	font-size:100%;
 	}
 
@@ -95,6 +96,7 @@ select {
 	-webkit-background-clip: padding;
   	-moz-background-clip: padding;
 	height:100%;
+	width:150%;
 	}
 
 .select {
@@ -102,7 +104,9 @@ select {
 	border-radius:4px;
 	background:#fff url(../../img/data/drop-down-arrow.svg) right center no-repeat;
 	background-size:contain;
-	padding:0 0 0 2%;
+	box-sizing:			border-box;
+	-moz-box-sizing:	border-box;
+	-webkit-box-sizing:	border-box;
 	}
 .select:hover {
 	background:#fff url(../../img/data/drop-down-arrow-h.svg) right center no-repeat;
@@ -426,14 +430,19 @@ form input#end-time {
 	}
 
 #top-search {
-	margin:0.5em 0 3em 1em;
+	float:left;
+	margin:0.5em 2% 0 2%;
+	width:96%;
 	}
 
 #top-search label {
+	display:none;
+	/*
 	display:block;
 	color:#fff;
 	font-weight:bold;
 	letter-spacing:0.02em;
+	*/
 	}
 
 /* = Top Search Label Icons */
@@ -472,40 +481,39 @@ form input#end-time {
 #top-search #date,
 #location-search input {
 	border:1px solid #b3e3e7;
+	margin-bottom:0.2em;
 	}
 
-#top-search .select,
+#top-search #event,
+#top-search .select.time-span,
 #top-search #date {
-	margin-right:2%;
+	/*margin-right:1.6%;*/
 	}
 
 #top-search #event {
-	margin-right:1.6%;
-	margin-bottom:0.2em;
-	width:50%;
+	width:54%;
 	}
+#top-search #event,
+#top-search .time-span,
+#top-search #date {
+margin-right:1%;
+}
 
 #top-search label.clock {
 	clear:left;
 	}
 
 #top-search .select {
-	width:28%;
-	}
-#top-search select#time-span,
-#top-search select#price {
-	width:150%; /* Pushes browser default arrow out of view */
+	width:45%;
 	}
 
+
 #top-search .time-span {
-	margin-right:1%;
 	margin-bottom:0.5em;
 	}
 
 #top-search #date {
-	margin-right:1.5%;
-	width:23.1%;
-	/*width:13%;*/
+	width:40%;
 	background:#fff url(../../img/data/icon-calendar-25x24.svg) no-repeat 95% 50%;
 	}
 #top-search #date:hover {
@@ -514,12 +522,7 @@ form input#end-time {
 
 /* = Location Search */
 #location-search {
-	position:absolute;
-	z-index:350;
-	top:6.1em;
-	left:8px;
-	float:left;
-	min-width:30em;
+	display:none;
 	}
 
 #location-search #btn-user-location {
@@ -577,12 +580,9 @@ form input#end-time {
 /* = Buttons
 ----------------------------------- */
 button {
-	border-radius:4px;
 	border:2px solid #fff;
-	padding:0.6em 2% 0.6em 2%;
 	letter-spacing:0.08em;
 	color:#fff;
-	font-weight:400;
 	}
 
 
@@ -621,15 +621,11 @@ button {
 	}
 
 #top-search button {
-	position:relative;
-	margin: 0 0 0 22px;
-	width: 26%;
+	width: 13%;
+	height:2.4em;
 	}
-
-#top-search svg {
-	position:absolute;
-	top:0.45em;
-	left:0.6em;
+#top-search button span {
+	margin-left:9999px;
 	}
 
 .home a.btn-post-event {
@@ -714,13 +710,13 @@ a.btn-post-event:hover {
 	color:#fff;
 	font-size:80%;
 	letter-spacing:0.08em;
-	background:#85c440;
-	background: -moz-linear-gradient(left,  rgba(133,196,64,0.9) 0%, rgba(133,196,64,0.9) 100%);
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(133,196,64,0.9)), color-stop(100%,rgba(133,196,64,0.9)));
-	background: -webkit-linear-gradient(left,  rgba(133,196,64,0.9) 0%,rgba(133,196,64,0.9) 100%);
-	background: -o-linear-gradient(left,  rgba(133,196,64,0.9) 0%,rgba(133,196,64,0.9) 100%);
-	background: -ms-linear-gradient(left,  rgba(133,196,64,0.9) 0%,rgba(133,196,64,0.9) 100%);
-	background: linear-gradient(to right,  rgba(133,196,64,0.9) 0%,rgba(133,196,64,0.9) 100%);
+	background:#01828b;
+	background: -moz-linear-gradient(left,  rgba(1,130,139,0.9) 0%, rgba(1,130,139,0.9) 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(1,130,139,0.9)), color-stop(100%,rgba(1,130,139,0.9)));
+	background: -webkit-linear-gradient(left,  rgba(1,130,139,0.9) 0%,rgba(1,130,139,0.9) 100%);
+	background: -o-linear-gradient(left,  rgba(1,130,139,0.9) 0%,rgba(1,130,139,0.9) 100%);
+	background: -ms-linear-gradient(left,  rgba(1,130,139,0.9) 0%,rgba(1,130,139,0.9) 100%);
+	background: linear-gradient(to right,  rgba(1,130,139,0.9) 0%,rgba(1,130,139,0.9) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e685c440', endColorstr='#e685c440',GradientType=1 );
 	}
 
@@ -868,160 +864,58 @@ a.btn-post-event:hover {
 
 /* = Media Queries
 ----------------------------------- */
+@media screen and (min-height: 1000px) {
+	#map_canvas {
+		height:1000px;
+		}
+}
 @media screen and (min-height: 900px) {
 	#map_canvas {
 		height:900px;
 		}
 }
 
-@media screen and (min-height: 1000px) {
-	#map_canvas {
-		height:1000px;
-		}
-}
-
-@media screen and (max-width: 480px) {
-	.logo {
-		margin-right:1em;	
-		}
-	
-	.logo,
-	#top-search {
-		margin-left:0.5em;	
-		}
-	
-	#top-nav ul {
-		margin-left:98px;	
-		}
-	
-	#top-search label,
-	#top-search button span {
-		display:none;	
-		}
-	
-	#top-search .select {
-		width:45%;
-		}
-	
-	#top-search .select,
-	#top-search #date {
-		margin-right: 1%;
-		}
-	
-	#top-search .time-span {
-		clear:both;	
-		}
-	
-	#top-search #date {
-		width:35%;
-		}
-	
-	#top-search button {
-		margin:0;
-		width:14.5%;
-		height:2.4em;
-		padding:0;
-		}
-	
-	#top-search button svg {
-		margin-left:10%;
-		}
-	
-	#location-search {
-		display:none;	
-		}
-}
-
-@media screen and (max-width: 350px) {
-		#top-search #event {
-			width:56%;
-			}
-		#top-search .select {
-			width:38%;
-			}
-		#top-search #date {
-			width:41%;
-			}
-		
-		#top-search button svg {
-			margin-left:6%;
-			}
-}
-
 @media screen and (min-width: 480px) {
-	#top-search .select {
-		width:32%;
+	#top-search {
+		margin:0.5em 1% 0 1%;
+		width:98%;
 		}
 	
-	#top-search #date {
-		width:30%;
-		}
-	
-	#top-search button {
-		float:left;
-		width:22%;
-		margin-left:1.2%;
-		}
-}
-
-@media screen and (min-width: 530px) {
-	#top-search .select {
-		width:33%;
-		}
-	
-	#top-search #date {
-		width:30%;
-		}
-	
-	#top-search button {
-		float:left;
-		width:22%;
-		margin-left:1.2%;
-		}
-}
-
-@media screen and (max-width: 770px) {
 	#location-search {
-		top:8.5em;	
-		}
+		display:block;
+	position:absolute;
+	z-index:350;
+	top:9em;
+	left:8px;
+	float:left;
+	min-width:30em;
+	}
 }
 
-@media screen and (min-width: 770px) {
-	#top-search label.clock {
-		clear:none;	
-		}
+@media screen and (min-width: 700px) {
 	#top-search #event {
-		width:20%;	
+		width:30%;
+	}
+	#top-search .select {
+		width:20%;
+	}
+	#top-search .price {
+		margin-right:1%;	
 		}
 	#top-search #date {
-		width:18%;
-		margin-left:1%;
-		}
-	#top-search .select {
-		width:17%;
-		}
-}
-
-@media all and (max-width: 1145px) and (min-width: 770px) {
+		width:20%;
+	}
 	#top-search button {
-		float:left;
-		margin:0;
-		width:auto;
-		height:2.25em;
-		padding-left: 0.6em;
-		padding-right: 0.5em;
-		}
-	#top-search svg {
-		width:18px;
-		position:static;
-		margin:0 auto;
-		}
-	#top-search button span {
-		display:none;
-		}
+		width: 6%;
+	}
+	
+	#location-search {
+	top:6.4em;
+	}
+	
 }
 
-@media screen and (min-width: 1145px) {
+@media screen and (min-width: 1200px) {
 	.logo-block {
 		width:269px;
 		height:120%;
@@ -1045,29 +939,18 @@ a.btn-post-event:hover {
 	#top-nav ul {
 		margin:0.05em 0 0 272px;
 		}
-		
+	
 	#top-search {
 		margin-left:280px;
-		}
-
+		}	
 	#top-search #event {
-		margin-right:1.6%;
 		width:20%;
-		}
-	
-	#top-search label.clock {
-		clear:none;	
-		}
-	
+	}
+	#top-search .select,
 	#top-search #date {
-		width:15%;	
-		}
-	
-	#top-search .select {
-		width:15%;	
-		}
-	
+		width:12%;
+	}
 	#top-search button {
-		width:auto;	
-		}
+		width: 6%;
+	}
 }
