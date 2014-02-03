@@ -37,7 +37,6 @@ HAYSTACK_CONNECTIONS = {
 }
 
 HAYSTACK_DEFAULT_OPERATOR = 'AND'
-HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -128,6 +127,7 @@ TIME_FORMAT = 'g:iA'
 DATE_FORMAT = 'm/d/y'
 
 #Some settings for the events
+MIN_EVENTS = 10
 MAX_EVENTS = 25
 
 INSTALLED_APPS = (
