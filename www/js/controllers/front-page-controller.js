@@ -2,10 +2,6 @@
 $(document).ready(function() {
     window.events = new EventSearchCollection();
 
-    if (typeof eventsJSON !== 'undefined') {
-        window.events.reset(window.eventsJSON);
-    }
-
     window.searchView = new SearchView({
         collection: window.events
     });

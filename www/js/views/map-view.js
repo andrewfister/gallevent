@@ -6,7 +6,10 @@ var MapView = Backbone.View.extend({
         this.hasVisibleMarkers = false;
     
         this.collection.on("reset", function(events) {
-            this.loadMarkers();
+            this.eventsLoaded = true;
+            if (!this.markersLoaded && this.mapLoaded) {
+                this.loadMarkers();
+            }
         }, this);
 
         this.collection.on("remove", function(evt, collection, options) {
@@ -40,7 +43,7 @@ var MapView = Backbone.View.extend({
     },
 
     infoWindow: new google.maps.InfoWindow({
-                                        disableAutoPan: true
+        disableAutoPan: true
     }),
     
     geocoder: new google.maps.Geocoder(),    
@@ -65,7 +68,6 @@ var MapView = Backbone.View.extend({
     },
     
     loadMarkers: function() {
-        this.eventsLoaded = true;
         if (this.mapLoaded === true) {
             this.removeMarkers();
             this.setAllMarkers();
@@ -81,12 +83,16 @@ var MapView = Backbone.View.extend({
     },
 
     loadMap: function() {
+        this.mapLoaded = false;
+        this.markersLoaded = false;
         this.mapOptions.center = this.mapLocation;
         this.setMapLatLng(this.mapLocation);
     
         this.map = new google.maps.Map($("#map_canvas").get(0),
             this.mapOptions);
         if (!this.dragging) {
+            this.eventsLoaded = false;
+            this.markersLoaded = false;
             window.searchView.submitSearch();
         }
 
@@ -95,7 +101,7 @@ var MapView = Backbone.View.extend({
             this.mapLoaded = true;
             this.overlay.draw = function() {};
             this.overlay.setMap(this.map);
-            if (!this.markersLoaded) {
+            if (!this.markersLoaded && this.eventsLoaded) {
                 this.loadMarkers();
             }
         }.bind(this));
@@ -126,6 +132,8 @@ var MapView = Backbone.View.extend({
 
         google.maps.event.addListener(this.map, 'center_changed', function() {
             if (!this.dragging && !this.detectVisibleMarkers()) {
+                this.eventsLoaded = false;
+                this.markersLoaded = false;
                 window.searchView.submitSearch();
             }
         }.bind(this));
@@ -192,9 +200,9 @@ var MapView = Backbone.View.extend({
             this.map.panTo(marker.getPosition());
             this.map.panBy(0, -150);
             this.infoWindow.open(this.map, marker);
-            this.overlay = new google.maps.OverlayView();
-            this.overlay.draw = function() {};
-            this.overlay.setMap(this.map);
+//            this.overlay = new google.maps.OverlayView();
+//            this.overlay.draw = function() {};
+//            this.overlay.setMap(this.map);
         }.bind(this));
 
         this.markers.push(marker);
@@ -217,7 +225,7 @@ var MapView = Backbone.View.extend({
 
         var openMarker = makeOpenMarker(marker, this.infoWindow, this.map);
         
-        this.setMarkerHover(marker, event);
+//        this.setMarkerHover(marker, event);
 
         google.maps.event.addListener(marker, 'mouseover', function() {
             $(marker.hoverInfo).removeClass('hidden');
@@ -227,9 +235,9 @@ var MapView = Backbone.View.extend({
             $(marker.hoverInfo).addClass('hidden');
         }.bind(this));
         
-        google.maps.event.addListener(this.map, 'zoom_changed', function() {
-            this.setMarkerHover(marker, event);
-        }.bind(this));
+//        google.maps.event.addListener(this.map, 'zoom_changed', function() {
+//            this.setMarkerHover(marker, event);
+//        }.bind(this));
 
         event.on('open', openMarker);
     },

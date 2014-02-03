@@ -33,7 +33,7 @@ class SearchView(View):
         events = []
 
         for SearchForm in self.searchForms:
-            if len(events) >= settings.MAX_EVENTS:
+            if len(events) >= settings.MIN_EVENTS:
                 break
             
             form = SearchForm(request.GET)
