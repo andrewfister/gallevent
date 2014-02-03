@@ -16,6 +16,11 @@ var MapView = Backbone.View.extend({
             this.destroyMarker(options.index);
         }, this);
         
+        window.dispatcher.on("fetch", function(evt, collection, options) {
+            this.eventsLoaded = false;
+            this.markersLoaded = false;
+        }, this);
+        
         this.hoverTemplate = Mustache.template('pin-hover').render;
         this.popUpTemplate = Mustache.template('map-popup').render;
         this.infoWindow.setOptions({maxWidth: 400});

@@ -108,6 +108,7 @@ var SearchView = Backbone.View.extend({
         }
 
         console.log('send a search request');
+        window.dispatcher.trigger("fetch");
         this.collection.fetch({
             data: searchData,
             reset: true,
