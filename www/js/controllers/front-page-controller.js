@@ -1,10 +1,7 @@
 // on dom load
 $(document).ready(function() {
+    window.dispatcher = _.clone(Backbone.Events);
     window.events = new EventSearchCollection();
-
-    if (typeof eventsJSON !== 'undefined') {
-        window.events.reset(window.eventsJSON);
-    }
 
     window.searchView = new SearchView({
         collection: window.events
