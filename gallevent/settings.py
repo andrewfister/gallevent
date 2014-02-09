@@ -139,8 +139,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'mustachejs',
     'haystack',
-    'tastypie',
-#    'django_mobile',
     'map',
     'signin',
     'event',

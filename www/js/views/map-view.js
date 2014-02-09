@@ -6,7 +6,9 @@ var MapView = Backbone.View.extend({
         this.hasVisibleMarkers = false;
     
         this.collection.on("reset", function(events) {
-            this.loadMarkers();
+		if(this.mapLoaded){
+		    this.loadMarkers();
+		}
         }, this);
 
         this.collection.on("remove", function(evt, collection, options) {
@@ -92,12 +94,13 @@ var MapView = Backbone.View.extend({
 
         //Listen for tiles loaded
         google.maps.event.addListener(this.map, 'tilesloaded', function() {
-            this.mapLoaded = true;
+	    this.mapLoaded = true;
             this.overlay.draw = function() {};
             this.overlay.setMap(this.map);
             if (!this.markersLoaded) {
                 this.loadMarkers();
             }
+	    //	    this.mapLoaded = true;
         }.bind(this));
 
         google.maps.event.addListener(this.map, 'dragstart', function(data) {
@@ -240,7 +243,7 @@ var MapView = Backbone.View.extend({
         if (this.mapPanes === undefined) {
             this.mapPanes = this.overlay.getPanes();
         }
-        this.mapPanes.overlayMouseTarget.appendChild(marker.hoverInfo);
+	this.mapPanes.overlayMouseTarget.appendChild(marker.hoverInfo);
         this.projection = this.overlay.getProjection();
         if (this.projection) {
             var markerLatLng = marker.getPosition();
