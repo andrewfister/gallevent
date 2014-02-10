@@ -322,27 +322,11 @@ var MapView = Backbone.View.extend({
 	localStorage.setItem('user-latitude', userLatitude);
 	localStorage.setItem('user-longitude', userLongitude);
 
-        //Set user location data on page and in cookie
-	/*
-	if ($('#user-latitude').length)
-        {
-            $('#user-latitude').html(userLatitude);
-            $.cookie('user-latitude', userLatitude, { expires: 2.7e-7, path: '/' });
-        }
-        if ($('#user-longitude').length)
-        {
-            $('#user-longitude').html(userLongitude);
-            $.cookie('user-longitude', userLongitude, { expires: 2.7e-7, path: '/' });
-        }
-        */
-
 	var cookieLat = $.cookie('user-latitude');
         var cookieLon = $.cookie('user-longitude');
 	if (cookieLat == null && cookieLon == null){
 	    $.cookie('user-latitude', userLatitude, { expires: 1, path: '/' });
 	    $.cookie('user-longitude', userLongitude, { expires: 1, path: '/' });
-	
-	    alert( cookieLat +  '   '  + cookieLon);
 	}
 
         this.setMapLocation(true);
@@ -355,7 +339,6 @@ var MapView = Backbone.View.extend({
         var userLatitude = $.cookie('user-latitude');
         var userLongitude = $.cookie('user-longitude');
 
-       	alert('no location:' + userLatitude +  '   '  +  userLongitude);
 	//try from cookies
         if (userLatitude != null && userLongitude != null)
         {
