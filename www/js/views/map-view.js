@@ -6,6 +6,9 @@ var MapView = Backbone.View.extend({
         this.hasVisibleMarkers = false;
     
         this.collection.on("reset", function(events) {
+		if(this.mapLoaded){
+		    this.loadMarkers();
+		}
             this.eventsLoaded = true;
             if (!this.markersLoaded && this.mapLoaded) {
                 this.loadMarkers();
@@ -115,7 +118,7 @@ var MapView = Backbone.View.extend({
     },
     
     getCurrentPosition: function() {
-        navigator.geolocation.getCurrentPosition(this.foundUserLocation.bind(this),this.noUserLocation.bind(this),{timeout:5000});
+	    navigator.geolocation.getCurrentPosition(this.foundUserLocation.bind(this),this.noUserLocation.bind(this),{timeout:5000});
     },
 
     loadMap: function() {
@@ -138,6 +141,7 @@ var MapView = Backbone.View.extend({
             if (!this.markersLoaded && this.eventsLoaded) {
                 this.loadMarkers();
             }
+	    //	    this.mapLoaded = true;
         }.bind(this));
 
         google.maps.event.addListener(this.map, 'dragstart', function(data) {
@@ -252,16 +256,10 @@ var MapView = Backbone.View.extend({
         
         this.setMarkerHover(marker, event);
         
-        
-//        google.maps.event.addListener(this.map, 'zoom_changed', function() {
-//            this.setMarkerHover(marker, event);
-//        }.bind(this));
-
         event.on('open', openMarker);
     },
     
     setMarkerHover: function(marker, event) {
-        
         marker.hoverInfo = $(this.hoverTemplate(marker.event.toJSON()))[0];
         marker.tooltip = new this.HoverTooltip({ marker: marker, map: this.map });
     },
@@ -317,35 +315,61 @@ var MapView = Backbone.View.extend({
 
         var userLatitude = parseFloat(this.userLocation.lat());
         var userLongitude = parseFloat(this.userLocation.lng());
+	      
+	localStorage.setItem('user-latitude', userLatitude);
+	localStorage.setItem('user-longitude', userLongitude);
 
         //Set user location data on page and in cookie
-        if ($('#user-latitude').length)
+	/*
+	if ($('#user-latitude').length)
         {
             $('#user-latitude').html(userLatitude);
-            $.cookie('user-latitude', userLatitude, { expires: 1, path: '/' });
+            $.cookie('user-latitude', userLatitude, { expires: 2.7e-7, path: '/' });
         }
         if ($('#user-longitude').length)
         {
             $('#user-longitude').html(userLongitude);
-            $.cookie('user-longitude', userLongitude, { expires: 1, path: '/' });
+            $.cookie('user-longitude', userLongitude, { expires: 2.7e-7, path: '/' });
         }
-        
+        */
+
+	var cookieLat = $.cookie('user-latitude');
+        var cookieLon = $.cookie('user-longitude');
+	if (cookieLat == null && cookieLon == null){
+	    $.cookie('user-latitude', userLatitude, { expires: 1, path: '/' });
+	    $.cookie('user-longitude', userLongitude, { expires: 1, path: '/' });
+	
+	    alert( cookieLat +  '   '  + cookieLon);
+	}
+
         this.setMapLocation(true);
-        
+ 
         this.loadMap();
     },
 
     noUserLocation: function() {
+
         var userLatitude = $.cookie('user-latitude');
         var userLongitude = $.cookie('user-longitude');
 
+       	alert('no location:' + userLatitude +  '   '  +  userLongitude);
+	//try from cookies
         if (userLatitude != null && userLongitude != null)
         {
             this.userLocation = new google.maps.LatLng(userLatitude, userLongitude);
             this.setMapLocation(true);
         }
         else {
-            this.setMapLocation(false);
+	    //try from local storage
+	    userLatitude =localStorage.getItem('user-latitude');
+	    userLongitude = localStorage.getItem('user-longitude');
+	    if (userLatitude != null && userLongitude != null)
+		{
+		    this.userLocation = new google.maps.LatLng(userLatitude, userLongitude);
+		    this.setMapLocation(true);
+		}
+	    else
+		this.setMapLocation(false);
         }
         
         this.loadMap();
