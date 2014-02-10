@@ -18,14 +18,6 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
-html,
-button,
-input,
-select,
-textarea {
-    color: #222;
-}
-
 body {
     font-size: 1em;
     line-height: 1.4;
