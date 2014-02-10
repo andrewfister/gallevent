@@ -6,6 +6,9 @@ var MapView = Backbone.View.extend({
         this.hasVisibleMarkers = false;
     
         this.collection.on("reset", function(events) {
+		if(this.mapLoaded){
+		    this.loadMarkers();
+		}
             this.eventsLoaded = true;
             if (!this.markersLoaded && this.mapLoaded) {
                 this.loadMarkers();
@@ -26,16 +29,47 @@ var MapView = Backbone.View.extend({
         this.infoWindow.setOptions({maxWidth: 400});
         this.mapOptions.zoomControl = true;
         this.mapOptions.zoomControlOptions = {position: google.maps.ControlPosition.LEFT_CENTER};
-        this.overlay = new google.maps.OverlayView();
-        this.projection = this.overlay.getProjection();
-        
         this.render();
+
+        this.HoverTooltip = function(options) {
+            this.marker = options.marker;
+            this.map = options.map;
+            this.setMap(this.map);
+                    
+            google.maps.event.addListener(this.marker, 'mouseover', function() {
+                $(this.marker.hoverInfo).removeClass('hidden');
+            }.bind(this));
+            
+            google.maps.event.addListener(this.marker, 'mouseout', function() {
+                $(this.marker.hoverInfo).addClass('hidden');
+            }.bind(this));
+        };
+        
+        this.HoverTooltip.prototype = new google.maps.OverlayView();
+        this.HoverTooltip.prototype.onAdd = function() {
+            var mapPanes = this.getPanes();
+            mapPanes.floatPane.appendChild(this.marker.hoverInfo);
+        };
+        
+        this.HoverTooltip.prototype.draw = function() {
+            this.projection = this.getProjection();
+            if (this.projection) {
+                var markerLatLng = this.marker.getPosition();
+                var markerPosition = this.projection.fromLatLngToDivPixel(markerLatLng);
+                this.marker.hoverInfo.style.left = (markerPosition.x + 25) + 'px';
+                this.marker.hoverInfo.style.top = (markerPosition.y- 30) + 'px';
+            }
+        };
+        
+        this.HoverTooltip.prototype.onRemove = function() {
+            mapPanes.floatPane.removeChild(this.marker.hoverInfo);
+        };
     },
 
     id: "map_canvas",
     
     markers: [],
-    
+
     userLocation: new google.maps.LatLng(37.88397, -122.2644),
 
     mapLocation: new google.maps.LatLng(37.88397, -122.2644),
@@ -84,7 +118,7 @@ var MapView = Backbone.View.extend({
     },
     
     getCurrentPosition: function() {
-        navigator.geolocation.getCurrentPosition(this.foundUserLocation.bind(this),this.noUserLocation.bind(this),{timeout:5000});
+	    navigator.geolocation.getCurrentPosition(this.foundUserLocation.bind(this),this.noUserLocation.bind(this),{timeout:5000});
     },
 
     loadMap: function() {
@@ -104,11 +138,10 @@ var MapView = Backbone.View.extend({
         //Listen for tiles loaded
         google.maps.event.addListener(this.map, 'tilesloaded', function() {
             this.mapLoaded = true;
-            this.overlay.draw = function() {};
-            this.overlay.setMap(this.map);
             if (!this.markersLoaded && this.eventsLoaded) {
                 this.loadMarkers();
             }
+	    //	    this.mapLoaded = true;
         }.bind(this));
 
         google.maps.event.addListener(this.map, 'dragstart', function(data) {
@@ -124,10 +157,6 @@ var MapView = Backbone.View.extend({
         }.bind(this));
 
         google.maps.event.addListener(this.map, 'zoom_changed', function() {
-            this.overlay = new google.maps.OverlayView();
-            this.overlay.draw = function() {};
-            this.overlay.setMap(this.map);
-            this.projection = this.overlay.getProjection();
             var center = this.map.getCenter();
             
             this.setMapLatLng(center);
@@ -143,10 +172,6 @@ var MapView = Backbone.View.extend({
             }
         }.bind(this));
         
-        google.maps.event.addListener(this.map, 'idle', function() {
-            this.projection = this.overlay.getProjection();
-        }.bind(this));
-
         return this;
     },
     
@@ -199,6 +224,8 @@ var MapView = Backbone.View.extend({
             animation: google.maps.Animation.DROP
         });
 
+        marker.event = event;
+
         google.maps.event.addListener(marker, 'click', function() {
             this.infoWindow.close();
             this.infoWindow.setContent(info);
@@ -218,9 +245,6 @@ var MapView = Backbone.View.extend({
                 infoWindow.close();
                 infoWindow.setContent(info);
                 infoWindow.open(map, marker);
-                this.overlay = new google.maps.OverlayView();
-                this.overlay.draw = function() {};
-                this.overlay.setMap(this.map);
                 this.projection = this.overlay.getProjection();
                 if (this.projection) {
                     this.map.panBy(0, this.projection.fromLatLngToDivPixel(marker.getPosition()).y-320);
@@ -230,37 +254,14 @@ var MapView = Backbone.View.extend({
 
         var openMarker = makeOpenMarker(marker, this.infoWindow, this.map);
         
-//        this.setMarkerHover(marker, event);
-
-        google.maps.event.addListener(marker, 'mouseover', function() {
-            $(marker.hoverInfo).removeClass('hidden');
-        }.bind(this));
+        this.setMarkerHover(marker, event);
         
-        google.maps.event.addListener(marker, 'mouseout', function() {
-            $(marker.hoverInfo).addClass('hidden');
-        }.bind(this));
-        
-//        google.maps.event.addListener(this.map, 'zoom_changed', function() {
-//            this.setMarkerHover(marker, event);
-//        }.bind(this));
-
         event.on('open', openMarker);
     },
-
+    
     setMarkerHover: function(marker, event) {
-        marker.hoverInfo = $(this.hoverTemplate(event.toJSON()))[0];
-        
-        if (this.mapPanes === undefined) {
-            this.mapPanes = this.overlay.getPanes();
-        }
-        this.mapPanes.overlayMouseTarget.appendChild(marker.hoverInfo);
-        this.projection = this.overlay.getProjection();
-        if (this.projection) {
-            var markerLatLng = marker.getPosition();
-            var markerPosition = this.projection.fromLatLngToDivPixel(markerLatLng);
-            marker.hoverInfo.style.left = (markerPosition.x + 25) + 'px';
-            marker.hoverInfo.style.top = (markerPosition.y- 30) + 'px';
-        }
+        marker.hoverInfo = $(this.hoverTemplate(marker.event.toJSON()))[0];
+        marker.tooltip = new this.HoverTooltip({ marker: marker, map: this.map });
     },
 
     removeMarkers: function() {
@@ -314,35 +315,44 @@ var MapView = Backbone.View.extend({
 
         var userLatitude = parseFloat(this.userLocation.lat());
         var userLongitude = parseFloat(this.userLocation.lng());
+	      
+	localStorage.setItem('user-latitude', userLatitude);
+	localStorage.setItem('user-longitude', userLongitude);
 
-        //Set user location data on page and in cookie
-        if ($('#user-latitude').length)
-        {
-            $('#user-latitude').html(userLatitude);
-            $.cookie('user-latitude', userLatitude, { expires: 1, path: '/' });
-        }
-        if ($('#user-longitude').length)
-        {
-            $('#user-longitude').html(userLongitude);
-            $.cookie('user-longitude', userLongitude, { expires: 1, path: '/' });
-        }
-        
+	var cookieLat = $.cookie('user-latitude');
+        var cookieLon = $.cookie('user-longitude');
+	if (cookieLat == null && cookieLon == null){
+	    $.cookie('user-latitude', userLatitude, { expires: 1, path: '/' });
+	    $.cookie('user-longitude', userLongitude, { expires: 1, path: '/' });
+	}
+
         this.setMapLocation(true);
-        
+ 
         this.loadMap();
     },
 
     noUserLocation: function() {
+
         var userLatitude = $.cookie('user-latitude');
         var userLongitude = $.cookie('user-longitude');
 
+	//try from cookies
         if (userLatitude != null && userLongitude != null)
         {
             this.userLocation = new google.maps.LatLng(userLatitude, userLongitude);
             this.setMapLocation(true);
         }
         else {
-            this.setMapLocation(false);
+	    //try from local storage
+	    userLatitude =localStorage.getItem('user-latitude');
+	    userLongitude = localStorage.getItem('user-longitude');
+	    if (userLatitude != null && userLongitude != null)
+		{
+		    this.userLocation = new google.maps.LatLng(userLatitude, userLongitude);
+		    this.setMapLocation(true);
+		}
+	    else
+		this.setMapLocation(false);
         }
         
         this.loadMap();
