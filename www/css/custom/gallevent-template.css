@@ -3,35 +3,97 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 02-09-2014
-** Updated: 02-09-2014
+** Updated: 02-16-2014
 ************************************** */
 
 html,
 body {
+	position:absolute;
+	width:100%;
+	height:100%;
 	background:#fff;
 	font-family:Arial, Helvetica, sans-serif !important;
 	}
 
 
+/* = Header
+-------------------------------------- */
+#header {
+	position:relative;
+	z-index:600;
+	}
+
+#header .logo-block .logo {
+	position:absolute;
+	top:1.4em;
+	left:1.5em;
+	display:block;
+	width:49px;
+	height:30px;
+	background:url(../../img/data/gallevent-logo-icon-orange-98x60.svg) top left no-repeat;
+	background-size:contain;
+	overflow:hidden;
+	text-indent:-9999px;
+	}
+
+#btn-menu {
+	position:absolute;
+	top:1.8em;
+	right:2em;
+	display:block;
+	}
+#btn-menu svg {
+	width:15px;
+	height:15px;
+	}
+
+	/* = Top Search */
+	#top-search-container {
+		padding:1em;
+		}
+	
+	#top-search {
+		position:relative;
+		width:100%;
+		}
+	
+	#top-search #event-keywords {
+		width:100%;
+		text-indent:60px;
+		}
+	
+	#top-search fieldset {
+		color:#fff;
+		background:#059fac;
+		border-radius:5px;
+		}
+
+	#top-search legend {
+		float:right;
+		}
+	#top-search b,
+	#top-search svg.close {
+		/* display:none; */	
+		}
+	#top-search svg.filters-icon {
+		width:32px;
+		}
+	#top-search svg.close {
+		width:15px;
+		height:15px;
+		}
+	#top-search legend {
+		width: 100%;
+		text-align: center;
+		}
+	#top-search legend.active b,
+	#top-search legend.active svg.close {	
+		display:inline-block;
+		}
+
+
 /* = Map Feature
 -------------------------------------- */
-
-#top-search-container {
-	padding:1em;
-	}
-
-#header {
-	position:static;
-	}
-
-#top-search {
-	position:relative;
-	z-index:500;
-	}
-
-#top-search #event-keywords {
-	width:100%;
-	}
 
 #map-box {
 	position:absolute;
@@ -47,9 +109,6 @@ body {
 	height:100%;
 	}
 
-#top-search fieldset {
-	display:none;
-	}
 
 
 /* = Form Elements
