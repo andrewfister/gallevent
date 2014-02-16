@@ -3,6 +3,7 @@ var SearchView = Backbone.View.extend({
     
     events: {
         'click .btn-search': 'submitSearch',
+        'click .filters': 'showFilters',
     },
     
     initialize: function() {
@@ -39,6 +40,10 @@ var SearchView = Backbone.View.extend({
                 this.submitSearch();
             }
         }.bind(this));
+    },
+    
+    showFilters: function() {
+        $('.filters').addClass('active');
     },
 
     changeTimeSpan: function() {
