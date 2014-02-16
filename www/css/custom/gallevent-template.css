@@ -16,6 +16,49 @@ body {
 	}
 
 
+/* = Form Elements
+-------------------------------------- */
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #a7a9ac;
+	}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #a7a9ac;
+	}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #a7a9ac;
+	}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #a7a9ac;
+	}
+
+input,
+.select {
+	padding:0.8em;
+	border-radius:5px;
+	}
+
+.select {
+	padding:0.8em 0 0.8em 0;
+	}
+
+select {
+	-webkit-appearance: none;
+	background-color:transparent !important;
+	-webkit-background-clip: padding;
+  	-moz-background-clip: padding;
+	}
+
+.select {
+	background:#fff url(../../img/data/drop-down-arrow.svg) right center no-repeat;
+	background-size:contain;
+	overflow:hidden;
+	}
+.select:hover {
+	background:#fff url(../../img/data/drop-down-arrow-h.svg) right center no-repeat;
+	background-size:contain;
+	}
+
 /* = Header
 -------------------------------------- */
 #header {
@@ -62,14 +105,16 @@ body {
 		text-indent:60px;
 		}
 	
-	#top-search fieldset {
+	#top-search fieldset#filters {
+		padding:1em;
 		color:#fff;
-		background:#059fac;
+		background:rgba(5, 159, 172, 0.9);
 		border-radius:5px;
 		}
 
 	#top-search legend {
 		float:right;
+		margin-bottom:1em;
 		}
 	#top-search b,
 	#top-search svg.close {
@@ -79,6 +124,7 @@ body {
 		width:32px;
 		}
 	#top-search svg.close {
+		float: right;
 		width:15px;
 		height:15px;
 		}
@@ -86,9 +132,22 @@ body {
 		width: 100%;
 		text-align: center;
 		}
-	#top-search legend.active b,
-	#top-search legend.active svg.close {	
+	#top-search #filters.active legend b,
+	#top-search #filters.active legend svg.close {	
 		display:inline-block;
+		}
+	#top-search #filters.active legend svg.filters-icon {
+		display:none;	
+		}
+	
+	#top-search #location-search-input {
+		width:100%;
+		}
+	
+	#top-search span.price {
+		backgroun:#ff0;
+		width:100%;
+		display:block;
 		}
 
 
@@ -111,23 +170,3 @@ body {
 
 
 
-/* = Form Elements
--------------------------------------- */
-
-::-webkit-input-placeholder { /* WebKit browsers */
-    color:    #a7a9ac;
-	}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:    #a7a9ac;
-	}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color:    #a7a9ac;
-	}
-:-ms-input-placeholder { /* Internet Explorer 10+ */
-    color:    #a7a9ac;
-	}
-
-input {
-	padding:0.8em;
-	border-radius:5px;
-	}
