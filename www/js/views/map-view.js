@@ -316,15 +316,8 @@ var MapView = Backbone.View.extend({
         var userLatitude = parseFloat(this.userLocation.lat());
         var userLongitude = parseFloat(this.userLocation.lng());
 	      
-	localStorage.setItem('user-latitude', userLatitude);
-	localStorage.setItem('user-longitude', userLongitude);
-
-	var cookieLat = $.cookie('user-latitude');
-        var cookieLon = $.cookie('user-longitude');
-	if (cookieLat == null && cookieLon == null){
-	    $.cookie('user-latitude', userLatitude, { expires: 1, path: '/' });
-	    $.cookie('user-longitude', userLongitude, { expires: 1, path: '/' });
-	}
+	    localStorage.setItem('user-latitude', userLatitude);
+	    localStorage.setItem('user-longitude', userLongitude);
 
         this.setMapLocation(true);
  
@@ -332,17 +325,6 @@ var MapView = Backbone.View.extend({
     },
 
     noUserLocation: function() {
-
-        var userLatitude = $.cookie('user-latitude');
-        var userLongitude = $.cookie('user-longitude');
-
-	//try from cookies
-        if (userLatitude != null && userLongitude != null)
-        {
-            this.userLocation = new google.maps.LatLng(userLatitude, userLongitude);
-            this.setMapLocation(true);
-        }
-        else {
 	    //try from local storage
 	    userLatitude =localStorage.getItem('user-latitude');
 	    userLongitude = localStorage.getItem('user-longitude');
@@ -351,8 +333,8 @@ var MapView = Backbone.View.extend({
 		    this.userLocation = new google.maps.LatLng(userLatitude, userLongitude);
 		    this.setMapLocation(true);
 		}
-	    else
-		this.setMapLocation(false);
+	    else {
+		    this.setMapLocation(false);
         }
         
         this.loadMap();
