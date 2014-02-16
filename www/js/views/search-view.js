@@ -1,6 +1,9 @@
 var SearchView = Backbone.View.extend({
-    id: "top-search",
     searchTerms: "default",
+    
+    events: {
+        'click .btn-search': 'submitSearch',
+    },
     
     initialize: function() {
         this.render()
@@ -31,8 +34,6 @@ var SearchView = Backbone.View.extend({
 
         this.changeDate();
 
-        $('.btn-search').click(this.submitSearch.bind(this));
-//        $('.map-location').change(this.submitSearch.bind(this));
         $('#' + this.id).keypress(function(event) {
             if (event.which === 13) {
                 this.submitSearch();
@@ -113,6 +114,7 @@ var SearchView = Backbone.View.extend({
             data: searchData,
             reset: true,
             success: function(collection, response, options) {
+//                var localStorage.getItem('gallevent_search_cache');
                 $('.loading').addClass('hidden');
             },
             error: function(collection, response, options) {
