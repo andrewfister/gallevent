@@ -1,6 +1,10 @@
 var SearchView = Backbone.View.extend({
-    id: "top-search",
     searchTerms: "default",
+    
+    events: {
+        'click .btn-search': 'submitSearch',
+        'click .filters': 'showFilters',
+    },
     
     initialize: function() {
         this.render()
@@ -31,13 +35,15 @@ var SearchView = Backbone.View.extend({
 
         this.changeDate();
 
-        $('.btn-search').click(this.submitSearch.bind(this));
-//        $('.map-location').change(this.submitSearch.bind(this));
         $('#' + this.id).keypress(function(event) {
             if (event.which === 13) {
                 this.submitSearch();
             }
         }.bind(this));
+    },
+    
+    showFilters: function() {
+        $('.filters').addClass('active');
     },
 
     changeTimeSpan: function() {
@@ -108,10 +114,12 @@ var SearchView = Backbone.View.extend({
         }
 
         console.log('send a search request');
+        window.dispatcher.trigger("fetch");
         this.collection.fetch({
             data: searchData,
             reset: true,
             success: function(collection, response, options) {
+//                var localStorage.getItem('gallevent_search_cache');
                 $('.loading').addClass('hidden');
             },
             error: function(collection, response, options) {
