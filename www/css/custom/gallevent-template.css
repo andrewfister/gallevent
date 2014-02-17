@@ -53,13 +53,13 @@ select {
 	}
 
 .select {
-	background:#fff url(../../img/data/icon-arrow-down-blue-30x21.svg) right center no-repeat;
-	background-size:50px 10px;
+	background:#fff url(../../img/data/icon-arrow-down-blue-30x21.svg) right 15px center no-repeat;
+	background-size:15px 10px;
 	overflow:hidden;
 	}
 .select:hover {
-	background:#fff url(../../img/data/icon-arrow-down-blue-30x21-h.svg) right center no-repeat;
-	background-size:50px 10px;
+	background:#fff url(../../img/data/icon-arrow-down-blue-30x21-h.svg) right 15px center no-repeat;
+	background-size:15px 10px;
 	}
 
 /* = Header
@@ -149,21 +149,24 @@ select {
 		}
 	
 	#top-search b,
-	#top-search svg.close {
+	#top-search .close {
 		display:none;	
 		}
 	
-	#top-search svg.filters-icon {
+	#top-search .filters-icon svg {
 		width:32px;
 		}
-	#top-search svg.close {
+	#top-search .close {
 		float: right;
+		}
+	
+	#top-search .close svg {
 		width:15px;
 		height:15px;
 		}
 	
-	#top-search svg.filters-icon:hover,
-	#top-search svg.close:hover {
+	#top-search .filters-icon:hover,
+	#top-search .close:hover {
 		opacity:0.6;	
 		}
 	
@@ -175,10 +178,10 @@ select {
 		display:inline-block;
 		}
 	
-	#top-search .filters.active legend svg.close {	
+	#top-search .filters.active legend .close {	
 		display:block;
 		}
-	#top-search .filters.active legend svg.filters-icon {
+	#top-search .filters.active legend .filters-icon {
 		display:none;	
 		}
 	
@@ -216,6 +219,13 @@ select {
 		margin-bottom:0.4em;
 		}
 	
+	@-moz-document url-prefix() { 
+		#top-search .date-input-container {
+			width:49%;
+			padding-left:0;
+		}
+	}
+	
 	#top-search #date {
 		float: left;
 		width:100%;
@@ -224,6 +234,11 @@ select {
 	#top-search span.price {
 		width: 100%;
 		margin-bottom:1em;
+		}
+	
+	#top-search .button-container {
+		float:left;
+		width:100%;	
 		}
 	
 	#top-search button {
