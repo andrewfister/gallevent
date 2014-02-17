@@ -115,7 +115,7 @@ var SearchView = Backbone.View.extend({
             data: searchData,
             reset: true,
             success: function(collection, response, options) {
-                var galleventSearchCache = localStorage.getItem('gallevent_search_cache');
+                this.collection.storeLocally(searchData, response);
                 $('.loading').addClass('hidden');
             },
             error: function(collection, response, options) {
@@ -124,8 +124,5 @@ var SearchView = Backbone.View.extend({
         });
 
         $('.loading').removeClass('hidden');
-    },
-    
-    loadSearchResultsFromCache: function() {
     },
 });
