@@ -37,11 +37,13 @@ var SearchView = Backbone.View.extend({
 
         this.changeDate();
 
-        $('#' + this.id).keypress(function(event) {
+        this.$el.keypress(function(event) {
             if (event.which === 13) {
                 this.submitSearch();
             }
         }.bind(this));
+        
+        this.locationSearchTerms = "";
     },
     
     showFilters: function() {
@@ -106,6 +108,12 @@ var SearchView = Backbone.View.extend({
     },
 
     submitSearch: function() {
+        var newLocationSearchTerms = $('#location-search-input').val();
+        if (this.locationSearchTerms.length == 0 || this.locationSearchTerms != newLocationSearchTerms) {
+            this.locationSearchTerms = newLocationSearchTerms;
+            window.mapView.locationSearch(newLocationSearchTerms);
+        }
+    
         var serializedSearch = $('#top-search').serializeArray();
         var searchData = {};
         var i;
@@ -125,7 +133,6 @@ var SearchView = Backbone.View.extend({
             data: searchData,
             reset: true,
             success: function(collection, response, options) {
-//                var localStorage.getItem('gallevent_search_cache');
                 $('.loading').addClass('hidden');
             },
             error: function(collection, response, options) {
