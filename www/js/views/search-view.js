@@ -3,6 +3,7 @@ var SearchView = Backbone.View.extend({
     
     events: {
         'click .btn-search': 'submitSearch',
+        'keypress #event': 'submitSearch',
     },
     
     initialize: function() {
@@ -33,12 +34,6 @@ var SearchView = Backbone.View.extend({
         }
 
         this.changeDate();
-
-        $('#' + this.id).keypress(function(event) {
-            if (event.which === 13) {
-                this.submitSearch();
-            }
-        }.bind(this));
     },
 
     changeTimeSpan: function() {
@@ -94,6 +89,12 @@ var SearchView = Backbone.View.extend({
         return [selectable, style];
     },
 
+    keyPressSubmitSearch: function(event) {
+        if (event.which === 13) {
+            this.submitSearch();
+        }
+    },
+
     submitSearch: function() {
         var serializedSearch = $('#top-search').serializeArray();
         var searchData = {};
@@ -114,7 +115,7 @@ var SearchView = Backbone.View.extend({
             data: searchData,
             reset: true,
             success: function(collection, response, options) {
-//                var localStorage.getItem('gallevent_search_cache');
+                var galleventSearchCache = localStorage.getItem('gallevent_search_cache');
                 $('.loading').addClass('hidden');
             },
             error: function(collection, response, options) {
@@ -123,5 +124,8 @@ var SearchView = Backbone.View.extend({
         });
 
         $('.loading').removeClass('hidden');
-    }
+    },
+    
+    loadSearchResultsFromCache: function() {
+    },
 });
