@@ -173,9 +173,6 @@ var MapView = Backbone.View.extend({
                 this.setMapLatLng(newLocation);
                 this.centerMap(newLocation);
             }
-            else {
-                alert("Could not find your location at the moment!");
-            }
         }.bind(this));
     },
     
