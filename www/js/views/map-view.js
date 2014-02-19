@@ -88,16 +88,6 @@ var MapView = Backbone.View.extend({
     geocoder: new google.maps.Geocoder(),    
 
     render: function() {
-        $('#location-search-input').keypress(function(event) {
-            if (event.which === 13) {
-                this.locationSearch();
-            }
-        }.bind(this));
-        
-        $('#location-search-button').click(function(event) {
-            this.locationSearch();
-        }.bind(this));
-        
         $('#my-location').click(function(event) {
             $('.loading').removeClass('hidden');
             this.getCurrentPosition();
@@ -175,8 +165,8 @@ var MapView = Backbone.View.extend({
         return this;
     },
     
-    locationSearch: function() {
-        this.geocoder.geocode({ address: $('#location-search-input').val() }, function(results, status) {
+    locationSearch: function(locationAddress) {
+        this.geocoder.geocode({ address: locationAddress }, function(results, status) {
             if (status === google.maps.GeocoderStatus.OK) {
                 var newLocation = results[0].geometry.location;
                 
