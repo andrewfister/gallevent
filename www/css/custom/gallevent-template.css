@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 02-09-2014
-** Updated: 02-16-2014
+** Updated: 02-19-2014
 ************************************** */
 
 html,
@@ -83,6 +83,105 @@ select {
 .select:hover {
 	background:#fff url(../../img/data/icon-arrow-down-blue-30x21-h.svg) right 15px center no-repeat;
 	background-size:15px 10px;
+	}
+
+/* = Global Calendar Datepicker */
+#ui-datepicker-div {
+	z-index:800 !important;
+	margin:12px 0 0 -2em;
+	border:1px solid #CCECEF;
+	background:#fff;
+	}
+.ui-datepicker {
+	position:static;
+	}
+*+html #ui-datepicker-div {
+	width:194px;
+	}
+#ui-datepicker-div a {
+	color:#777;
+	}
+.ui-datepicker-header {
+	color:#239ea2;
+	margin:-13px 0 0 0;
+	padding:20px 0 0.4em 0;
+	font-size:105%;
+	font-weight:bold;
+	text-align:center;
+	background:transparent url(../../img/cal-top-arrow.png) no-repeat 50% 0;
+	}
+.ui-datepicker-prev,
+.ui-datepicker-next {
+	position:relative;
+	top:0.1em;
+	width:11px;
+	height:18px;
+	text-indent:-9999px;
+	}
+.ui-datepicker-prev {
+	float:left;
+	background:url(../../img/icon-cal-arrow-l.png) 0 0 no-repeat;
+	margin-left:9px;
+	}
+.ui-datepicker-prev:hover {
+	background:url(../../img/icon-cal-arrow-l-h.png) 0 0 no-repeat;
+	}
+.ui-datepicker-next {
+	float:right;
+	background:url(../../img/icon-cal-arrow-r.png) 0 0 no-repeat;
+	margin-right:9px;
+	}
+.ui-datepicker-next:hover {
+	background:url(../../img/icon-cal-arrow-r-h.png) 0 0 no-repeat;
+	}
+.ui-datepicker-calendar {
+	margin:0 4px 4px 4px;
+	}
+#ui-datepicker-div table {
+	font-size:90%;
+	}
+#ui-datepicker-div table td {
+	border:1px solid #fff;
+	background:#d9d9d9;
+	/* background:#f0f0f0; */
+	text-align:center;
+	width:30px !important;
+	padding:0.3em 0 0.3em 0;
+	}
+#ui-datepicker-div table td:hover {
+	background:#EDF2F2;
+	font-weight:bold;
+	}
+#ui-datepicker-div td:hover a {
+	color:#70b820;
+	}
+
+.ui-datepicker-prev.ui-state-disabled {
+	background:#fff;
+	}
+
+.ui-datepicker-calendar .ui-state-disabled {
+	color:#989898;
+	background:#f0f0f0 !important;
+	}
+
+#ui-datepicker-div thead {
+	color:#fff;
+	background:#239ea2;
+	}
+#ui-datepicker-div thead tr {
+	}
+#ui-datepicker-div thead th {
+	text-align:center;
+	padding:0.3em 0 0.3em 0;
+	}
+
+.ui-datepicker-today {
+	background:#85c440 !important;
+	font-weight:bold;
+	}
+.ui-datepicker-today a {
+	color:#fff !important;
 	}
 
 /* = Header
