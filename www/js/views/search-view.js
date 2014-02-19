@@ -108,6 +108,8 @@ var SearchView = Backbone.View.extend({
     },
 
     submitSearch: function() {
+        this.hideFilters();
+        
         var newLocationSearchTerms = $('#location-search-input').val();
         if (this.locationSearchTerms.length == 0 || this.locationSearchTerms != newLocationSearchTerms) {
             this.locationSearchTerms = newLocationSearchTerms;
