@@ -3,7 +3,7 @@
 ** Description: Control for Event Categories
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 02-16-2014
+** Updated: 02-17-2014
 ************************************** */
 
 /* = Position Pin Key Within Container */
@@ -13,30 +13,26 @@
 	z-index: 800;
 	left: 0;
 	top:100%;
-	margin-top:-80px;
-	width:100%;
+	margin-top:-48px;
+	width:200%;
 	height:3em;
 	padding:0 0.5em 0 0.5em;
-	background: #fff;
 	color:#43555A;
-	}
+	background: -moz-linear-gradient(top,  rgba(255,255,255,0.9) 0%, rgba(255,255,255,1) 100%);
 
-#pin-key .details {
-	display:none;
-  	}
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.9)), color-stop(100%,rgba(255,255,255,1)));
 
-#pin-key a {
-	display:block;
-	width:31px;
-	height:40px;
-	padding:0 0.5em 0 0.5em;
-	}
+background: -webkit-linear-gradient(top,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 100%);
 
-#pin-key a:hover {
-	}
+background: -o-linear-gradient(top,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 100%);
 
-#pin-key a:hover .details {
-	display:block;
+background: -ms-linear-gradient(top,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 100%);
+
+background: linear-gradient(to bottom,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 100%);
+
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6ffffff', endColorstr='#ffffff',GradientType=0 );
+
+
 	}
 
 #pin-key .arrow {
@@ -50,6 +46,51 @@
 	background-image: url(../../img/data/arrow-white-32x20.svg);
 	background-size: contain;
 	}
+
+#pin-key a {
+	display:block;
+	overflow:hidden;
+	width:31px;
+	max-width:31px;
+	height:40px;
+	padding:0.4em 0.5em 0 0.5em;
+	color:#43555A;
+	transition: max-width 2s ease;
+	-webkit-transition: max-width 2s ease;
+	}
+
+#pin-key a:hover {
+	width: auto;
+	max-width:100%;
+	}
+
+#pin-key .details {
+	display:none;
+	margin-left:40px;
+  	}
+
+#pin-key .details strong {
+	margin-bottom:-0.2em;
+	}
+
+#pin-key .category-count {
+	font-weight:normal;
+	font-size: 90%;
+	}
+
+#pin-key .details i {
+	font-size:80%;
+	}
+
+#pin-key a:hover .details,
+#pin-key a:hover .details strong,
+#pin-key a:hover .details i {
+	display:block;
+	}
+
+
+
+
 
 
 #pin-key a.selected {
@@ -68,21 +109,16 @@
 
 
 /* = Specific Cateogry Styles */
-.networking,
-.education,
-.fairs,
-.athletic,
-.art,
-.dancing,
-.sales,
-.dining,
-.nightlife,
-.jobs {
+a.key {
 	display:block;
 	float:left;
 	background-position:center 8px;
 	background-repeat:no-repeat;
 	}
+a.key:hover {
+	background-position:0.5em 8px;
+	}
+
 .networking {
 	background-image:url(../../img/data/pin-networking.svg);
 	}
