@@ -1,6 +1,12 @@
 var SearchView = Backbone.View.extend({
-    id: "top-search",
     searchTerms: "default",
+    
+    events: {
+        'click .btn-search': 'submitSearch',
+        'click .btn-add-filters': 'submitSearch',
+        'click .filters-legend > .filters-icon': 'showFilters',
+        'click .filters-legend > .close': 'hideFilters',
+    },
     
     initialize: function() {
         this.render()
@@ -31,13 +37,21 @@ var SearchView = Backbone.View.extend({
 
         this.changeDate();
 
-        $('.btn-search').click(this.submitSearch.bind(this));
-//        $('.map-location').change(this.submitSearch.bind(this));
-        $('#' + this.id).keypress(function(event) {
+        this.$el.keypress(function(event) {
             if (event.which === 13) {
                 this.submitSearch();
             }
         }.bind(this));
+        
+        this.locationSearchTerms = "";
+    },
+    
+    showFilters: function() {
+        $('.filters').addClass('active');
+    },
+    
+    hideFilters: function() {
+        $('.filters').removeClass('active');
     },
 
     changeTimeSpan: function() {
@@ -94,6 +108,14 @@ var SearchView = Backbone.View.extend({
     },
 
     submitSearch: function() {
+        this.hideFilters();
+        
+        var newLocationSearchTerms = $('#location-search-input').val();
+        if (this.locationSearchTerms.length == 0 || this.locationSearchTerms != newLocationSearchTerms) {
+            this.locationSearchTerms = newLocationSearchTerms;
+            window.mapView.locationSearch(newLocationSearchTerms);
+        }
+    
         var serializedSearch = $('#top-search').serializeArray();
         var searchData = {};
         var i;

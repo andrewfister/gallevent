@@ -4,7 +4,8 @@ $(document).ready(function() {
     window.events = new EventSearchCollection();
 
     window.searchView = new SearchView({
-        collection: window.events
+        collection: window.events,
+        el: $('#top-search')
     });
 
     window.mapEvents = new EventCollection();
