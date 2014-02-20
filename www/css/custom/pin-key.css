@@ -7,7 +7,7 @@
 ************************************** */
 
 /* = Position Pin Key Within Container */
-#pin-key-container {
+#pin-key {
 	position: absolute;
 	float:left;
 	z-index: 800;
@@ -31,12 +31,6 @@ background: -ms-linear-gradient(top,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,
 background: linear-gradient(to bottom,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 100%);
 
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6ffffff', endColorstr='#ffffff',GradientType=0 );
-	
-	}
-
-#pin-key {
-	padding-left: 50%;
-	margin-left: -196px;
 	}
 
 #pin-key .arrow {
