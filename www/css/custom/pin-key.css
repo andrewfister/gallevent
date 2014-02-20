@@ -3,18 +3,18 @@
 ** Description: Control for Event Categories
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 02-17-2014
+** Updated: 02-19-2014
 ************************************** */
 
 /* = Position Pin Key Within Container */
-#pin-key {
+#pin-key-container {
 	position: absolute;
 	float:left;
 	z-index: 800;
 	left: 0;
 	top:100%;
 	margin-top:-48px;
-	width:200%;
+	width:100%;
 	height:3em;
 	padding:0 0.5em 0 0.5em;
 	color:#43555A;
@@ -31,8 +31,12 @@ background: -ms-linear-gradient(top,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,
 background: linear-gradient(to bottom,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 100%);
 
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6ffffff', endColorstr='#ffffff',GradientType=0 );
+	
+	}
 
-
+#pin-key {
+	padding-left: 50%;
+	margin-left: -196px;
 	}
 
 #pin-key .arrow {
@@ -60,8 +64,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6ffffff', e
 	}
 
 #pin-key a:hover {
-	width: auto;
-	max-width:100%;
 	}
 
 #pin-key .details {
@@ -148,4 +150,12 @@ a.key:hover {
 	}
 .jobs {
 	background-image:url(../../img/data/pin-jobs.svg);
+	}
+
+
+@media (min-width: 700px) {
+	#pin-key a:hover {
+	width: auto;
+	max-width:100%;
+	}
 	}
