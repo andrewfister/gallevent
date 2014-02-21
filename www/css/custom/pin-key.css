@@ -14,23 +14,17 @@
 	left: 0;
 	top:100%;
 	margin-top:-48px;
-	width:800px;
+	width:20em;
 	height:3em;
-	padding:0 0.5em 0 0.5em;
+	padding:0 0.25em 0 0.25em;
 	color:#43555A;
 	background: -moz-linear-gradient(top,  rgba(255,255,255,0.9) 0%, rgba(255,255,255,1) 100%);
-
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.9)), color-stop(100%,rgba(255,255,255,1)));
-
-background: -webkit-linear-gradient(top,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 100%);
-
-background: -o-linear-gradient(top,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 100%);
-
-background: -ms-linear-gradient(top,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 100%);
-
-background: linear-gradient(to bottom,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 100%);
-
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6ffffff', endColorstr='#ffffff',GradientType=0 );
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.9)), color-stop(100%,rgba(255,255,255,1)));
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 100%);
+	background: -o-linear-gradient(top,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 100%);
+	background: linear-gradient(to bottom,  rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6ffffff', endColorstr='#ffffff',GradientType=0 );
 	}
 
 #pin-key .arrow {
@@ -51,7 +45,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6ffffff', e
 	width:31px;
 	max-width:31px;
 	height:40px;
-	padding:0.4em 0.5em 0 0.5em;
+	padding:0.4em 0.25em 0 0.25em;
 	color:#43555A;
 	transition: max-width 2s ease;
 	-webkit-transition: max-width 2s ease;
@@ -78,11 +72,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6ffffff', e
 	font-size:80%;
 	}
 
-#pin-key a:hover .details,
-#pin-key a:hover .details strong,
-#pin-key a:hover .details i {
-	display:block;
-	}
+
 
 
 
@@ -111,9 +101,7 @@ a.key {
 	background-position:center 8px;
 	background-repeat:no-repeat;
 	}
-a.key:hover {
-	background-position:0.5em 8px;
-	}
+
 
 .networking {
 	background-image:url(../../img/data/pin-networking.svg);
@@ -148,11 +136,24 @@ a.key:hover {
 
 
 @media (min-width: 700px) {
+	
 		#pin-key {
 			width:200%;
+		}
+		#pin-key a {
+			padding:0.4em 0.5em 0 0.5em;
 		}
 		#pin-key a:hover {
 			width: auto;
 			max-width:100%;
 		}
+		#pin-key a:hover .details,
+#pin-key a:hover .details strong,
+#pin-key a:hover .details i {
+	display:block;
+	}
+	a.key:hover {
+	background-position:0.5em 8px;
+	}
+
 	}

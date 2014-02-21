@@ -3,7 +3,7 @@
 ** Description: Pins and Pop-Ups Used on Map
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 11-02-2013
+** Updated: 02-20-2013
 ************************************** */
 
 .pin-hover {
@@ -78,7 +78,7 @@ margin:1em;
 
 .map-popup .price,
 .map-popup .date-time {
-	clear:both;
+	/* clear:both; jess change */
 	}
 
 .map-popup .price,
