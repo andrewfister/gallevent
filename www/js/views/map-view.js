@@ -26,7 +26,7 @@ var MapView = Backbone.View.extend({
         
         this.hoverTemplate = Mustache.template('pin-hover').render;
         this.popUpTemplate = Mustache.template('map-popup').render;
-        this.infoWindow.setOptions({maxWidth: 400});
+        this.infoWindow.setOptions({maxWidth: 220});
         this.mapOptions.zoomControl = true;
         this.mapOptions.zoomControlOptions = {position: google.maps.ControlPosition.LEFT_CENTER};
         this.render();

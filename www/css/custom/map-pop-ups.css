@@ -20,7 +20,7 @@ left:20px;
 	left:-7px;
 	width:7px;
 	height:7px;
-text-indent:9999px;
+	text-indent:9999px;
 	background: url(../../img/blue-arrow-80-7x7.png) 0 0 no-repeat;
 	}
 .pin-hover .event-name {
@@ -31,13 +31,8 @@ margin:1em;
 
 /* = Map Pin Pop-Up */
 .map-popup {
-	width:325px;
 	color:#58595b;
 	overflow-y:hidden;
-	}
-
-.map-popup .event-info {
-	margin-left:37px;
 	}
 
 .map-popup .event-name,
@@ -46,7 +41,6 @@ margin:1em;
 	float:left;
 	}
 .map-popup .event-name span {
-	width:250px;
 	font-size:140%;
 	font-weight:bold;
 	line-height:1.1em;
@@ -95,12 +89,21 @@ margin:1em;
 	font-size:115% !important;
 	}
 
-
 .map-popup .price {
+	float:left;
 	color:#85c440; /* green */
 	font-weight:bold !important;
 	font-size:140% !important;
 	}
+
+.map-popup .date-time {
+	float:right;
+	}
+
+.map-popup .address {
+	color:#868789;
+	}	
+	
 
 
 /* = Map Pin Pop-Up Action Links */
