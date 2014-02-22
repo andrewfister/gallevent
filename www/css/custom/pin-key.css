@@ -3,7 +3,7 @@
 ** Description: Control for Event Categories
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 02-20-2014
+** Updated: 02-21-2014
 ************************************** */
 
 /* = Position Pin Key Within Container */
@@ -27,21 +27,11 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6ffffff', endColorstr='#ffffff',GradientType=0 );
 	}
 
-#pin-key .arrow {
-	display:none;
-	position: relative;
-	top: -10px;
-	width: 16px;
-	height: 10px;
-	margin: 0 auto;
-	text-indent: -9999px;
-	background-image: url(../../img/data/arrow-white-32x20.svg);
-	background-size: contain;
-	}
 
 #pin-key a {
 	display:block;
-	overflow:hidden;
+	position:relative;
+	/* overflow:hidden; */
 	width:31px;
 	max-width:31px;
 	height:40px;
@@ -53,6 +43,20 @@
 
 #pin-key a:hover {
 	}
+
+#pin-key .arrow {
+	display:none;
+	position: absolute;
+	top: -10px;
+	left:50%;
+	margin-left:-8px;
+	width: 16px;
+	height: 10px;
+	text-indent: -9999px;
+	background-image: url(../../img/data/arrow-white-32x20.svg);
+	background-size: contain;
+	}
+
 
 #pin-key .details {
 	display:none;
@@ -80,8 +84,7 @@
 
 
 #pin-key a.selected {
-	color:#b3e2e6;
-	background-color:#fff;
+	
 	}
 #pin-key a.selected .arrow {
 	display:block;
@@ -134,26 +137,40 @@ a.key {
 	background-image:url(../../img/data/pin-jobs.svg);
 	}
 
+@media (max-height: 420px) {
+	#pin-key {
+		display:none;	
+		}
+	}
 
+@media (min-width: 320px) {
+		#pin-key {
+			width:100%;
+			}
+	}
 @media (min-width: 700px) {
 	
 		#pin-key {
 			width:200%;
-		}
+			}
 		#pin-key a {
 			padding:0.4em 0.5em 0 0.5em;
-		}
-		#pin-key a:hover {
+			}
+		#pin-key a:hover,
+		#pin-key a.selected {
 			width: auto;
 			max-width:100%;
-		}
+			}
 		#pin-key a:hover .details,
-#pin-key a:hover .details strong,
-#pin-key a:hover .details i {
-	display:block;
-	}
-	a.key:hover {
-	background-position:0.5em 8px;
-	}
-
+		#pin-key a.selected .details,
+		#pin-key a:hover .details strong,
+		#pin-key a.selected strong,
+		#pin-key a:hover .details i,
+		#pin-key a.selected .details i {
+			display:block;
+			}
+		a.key:hover,
+		#pin-key a.selected {
+			background-position:0.5em 8px;
+			}
 	}
