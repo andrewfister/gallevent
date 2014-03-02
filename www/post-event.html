@@ -33,7 +33,7 @@ var eventJSON = {};
     {% endif %}
     <h1>Post Your Event on Gallevent</h1>
     {% endif %}
-    <form method="post" id="post-event">
+    <form method="post" id="post-event">{% csrf_token %}
 	<fieldset>
         <legend>1. What type of event is this?</legend>
         <label for="event-category" class="required">Select an event category:</label>
