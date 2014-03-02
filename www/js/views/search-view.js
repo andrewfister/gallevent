@@ -3,6 +3,7 @@ var SearchView = Backbone.View.extend({
     
     events: {
         'click .btn-search': 'submitSearch',
+        'keypress #event': 'submitSearch',
         'click .btn-add-filters': 'submitSearch',
         'click .filters-legend > .filters-icon': 'showFilters',
         'click .filters-legend > .close': 'hideFilters',
@@ -107,6 +108,12 @@ var SearchView = Backbone.View.extend({
         return [selectable, style];
     },
 
+    keyPressSubmitSearch: function(event) {
+        if (event.which === 13) {
+            this.submitSearch();
+        }
+    },
+
     submitSearch: function() {
         this.hideFilters();
         
@@ -135,6 +142,7 @@ var SearchView = Backbone.View.extend({
             data: searchData,
             reset: true,
             success: function(collection, response, options) {
+//                this.collection.storeLocally(searchData, response);
                 $('.loading').addClass('hidden');
             },
             error: function(collection, response, options) {
@@ -143,5 +151,5 @@ var SearchView = Backbone.View.extend({
         });
 
         $('.loading').removeClass('hidden');
-    }
+    },
 });
