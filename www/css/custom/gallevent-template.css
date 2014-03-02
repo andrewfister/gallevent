@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 02-09-2014
-** Updated: 02-21-2014
+** Updated: 03-02-2014
 ************************************** */
 
 html,
@@ -290,6 +290,8 @@ select {
 	
 	#top-search .filters-icon svg {
 		width:32px;
+		padding: 1.2em 1em 0.9em 1em;
+		margin: -1.2em -1em -0.9em -1em;
 		}
 	#top-search .close {
 		float: right;
