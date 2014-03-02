@@ -4,6 +4,9 @@ var SearchView = Backbone.View.extend({
     events: {
         'click .btn-search': 'submitSearch',
         'keypress #event': 'submitSearch',
+        'click .btn-add-filters': 'submitSearch',
+        'click .filters-legend > .filters-icon': 'showFilters',
+        'click .filters-legend > .close': 'hideFilters',
     },
     
     initialize: function() {
@@ -34,6 +37,22 @@ var SearchView = Backbone.View.extend({
         }
 
         this.changeDate();
+
+        this.$el.keypress(function(event) {
+            if (event.which === 13) {
+                this.submitSearch();
+            }
+        }.bind(this));
+        
+        this.locationSearchTerms = "";
+    },
+    
+    showFilters: function() {
+        $('.filters').addClass('active');
+    },
+    
+    hideFilters: function() {
+        $('.filters').removeClass('active');
     },
 
     changeTimeSpan: function() {
@@ -96,6 +115,14 @@ var SearchView = Backbone.View.extend({
     },
 
     submitSearch: function() {
+        this.hideFilters();
+        
+        var newLocationSearchTerms = $('#location-search-input').val();
+        if (this.locationSearchTerms.length == 0 || this.locationSearchTerms != newLocationSearchTerms) {
+            this.locationSearchTerms = newLocationSearchTerms;
+            window.mapView.locationSearch(newLocationSearchTerms);
+        }
+    
         var serializedSearch = $('#top-search').serializeArray();
         var searchData = {};
         var i;
@@ -115,7 +142,7 @@ var SearchView = Backbone.View.extend({
             data: searchData,
             reset: true,
             success: function(collection, response, options) {
-                this.collection.storeLocally(searchData, response);
+//                this.collection.storeLocally(searchData, response);
                 $('.loading').addClass('hidden');
             },
             error: function(collection, response, options) {

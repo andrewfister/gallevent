@@ -124,18 +124,18 @@ var EventCollection = Backbone.Collection.extend({
 var EventSearchCollection = EventCollection.extend({
     url: '/event/search/',
     
-    storeLocally: function(searchParams, searchData, timestamp) {
-        var galleventSearchCacheString = localStorage.getItem('gallevent_search_cache');
-        
-        if (galleventSearchCacheString === null)
-        {
-            
-        }
-        
-        var galleventSearchCache = $.parseJSON(galleventSearchCacheString);
-        galleventSearchCache.push({
-        });
-    }
+//    storeLocally: function(searchParams, searchData, timestamp) {
+//        var galleventSearchCacheString = localStorage.getItem('gallevent_search_cache');
+//        
+//        if (galleventSearchCacheString === null)
+//        {
+//            
+//        }
+//        
+//        var galleventSearchCache = $.parseJSON(galleventSearchCacheString);
+//        galleventSearchCache.push({
+//        });
+//    }
 });
 
 

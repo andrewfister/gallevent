@@ -26,7 +26,7 @@ var MapView = Backbone.View.extend({
         
         this.hoverTemplate = Mustache.template('pin-hover').render;
         this.popUpTemplate = Mustache.template('map-popup').render;
-        this.infoWindow.setOptions({maxWidth: 400});
+        this.infoWindow.setOptions({maxWidth: 220});
         this.mapOptions.zoomControl = true;
         this.mapOptions.zoomControlOptions = {position: google.maps.ControlPosition.LEFT_CENTER};
         this.render();
@@ -88,16 +88,6 @@ var MapView = Backbone.View.extend({
     geocoder: new google.maps.Geocoder(),    
 
     render: function() {
-        $('#location-search-input').keypress(function(event) {
-            if (event.which === 13) {
-                this.locationSearch();
-            }
-        }.bind(this));
-        
-        $('#location-search-button').click(function(event) {
-            this.locationSearch();
-        }.bind(this));
-        
         $('#my-location').click(function(event) {
             $('.loading').removeClass('hidden');
             this.getCurrentPosition();
@@ -175,16 +165,13 @@ var MapView = Backbone.View.extend({
         return this;
     },
     
-    locationSearch: function() {
-        this.geocoder.geocode({ address: $('#location-search-input').val() }, function(results, status) {
+    locationSearch: function(locationAddress) {
+        this.geocoder.geocode({ address: locationAddress }, function(results, status) {
             if (status === google.maps.GeocoderStatus.OK) {
                 var newLocation = results[0].geometry.location;
                 
                 this.setMapLatLng(newLocation);
                 this.centerMap(newLocation);
-            }
-            else {
-                alert("Could not find your location at the moment!");
             }
         }.bind(this));
     },
