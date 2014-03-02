@@ -19,7 +19,7 @@ class FrontPageView(TemplateView):
         try:
             timeSpan = request.GET['timeSpan']
         except KeyError:
-            timeSpan = "week_of"
+            timeSpan = "day_of"
 
         return self.render_to_response({
             'timeSpan': timeSpan
@@ -33,7 +33,7 @@ class SearchView(View):
         events = []
 
         for SearchForm in self.searchForms:
-            if len(events) >= settings.MAX_EVENTS:
+            if len(events) >= settings.MIN_EVENTS:
                 break
             
             form = SearchForm(request.GET)
