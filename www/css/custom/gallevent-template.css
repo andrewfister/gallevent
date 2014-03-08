@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 02-09-2014
-** Updated: 03-02-2014
+** Updated: 03-08-2014
 ************************************** */
 
 html,
@@ -192,45 +192,10 @@ select {
 	z-index:600;
 	width:100%;
 	font-size:110%;
+	background:rgba(5, 159, 172, 0.9);
 	}
 
-#header .logo-block {
-	position:absolute;
-	top:1em;
-	left:1em;
-	z-index:800;
-	}
 
-#header .logo-block .logo {
-	/*
-	top:1.4em;
-	left:1.5em;
-	*/
-	display:block;
-	width:49px;
-	height:30px;
-	background:url(../../img/data/gallevent-logo-icon-orange-98x60.svg) top left no-repeat;
-	background-size:contain;
-	overflow:hidden;
-	text-indent:-9999px;
-	}
-
-#btn-menu {
-	position:absolute;
-	top:1.3em;
-	/* top:1.8em; */
-	right:2em;
-	display:block;
-	z-index:800;
-	}
-#btn-menu svg {
-	width:15px;
-	height:15px;
-	}
-
-#btn-menu svg:hover {
-	opacity:0.6;
-	}
 
 	/* = Top Search */
 	#top-search-container {
@@ -421,42 +386,4 @@ select {
 
 
 
-@media (min-width: 700px) {
-	
-	#header .logo-block {
-	top:0.5em;
-	left:0;
-	padding:0.5em 0.5em 0.6em 0.5em;
-		background:url(../../img/data/orange-angle.svg) top left no-repeat;
-		border-radius:0 5px 5px 0;
-		}
-		
-		#header .logo-block .logo {
-			width:183px;
-			background:url(../../img/data/gallevent-logo-white-365x60.svg) top left no-repeat;
-			background-size:contain;
-		}
-		#top-search-container {
-		margin-left:11.5em;
-		}
-		
-		
-			
-		#top-search #event-keywords {
-			text-indent:0px;
-			}
-		.gmnoprint {
-			display:block;	
-			}
-		
-		#btn-menu {
-			right:0;
-	padding:0.5em 1em 0.5em 1em;
-		background:rgba(5, 159, 172, 0.9);
-		border-radius:5px 0 0 5px;
-	}
-		
-		
-		
-	}
 
