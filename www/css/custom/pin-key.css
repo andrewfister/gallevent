@@ -77,12 +77,6 @@
 	}
 
 
-
-
-
-
-
-
 #pin-key a.selected {
 	
 	}
@@ -172,5 +166,28 @@ a.key {
 		a.key:hover,
 		#pin-key a.selected {
 			background-position:0.5em 8px;
+			}
+	}
+
+@media (min-width: 900px) {
+	
+		#pin-key {
+			width:100%;
+			}
+		#pin-key a {
+			width:12.5%;
+			max-width:100%;
+			padding:0.4em 0 0 0;
+			}
+		#pin-key .details,
+		#pin-key .details strong,
+		#pin-key a strong,
+		#pin-key .details i,
+		#pin-key a .details i {
+			display:block;
+			}
+		a.key,
+		#pin-key a.selected {
+			background-position:0 0.5em;
 			}
 	}
