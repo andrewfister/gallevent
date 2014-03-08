@@ -58,8 +58,8 @@ class SignOutView(View):
         return HttpResponse(json.dumps(login_response), content_type="application/json")
 
 
-    name_template = "join.html"
 class JoinView(TemplateView):
+    template_name = "join.html"
 
     def post(self, request):
         register_response = {}
