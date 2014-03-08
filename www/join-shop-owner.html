@@ -1,0 +1,20 @@
+{% extends "base-login.html" %}
+
+{% block body-class %}center-content{% endblock body-class %}
+
+{% block content %}
+<form method="post">
+  <label>Email Address:</label>
+  <input type="text" class="input-standard" name="email" />
+  <label>Password:</label>
+  <input type="password" class="input-standard" name="password" />
+  <input type="text" class="hidden" name="next" value="{{ next }}" />
+  <input class="btn-sign-in" type="submit" value="Sign In" />
+</form>
+<div class="left">
+  <h2>Welcome back!</h2>
+  <p>Sign in to your account to manage your events, edit your profile, and update your settings.</p>
+  <h2>Gallevent is the best place to post and find events!</h2>
+  <p>Post your event and watch your guest list grow.</p>
+</div>
+{% endblock %}
