@@ -15,7 +15,7 @@
     <span class="tagline">Find Events Near You!</span>
   </div><!-- .logo-block -->      	  
   <span class="right">
-    {% block login-link %}<a href="/login/invite_request">Don't have a code? Click here!</a> | <a href="{% url 'login.views.sign_in' %}">Sign In</a>{% endblock %}
+    {% block login-link %}<a href="{% url 'signin.views.sign_in' %}">Sign In</a>{% endblock login-link %}
   </span><!-- .right -->
 </div><!-- #header -->
 {% endblock %}
