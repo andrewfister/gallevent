@@ -5,12 +5,14 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.template import RequestContext
-from django.views.generic.base import View
+from django.views.generic.base import View, TemplateView
 
 from signin import forms, models
 
 
 class SignInView(View):
+    
+
     def post(self, request):
         form = forms.SignInForm(request.POST)
         login_response = {}
@@ -56,7 +58,9 @@ class SignOutView(View):
         return HttpResponse(json.dumps(login_response), content_type="application/json")
 
 
-class JoinView(View):
+    name_template = "join.html"
+class JoinView(TemplateView):
+
     def post(self, request):
         register_response = {}
         form = forms.RegistrationForm(request.POST)
@@ -81,84 +85,8 @@ class JoinView(View):
                 logging.debug('invalid login')
                 print 'invalid login'
 
-        return HttpResponse(json.dumps(register_response), content_type="application/json")
+        return self.render_to_response(register_response)
         
-
-def invite_code(request):
-    email = ''
-    invite_code = ''
-    import logging
-    logging.debug('calling register')
-
-    if request.method == 'POST':
-        logging.debug('submitting register')
-        form = forms.RegistrationForm(request.POST)
-        if form.is_valid():
-            logging.debug('register form is valid')
-            form.save()
-            query_email = form.cleaned_data['email']
-            query_password = form.cleaned_data['password']
-            user = authenticate(username=query_email, password=query_password)
-            logging.debug('email: ' + query_email)
-            logging.debug('password: ' + query_password)
-
-            if user is not None:
-                if user.is_active:
-                    logging.debug('logging in')
-                    login(request, user)
-
-                    return HttpResponseRedirect('/') # Redirect after POST
-                else:
-                    logging.debug('disabled account')
-                    print 'disabled account'
-            else:
-                logging.debug('invalid login')
-                print 'invalid login'
-
-            return HttpResponseRedirect('/profile/show/')
-
-        email = request.POST['email']
-        invite_code = request.POST['invite_code']
-    elif request.method == 'GET':
-        invite_code = request.GET['invite_code']
-        email = request.GET['email']
-
-    return render_to_response('invite-code.html', {
-        'email': email,
-        'invite_code': invite_code,
-    }, context_instance=RequestContext(request))
-
-
-def invite_request(request):
-    import logging
-    logging.debug('request invite?');
-    if request.method == 'POST': # If the form has been submitted...
-        form = forms.RequestInviteForm(request.POST) # A form bound to the POST data
-
-        logging.debug('validating email');
-        if form.is_valid(): # All validation rules pass
-            form.save()
-
-            # Process the data in form.cleaned_data
-            new_email_address = form.cleaned_data['email']
-
-
-            logging.debug('sending email')
-
-            from django.core.mail import send_mail
-            send_mail('Thank you for your interest in Gallevent',
-                        'Your invite is on the way!',
-                        'gallevent.main@gmail.com',
-                        [new_email_address])
-
-            return HttpResponseRedirect('/login/invite_request_received/') # Redirect after POST
-
-    return render_to_response('invite-request.html', {
-    }, context_instance=RequestContext(request))
-
-def invite_request_received(request):
-    return render_to_response('invite-request-received.html', {
-    }, context_instance=RequestContext(request))
 
 def sign_in(request):
     import logging
