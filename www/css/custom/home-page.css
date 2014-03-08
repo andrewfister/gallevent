@@ -61,11 +61,7 @@
 		border-radius:0 5px 5px 0;
 		}
 		
-		#header .logo-block .logo {
-			width:183px;
-			background:url(../../img/data/gallevent-logo-white-365x60.svg) top left no-repeat;
-			background-size:contain;
-		}
+	
 		#top-search-container {
 		margin-left:11.5em;
 		}
