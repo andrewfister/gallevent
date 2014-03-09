@@ -64,10 +64,7 @@ class JoinView(FormView):
     form_class = forms.RegistrationForm
     success_url = '/user_profile/show'
 
-    def get(self, request):
-        return self.render_to_response({})
-
-    def post(self, request):
+    def form_valid(self, form):
         register_response = {}
         form = forms.RegistrationForm(request.POST)
         if form.is_valid():
@@ -91,4 +88,4 @@ class JoinView(FormView):
                 logging.debug('invalid login')
                 print 'invalid login'
 
-        return self.render_to_response(register_response)
+        return super(JoinView, self).form_valid(form)
