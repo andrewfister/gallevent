@@ -62,30 +62,29 @@ class SignOutView(View):
 class JoinView(FormView):
     template_name = "join.html"
     form_class = forms.RegistrationForm
-    success_url = '/user_profile/show'
+    success_url = '/profile/show'
 
     def form_valid(self, form):
-        register_response = {}
-        form = forms.RegistrationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            query_email = form.cleaned_data['email']
-            query_password = form.cleaned_data['password']
-            user = authenticate(username=query_email, password=query_password)
+        form.save()
+        query_email = form.cleaned_data['email']
+        query_password = form.cleaned_data['password']
+        user = authenticate(username=query_email, password=query_password)
 
-            if user is not None:
-                if user.is_active:
-                    logging.debug('logging in')
-                    login(request, user)
-
-                    register_response['success'] = True
-                else:
-                    register_response['success'] = False
-                    logging.debug('disabled account')
-                    print 'disabled account'
+        if user is not None:
+            if user.is_active:
+                logging.debug('form: {}'.format(form))
+                logging.debug('logging in')
+                login(self.request, user)
             else:
-                register_response['success'] = False
-                logging.debug('invalid login')
-                print 'invalid login'
+                logging.debug('disabled account')
+                print 'disabled account'
+        else:
+            logging.debug('invalid login')
+            print 'invalid login'
+        
+        return super(JoinView, self).form_valid(form)
+
+    def form_invalid(self, form):
+        print 'blah blah'        
 
         return super(JoinView, self).form_valid(form)
