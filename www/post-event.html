@@ -34,7 +34,7 @@ var eventJSON = {};
     <h1><a href="{% url 'gallevent.event.views.show_events' %}">Your Posts</a>: Edit Your Event</h1>
     {% else %}
     {% if form.errors %}
-    <div class="top-error"><h3>Oops!</h3><span class="left">There are some errors in your event post.<br />Please review the form below and correct the errors.</span></div>
+    <div class="top-error"><h3>Oops!</h3> There was an error with your post.</div>
     {% endif %}
     <h1>Create Your Post</h1>
     {% endif %}
@@ -96,7 +96,7 @@ var eventJSON = {};
 		</script>   
         {% if form.start_time.errors %}
          	{% for error in form.start_time.errors %}
-         		<br /><span class="error">{{ error }}</span><br />
+         		<span class="error">{{ error }}</span>
          	{% endfor %}
         {% endif %}     
         <input type="text" id="start-time" class="input-standard" name="start_time" placeholder="3:00pm" value="{{ form.start_time.value }}" /></div>
@@ -109,7 +109,7 @@ var eventJSON = {};
         <div><input type="text" id="end-date" class="input-standard" name="end_date" placeholder="06/20/2012" value="{{ form.end_date.value}}" /> at 
         {% if form.end_time.errors %}
          	{% for error in form.end_time.errors %}
-         		<br /><span class="error">{{ error }}</span><br />
+         		<span class="error">{{ error }}</span>
          	{% endfor %}
         {% endif %} 
         <input type="text" id="end-time" class="input-standard" name="end_time" placeholder="9:00pm" value="{{ form.end_time.value }}" /></div>
@@ -198,7 +198,7 @@ var eventJSON = {};
         </div><!-- .opt-tickets -->
     </fieldset>
         <div class="main-btn-holder">
-    		<input class="btn-post-event" type="submit" value="Post Event" />
+    		<input class="btn-post-event" type="submit" value="Create Post" />
         </div><!-- .main-btn-holder -->
         
 	</form>

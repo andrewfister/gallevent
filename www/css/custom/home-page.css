@@ -20,41 +20,43 @@
 	}
 
 
+@media (min-width: 445px) {
+	#btn-menu {
+		top: 0.5em;
+		right: 0;
+		padding: 0.75em 1em 0.65em 1em;
+		background: rgba(5, 159, 172, 0.9);
+		border-radius: 5px 0 0 5px;
+		}
+}
+
 @media (min-width: 700px) {
 	
 	#header .logo-block {
-	top:0.5em;
-	left:0;
-	padding:0.5em 0.5em 0.6em 0.5em;
+		top:0.5em;
+		left:0;
+		padding:0.5em 0.5em 0.6em 0.5em;
 		background:url(../../img/data/orange-angle.svg) top left no-repeat;
 		border-radius:0 5px 5px 0;
 		}
 		
-		#header .logo-block .logo {
-			width:183px;
-			background:url(../../img/data/gallevent-logo-white-365x60.svg) top left no-repeat;
-			background-size:contain;
+	#header .logo-block .logo {
+		width:183px;
+		background:url(../../img/data/gallevent-logo-white-365x60.svg) top left no-repeat;
+		background-size:contain;
 		}
-		#top-search-container {
+	
+	#top-search-container {
 		margin-left:11.5em;
 		}
-		
-		
-			
-		#top-search #event-keywords {
-			text-indent:0px;
-			}
-		.gmnoprint {
-			display:block;	
-			}
-		
-		#btn-menu {
-			right:0;
-	padding:0.5em 1em 0.5em 1em;
-		background:rgba(5, 159, 172, 0.9);
-		border-radius:5px 0 0 5px;
-	}
-		
-		
-		
+	
+	#top-search #event-keywords {
+		text-indent:0px;
+		}
+
+	.gmnoprint {
+		display:block;	
+		}
+	
+	
 }

@@ -3,11 +3,12 @@
 ** Description: Styles for User Control Section Pages
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 01-11-2014
+** Updated: 03-08-2014
 ************************************** */
 
-.user-control #container {
+.user-control #wrapper {
 	position:relative;
+	margin:5em 1.8em 0 1.8em;
 	}
 
 .user-control #map-box {
@@ -72,95 +73,25 @@ input#rsvp-close-time {
 	width:50%;
 	}
 
-.tab-container {
-	position:relative;
-  	z-index:600;
-	float:left;
-	width:100%;
-	color:#fff;
-	background: #01a1ad;
-	margin-right:280px;
-	}
-
-#active-tab-content-container {
+#container {
 	float: left;
-	width: 50%;
 	background: #fff;
 	}
 
-.user-control .tabs {
+/* = Specific Section Styles */
+.post-event #content {
 	float: left;
-	/* margin-left:236px; */
-	width: 100%;
-	}
-
-.user-control .tabs a {
-	display:inline-block;
-	float:left;
-	width: 25%;
-	padding:0.9em 0 0.9em 0;
-	text-align: center;
-	}
-
-/* Specific Tab Styles */
-.user-control .tab-post-event {
-	background:#01a1ad;
-	}
-
-.user-control .tab-your-posts {
-	background:#81c341;
-	}
-
-.user-control .tab-events {
-	background:#fbbc12;
-	}
-
-.user-control .tab-your-profile {
-	background:#f37377;
-	}
-
-.post-event #active-tab-content {
-	float:left;
-	margin:4em 1.8em 0 1.8em;
-	}
-
-/* = Different Top Border Colors for Sections of User Account Pages */
-
-
-.your-posts #active-tab-content {
-	border-color:#81C341;
-	}
-
-.your-lineup #active-tab-content {
-	border-color:#FBBC12;
-	}
-
-.your-profile #active-tab-content {
-	border-color:#f37377;
-	}
-
-.user-account #active-tab-content .col1 {
-	margin:0 0 0 30px;
-	width:50%;
+width: 50%;
+background: #fff;
 	}
 
 /* = Specific to Your Profile */
-.your-profile h2 {
-	/* color:#F37377; */
-	}
-
-.your-profile h3 {
-	/* color:#01a1ad; */
-	}
-
 .your-profile .col1 .profile-pic-col {
 	float:left;
 	margin:0 1.8em 0 0;
 	height:35em;
 	width:auto;
 	}
-
-
 
 .your-profile .real-name {
 	font-weight:bold;
@@ -171,12 +102,3 @@ input#rsvp-close-time {
 .your-profile .profile-links {
 	margin:0 0 1em 0;
 	}
-
-@media screen and (min-width: 1145px) {
-	.user-control .tabs {
-		margin-left:236px;
-		}
-	.user-control .tabs a {
-		width: 21%;
-		}
-}
