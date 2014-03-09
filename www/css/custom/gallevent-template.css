@@ -20,6 +20,12 @@ a {
 	text-decoration:none;
 	}
 
+h1 {
+	font-weight:normal;
+	color:rgba(248, 156, 28, 1);
+	/*color:rgba(5, 159, 172, 1);*/
+	}
+
 
 /* = Alerts
 ----------------------------------- */
@@ -31,7 +37,6 @@ a {
 	margin-top:-55px;
 	text-align:center;
 	width:100%;
-	
 	}
 .loading img {
 	width:171px;
@@ -56,17 +61,30 @@ a {
     color:    #a7a9ac;
 	}
 
+legend {
+	font-weight:bold;
+	color:rgba(5, 159, 172, 1);
+	}
+
 input,
+textarea,
 .select,
 button {
 	border-radius:5px;
 	}
 
-input {
+input,
+textarea {
 	padding:0.8em;
+	border:1px solid rgba(5, 159, 172, 1);
+	}
+
+label {
+	font-weight:bold;
 	}
 
 select {
+	border:1px solid rgba(5, 159, 172, 1);
 	padding:0.8em 0 0.8em 0;
 	width:150%;
 	text-indent:0.8em;
@@ -193,6 +211,34 @@ select {
 	width:100%;
 	font-size:110%;
 	background:rgba(5, 159, 172, 0.9);
+	/* background:rgba(248, 156, 28, 1); */
+	}
+
+#header .logo-block .logo {
+	display:block;
+	width:49px;
+	height:30px;
+	background:url(../../img/data/gallevent-logo-icon-orange-98x60.svg) top left no-repeat;
+	background-size:contain;
+	overflow:hidden;
+	text-indent:-9999px;
+	}
+
+#btn-menu {
+	position:absolute;
+	top:1.3em;
+	/* top:1.8em; */
+	right:2em;
+	display:block;
+	z-index:800;
+	}
+#btn-menu svg {
+	width:15px;
+	height:15px;
+	}
+
+#btn-menu svg:hover {
+	opacity:0.6;
 	}
 
 
@@ -200,7 +246,6 @@ select {
 	/* = Top Search */
 	#top-search-container {
 		padding:0.5em;
-		/* padding:1em; for larger */
 		}
 	
 	#top-search {
@@ -211,10 +256,10 @@ select {
 	
 	#top-search #event-keywords {
 		position:relative;
+		border:none;
 		width:100%;
 		text-indent:60px;
 		z-index:610;
-		
 		-moz-box-shadow:    0 0 4px rgba(0, 0, 0, 0.1);
 		-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
 		box-shadow:			0 0 4px rgba(0, 0, 0, 0.1);
@@ -238,10 +283,9 @@ select {
 		padding-top:1.5em;
 		max-width:100%;
 		}
-	
-	
 
 	#top-search legend {
+		color:#fff;
 		float:right;
 		margin-bottom:0.5em;
 		letter-spacing:0.02em;
@@ -386,6 +430,12 @@ select {
 
 
 @media (min-width: 700px) {
+	
+	#header .logo-block {
+	top:0.5em;
+	left:0;
+	padding:0.5em 0.5em 0.6em 0.5em;
+		}
 
 	#header .logo-block .logo {
 			width:183px;
