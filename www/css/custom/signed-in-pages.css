@@ -54,6 +54,11 @@ textarea {
 	max-width:300px;
 	}
 
+textarea {
+	display:block;
+	clear:both;
+	}
+
 input#start-date,
 input#start-time,
 input#end-date,

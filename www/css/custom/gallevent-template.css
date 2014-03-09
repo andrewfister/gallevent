@@ -61,9 +61,18 @@ h1 {
     color:    #a7a9ac;
 	}
 
+.form-details {
+	font-style:italic;
+	color:#6B6B6B;
+	}
+
 legend {
 	font-weight:bold;
 	color:rgba(5, 159, 172, 1);
+	}
+
+label {
+	font-weight:bold;
 	}
 
 input,
@@ -79,8 +88,8 @@ textarea {
 	border:1px solid rgba(5, 159, 172, 1);
 	}
 
-label {
-	font-weight:bold;
+textarea {
+	height:20em;
 	}
 
 select {
