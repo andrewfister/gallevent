@@ -68,16 +68,17 @@ class PostEventView(TemplateView):
        
         event = models.Event(user_id=request.user.id)
         form = forms.PostEventForm(request.POST, instance=event)
-        
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/event/show')
-        else:
-            logger.debug(form.errors)
-            return self.render_to_response({
-                    'edit': False,
-                    'form': form,
-                    })
+        form.save()
+        return HttpResponseRedirect('/event/show')
+      #  if form.is_valid():
+      #      form.save()
+      #      return HttpResponseRedirect('/event/show')
+     #   else:
+     #       logger.debug(form.errors)
+     #       return self.render_to_response({
+     #               'edit': False,
+     #               'form': form,
+     #               })
 
 
     def put(self, request):

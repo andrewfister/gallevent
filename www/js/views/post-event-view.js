@@ -83,6 +83,12 @@ var PostEventView = Backbone.View.extend({
             this.setLocationOnMap();
         }.bind(this));
         
+	//function() { addressParse( $("#address").value,  addressComponents ) ;
+	$("#address").blur( function() { 
+		altert( JSON.stringify(this.value) );  
+	    }
+	    );
+
         return this;
     },
     

@@ -176,6 +176,44 @@ var MapView = Backbone.View.extend({
         }.bind(this));
     },
     
+
+    addressParse : function(locationAddress, addressComponents) {
+	    
+	    this.geocoder.geocode({ address: locationAddress }, function(results, status) {
+		    if (status === google.maps.GeocoderStatus.OK) {
+			var newLocation = results[0].address_components;
+			for(var i=0; i<newLocation.length; i++)
+			    {
+				var component_type = newLocation[i]["types"][0];
+				var component_value = newLocation[i]["long_name"][0];
+
+				switch ( component_type )
+				    {
+				    case "street_number" : 
+					addressComponents["street_number"] = component_value; break;
+ 
+				    case "route" :
+                                        addressComponents["street"] = component_value; break;
+
+				    case "locality" :
+                                        addressComponents["city"] = component_value; break;
+
+				    case "administrative_area_level_1" :
+                                        addressComponents["state"] = component_value; break;
+
+				    case "postal_code" :
+					addressComponents["zipcode"] = component_value; break;
+
+				    case "country" :
+					addressComponents["country"] = component_value; break;
+
+				    default: break;
+				    }
+			    }
+		    }.bind(this)  } ) ;
+	}  
+			    
+	    
     setMapLatLng: function(location) {
         if ($('#map-latitude').length) {
             $('#map-latitude').val(parseFloat(location.lat()));
