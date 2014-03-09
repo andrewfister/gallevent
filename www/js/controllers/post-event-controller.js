@@ -1,5 +1,6 @@
 // on dom load
 $(document).ready(function() {
+    window.dispatcher = _.clone(Backbone.Events);
     window.events = new Event(window.eventJSON);
 
     window.signInUser = new User();
