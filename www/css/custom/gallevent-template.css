@@ -22,8 +22,8 @@ a {
 
 h1 {
 	font-weight:normal;
-	color:rgba(248, 156, 28, 1);
-	/*color:rgba(5, 159, 172, 1);*/
+	/*color:rgba(248, 156, 28, 1);*/
+	color:rgba(5, 159, 172, 1);
 	}
 
 
@@ -61,9 +61,50 @@ h1 {
     color:    #a7a9ac;
 	}
 
+.help {
+	position:relative;
+	}
+
+.help .icon {
+	display: inline-block;
+	width: 1.35em;
+	height: 1.35em;
+	text-align: center;
+	font-weight: normal;
+	font-size: 75%;
+	color: #fff;
+	border-radius: 1em;
+	background: rgba(5, 159, 172, 0.5);
+	}
+
+.help .help-details {
+	display:none;
+	}
+.help:hover .help-details {
+	position:absolute;
+	display:block;
+	left:1.5em;
+	top:0;
+	width:400px;
+	font-weight:normal;
+	font-style:italic;
+	color:#6B6B6B;
+	}
+
+.help:hover .icon {
+	background:rgba(5, 159, 172, 1);
+	}
+
 .form-details {
 	font-style:italic;
 	color:#6B6B6B;
+	}
+
+.form-comment {
+	margin-left:0.8em;
+	font-style:italic;
+	font-size:90%;
+	color:#a7a9ac;
 	}
 
 legend {
@@ -112,6 +153,18 @@ select {
 	background:#fff url(../../img/data/icon-arrow-down-blue-30x21-h.svg) right 15px center no-repeat;
 	background-size:15px 10px;
 	}
+
+.btn-post-event {
+		display:block;
+		margin-bottom:1em;
+		width:auto;
+		padding:1.1em 1.5em 1.1em 1.5em;
+		color:#fff;
+		font-weight:bold;
+		letter-spacing:0.02em;
+		background:#85c440;
+		border:none;
+		}
 
 /* = Global Calendar Datepicker */
 #ui-datepicker-div {
