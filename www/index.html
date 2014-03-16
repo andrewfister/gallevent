@@ -13,6 +13,11 @@ window.eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ 
 </script>
 {% endblock prejavascript %}
 
+{% block mapjavascript %}
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.14&sensor=false"></script>
+<script type="text/javascript" src="/static/js/views/map-view.js"></script>
+{% endblock mapjavascript %}
+
 {% block viewjavascript %}
 <script type="text/javascript" src="/static/js/models/event-model.js"></script>
 <script type="text/javascript" src="/static/js/views/search-view.js"></script>

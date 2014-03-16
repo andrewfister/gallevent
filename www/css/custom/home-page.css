@@ -3,166 +3,60 @@
 ** Description: Styles Specific to Home Page
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 10-13-2013
-** Updated: 10-29-2014
+** Updated: 03-08-2014
 ************************************** */
 
-#marketing,
-.photos .row1col1,
-.photos .row1col2,
-.photos .row1col3,
-.photos .row2col1,
-.photos .row2col2,
-.photos .row2col3 {
-	float:left;
-	}
 
-#marketing {
-	position:relative;
-	overflow:hidden;
-	height:32em;
-	color:#fff;
+/* = Header
+-------------------------------------- */
+#header {
+	background:none;
 	}
-
-#marketing .angled-block {
+#header .logo-block {
 	position:absolute;
-	top:0;
-	left:0;
-	width:21em;
-	height:120%;
-	padding:3em 9em 3em 3.5em;
-	background:url(../../img/data/blue-angle-80.svg) top right no-repeat;
-	}
-
-.angled-block h2 {
-	color:#fff;
-	font-size:240%;
-	}
-.angled-block h2 strong {
-	display:block;
-	margin-top: -0.2em;
-	font-size:150%;
-	font-weight:200;
-	}
-
-.angled-block p {
-	font-size:150%;
-	width:14em;
-	opacity:0.8;
-	}
-
-.photos {
-	height:100%;
-	}
-
-.photos .row1col1,
-.photos .row1col2,
-.photos .row1col3,
-.photos .row2col1,
-.photos .row2col2,
-.photos .row2col3 {
-	width:33.3333333%;
-	height:50%;
-	background-size:cover;
-	text-indent:-9999px;
-	}
-
-.photos .row2col3 {
-	position:relative;
-	text-indent:0;
-	font-size:80%;
-	text-align:right;
-	}
-
-.photos .row2col3 span {
-	position:absolute;
-	bottom:1em;
-	right:1em;
-	text-shadow:0px 0px 5px #666;
-	}
-
-.photos .row1col1 {
-	background:url(../../img/photo1-800w.jpg) center no-repeat;
-	}
-.photos .row1col2 {
-	background:url(../../img/photo2-800w.jpg) center no-repeat;
-	}
-.photos .row1col3 {
-	background:url(../../img/photo3-800w.jpg) center no-repeat;
-	}
-.photos .row2col1 {
-	background:url(../../img/photo4-800w.jpg) center no-repeat;
-	}
-.photos .row2col2 {
-	background:url(../../img/photo5-800w.jpg) center no-repeat;
-	}
-.photos .row2col3 {
-	background:url(../../img/photo6-800w.jpg) center no-repeat;
+	top:1em;
+	left:1em;
+	z-index:800;
 	}
 
 
-#marketing {
-	width:100%;
-	}
+@media (min-width: 445px) {
+	#btn-menu {
+		top: 0.5em;
+		right: 0;
+		padding: 0.75em 1em 0.65em 1em;
+		background: rgba(5, 159, 172, 0.9);
+		border-radius: 5px 0 0 5px;
+		}
+}
 
-#sponsors {
-	position:relative;
-	z-index:999;
-	float:left;
-	width:100%;
-	box-shadow:0 -8px 15px rgba(0, 0, 0, 0.04);
-	}
+@media (min-width: 700px) {
+	
+	#header .logo-block {
+		top:0.5em;
+		left:0;
+		padding:0.5em 0.5em 0.6em 0.5em;
+		background:url(../../img/data/orange-angle.svg) top left no-repeat;
+		border-radius:0 5px 5px 0;
+		}
+		
+	#header .logo-block .logo {
+		width:183px;
+		background:url(../../img/data/gallevent-logo-white-365x60.svg) top left no-repeat;
+		background-size:contain;
+		}
+	
+	#top-search-container {
+		margin-left:11.5em;
+		}
+	
+	#top-search #event-keywords {
+		text-indent:0px;
+		}
 
-#sponsors .center {
-	margin:4.7em 24px 0 24px;
-	padding-bottom:3em;
-	text-align:center;
-	background:#fff;
-	}
-
-#sponsors h3 {
-	position: relative;
-	top: -35px;
-	margin: 0 auto;
-	max-width: 361px;
-	min-height: 55px;
-	padding: 1em 0 0 0;
-	color: #fff;
-	font-size: 140%;
-	text-align: center;
-	font-weight: normal;
-	background: url(../../img/data/angle-2side-blue-361x55.svg) center no-repeat;
-	}
-
-#sponsors .row1 {
-	margin-top:-15px;
-	}
-
-#sponsors .green-and-go {
-	display:inline-block;
-	position:relative;
-	margin-bottom: 3em;
-	top:7px;
-	}
-
-#sponsors .wolfpak-labs {
-	margin:0 80px;
-	}
-
-#sponsors .pixelkeet {
-	position:relative;
-	top:24px;
-	}
-
-#sponsors .center ul {
-	margin:0 auto;
-	margin-top:2.2em;
-	max-width:1000px;
-	}
-
-#sponsors .center ul li {
-	display:inline-block;
-	margin:0 1em 0.5em 0;
-	font-size:120%;
-	color:#303d40;
-	opacity:0.65;
-	}
+	.gmnoprint {
+		display:block;	
+		}
+	
+	
+}

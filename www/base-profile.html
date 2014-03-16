@@ -5,6 +5,7 @@
 <link rel="stylesheet" type="text/css" href="/static/css/ad-styles.css" />
 {% endblock css %}
 
+<<<<<<< HEAD
 {% block subnav %}
 	<nav class="tab-container">
     	<div class="tabs">
@@ -16,13 +17,13 @@
     </nav>
 {% endblock subnav %}
 
+=======
+>>>>>>> 3a2044351e549609f6e3de8c507b727cbeefa60a
 {% block content %}
-<div id="container" class="{% block selected_page %}{% endblock %}">
-    <div id="active-tab-content-container">
-    	<div id="active-tab-content">
-        	{% block active_tab_content %}{% endblock active_tab_content %}
-    	</div><!-- #active-tab-content -->
+    <div id="wrapper"class="{% block selected_page %}{% endblock %}">
+        <div id="container">
+            {% block active_tab_content %}{% endblock active_tab_content %}
+        </div><!-- #active-tab-content -->
     </div><!-- #active-tab-content-container -->
     {% block right_side_content %}{% endblock right_side_content %}
-</div>
 {% endblock content %}

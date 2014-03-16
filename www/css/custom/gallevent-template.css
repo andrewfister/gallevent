@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 02-09-2014
-** Updated: 03-02-2014
+** Updated: 03-08-2014
 ************************************** */
 
 html,
@@ -20,6 +20,13 @@ a {
 	text-decoration:none;
 	}
 
+h1 {
+	font-weight:normal;
+	font-size:200%;
+	/*color:rgba(248, 156, 28, 1);*/
+	color:rgba(5, 159, 172, 1);
+	}
+
 
 /* = Alerts
 ----------------------------------- */
@@ -31,7 +38,6 @@ a {
 	margin-top:-55px;
 	text-align:center;
 	width:100%;
-	
 	}
 .loading img {
 	width:171px;
@@ -42,6 +48,29 @@ a {
 
 /* = Form Elements
 -------------------------------------- */
+
+.top-error {
+	float: left;
+	margin:0 0 2em 0;
+	width:100%;
+	padding: 1.5em;
+	color: #fff;
+	background: rgba(248, 156, 28, 1);
+	box-sizing:			border-box;
+	-moz-box-sizing:	border-box;
+	-webkit-box-sizing:	border-box;
+	}
+
+.top-error h3 {
+	font-size:200%;
+	margin:0;
+	}
+
+.error {
+	display: block;
+	clear: both;
+	color:rgba(248, 156, 28, 1);
+	}
 
 ::-webkit-input-placeholder { /* WebKit browsers */
     color:    #a7a9ac;
@@ -56,17 +85,80 @@ a {
     color:    #a7a9ac;
 	}
 
+.help {
+	position:relative;
+	}
+
+.help .icon {
+	display: inline-block;
+	width: 1.35em;
+	height: 1.35em;
+	text-align: center;
+	font-weight: normal;
+	font-size: 75%;
+	color: #fff;
+	border-radius: 1em;
+	background: rgba(5, 159, 172, 0.5);
+	}
+
+.help .help-details {
+	display:none;
+	}
+.help:hover .help-details {
+	position:absolute;
+	display:block;
+	left:1.5em;
+	top:0;
+	width:400px;
+	font-weight:normal;
+	font-style:italic;
+	color:#6B6B6B;
+	}
+
+.help:hover .icon {
+	background:rgba(5, 159, 172, 1);
+	}
+
+.form-details {
+	font-style:italic;
+	color:#6B6B6B;
+	}
+
+.form-comment {
+	margin-left:0.8em;
+	font-style:italic;
+	font-size:90%;
+	color:#a7a9ac;
+	}
+
+legend {
+	font-weight:bold;
+	color:rgba(5, 159, 172, 1);
+	}
+
+label {
+	font-weight:bold;
+	}
+
 input,
+textarea,
 .select,
 button {
 	border-radius:5px;
 	}
 
-input {
+input,
+textarea {
 	padding:0.8em;
+	border:1px solid rgba(5, 159, 172, 1);
+	}
+
+textarea {
+	height:20em;
 	}
 
 select {
+	border:1px solid rgba(5, 159, 172, 1);
 	padding:0.8em 0 0.8em 0;
 	width:150%;
 	text-indent:0.8em;
@@ -85,6 +177,18 @@ select {
 	background:#fff url(../../img/data/icon-arrow-down-blue-30x21-h.svg) right 15px center no-repeat;
 	background-size:15px 10px;
 	}
+
+.btn-post-event {
+		display:block;
+		margin-bottom:2em;
+		width:auto;
+		padding:1.1em 1.5em 1.1em 1.5em;
+		color:#fff;
+		font-weight:bold;
+		letter-spacing:0.02em;
+		background:#85c440;
+		border:none;
+		}
 
 /* = Global Calendar Datepicker */
 #ui-datepicker-div {
@@ -192,20 +296,11 @@ select {
 	z-index:600;
 	width:100%;
 	font-size:110%;
-	}
-
-#header .logo-block {
-	position:absolute;
-	top:1em;
-	left:1em;
-	z-index:800;
+	background:rgba(5, 159, 172, 0.9);
+	/* background:rgba(248, 156, 28, 1); */
 	}
 
 #header .logo-block .logo {
-	/*
-	top:1.4em;
-	left:1.5em;
-	*/
 	display:block;
 	width:49px;
 	height:30px;
@@ -227,15 +322,19 @@ select {
 	width:15px;
 	height:15px;
 	}
+#btn-menu .icon-white {
+	display:none;
+	}
 
 #btn-menu svg:hover {
 	opacity:0.6;
 	}
 
+
+
 	/* = Top Search */
 	#top-search-container {
 		padding:0.5em;
-		/* padding:1em; for larger */
 		}
 	
 	#top-search {
@@ -246,10 +345,10 @@ select {
 	
 	#top-search #event-keywords {
 		position:relative;
+		border:none;
 		width:100%;
 		text-indent:60px;
 		z-index:610;
-		
 		-moz-box-shadow:    0 0 4px rgba(0, 0, 0, 0.1);
 		-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
 		box-shadow:			0 0 4px rgba(0, 0, 0, 0.1);
@@ -273,10 +372,9 @@ select {
 		padding-top:1.5em;
 		max-width:100%;
 		}
-	
-	
 
 	#top-search legend {
+		color:#fff;
 		float:right;
 		margin-bottom:0.5em;
 		letter-spacing:0.02em;
@@ -420,6 +518,25 @@ select {
 			}
 
 
+@media (min-width: 445px) {
+	#btn-menu {
+		top: 0.6em;
+		right:1em;
+		}
+	#btn-menu:hover {
+		background: rgba(5, 159, 172, 1);
+		}
+	#btn-menu:hover svg {
+		opacity:0.6;
+		}
+	#btn-menu .icon-white {
+		display:block;
+		}
+	#btn-menu .icon-gray {
+		display:none;
+		}
+}
+
 
 @media (min-width: 700px) {
 	
@@ -427,36 +544,13 @@ select {
 	top:0.5em;
 	left:0;
 	padding:0.5em 0.5em 0.6em 0.5em;
-		background:url(../../img/data/orange-angle.svg) top left no-repeat;
-		border-radius:0 5px 5px 0;
 		}
-		
-		#header .logo-block .logo {
+
+	#header .logo-block .logo {
 			width:183px;
 			background:url(../../img/data/gallevent-logo-white-365x60.svg) top left no-repeat;
 			background-size:contain;
 		}
-		#top-search-container {
-		margin-left:11.5em;
-		}
-		
-		
-			
-		#top-search #event-keywords {
-			text-indent:0px;
-			}
-		.gmnoprint {
-			display:block;	
-			}
-		
-		#btn-menu {
-			right:0;
-	padding:0.5em 1em 0.5em 1em;
-		background:rgba(5, 159, 172, 0.9);
-		border-radius:5px 0 0 5px;
-	}
-		
-		
-		
-	}
+}
+
 

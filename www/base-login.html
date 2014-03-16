@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block css %}
-<!--<link rel="stylesheet" type="text/css" href="/static/css/centered-container-pages.css" />-->
+<link rel="stylesheet" type="text/css" href="/static/css/centered-container-pages.css" />
 {% endblock %}
 
 {% block preheader %}
@@ -9,15 +9,6 @@
 {% endblock %}
 
 {% block header %}
-<div id="header">
-  <div class="logo-block">
-    <a href="{% url 'front_page' %}" class="logo">Gallevent&trade <b>beta</b></a>
-    <span class="tagline">Find Events Near You!</span>
-  </div><!-- .logo-block -->      	  
-  <span class="right">
-    {% block login-link %}<a href="/login/invite_request">Don't have a code? Click here!</a> | <a href="{% url 'login.views.sign_in' %}">Sign In</a>{% endblock %}
-  </span><!-- .right -->
-</div><!-- #header -->
 {% endblock %}
 
 {% block postfooter %}

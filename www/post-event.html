@@ -16,9 +16,11 @@ var eventJSON = {};
 {% endblock javascript %}
 
 
+
 {% block mapjavascript %}
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.14&sensor=false"></script>                                              
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.14&sensor=false"></script>                                            
 <script type="text/javascript" src="/static/js/models/event-model.js"></script>                                                                             
+
 <script type="text/javascript" src="/static/js/views/map-view.js"></script>
 {% endblock mapjavascript %}
 
@@ -35,30 +37,32 @@ var eventJSON = {};
     <h1><a href="{% url 'gallevent.event.views.show_events' %}">Your Posts</a>: Edit Your Event</h1>
     {% else %}
     {% if form.errors %}
-    <div class="top-error"><h3>Oops!</h3><span class="left">There are some errors in your event post.<br />Please review the form below and correct the errors.</span></div>
+    <div class="top-error"><h3>Oops!</h3> There was an error with your post.</div>
     {% endif %}
-    <h1>Post Your Event on Gallevent</h1>
+    <h1>Create Your Post</h1>
     {% endif %}
     <form method="post" id="post-event">{% csrf_token %}
 	<fieldset>
         <legend>1. What type of event is this?</legend>
-        <label for="event-category" class="required">Select an event category:</label>
+        <label for="event-category" class="required">Select a category:</label>
         {% if form.category.errors %}
          	{% for error in form.category.errors %}
          		<span class="error">{{ error }}</span>
          	{% endfor %}
         {% endif %}
         <span id="event-category-value" class="hidden" value="{{ form.category.value }}"></span>
-        <select id="event-category" class="input-standard select" name="category" repost="{{ form.category.value }}">
-            <option value="networking" id="select-networking">Networking</option>
-            <option value="education" id="select-education">Education</option>
-            <option value="fairs" id="select-fairs">Fairs &amp; Festivals</option>
-            <option value="athletic" id="select-athletic">Athletic</option>
-            <option value="art" id="select-art">Art &amp; Music</option>
-            <option value="dancing" id="select-dancing">Dancing</option>
-            <option value="dining" id="select-dining">Dining</option>
-            <option value="nightlife" id="select-nightlife">Nightlife &amp; Parties</option>
-        </select>
+        <span class="select">
+            <select id="event-category" class="input-standard" name="category" repost="{{ form.category.value }}">
+                <option value="networking" id="select-networking">Networking</option>
+                <option value="education" id="select-education">Education</option>
+                <option value="fairs" id="select-fairs">Fairs &amp; Festivals</option>
+                <option value="athletic" id="select-athletic">Athletic</option>
+                <option value="art" id="select-art">Art &amp; Music</option>
+                <option value="dancing" id="select-dancing">Dancing</option>
+                <option value="dining" id="select-dining">Dining</option>
+                <option value="nightlife" id="select-nightlife">Nightlife &amp; Parties</option>
+            </select>
+        </span>
     </fieldset>
     <fieldset>
     	<legend>2. Where will your event be?</legend>
@@ -95,7 +99,7 @@ var eventJSON = {};
 		</script>   
         {% if form.start_time.errors %}
          	{% for error in form.start_time.errors %}
-         		<br /><span class="error">{{ error }}</span><br />
+         		<span class="error">{{ error }}</span>
          	{% endfor %}
         {% endif %}     
         <input type="text" id="start-time" class="input-standard" name="start_time" placeholder="3:00pm" value="{{ form.start_time.value }}" /></div>
@@ -108,7 +112,7 @@ var eventJSON = {};
         <div><input type="text" id="end-date" class="input-standard" name="end_date" placeholder="06/20/2012" value="{{ form.end_date.value}}" /> at 
         {% if form.end_time.errors %}
          	{% for error in form.end_time.errors %}
-         		<br /><span class="error">{{ error }}</span><br />
+         		<span class="error">{{ error }}</span>
          	{% endfor %}
         {% endif %} 
         <input type="text" id="end-time" class="input-standard" name="end_time" placeholder="9:00pm" value="{{ form.end_time.value }}" /></div>
@@ -173,14 +177,14 @@ var eventJSON = {};
                 <input type="text" id="guest_type_name1" class="input-standard" name="guest_type_name1" placeholder="General Admission" value="{{ form.guest_type_name1.value }}" />
                 <label class="required" for="ticket-price1">Price for Entry type 1:</label>
                 <input type="text" id="ticket-price" class="input-standard" name="ticket_price" placeholder="$0.00" value="{{ form.ticket_price.value }}" />
-                <label for="rsvp-limit">Limit entry type: <span class="help">? <span>You may limit the number of people who can RSVP for this event through Gallevent. You will be able to view or print your guest list from your account.</span></span></label>
+                <label for="rsvp-limit">Limit entry type: <span class="help"><span class="icon">?</span> <span class="help-details">You may limit the number of people who can RSVP for this event through Gallevent. You will be able to view or print your guest list from your account.</span></span></label>
                 {% if form.rsvp_limit.errors %}
                     {% for error in form.rsvp_limit.errors %}
                         <span class="error">{{ error }}</span>
                     {% endfor %}
                 {% endif %}
-                <input type="text" id="rsvp-limit" class="input-standard" name="rsvp_limit" placeholder="Unlimited" value="{{ form.rsvp_limit.value }}" /><em class="form-comment">0 Gallevent Members may RSVP to this event.</em>
-                <label class="required" for="rsvp-close-date">When will RSVP close? <span class="help">? <span>People will no longer be able to RSVP for this event through Gallevent after this date and time.</span></span></label>
+                <input type="text" id="rsvp-limit" class="input-standard" name="rsvp_limit" placeholder="Unlimited" value="{{ form.rsvp_limit.value }}" /><em class="form-comment">0 Gallevent Members may RSVP to this event</em>
+                <label class="required" for="rsvp-close-date">When will RSVP close? <span class="help"><span class="icon">?</span> <span class="help-details">People will no longer be able to RSVP for this event through Gallevent after this date and time.</span></span></label>
                 <input type="text" id="rsvp-close-date" class="input-standard" name="rsvp_close_date" placeholder="06/20/2012" value="{{ form.end_date.value|date }}" /> at 
                 <input type="text" id="rsvp-close-time" class="input-standard" name="rsvp_close_time" placeholder="9:00pm" value="{{ form.end_time.value|time }}" />
                 <button class="btn-add-type"><span>+</span> Add another entry type</button>
@@ -197,7 +201,7 @@ var eventJSON = {};
         </div><!-- .opt-tickets -->
     </fieldset>
         <div class="main-btn-holder">
-    		<input class="btn-post-event" type="submit" value="Post Event" />
+    		<input class="btn-post-event" type="submit" value="Create Post" />
         </div><!-- .main-btn-holder -->
         
 	</form>

@@ -5,14 +5,17 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.template import RequestContext
-from django.views.generic.base import View
+from django.views.generic.base import View, TemplateView
+from django.views.generic.edit import FormView
 
 from signin import forms, models
 
 
-class SignInView(View):
+class SignInView(TemplateView):
+    
+
     def post(self, request):
-        form = forms.SignInForm(request.POST)
+        form = forms.RegistrationForm(request.POST)
         login_response = {}
 
         if form.is_valid():
@@ -56,177 +59,32 @@ class SignOutView(View):
         return HttpResponse(json.dumps(login_response), content_type="application/json")
 
 
-class JoinView(View):
-    def post(self, request):
-        register_response = {}
-        form = forms.RegistrationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            query_email = form.cleaned_data['email']
-            query_password = form.cleaned_data['password']
-            user = authenticate(username=query_email, password=query_password)
+class JoinView(FormView):
+    template_name = "join.html"
+    form_class = forms.RegistrationForm
+    success_url = '/profile/show'
 
-            if user is not None:
-                if user.is_active:
-                    logging.debug('logging in')
-                    login(request, user)
+    def form_valid(self, form):
+        form.save()
+        query_email = form.cleaned_data['email']
+        query_password = form.cleaned_data['password']
+        user = authenticate(username=query_email, password=query_password)
 
-                    register_response['success'] = True
-                else:
-                    register_response['success'] = False
-                    logging.debug('disabled account')
-                    print 'disabled account'
+        if user is not None:
+            if user.is_active:
+                logging.debug('form: {}'.format(form))
+                logging.debug('logging in')
+                login(self.request, user)
             else:
-                register_response['success'] = False
-                logging.debug('invalid login')
-                print 'invalid login'
-
-        return HttpResponse(json.dumps(register_response), content_type="application/json")
+                logging.debug('disabled account')
+                print 'disabled account'
+        else:
+            logging.debug('invalid login')
+            print 'invalid login'
         
+        return super(JoinView, self).form_valid(form)
 
-def invite_code(request):
-    email = ''
-    invite_code = ''
-    import logging
-    logging.debug('calling register')
+    def form_invalid(self, form):
+        print 'blah blah'        
 
-    if request.method == 'POST':
-        logging.debug('submitting register')
-        form = forms.RegistrationForm(request.POST)
-        if form.is_valid():
-            logging.debug('register form is valid')
-            form.save()
-            query_email = form.cleaned_data['email']
-            query_password = form.cleaned_data['password']
-            user = authenticate(username=query_email, password=query_password)
-            logging.debug('email: ' + query_email)
-            logging.debug('password: ' + query_password)
-
-            if user is not None:
-                if user.is_active:
-                    logging.debug('logging in')
-                    login(request, user)
-
-                    return HttpResponseRedirect('/') # Redirect after POST
-                else:
-                    logging.debug('disabled account')
-                    print 'disabled account'
-            else:
-                logging.debug('invalid login')
-                print 'invalid login'
-
-            return HttpResponseRedirect('/profile/show/')
-
-        email = request.POST['email']
-        invite_code = request.POST['invite_code']
-    elif request.method == 'GET':
-        invite_code = request.GET['invite_code']
-        email = request.GET['email']
-
-    return render_to_response('invite-code.html', {
-        'email': email,
-        'invite_code': invite_code,
-    }, context_instance=RequestContext(request))
-
-
-def invite_request(request):
-    import logging
-    logging.debug('request invite?');
-    if request.method == 'POST': # If the form has been submitted...
-        form = forms.RequestInviteForm(request.POST) # A form bound to the POST data
-
-        logging.debug('validating email');
-        if form.is_valid(): # All validation rules pass
-            form.save()
-
-            # Process the data in form.cleaned_data
-            new_email_address = form.cleaned_data['email']
-
-
-            logging.debug('sending email')
-
-            from django.core.mail import send_mail
-            send_mail('Thank you for your interest in Gallevent',
-                        'Your invite is on the way!',
-                        'gallevent.main@gmail.com',
-                        [new_email_address])
-
-            return HttpResponseRedirect('/login/invite_request_received/') # Redirect after POST
-
-    return render_to_response('invite-request.html', {
-    }, context_instance=RequestContext(request))
-
-def invite_request_received(request):
-    return render_to_response('invite-request-received.html', {
-    }, context_instance=RequestContext(request))
-
-def sign_in(request):
-    import logging
-    logging.debug('loading sign-in page')
-
-    if request.method == 'POST':
-        form = forms.SignInForm(request.POST)
-        if form.is_valid():
-            query_email = form.cleaned_data['email']
-            query_password = form.cleaned_data['password']
-            logging.debug('email: ' + query_email)
-            logging.debug('password: ' + query_password)
-            user = authenticate(username=query_email, password=query_password)
-
-            if user is not None:
-                if user.is_active:
-                    logging.debug('logging in')
-                    login(request, user)
-
-                    return HttpResponseRedirect(request.POST['next']) # Redirect after POST
-                else:
-                    logging.debug('disabled account')
-                    print 'disabled account'
-            else:
-                logging.debug('invalid login')
-                print 'invalid login'
-
-    return render_to_response('sign-in.html', {
-        'next': request.GET['next'] if request.GET.has_key('next') else '/'
-    }, context_instance=RequestContext(request))
-
-def sign_out(request):
-    if request.user.is_authenticated():
-        logout(request)
-
-    return HttpResponseRedirect('/login/sign_in') # Redirect after logout
-
-def manage_invites(request):
-    invite_requests = models.InvitationManager.objects.filter(code='').order_by('date')
-    email_choices = [invite_request.email for invite_request in invite_requests]
-    dates = [invite_request.date for invite_request in invite_requests]
-    values = [str(i) for i in range(len(invite_requests))]
-
-    if request.method == 'POST':
-        import uuid
-
-        from django.core.mail import send_mail
-
-        invite_details = []
-        email_key, email_indexes = request.POST.lists()[0]
-        email_indexes.reverse()
-
-        for i in email_indexes:
-            invite_details.append((dates[int(i)], email_choices[int(i)]))
-            email_choices.remove(email_choices[int(i)])
-
-        for invite_date, invite_email in invite_details:
-            invite_data = models.InvitationManager.objects.get(email=invite_email, date=invite_date)
-            uuid_hash = uuid.uuid4()
-            invite_data.code = str(uuid_hash)
-            invite_data.save()
-
-            send_mail('Thank you for your interest in Gallevent',
-                    invite_email + ' is using Gallevent&trade;, a place to find events and discover awesome things to do, and is inviting you to join.\nhttp://froggi.andrewfister.com/login/invite_code?invite_code='+ invite_data.code + '&email=' + invite_email + '\nMembership to Gallevent&trade; is by invitation only. Each user receives a limited number of invitations, which they may share with their friends.',
-                    'gallevent.main@gmail.com',
-                    [invite_email])
-
-
-    return render_to_response('control/manage-invites.html', {
-        'invite_requests': zip(email_choices, dates, values),
-    }, context_instance=RequestContext(request))
+        return super(JoinView, self).form_valid(form)
