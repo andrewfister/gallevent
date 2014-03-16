@@ -69,6 +69,17 @@ input#rsvp-close-time {
 	max-width:140px;
 	}
 
+.btn-guest-list,
+.btn-tickets {
+	float:left;
+	font-weight:bold;
+	font-size:120%;
+	border:4px solid #239ea2;
+	border-radius:5px;
+	padding: 1.5em 1em 1.5em 0;
+text-indent: 40px;
+	}
+
 #footer {
 	width:50%;
 	}
