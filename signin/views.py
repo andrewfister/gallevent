@@ -50,7 +50,7 @@ class SignInView(TemplateView):
         return HttpResponse(json.dumps(login_response), content_type="application/json")
 
 
-class SignOutView(View):
+class SignOutView(FormView):
     def post(self, request):
         if request.user.is_authenticated():
             logout(request)
@@ -61,11 +61,11 @@ class SignOutView(View):
 
 class JoinView(FormView):
     template_name = "join.html"
-    form_class = forms.RegistrationForm
+    form_class = forms.SignInForm
     success_url = '/profile/show'
 
     def form_valid(self, form):
-        form.save()
+        form.create_user()
         query_email = form.cleaned_data['email']
         query_password = form.cleaned_data['password']
         user = authenticate(username=query_email, password=query_password)
@@ -85,6 +85,6 @@ class JoinView(FormView):
         return super(JoinView, self).form_valid(form)
 
     def form_invalid(self, form):
-        print 'blah blah'        
+        print 'blah blah'
 
         return super(JoinView, self).form_valid(form)

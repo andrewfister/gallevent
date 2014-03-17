@@ -5,24 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 <title>{% block title %}Gallevent - Find events near you!{% endblock title %}</title>
 
-<link rel="stylesheet" type="text/css" href="/static/css/framework/reset.css" />
-<link rel="stylesheet" type="text/css" href="/static/css/framework/normalize.css" />
-<link rel="stylesheet" type="text/css" href="/static/css/framework/html-boilerplate.css" />
-<link rel="stylesheet" type="text/css" href="/static/css/custom/gallevent-template.css" />
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/framework/reset.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/framework/normalize.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/framework/html-boilerplate.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/custom/gallevent-template.css' %}" />
 
 {% block css %}{% endblock css %}
 
 {% block prejavascript %}{% endblock prejavascript %}
-<script type="text/javascript" src="/static/js/lib/jquery.min.js"></script>
-<script type="text/javascript" src="/static/js/lib/jquery-ui.min.js"></script> <!-- there is something about this file causing a space at the top of the home page. Doesn't matter where I move this file, it still adds space. Space goes away when you comment it out. -->
-<script type="text/javascript" src="/static/js/lib/jquery.watermark.js"></script>
-<script type="text/javascript" src="/static/js/lib/mustache/mustache-0.3.0.js"></script>
-<script type="text/javascript" src="/static/js/lib/mustache/django.mustache.js"></script>
-<script type="text/javascript" src="/static/js/lib/underscore-min.js"></script>
-<script type="text/javascript" src="/static/js/lib/backbone-min.js"></script>
-<script type="text/javascript" src="/static/js/models/event-model.js"></script>
-<script type="text/javascript" src="/static/js/models/user-model.js"></script>
-<script type="text/javascript" src="/static/js/views/sign-in-view.js"></script>
+<script type="text/javascript" src="{% static 'js/lib/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/lib/jquery-ui.min.js' %}"></script> <!-- there is something about this file causing a space at the top of the home page. Doesn't matter where I move this file, it still adds space. Space goes away when you comment it out. -->
+<script type="text/javascript" src="{% static 'js/lib/jquery.watermark.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/lib/mustache/mustache-0.3.0.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/lib/mustache/django.mustache.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/lib/underscore-min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/lib/backbone-min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/models/event-model.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/models/user-model.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/views/sign-in-view.js' %}"></script>
 {% block javascript %}{% endblock javascript %}
 {% block mapjavascript %}{% endblock mapjavascript %}
 {% block viewjavascript %}{% endblock viewjavascript %}
@@ -31,8 +32,8 @@
 <body class="{% block body-class %}{% endblock body-class %}">
     {% block preheader %}{% endblock preheader %}
     <div class="hidden">
-    	<img src="/static/img/icon-cal-arrow-l-h.png" alt="arrow" />
-        <img src="/static/img/icon-cal-arrow-r-h.png" alt="arrow" />
+    	<img src="{% static 'img/icon-cal-arrow-l-h.png' %}" alt="arrow" />
+        <img src="{% static 'img/icon-cal-arrow-r-h.png' %}" alt="arrow" />
     </div>
 
     
