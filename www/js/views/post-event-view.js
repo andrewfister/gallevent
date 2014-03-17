@@ -32,6 +32,7 @@ var PostEventView = Backbone.View.extend({
         
         this.render();
     },
+
     render: function() {
         //START Limit characters in textarea 
         //http://www.devcurry.com/2009/08/limit-number-of-characters-in-textarea.html
@@ -68,23 +69,34 @@ var PostEventView = Backbone.View.extend({
         var eventState = $("#state").attr("repost");
         if ($("#state > [value=" + eventState + "]")) {
             $("#state > [value=" + eventState + "]").attr("selected", "selected");
-        }
+        };
         
         var eventCategory = $("#event-category").attr("repost");
         if ($("#select-" + eventCategory)) {
             $("#select-" + eventCategory).attr("selected", "selected");
-        }
+        };
         
-        this.setLocationOnMap();
+        //this.setLocationOnMap();
         
         //Geocode address entered in the form when there's an address change 
         //and there's enough address information
+        /*
         $(".location").blur(function() {
             this.setLocationOnMap();
         }.bind(this));
-        
+        */
+
+       addressParse =  this.addressParse;
+
+        $( "#address" ).blur(function() {
+            var addressComponents= {  };
+            addressParse( this.value,  addressComponents ) ;           
+
+        });
+
         return this;
     },
+
     
     setLocationOnMap: function() {
         var address = $("#address").attr("value");
@@ -92,7 +104,6 @@ var PostEventView = Backbone.View.extend({
         if (address.length > 0)
         {
             this.codeAddress(address);
-
             this.model.on('pinDropped', function() {
             this.model.trigger('open');
             }, this);
@@ -100,6 +111,68 @@ var PostEventView = Backbone.View.extend({
         }
     },
     
+
+
+    addressParse : function(locationAddress, addressComponents) {
+            var geocoder = new google.maps.Geocoder();
+
+            geocoder.geocode({ address: locationAddress }, function(results, status) {
+
+            if (status === google.maps.GeocoderStatus.OK) { 
+                // decoding OK
+                var newLocation = results[0].address_components;
+                var geom = results[0].geometry.location;
+                addressComponents["longitude"] =  geom.lng();
+                addressComponents["latitude"] =  geom.lat();
+
+                for(var i=0; i<newLocation.length; i++) 
+                 {
+                   var component_type = newLocation[i]["types"][0];
+                   var component_value = newLocation[i]["short_name"];
+
+                    switch ( component_type )
+                        {
+                        case "street_number" : 
+                           addressComponents["street_number"] = component_value; break;
+ 
+                        case "route" :
+                            addressComponents["street"] = component_value; break;
+
+                        case "locality" :
+                            addressComponents["city"] = component_value; break;
+
+                        case "administrative_area_level_1" :
+                            addressComponents["state"] = component_value; break;
+
+                        case "postal_code" :
+                           addressComponents["zipcode"] = component_value; break;
+
+                        case "country" :
+                           addressComponents["country"] = component_value; break;
+
+                        default: break;
+                        }  // switch
+                }    // for 
+
+                $("#latitude").val( addressComponents["latitude"]); 
+                $("#longitude").val( addressComponents["longitude"]);
+                $("#street_number").val( addressComponents["street_number"]);
+                $("#street").val(addressComponents["street"]);
+                $("#city").val(addressComponents["city"]);
+                $("#state").val( addressComponents["state"]);
+                $("#zipcode").val( addressComponents["zipcode"]);
+
+
+            }
+            else { 
+                alert('Please enter valid address.');
+              }
+          }.bind(this) );
+  
+        return event;  
+    },  // function()
+                
+
     codeAddress: function(address) {
         var geocoder = new google.maps.Geocoder();
         

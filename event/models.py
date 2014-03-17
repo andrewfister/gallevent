@@ -54,7 +54,7 @@ class Event(models.Model):
     longitude = models.FloatField()
     latitude = models.FloatField()
     status = models.IntegerField(default=1)
-    source_event_id = models.CharField(max_length=64)
+    source_event_id = models.CharField(max_length=64, default='1')
     source_id = models.IntegerField(default=1)
     
     def get_location(self):

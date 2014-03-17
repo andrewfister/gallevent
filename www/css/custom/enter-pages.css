@@ -1,0 +1,98 @@
+@charset "utf-8";
+/* Title: User Control Pages
+** Description: Styles for User Control Section Pages
+** Author: Jessica Greenwalt - www.jgreenwalt.com
+** Created: 03-31-2013
+** Updated: 03-16-2014
+************************************** */
+
+html {
+	background:rgba(5, 159, 172, 1) url(../../img/bg-city-2000x1330.jpg) center center no-repeat fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	}
+
+body.join {
+	background: -moz-linear-gradient(top,  rgba(1,159,172,1) 0%, rgba(5,159,172,0) 100%);
+
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(1,159,172,1)), color-stop(100%,rgba(5,159,172,0)));
+
+background: -webkit-linear-gradient(top,  rgba(1,159,172,1) 0%,rgba(5,159,172,0) 100%);
+
+background: -o-linear-gradient(top,  rgba(1,159,172,1) 0%,rgba(5,159,172,0) 100%);
+
+background: -ms-linear-gradient(top,  rgba(1,159,172,1) 0%,rgba(5,159,172,0) 100%);
+
+background: linear-gradient(to bottom,  rgba(1,159,172,1) 0%,rgba(5,159,172,0) 100%);
+
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#019fac', endColorstr='#00059fac',GradientType=0 );
+
+
+	}
+
+
+
+#header {
+	background:transparent;
+	}
+
+#header .btn-join {
+	display:none;
+	}
+
+#content {
+	position:relative;
+	float:left;
+	top:8em;
+	left:50%;
+	margin-left:-400px;
+	width:800px;
+	border-radius:5px;
+	
+	
+background: -moz-linear-gradient(top,  rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.9) 40%, rgba(255,255,255,0.6) 100%);
+
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.92)), color-stop(40%,rgba(255,255,255,0.9)), color-stop(100%,rgba(255,255,255,0.6)));
+
+background: -webkit-linear-gradient(top,  rgba(255,255,255,0.92) 0%,rgba(255,255,255,0.9) 40%,rgba(255,255,255,0.6) 100%);
+
+background: -o-linear-gradient(top,  rgba(255,255,255,0.92) 0%,rgba(255,255,255,0.9) 40%,rgba(255,255,255,0.6) 100%);
+
+background: -ms-linear-gradient(top,  rgba(255,255,255,0.92) 0%,rgba(255,255,255,0.9) 40%,rgba(255,255,255,0.6) 100%);
+
+background: linear-gradient(to bottom,  rgba(255,255,255,0.92) 0%,rgba(255,255,255,0.9) 40%,rgba(255,255,255,0.6) 100%);
+
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebffffff', endColorstr='#99ffffff',GradientType=0 );
+
+
+	}
+
+#content h2 {
+	padding-top:0.8em;
+	font-size:170%;
+	}
+
+#content p {
+	font-size:120%;
+	}
+
+#content .left,
+#content .right {
+	width:50%;
+	height:100%;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	}
+
+#content .left {
+	padding:1em 0 1em 50px;
+	background:rgba(255, 255, 255, 1);
+	border-radius:5px 0 0 5px;
+	}
+
+#content .right {
+	padding:0 50px 0 50px;
+	}

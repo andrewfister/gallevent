@@ -1,4 +1,4 @@
-{% extends "base-profile.html" %}
+{% extends "base-profile.html" %}  
 
 {% block body-class %}user-control post-event{% endblock body-class %}
 
@@ -15,14 +15,17 @@ var eventJSON = {};
 <link rel="stylesheet" type="text/css" href="/static/css/jquery.timepicker.css" />
 {% endblock javascript %}
 
+
+
 {% block mapjavascript %}
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.14&sensor=false"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.14&sensor=false"></script>                                            
+<script type="text/javascript" src="/static/js/models/event-model.js"></script>                                                                             
+
 <script type="text/javascript" src="/static/js/views/map-view.js"></script>
 {% endblock mapjavascript %}
 
+
 {% block viewjavascript %}
-<script type="text/javascript" src="/static/js/models/event-model.js"></script>
-<script type="text/javascript" src="/static/js/views/map-view.js"></script>
 <script type="text/javascript" src="/static/js/views/post-event-view.js"></script>
 <script type="text/javascript" src="/static/js/controllers/post-event-controller.js"></script>
 {% endblock viewjavascript %}
@@ -69,7 +72,7 @@ var eventJSON = {};
          		<span class="error">{{ error }}</span>
          	{% endfor %}
         {% endif %}
-        <input type="text" id="address" class="input-standard location" name="address" placeholder="123 Your Street, San Francisco, CA 94100" value="{{ form.address.value }}" />
+        <input type="text" id="address" class="input-standard location" name="address" placeholder="123 Main Street, San Francisco, CA 94100" value="{{ form.address.value }}" />
         <input type="text" id="street_number" class="hidden" name="street_number" value="{{ form.street_number.value }}" />
         <input type="text" id="street" class="hidden" name="street" value="{{ form.street.value }}" />
         <input type="text" id="subpremise" class="hidden" name="subpremise" value="{{ form.subpremise.value }}" />
@@ -165,7 +168,7 @@ var eventJSON = {};
         	<div class="btn-guest-list">Guest List</div>
             <div class="btn-tickets">Tickets</div>
         </div><!-- .guestl-or-tickets-btns -->
-        
+     <!--   
         <div class="opt-guest-l">
         	<div class="content">
                 <span class="form-details">Include the entry fees for your event below. This is the price that will be charged to guests at the door. If you have different types of entry fees, please include each type of entry fee below.</span>
@@ -185,7 +188,7 @@ var eventJSON = {};
                 <input type="text" id="rsvp-close-time" class="input-standard" name="rsvp_close_time" placeholder="9:00pm" value="{{ form.end_time.value|time }}" />
                 <button class="btn-add-type"><span>+</span> Add another entry type</button>
             </div><!-- .content -->
-        </div><!-- .opt-guest-l -->
+  <!--      </div><!-- .opt-guest-l -->
  
         <div class="opt-tickets">
         	<div class="content">
