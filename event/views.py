@@ -80,11 +80,11 @@ class EventDetailView(TemplateView):
 
 
 #@login_required
-#def show_events(request):
-#    events = models.Event.objects.filter(user_id=request.user.id).exclude(status=0).order_by('start_date', 'start_time', 'end_date', 'end_time').reverse()
-
-#    return render_to_response('your-posts.html', {
-#    'selected_page': 'your-posts',
-#    'events': events,
-#    }, context_instance=RequestContext(request))
+def show_events(request):
+    # events = models.Event.objects.filter(user_id=request.user.id).exclude(status=0).order_by('start_date', 'start_time', 'end_date', 'end_time').reverse()
+    events = models.Event.objects.exclude(status=0).order_by('start_date', 'start_time', 'end_date', 'end_time').reverse()[:10]
+    return render_to_response('your-posts.html', {
+        'selected_page': 'your-posts',
+        'events': events,
+        }, context_instance=RequestContext(request))
 

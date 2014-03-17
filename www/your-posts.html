@@ -1,4 +1,4 @@
-{% extends "base-user-control.html" %}
+{% extends "base-profile.html" %}
 
 {% block body-class %}user-control your-posts{% endblock body-class %}
 
@@ -25,6 +25,8 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         <p>Events you have RSVPed to, events you are following, <br />and events you have attended.</p>
     {% endifequal %}{% endifequal %}
         <form id="your-posts">    
+
+
             <fieldset>
                 <legend>Active Posts</legend>
                 <span class="sort">
@@ -37,7 +39,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
                 </span><!-- .sort -->
                 <ul class="form-event-list active-events">
                 </ul>
-                <a href="{% url gallevent.event.views.show_events %}" class="more-link">More Active Posts &raquo;</a>
+              <a href="#" class="more-link">  More Active Posts &raquo;</a> 
             </fieldset>
             
             {% ifequal selected_page 'your-posts' %}
@@ -55,6 +57,8 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
                 </ul>
                 <a href="#" class="more-link">More Expired Posts &raquo;</a>
             </fieldset>
+
+
             {% endifequal %}
         </form>
 {% endblock active_tab_content %}
