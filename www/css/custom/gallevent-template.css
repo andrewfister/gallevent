@@ -187,7 +187,7 @@ select {
 	}
 
 .btn-post-event,
-.btn-join {
+#content .btn-join {
 		display:block;
 		margin-bottom:2em;
 		width:auto;
@@ -306,6 +306,7 @@ select {
 -------------------------------------- */
 #header {
 	position:fixed;
+	float:left;
 	z-index:600;
 	width:100%;
 	font-size:110%;
@@ -343,10 +344,31 @@ select {
 	opacity:0.6;
 	}
 
+#header .btn-join,
+#header .btn-sign-in {
+	float:right;
+	margin-top:0.5em;
+	padding:0.7em 1em 0.7em 1em;
+	color:#fff;
+	background:rgba(5, 159, 172, 0.9);
+	border-radius:5px;
+	}
+
+#header .btn-sign-in {
+	margin-right:4em;
+	margin-left:0.5em;
+	}
+
+#header .btn-join:hover,
+#header .btn-sign-in:hover {
+	background:rgba(133, 196, 64, 0.9);
+	}
+
 
 
 	/* = Top Search */
 	#top-search-container {
+		float:left;
 		padding:0.5em;
 		}
 	
@@ -537,10 +559,10 @@ select {
 		right:1em;
 		}
 	#btn-menu:hover {
-		background: rgba(5, 159, 172, 1);
+		background: rgba(133, 196, 64, 0.9);
 		}
 	#btn-menu:hover svg {
-		opacity:0.6;
+		opacity:1;
 		}
 	#btn-menu .icon-white {
 		display:block;

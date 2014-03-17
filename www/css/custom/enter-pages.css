@@ -38,6 +38,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#019fac', end
 	background:transparent;
 	}
 
+#header .btn-join {
+	display:none;
+	}
+
 #content {
 	position:relative;
 	float:left;
@@ -92,7 +96,3 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebffffff', e
 #content .right {
 	padding:0 50px 0 50px;
 	}
-
-
-/* = Form Elements
--------------------------------------- */
