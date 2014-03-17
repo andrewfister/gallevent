@@ -66,25 +66,25 @@ class PostEventView(FormView):
         print(form.errors)
 
         return super(PostEventView, self).form_invalid(form)
+        
+        
+class EventDetailView(TemplateView):
+    template_name = "event_detail.html"
+    
+    def get(self, request, event_id):
+        event = models.Event.objects.get(pk=event_id)
+    
+        return self.render_to_response({
+            'event': event
+        })
 
 
-@login_required
-def show_events(request):
-    events = models.Event.objects.filter(user_id=request.user.id).exclude(status=0).order_by('start_date', 'start_time', 'end_date', 'end_time').reverse()
+#@login_required
+#def show_events(request):
+#    events = models.Event.objects.filter(user_id=request.user.id).exclude(status=0).order_by('start_date', 'start_time', 'end_date', 'end_time').reverse()
 
-    return render_to_response('your-posts.html', {
-    'selected_page': 'your-posts',
-    'events': events,
-    }, context_instance=RequestContext(request))
-
-@login_required
-def show_lineup(request):
-    return render_to_response('your-posts.html', {
-    'selected_page': 'your-events'
-    }, context_instance=RequestContext(request))
-
-@login_required
-def manage_events(request):
-    return render_to_response('your-posts-manage.html', {
-    }, context_instance=RequestContext(request))
+#    return render_to_response('your-posts.html', {
+#    'selected_page': 'your-posts',
+#    'events': events,
+#    }, context_instance=RequestContext(request))
 

@@ -2,7 +2,7 @@ from django.conf.urls import include, url, patterns
 
 
 from event.api.resources import EventResource
-from event.views import SearchView, PostEventView
+from event.views import PostEventView, EventDetailView
 
 
 urlpatterns = patterns('event.views',
