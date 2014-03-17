@@ -3,7 +3,7 @@
 ** Description: Control for Event Categories
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 02-21-2014
+** Updated: 03-11-2014
 ************************************** */
 
 /* = Position Pin Key Within Container */
@@ -11,7 +11,6 @@
 	position: absolute;
 	float:left;
 	z-index: 800;
-	left: 0;
 	top:100%;
 	margin-top:-48px;
 	width:20em;
@@ -31,7 +30,6 @@
 #pin-key a {
 	display:block;
 	position:relative;
-	/* overflow:hidden; */
 	width:31px;
 	max-width:31px;
 	height:40px;
@@ -142,6 +140,7 @@ a.key {
 			width:100%;
 			}
 	}
+
 @media (min-width: 700px) {
 	
 		#pin-key {
@@ -169,25 +168,72 @@ a.key {
 			}
 	}
 
+@media (max-width: 700px) {
+		#pin-key {
+			left: 0;
+			}
+	}
+
 @media (min-width: 900px) {
 	
 		#pin-key {
 			width:100%;
 			}
 		#pin-key a {
-			width:12.5%;
 			max-width:100%;
-			padding:0.4em 0 0 0;
+			}
+		a.key,
+		a.key:hover,
+		#pin-key a:hover,
+		#pin-key a.selected {
+			background-position:0 0.5em;
+			}
+	}
+
+@media (min-width: 1040px) {
+		a.key,
+		a.key:hover,
+		#pin-key a:hover,
+		#pin-key a.selected {
+			background-position:0.8em 11px;
+			width:260px;
+			}
+		#pin-key {
+			top:6em;
+			right:0;
+			width:260px;
+			height:auto;
+			overflow:visible;
+			margin:0;
+			padding:0;
+			border-radius:5px 0 0 5px;
+			background:transparent;
+			}
+		#pin-key a {
+			float:left;
+			width:260px;
+			height:auto;
+			padding:0.95em 2em 0.8em 0.8em;
+			background-color:#fff;
+			transition: margin-left 1s ease;
+			-webkit-transition: margin-left 1s ease;
+			}
+		#pin-key a:hover,
+		#pin-key a.selected {
+			margin-left:-40px;
 			}
 		#pin-key .details,
 		#pin-key .details strong,
-		#pin-key a strong,
-		#pin-key .details i,
-		#pin-key a .details i {
+		#pin-key a strong {
 			display:block;
 			}
-		a.key,
-		#pin-key a.selected {
-			background-position:0 0.5em;
+		
+		#pin-key .details i,
+		#pin-key a .details i {
+			display:none;
+			}
+		
+		#pin-key a.nightlife {
+			padding-bottom:1.2em;	
 			}
 	}
