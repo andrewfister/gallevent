@@ -63,7 +63,9 @@ var YourActivePostsView = Backbone.View.extend({
                 this.collection.orderCategory()
             this.render();
 
-        }.bind(this));            
+        }.bind(this));
+        
+        this.render();
     },
 
    
@@ -104,7 +106,9 @@ var YourArchivedPostsView = Backbone.View.extend({
                 this.collection.orderCategory()
             this.render();
 
-        }.bind(this));            
+        }.bind(this));
+        
+        this.render();
     },
 
     render: function() {
