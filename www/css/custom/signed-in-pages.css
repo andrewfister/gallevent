@@ -92,8 +92,8 @@ text-indent: 40px;
 /* = Specific Section Styles */
 .post-event #content {
 	float: left;
-width: 50%;
-background: #fff;
+	width: 50%;
+	background: #fff;
 	}
 
 /* = Specific to Your Profile */

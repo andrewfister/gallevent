@@ -56,7 +56,6 @@ h2 {
 
 /* = Form Elements
 -------------------------------------- */
-
 .top-error {
 	float: left;
 	margin:0 0 2em 0;
@@ -188,16 +187,16 @@ select {
 
 .btn-post-event,
 #content .btn-join {
-		display:block;
-		margin-bottom:2em;
-		width:auto;
-		padding:1.1em 1.5em 1.1em 1.5em;
-		color:#fff;
-		font-weight:bold;
-		letter-spacing:0.02em;
-		background:#85c440;
-		border:none;
-		}
+	display:block;
+	margin-bottom:2em;
+	width:auto;
+	padding:1.1em 1.5em 1.1em 1.5em;
+	color:#fff;
+	font-weight:bold;
+	letter-spacing:0.02em;
+	background:#85c440;
+	border:none;
+	}
 
 .btn-join {
 	margin-top:2em;
@@ -309,9 +308,17 @@ select {
 	float:left;
 	z-index:600;
 	width:100%;
+	padding-bottom:0.6em;
 	font-size:110%;
 	background:rgba(5, 159, 172, 0.9);
 	/* background:rgba(248, 156, 28, 1); */
+	}
+
+#header .logo-block {
+	position:absolute;
+	float:left;
+	top:1em;
+	left:1em;
 	}
 
 #header .logo-block .logo {
@@ -350,8 +357,6 @@ select {
 	margin-top:0.5em;
 	padding:0.7em 1em 0.7em 1em;
 	color:#fff;
-	background:rgba(5, 159, 172, 0.9);
-	border-radius:5px;
 	}
 
 #header .btn-sign-in {
@@ -554,9 +559,17 @@ select {
 
 
 @media (min-width: 445px) {
+	/*
 	#btn-menu {
 		top: 0.6em;
 		right:1em;
+		}
+	*/
+	
+	#btn-menu {
+		top: 0.5em;
+		right:0em;
+		padding: 0.75em 1em 0.65em 1em;
 		}
 	#btn-menu:hover {
 		background: rgba(133, 196, 64, 0.9);
