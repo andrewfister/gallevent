@@ -462,7 +462,7 @@ class PostEventForm(forms.ModelForm):
     address = forms.CharField(max_length=1000)
     street_number = forms.CharField(max_length=64)
     street = forms.CharField(max_length=255)
-    subpremise = forms.CharField(max_length=64, initial="")
+    subpremise = forms.CharField(max_length=64, initial="", required=False)
     city = forms.CharField(max_length=64, initial="")
     state = forms.CharField(max_length=2, initial="")
     zipcode = forms.CharField(max_length=16, initial="")
@@ -473,7 +473,7 @@ class PostEventForm(forms.ModelForm):
     end_date = forms.DateField(initial="", input_formats=date_input_formats)
     end_time = forms.TimeField(initial="", input_formats=time_input_formats)
     name = forms.CharField(max_length=64, initial="")
-    description = forms.CharField(max_length=1000, initial="")
+    description = forms.CharField(max_length=1000, initial="") 
     event_url = forms.URLField(required=False, initial="")
     rsvp_limit = forms.IntegerField(required=False, initial="")
     rsvp_end_date = forms.DateField(required=False, initial="", input_formats=date_input_formats)
@@ -484,7 +484,11 @@ class PostEventForm(forms.ModelForm):
     purchase_tickets = forms.BooleanField(initial=False, required=False)
     ticket_type = forms.CharField(max_length=32, required=False, initial="")
     ticket_price = forms.DecimalField(required=False, decimal_places=2, initial="")
-    ticket_url = forms.URLField(required=False, initial="")
+    ticket_url = forms.URLField(required=False, initial="")    
+    short_description = forms.CharField(max_length=64,required=False, initial="")
+    source_event_id = forms.CharField(required=False, initial="1")
+    source_id = forms.IntegerField(required=False, initial=1)
+
 
     def clean_purchase_tickets(self):
         return self.cleaned_data['purchase_tickets'] == "yes"
@@ -494,6 +498,21 @@ class PostEventForm(forms.ModelForm):
 
     def clean_rsvp_limit(self):
         return self.cleaned_data['rsvp_limit'] or 0
+
+    def save(self):
+        self.cleaned_data['short_description'] = self.cleaned_data['description'][:64].encode('utf-8').strip()
+        super(PostEventForm, self).save()
+
+
+    # def clean_short_description(self):
+        # return self.cleaned_data['description'][:64].encode('utf-8').strip()
+
+    # def clean_source_event_id(self):
+    #     return self.cleaned_data['source_event_id'] or '1'
+    
+    # def clean_source_id(self):
+    #     return self.cleaned_data['source_id'] or 1
+   
 
 
 class ArchiveEventForm(forms.ModelForm):
