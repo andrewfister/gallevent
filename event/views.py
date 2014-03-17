@@ -5,6 +5,7 @@ from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.views.generic.base import TemplateView, View
+from django.views.generic.edit import FormView
 
 from event import forms
 from event import models
@@ -49,45 +50,22 @@ class SearchView(View):
         return HttpResponse(events_json, content_type="application/json")
 
 
-class PostEventView(TemplateView):
+class PostEventView(FormView):
     template_name = "post-event.html"
-   
-    def get(self, request):
-        form = forms.PostEventForm()
-        
-        return self.render_to_response({
-            'edit': False,
-            'form': form,
-        })
+    form_class = forms.PostEventForm
+    success_url = '/'
  
-    def post(self, request):
+    def form_valid(self, form):
+        print("Post event form GOOD!")
+        form.save()
 
-#        if event_id != None and edit == True:
-#            event = models.Event.objects.get(id=event_id)
-#        else:
-       
-        event = models.Event(user_id=request.user.id)
-        form = forms.PostEventForm(request.POST, instance=event)
-        
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/event/show')
-        else:
-            logger.debug(form.errors)
-            return self.render_to_response({
-                    'edit': False,
-                    'form': form,
-                    })
+        return super(PostEventView, self).form_valid(form)
 
+    def form_invalid(self, form):
+        logger.debug(form.errors)
+        print(form.errors)
 
-    def put(self, request):
-        event = models.Event.objects.get(id=event_id)
-        form = forms.PostEventForm(instance=event)
-
-        return render_to_response({
-            'edit': True,
-            'form': form,
-        }, context_instance=RequestContext(request))
+        return super(PostEventView, self).form_invalid(form)
 
 
 @login_required
