@@ -1,4 +1,4 @@
-{% extends "base-user-control.html" %}
+{% extends "base-profile.html" %}
 
 {% block body-class %}user-control your-posts{% endblock body-class %}
 
@@ -6,14 +6,15 @@
 
 {% block prejavascript %}
 <script>
-var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ event.user_id }},address: "{{ event.address|escapejs }}",street_number: "{{ event.street_number|escapejs }}",street: "{{ event.street|escapejs }}",subpremise: "{{ event.subpremise|escapejs }}",city: "{{ event.city|escapejs }}",state: "{{ event.state|escapejs }}",zipcode: "{{ event.zipcode|escapejs }}",name: "{{ event.name|escapejs }}",category: "{{ event.category|escapejs }}",ticket_price: {{ event.ticket_price }},start_date: "{{ event.start_date|date|escapejs }}",start_time: "{{ event.start_time|time|escapejs }}",end_date: "{{ event.end_date|date|escapejs }}",end_time:"{{ event.end_time|time|escapejs }}",description: "{{ event.description|escapejs }}",organizer_email: "{{ event.organizer_email|escapejs }}",organizer_phone: "{{ event.organizer_phone|escapejs }}",organizer_url: "{{ event.organizer_url|escapejs }}",latitude: {{ event.latitude }},longitude: {{ event.longitude }},status: {{ event.status }} }, {% endfor %} ];
+window.eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: 1,address: "{{ event.address|escapejs }}",street_number: "{{ event.street_number|escapejs }}",street: "{{ event.street|escapejs }}",subpremise: "{{ event.subpremise|escapejs }}",city: "{{ event.city|escapejs }}",state: "{{ event.state|escapejs }}",zipcode: "{{ event.zipcode|escapejs }}",name: "{{ event.name|escapejs }}",category: "{{ event.category|escapejs }}",ticket_price: {{ event.ticket_price }},start_date: "{{ event.start_date|date|escapejs }}",start_time: "{{ event.start_time|time|escapejs }}",end_date: "{{ event.end_date|date|escapejs }}",end_time:"{{ event.end_time|time|escapejs }}",description: "{{ event.description|escapejs }}",organizer_email: "{{ event.organizer_email|escapejs }}",organizer_phone: "{{ event.organizer_phone|escapejs }}",organizer_url: "{{ event.organizer_url|escapejs }}",latitude: {{ event.latitude }},longitude: {{ event.longitude }},status: {{ event.status }} }, {% endfor %} ];
 </script>
 {% endblock %}
 
-{% block javascript %}
+{% block viewjavascript %}
 {% load mustachejs %}
 {% mustachejs "your-post" %}
 <script type="text/javascript" src="/static/js/views/your-post-view.js"></script>
+<script type="text/javascript" src="/static/js/controllers/your-posts-controller.js"></script>
 {% endblock %}
 
 {% block active_tab_content %}
@@ -25,6 +26,8 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
         <p>Events you have RSVPed to, events you are following, <br />and events you have attended.</p>
     {% endifequal %}{% endifequal %}
         <form id="your-posts">    
+
+
             <fieldset>
                 <legend>Active Posts</legend>
                 <span class="sort">
@@ -37,7 +40,7 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
                 </span><!-- .sort -->
                 <ul class="form-event-list active-events">
                 </ul>
-                <a href="{% url gallevent.event.views.show_events %}" class="more-link">More Active Posts &raquo;</a>
+              <a href="#" class="more-link">  More Active Posts &raquo;</a> 
             </fieldset>
             
             {% ifequal selected_page 'your-posts' %}
@@ -55,6 +58,8 @@ var eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ eve
                 </ul>
                 <a href="#" class="more-link">More Expired Posts &raquo;</a>
             </fieldset>
+
+
             {% endifequal %}
         </form>
 {% endblock active_tab_content %}
