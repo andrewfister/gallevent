@@ -20,6 +20,10 @@ a {
 	text-decoration:none;
 	}
 
+a:hover {
+	text-decoration:underline;
+	}
+
 h1,
 h2 {
 	font-weight:normal;
@@ -33,6 +37,17 @@ h1 {
 h2 {
 	/*color:#85c440;*/
 	color:rgba(248, 156, 28, 1);
+	}
+
+h3 {
+	margin:0 0 0.5em 0;
+	font-weight:normal;
+	font-size:125%;
+	color:rgba(248, 156, 28, 1);
+	}
+
+.address {
+	color:#868789;
 	}
 
 
@@ -201,6 +216,15 @@ select {
 #content .btn-join {
 	margin-top:2em;
 	}	
+
+.btn-edit {
+	background:none;
+	color:#85c440;
+	}
+
+.btn-edit:hover {
+	text-decoration:underline;
+	}
 
 /* = Global Calendar Datepicker */
 #ui-datepicker-div {
