@@ -11,14 +11,6 @@ class SignInForm(forms.Form):
     email = forms.EmailField()
     password = forms.CharField(max_length=32)
     
-    def clean_email(self):
-        email = self.cleaned_data['email']
-
-        if len(User.objects.filter(username=email)) > 0:
-            raise forms.ValidationError('This email address is already registered!')
-
-        return email
-    
     def clean_password(self):
         password = self.cleaned_data['password']
         
@@ -28,6 +20,16 @@ class SignInForm(forms.Form):
             raise forms.ValidationError('This password is too long')
         
         return password
+
+
+class JoinForm(SignInForm):
+    def clean_email(self):
+        email = self.cleaned_data['email']
+
+        if len(User.objects.filter(username=email)) > 0:
+            raise forms.ValidationError('This email address is already registered!')
+
+        return email
     
     def create_user(self, commit=True):
         email = self.cleaned_data['email']
@@ -35,4 +37,3 @@ class SignInForm(forms.Form):
         
         user = User.objects.create_user(email, email, password)
         user.save()
-
