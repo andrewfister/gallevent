@@ -3,23 +3,58 @@
 {% block body-class %}signed-in your-profile{% endblock body-class %}
 
 {% block active_tab_content %}
-	<h1>Your Public Profile</h1>
-	<h2>What do you want other Gallevent members to know about you?</h2>
-    <div class="profile-pic-col">
-    	<img class="profile-pic" src="/static/img/profile-pic-jessica.jpg" />
-    </div><!-- .photo-col -->
-    <div class="person-summary">
-        <p class="real-name"><a href="#">Jessica G.</a></p>
-        <p class="address">San Francisco, California</p>
-        <p class="description">Tell us about yourself in 1,000 characters or less. This is sample text. Sample text here. This is sample text. This is only sample thext. This sample text will not appear on the actual site. This text is for placement only. Sample text here. This is sample text. Sample text here. This is sample text. Sample text here.
+	<h1>Your Profile</h1>
+    <div class="col1">
+    	<div class="bio">
+        	<div class="user-card">
+    			<img class="profile-pic" src="/static/img/profile-pic-jessica.jpg" />
+                <div class="col2">
+                	<p class="name">Jessica Greenwalt</p>
+                    <p>San Francisco, California</p>
+                    <p>500 Events Attended</p>
+                    <p>20 Groups</p>
+                </div><!-- .col2 -->
+            </div><!-- .user-card -->
+            <p>Tell us about yourself in 1,000 characters or less. This is sample text. Sample text here. This is sample text. This is only sample thext. This sample text will not appear on the actual site. This text is for placement only. Sample text here. This is sample text. Sample text here. This is sample text. Sample text here.
 Tell us about yourself in 1,000 characters. This is sample text. Sample text here. This is sample text. This is only sample thext. This sample text will not appear on the actual site. This text is for placement only. Sample text here. This is sample text. Sample text here. This is sample text. Sample text here.
 Tell us about yourself in 1,000 characters. This is sample text. Sample text here. This is sample text. This is only sample thext. This sample text will not appear on the actual site. This text is for placement only. Sample text here. This is sample text. Sample text here. This is sample text. Sample text here.
 Tell us about yourself in 1,000 characters la la la.</p>
-        <p class="profile-links">
-        	<a href="#" class="twitter">@TwitterName</a><br />
-            <a href="#" class="twitter">facebook.com/username</a><br />
-            <a href="#" class="url">url.com</a>
-        </p>
-        <button class="btn-edit" type="button">Edit Profile</button>
+                    <p class="profile-links">
+                        <a href="#" class="twitter">@TwitterName</a><br />
+                        <a href="#" class="twitter">facebook.com/username</a><br />
+                        <a href="#" class="url">url.com</a>
+                    </p>
+    		<button class="btn-edit" type="button">Edit</button>
+        </div><!-- .bio -->
+        
+    </div><!-- .col1 -->
+    <div class="col2">
+    	<div class="basic-info">
+        	<h2>Basics</h2>
+            <p>Gender</p>
+            <p>Looking for</p>
+            <p>Relationship</p>
+            <button class="btn-edit" type="button">Edit</button>
+        </div><!-- .basic-info -->
+        <div class="contact-info">
+        	<h2>Contact</h2>
+            <p>Email</p>
+            <p>Phone</p>
+            <button class="btn-edit" type="button">Edit</button>
+        </div><!-- .contact-info -->
+        <div class="education-info">
+        	<h2>Education</h2>
+            <p>School</p>
+            <button class="btn-edit" type="button">Edit</button>
+        </div><!-- .education-info -->
+        <div class="work-info">
+        	<h2>Work</h2>
+            <p>Job Title</p>
+            <p>Company</p>
+            <button class="btn-edit" type="button">Edit</button>
+        </div><!-- .education-info -->
+    </div><!-- .col2 -->
+    
+        
     </div>
 {% endblock active_tab_content %}

@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 02-09-2014
-** Updated: 03-08-2014
+** Updated: 03-23-2014
 ************************************** */
 
 html,
@@ -198,7 +198,7 @@ select {
 	border:none;
 	}
 
-.btn-join {
+#content .btn-join {
 	margin-top:2em;
 	}	
 
@@ -311,7 +311,6 @@ select {
 	padding-bottom:0.6em;
 	font-size:110%;
 	background:rgba(5, 159, 172, 0.9);
-	/* background:rgba(248, 156, 28, 1); */
 	}
 
 #header .logo-block {
@@ -334,11 +333,15 @@ select {
 #btn-menu {
 	position:absolute;
 	top:1.3em;
-	/* top:1.8em; */
 	right:2em;
+	float:right;
 	display:block;
 	z-index:800;
 	}
+#btn-menu .text {
+	display:none;
+	}
+
 #btn-menu svg {
 	width:15px;
 	height:15px;
@@ -351,189 +354,192 @@ select {
 	opacity:0.6;
 	}
 
-#header .btn-join,
-#header .btn-sign-in {
+#top-nav {
 	float:right;
 	margin-top:0.5em;
+	}
+
+#top-nav .btn-join,
+#top-nav .btn-sign-in {
+	display:none;
+	}
+
+#top-nav a {
+	float:right;
+	margin-right:0.5em;
 	padding:0.7em 1em 0.7em 1em;
 	color:#fff;
 	}
 
-#header .btn-sign-in {
-	margin-right:4em;
-	margin-left:0.5em;
-	}
-
-#header .btn-join:hover,
-#header .btn-sign-in:hover {
+#top-nav a:hover {
 	background:rgba(133, 196, 64, 0.9);
 	}
 
 
 
-	/* = Top Search */
-	#top-search-container {
-		float:left;
-		padding:0.5em;
-		}
-	
-	#top-search {
-		position:relative;
-		width:100%;
-		max-width:400px;
-		}
-	
-	#top-search #event-keywords {
-		position:relative;
-		border:none;
-		width:100%;
-		text-indent:60px;
-		z-index:610;
-		-moz-box-shadow:    0 0 4px rgba(0, 0, 0, 0.1);
-		-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-		box-shadow:			0 0 4px rgba(0, 0, 0, 0.1);
-		}
-	
-	#top-search fieldset.filters {
-		position:relative;
-		float:right;
-		margin-top:-0.5em;
-		padding:1.2em 1em 0 1em;
-		color:#fff;
-		background:rgba(5, 159, 172, 0.9);
-		border-radius:5px;
-		z-index:605;
-		transition: all 1s ease;
-		-webkit-transition: all 1s ease;
-		max-width:20%;
-		}
-	
-	#top-search fieldset.filters.active {
-		padding-top:1.5em;
-		max-width:100%;
-		}
-
-	#top-search legend {
-		color:#fff;
-		float:right;
-		margin-bottom:0.5em;
-		letter-spacing:0.02em;
-		}
-	
-	#top-search .filters.active legend {
-		margin-bottom:1em;
-		}
-	
-	#top-search b,
-	#top-search .close {
-		display:none;	
-		}
-	
-	#top-search .filters-icon svg {
-		width:32px;
-		padding: 1.2em 1em 0.9em 1em;
-		margin: -1.2em -1em -0.9em -1em;
-		}
-	#top-search .close {
-		float: right;
-		}
-	
-	#top-search .close svg {
-		width:15px;
-		height:15px;
-		}
-	
-	#top-search .filters-icon:hover,
-	#top-search .close:hover {
-		opacity:0.6;	
-		}
-	
-	#top-search legend {
-		width: 100%;
-		text-align: center;
-		}
-	#top-search .filters.active legend b {	
-		display:inline-block;
-		}
-	
-	#top-search .filters.active legend .close {	
-		display:block;
-		}
-	#top-search .filters.active legend .filters-icon {
-		display:none;	
-		}
-	
-	#top-search .filter-container {
-		display:none;
-		}
-	
-	#top-search .filters.active .filter-container {
-		display:block;
-		}
-	
-	#top-search input,
-	#top-search .select {
-		display: inline-block;
-		float:left;
-		}
-	
-	#top-search #location-search-input {
-		width:100%;
-		margin-bottom:0.4em;
-		}
-	
-	
-	#top-search span.time-span {
-		width:50%;
-		margin-bottom:0.4em;
-		}
-	
-	#top-search .date-input-container {
-		box-sizing:border-box;
-		display: inline-block;
-		float:right;
-		width:50%;
-		padding-left:0.4em;
-		margin-bottom:0.4em;
-		}
-	
-	@-moz-document url-prefix() { 
-		#top-search .date-input-container {
-			width:49%;
-			padding-left:0;
-		}
+/* = Top Search */
+#top-search-container {
+	float:left;
+	padding:0.5em;
 	}
-	
-	#top-search #date {
-		float: left;
-		width:100%;
-		}
-	
-	#top-search span.price {
-		width: 100%;
-		margin-bottom:1em;
-		}
-	
-	#top-search .button-container {
-		float:left;
-		width:100%;	
-		}
-	
-	#top-search button {
-		display:block;
-		margin:0 auto;
-		margin-bottom:1em;
-		border:2px solid #fff;
-		padding:0.8em;
-		color:#fff;
-		font-weight:bold;
-		letter-spacing:0.02em;
-		background:#85c440;
-		}
-	
-	#top-search button:hover {
-		background:#98de44;
-		}
+
+#top-search {
+	position:relative;
+	float:left;
+	width:100%;
+	}
+
+#top-search #event-keywords {
+	position:relative;
+	border:none;
+	width:100%;
+	text-indent:60px;
+	z-index:610;
+	-moz-box-shadow:    0 0 4px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+	box-shadow:			0 0 4px rgba(0, 0, 0, 0.1);
+	}
+
+#top-search fieldset.filters {
+	position:relative;
+	float:right;
+	margin-top:-0.5em;
+	padding:1.2em 1em 0 1em;
+	color:#fff;
+	background:rgba(5, 159, 172, 0.9);
+	border-radius:5px;
+	z-index:605;
+	transition: all 1s ease;
+	-webkit-transition: all 1s ease;
+	max-width:20%;
+	}
+
+#top-search fieldset.filters.active {
+	padding-top:1.5em;
+	max-width:100%;
+	}
+
+#top-search legend {
+	color:#fff;
+	float:right;
+	margin-bottom:0.5em;
+	letter-spacing:0.02em;
+	}
+
+#top-search .filters.active legend {
+	margin-bottom:1em;
+	}
+
+#top-search b,
+#top-search .close {
+	display:none;	
+	}
+
+#top-search .filters-icon svg {
+	width:32px;
+	padding: 1.2em 1em 0.9em 1em;
+	margin: -1.2em -1em -0.9em -1em;
+	}
+#top-search .close {
+	float: right;
+	}
+
+#top-search .close svg {
+	width:15px;
+	height:15px;
+	}
+
+#top-search .filters-icon:hover,
+#top-search .close:hover {
+	opacity:0.6;	
+	}
+
+#top-search legend {
+	width: 100%;
+	text-align: center;
+	}
+#top-search .filters.active legend b {	
+	display:inline-block;
+	}
+
+#top-search .filters.active legend .close {	
+	display:block;
+	}
+#top-search .filters.active legend .filters-icon {
+	display:none;	
+	}
+
+#top-search .filter-container {
+	display:none;
+	}
+
+#top-search .filters.active .filter-container {
+	display:block;
+	}
+
+#top-search input,
+#top-search .select {
+	display: inline-block;
+	float:left;
+	}
+
+#top-search #location-search-input {
+	width:100%;
+	margin-bottom:0.4em;
+	}
+
+
+#top-search span.time-span {
+	width:50%;
+	margin-bottom:0.4em;
+	}
+
+#top-search .date-input-container {
+	box-sizing:border-box;
+	display: inline-block;
+	float:right;
+	width:50%;
+	padding-left:0.4em;
+	margin-bottom:0.4em;
+	}
+
+@-moz-document url-prefix() { 
+	#top-search .date-input-container {
+		width:49%;
+		padding-left:0;
+	}
+}
+
+#top-search #date {
+  float: left;
+  width:100%;
+  }
+
+#top-search span.price {
+  width: 100%;
+  margin-bottom:1em;
+  }
+
+#top-search .button-container {
+  float:left;
+  width:100%;	
+  }
+
+#top-search button {
+  display:block;
+  margin:0 auto;
+  margin-bottom:1em;
+  border:2px solid #fff;
+  padding:0.8em;
+  color:#fff;
+  font-weight:bold;
+  letter-spacing:0.02em;
+  background:#85c440;
+  }
+
+#top-search button:hover {
+  background:#98de44;
+  }
 
 
 /* = Map Feature
@@ -559,16 +565,9 @@ select {
 
 
 @media (min-width: 445px) {
-	/*
-	#btn-menu {
-		top: 0.6em;
-		right:1em;
-		}
-	*/
 	
 	#btn-menu {
-		top: 0.5em;
-		right:0em;
+		position:static;
 		padding: 0.75em 1em 0.65em 1em;
 		}
 	#btn-menu:hover {
@@ -579,6 +578,7 @@ select {
 		}
 	#btn-menu .icon-white {
 		display:block;
+		float:left;
 		}
 	#btn-menu .icon-gray {
 		display:none;
@@ -586,7 +586,14 @@ select {
 }
 
 
-@media (min-width: 700px) {
+@media (min-width: 620px) {
+	#top-nav .btn-join,
+	#top-nav .btn-sign-in  {
+		display:block;
+		}
+}
+
+@media (min-width: 800px) {
 	
 	#header .logo-block {
 	top:0.5em;
@@ -599,6 +606,13 @@ select {
 			background:url(../../img/data/gallevent-logo-white-365x60.svg) top left no-repeat;
 			background-size:contain;
 		}
+	
+	#btn-menu:hover .text {
+	display:block;
+	float:left;
+	margin-left:0.5em;
+	color:#fff;
+	}
 }
 
 

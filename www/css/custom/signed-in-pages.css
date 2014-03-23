@@ -6,6 +6,11 @@
 ** Updated: 03-22-2014
 ************************************** */
 
+html,
+body {
+	background:#fff;
+	}
+
 .signed-in #wrapper {
 	position:relative;
 	margin:5em 1.8em 0 1.8em;
@@ -123,19 +128,38 @@ input#rsvp-close-time {
 	}
 
 /* = Specific to Your Profile */
-.your-profile .col1 .profile-pic-col {
+.your-profile #container {
+	background:transparent;
+	}
+
+.your-profile .col1,
+.your-profile .col2 {
+	/*background:#ff0;*/
 	float:left;
-	margin:0 1.8em 0 0;
-	height:35em;
+	width:50%;
+	}
+
+.your-profile .col2 {
+	/*background:#0F6; */
+	}
+
+.your-profile .profile-pic {
+	float:left;
+	}
+
+.your-profile .user-card {
+	float:left;
+	width:100%;
+	}
+	
+.your-profile .user-card .col2 {
 	width:auto;
 	}
 
-.your-profile .real-name {
-	font-weight:bold;
+.your-profile .user-card .name,
+.your-profile .user-card p {
+	font-size:125%;
+	color:rgba(5, 159, 172, 1);
+	margin:0;
 	}
 
-.your-profile .address,
-.your-profile .description,
-.your-profile .profile-links {
-	margin:0 0 1em 0;
-	}
