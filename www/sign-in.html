@@ -3,7 +3,7 @@
 {% block body-class %}center-content{% endblock body-class %}
 
 {% block content %}
-<form method="post">
+<form method="post">{% csrf_token %}
   <label>Email Address:</label>
   <input type="text" class="input-standard" name="email" />
   <label>Password:</label>
