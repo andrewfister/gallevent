@@ -1,7 +1,7 @@
 import json
 import logging
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.template import RequestContext
@@ -44,7 +44,7 @@ class SignOutView(View):
             logout(request)
 
         login_response = {'success': request.user.is_authenticated()}
-        return render(request, 'sign-in.html', {})
+        return redirect('/signin/sign_in')
 
 
 class JoinView(FormView):
@@ -70,9 +70,4 @@ class JoinView(FormView):
             logging.debug('invalid login')
             print 'invalid login'
         
-        return super(JoinView, self).form_valid(form)
-
-    def form_invalid(self, form):
-        print 'blah blah'
-
         return super(JoinView, self).form_valid(form)
