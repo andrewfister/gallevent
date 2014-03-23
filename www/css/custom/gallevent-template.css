@@ -201,7 +201,8 @@ select {
 	}
 
 .btn-post-event,
-#content .btn-join {
+#content .btn-join,
+#content .btn-sign-in {
 	display:block;
 	margin-bottom:2em;
 	width:auto;
@@ -213,7 +214,8 @@ select {
 	border:none;
 	}
 
-#content .btn-join {
+#content .btn-join,
+#content .btn-sign-in {
 	margin-top:2em;
 	}	
 
@@ -361,6 +363,7 @@ select {
 	float:right;
 	display:block;
 	z-index:800;
+	border-radius:5px 0 0 5px;
 	}
 #btn-menu .text {
 	display:none;
@@ -393,9 +396,11 @@ select {
 	margin-right:0.5em;
 	padding:0.7em 1em 0.7em 1em;
 	color:#fff;
+	border-radius:5px;
 	}
 
 #top-nav a:hover {
+	text-decoration:none;
 	background:rgba(133, 196, 64, 0.9);
 	}
 

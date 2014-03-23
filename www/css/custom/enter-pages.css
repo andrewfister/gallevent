@@ -3,7 +3,7 @@
 ** Description: Styles for User Control Section Pages
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 03-16-2014
+** Updated: 03-23-2014
 ************************************** */
 
 html {
@@ -14,7 +14,8 @@ html {
 	background-size: cover;
 	}
 
-body.join {
+body.join,
+body.sign-in {
 	background: -moz-linear-gradient(top,  rgba(1,159,172,1) 0%, rgba(5,159,172,0) 100%);
 
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(1,159,172,1)), color-stop(100%,rgba(5,159,172,0)));
@@ -38,9 +39,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#019fac', end
 	background:transparent;
 	}
 
-#header .btn-join {
-	display:none;
-	}
+
 
 #content {
 	position:relative;
