@@ -7,4 +7,3 @@ from django.contrib.auth.models import User
 def show_profile(request):
     return render_to_response('your-profile.html', {
     }, context_instance=RequestContext(request))
-

@@ -228,6 +228,19 @@ select {
 	text-decoration:underline;
 	}
 
+.btn-save {
+	clear:left;
+	margin:0 1em 0 0;
+	padding:0.5em 1em 0.5em 1em;
+	color:#fff;
+	background:#85c440;
+	}
+
+.btn-cancel {
+	color:#239ea2;
+	background:none;
+	}
+
 /* = Global Calendar Datepicker */
 #ui-datepicker-div {
 	z-index:800 !important;
