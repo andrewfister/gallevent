@@ -2,32 +2,33 @@
 
 {% block body-class %}join{% endblock body-class %}
 
+{% block nav %}
+	<a class="btn-sign-in" href="{% url 'sign_in' %}">Sign In</a>
+{% endblock nav %}
+
 {% block content %}
-<div class="left">
-    <h1>Join Gallevent</h1>
-    {% if form.errors %}
-        <div class="top-error"><h3>Oops!</h3> There was an error with your login.</div>
-    {% endif %}
-    <form method="post">{% csrf_token %}
-        <label>Email Address:</label>
-        <input type="text" class="input-standard" name="email" />
-        {% if form.email.errors %}
+    <div class="left">
+        <h1>Join Gallevent</h1>
+        <form method="post">{% csrf_token %}
+            <label>Email Address:</label>
+            <input type="text" class="input-standard" name="email" />
+            {% if form.email.errors %}
             {% for error in form.email.errors %}
-         	    <span class="error">{{ error }}</span>
+            <span class="error">{{ error }}</span>
             {% endfor %}
-        {% endif %}
-        <label>Password:</label>
-        <input type="password" class="input-standard" name="password" />
-        {% if form.password.errors %}
- 	        {% for error in form.password.errors %}
- 		        <span class="error">{{ error }}</span>
- 	        {% endfor %}
-        {% endif %}
-        <input class="btn-join" type="submit" value="Join" />
-    </form>
-</div><!-- .left -->
-<div class="right">
-  <h2>Find Your Fun!</h2>
-  <p>Find dances, festivals, art shows, parties, meetups, classes, pop-up shops, and more! All happening around you. All on Gallevent!</p>
-</div><!-- .right -->
+            {% endif %}
+            <label>Password:</label>
+            <input type="password" class="input-standard" name="password" />
+            {% if form.password.errors %}
+            {% for error in form.password.errors %}
+            <span class="error">{{ error }}</span>
+            {% endfor %}
+            {% endif %}
+            <input class="btn-join" type="submit" value="Join" />
+        </form>
+    </div><!-- .left -->
+    <div class="right">
+        <h2>Find Your Fun!</h2>
+        <p>Find dances, festivals, art shows, parties, meetups, classes, pop-up shops, and more! All happening around you. All on Gallevent!</p>
+    </div><!-- .right -->
 {% endblock content %}

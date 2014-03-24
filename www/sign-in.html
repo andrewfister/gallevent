@@ -1,33 +1,35 @@
 {% extends "base-login.html" %}
 
-{% block body-class %}center-content{% endblock body-class %}
+{% block body-class %}sign-in{% endblock body-class %}
+
+{% block nav %}
+    <a class="btn-join" href="{% url 'join' %}">Join</a>
+{% endblock nav %}
 
 {% block content %}
-{% if form.errors %}
-    <div class="top-error"><h3>Oops!</h3> There was an error with your login.</div>
-{% endif %}
-<form method="post">{% csrf_token %}
-  <label>Email Address:</label>
-  <input type="text" class="input-standard" name="email" />
-  {% if form.email.errors %}
- 	{% for error in form.email.errors %}
- 		<span class="error">{{ error }}</span>
- 	{% endfor %}
-  {% endif %}
-  <label>Password:</label>
-  <input type="password" class="input-standard" name="password" />
-  {% if form.password.errors %}
- 	{% for error in form.password.errors %}
- 		<span class="error">{{ error }}</span>
- 	{% endfor %}
-  {% endif %}
-  <input type="text" class="hidden" name="next" value="{{ next }}" />
-  <input class="btn-sign-in" type="submit" value="Sign In" />
-</form>
-<div class="left">
-  <h2>Welcome back!</h2>
-  <p>Sign in to your account to manage your events, edit your profile, and update your settings.</p>
-  <h2>Gallevent is the best place to post and find events!</h2>
-  <p>Post your event and watch your guest list grow.</p>
-</div>
+	<div class="left">
+        <h1>Sign In</h1>
+        <form method="post">{% csrf_token %}
+            <label>Email Address:</label>
+            <input type="text" class="input-standard" name="email" />
+            {% if form.email.errors %}
+            {% for error in form.email.errors %}
+            <span class="error">{{ error }}</span>
+            {% endfor %}
+            {% endif %}
+            <label>Password:</label>
+            <input type="password" class="input-standard" name="password" />
+            {% if form.password.errors %}
+            {% for error in form.password.errors %}
+            <span class="error">{{ error }}</span>
+            {% endfor %}
+            {% endif %}
+            <input type="text" class="hidden" name="next" value="{{ next }}" />
+            <input class="btn-sign-in" type="submit" value="Sign In" />
+        </form>
+    </div><!-- .left -->
+    <div class="right">
+        <h2>Welcome Back!</h2>
+        <p>Find dances, festivals, art shows, parties, meetups, classes, pop-up shops, and more! All happening around you. All on Gallevent!</p>
+    </div><!-- .right -->
 {% endblock %}
