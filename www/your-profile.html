@@ -4,9 +4,12 @@
 
 {% block active_tab_content %}
 	<h1>Your Profile</h1>
-    <div class="col1 bio">
+    <div class="col1">
+    	<div class="bio">
         	<div class="user-card">
-    			<img class="profile-pic" src="/static/img/profile-pic-jessica.jpg" />
+    			<div class="profile-pic">
+                	<img src="/static/img/profile-pic-jessica.jpg" />
+                </div>
                 <div class="col2">
                 	<p class="name">Jessica Greenwalt</p>
                     <p class="address">San Francisco, California</p>
@@ -24,6 +27,32 @@ Tell us about yourself in 1,000 characters la la la.</p>
                         <a href="#" class="url">url.com</a>
                     </p>
     		<button class="btn-edit" type="button">Edit</button>
+    	</div><!-- .bio -->
+        <div class="bio-edit">
+        	<form>
+            	<div class="profile-pic">
+                	<img src="/static/img/profile-pic-jessica.jpg" />
+                </div>
+                <label>First Name</label>
+                <input />
+                <label>Last Name</label>
+                <input />
+                <label>Where You Spend Most of Your Time</label>
+                <input />
+                <label>Introduce Yourself</label>
+                <textarea></textarea>
+                <label>Twitter</label>
+                <input />
+                <label>Facebook</label>
+                <input />
+                <label>Website</label>
+                <input />
+    			<span class="btns">
+                    <button class="btn-save save-bio" type="button">Save</button>
+                    <button class="btn-cancel cancel-bio" type="button">Cancel</button>
+                </span>
+            </form>
+    	</div><!-- .bio -->
     </div><!-- .col1 -->
     <div class="col2 your-info">
     	<div class="basic-info">
@@ -33,17 +62,43 @@ Tell us about yourself in 1,000 characters la la la.</p>
             <p><b>Relationship</b> <span>In a Relationship</span></p>
             <button class="btn-edit" type="button">Edit</button>
         </div><!-- .basic-info -->
-        <div class="basic-info">
+        <div class="basic-info-edit">
         	<h3>Basics</h3>
             <form>
             	<label>Gender</label>
-                <input />
+                <span class="select gender">
+                    <select id="gender" name="gender">
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Other">Other</option>
+                        <option value="Don't Say">Don't Say</option>
+                    </select>
+                </span>
                 <label>Looking For</label>
-                <input />
+                <input type="checkbox" name="looking-for" value="Friends"> Friends<br />
+                <input type="checkbox" name="looking-for" value="Dating"> Dating<br />
+                <input type="checkbox" name="looking-for" value="A Relationship"> A Relationship<br />
+                <input type="checkbox" name="looking-for" value="Networking"> Networking
                 <label>Relationship</label>
-                <input />
-                <button class="btn-save save-basics" type="button">Save</button>
-                <button class="btn-cancel cancel-basics" type="button">Cancel</button>
+                <span class="select relationship">
+                    <select id="relationship" name="relationship">
+                        <option value="Single">Single</option>
+                        <option value="In a Relationship">In a Relationship</option>
+                        <option value="Engaged">Engaged</option>
+                        <option value="Married">Married</option>
+                        <option value="In a Domestic Partnership">In a Domestic Partnership</option>
+                        <option value="In a Civil Union">In a Civil Union</option>
+                        <option value="It's Complicated">It's Complicated</option>
+                        <option value="In an Open Relationship">In an Open Relationship</option>
+                        <option value="Divorced">Divorced</option>
+                        <option value="Widowed">Widowed</option>
+                        <option value="Don't Say">Don't Say</option>
+                    </select>
+                </span>
+                <span class="btns">
+                    <button class="btn-save save-basics" type="button">Save</button>
+                    <button class="btn-cancel cancel-basics" type="button">Cancel</button>
+                </span>
             </form>
         </div><!-- .basic-info -->
         <div class="contact-info">
@@ -59,8 +114,10 @@ Tell us about yourself in 1,000 characters la la la.</p>
                 <input />
                 <label>Phone</label>
                 <input />
-                <button class="btn-save save-contact" type="button">Save</button>
-                <button class="btn-cancel cancel-contact" type="button">Cancel</button>
+                <span class="btns">
+                    <button class="btn-save save-contact" type="button">Save</button>
+                    <button class="btn-cancel cancel-contact" type="button">Cancel</button>
+                </span>
             </form>
         </div><!-- .contact-info -->
         <div class="education-info">
@@ -76,8 +133,10 @@ Tell us about yourself in 1,000 characters la la la.</p>
                 <input />
                 <label>Field of Study</label>
                 <input />
-                <button class="btn-save save-edu" type="button">Save</button>
-                <button class="btn-cancel cancel-edu" type="button">Cancel</button>
+                <span class="btns">
+                    <button class="btn-save save-edu" type="button">Save</button>
+                    <button class="btn-cancel cancel-edu" type="button">Cancel</button>
+                </span>
             </form>
         </div><!-- .education-info -->
         <div class="work-info">
@@ -93,8 +152,10 @@ Tell us about yourself in 1,000 characters la la la.</p>
                 <input />
                 <label>Company</label>
                 <input />
-                <button class="btn-save save-work" type="button">Save</button>
-                <button class="btn-cancel cancel-work" type="button">Cancel</button>
+                <span class="btns">
+                    <button class="btn-save save-work" type="button">Save</button>
+                    <button class="btn-cancel cancel-work" type="button">Cancel</button>
+                </span>
             </form>
         </div><!-- .work-info -->
     </div><!-- .col2 -->

@@ -144,7 +144,9 @@ input#rsvp-close-time {
 
 .your-profile .col2 {
 	padding-left: 4em;
-	box-sizing: border-box;
+	box-sizing:			border-box;
+	-moz-box-sizing:	border-box;
+	-webkit-box-sizing:	border-box;
 	}
 
 .your-profile .col2.your-info p {
@@ -166,6 +168,12 @@ input#rsvp-close-time {
 .your-profile .user-card .profile-pic {
 	float:left;
 	margin-right:1em;
+	width:150px;
+	height:150px;
+	background:#CCC;
+	}
+
+.your-profile .user-card .profile-pic img {
 	width:150px;
 	height:150px;
 	}
@@ -199,4 +207,9 @@ input#rsvp-close-time {
 
 .your-profile .user-card p b {
 	color:#85c440;
+	}
+
+.your-profile .btns {
+	display:block;
+	margin: 1em 0 2em 0;
 	}
