@@ -3,7 +3,7 @@
 ** Description: Styles for User Control Section Pages
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 03-22-2014
+** Updated: 03-30-2014
 ************************************** */
 
 html,
@@ -131,85 +131,93 @@ input#rsvp-close-time {
 	background: #fff;
 	}
 
+.row {
+	float:left;
+	width:100%;
+	border-bottom:1px solid #CCC;
+	}
+
+.pic {
+	float:left;
+	margin-right:1em;
+	background:#CCC;
+	}
+
+.summary {
+	float:left;
+	background:#ff0;
+	}
+
 /* = Specific to Your Profile */
-.your-profile #container {
+.profile #container {
 	background:transparent;
 	}
 
-.your-profile .col1,
-.your-profile .col2 {
+.profile .col1,
+.profile .col2 {
 	float:left;
 	width:50%;
 	}
 
-.your-profile .col2 {
-	padding-left: 4em;
+.profile .col1 {
+	padding-right: 4em;
 	box-sizing:			border-box;
 	-moz-box-sizing:	border-box;
 	-webkit-box-sizing:	border-box;
 	}
 
-.your-profile .col2.your-info p {
+.profile .col2.your-info p {
 	margin:0 0 0.5em 0;
-	
 	}
 
-.your-profile .col2.your-info p b {
+.profile .col2.your-info p b {
 	width: 8em;
 	display:inline-block;
 	color:#868789;
 	font-weight:normal;
 	}
 
-.your-profile .col2.your-info .btn-edit {
+.profile .col2.your-info .btn-edit {
 	margin-bottom:2em;
 	}
 
-.your-profile .user-card .profile-pic {
-	float:left;
-	margin-right:1em;
-	width:150px;
-	height:150px;
-	background:#CCC;
-	}
-
-.your-profile .user-card .profile-pic img {
+.profile .user-card .pic {
 	width:150px;
 	height:150px;
 	}
 
-.your-profile .user-card {
+.profile .user-card .pic img {
+	width:150px;
+	height:150px;
+	}
+
+.profile .user-card {
 	float:left;
 	margin-bottom:1em;
 	width:100%;
 	}
-	
-.your-profile .user-card .col2 {
-	width:auto;
-	padding-left:0;
-	}
 
-.your-profile .user-card .name {
+.profile .user-card .name {
 	font-size:125%;
 	color:rgba(5, 159, 172, 1);
 	margin:0;
 	}
 
-.your-profile .user-card p {
+.profile .user-card p {
 	margin:0;
 	font-size:90%;
 	color:#868789;
 	}
 
-.your-profile .user-card .address {
+.profile .user-card .address {
 	margin-bottom:0.5em;
 	}
 
-.your-profile .user-card p b {
+.profile .user-card p b {
 	color:#85c440;
 	}
 
-.your-profile .btns {
+.profile .btns {
 	display:block;
 	margin: 1em 0 2em 0;
 	}
