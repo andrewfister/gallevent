@@ -200,6 +200,11 @@ select {
 	background-size:15px 10px;
 	}
 
+input[type='checkbox'] {
+	width:1em;
+	height:1em;
+	}
+
 .btn-post-event,
 #content .btn-join,
 #content .btn-sign-in {
@@ -219,6 +224,13 @@ select {
 	margin-top:2em;
 	}	
 
+.btn-post-event:hover,
+#content .btn-join:hover,
+#content .btn-sign-in:hover,
+.btn-save:hover {
+	background:#9AE04A;
+	}
+
 .btn-edit {
 	background:none;
 	color:#85c440;
@@ -236,9 +248,14 @@ select {
 	background:#85c440;
 	}
 
+
 .btn-cancel {
 	color:#239ea2;
 	background:none;
+	}
+
+.btn-cancel:hover {
+	text-decoration:underline;
 	}
 
 /* = Global Calendar Datepicker */
