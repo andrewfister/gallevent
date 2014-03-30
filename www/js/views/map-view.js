@@ -122,7 +122,7 @@ var MapView = Backbone.View.extend({
         if (!this.dragging) {
             this.eventsLoaded = false;
             this.markersLoaded = false;
-            window.searchView.submitSearch();
+            window.dispatcher.trigger("search");
         }
 
         //Listen for tiles loaded
@@ -158,7 +158,7 @@ var MapView = Backbone.View.extend({
             if (!this.dragging && !this.detectVisibleMarkers()) {
                 this.eventsLoaded = false;
                 this.markersLoaded = false;
-                window.searchView.submitSearch();
+                window.dispatcher.trigger("search");
             }
         }.bind(this));
         

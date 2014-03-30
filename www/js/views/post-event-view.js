@@ -169,7 +169,7 @@ var PostEventView = Backbone.View.extend({
               }
           }.bind(this) );
   
-        return event;  
+//        return event;  
     },  // function()
                 
 

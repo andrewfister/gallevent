@@ -1,16 +1,16 @@
 import logging
 
 from django.shortcuts import render_to_response
+from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
-from django.contrib.auth.decorators import login_required
-from django.utils.decorators import method_decorator
 from django.views.generic.base import TemplateView, View
-from django.views.generic.edit import FormView
+from django.views.generic.edit import FormView, UpdateView
 
 from event import forms
 from event import models
 from gallevent import settings
+from django_extra.login_required import LoginRequiredMixin
 
 logger = logging.getLogger('gallevent')
 
@@ -51,18 +51,14 @@ class SearchView(View):
         return HttpResponse(events_json, content_type="application/json")
 
 
-class PostEventView(FormView):
+class PostEventView(LoginRequiredMixin, FormView):
     template_name = "post-event.html"
     form_class = forms.PostEventForm
     success_url = '/'
- 
-    @method_decorator(login_required)
-    def dispatch(self, request, *args, **kwargs):
-        return super(PostEventView, self).dispatch(request, *args, **kwargs)
- 
+
     def form_valid(self, form):
         print("Post event form GOOD!")
-        form.save()
+        form.save(self.request.user.id)
 
         return super(PostEventView, self).form_valid(form)
 
@@ -73,7 +69,7 @@ class PostEventView(FormView):
         return super(PostEventView, self).form_invalid(form)
         
         
-class EventDetailView(TemplateView):
+class EventDetailView(LoginRequiredMixin, TemplateView):
     template_name = "event_detail.html"
     
     def get(self, request, event_id):
@@ -84,10 +80,10 @@ class EventDetailView(TemplateView):
         })
 
 
-#@login_required
+@login_required
 def show_events(request):
-    # events = models.Event.objects.filter(user_id=request.user.id).exclude(status=0).order_by('start_date', 'start_time', 'end_date', 'end_time').reverse()
-    events = models.Event.objects.exclude(status=0).order_by('start_date', 'start_time', 'end_date', 'end_time').reverse()[:10]
+    events = models.Event.objects.filter(user_id=request.user.id).exclude(status=0).order_by('start_date', 'start_time', 'end_date', 'end_time').reverse()
+    #events = models.Event.objects.exclude(status=0).order_by('start_date', 'start_time', 'end_date', 'end_time').reverse()[:10]
     return render_to_response('your-posts.html', {
         'selected_page': 'your-posts',
         'events': events,

@@ -459,7 +459,7 @@ class PostEventForm(forms.ModelForm):
         '%I %p'
     ]
 
-    address = forms.CharField(max_length=1000)
+    address = forms.CharField(max_length=1000, initial="")
     street_number = forms.CharField(max_length=64)
     street = forms.CharField(max_length=255)
     subpremise = forms.CharField(max_length=64, initial="", required=False)
@@ -498,8 +498,12 @@ class PostEventForm(forms.ModelForm):
 
     def clean_rsvp_limit(self):
         return self.cleaned_data['rsvp_limit'] or 0
+    
+    def clean_user_id(self):
+        return 0
 
-    def save(self):
+    def save(self, user_id):
+        self.cleaned_data['user_id'] = user_id
         self.cleaned_data['short_description'] = self.cleaned_data['description'][:64].encode('utf-8').strip()
         super(PostEventForm, self).save()
 

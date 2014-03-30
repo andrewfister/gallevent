@@ -10,6 +10,8 @@ var SearchView = Backbone.View.extend({
     },
     
     initialize: function() {
+        window.dispatcher.on("search", this.submitSearch, this);
+    
         this.render()
     },
 
