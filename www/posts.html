@@ -1,6 +1,6 @@
 {% extends "base-profile.html" %}
 
-{% block body-class %}signed-in datebook{% endblock body-class %}
+{% block body-class %}signed-in posts{% endblock body-class %}
 
 {% load map_tags %}
 
@@ -31,7 +31,7 @@ var eventJSON = {};
 {% endblock viewjavascript %}
 
 {% block active_tab_content %}
-	<h1>Your Datebook</h1>
+	<h1>Your Posts</h1>
     <div class="col1">
     	<div class="row">
         	<div class="card">
