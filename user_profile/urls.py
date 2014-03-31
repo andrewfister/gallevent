@@ -5,4 +5,5 @@ from django.conf.urls import *
 urlpatterns = patterns('user_profile.views',
     (r'^$', 'show_profile'),
 	(r'^datebook$', 'show_datebook'),
+	(r'^posts$', 'show_posts'),
 )

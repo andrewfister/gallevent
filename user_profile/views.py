@@ -11,3 +11,7 @@ def show_profile(request):
 def show_datebook(request):
     return render_to_response('datebook.html', {
     }, context_instance=RequestContext(request))
+
+def show_posts(request):
+    return render_to_response('posts.html', {
+    }, context_instance=RequestContext(request))

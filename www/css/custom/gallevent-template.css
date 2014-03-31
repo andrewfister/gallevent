@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 02-09-2014
-** Updated: 03-23-2014
+** Updated: 03-30-2014
 ************************************** */
 
 html,
@@ -11,8 +11,9 @@ body {
 	position:absolute;
 	width:100%;
 	height:100%;
-	background:#B3D1FF;
 	font-family:Arial, Helvetica, sans-serif !important;
+	color:#58595b;
+	background:#B3D1FF;
 	}
 
 a {
@@ -44,6 +45,19 @@ h3 {
 	font-weight:normal;
 	font-size:125%;
 	color:rgba(248, 156, 28, 1);
+	}
+
+.name {
+	font-size:125%;
+	color:rgba(5, 159, 172, 1);
+	}
+
+.price {
+	color:#85c440; /* green */
+	}
+
+.date {
+	color:#58595b; /* dark gray */
 	}
 
 .address {

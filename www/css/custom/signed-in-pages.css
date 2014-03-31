@@ -16,7 +16,7 @@ body {
 	margin:5em 1.8em 0 1.8em;
 	}
 
-.signed-in #container {
+#container {
 	padding-bottom:2em;
 	}
 
@@ -131,10 +131,22 @@ input#rsvp-close-time {
 	background: #fff;
 	}
 
+.btn-edit {
+	display:block;
+	margin-bottom:1em;
+	}
+
 .row {
 	float:left;
+	padding-top:1em;
 	width:100%;
-	border-bottom:1px solid #CCC;
+	border-top:1px solid #CCC;
+	}
+
+.card {
+	float:left;
+	margin-bottom:1em;
+	width:100%;
 	}
 
 .pic {
@@ -144,8 +156,18 @@ input#rsvp-close-time {
 	}
 
 .summary {
-	float:left;
-	background:#ff0;
+}
+
+.summary p {
+	margin:0;
+	font-size:95%;
+	color:#868789;
+	}
+
+.summary .price {
+	display:inline-block;
+	margin-right: 1em;
+	min-width:5em;
 	}
 
 /* = Specific to Your Profile */
@@ -177,47 +199,34 @@ input#rsvp-close-time {
 	font-weight:normal;
 	}
 
-.profile .col2.your-info .btn-edit {
-	margin-bottom:2em;
-	}
 
-.profile .user-card .pic {
+
+.profile .card .pic {
 	width:150px;
 	height:150px;
 	}
 
-.profile .user-card .pic img {
+.profile .card .pic img {
 	width:150px;
 	height:150px;
 	}
 
-.profile .user-card {
-	float:left;
-	margin-bottom:1em;
-	width:100%;
-	}
-
-.profile .user-card .name {
-	font-size:125%;
-	color:rgba(5, 159, 172, 1);
-	margin:0;
-	}
-
-.profile .user-card p {
-	margin:0;
-	font-size:90%;
-	color:#868789;
-	}
-
-.profile .user-card .address {
+.profile .card .address {
 	margin-bottom:0.5em;
 	}
 
-.profile .user-card p b {
+.profile .card p b {
 	color:#85c440;
 	}
 
 .profile .btns {
 	display:block;
 	margin: 1em 0 2em 0;
+	}
+
+.datebook #container,
+.posts #container {
+	width:50%;
+	padding-right:1.8em;
+	box-sizing:border-box;
 	}
