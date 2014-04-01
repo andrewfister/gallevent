@@ -149,10 +149,16 @@ input#rsvp-close-time {
 	width:100%;
 	}
 
-.pic {
+.card .pic {
 	float:left;
 	margin-right:1em;
 	background:#CCC;
+	}
+
+.card .pic,
+.card .pic img {
+	width:80px;
+	height:80px;
 	}
 
 .summary {
