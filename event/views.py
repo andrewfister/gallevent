@@ -31,7 +31,7 @@ class FrontPageView(TemplateView):
 class SearchView(View):
     searchForms = [forms.EventSearchForm, forms.EventBriteSearchForm, forms.MeetupSearchForm]
 
-    def get(self, request):        
+    def get(self, request): 
         events = []
 
         for SearchForm in self.searchForms:
@@ -58,7 +58,7 @@ class PostEventView(LoginRequiredMixin, FormView):
 
     def form_valid(self, form):
         print("Post event form GOOD!")
-        form.save(self.request.user.id)
+        form.save()
 
         return super(PostEventView, self).form_valid(form)
 
