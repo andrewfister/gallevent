@@ -68,9 +68,19 @@ window.eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ 
         {% endblock top-search %}
         
         {% block nav %}
+        	<div id="btn-menu">
+                <span class="icon-gray"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve"><rect fill="#A7A9AC" width="30" height="6"/><rect y="12" fill="#A7A9AC" width="30" height="6"/><rect y="24" fill="#A7A9AC" width="30" height="6"/></svg></span>
+                <span class="icon-white"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve"><rect fill="#FFFFFF" width="30" height="6"/><rect y="12" fill="#FFFFFF" width="30" height="6"/><rect y="24" fill="#FFFFFF" width="30" height="6"/>
+                </svg>
+                </span>
+                <span class="text">
+                    Menu
+                </span>
+            </div><!-- #btn-menu -->
             {% if request.user.is_authenticated %}
             	<a class="btn-sign-in" href="{% url 'sign_out' %}">Sign Out</a>
-                <a class="btn-sign-in" href="/static/user_profile/show">{{ request.user.username }}</a>
+                <a class="btn-sign-in" href="{% url 'profile' %}">{{ request.user.username }}</a>
             {% else %}
             	<a class="btn-sign-in" href="{% url 'sign_in' %}">Sign In</a>
                 <a class="btn-join" href="{% url 'join' %}">Join</a>

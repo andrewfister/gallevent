@@ -15,3 +15,7 @@ def show_datebook(request):
 def show_posts(request):
     return render_to_response('posts.html', {
     }, context_instance=RequestContext(request))
+
+def show_groups(request):
+    return render_to_response('groups.html', {
+    }, context_instance=RequestContext(request))

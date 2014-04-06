@@ -7,12 +7,12 @@
 
 {% block nav %}
 <a class="btn-sign-in" href="{% url 'sign_out' %}">Sign Out</a>
-                <a class="btn-sign-in" href="/static/user_profile/show">{{ request.user.username }}</a>
-                
-	<a class="" href="#">Profile</a>
-    <a class="" href="#">Groups</a>
-    <a class="" href="#">Posts</a>
-    <a class="" href="#}">Datebook</a>
+<a class="btn-sign-in" href="{% url 'profile' %}">{{ request.user.username }}</a>
+<a class="" href="{% url 'profile' %}">Profile</a>
+<a class="" href="{% url 'groups' %}">Groups</a>
+<a class="" href="{% url 'posts' %}">Posts</a>
+<a class="" href="{% url 'datebook' %}">Datebook</a>
+<a class="" href="{% url 'posts' %}">Create a Post</a>
 {% endblock nav %}
 
 {% block content %}

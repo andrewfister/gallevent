@@ -1,0 +1,94 @@
+{% extends "base-profile.html" %}
+
+{% block body-class %}signed-in groups{% endblock body-class %}
+
+{% load map_tags %}
+
+{% block prejavascript %}
+<script>
+var eventJSON = {};
+</script>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="/static/js/jquery.timepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/jquery.timepicker.css" />
+{% endblock javascript %}
+
+
+
+{% block mapjavascript %}
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.14&sensor=false"></script>                                            
+<script type="text/javascript" src="/static/js/models/event-model.js"></script>                                                                             
+
+<script type="text/javascript" src="/static/js/views/map-view.js"></script>
+{% endblock mapjavascript %}
+
+
+{% block viewjavascript %}
+<script type="text/javascript" src="/static/js/views/post-event-view.js"></script>
+<script type="text/javascript" src="/static/js/controllers/post-event-controller.js"></script>
+{% endblock viewjavascript %}
+
+{% block active_tab_content %}
+	<h1>Your Groups</h1>
+    <div class="col1">
+    	<div class="row">
+        	<div class="card">
+                <div class="pic">
+                    <img src="/static/img/avatar-unipegi-150x150.png" />
+                </div>
+                <div class="summary">
+                    <div class="name"><a href="#">Event Name</a></div>
+                    <p><b class="price">$50</b><b class="date">03/30/2014</b></p>
+                    <p class="address">San Francisco, California</p>
+                </div><!-- .summary -->
+            </div><!-- .card -->
+            <p>This is a descripion of the event. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+            <a class="btn-edit">Hide Description</a>
+    	</div><!-- .row -->
+        <div class="row">
+        	<div class="card">
+                <div class="pic">
+                    <img src="/static/img/avatar-unipegi-150x150.png" />
+                </div>
+                <div class="summary">
+                    <div class="name"><a href="#">Event Name</a></div>
+                    <p><b class="price">FREE</b><b class="date">03/30/2014</b></p>
+                    <p class="address">Berkeley, California</p>
+                </div><!-- .summary -->
+            </div><!-- .card -->
+            <a class="btn-edit">Show Description</a>
+    	</div><!-- .row -->
+        <div class="row">
+        	<div class="card">
+                <div class="pic">
+                    <img src="/static/img/avatar-unipegi-150x150.png" />
+                </div>
+                <div class="summary">
+                    <div class="name"><a href="#">Event Name</a></div>
+                    <p><b class="price">$50</b><b class="date">03/30/2014</b></p>
+                    <p class="address">San Francisco, California</p>
+                </div><!-- .summary -->
+            </div><!-- .card -->
+            <a class="btn-edit">Show Description</a>
+    	</div><!-- .row -->
+        <div class="row">
+        	<div class="card">
+                <div class="pic">
+                    <img src="/static/img/avatar-unipegi-150x150.png" />
+                </div>
+                <div class="summary">
+                    <div class="name"><a href="#">Event Name</a></div>
+                    <p><b class="price">$50</b><b class="date">03/30/2014</b></p>
+                    <p class="address">San Francisco, California</p>
+                </div><!-- .summary -->
+            </div><!-- .card -->
+            <a class="btn-edit">Show Description</a>
+    	</div><!-- .row -->
+        
+    </div><!-- .col1 -->
+{% endblock active_tab_content %}
+{% block right_side_content %}
+	{% show_map %}
+{% endblock right_side_content %}
