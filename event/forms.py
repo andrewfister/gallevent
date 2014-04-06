@@ -207,7 +207,6 @@ class EventBriteSearchForm(EventSearchForm):
 
             eb_events.append(models.Event(
                             source_event_id=eb_event['id'],
-                            #user_id=eb_event['organizer']['id'],
                             name=eb_event_title,
                             address=eb_event_address,
                             street=eb_event_venue['address'],
@@ -390,7 +389,6 @@ class MeetupSearchForm(EventSearchForm):
 
             meetup_events.append(models.Event(
                             source_event_id=meetup_event.id,
-                            #"user_id": meetup_event.event_hosts[0]['id'],
                             name=meetup_event.name,
                             address=meetup_event_address,
                             street=meetup_event_venue['address_1'],
@@ -400,7 +398,6 @@ class MeetupSearchForm(EventSearchForm):
                             zipcode=meetup_event_venue['zip'],
                             latitude=meetup_event_venue['lat'],
                             longitude=meetup_event_venue['lon'],
-                            #"keywords": meetup_event_group['topics'],
                             category=meetup_event_category,
                             short_description=meetup_event_short_description.encode('utf-8').strip(),
                             description=meetup_event_description.encode('utf-8').strip(),
@@ -436,7 +433,7 @@ class PostEventForm(forms.ModelForm):
 
     class Meta:
         model = models.Event
-        exclude = ('status', 'user_id')
+        exclude = ('status')
 
     date_input_formats = [
         '%m/%d/%Y',       # '10/25/2006'
@@ -459,6 +456,7 @@ class PostEventForm(forms.ModelForm):
         '%I %p'
     ]
 
+    user_id = forms.IntegerField(required=True)
     address = forms.CharField(max_length=1000, initial="")
     street_number = forms.CharField(max_length=64)
     street = forms.CharField(max_length=255)
@@ -498,25 +496,10 @@ class PostEventForm(forms.ModelForm):
 
     def clean_rsvp_limit(self):
         return self.cleaned_data['rsvp_limit'] or 0
-    
-    def clean_user_id(self):
-        return 0
 
-    def save(self, user_id):
-        self.cleaned_data['user_id'] = user_id
+    def save(self):
         self.cleaned_data['short_description'] = self.cleaned_data['description'][:64].encode('utf-8').strip()
         super(PostEventForm, self).save()
-
-
-    # def clean_short_description(self):
-        # return self.cleaned_data['description'][:64].encode('utf-8').strip()
-
-    # def clean_source_event_id(self):
-    #     return self.cleaned_data['source_event_id'] or '1'
-    
-    # def clean_source_id(self):
-    #     return self.cleaned_data['source_id'] or 1
-   
 
 
 class ArchiveEventForm(forms.ModelForm):
