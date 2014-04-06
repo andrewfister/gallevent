@@ -14,7 +14,7 @@ from signin import forms, models
 class SignInView(FormView):
     template_name = 'sign-in.html'
     form_class = forms.SignInForm
-    success_url = '/profile/show'
+    success_url = '/profile'
 
     def form_valid(self, form):
         query_email = form.cleaned_data['email']
