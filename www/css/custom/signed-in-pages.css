@@ -3,7 +3,7 @@
 ** Description: Styles for User Control Section Pages
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 03-30-2014
+** Updated: 04-06-2014
 ************************************** */
 
 html,
@@ -176,6 +176,93 @@ input#rsvp-close-time {
 	min-width:5em;
 	}
 
+.datebook #container,
+.posts #container {
+	width:50%;
+	padding-right:1.8em;
+	box-sizing:border-box;
+	}
+
+/* = Specific Color Coded Header and Heading Styles */
+.signed-in #header .btn-sign-in {
+	color:#059fac;
+	}
+
+.post-event #header {
+	border-bottom:3px solid #f89c1c;
+	}
+.datebook #header {
+	border-bottom:3px solid #f15a5a;
+	}
+.posts #header {
+	border-bottom:3px solid #f0c419;
+	}
+.groups #header {
+	border-bottom:3px solid #4eba6f;
+	}
+.profile #header {
+	border-bottom:3px solid #2d95bf;
+	}
+
+.signed-in .btn1 {
+	border-radius:5px;
+	padding:0.7em 1em 0.7em 1em;
+	color:#fff;
+	background:#f89c1c;
+	}
+.signed-in #header .l1 {
+	background:#f15a5a;
+	}
+.signed-in #header .l2 {
+	background:#f0c419;
+	}
+.signed-in #header .l3 {
+	background:#4eba6f;
+	}
+.signed-in #header .l4 {
+	background:#2d95bf;
+	}
+
+.post-event #header .btn1,
+.datebook #header .l1,
+.posts #header .l2,
+.groups #header .l3,
+.profile #header .l4  {
+	border-radius:5px 5px 0 0;
+	padding-bottom:1.3em;
+	}
+
+.post-event h1 {
+	color:#f89c1c;
+	}
+.datebook h1 {
+	color:#f15a5a;
+	}
+.posts h1 {
+	float:left;
+	color:#f0c419;
+	}
+.groups h1 {
+	color:#4eba6f;
+	}
+.profile h1 {
+	color:#2d95bf;
+	}
+
+
+/* = Specific to Your Posts */
+.posts #container .btn1 {
+	float:right;
+	margin-top:0.67em;
+	font-size:115%;
+	}
+
+.posts #container .btn1:hover {
+	text-decoration:none;
+	}
+
+
+
 /* = Specific to Your Profile */
 .profile #container {
 	background:transparent;
@@ -228,11 +315,4 @@ input#rsvp-close-time {
 .profile .btns {
 	display:block;
 	margin: 1em 0 2em 0;
-	}
-
-.datebook #container,
-.posts #container {
-	width:50%;
-	padding-right:1.8em;
-	box-sizing:border-box;
 	}
