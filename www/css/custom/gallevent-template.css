@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 02-09-2014
-** Updated: 04-06-2014
+** Updated: 04-13-2014
 ************************************** */
 
 html,
@@ -167,26 +167,49 @@ h3 {
 	color:#a7a9ac;
 	}
 
-legend {
-	font-weight:bold;
-	color:rgba(5, 159, 172, 1);
-	}
-
 label {
 	font-weight:bold;
 	}
 
-input,
+input[type="text"],
 textarea,
 .select,
+select,
 button {
 	border-radius:5px;
 	}
 
-input,
+select,
+input[type="text"],
 textarea {
 	padding:0.8em;
-	border:1px solid rgba(5, 159, 172, 1);
+	border:1px solid #BCBCBC;
+	/*border:1px solid rgba(5, 159, 172, 1);*/
+	}
+
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+	border:1px solid #059FAC;
+	}
+
+input[type="text"],
+textarea {
+	padding:0.8em;
+	}
+
+
+label.radio-l {
+	position: relative;
+	top: 0.1em;
+	display:inline;
+	margin-left:0.4em;
+	font-weight:normal;
+	color:#059FAC;
+	}
+
+label.radio-l:hover {
+	text-decoration:underline;
 	}
 
 textarea {
@@ -194,7 +217,6 @@ textarea {
 	}
 
 select {
-	border:1px solid rgba(5, 159, 172, 1);
 	padding:0.8em 0 0.8em 0;
 	width:150%;
 	text-indent:0.8em;
@@ -203,6 +225,9 @@ select {
 	-webkit-background-clip: padding;
   	-moz-background-clip: padding;
 	}
+
+
+
 
 .select {
 	background:#fff url(../../img/data/icon-arrow-down-blue-30x21.svg) right 15px center no-repeat;

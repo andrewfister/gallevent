@@ -3,7 +3,7 @@
 ** Description: Styles for User Control Section Pages
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 04-06-2014
+** Updated: 04-13-2014
 ************************************** */
 
 html,
@@ -36,32 +36,35 @@ body {
 	}
 
 fieldset {
-	margin:0 0 2em 0;
+	margin:0 0 2em 1.4em;
 	}
 
 legend {
-	background:#239ea2;
+	margin-left:-2.5em;
+	font-size:130%;
+	color:#f89c1c;
+	}
+legend b {
+	display:inline-block;
+	margin:0 0.5em 0 0;
+	width:2em;
+	height:1.7em;
 	color:#fff;
-	display:block;
-	font-size:110%;
-	padding:0.7em 1.8em 0.7em 1.8em;
-	margin:0 0 1em -1.8em;
-	font-weight:normal;
-	clear:both;
+	padding-top:0.3em;
+	text-align:center;
+	background:#f89c1c;
 	}
 
 label {
 	margin:1em 0 0 0;
 	display:block;
 	clear:both;
-	color:#239ea2;
 	}
 
 select,
-input,
+input[type="text"],
 textarea {
 	width:100%;
-	max-width:300px;
 	}
 
 textarea {
@@ -69,6 +72,8 @@ textarea {
 	clear:both;
 	}
 
+input#p-start-date,
+input#p-start-time,
 input#start-date,
 input#start-time,
 input#end-date,
@@ -177,9 +182,12 @@ input#rsvp-close-time {
 	}
 
 .datebook #container,
-.posts #container {
+.posts #container,
+.groups #container {
 	width:50%;
 	padding-right:1.8em;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 	box-sizing:border-box;
 	}
 
