@@ -32,11 +32,12 @@ var eventJSON = {};
 
 {% block active_tab_content %}
 	<h1>Your Posts</h1>
+    <a class="btn1" href="{% url 'post_event' %}">Create New Post</a>
     <div class="col1">
     	<div class="row">
         	<div class="card">
                 <div class="pic">
-                    <img src="/static/img/profile-pic-jessica.jpg" />
+                    <img src="/static/img/avatar-unipegi-150x150.png" />
                 </div>
                 <div class="summary">
                     <div class="name"><a href="#">Event Name</a></div>

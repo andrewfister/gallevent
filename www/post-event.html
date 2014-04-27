@@ -43,8 +43,16 @@ var eventJSON = {};
     {% endif %}
     <form method="post" id="post-event">{% csrf_token %}
 	<fieldset>
-        <legend>1. What type of event is this?</legend>
-        <label for="event-category" class="required">Select a category:</label>
+        <legend><b>1</b>Post Details</legend>
+        <label for="post-type" class="required">Type of post:</label>
+        <span class="select">
+        	<select id="post-type" class="input-standard" name="post-type" repost="{{ form.category.value }}">
+                <option value="pt-event" id="select-event">Event</option>
+                <option value="pt-sale" id="select-sale">Sale</option>
+                <option value="pt-job" id="select-job">Job</option>
+            </select>
+        </span>
+        <label for="event-category" class="required">Event type:</label>
         {% if form.category.errors %}
          	{% for error in form.category.errors %}
          		<span class="error">{{ error }}</span>
@@ -63,10 +71,19 @@ var eventJSON = {};
                 <option value="nightlife" id="select-nightlife">Nightlife &amp; Parties</option>
             </select>
         </span>
+        <label for="p-privacy" class="required">Privacy:</label>
+        <input type="radio" name="p-privacy" value="public" id="p-public"><label class="radio-l" for="p-public"><b>Public</b> event</label><br>
+		<input type="radio" name="p-privacy" value="private" id="p-private"><label class="radio-l" for="p-private"><b>Private</b> event</label>
+        <label for="p-launch" class="required">Launch post:</label>
+        <input type="radio" name="p-launch" value="immediately" id="p-immediately"><label class="radio-l" for="p-immediately">Immediately</label><br>
+		<input type="radio" name="p-launch" value="time" id="p-time"><label class="radio-l" for="p-time">On a specific date and time</label>
+        <label for="p-start-date" class="required">Launch post on this date &amp; time:</label>
+        <div><input type="text" id="p-start-date" class="input-standard" name="p-start_date"  placeholder="06/20/2012" value="{{ form.start_date.value }}" /> at  
+        <input type="text" id="p-start-time" class="input-standard" name="p-start_time" placeholder="3:00pm" value="{{ form.start_time.value }}" /></div>
     </fieldset>
     <fieldset>
-    	<legend>2. Where will your event be?</legend>
-        <label for="address" class="required">Street address:</label>
+    	<legend><b>2</b>Event Details</legend>
+        <label for="address" class="required">Location:</label>
         {% if form.address.errors %}
         	{% for error in form.address.errors %}
          		<span class="error">{{ error }}</span>
@@ -81,9 +98,8 @@ var eventJSON = {};
         <input type="text" id="zipcode" class="hidden" name="zipcode" value="{{ form.zipcode.value }}" />
         <input type="text" id="latitude" class="hidden" name="latitude" />
         <input type="text" id="longitude" class="hidden" name="longitude" />
-    </fieldset>
-    <fieldset>
-        <legend>3. When will your event happen?</legend>
+        
+        
         <label for="start-date" class="required">Start date &amp; time:</label>
         {% if form.start_date.errors %}
          	{% for error in form.start_date.errors %}
@@ -116,9 +132,7 @@ var eventJSON = {};
          	{% endfor %}
         {% endif %} 
         <input type="text" id="end-time" class="input-standard" name="end_time" placeholder="9:00pm" value="{{ form.end_time.value }}" /></div>
-    </fieldset>
-    <fieldset>
-    	<legend>4. About your event</legend>
+        
         <label for="event-name" class="required">Name your event:</label>
         {% if form.name.errors %}
          	{% for error in form.name.errors %}
@@ -134,24 +148,7 @@ var eventJSON = {};
         {% endif %}
         <textarea id="event-description" class="input-standard" name="description" placeholder="Don't miss out on this year's Best Event Ever! We'll have it all..." >{{ form.description.value }}</textarea>
         <em class="form-comment under"><span id="charLeft">1000</span> characters left</em>
-        <label for="event-keywords">Keywords:</label>
-        {% if form.keywords.errors %}
-         	{% for error in form.keywords.errors %}
-         		<span class="error">{{ error }}</span>
-         	{% endfor %}
-        {% endif %}
-        <span class="form-details">List up to three words that descibe your event.</span>
-        <input type="text" id="event-keywords" class="input-standard" name="keywords" placeholder="Art, Live Music, Dancing" value="{{ form.keywords.value }}" />
-        <label for="event-url">Link to event page:</label>
-        {% if form.event_url.errors %}
-         	{% for error in form.event_url.errors %}
-         		<span class="error">{{ error }}</span>
-         	{% endfor %}
-        {% endif %}
-        <input type="text" id="event-url" class="input-standard" name="event_url" placeholder="www.gallevent.com" value="{{ form.event_url.value }}" />
-    </fieldset>
-    <fieldset>
-    	<legend>5. Event organizer</legend>
+        
         <span class="form-details">At least one contact method is required.</span>
         <label for="organizer-email" class="required">
         Email:</label>
@@ -161,9 +158,11 @@ var eventJSON = {};
         <input type="text" id="organizer-phone" class="input-standard" name="organizer_phone" placeholder="123-456-7890" value="{{ form.organizer_phone.value }}" />
         <label for="organizer-url" class="required">Link to organizer's page:</label>
         <input type="text" id="organizer-url" class="input-standard" name="organizer_url" placeholder="www.gallevent.com" value="{{ form.organizer_url.value }}" />
+        
     </fieldset>
+  
     <fieldset>
-        <legend>6. How will you manage guests?</legend>
+        <legend><b>3</b>How will you manage guests?</legend>
         <div class="guest-l-or-tickets-btns">
         	<div class="btn-guest-list">Guest List</div>
             <div class="btn-tickets">Tickets</div>
