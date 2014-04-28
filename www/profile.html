@@ -1,5 +1,9 @@
 {% extends "base-profile.html" %}
 
+{% block viewjavascript %}
+<script src="www/js/controllers/profile-controller.js"></script>
+{% endblock viewjavascript %}
+
 {% block body-class %}signed-in profile{% endblock body-class %}
 
 {% block active_tab_content %}
@@ -103,7 +107,7 @@ Tell us about yourself in 1,000 characters la la la.</p>
         </div><!-- .basic-info -->
         <div class="contact-info">
         	<h3>Contact</h3>
-            <p><b>Email</b> <span>pixelkeet@gmail.com</span></p>
+            <p><b>Email</b> <span>{{ profile.email }}</span></p>
             <p><b>Phone</b> <span>510.334.9081</span></p>
             <button class="btn-edit" type="button">Edit</button>
         </div><!-- .contact-info -->

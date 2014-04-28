@@ -4,3 +4,4 @@ wsgi.py
 *\~
 \.*
 static/
+logs/
