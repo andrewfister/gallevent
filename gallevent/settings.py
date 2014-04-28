@@ -84,7 +84,6 @@ SECRET_KEY = 'pubm$v5&ig#6$o*ihd^jqv!z74mh1xqtl_w3^%#ne&hek$@)dg'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-#    'django_mobile.loader.Loader',
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 )
@@ -95,8 +94,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-#    'django_mobile.middleware.MobileDetectionMiddleware',
-#    'django_mobile.middleware.SetFlavourMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -107,7 +104,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.static",
     "django.contrib.messages.context_processors.messages",
     "django.core.context_processors.request",
-#    "django_mobile.context_processors.flavour",
 )
 
 ROOT_URLCONF = 'gallevent.urls'
@@ -164,7 +160,7 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'formatter': 'simple',
-            'filename': '/tmp/gallevent.log',
+            'filename': 'logs/gallevent.log',
             'mode': 'a',
         },
     },
