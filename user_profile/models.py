@@ -39,4 +39,3 @@ class UserProfile(models.Model):
     def create_profile_for_user(self, user):
         self.user_id = user.id
         self.email = user.email
-        
