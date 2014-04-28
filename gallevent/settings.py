@@ -128,7 +128,7 @@ DATE_FORMAT = 'm/d/y'
 
 #Some settings for the events
 MIN_EVENTS = 10
-MAX_EVENTS = 25
+MAX_EVENTS = 40
 
 INSTALLED_APPS = (
     'django.contrib.auth',
