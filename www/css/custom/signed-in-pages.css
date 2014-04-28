@@ -3,7 +3,7 @@
 ** Description: Styles for User Control Section Pages
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 04-13-2014
+** Updated: 04-27-2014
 ************************************** */
 
 html,
@@ -63,8 +63,10 @@ label {
 
 select,
 input[type="text"],
+input[type="password"],
 textarea {
 	width:100%;
+	max-width:425px;
 	}
 
 textarea {
@@ -129,7 +131,17 @@ input#rsvp-close-time {
 	background: #fff;
 	}
 
-/* = Specific Section Styles */
+/* = Top Navigation */
+#top-nav a.tab {
+	margin-top:0em;
+	margin-right:0.5em;
+	border-radius:5px;
+	padding:0.7em 1em 0.7em 1em;
+	letter-spacing:0.01em;
+	color:#fff;
+	}
+
+
 .post-event #content {
 	float: left;
 	width: 50%;
@@ -191,32 +203,37 @@ input#rsvp-close-time {
 	box-sizing:border-box;
 	}
 
+
+/* = Specific Section Styles */
+
 /* = Specific Color Coded Header and Heading Styles */
 .signed-in #header .btn-sign-in {
+	margin-top:0.8em;
 	color:#059fac;
 	}
 
 .post-event #header {
-	border-bottom:3px solid #f89c1c;
+	border-bottom:2px solid #f89c1c;
 	}
 .datebook #header {
-	border-bottom:3px solid #f15a5a;
+	border-bottom:2px solid #f15a5a;
 	}
 .posts #header {
-	border-bottom:3px solid #f0c419;
+	border-bottom:2px solid #f0c419;
 	}
 .groups #header {
-	border-bottom:3px solid #4eba6f;
+	border-bottom:2px solid #4eba6f;
 	}
 .profile #header {
-	border-bottom:3px solid #2d95bf;
+	border-bottom:2px solid #2d95bf;
 	}
 
 .signed-in .btn1 {
+	background:#f89c1c;
 	border-radius:5px;
 	padding:0.7em 1em 0.7em 1em;
+	letter-spacing:0.01em;
 	color:#fff;
-	background:#f89c1c;
 	}
 .signed-in #header .l1 {
 	background:#f15a5a;
@@ -228,6 +245,7 @@ input#rsvp-close-time {
 	background:#4eba6f;
 	}
 .signed-in #header .l4 {
+	margin-right:1.5em;
 	background:#2d95bf;
 	}
 
@@ -235,9 +253,15 @@ input#rsvp-close-time {
 .datebook #header .l1,
 .posts #header .l2,
 .groups #header .l3,
-.profile #header .l4  {
+.profile #header .l4,
+.signed-in #header .btn1:hover,
+.signed-in #header .l1:hover,
+.signed-in #header .l2:hover,
+.signed-in #header .l3:hover,
+.signed-in #header .l4:hover {
 	border-radius:5px 5px 0 0;
 	padding-bottom:1.3em;
+	transition: all 0.2s ease;
 	}
 
 .post-event h1 {

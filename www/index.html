@@ -30,7 +30,7 @@ window.eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ 
 {% block top-search %}
         <div id="top-search-container" tabindex="0">
             <form id="top-search" method="get">
-                <input type="text" id="event-keywords" name="q" placeholder="Search events" value="{{ request.GET.q }}" title="Enter keywords to filter events" />
+                <input type="text" id="event-keywords" name="q" placeholder="I'm looking for..." value="{{ request.GET.q }}" title="Enter keywords to filter events" />
                 <fieldset class="filters">
         			<legend class="filters-legend">
                     	<b>Filters</b>

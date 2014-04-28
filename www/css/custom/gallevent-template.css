@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 02-09-2014
-** Updated: 04-13-2014
+** Updated: 04-27-2014
 ************************************** */
 
 html,
@@ -172,6 +172,7 @@ label {
 	}
 
 input[type="text"],
+input[type="password"],
 textarea,
 .select,
 select,
@@ -181,6 +182,7 @@ button {
 
 select,
 input[type="text"],
+input[type="password"],
 textarea {
 	padding:0.8em;
 	border:1px solid #BCBCBC;
@@ -188,15 +190,12 @@ textarea {
 	}
 
 input[type="text"]:focus,
+input[type="password"]:focus,
 textarea:focus,
 select:focus {
 	border:1px solid #059FAC;
 	}
 
-input[type="text"],
-textarea {
-	padding:0.8em;
-	}
 
 
 label.radio-l {
@@ -441,6 +440,7 @@ input[type='checkbox'] {
 #btn-menu svg {
 	width:15px;
 	height:15px;
+	margin-right:0.5em;
 	}
 #btn-menu .icon-white {
 	display:none;
@@ -462,10 +462,15 @@ input[type='checkbox'] {
 
 #top-nav a {
 	float:right;
+	
+	margin-right:1.5em;
+	/*
+	float:right;
 	margin-right:0.5em;
 	border-radius:5px;
 	padding:0.7em 1em 0.7em 1em;
 	color:#fff;
+	*/
 	}
 
 #top-nav a:hover {
@@ -704,32 +709,62 @@ input[type='checkbox'] {
 }
 
 
-@media (min-width: 620px) {
-	#top-nav .btn-join,
-	#top-nav .btn-sign-in  {
-		display:block;
-		}
+@media (min-width: 720px) {
+	
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1000px) {
 	
 	#header .logo-block {
-	top:0.5em;
-	left:0;
-	padding:0.5em 0.5em 0.6em 0.5em;
+		top:0.5em;
+		padding:0.5em 0.5em 0.6em 0.5em;
 		}
 
 	#header .logo-block .logo {
-			width:183px;
-			background:url(../../img/data/gallevent-logo-orange-365x60.svg) top left no-repeat;
+			width:160px;
+			background:url(../../img/data/gallevent-logo-orange-365x60.svg) 0 2px no-repeat;
 			background-size:contain;
 		}
 	
-	#btn-menu:hover .text {
+	
+	#top-nav .btn-join,
+	#top-nav .btn-sign-in  {
+		display:block;
+		font-size:85%;
+	
+		color:#454949;
+	text-shadow:
+	-1px -1px 0 #fff,  
+	1px -1px 0 #fff,
+	-1px 1px 0 #fff,
+	1px 1px 0 #fff;
+		}
+	
+	
+	#btn-menu {
+		margin-right:-3.6em;	
+		transition: margin-right 1s ease;
+		-webkit-transition: margin-right 1s ease;
+		}
+	
+	#btn-menu:hover {
+		margin-right:0;	
+		}
+	
+	#btn-menu .text {
 	display:block;
 	float:left;
 	margin-left:0.5em;
 	color:#fff;
+	}
+	
+	#top-search {
+	width:500px;
+	padding-left:0.3em;
+	}
+	
+	#top-search #event-keywords {
+	text-indent:170px;
 	}
 }
 
