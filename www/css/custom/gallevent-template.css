@@ -453,6 +453,7 @@ input[type='checkbox'] {
 	}
 
 #top-nav {
+	display:none;
 	float:right;
 	margin-top:0.5em;
 	}
