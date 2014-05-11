@@ -427,7 +427,7 @@ input[type='checkbox'] {
 #btn-menu {
 	position:absolute;
 	top:1.3em;
-	right:2em;
+	right:1.5em;
 	float:right;
 	display:block;
 	z-index:800;
@@ -438,9 +438,9 @@ input[type='checkbox'] {
 	}
 
 #btn-menu svg {
+	margin-right:0.5em;
 	width:15px;
 	height:15px;
-	margin-right:0.5em;
 	}
 #btn-menu .icon-white {
 	display:none;
@@ -503,7 +503,9 @@ input[type='checkbox'] {
 /* = Top Search */
 #top-search-container {
 	float:left;
+	width:100%;
 	padding:0.5em;
+	box-sizing:border-box;
 	}
 
 #top-search {
@@ -689,6 +691,41 @@ input[type='checkbox'] {
 
 @media (min-width: 445px) {
 	
+	
+}
+
+@media (min-width: 1000px) {
+	
+	#header .logo-block {
+		top:0.5em;
+		padding:0.5em 0.5em 0.6em 0.5em;
+		}
+
+	#header .logo-block .logo {
+		width:160px;
+		background:url(../../img/data/gallevent-logo-orange-365x60.svg) 0 2px no-repeat;
+		background-size:contain;
+		}
+	
+	#top-search-container {
+		max-width:500px;	
+		}
+	
+	
+	#top-nav .btn-join,
+	#top-nav .btn-sign-in  {
+		display:block;
+		font-size:85%;
+		color:#454949;
+		text-shadow:
+		-1px -1px 0 #fff,  
+		1px -1px 0 #fff,
+		-1px 1px 0 #fff,
+		1px 1px 0 #fff;
+		}
+	
+	
+	/*
 	#btn-menu {
 		position:static;
 		padding: 0.75em 1em 0.65em 1em;
@@ -706,66 +743,44 @@ input[type='checkbox'] {
 	#btn-menu .icon-gray {
 		display:none;
 		}
-}
-
-
-@media (min-width: 720px) {
-	
-}
-
-@media (min-width: 1000px) {
-	
-	#header .logo-block {
-		top:0.5em;
-		padding:0.5em 0.5em 0.6em 0.5em;
-		}
-
-	#header .logo-block .logo {
-			width:160px;
-			background:url(../../img/data/gallevent-logo-orange-365x60.svg) 0 2px no-repeat;
-			background-size:contain;
-		}
-	
-	
-	#top-nav .btn-join,
-	#top-nav .btn-sign-in  {
-		display:block;
-		font-size:85%;
-	
-		color:#454949;
-	text-shadow:
-	-1px -1px 0 #fff,  
-	1px -1px 0 #fff,
-	-1px 1px 0 #fff,
-	1px 1px 0 #fff;
-		}
-	
+		*/
 	
 	#btn-menu {
-		margin-right:-3.6em;	
+		position:static;
+		margin-right:-3.6em;
+		padding: 0.75em 1em 0.65em 1em;
 		transition: margin-right 1s ease;
 		-webkit-transition: margin-right 1s ease;
 		}
 	
 	#btn-menu:hover {
-		margin-right:0;	
+		margin-right:0;
+		background: rgba(133, 196, 64, 0.9);	
+		}
+	
+	#btn-menu:hover svg {
+		opacity:1;
+		}
+	#btn-menu .icon-white {
+		display:block;
+		float:left;
+		}
+	#btn-menu .icon-gray {
+		display:none;
 		}
 	
 	#btn-menu .text {
-	display:block;
-	float:left;
-	margin-left:0.5em;
-	color:#fff;
-	}
+		display:block;
+		float:left;
+		margin-left:0.5em;
+		color:#fff;
+		}
 	
 	#top-search {
-	width:500px;
-	padding-left:0.3em;
-	}
+		padding-left:0.3em;
+		}
 	
 	#top-search #event-keywords {
 	text-indent:170px;
 	}
 }
-
-
