@@ -3,7 +3,7 @@
 ** Description: Styles Specific to Home Page
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 10-13-2013
-** Updated: 04-27-2014
+** Updated: 05-11-2014
 ************************************** */
 
 
@@ -33,35 +33,9 @@
 
 
 @media (min-width: 800px) {
-	/*
-	
-	#header .logo-block {
-		top:0.5em;
-		left:0;
-		padding:0.5em 0.5em 0.6em 0.5em;
-		background:url(../../img/data/orange-angle.svg) top left no-repeat;
-		border-radius:0 5px 5px 0;
-		}
-		
-	#header .logo-block .logo {
-		width:183px;
-		background:url(../../img/data/gallevent-logo-white-365x60.svg) top left no-repeat;
-		background-size:contain;
-		}
-	
-	#top-search-container {
-		margin-left:11.5em;
-		}
-	
-	#top-search #event-keywords {
-		text-indent:0px;
-		}
-*/
 	.gmnoprint {
 		display:block;	
 		}
-	
-	
 }
 
 @media (min-width: 1000px) {
