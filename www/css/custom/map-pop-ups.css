@@ -72,13 +72,8 @@
 	margin-top:0.4em;
 	}
 
-.map-popup .price,
-.map-popup .date-time,
-.map-popup .address {
-	}
-
 .map-popup .price {
-	font-weight:bold;
+	font-weight:bold !important;
 	}
 
 .map-popup .date-time {

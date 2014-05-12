@@ -532,7 +532,8 @@ input[type='checkbox'] {
 	position:relative;
 	float:right;
 	margin-top:-0.5em;
-	padding:1.2em 1em 0 1em;
+	padding:1em 1em 0 1em;
+	/*padding:1.2em 1em 0 1em;*/
 	color:#fff;
 	background:rgba(5, 159, 172, 0.9);
 	border-radius:5px;
@@ -550,7 +551,7 @@ input[type='checkbox'] {
 #top-search legend {
 	color:#fff;
 	float:right;
-	margin-bottom:0.5em;
+	margin-bottom:0.3em;
 	letter-spacing:0.02em;
 	}
 
@@ -657,7 +658,7 @@ input[type='checkbox'] {
   display:block;
   margin:0 auto;
   margin-bottom:1em;
-  border:2px solid #fff;
+  border:1px solid #fff;
   padding:0.8em;
   color:#fff;
   font-weight:bold;
@@ -710,6 +711,7 @@ input[type='checkbox'] {
 		background-size:contain;
 		}
 	
+	#header,
 	#top-search-container {
 		max-width:500px;	
 		}
