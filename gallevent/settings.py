@@ -158,10 +158,15 @@ LOGGING = {
         },
         'logfile':{
             'level': 'DEBUG',
-            'class': 'logging.FileHandler',
+            'class': 'logging.handlers.TimedRotatingFileHandler',
             'formatter': 'simple',
             'filename': 'logs/gallevent.log',
-            'mode': 'a',
+        },
+        'stream':{
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+            'level': 'DEBUG',
+            'stream': 'ext://sys.stderr',
         },
     },
     'loggers': {
@@ -171,8 +176,8 @@ LOGGING = {
             'level': 'INFO',
         },
         'gallevent': {
-            'handlers': ['logfile'],
-            'level': 'INFO',
+            'handlers': ['logfile', 'stream'],
+            'level': 'DEBUG',
         }
     }
 }

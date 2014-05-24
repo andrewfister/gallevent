@@ -43,7 +43,7 @@ class EventSearchForm(SearchForm):
                             'fairs', 'jobs', 'networking', 'nightlife', 'sales']
 
     default_query = "event"
-    short_description_length = 64
+    short_description_length = 140
 
     start_date = forms.DateTimeField(initial="", input_formats=date_input_formats)
     end_date = forms.DateTimeField(initial="", input_formats=date_input_formats)
@@ -483,7 +483,7 @@ class PostEventForm(forms.ModelForm):
     ticket_type = forms.CharField(max_length=32, required=False, initial="")
     ticket_price = forms.DecimalField(required=False, decimal_places=2, initial="")
     ticket_url = forms.URLField(required=False, initial="")    
-    short_description = forms.CharField(max_length=64,required=False, initial="")
+    short_description = forms.CharField(max_length=140,required=False, initial="")
     source_event_id = forms.CharField(required=False, initial="1")
     source_id = forms.IntegerField(required=False, initial=1)
 

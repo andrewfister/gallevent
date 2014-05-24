@@ -33,18 +33,18 @@ Tell us about yourself in 1,000 characters la la la.</p>
     		<button class="btn-edit" type="button">Edit</button>
     	</div><!-- .bio -->
         <div class="bio-edit">
-        	<form>
+        	<form method="post">{% csrf_token %}
             	<div class="profile-pic">
                 	<img src="/static/img/avatar-unipegi-150x150.png" />
                 </div>
                 <label>First Name</label>
-                <input />
+                <input name="fname"/>
                 <label>Last Name</label>
-                <input />
+                <input name="lname"/>
                 <label>Where You Spend Most of Your Time</label>
                 <input />
                 <label>Introduce Yourself</label>
-                <textarea></textarea>
+                <textarea name="bio"></textarea>
                 <label>Twitter</label>
                 <input />
                 <label>Facebook</label>
@@ -52,7 +52,7 @@ Tell us about yourself in 1,000 characters la la la.</p>
                 <label>Website</label>
                 <input />
     			<span class="btns">
-                    <button class="btn-save save-bio" type="button">Save</button>
+                    <button class="btn-save save-bio" type="submit">Save</button>
                     <button class="btn-cancel cancel-bio" type="button">Cancel</button>
                 </span>
             </form>

@@ -30,8 +30,7 @@ class UserProfile(models.Model):
     job_title = models.CharField(max_length=255L, blank=True)
     company = models.CharField(max_length=255L, blank=True)
     privacy = models.IntegerField()
-    last_update_date = models.DateField()
-    last_update_time = models.TextField() # This field type is a guess.
+    last_update = models.DateTimeField(auto_now=True)
     status = models.IntegerField()
     class Meta:
         db_table = 'user_profile_profile'
@@ -39,3 +38,6 @@ class UserProfile(models.Model):
     def create_profile_for_user(self, user):
         self.user_id = user.id
         self.email = user.email
+        self.privacy = 0
+        self.status = 0
+        self.save()
