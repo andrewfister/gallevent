@@ -160,7 +160,7 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'formatter': 'simple',
-            'filename': 'logs/gallevent.log',
+            'filename': local_settings.GALLEVENT_PATH + 'logs/gallevent.log',
             'mode': 'a',
         },
     },
