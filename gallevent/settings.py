@@ -1,3 +1,5 @@
+import os.path
+
 # Django settings for gallevent project.
 import local_settings
 
@@ -160,7 +162,7 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.handlers.TimedRotatingFileHandler',
             'formatter': 'simple',
-            'filename': 'logs/gallevent.log',
+            'filename': os.path.join(local_settings.GALLEVENT_PATH, 'logs/gallevent.log'),
         },
         'stream':{
             'class': 'logging.StreamHandler',

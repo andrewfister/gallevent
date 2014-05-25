@@ -14,6 +14,16 @@ html {
 	background-size: cover;
 	}
 
+
+#top-nav .btn-join,
+	#top-nav .btn-sign-in  {
+	margin-top:1em;
+	margin-right:2em;
+		color:#fff;
+	text-shadow: none;
+		}
+	
+
 body.join,
 body.sign-in {
 	background: -moz-linear-gradient(top,  rgba(1,159,172,1) 0%, rgba(5,159,172,0) 100%);
@@ -38,6 +48,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#019fac', end
 #header {
 	background:transparent;
 	}
+
+#header .logo-block .logo {
+			background:url(../../img/data/gallevent-logo-white-365x60.svg) 0 2px no-repeat;
+			background-size:contain;
+		}
 
 
 
@@ -94,4 +109,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebffffff', e
 
 #content .right {
 	padding:0 50px 0 50px;
+	}
+
+input[type="text"],
+input[type="password"] {
+	max-width:300px;
 	}

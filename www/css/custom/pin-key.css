@@ -3,7 +3,7 @@
 ** Description: Control for Event Categories
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 03-11-2014
+** Updated: 05-11-2014
 ************************************** */
 
 /* = Position Pin Key Within Container */
@@ -15,7 +15,7 @@
 	margin-top:-48px;
 	width:20em;
 	height:3em;
-	padding:0 0.25em 0 0.25em;
+	padding:0 0.1em 0 0.1em;
 	color:#43555A;
 	background: -moz-linear-gradient(top,  rgba(255,255,255,0.9) 0%, rgba(255,255,255,1) 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.9)), color-stop(100%,rgba(255,255,255,1)));
@@ -30,16 +30,23 @@
 #pin-key a {
 	display:block;
 	position:relative;
+	width:12.5%;
+	/*
 	width:31px;
 	max-width:31px;
+	*/
 	height:40px;
+	padding:0.4em 0 0 0;
+	/*
 	padding:0.4em 0.25em 0 0.25em;
+	*/
 	color:#43555A;
 	transition: max-width 2s ease;
 	-webkit-transition: max-width 2s ease;
 	}
 
 #pin-key a:hover {
+	text-decoration:none;
 	}
 
 #pin-key .arrow {
@@ -144,49 +151,17 @@ a.key {
 @media (min-width: 700px) {
 	
 		#pin-key {
-			width:200%;
+			width:100%;
+			padding:0 0.25em 0 0.25em;
 			}
 		#pin-key a {
-			padding:0.4em 0.5em 0 0.5em;
-			}
-		#pin-key a:hover,
-		#pin-key a.selected {
-			width: auto;
-			max-width:100%;
-			}
-		#pin-key a:hover .details,
-		#pin-key a.selected .details,
-		#pin-key a:hover .details strong,
-		#pin-key a.selected strong,
-		#pin-key a:hover .details i,
-		#pin-key a.selected .details i {
-			display:block;
-			}
-		a.key:hover,
-		#pin-key a.selected {
-			background-position:0.5em 8px;
+			padding:0.4em 0 0 0;
 			}
 	}
 
 @media (max-width: 700px) {
 		#pin-key {
 			left: 0;
-			}
-	}
-
-@media (min-width: 900px) {
-	
-		#pin-key {
-			width:100%;
-			}
-		#pin-key a {
-			max-width:100%;
-			}
-		a.key,
-		a.key:hover,
-		#pin-key a:hover,
-		#pin-key a.selected {
-			background-position:0 0.5em;
 			}
 	}
 
@@ -222,9 +197,16 @@ a.key {
 		#pin-key a.selected {
 			margin-left:-40px;
 			}
+		
 		#pin-key .details,
 		#pin-key .details strong,
-		#pin-key a strong {
+		#pin-key a strong,
+		#pin-key a:hover .details,
+		#pin-key a.selected .details,
+		#pin-key a:hover .details strong,
+		#pin-key a.selected strong,
+		#pin-key a:hover .details i,
+		#pin-key a.selected .details i {
 			display:block;
 			}
 		
