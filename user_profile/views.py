@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django_extra.login_required import LoginRequiredMixin
 
 from models import UserProfile
-from forms import UserProfileForm
+from forms import UserProfileBioForm
 
 logger = logging.getLogger("gallevent")
 
@@ -27,8 +27,12 @@ class ProfileView(LoginRequiredMixin, TemplateView):
     def post(self, request):
         profile = UserProfile.objects.get(user_id=request.user.id)
         logger.debug("posty: {}".format(request.POST))
-        profile_form = UserProfileForm(request.POST, instance=profile)
-        profile_form.save()
+        profile_form = UserProfileBioForm(request.POST, instance=profile)
+        
+        if profile_form.is_valid():
+            profile_form.save()
+        else:
+            logger.info('UserProfile validation errors: {}'.format(profile_form.errors))
         
         return self.render_to_response({'profile': profile})
 

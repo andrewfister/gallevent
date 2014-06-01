@@ -10,7 +10,7 @@ class UserProfile(models.Model):
     short_bio = models.CharField(max_length=64L, blank=True)
     gender = models.IntegerField(null=True, blank=True)
     relationship = models.IntegerField(null=True, blank=True)
-    iterests = models.IntegerField(null=True, blank=True)
+    interests = models.IntegerField(null=True, blank=True)
     address = models.CharField(max_length=1000L, blank=True)
     street_number = models.CharField(max_length=64L, blank=True)
     street = models.CharField(max_length=255L, blank=True)

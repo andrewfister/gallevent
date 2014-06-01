@@ -1,62 +1,68 @@
 {% extends "base-profile.html" %}
 
+{% block prejavascript %}
+{% endblock prejavascript %}
+
 {% block viewjavascript %}
 <script src="www/js/controllers/profile-controller.js"></script>
 {% endblock viewjavascript %}
 
-{% block body-class %}signed-in profile{% endblock body-class %}
+{% block body-class %}signed-in prodjango formsetfile{% endblock body-class %}
 
 {% block active_tab_content %}
 	<h1>Your Profile</h1>
     <div class="col1">
+        {% if profile.fname and profile.lname and profile.city and profile.state and profile.bio and profile.twitter and profile.facebook and profile.website %}
     	<div class="bio">
         	<div class="card">
-    			<div class="pic">
+    			<!--<div class="pic">
                 	<img src="/static/img/avatar-unipegi-150x150.png" />
-                </div>
+                </div>-->
                 <div class="summary">
-                	<div class="name">Jessica Greenwalt</div>
-                    <p class="address">San Francisco, California</p>
-                    <p><b>500</b> Events Attended</p>
-                    <p><b>20</b> Groups</p>
+                	<div class="name">{{ profile.fname }} {{ profile.lname }}</div>
+                    <p class="address">{{ profile.city }}, {{ profile.state }}</p>
+                    <!--<p><b>500</b> Events Attended</p>
+                    <p><b>20</b> Groups</p>-->
                 </div><!-- .col2 -->
             </div><!-- .card -->
-            <p>Tell us about yourself in 1,000 characters or less. This is sample text. Sample text here. This is sample text. This is only sample thext. This sample text will not appear on the actual site. This text is for placement only. Sample text here. This is sample text. Sample text here. This is sample text. Sample text here.
-Tell us about yourself in 1,000 characters. This is sample text. Sample text here. This is sample text. This is only sample thext. This sample text will not appear on the actual site. This text is for placement only. Sample text here. This is sample text. Sample text here. This is sample text. Sample text here.
-Tell us about yourself in 1,000 characters. This is sample text. Sample text here. This is sample text. This is only sample thext. This sample text will not appear on the actual site. This text is for placement only. Sample text here. This is sample text. Sample text here. This is sample text. Sample text here.
-Tell us about yourself in 1,000 characters la la la.</p>
+            <p>{{ profile.bio }}</p>
             <p class="profile-links">
-                <a href="#" class="twitter">@TwitterName</a><br />
-                <a href="#" class="twitter">facebook.com/username</a><br />
-                <a href="#" class="url">url.com</a>
+                <a href="#" class="twitter">{{ profile.twitter }}</a><br />
+                <a href="#" class="facebook">{{ profile.facebook }}</a><br />
+                <a href="#" class="website">{{ profile.website }}</a>
             </p>
     		<button class="btn-edit" type="button">Edit</button>
     	</div><!-- .bio -->
+    	{% else %}
         <div class="bio-edit">
         	<form method="post">{% csrf_token %}
-            	<div class="profile-pic">
+            	<!--<div class="profile-pic">
                 	<img src="/static/img/avatar-unipegi-150x150.png" />
-                </div>
+                </div>-->
                 <label>First Name</label>
-                <input name="fname"/>
+                <input class="fname" name="fname" value="{{ profile.fname }}"></input>
                 <label>Last Name</label>
-                <input name="lname"/>
+                <input class="lname" name="lname" value="{{ profile.lname }}"></input>
                 <label>Where You Spend Most of Your Time</label>
-                <input />
+                <label>City</label>
+                <input class="address" name="city" value="{{ profile.city }}"></input>
+                <label>State</label>
+                <input class="address" name="state" value="{{ profile.state }}"></input>
                 <label>Introduce Yourself</label>
-                <textarea name="bio"></textarea>
+                <textarea name="bio" value="{{ profile.bio }}"></textarea>
                 <label>Twitter</label>
-                <input />
+                <input class="twitter" name="twitter" value="{{ profile.twitter }}"></input>
                 <label>Facebook</label>
-                <input />
+                <input class="facebook" name="facebook" value="{{ profile.facebook }}"></input>
                 <label>Website</label>
-                <input />
+                <input class="website" name="website" value="{{ profile.website }}"></input>
     			<span class="btns">
                     <button class="btn-save save-bio" type="submit">Save</button>
-                    <button class="btn-cancel cancel-bio" type="button">Cancel</button>
+                    <!--<button class="btn-cancel cancel-bio" type="button">Cancel</button>-->
                 </span>
             </form>
     	</div><!-- .bio -->
+    	{% endif %}
     </div><!-- .col1 -->
     <div class="col2 your-info">
     	<div class="basic-info">
@@ -107,7 +113,7 @@ Tell us about yourself in 1,000 characters la la la.</p>
         </div><!-- .basic-info -->
         <div class="contact-info">
         	<h3>Contact</h3>
-            <p><b>Email</b> <span>{{ profile.email }}</span></p>
+            <p><b>Email</b> <span>{{ email }}</span></p>
             <p><b>Phone</b> <span>510.334.9081</span></p>
             <button class="btn-edit" type="button">Edit</button>
         </div><!-- .contact-info -->
