@@ -12,7 +12,7 @@
 {% block active_tab_content %}
 	<h1>Your Profile</h1>
     <div class="col1">
-        {% if profile.fname and profile.lname and profile.city and profile.state and profile.bio and profile.twitter and profile.facebook and profile.website %}
+        {% if not form_edit_bio %}
     	<div class="bio">
         	<div class="card">
     			<!--<div class="pic">
@@ -31,11 +31,12 @@
                 <a href="#" class="facebook">{{ profile.facebook }}</a><br />
                 <a href="#" class="website">{{ profile.website }}</a>
             </p>
-    		<button class="btn-edit" type="button">Edit</button>
+    		<a href="{{ request.path }}?form_edit=bio" class="btn-edit" type="button">Edit</button>
     	</div><!-- .bio -->
     	{% else %}
         <div class="bio-edit">
         	<form method="post">{% csrf_token %}
+        	    <input class="hidden" name="form-type" value="bio"></input>
             	<!--<div class="profile-pic">
                 	<img src="/static/img/avatar-unipegi-150x150.png" />
                 </div>-->
@@ -49,7 +50,7 @@
                 <label>State</label>
                 <input class="address" name="state" value="{{ profile.state }}"></input>
                 <label>Introduce Yourself</label>
-                <textarea name="bio" value="{{ profile.bio }}"></textarea>
+                <textarea name="bio">{{ profile.bio }}</textarea>
                 <label>Twitter</label>
                 <input class="twitter" name="twitter" value="{{ profile.twitter }}"></input>
                 <label>Facebook</label>
@@ -58,7 +59,7 @@
                 <input class="website" name="website" value="{{ profile.website }}"></input>
     			<span class="btns">
                     <button class="btn-save save-bio" type="submit">Save</button>
-                    <!--<button class="btn-cancel cancel-bio" type="button">Cancel</button>-->
+                    <a href="{{ request.path }}" class="btn-cancel cancel-bio">Cancel</button>
                 </span>
             </form>
     	</div><!-- .bio -->

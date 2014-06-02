@@ -22,15 +22,26 @@ class ProfileView(LoginRequiredMixin, TemplateView):
             profile.create_profile_for_user(request.user)
             logger.info("Created profile for user {} at {}".format(request.user.id, request.user.email))
         
-        return self.render_to_response({'profile': profile})
+        logger.info("profile: {} {} {} {} {} {} {} {}".format(profile.fname, profile.lname, profile.city, profile.state, profile.bio, profile.twitter, profile.facebook, profile.website))
+        profile_view_info = {'profile': profile}
+        form_edit = request.GET.get("form_edit", "no_form")
+        logger.info('form edit thing: {}'.format(form_edit))
+        if form_edit == 'bio' or not (profile.fname and profile.lname and profile.city and profile.state and profile.bio and profile.twitter and profile.facebook and profile.website):
+            profile_view_info['form_edit_bio'] = True
+        
+        logger.info("profile_view_info: {}".format(profile_view_info))
+        return self.render_to_response(profile_view_info)
     
     def post(self, request):
         profile = UserProfile.objects.get(user_id=request.user.id)
         logger.debug("posty: {}".format(request.POST))
-        profile_form = UserProfileBioForm(request.POST, instance=profile)
+        
+        if request.POST.get('form-type') == 'bio':
+            profile_form = UserProfileBioForm(request.POST, instance=profile)
         
         if profile_form.is_valid():
             profile_form.save()
+            profile = UserProfile.objects.get(user_id=request.user.id)
         else:
             logger.info('UserProfile validation errors: {}'.format(profile_form.errors))
         
