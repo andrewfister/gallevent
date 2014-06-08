@@ -31,12 +31,12 @@
                 <a href="#" class="facebook">{{ profile.facebook }}</a><br />
                 <a href="#" class="website">{{ profile.website }}</a>
             </p>
-    		<a href="{{ request.path }}?form_edit=bio" class="btn-edit" type="button">Edit</button>
+    		<a href="{{ request.path }}?form_edit=bio" class="btn-edit" type="button">Edit</a>
     	</div><!-- .bio -->
     	{% else %}
         <div class="bio-edit">
         	<form method="post">{% csrf_token %}
-        	    <input class="hidden" name="form-type" value="bio"></input>
+        	    <input class="hidden" name="form_type" value="bio"></input>
             	<!--<div class="profile-pic">
                 	<img src="/static/img/avatar-unipegi-150x150.png" />
                 </div>-->
@@ -59,116 +59,132 @@
                 <input class="website" name="website" value="{{ profile.website }}"></input>
     			<span class="btns">
                     <button class="btn-save save-bio" type="submit">Save</button>
-                    <a href="{{ request.path }}" class="btn-cancel cancel-bio">Cancel</button>
+                    <a href="{{ request.path }}" class="btn-cancel cancel-bio">Cancel</a>
                 </span>
             </form>
     	</div><!-- .bio -->
     	{% endif %}
     </div><!-- .col1 -->
     <div class="col2 your-info">
+        {% if not form_edit_basic_info %}
     	<div class="basic-info">
         	<h3>Basics</h3>
-            <p><b>Gender</b> <span>Female</span></p>
-            <p><b>Looking For</b> <span>Networking</span></p>
-            <p><b>Relationship</b> <span>In a Relationship</span></p>
-            <button class="btn-edit" type="button">Edit</button>
+            <p><b>Gender</b> <span>{{ profile.gender }}</span></p>
+            <p><b>Looking For</b> <span>{{ profile.interests }}</span></p>
+            <p><b>Relationship</b> <span>{{ profile.relationship }}</span></p>
+            <a href="{{ request.path }}?form_edit=basic_info" class="btn-edit" type="button">Edit</a>
         </div><!-- .basic-info -->
+        {% else %}
         <div class="basic-info-edit">
         	<h3>Basics</h3>
-            <form>
+            <form method="post">{% csrf_token %}
+                <input class="hidden" name="form_type" value="basic_info"></input>
             	<label>Gender</label>
                 <span class="select gender">
                     <select id="gender" name="gender">
-                        <option value="Female">Female</option>
-                        <option value="Male">Male</option>
-                        <option value="Other">Other</option>
-                        <option value="Don't Say">Don't Say</option>
+                        <option value="1">Female</option>
+                        <option value="2">Other</option>
+                        <option value="3">Male</option>
+                        <option value="4">Don't Say</option>
                     </select>
                 </span>
                 <label>Looking For</label>
-                <input type="checkbox" name="looking-for" value="Friends"> Friends<br />
-                <input type="checkbox" name="looking-for" value="Dating"> Dating<br />
-                <input type="checkbox" name="looking-for" value="A Relationship"> A Relationship<br />
-                <input type="checkbox" name="looking-for" value="Networking"> Networking
+                <input type="checkbox" name="interests" value="1"> Friends</input><br />
+                <input type="checkbox" name="interests" value="2"> Dating</input><br />
+                <input type="checkbox" name="interests" value="3"> A Relationship</input><br />
+                <input type="checkbox" name="interests" value="4"> Networking</input>
                 <label>Relationship</label>
                 <span class="select relationship">
                     <select id="relationship" name="relationship">
-                        <option value="Single">Single</option>
-                        <option value="In a Relationship">In a Relationship</option>
-                        <option value="Engaged">Engaged</option>
-                        <option value="Married">Married</option>
-                        <option value="In a Domestic Partnership">In a Domestic Partnership</option>
-                        <option value="In a Civil Union">In a Civil Union</option>
-                        <option value="It's Complicated">It's Complicated</option>
-                        <option value="In an Open Relationship">In an Open Relationship</option>
-                        <option value="Divorced">Divorced</option>
-                        <option value="Widowed">Widowed</option>
-                        <option value="Don't Say">Don't Say</option>
+                        <option value="1">Single</option>
+                        <option value="2">In a Relationship</option>
+                        <option value="3">Engaged</option>
+                        <option value="4">Married</option>
+                        <option value="5">In a Domestic Partnership</option>
+                        <option value="6">In a Civil Union</option>
+                        <option value="7">It's Complicated</option>
+                        <option value="8">In an Open Relationship</option>
+                        <option value="9">Divorced</option>
+                        <option value="10">Widowed</option>
+                        <option value="11">Don't Say</option>
                     </select>
                 </span>
                 <span class="btns">
-                    <button class="btn-save save-basics" type="button">Save</button>
-                    <button class="btn-cancel cancel-basics" type="button">Cancel</button>
+                    <button class="btn-save save-basics" type="submit">Save</button>
+                    <a href="{{ request.path }}" class="btn-cancel cancel-basics" type="button">Cancel</a>
                 </span>
             </form>
         </div><!-- .basic-info -->
+        {% endif %}
+        {% if not edit_form_contact %}
         <div class="contact-info">
         	<h3>Contact</h3>
-            <p><b>Email</b> <span>{{ email }}</span></p>
-            <p><b>Phone</b> <span>510.334.9081</span></p>
-            <button class="btn-edit" type="button">Edit</button>
+            <p><b>Email</b> <span>{{ profile.email }}</span></p>
+            <p><b>Phone</b> <span>{{ profile.phone }}</span></p>
+            <a href="{{ request.path }}?form_edit=contact" class="btn-edit" type="button">Edit</a>
         </div><!-- .contact-info -->
+        {% else %}
         <div class="contact-info-edit">
         	<h3>Contact</h3>
-            <form>
+            <form method="post">{% csrf_token %}
+                <input class="hidden" name="form_type" value="contact"></input>
             	<label>Email</label>
                 <input />
                 <label>Phone</label>
                 <input />
                 <span class="btns">
                     <button class="btn-save save-contact" type="button">Save</button>
-                    <button class="btn-cancel cancel-contact" type="button">Cancel</button>
+                    <a href="{{ request.path }}" class="btn-cancel cancel-contact" type="button">Cancel</a>
                 </span>
             </form>
         </div><!-- .contact-info -->
+        {% endif %}
+        {% if not edit_form_education %}
         <div class="education-info">
         	<h3>Education</h3>
             <p><b>School</b> <span>California Polytechnic State University</span></p>
             <p><b>Field of Study</b> <span>Graphic Communication</span></p>
-            <button class="btn-edit edit-edu" type="button">Edit</button>
+            <a href="{{ request.path }}?form_edit=education" class="btn-edit edit-edu" type="button">Edit</a>
         </div><!-- .education-info -->
+        {% else %}
         <div class="education-info-edit">
         	<h3>Education</h3>
-            <form>
+            <form method="post">{% csrf_token %}
+                <input class="hidden" name="form_type" value="education"></input>
             	<label>School</label>
                 <input />
                 <label>Field of Study</label>
                 <input />
                 <span class="btns">
                     <button class="btn-save save-edu" type="button">Save</button>
-                    <button class="btn-cancel cancel-edu" type="button">Cancel</button>
+                    <a href="{{ request.path }}" class="btn-cancel cancel-edu" type="button">Cancel</a>
                 </span>
             </form>
         </div><!-- .education-info -->
+        {% endif %}
+        {% if edit_form_work %}
         <div class="work-info">
         	<h3>Work</h3>
             <p><b>Job Title</b> <span>California Polytechnic State University</span></p>
             <p><b>Company</b> <span>Graphic Communication</span></p>
-            <button class="btn-edit edit-work" type="button">Edit</button>
+            <a href="{{ request.path }}?form_edit=work" class="btn-edit edit-work" type="button">Edit</a>
         </div><!-- .work-info -->
+        {% else %}
         <div class="work-info-edit">
         	<h3>Work</h3>
-            <form>
+            <form method="post">{% csrf_token %}
+                <input class="hidden" name="form_type" value="work"></input>
             	<label>Job Title</label>
                 <input />
                 <label>Company</label>
                 <input />
                 <span class="btns">
                     <button class="btn-save save-work" type="button">Save</button>
-                    <button class="btn-cancel cancel-work" type="button">Cancel</button>
+                    <a href="{{ request.path }}" class="btn-cancel cancel-work" type="button">Cancel</a>
                 </span>
             </form>
         </div><!-- .work-info -->
+        {% endif %}
     </div><!-- .col2 -->
     
         

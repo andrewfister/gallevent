@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django_extra.login_required import LoginRequiredMixin
 
 from models import UserProfile
-from forms import UserProfileBioForm
+from forms import UserProfileBioForm, UserProfileBasicInfoForm
 
 logger = logging.getLogger("gallevent")
 
@@ -28,6 +28,8 @@ class ProfileView(LoginRequiredMixin, TemplateView):
         logger.info('form edit thing: {}'.format(form_edit))
         if form_edit == 'bio' or not (profile.fname and profile.lname and profile.city and profile.state and profile.bio and profile.twitter and profile.facebook and profile.website):
             profile_view_info['form_edit_bio'] = True
+        if form_edit == 'basic_info' or not (profile.gender and profile.interests and profile.relationship):
+            profile_view_info['form_edit_basic_info'] = True
         
         logger.info("profile_view_info: {}".format(profile_view_info))
         return self.render_to_response(profile_view_info)
@@ -36,8 +38,12 @@ class ProfileView(LoginRequiredMixin, TemplateView):
         profile = UserProfile.objects.get(user_id=request.user.id)
         logger.debug("posty: {}".format(request.POST))
         
-        if request.POST.get('form-type') == 'bio':
+        form_type = request.POST.get('form_type')
+        
+        if form_type == 'bio':
             profile_form = UserProfileBioForm(request.POST, instance=profile)
+        elif form_type == 'basic_info':
+            profile_form = UserProfileBasicInfoForm(request.POST, instance=profile)
         
         if profile_form.is_valid():
             profile_form.save()
