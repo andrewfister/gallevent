@@ -41,22 +41,22 @@
                 	<img src="/static/img/avatar-unipegi-150x150.png" />
                 </div>-->
                 <label>First Name</label>
-                <input class="fname" name="fname" value="{{ profile.fname }}"></input>
+                <input type="text" class="fname" name="fname" value="{{ profile.fname }}" />
                 <label>Last Name</label>
-                <input class="lname" name="lname" value="{{ profile.lname }}"></input>
+                <input type="text" class="lname" name="lname" value="{{ profile.lname }}" />
                 <label>Where You Spend Most of Your Time</label>
                 <label>City</label>
-                <input class="address" name="city" value="{{ profile.city }}"></input>
+                <input type="text" class="address" name="city" value="{{ profile.city }}" />
                 <label>State</label>
-                <input class="address" name="state" value="{{ profile.state }}"></input>
+                <input type="text" class="address" name="state" value="{{ profile.state }}" />
                 <label>Introduce Yourself</label>
                 <textarea name="bio">{{ profile.bio }}</textarea>
                 <label>Twitter</label>
-                <input class="twitter" name="twitter" value="{{ profile.twitter }}"></input>
+                <input type="text" class="twitter" name="twitter" value="{{ profile.twitter }}" />
                 <label>Facebook</label>
-                <input class="facebook" name="facebook" value="{{ profile.facebook }}"></input>
+                <input type="text" class="facebook" name="facebook" value="{{ profile.facebook }}" />
                 <label>Website</label>
-                <input class="website" name="website" value="{{ profile.website }}"></input>
+                <input type="text" class="website" name="website" value="{{ profile.website }}" />
     			<span class="btns">
                     <button class="btn-save save-bio" type="submit">Save</button>
                     <a href="{{ request.path }}" class="btn-cancel cancel-bio">Cancel</a>
@@ -175,9 +175,9 @@
             <form method="post">{% csrf_token %}
                 <input class="hidden" name="form_type" value="work"></input>
             	<label>Job Title</label>
-                <input />
+                <input type="text" />
                 <label>Company</label>
-                <input />
+                <input type="text" />
                 <span class="btns">
                     <button class="btn-save save-work" type="button">Save</button>
                     <a href="{{ request.path }}" class="btn-cancel cancel-work" type="button">Cancel</a>
