@@ -3,7 +3,7 @@
 ** Description: Styles for User Control Section Pages
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 04-27-2014
+** Updated: 06-08-2014
 ************************************** */
 
 html,
@@ -296,7 +296,9 @@ input#rsvp-close-time {
 
 
 /* = Specific to Your Profile */
-.profile #container {
+.profile #container,
+.profile #content {
+	width:100%;
 	background:transparent;
 	}
 

@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 02-09-2014
-** Updated: 05-11-2014
+** Updated: 06-08-2014
 ************************************** */
 
 html,
@@ -454,14 +454,13 @@ input[type='checkbox'] {
 	}
 
 #top-nav {
-	display:none;
 	float:right;
 	margin-top:0.5em;
 	}
 
 #top-nav .btn-join,
 #top-nav .btn-sign-in {
-	display:none;
+	
 	}
 
 #top-nav a {
@@ -712,7 +711,6 @@ input[type='checkbox'] {
 		background-size:contain;
 		}
 	
-	#header,
 	#top-search-container {
 		max-width:500px;	
 		}
