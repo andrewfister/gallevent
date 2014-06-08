@@ -35,6 +35,23 @@ class UserProfile(models.Model):
     class Meta:
         db_table = 'user_profile_profile'
     
+    
+    gender_map = ['', 'Female', 'Other', 'Male', "Don't Say"]
+    interests_map = ['', 'Friends', 'Dating', 'A Relationship', 'Networking']
+    relationship_map = ['', 'Single', 'In A Relationship', 'Engaged', 'Married', 'In A Domestic Partnership', 'In A Civil Union', "It's Complicated", 'In An Open Relationship', 'Divorced', 'Widowed', "Don't Say"]
+    
+    @property
+    def gender_text(self):
+        return self.gender_map[self.gender]
+    
+    @property
+    def interests_text(self):
+        return ','.join([self.interests_map[int(interest)] for interest in self.interests.split(',')])
+    
+    @property
+    def relationship_text(self):
+        return self.relationship_map[self.relationship]
+    
     def create_profile_for_user(self, user):
         self.user_id = user.id
         self.email = user.email

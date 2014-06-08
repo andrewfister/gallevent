@@ -69,9 +69,9 @@
         {% if not form_edit_basic_info %}
     	<div class="basic-info">
         	<h3>Basics</h3>
-            <p><b>Gender</b> <span>{{ profile.gender }}</span></p>
-            <p><b>Looking For</b> <span>{{ profile.interests }}</span></p>
-            <p><b>Relationship</b> <span>{{ profile.relationship }}</span></p>
+            <p><b>Gender</b> <span>{{ profile.gender_text }}</span></p>
+            <p><b>Looking For</b> <span>{{ profile.interests_text }}</span></p>
+            <p><b>Relationship</b> <span>{{ profile.relationship_text }}</span></p>
             <a href="{{ request.path }}?form_edit=basic_info" class="btn-edit" type="button">Edit</a>
         </div><!-- .basic-info -->
         {% else %}
