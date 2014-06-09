@@ -89,10 +89,10 @@
                     </select>
                 </span>
                 <label>Looking For</label>
-                <input type="checkbox" name="interests" value="1"> Friends</input><br />
-                <input type="checkbox" name="interests" value="2"> Dating</input><br />
-                <input type="checkbox" name="interests" value="3"> A Relationship</input><br />
-                <input type="checkbox" name="interests" value="4"> Networking</input>
+                <input type="checkbox" name="interests" value="1" {% if '1' in profile.interests %}checked="checked"{% endif %}> Friends</input><br />
+                <input type="checkbox" name="interests" value="2" {% if '2' in profile.interests %}checked="checked"{% endif %}> Dating</input><br />
+                <input type="checkbox" name="interests" value="3" {% if '3' in profile.interests %}checked="checked"{% endif %}> A Relationship</input><br />
+                <input type="checkbox" name="interests" value="4" {% if '4' in profile.interests %}checked="checked"{% endif %}> Networking</input>
                 <label>Relationship</label>
                 <span class="select relationship">
                     <select id="relationship" name="relationship">

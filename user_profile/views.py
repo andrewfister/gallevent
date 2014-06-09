@@ -50,7 +50,11 @@ class ProfileView(LoginRequiredMixin, TemplateView):
         if form_type == 'bio':
             profile_form = UserProfileBioForm(request.POST, instance=profile)
         elif form_type == 'basic_info':
-            profile_form = UserProfileBasicInfoForm(request.POST, instance=profile)
+            interests = ','.join(request.POST.getlist('interests'))
+            modified_post = copy(request.POST)
+            modified_post.__setitem__('interests', interests)
+            logger.info('modified_post: {}'.format(modified_post))
+            profile_form = UserProfileBasicInfoForm(modified_post, instance=profile)
         elif form_type == 'contact':
             profile_form = UserProfileContactForm(request.POST, instance=profile)
         elif form_type == 'education':
