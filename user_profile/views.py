@@ -66,15 +66,15 @@ class ProfileView(LoginRequiredMixin, TemplateView):
         return self.render_to_response(profile_view_info)
     
     def set_edit_forms(self, profile_view_info, profile, form_edit=None):
-        if form_edit == 'bio' or not (profile.fname and profile.lname and profile.city and profile.state and profile.bio and profile.twitter and profile.facebook and profile.website):
+        if form_edit == 'bio':
             profile_view_info['form_edit_bio'] = True
-        if form_edit == 'basic_info' or not (profile.gender and profile.interests and profile.relationship):
+        if form_edit == 'basic_info':
             profile_view_info['form_edit_basic_info'] = True
-        if form_edit == 'contact' or not (profile.email and profile.phone):
+        if form_edit == 'contact':
             profile_view_info['form_edit_contact'] = True
-        if form_edit == 'education' or not (profile.school and profile.study_field):
+        if form_edit == 'education':
             profile_view_info['form_edit_education'] = True
-        if form_edit == 'work' or not (profile.job_title and profile.company):
+        if form_edit == 'work':
             profile_view_info['form_edit_work'] = True
         
 
