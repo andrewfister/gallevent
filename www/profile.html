@@ -82,10 +82,10 @@
             	<label>Gender</label>
                 <span class="select gender">
                     <select id="gender" name="gender">
-                        <option value="1">Female</option>
-                        <option value="2">Other</option>
-                        <option value="3">Male</option>
-                        <option value="4">Don't Say</option>
+                        <option value="1" {% if profile.gender == 1 %}checked="checked"{% endif %}>Female</option>
+                        <option value="2" {% if profile.gender == 2 %}checked="checked"{% endif %}>Other</option>
+                        <option value="3" {% if profile.gender == 3 %}checked="checked"{% endif %}>Male</option>
+                        <option value="4" {% if profile.gender == 4 %}checked="checked"{% endif %}>Don't Say</option>
                     </select>
                 </span>
                 <label>Looking For</label>
@@ -111,17 +111,17 @@
                 </span>
                 <span class="btns">
                     <button class="btn-save save-basics" type="submit">Save</button>
-                    <a href="{{ request.path }}" class="btn-cancel cancel-basics" type="button">Cancel</a>
+                    <a href="{{ request.path }}" class="btn-cancel cancel-basics">Cancel</a>
                 </span>
             </form>
         </div><!-- .basic-info -->
         {% endif %}
-        {% if not edit_form_contact %}
+        {% if not form_edit_contact %}
         <div class="contact-info">
         	<h3>Contact</h3>
             <p><b>Email</b> <span>{{ profile.email }}</span></p>
             <p><b>Phone</b> <span>{{ profile.phone }}</span></p>
-            <a href="{{ request.path }}?form_edit=contact" class="btn-edit" type="button">Edit</a>
+            <a href="{{ request.path }}?form_edit=contact" class="btn-edit">Edit</a>
         </div><!-- .contact-info -->
         {% else %}
         <div class="contact-info-edit">
@@ -129,22 +129,22 @@
             <form method="post">{% csrf_token %}
                 <input class="hidden" name="form_type" value="contact"></input>
             	<label>Email</label>
-                <input />
+                <input type="text" name="email" />
                 <label>Phone</label>
-                <input />
+                <input type="text" name="phone" />
                 <span class="btns">
-                    <button class="btn-save save-contact" type="button">Save</button>
-                    <a href="{{ request.path }}" class="btn-cancel cancel-contact" type="button">Cancel</a>
+                    <button class="btn-save save-contact" type="submit">Save</button>
+                    <a href="{{ request.path }}" class="btn-cancel cancel-contact">Cancel</a>
                 </span>
             </form>
         </div><!-- .contact-info -->
         {% endif %}
-        {% if not edit_form_education %}
+        {% if not form_edit_education %}
         <div class="education-info">
         	<h3>Education</h3>
-            <p><b>School</b> <span>California Polytechnic State University</span></p>
-            <p><b>Field of Study</b> <span>Graphic Communication</span></p>
-            <a href="{{ request.path }}?form_edit=education" class="btn-edit edit-edu" type="button">Edit</a>
+            <p><b>School</b> <span>{{ profile.school }}</span></p>
+            <p><b>Field of Study</b> <span>{{ profile.study_field }}</span></p>
+            <a href="{{ request.path }}?form_edit=education" class="btn-edit edit-edu">Edit</a>
         </div><!-- .education-info -->
         {% else %}
         <div class="education-info-edit">
@@ -152,22 +152,22 @@
             <form method="post">{% csrf_token %}
                 <input class="hidden" name="form_type" value="education"></input>
             	<label>School</label>
-                <input />
+                <input type="text" name="school" value="{{ profile.school }}"/>
                 <label>Field of Study</label>
-                <input />
+                <input type="text" name="study_field" value="{{ profile.study_field }}"/>
                 <span class="btns">
-                    <button class="btn-save save-edu" type="button">Save</button>
-                    <a href="{{ request.path }}" class="btn-cancel cancel-edu" type="button">Cancel</a>
+                    <button class="btn-save save-edu" type="submit">Save</button>
+                    <a href="{{ request.path }}" class="btn-cancel cancel-edu">Cancel</a>
                 </span>
             </form>
         </div><!-- .education-info -->
         {% endif %}
-        {% if edit_form_work %}
+        {% if not form_edit_work %}
         <div class="work-info">
         	<h3>Work</h3>
-            <p><b>Job Title</b> <span>California Polytechnic State University</span></p>
-            <p><b>Company</b> <span>Graphic Communication</span></p>
-            <a href="{{ request.path }}?form_edit=work" class="btn-edit edit-work" type="button">Edit</a>
+            <p><b>Job Title</b> <span>{{ profile.job_title }}</span></p>
+            <p><b>Company</b> <span>{{ profile.company }}</span></p>
+            <a href="{{ request.path }}?form_edit=work" class="btn-edit edit-work">Edit</a>
         </div><!-- .work-info -->
         {% else %}
         <div class="work-info-edit">
@@ -175,12 +175,12 @@
             <form method="post">{% csrf_token %}
                 <input class="hidden" name="form_type" value="work"></input>
             	<label>Job Title</label>
-                <input type="text" />
+                <input type="text" name="job_title" value="{{ profile.job_title }}"/>
                 <label>Company</label>
-                <input type="text" />
+                <input type="text" name="company" value="{{ profile.company }}"/>
                 <span class="btns">
-                    <button class="btn-save save-work" type="button">Save</button>
-                    <a href="{{ request.path }}" class="btn-cancel cancel-work" type="button">Cancel</a>
+                    <button class="btn-save save-work" type="submit">Save</button>
+                    <a href="{{ request.path }}" class="btn-cancel cancel-work">Cancel</a>
                 </span>
             </form>
         </div><!-- .work-info -->

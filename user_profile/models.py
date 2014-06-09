@@ -1,5 +1,12 @@
 from django.db import models
 
+INTERESTS_CHOICES = (
+        (1, 'Friends'),
+        (2, 'Dating'),
+        (3, 'A Relationship'),
+        (4, 'Networking')
+    )
+
 # Create your models here.
 class UserProfile(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -10,7 +17,7 @@ class UserProfile(models.Model):
     short_bio = models.CharField(max_length=64L, blank=True)
     gender = models.IntegerField(null=True, blank=True)
     relationship = models.IntegerField(null=True, blank=True)
-    interests = models.CommaSeparatedIntegerField(max_length=32, null=True, blank=True)
+    interests = models.CommaSeparatedIntegerField(max_length=32, null=True, blank=True, default='')
     address = models.CharField(max_length=1000L, blank=True)
     street_number = models.CharField(max_length=64L, blank=True)
     street = models.CharField(max_length=255L, blank=True)
@@ -46,7 +53,10 @@ class UserProfile(models.Model):
     
     @property
     def interests_text(self):
-        return ','.join([self.interests_map[int(interest)] for interest in self.interests.split(',')])
+        try:
+            return ','.join([self.interests_map[int(interest)] for interest in self.interests.split(',')])
+        except ValueError:
+            return ''
     
     @property
     def relationship_text(self):

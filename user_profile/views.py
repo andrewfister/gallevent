@@ -1,4 +1,5 @@
 import logging
+from copy import copy
 
 from django.views.generic.base import TemplateView
 from django.shortcuts import render_to_response
@@ -7,7 +8,7 @@ from django.contrib.auth.models import User
 from django_extra.login_required import LoginRequiredMixin
 
 from models import UserProfile
-from forms import UserProfileBioForm, UserProfileBasicInfoForm
+from forms import UserProfileBioForm, UserProfileBasicInfoForm, UserProfileContactForm, UserProfileEducationForm, UserProfileWorkForm
 
 logger = logging.getLogger("gallevent")
 
@@ -30,6 +31,12 @@ class ProfileView(LoginRequiredMixin, TemplateView):
             profile_view_info['form_edit_bio'] = True
         if form_edit == 'basic_info' or not (profile.gender and profile.interests and profile.relationship):
             profile_view_info['form_edit_basic_info'] = True
+        if form_edit == 'contact' or not (profile.email and profile.phone):
+            profile_view_info['form_edit_contact'] = True
+        if form_edit == 'education' or not (profile.school and profile.study_field):
+            profile_view_info['form_edit_education'] = True
+        if form_edit == 'work' or not (profile.job_title and profile.company):
+            profile_view_info['form_edit_work'] = True
         
         logger.info("profile_view_info: {}".format(profile_view_info))
         return self.render_to_response(profile_view_info)
@@ -44,6 +51,12 @@ class ProfileView(LoginRequiredMixin, TemplateView):
             profile_form = UserProfileBioForm(request.POST, instance=profile)
         elif form_type == 'basic_info':
             profile_form = UserProfileBasicInfoForm(request.POST, instance=profile)
+        elif form_type == 'contact':
+            profile_form = UserProfileContactForm(request.POST, instance=profile)
+        elif form_type == 'education':
+            profile_form = UserProfileEducationForm(request.POST, instance=profile)
+        elif form_type == 'work':
+            profile_form = UserProfileWorkForm(request.POST, instance=profile)
         
         if profile_form.is_valid():
             profile_form.save()

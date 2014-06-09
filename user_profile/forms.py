@@ -1,6 +1,10 @@
+import logging
+
 from django import forms
 
 from models import UserProfile
+
+logger = logging.getLogger("gallevent")
 
 class UserProfileBioForm(forms.ModelForm):
     class Meta:
@@ -17,13 +21,16 @@ class UserProfileBasicInfoForm(forms.ModelForm):
 class UserProfileContactForm(forms.ModelForm):
     class Meta:
         model = UserProfile
+        fields = ['email', 'phone']
 
 
 class UserProfileEducationForm(forms.ModelForm):
     class Meta:
         model = UserProfile
+        fields = ['school', 'study_field']
 
 
 class UserProfileWorkForm(forms.ModelForm):
     class Meta:
         model = UserProfile
+        fields = ['job_title', 'company']
