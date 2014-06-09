@@ -23,7 +23,7 @@ class ProfileView(LoginRequiredMixin, TemplateView):
             profile.create_profile_for_user(request.user)
             logger.info("Created profile for user {} at {}".format(request.user.id, request.user.email))
         
-        logger.info("profile: {} {} {} {} {} {} {} {}".format(profile.fname, profile.lname, profile.city, profile.state, profile.bio, profile.twitter, profile.facebook, profile.website))
+        logger.info("profile: {} {} {} {} {} {} {} {} {} {}".format(profile.fname, profile.lname, profile.city, profile.state, profile.bio, profile.twitter, profile.facebook, profile.website, profile.email, profile.phone))
         profile_view_info = {'profile': profile}
         form_edit = request.GET.get("form_edit", "no_form")
         logger.info('form edit thing: {}'.format(form_edit))

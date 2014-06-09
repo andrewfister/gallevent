@@ -129,9 +129,9 @@
             <form method="post">{% csrf_token %}
                 <input class="hidden" name="form_type" value="contact"></input>
             	<label>Email</label>
-                <input type="text" name="email" />
+                <input type="text" name="email" value="{{ profile.email }}" />
                 <label>Phone</label>
-                <input type="text" name="phone" />
+                <input type="text" name="phone" value="{{ profile.phone }}" />
                 <span class="btns">
                     <button class="btn-save save-contact" type="submit">Save</button>
                     <a href="{{ request.path }}" class="btn-cancel cancel-contact">Cancel</a>
