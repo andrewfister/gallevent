@@ -27,16 +27,7 @@ class ProfileView(LoginRequiredMixin, TemplateView):
         profile_view_info = {'profile': profile}
         form_edit = request.GET.get("form_edit", "no_form")
         logger.info('form edit thing: {}'.format(form_edit))
-        if form_edit == 'bio' or not (profile.fname and profile.lname and profile.city and profile.state and profile.bio and profile.twitter and profile.facebook and profile.website):
-            profile_view_info['form_edit_bio'] = True
-        if form_edit == 'basic_info' or not (profile.gender and profile.interests and profile.relationship):
-            profile_view_info['form_edit_basic_info'] = True
-        if form_edit == 'contact' or not (profile.email and profile.phone):
-            profile_view_info['form_edit_contact'] = True
-        if form_edit == 'education' or not (profile.school and profile.study_field):
-            profile_view_info['form_edit_education'] = True
-        if form_edit == 'work' or not (profile.job_title and profile.company):
-            profile_view_info['form_edit_work'] = True
+        self.set_edit_forms(profile_view_info, profile, form_edit)
         
         logger.info("profile_view_info: {}".format(profile_view_info))
         return self.render_to_response(profile_view_info)
@@ -68,7 +59,24 @@ class ProfileView(LoginRequiredMixin, TemplateView):
         else:
             logger.info('UserProfile validation errors: {}'.format(profile_form.errors))
         
-        return self.render_to_response({'profile': profile})
+        profile_view_info = {'profile': profile}
+        
+        self.set_edit_forms(profile_view_info, profile)
+        
+        return self.render_to_response(profile_view_info)
+    
+    def set_edit_forms(self, profile_view_info, profile, form_edit=None):
+        if form_edit == 'bio' or not (profile.fname and profile.lname and profile.city and profile.state and profile.bio and profile.twitter and profile.facebook and profile.website):
+            profile_view_info['form_edit_bio'] = True
+        if form_edit == 'basic_info' or not (profile.gender and profile.interests and profile.relationship):
+            profile_view_info['form_edit_basic_info'] = True
+        if form_edit == 'contact' or not (profile.email and profile.phone):
+            profile_view_info['form_edit_contact'] = True
+        if form_edit == 'education' or not (profile.school and profile.study_field):
+            profile_view_info['form_edit_education'] = True
+        if form_edit == 'work' or not (profile.job_title and profile.company):
+            profile_view_info['form_edit_work'] = True
+        
 
 def show_profile(request):
     return render_to_response('profile.html', {
