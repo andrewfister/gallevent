@@ -82,10 +82,10 @@
             	<label>Gender</label>
                 <span class="select gender">
                     <select id="gender" name="gender">
-                        <option value="1" {% if profile.gender == 1 %}checked="checked"{% endif %}>Female</option>
-                        <option value="2" {% if profile.gender == 2 %}checked="checked"{% endif %}>Other</option>
-                        <option value="3" {% if profile.gender == 3 %}checked="checked"{% endif %}>Male</option>
-                        <option value="4" {% if profile.gender == 4 %}checked="checked"{% endif %}>Don't Say</option>
+                        <option value="1" {% if profile.gender == 1 %}selected="selected"{% endif %}>Female</option>
+                        <option value="2" {% if profile.gender == 2 %}selected="selected"{% endif %}>Other</option>
+                        <option value="3" {% if profile.gender == 3 %}selected="selected"{% endif %}>Male</option>
+                        <option value="4" {% if profile.gender == 4 %}selected="selected"{% endif %}>Don't Say</option>
                     </select>
                 </span>
                 <label>Looking For</label>
@@ -96,17 +96,17 @@
                 <label>Relationship</label>
                 <span class="select relationship">
                     <select id="relationship" name="relationship">
-                        <option value="1">Single</option>
-                        <option value="2">In a Relationship</option>
-                        <option value="3">Engaged</option>
-                        <option value="4">Married</option>
-                        <option value="5">In a Domestic Partnership</option>
-                        <option value="6">In a Civil Union</option>
-                        <option value="7">It's Complicated</option>
-                        <option value="8">In an Open Relationship</option>
-                        <option value="9">Divorced</option>
-                        <option value="10">Widowed</option>
-                        <option value="11">Don't Say</option>
+                        <option value="1" {% if profile.relationship == 1 %}selected="selected"{% endif %}>Single</option>
+                        <option value="2" {% if profile.relationship == 2 %}selected="selected"{% endif %}>In a Relationship</option>
+                        <option value="3" {% if profile.relationship == 3 %}selected="selected"{% endif %}>Engaged</option>
+                        <option value="4" {% if profile.relationship == 4 %}selected="selected"{% endif %}>Married</option>
+                        <option value="5" {% if profile.relationship == 5 %}selected="selected"{% endif %}>In a Domestic Partnership</option>
+                        <option value="6" {% if profile.relationship == 6 %}selected="selected"{% endif %}>In a Civil Union</option>
+                        <option value="7" {% if profile.relationship == 7 %}selected="selected"{% endif %}>It's Complicated</option>
+                        <option value="8" {% if profile.relationship == 8 %}selected="selected"{% endif %}>In an Open Relationship</option>
+                        <option value="9" {% if profile.relationship == 9 %}selected="selected"{% endif %}>Divorced</option>
+                        <option value="10" {% if profile.relationship == 10 %}selected="selected"{% endif %}>Widowed</option>
+                        <option value="11" {% if profile.relationship == 11 %}selected="selected"{% endif %}>Don't Say</option>
                     </select>
                 </span>
                 <span class="btns">
