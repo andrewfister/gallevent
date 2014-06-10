@@ -19,17 +19,17 @@
                 	<img src="/static/img/avatar-unipegi-150x150.png" />
                 </div>-->
                 <div class="summary">
-                	<div class="name">{{ profile.fname }} {{ profile.lname }}</div>
-                    <p class="address">{{ profile.city }}, {{ profile.state }}</p>
+                	<div class="name">{{ profile.name|default:'Your Name' }}</div>
+                    <p class="address">{{ profile.full_address|default:'Where you spend most of your time' }}</p>
                     <!--<p><b>500</b> Events Attended</p>
                     <p><b>20</b> Groups</p>-->
                 </div><!-- .col2 -->
             </div><!-- .card -->
-            <p>{{ profile.bio }}</p>
+            <p>{{ profile.bio|default:'Your bio' }}</p>
             <p class="profile-links">
-                <a href="#" class="twitter">{{ profile.twitter }}</a><br />
-                <a href="#" class="facebook">{{ profile.facebook }}</a><br />
-                <a href="#" class="website">{{ profile.website }}</a>
+                <a href="#" class="twitter">{{ profile.twitter|default:'Your Twitter' }}</a><br />
+                <a href="#" class="facebook">{{ profile.facebook|default:'Your Facebook' }}</a><br />
+                <a href="#" class="website">{{ profile.website|default:'Your Website' }}</a>
             </p>
     		<a href="{{ request.path }}?form_edit=bio" class="btn-edit" type="button">Edit</a>
     	</div><!-- .bio -->

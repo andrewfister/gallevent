@@ -62,6 +62,14 @@ class UserProfile(models.Model):
     def relationship_text(self):
         return self.relationship_map[self.relationship]
     
+    @property
+    def name(self):
+        return "{} {}".format(self.fname, self.lname) if self.fname and self.lname else ""
+    
+    @property
+    def full_address(self):
+        return "{}, {}".format(self.city, self.state) if self.city and self.state else ""
+    
     def create_profile_for_user(self, user):
         self.user_id = user.id
         self.email = user.email
