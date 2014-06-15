@@ -50,7 +50,7 @@ class SignOutView(View):
 class JoinView(FormView):
     template_name = "join.html"
     form_class = forms.JoinForm
-    success_url = '/profile/show'
+    success_url = '/profile'
 
     def form_valid(self, form):
         form.create_user()
