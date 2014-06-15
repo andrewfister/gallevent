@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 02-09-2014
-** Updated: 06-08-2014
+** Updated: 06-15-2014
 ************************************** */
 
 html,
@@ -197,8 +197,6 @@ select:focus {
 	border:1px solid #059FAC;
 	}
 
-
-
 label.radio-l {
 	position: relative;
 	top: 0.1em;
@@ -225,9 +223,6 @@ select {
 	-webkit-background-clip: padding;
   	-moz-background-clip: padding;
 	}
-
-
-
 
 .select {
 	background:#fff url(../../img/data/icon-arrow-down-blue-30x21.svg) right 15px center no-repeat;

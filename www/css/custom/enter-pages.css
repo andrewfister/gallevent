@@ -3,44 +3,34 @@
 ** Description: Styles for User Control Section Pages
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 03-23-2014
+** Updated: 06-15-2014
 ************************************** */
 
 html {
-	background:rgba(5, 159, 172, 1) url(../../img/bg-city-2000x1330.jpg) center center no-repeat fixed;
+	background:rgba(5, 159, 172, 1) url(../../img/bg-dolores-park-1200x798.jpg) center center no-repeat fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
 	}
 
-
 #top-nav .btn-join,
-	#top-nav .btn-sign-in  {
+#top-nav .btn-sign-in  {
 	margin-top:1em;
 	margin-right:2em;
 		color:#fff;
 	text-shadow: none;
 		}
 	
-
 body.join,
 body.sign-in {
 	background: -moz-linear-gradient(top,  rgba(1,159,172,1) 0%, rgba(5,159,172,0) 100%);
-
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(1,159,172,1)), color-stop(100%,rgba(5,159,172,0)));
-
-background: -webkit-linear-gradient(top,  rgba(1,159,172,1) 0%,rgba(5,159,172,0) 100%);
-
-background: -o-linear-gradient(top,  rgba(1,159,172,1) 0%,rgba(5,159,172,0) 100%);
-
-background: -ms-linear-gradient(top,  rgba(1,159,172,1) 0%,rgba(5,159,172,0) 100%);
-
-background: linear-gradient(to bottom,  rgba(1,159,172,1) 0%,rgba(5,159,172,0) 100%);
-
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#019fac', endColorstr='#00059fac',GradientType=0 );
-
-
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(1,159,172,1)), color-stop(100%,rgba(5,159,172,0)));
+	background: -webkit-linear-gradient(top,  rgba(1,159,172,1) 0%,rgba(5,159,172,0) 100%);
+	background: -o-linear-gradient(top,  rgba(1,159,172,1) 0%,rgba(5,159,172,0) 100%);
+	background: -ms-linear-gradient(top,  rgba(1,159,172,1) 0%,rgba(5,159,172,0) 100%);
+	background: linear-gradient(to bottom,  rgba(1,159,172,1) 0%,rgba(5,159,172,0) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#019fac', endColorstr='#00059fac',GradientType=0 );
 	}
 
 
@@ -53,6 +43,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#019fac', end
 			background:url(../../img/data/gallevent-logo-white-365x60.svg) 0 2px no-repeat;
 			background-size:contain;
 		}
+	
+#header a {
+	transition:all 0.5s ease;
+	}
+
+#header a:hover {
+	opacity: 0.5;
+	}
 
 
 
@@ -64,23 +62,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#019fac', end
 	margin-left:-400px;
 	width:800px;
 	border-radius:5px;
-	
-	
-background: -moz-linear-gradient(top,  rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.9) 40%, rgba(255,255,255,0.6) 100%);
-
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.92)), color-stop(40%,rgba(255,255,255,0.9)), color-stop(100%,rgba(255,255,255,0.6)));
-
-background: -webkit-linear-gradient(top,  rgba(255,255,255,0.92) 0%,rgba(255,255,255,0.9) 40%,rgba(255,255,255,0.6) 100%);
-
-background: -o-linear-gradient(top,  rgba(255,255,255,0.92) 0%,rgba(255,255,255,0.9) 40%,rgba(255,255,255,0.6) 100%);
-
-background: -ms-linear-gradient(top,  rgba(255,255,255,0.92) 0%,rgba(255,255,255,0.9) 40%,rgba(255,255,255,0.6) 100%);
-
-background: linear-gradient(to bottom,  rgba(255,255,255,0.92) 0%,rgba(255,255,255,0.9) 40%,rgba(255,255,255,0.6) 100%);
-
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebffffff', endColorstr='#99ffffff',GradientType=0 );
-
-
+	background: -moz-linear-gradient(top,  rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.9) 40%, rgba(255,255,255,0.6) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.92)), color-stop(40%,rgba(255,255,255,0.9)), color-stop(100%,rgba(255,255,255,0.6)));
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,0.92) 0%,rgba(255,255,255,0.9) 40%,rgba(255,255,255,0.6) 100%);
+	background: -o-linear-gradient(top,  rgba(255,255,255,0.92) 0%,rgba(255,255,255,0.9) 40%,rgba(255,255,255,0.6) 100%);
+	background: -ms-linear-gradient(top,  rgba(255,255,255,0.92) 0%,rgba(255,255,255,0.9) 40%,rgba(255,255,255,0.6) 100%);
+	background: linear-gradient(to bottom,  rgba(255,255,255,0.92) 0%,rgba(255,255,255,0.9) 40%,rgba(255,255,255,0.6) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebffffff', endColorstr='#99ffffff',GradientType=0 );
 	}
 
 #content h2 {
@@ -115,3 +103,5 @@ input[type="text"],
 input[type="password"] {
 	max-width:300px;
 	}
+
+
