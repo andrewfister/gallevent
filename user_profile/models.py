@@ -64,7 +64,14 @@ class UserProfile(models.Model):
     
     @property
     def name(self):
-        return "{} {}".format(self.fname, self.lname) if self.fname and self.lname else ""
+        if self.fname and self.lname:
+            return "{} {}".format(self.fname, self.lname)
+        elif self.fname:
+            return self.fname
+        elif self.lname:
+            return self.lname
+        else:
+            return ""
     
     @property
     def full_address(self):
