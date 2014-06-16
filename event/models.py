@@ -50,7 +50,7 @@ class Event(models.Model):
     ticket_type = models.CharField(max_length=32, blank=True, null=False)
     ticket_price = models.DecimalField(decimal_places=2, max_digits=10, blank=True, null=False)
     ticket_url = models.URLField(blank=True, null=False)
-    user_id = models.IntegerField()
+    user_id = models.IntegerField(null=True)
     longitude = models.FloatField()
     latitude = models.FloatField()
     status = models.IntegerField(default=1)
@@ -60,7 +60,10 @@ class Event(models.Model):
     def get_location(self):
         from django.contrib.gis.geos import Point
         return Point(self.longitude, self.latitude)
-
+    
+    def __repr__(self):
+        return 'Event: {} by {} from {} to {}'.format(self.name, self.user_id, self.start_date, self.end_date)
+        
 
 class GuestType(models.Model):
     guest_type_name = models.CharField(max_length=64)

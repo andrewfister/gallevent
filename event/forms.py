@@ -64,7 +64,7 @@ class EventSearchForm(SearchForm):
     #EventBrite
     #Meetup
     def search(self, max_events=settings.MAX_EVENTS):
-        print('Searching database')
+        logger.info('Searching database')
         sqs = super(EventSearchForm, self).search()
 
         if not self.is_valid():
@@ -72,17 +72,18 @@ class EventSearchForm(SearchForm):
 
         center = Point(self.cleaned_data['longitude'], self.cleaned_data['latitude'])
         radius = D(mi=self.cleaned_data['distance'])
-        print('Center: {} and Radius: {}'.format(center, radius))
+        logger.info('Center: {} and Radius: {}'.format(center, radius))
         sqs = sqs.dwithin('location', center, radius)
 
-        print('Start: {}, End: {}'.format(self.cleaned_data['start_date'], self.cleaned_data['end_date']))
+        logger.info('Start: {}, End: {}'.format(self.cleaned_data['start_date'], self.cleaned_data['end_date']))
         sqs = sqs.filter(end_date__gte=self.cleaned_data['start_date'])
         sqs = sqs.filter(start_date__lte=self.cleaned_data['end_date'])
+        sqs = sqs.order_by('-user_id')
         sqs = sqs.load_all()
 
         # Get a list of Event objects so we can append these results with other sources
         events = [result.object for result in sqs]
-        print("Got {} events".format(len(events)))
+        logger.info("Got {} events".format(len(events)))
         return events
 
 
@@ -102,7 +103,7 @@ class EventBriteSearchForm(EventSearchForm):
     default_query = "party%20OR%20drinks%20OR%20dancing%20OR%20performance%20OR%20show%20OR%20concert%20OR%20meetup%20OR%20group%20OR%20event"
 
     def search(self, max_events=settings.MAX_EVENTS):
-        print("Searching EventBrite")
+        logger.info("Searching EventBrite")
         if not self.cleaned_data['q'] == 'default':
             query = self.cleaned_data['q']
         else:
@@ -135,7 +136,7 @@ class EventBriteSearchForm(EventSearchForm):
         except EnvironmentError:
             events = []
 
-        print("Got {} events".format(len(events)))
+        logger.info("Got {} events".format(len(events)))
         return events
 
     def searchEventBrite(self, eb_client_query, max_events):
@@ -283,7 +284,7 @@ class MeetupSearchForm(EventSearchForm):
     default_query = "party OR drinks OR dancing OR performance OR show OR concert OR meetup OR group OR event"
 
     def search(self, max_events=settings.MAX_EVENTS):
-        print("Trying Meetup search")
+        logger.info("Trying Meetup search")
         if not self.cleaned_data['q'] == 'default':
             query = self.cleaned_data['q']
         else:
@@ -320,7 +321,7 @@ class MeetupSearchForm(EventSearchForm):
         except EnvironmentError:
             events = []
 
-        print("Got {} events".format(len(events)))
+        logger.info("Got {} events".format(len(events)))
         return events
 
     def searchMeetup(self, meetup_client_query, max_events):
@@ -422,7 +423,7 @@ class MeetupSearchForm(EventSearchForm):
         try:
             return self.meetup_category_map[category]
         except KeyError:
-            print('Category: {}'.format(category))
+            logger.info('Category: {}'.format(category))
             return 'networking'
 
 

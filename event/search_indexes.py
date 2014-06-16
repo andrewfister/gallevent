@@ -11,6 +11,7 @@ class EventIndex(indexes.SearchIndex, indexes.Indexable):
     start_date = indexes.DateField(model_attr='start_date')
     end_date = indexes.DateField(model_attr='end_date')
     location = indexes.LocationField(model_attr='get_location')
+    user_id = indexes.IntegerField(model_attr='user_id', null=True)
 
     def get_model(self):
         return Event
