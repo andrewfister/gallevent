@@ -12,17 +12,17 @@
                 	<img src="/static/img/avatar-unipegi-150x150.png" />
                 </div>-->
                 <div class="summary">
-                	<div class="name">{{ profile.name|default:'Your Name' }}</div>
-                    <p class="address">{{ profile.full_address|default:'Where you spend most of your time' }}</p>
+                	<div class="name">{{ profile.name|default:'+ Add your name' }}</div>
+                    <p class="address">{{ profile.full_address|default:'+ Add your city' }}</p>
                     <!--<p><b>500</b> Events Attended</p>
                     <p><b>20</b> Groups</p>-->
                 </div><!-- .col2 -->
             </div><!-- .card -->
-            <p>{{ profile.bio|default:'Your bio' }}</p>
+            <p>{{ profile.bio|default:'+ Add your bio' }}</p>
             <p class="profile-links">
-                <a href="#" class="twitter">{{ profile.twitter|default:'Your Twitter' }}</a><br />
-                <a href="#" class="facebook">{{ profile.facebook|default:'Your Facebook' }}</a><br />
-                <a href="#" class="website">{{ profile.website|default:'Your Website' }}</a>
+                <a href="#" class="twitter">{{ profile.twitter|default:'+ Add your Twitter' }}</a><br />
+                <a href="#" class="facebook">{{ profile.facebook|default:'+ Add your Facebook' }}</a><br />
+                <a href="#" class="website">{{ profile.website|default:'+ Add your website' }}</a>
             </p>
     		<a href="{{ request.path }}?form_edit=bio" class="btn-edit" type="button">Edit</a>
     	</div><!-- .bio -->
@@ -37,7 +37,6 @@
                 <input type="text" class="fname" name="fname" value="{{ profile.fname }}" />
                 <label>Last Name</label>
                 <input type="text" class="lname" name="lname" value="{{ profile.lname }}" />
-                <label>Where You Spend Most of Your Time</label>
                 <label>City</label>
                 <input type="text" class="address" name="city" value="{{ profile.city }}" />
                 <label>State</label>
