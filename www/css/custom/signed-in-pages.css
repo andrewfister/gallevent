@@ -178,7 +178,8 @@ input#rsvp-close-time {
 	height:80px;
 	}
 
-.summary {
+.bio {
+	float:left;
 }
 
 .summary p {

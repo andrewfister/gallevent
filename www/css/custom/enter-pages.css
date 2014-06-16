@@ -14,6 +14,17 @@ html {
 	background-size: cover;
 	}
 
+h2 {
+	padding-top:0.3em;
+	font-size:200%;
+	line-height:1.2em;
+	color:#85C440;
+	}
+
+.right p {
+	color:#059FAC;
+	}
+
 #top-nav .btn-join,
 #top-nav .btn-sign-in  {
 	margin-top:1em;
@@ -57,23 +68,13 @@ body.sign-in {
 #content {
 	position:relative;
 	float:left;
-	top:8em;
-	left:50%;
+	top: 50%;
+	left: 50%;
+	margin-top: -12.5em;
 	margin-left:-400px;
 	width:800px;
 	border-radius:5px;
-	background: -moz-linear-gradient(top,  rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.9) 40%, rgba(255,255,255,0.6) 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.92)), color-stop(40%,rgba(255,255,255,0.9)), color-stop(100%,rgba(255,255,255,0.6)));
-	background: -webkit-linear-gradient(top,  rgba(255,255,255,0.92) 0%,rgba(255,255,255,0.9) 40%,rgba(255,255,255,0.6) 100%);
-	background: -o-linear-gradient(top,  rgba(255,255,255,0.92) 0%,rgba(255,255,255,0.9) 40%,rgba(255,255,255,0.6) 100%);
-	background: -ms-linear-gradient(top,  rgba(255,255,255,0.92) 0%,rgba(255,255,255,0.9) 40%,rgba(255,255,255,0.6) 100%);
-	background: linear-gradient(to bottom,  rgba(255,255,255,0.92) 0%,rgba(255,255,255,0.9) 40%,rgba(255,255,255,0.6) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebffffff', endColorstr='#99ffffff',GradientType=0 );
-	}
-
-#content h2 {
-	padding-top:0.8em;
-	font-size:170%;
+	background:rgba(255, 255, 255, 0.9);
 	}
 
 #content p {
