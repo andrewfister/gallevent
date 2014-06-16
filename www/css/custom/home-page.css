@@ -3,7 +3,7 @@
 ** Description: Styles Specific to Home Page
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 10-13-2013
-** Updated: 05-11-2014
+** Updated: 06-15-2014
 ************************************** */
 
 
@@ -12,25 +12,41 @@
 #header {
 	background:none;
 	}
-#header .logo-block {
+.logo-block {
 	z-index:800;
 	}
 
-#header .btn-join,
-#header .btn-sign-in {
+.btn-join,
+.btn-sign-in {
+	display:block;
+	margin:0;
+	padding:0.8em 1.2em;
 	font-weight:bold;
+	color:#fff !important;
+	transition:all 0.5s ease;
+	box-sizing:border-box;
+	border:2px solid rgba(255, 255, 255, 0);
 	}
 
-#header .btn-join:hover,
-#header .btn-sign-in:hover {
-	color:#059fac;
+.btn-join {
+	background:rgba(133, 196, 64, 1);
+	}
+.btn-sign-in {
+	background:rgba(5, 159, 172, 1);
 	}
 
-#top-nav a {
-	margin-top:1em;
-	
+.btn-join:hover,
+.btn-sign-in:hover {
+	color:#fff;
+	border:2px solid #fff;
 	}
 
+.btn-join:hover {
+	background:rgba(133, 196, 64, 0.7);
+	}
+.btn-sign-in:hover {
+	background:rgba(5, 159, 172, 0.7);
+	}
 
 @media (min-width: 800px) {
 	.gmnoprint {
@@ -43,6 +59,5 @@
 		background: rgba(5, 159, 172, 0.9);
 		border-radius: 5px 0 0 5px;
 		}
-	
 }
 

@@ -177,7 +177,9 @@ input[type="submit"],
 textarea,
 .select,
 select,
-button {
+button,
+.btn-join,
+.btn-sign-in {
 	border-radius:5px;
 	}
 
@@ -187,7 +189,6 @@ input[type="password"],
 textarea {
 	padding:0.8em;
 	border:1px solid #BCBCBC;
-	/*border:1px solid rgba(5, 159, 172, 1);*/
 	}
 
 input[type="text"]:focus,
@@ -460,8 +461,7 @@ input[type='checkbox'] {
 
 #top-nav a {
 	float:right;
-	
-	margin-right:1.5em;
+	margin-right:1em;
 	/*
 	float:right;
 	margin-right:0.5em;
@@ -716,11 +716,7 @@ input[type='checkbox'] {
 		display:block;
 		font-size:85%;
 		color:#454949;
-		text-shadow:
-		-1px -1px 0 #fff,  
-		1px -1px 0 #fff,
-		-1px 1px 0 #fff,
-		1px 1px 0 #fff;
+		
 		}
 	
 	#btn-menu {
