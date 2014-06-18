@@ -3,7 +3,7 @@
 ** Description: Styles for User Control Section Pages
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 06-08-2014
+** Updated: 06-17-2014
 ************************************** */
 
 html,
@@ -263,6 +263,13 @@ input#rsvp-close-time {
 	border-radius:5px 5px 0 0;
 	padding-bottom:1.3em;
 	transition: all 0.2s ease;
+	}
+
+.btn1,
+.l1,
+.l2,
+.l3 {
+	display:none; /* jess */
 	}
 
 .post-event h1 {
