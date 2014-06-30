@@ -510,7 +510,7 @@ input[type='checkbox'] {
 	position:relative;
 	float:left;
 	width:100%;
-	
+	box-shadow:none;
 	}
 
 #top-search #event-keywords {
@@ -556,7 +556,6 @@ input[type='checkbox'] {
 #top-search .filters-icon,
 #top-search .close {
 	position:relative;
-	top:1.1em;
 	z-index:615;
 	width:37px;
 	height:45px;
@@ -565,12 +564,12 @@ input[type='checkbox'] {
 
 #top-search .filters-icon {
 	display:block;
-	background:url(../../img/data/icon-filters-gray-37x9.svg) 0 0 no-repeat;
+	background:url(../../img/data/icon-filters-gray-37x9.svg) 0 1.1em no-repeat;
 	}
 
 #top-search .close {
 	float: right;
-	background:url(../../img/data/icon-filters-teal-37x9.svg) 0 0 no-repeat;
+	background:url(../../img/data/icon-filters-teal-37x9.svg) 0 1.1em no-repeat;
 	}
 
 /*
