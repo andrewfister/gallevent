@@ -930,3 +930,9 @@ a.key {
 .jobs.disabled {
 	background-image:url(../../img/data/pin-jobs-g.svg);
 	}
+
+@media (max-height: 420px) {
+	#pin-key {
+		display:none;	
+		}
+	}
