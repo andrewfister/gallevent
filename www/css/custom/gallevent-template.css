@@ -181,6 +181,10 @@ button,
 .btn-join,
 .btn-sign-in {
 	border-radius:5px;
+	-moz-box-shadow:    none !important;
+  	-webkit-box-shadow: none !important;
+ 	box-shadow:         none !important;
+	-webkit-appearance: none;
 	}
 
 select,
@@ -615,9 +619,6 @@ input[type='checkbox'] {
 #top-search .select {
 	display: inline-block;
 	float:left;
-	-moz-box-shadow:    none;
-  	-webkit-box-shadow: none;
- 	box-shadow:         none;
 	}
 
 #top-search #location-search-input {
