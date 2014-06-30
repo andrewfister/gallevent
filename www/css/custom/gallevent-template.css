@@ -525,11 +525,10 @@ input[type='checkbox'] {
 	float:right;
 	margin-top:-0.5em;
 	padding:1em 1em 0 1em;
-	/*padding:1.2em 1em 0 1em;*/
 	color:#fff;
 	background:rgba(5, 159, 172, 0.9);
 	border-radius:5px;
-	z-index:605;
+	
 	transition: all 1s ease;
 	-webkit-transition: all 1s ease;
 	max-width:20%;
@@ -557,6 +556,8 @@ input[type='checkbox'] {
 	}
 
 #top-search .filters-icon svg {
+	position:relative;
+	z-index:615;
 	width:32px;
 	padding: 1.2em 1em 0.9em 1em;
 	margin: -1.2em -1em -0.9em -1em;
