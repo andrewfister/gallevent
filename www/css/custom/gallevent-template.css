@@ -510,7 +510,6 @@ input[type='checkbox'] {
 	position:relative;
 	float:left;
 	width:100%;
-	box-shadow:none;
 	}
 
 #top-search #event-keywords {
@@ -519,6 +518,7 @@ input[type='checkbox'] {
 	width:100%;
 	text-indent:60px;
 	z-index:610;
+	box-shadow:none;
 	}
 
 #top-search fieldset.filters {
