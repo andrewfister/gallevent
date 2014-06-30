@@ -522,7 +522,10 @@ input[type='checkbox'] {
 	-moz-box-shadow:    none !important;
   	-webkit-box-shadow: none !important;
  	box-shadow:         none !important;
+	-webkit-appearance: none;
 	}
+:-webkit-autofill { color: #fff !important; }
+	
 
 #top-search fieldset.filters {
 	position:relative;
