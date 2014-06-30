@@ -614,7 +614,9 @@ input[type='checkbox'] {
 #top-search .select {
 	display: inline-block;
 	float:left;
-	box-shadow:none;
+	-moz-box-shadow:    none;
+  	-webkit-box-shadow: none;
+ 	box-shadow:         none;
 	}
 
 #top-search #location-search-input {
