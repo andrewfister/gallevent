@@ -519,9 +519,9 @@ input[type='checkbox'] {
 	width:100%;
 	text-indent:60px;
 	z-index:610;
-	-moz-box-shadow:    none;
-  	-webkit-box-shadow: none;
- 	box-shadow:         none;
+	-moz-box-shadow:    none !important;
+  	-webkit-box-shadow: none !important;
+ 	box-shadow:         none !important;
 	}
 
 #top-search fieldset.filters {
