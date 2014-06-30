@@ -532,7 +532,8 @@ input[type='checkbox'] {
 #top-search fieldset.filters {
 	position:relative;
 	float:right;
-	margin-top:-2.8em;
+	margin-top:-2.5em;
+	/*margin-top:-2.8em;*/
 	padding:0 1em 0 1em;
 	color:#fff;
 	border-radius:5px;
@@ -572,12 +573,12 @@ input[type='checkbox'] {
 
 #top-search .filters-icon {
 	display:block;
-	background:url(../../img/data/icon-filters-gray-37x9.svg) 0 1.1em no-repeat;
+	background:url(../../img/data/icon-filters-gray-37x9.svg) 0 0.8em no-repeat;
 	}
 
 #top-search .close {
 	float: right;
-	background:url(../../img/data/icon-filters-teal-37x9.svg) 0 1.1em no-repeat;
+	background:url(../../img/data/icon-filters-teal-37x9.svg) 0 0.8em no-repeat;
 	}
 
 /*
