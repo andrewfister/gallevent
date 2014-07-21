@@ -265,13 +265,6 @@ input#rsvp-close-time {
 	transition: all 0.2s ease;
 	}
 
-.btn1,
-.l1,
-.l2,
-.l3 {
-	display:none; /* jess */
-	}
-
 .post-event h1 {
 	color:#f89c1c;
 	}

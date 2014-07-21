@@ -57,7 +57,7 @@ class PostEventView(LoginRequiredMixin, FormView):
     success_url = '/'
 
     def form_valid(self, form):
-        print("Post event form GOOD!")
+        logger.debug("Post event form GOOD!")
         form.save()
 
         return super(PostEventView, self).form_valid(form)
