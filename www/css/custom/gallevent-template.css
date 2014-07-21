@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 02-09-2014
-** Updated: 06-15-2014
+** Updated: 07-13-2014
 ************************************** */
 
 html,
@@ -181,6 +181,10 @@ button,
 .btn-join,
 .btn-sign-in {
 	border-radius:5px;
+	-moz-box-shadow:    none !important;
+  	-webkit-box-shadow: none !important;
+ 	box-shadow:         none !important;
+	-webkit-appearance: none;
 	}
 
 select,
@@ -407,7 +411,7 @@ input[type='checkbox'] {
 #header .logo-block {
 	position:absolute;
 	float:left;
-	top:1em;
+	top:1.1em;
 	left:1em;
 	}
 
@@ -502,6 +506,7 @@ input[type='checkbox'] {
 #top-search-container {
 	float:left;
 	width:100%;
+	max-width:500px;
 	padding:0.5em;
 	box-sizing:border-box;
 	}
@@ -510,7 +515,6 @@ input[type='checkbox'] {
 	position:relative;
 	float:left;
 	width:100%;
-	
 	}
 
 #top-search #event-keywords {
@@ -519,12 +523,17 @@ input[type='checkbox'] {
 	width:100%;
 	text-indent:60px;
 	z-index:610;
+	-moz-box-shadow:    none !important;
+  	-webkit-box-shadow: none !important;
+ 	box-shadow:         none !important;
+	-webkit-appearance: none;
 	}
 
 #top-search fieldset.filters {
 	position:relative;
 	float:right;
-	margin-top:-2.8em;
+	margin-top:-2.5em;
+	/*margin-top:-2.8em;*/
 	padding:0 1em 0 1em;
 	color:#fff;
 	border-radius:5px;
@@ -556,7 +565,6 @@ input[type='checkbox'] {
 #top-search .filters-icon,
 #top-search .close {
 	position:relative;
-	top:1.1em;
 	z-index:615;
 	width:37px;
 	height:45px;
@@ -565,12 +573,12 @@ input[type='checkbox'] {
 
 #top-search .filters-icon {
 	display:block;
-	background:url(../../img/data/icon-filters-gray-37x9.svg) 0 0 no-repeat;
+	background:url(../../img/data/icon-filters-gray-37x9.svg) 0 0.8em no-repeat;
 	}
 
 #top-search .close {
 	float: right;
-	background:url(../../img/data/icon-filters-teal-37x9.svg) 0 0 no-repeat;
+	background:url(../../img/data/icon-filters-teal-37x9.svg) 0 0.8em no-repeat;
 	}
 
 /*
@@ -704,7 +712,7 @@ input[type='checkbox'] {
 @media (min-width: 1000px) {
 	
 	#header .logo-block {
-		top:0.5em;
+		top:0.6em;
 		padding:0.5em 0.5em 0.6em 0.5em;
 		}
 
@@ -715,7 +723,7 @@ input[type='checkbox'] {
 		}
 	
 	#top-search-container {
-		max-width:500px;	
+		
 		}
 	
 	
@@ -786,13 +794,13 @@ input[type='checkbox'] {
 	float:left;
 	width:100%;
 	background:#fff;
-	background: -moz-linear-gradient(top, rgba(255,255,255,0.9) 0%, rgba(255,255,255,1) 100%);
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.9)), color-stop(100%,rgba(255,255,255,1)));
-background: -webkit-linear-gradient(top, rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 100%);
-background: -o-linear-gradient(top, rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 100%);
-background: -ms-linear-gradient(top, rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 100%);
-background: linear-gradient(to bottom, rgba(255,255,255,0.9) 0%,rgba(255,255,255,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6ffffff', endColorstr='#ffffff',GradientType=0 );
+	background: -moz-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(255,255,255,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.8)), color-stop(100%,rgba(255,255,255,1)));
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 100%);
+	background: -o-linear-gradient(top, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 100%);
+	background: -ms-linear-gradient(top, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 100%);
+	background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6ffffff', endColorstr='#ffffff',GradientType=0 );
 	}
 
 #pin-key a {
@@ -929,4 +937,10 @@ a.key {
 	}
 .jobs.disabled {
 	background-image:url(../../img/data/pin-jobs-g.svg);
+	}
+
+@media (max-height: 420px) {
+	#pin-key {
+		display:none;	
+		}
 	}
