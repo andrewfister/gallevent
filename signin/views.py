@@ -11,6 +11,8 @@ from django.views.generic.edit import FormView
 from signin import forms, models
 
 
+logger = logging.getLogger('gallevent')
+
 class SignInView(FormView):
     template_name = 'sign-in.html'
     form_class = forms.SignInForm
