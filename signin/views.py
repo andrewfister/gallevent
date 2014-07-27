@@ -22,18 +22,18 @@ class SignInView(FormView):
         logging.debug('email: ' + query_email)
         logging.debug('password: ' + query_password)
         user = authenticate(username=query_email, password=query_password)
-        print(user.username)
 
         if user is not None:
+            logger.info('Found user: {}'.format(user.username))
             if user.is_active:
-                print('logging in')
+                logger.info('logging in')
                 login(self.request, user)
             else:
                 logging.debug('disabled account')
-                print 'disabled account'
+                logger.info('disabled account')
         else:
             logging.debug('invalid login')
-            print 'invalid login'
+            logger.info('invalid login')
         
         return super(SignInView, self).form_valid(form)
 

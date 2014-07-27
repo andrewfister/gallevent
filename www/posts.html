@@ -35,11 +35,10 @@ var eventJSON = {};
     
     <a class="btn1" href="{% url 'post_event' %}">Create New Post</a>
     <div class="col1">
-    	<div class="row no-activity">
-        	<h2>You have no posts!</h2>
-                <h3>Create a post for your event, sale, or job today!</h3>
-                <a class="btn1" href="{% url 'post_event' %}">Create New Post</a>
-    	</div><!-- .row .no-activity -->
+
+    	
+
+        {% if posts|length > 0 %}
         {% for post in posts %}
         	<div class="row">
             	<div class="card">
@@ -56,6 +55,12 @@ var eventJSON = {};
                 <a class="btn-edit"></a>
         	</div><!-- .row -->
         {% endfor %}
+        {% else %}
+        	<div class="no-activity">
+                <h2>You have no posts!</h2>
+                    <h3>Create a post for your event, sale, or job today!</h3>
+    		</div><!-- .row .no-activity -->
+        {% endif %}
     </div><!-- .col1 -->
 {% endblock active_tab_content %}
 {% block right_side_content %}

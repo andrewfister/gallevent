@@ -56,6 +56,7 @@ class Event(models.Model):
     status = models.IntegerField(default=1)
     source_event_id = models.CharField(max_length=64, default='1')
     source_id = models.IntegerField(default=1)
+    event_type = models.IntegerField(default=1)
     
     def get_location(self):
         from django.contrib.gis.geos import Point

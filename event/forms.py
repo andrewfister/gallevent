@@ -487,7 +487,7 @@ class PostEventForm(forms.ModelForm):
     short_description = forms.CharField(max_length=140,required=False, initial="")
     source_event_id = forms.CharField(required=False, initial="1")
     source_id = forms.IntegerField(required=False, initial=1)
-
+    event_type = forms.IntegerField(required=True, initial=1)
 
     def clean_purchase_tickets(self):
         return self.cleaned_data['purchase_tickets'] == "yes"

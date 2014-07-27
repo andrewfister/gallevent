@@ -135,10 +135,9 @@ input#rsvp-close-time {
 #top-nav a.tab {
 	margin-top:0em;
 	margin-right:0.5em;
-	border-radius:5px;
 	padding:0.7em 1em 0.7em 1em;
 	letter-spacing:0.01em;
-	color:#fff;
+	color:#868789;
 	}
 
 
@@ -159,6 +158,27 @@ input#rsvp-close-time {
 	width:100%;
 	border-top:1px solid #CCC;
 	}
+
+.no-activity {
+	float:left;
+	padding:1em 0 3em 0;
+	width:100%;
+	text-align:center;
+	background:#F9F9F9;
+	border:2px solid #EAEAEA;
+	color:#059fac;
+	}
+
+.no-activity h2,
+.no-activity h3 {
+	color:#868789;
+	}
+	
+	
+	
+	
+
+
 
 .card {
 	float:left;
@@ -230,24 +250,20 @@ input#rsvp-close-time {
 	}
 
 .signed-in .btn1 {
-	background:#f89c1c;
-	border-radius:5px;
 	padding:0.7em 1em 0.7em 1em;
 	letter-spacing:0.01em;
-	color:#fff;
 	}
-.signed-in #header .l1 {
-	background:#f15a5a;
+.signed-in #header .l1:hover {
+	color:#f15a5a;
 	}
-.signed-in #header .l2 {
-	background:#f0c419;
+.signed-in #header .l2:hover {
+	color:#f0c419;
 	}
-.signed-in #header .l3 {
-	background:#4eba6f;
+.signed-in #header .l3:hover {
+	color:#4eba6f;
 	}
-.signed-in #header .l4 {
-	margin-right:1.5em;
-	background:#2d95bf;
+.signed-in #header .l4:hover {
+	color:#2d95bf;
 	}
 
 .post-event #header .btn1,
@@ -291,6 +307,13 @@ input#rsvp-close-time {
 	color:#2d95bf;
 	}
 
+.profile #container,
+.profile #content,
+.posts #container {
+	width:100%;
+	background:transparent;
+	}
+
 
 /* = Specific to Your Posts */
 .posts #container .btn1 {
@@ -306,11 +329,7 @@ input#rsvp-close-time {
 
 
 /* = Specific to Your Profile */
-.profile #container,
-.profile #content {
-	width:100%;
-	background:transparent;
-	}
+
 
 .profile .col1,
 .profile .col2 {
