@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from django_extra.login_required import LoginRequiredMixin
 
 from models import UserProfile
+from event.models import Event
 from forms import UserProfileBioForm, UserProfileBasicInfoForm, UserProfileContactForm, UserProfileEducationForm, UserProfileWorkForm
 
 logger = logging.getLogger("gallevent")
@@ -77,6 +78,15 @@ class ProfileView(LoginRequiredMixin, TemplateView):
         if form_edit == 'work':
             profile_view_info['form_edit_work'] = True
         
+
+class PostsView(LoginRequiredMixin, TemplateView):
+    template_name = "posts.html"
+    
+    def get(self, request):
+        posts = Event.objects.filter(user_id=request.user.id)
+        
+        return self.render_to_response({'posts': posts})
+
 
 def show_profile(request):
     return render_to_response('profile.html', {

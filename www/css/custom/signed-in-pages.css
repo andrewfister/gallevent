@@ -3,7 +3,7 @@
 ** Description: Styles for User Control Section Pages
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 07-20-2014
+** Updated: 07-27-2014
 ************************************** */
 
 html,
@@ -142,8 +142,8 @@ input#rsvp-close-time {
 	}
 
 
-.post-event #content {
-	float: left;
+.post-event #content,
+.posts #content {
 	width: 50%;
 	background: #fff;
 	}
@@ -195,7 +195,7 @@ input#rsvp-close-time {
 	}
 
 .datebook #container,
-.posts #container,
+/* .posts #container, JESS */
 .groups #container {
 	width:50%;
 	padding-right:1.8em;
@@ -265,12 +265,14 @@ input#rsvp-close-time {
 	transition: all 0.2s ease;
 	}
 
+
 .btn1,
 .l1,
 .l2,
 .l3 {
 	 /* jess */
 	}
+
 
 .post-event h1 {
 	color:#f89c1c;
