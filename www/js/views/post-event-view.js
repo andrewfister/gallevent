@@ -86,13 +86,22 @@ var PostEventView = Backbone.View.extend({
         }.bind(this));
         */
 
-       addressParse =  this.addressParse;
+        addressParse =  this.addressParse;
 
-        $( "#address" ).blur(function() {
+        $("#address").blur(function() {
             var addressComponents= {  };
             addressParse( this.value,  addressComponents ) ;           
 
         });
+        
+        $("#post-type").change(function (evtObj) {
+            if (evtObj.currentTarget.value == "pt-event") {
+                $("#event-category-container").removeClass('hidden');
+            }
+            else {
+                $("#event-category-container").addClass('hidden');
+            }
+        })
 
         return this;
     },

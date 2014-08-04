@@ -503,9 +503,6 @@ class PostEventForm(forms.ModelForm):
 
     def clean_rsvp_limit(self):
         return self.cleaned_data['rsvp_limit'] or 0
-    
-    def clean_post_type(self):
-        return self.post_types[self.cleaned_data['post_type']] or 1
 
     def save(self):
         self.cleaned_data['short_description'] = self.cleaned_data['description'][:64].encode('utf-8').strip()

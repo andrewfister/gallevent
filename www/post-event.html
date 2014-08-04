@@ -45,29 +45,31 @@ var eventJSON = {};
         <label for="post-type" class="required">Type of post:</label>
         <span class="select">
         	<select id="post-type" class="input-standard" name="post_type" repost="{{ form.post_type.value }}">
-                <option value="pt-event" id="select-event">Event</option>
-                <option value="pt-sale" id="select-sale">Sale</option>
-                <option value="pt-job" id="select-job">Job</option>
+                <option value="1" id="select-event">Event</option>
+                <option value="2" id="select-sale">Sale</option>
+                <option value="3" id="select-job">Job</option>
             </select>
         </span>
-        <label for="event-category" class="required">Event type:</label>
-        {% if form.category.errors %}
-         	{% for error in form.category.errors %}
-         		<span class="error">{{ error }}</span>
-         	{% endfor %}
-        {% endif %}
-        <span id="event-category-value" class="hidden" value="{{ form.category.value }}"></span>
-        <span class="select">
-            <select id="event-category" class="input-standard" name="category" repost="{{ form.category.value }}">
-                <option value="networking" id="select-networking">Networking</option>
-                <option value="education" id="select-education">Education</option>
-                <option value="fairs" id="select-fairs">Fairs &amp; Festivals</option>
-                <option value="athletic" id="select-athletic">Athletic</option>
-                <option value="art" id="select-art">Art &amp; Music</option>
-                <option value="dancing" id="select-dancing">Dancing</option>
-                <option value="dining" id="select-dining">Dining</option>
-                <option value="nightlife" id="select-nightlife">Nightlife &amp; Parties</option>
-            </select>
+        <span id="event-category-container">
+            <label for="event-category" class="required">Event type:</label>
+            {% if form.category.errors %}
+             	{% for error in form.category.errors %}
+             		<span class="error">{{ error }}</span>
+             	{% endfor %}
+            {% endif %}
+            <span id="event-category-value" class="hidden" value="{{ form.category.value }}"></span>
+            <span class="select">
+                <select id="event-category" class="input-standard" name="category" repost="{{ form.category.value }}">
+                    <option value="networking" id="select-networking">Networking</option>
+                    <option value="education" id="select-education">Education</option>
+                    <option value="fairs" id="select-fairs">Fairs &amp; Festivals</option>
+                    <option value="athletic" id="select-athletic">Athletic</option>
+                    <option value="art" id="select-art">Art &amp; Music</option>
+                    <option value="dancing" id="select-dancing">Dancing</option>
+                    <option value="dining" id="select-dining">Dining</option>
+                    <option value="nightlife" id="select-nightlife">Nightlife &amp; Parties</option>
+                </select>
+            </span>
         </span>
         <!--<label for="p-privacy" class="required">Privacy:</label>
         <input type="radio" name="p-privacy" value="public" id="p-public"><label class="radio-l" for="p-public"><b>Public</b> event</label><br>
