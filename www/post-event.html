@@ -16,11 +16,9 @@ var eventJSON = {};
 {% endblock javascript %}
 
 
-
 {% block mapjavascript %}
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.14&sensor=false"></script>                                            
-<script type="text/javascript" src="/static/js/models/event-model.js"></script>                                                                             
-
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.16&sensor=false"></script>
+<script type="text/javascript" src="/static/js/models/event-model.js"></script>
 <script type="text/javascript" src="/static/js/views/map-view.js"></script>
 {% endblock mapjavascript %}
 
@@ -46,7 +44,7 @@ var eventJSON = {};
         <legend><b>1</b>Post Details</legend>
         <label for="post-type" class="required">Type of post:</label>
         <span class="select">
-        	<select id="post-type" class="input-standard" name="post-type" repost="{{ form.category.value }}">
+        	<select id="post-type" class="input-standard" name="post_type" repost="{{ form.post_type.value }}">
                 <option value="pt-event" id="select-event">Event</option>
                 <option value="pt-sale" id="select-sale">Sale</option>
                 <option value="pt-job" id="select-job">Job</option>
@@ -71,12 +69,12 @@ var eventJSON = {};
                 <option value="nightlife" id="select-nightlife">Nightlife &amp; Parties</option>
             </select>
         </span>
-        <label for="p-privacy" class="required">Privacy:</label>
+        <!--<label for="p-privacy" class="required">Privacy:</label>
         <input type="radio" name="p-privacy" value="public" id="p-public"><label class="radio-l" for="p-public"><b>Public</b> event</label><br>
-		<input type="radio" name="p-privacy" value="private" id="p-private"><label class="radio-l" for="p-private"><b>Private</b> event</label>
+		<input type="radio" name="p-privacy" value="private" id="p-private"><label class="radio-l" for="p-private"><b>Private</b> event</label>-->
         <label for="p-launch" class="required">Launch post:</label>
-        <input type="radio" name="p-launch" value="immediately" id="p-immediately"><label class="radio-l" for="p-immediately">Immediately</label><br>
-		<input type="radio" name="p-launch" value="time" id="p-time"><label class="radio-l" for="p-time">On a specific date and time</label>
+        <input type="radio" name="post_launch" value="immediately" id="p-immediately"><label class="radio-l" for="p-immediately">Immediately</label><br>
+		<input type="radio" name="post_launch" value="time" id="p-time"><label class="radio-l" for="p-time">On a specific date and time</label>
         <label for="p-start-date" class="required">Launch post on this date &amp; time:</label>
         <div><input type="text" id="p-start-date" class="input-standard" name="p-start_date"  placeholder="06/20/2012" value="{{ form.start_date.value }}" /> at  
         <input type="text" id="p-start-time" class="input-standard" name="p-start_time" placeholder="3:00pm" value="{{ form.start_time.value }}" /></div>
@@ -166,8 +164,7 @@ var eventJSON = {};
         <div class="guest-l-or-tickets-btns">
         	<div class="btn-guest-list">Guest List</div>
             <div class="btn-tickets">Tickets</div>
-        </div><!-- .guestl-or-tickets-btns -->
-     <!--   
+        </div><!-- .guestl-or-tickets-btns -->   
         <div class="opt-guest-l">
         	<div class="content">
                 <span class="form-details">Include the entry fees for your event below. This is the price that will be charged to guests at the door. If you have different types of entry fees, please include each type of entry fee below.</span>
@@ -187,7 +184,7 @@ var eventJSON = {};
                 <input type="text" id="rsvp-close-time" class="input-standard" name="rsvp_close_time" placeholder="9:00pm" value="{{ form.end_time.value|time }}" />
                 <button class="btn-add-type"><span>+</span> Add another entry type</button>
             </div><!-- .content -->
-  <!--      </div><!-- .opt-guest-l -->
+            </div><!-- .opt-guest-l -->
  
         <div class="opt-tickets">
         	<div class="content">

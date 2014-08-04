@@ -456,6 +456,12 @@ class PostEventForm(forms.ModelForm):
         '%I%p',
         '%I %p'
     ]
+    
+    post_types = {
+        'pt-event': 1,
+        'pt-sale': 2,
+        'pt-job': 3
+    }
 
     user_id = forms.IntegerField(required=True)
     address = forms.CharField(max_length=1000, initial="")
@@ -487,7 +493,7 @@ class PostEventForm(forms.ModelForm):
     short_description = forms.CharField(max_length=140,required=False, initial="")
     source_event_id = forms.CharField(required=False, initial="1")
     source_id = forms.IntegerField(required=False, initial=1)
-    event_type = forms.IntegerField(required=True, initial=1)
+    post_type = forms.IntegerField(required=True, initial=1)
 
     def clean_purchase_tickets(self):
         return self.cleaned_data['purchase_tickets'] == "yes"
@@ -497,6 +503,9 @@ class PostEventForm(forms.ModelForm):
 
     def clean_rsvp_limit(self):
         return self.cleaned_data['rsvp_limit'] or 0
+    
+    def clean_post_type(self):
+        return self.post_types[self.cleaned_data['post_type']] or 1
 
     def save(self):
         self.cleaned_data['short_description'] = self.cleaned_data['description'][:64].encode('utf-8').strip()

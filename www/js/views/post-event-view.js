@@ -7,13 +7,13 @@ var PostEventView = Backbone.View.extend({
         $('.opt-tickets').hide();
         $('.opt-guest-l').hide();
         $('.btn-tickets').removeClass('active');
-        $('.btn-guest-l').removeClass('active');
+        $('.btn-guest-list').removeClass('active');
 
 
-        $(".btn-guest-l").click(function() {
+        $(".btn-guest-list").click(function() {
         
             $('.opt-guest-l').show();
-            $('.btn-guest-l').addClass("active");
+            $('.btn-guest-list').addClass("active");
 
             $('.opt-tickets').hide();
             $('.btn-tickets').removeClass("active");
@@ -23,7 +23,7 @@ var PostEventView = Backbone.View.extend({
         $(".btn-tickets").click(function() {
         
             $('.opt-guest-l').hide();
-            $('.btn-guest-l').removeClass("active");
+            $('.btn-guest-list').removeClass("active");
 
             $('.opt-tickets').show();
             $('.btn-tickets').addClass("active");
