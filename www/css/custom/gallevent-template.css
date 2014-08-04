@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 02-09-2014
-** Updated: 07-13-2014
+** Updated: 08-03-2014
 ************************************** */
 
 html,
@@ -404,7 +404,8 @@ input[type='checkbox'] {
 	z-index:600;
 	width:100%;
 	font-size:110%;
-	background:rgba(255, 255, 255, 0.9);
+	background:rgba(255, 255, 255, 1);
+	border-bottom:1px solid #E9E9E9;
 	/*background:rgba(5, 159, 172, 0.9);*/
 	}
 
@@ -453,53 +454,16 @@ input[type='checkbox'] {
 	opacity:0.6;
 	}
 
-#top-nav {
-	float:right;
-	margin-top:0.5em;
+.account-links {
+	position:fixed;
+	right:1.5em;
+	top:1.95em;
+	font-size:85%;
 	}
 
-#top-nav .btn-join,
-#top-nav .btn-sign-in {
-	
+.account-links a {
+	margin-left:1em;
 	}
-
-#top-nav a {
-	float:right;
-	margin-right:1em;
-	/*
-	float:right;
-	margin-right:0.5em;
-	border-radius:5px;
-	padding:0.7em 1em 0.7em 1em;
-	color:#fff;
-	*/
-	}
-
-#top-nav a:hover {
-	text-decoration:none;
-	}
-
-.btn-sign-in {
-	margin-bottom:0.6em;
-	}
-
-
-
-/*
-#top-nav a {
-	float:right;
-	margin-right:0.5em;
-	padding:0.7em 1em 0.7em 1em;
-	color:#fff;
-	border-radius:5px;
-	}
-
-#top-nav a:hover {
-	text-decoration:none;
-	background:rgba(133, 196, 64, 0.9);
-	}
-*/
-
 
 
 /* = Top Search */
@@ -720,19 +684,6 @@ input[type='checkbox'] {
 		width:160px;
 		background:url(../../img/data/gallevent-logo-orange-365x60.svg) 0 2px no-repeat;
 		background-size:contain;
-		}
-	
-	#top-search-container {
-		
-		}
-	
-	
-	#top-nav .btn-join,
-	#top-nav .btn-sign-in  {
-		display:block;
-		font-size:85%;
-		color:#454949;
-		
 		}
 	
 	#btn-menu {

@@ -3,12 +3,12 @@
 ** Description: Styles for User Control Section Pages
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 07-27-2014
+** Updated: 08-03-2014
 ************************************** */
 
 html,
 body {
-	background:#fff;
+	background:#f9f9f9;
 	}
 
 .signed-in #wrapper {
@@ -128,23 +128,51 @@ input#rsvp-close-time {
 
 #container {
 	float: left;
-	background: #fff;
 	}
 
 /* = Top Navigation */
-#top-nav a.tab {
-	margin-top:0em;
-	margin-right:0.5em;
-	padding:0.7em 1em 0.7em 1em;
-	letter-spacing:0.01em;
-	color:#868789;
+#top-nav {
+	position:fixed;
+	bottom:0;
+	float:left;
+	width:100%;
+	text-align:center;
+	background:#fff;
+	border-top:1px solid #E9E9E9;
 	}
 
+#top-nav .tab {
+	float:left;
+	width:25%;
+	padding:1em 0 1em 0;
+	color:#494949;
+	box-sizing:border-box;
+	}
+
+#top-nav .tab:hover {
+	text-decoration:none;
+	}
+
+.l1 {
+	border-bottom:4px solid #85C440;
+	}
+
+.l2 {
+	border-bottom:4px solid #F0C419;
+	}
+	
+.l3 {
+	border-bottom:4px solid #F89C1C;
+	}
+
+.l4 {
+	border-bottom:4px solid #F15A5A;
+	}
 
 .post-event #content,
 .posts #content {
 	width: 50%;
-	background: #fff;
+	background:#f9f9f9;
 	}
 
 .btn-edit {
@@ -225,45 +253,37 @@ input#rsvp-close-time {
 	}
 
 
-/* = Specific Section Styles */
+/* = Specific Section Styles 
+** ************************* */
 
 /* = Specific Color Coded Header and Heading Styles */
-.signed-in #header .btn-sign-in {
-	margin-top:0.8em;
-	color:#059fac;
+
+.post-event h1 {
+	color:#2D95BF;
 	}
 
-.post-event #header {
-	border-bottom:2px solid #f89c1c;
-	}
-.datebook #header {
-	border-bottom:2px solid #f15a5a;
-	}
-.posts #header {
-	border-bottom:2px solid #f0c419;
-	}
-.groups #header {
-	border-bottom:2px solid #4eba6f;
-	}
-.profile #header {
-	border-bottom:2px solid #2d95bf;
-	}
-
-.signed-in .btn1 {
-	padding:0.7em 1em 0.7em 1em;
-	letter-spacing:0.01em;
-	}
+.posts h1,
+.posts .l1,
 .signed-in #header .l1:hover {
-	color:#f15a5a;
+	color:#85C440 !important;
 	}
+
+.datebook h1,
+.datebook .l2,
 .signed-in #header .l2:hover {
-	color:#f0c419;
+	color:#F0C419 !important;
 	}
+	
+.groups h1,
+.groups .l3,
 .signed-in #header .l3:hover {
-	color:#4eba6f;
+	color:#F89C1C !important;
 	}
+
+.profile h1,
+.profile .l4,
 .signed-in #header .l4:hover {
-	color:#2d95bf;
+	color:#F15A5A !important;
 	}
 
 .post-event #header .btn1,
@@ -276,42 +296,13 @@ input#rsvp-close-time {
 .signed-in #header .l2:hover,
 .signed-in #header .l3:hover,
 .signed-in #header .l4:hover {
-	border-radius:5px 5px 0 0;
-	padding-bottom:1.3em;
 	transition: all 0.2s ease;
-	}
-
-
-.btn1,
-.l1,
-.l2,
-.l3 {
-	 /* jess */
-	}
-
-
-.post-event h1 {
-	color:#f89c1c;
-	}
-.datebook h1 {
-	color:#f15a5a;
-	}
-.posts h1 {
-	float:left;
-	color:#f0c419;
-	}
-.groups h1 {
-	color:#4eba6f;
-	}
-.profile h1 {
-	color:#2d95bf;
 	}
 
 .profile #container,
 .profile #content,
 .posts #container {
 	width:100%;
-	background:transparent;
 	}
 
 
@@ -379,3 +370,21 @@ input#rsvp-close-time {
 	display:block;
 	margin: 1em 0 2em 0;
 	}
+
+@media (min-width: 1000px) {
+	/* = Top Navigation */
+	#top-nav {
+		position:relative;
+		left:-16em;
+		margin-left:50%;
+		width:30em;
+		border-top:none;
+		border-left:1px solid #f7f7f7;
+		border-right:1px solid #f7f7f7;		
+		}
+	
+	#top-nav .tab {
+		padding-top:1.5em;
+		width:25%;
+		}
+}
