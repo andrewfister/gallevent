@@ -43,12 +43,15 @@ var MapView = Backbone.View.extend({
             google.maps.event.addListener(this.marker, 'mouseout', function() {
                 $(this.marker.hoverInfo).addClass('hidden');
             }.bind(this));
+            
         };
         
         this.HoverTooltip.prototype = new google.maps.OverlayView();
         this.HoverTooltip.prototype.onAdd = function() {
-            var mapPanes = this.getPanes();
-            mapPanes.floatPane.appendChild(this.marker.hoverInfo);
+            if (this.marker.hoverInfo) {
+                var mapPanes = this.getPanes();
+                mapPanes.floatPane.appendChild(this.marker.hoverInfo);
+            }
         };
         
         this.HoverTooltip.prototype.draw = function() {
@@ -271,9 +274,6 @@ var MapView = Backbone.View.extend({
             this.map.panTo(marker.getPosition());
             this.map.panBy(0, -150);
             this.infoWindow.open(this.map, marker);
-//            this.overlay = new google.maps.OverlayView();
-//            this.overlay.draw = function() {};
-//            this.overlay.setMap(this.map);
         }.bind(this));
 
         this.markers.push(marker);
@@ -300,6 +300,10 @@ var MapView = Backbone.View.extend({
     
     setMarkerHover: function(marker, event) {
         marker.hoverInfo = $(this.hoverTemplate(marker.event.toJSON()))[0];
+        
+        var mapPanes = this.getPanes();
+        mapPanes.floatPane.appendChild(this.marker.hoverInfo);
+        
         marker.tooltip = new this.HoverTooltip({ marker: marker, map: this.map });
     },
 
