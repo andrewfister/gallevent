@@ -7,7 +7,7 @@
 ************************************** */
 
 html {
-	background:url(../../img/bg-dolores-park-1366x768.jpg) center center no-repeat fixed;
+	background:url(../../img/bg-dolores-park-1920x1080.jpg) center center no-repeat fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -31,6 +31,7 @@ h2 {
 
 #header {
 	border:none;
+	margin-top:20px;
 	}
 
 #header .logo-block {
