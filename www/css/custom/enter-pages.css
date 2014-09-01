@@ -3,15 +3,19 @@
 ** Description: Styles for User Control Section Pages
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 06-15-2014
+** Updated: 08-31-2014
 ************************************** */
 
 html {
-	background:rgba(5, 159, 172, 1) url(../../img/bg-dolores-park-1200x798.jpg) center center no-repeat fixed;
+	background:url(../../img/bg-dolores-park-1366x768.jpg) center center no-repeat fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+	}
+
+body {
+	background:transparent;
 	}
 
 h2 {
@@ -21,39 +25,23 @@ h2 {
 	color:#85C440;
 	}
 
-.right p {
-	color:#059FAC;
+.center {
+	display:block;
 	}
-
-#top-nav .btn-join,
-#top-nav .btn-sign-in  {
-	margin-top:1em;
-	margin-right:2em;
-		color:#fff;
-	text-shadow: none;
-		}
-	
-body.join,
-body.sign-in {
-	background: -moz-linear-gradient(top,  rgba(1,159,172,1) 0%, rgba(5,159,172,0) 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(1,159,172,1)), color-stop(100%,rgba(5,159,172,0)));
-	background: -webkit-linear-gradient(top,  rgba(1,159,172,1) 0%,rgba(5,159,172,0) 100%);
-	background: -o-linear-gradient(top,  rgba(1,159,172,1) 0%,rgba(5,159,172,0) 100%);
-	background: -ms-linear-gradient(top,  rgba(1,159,172,1) 0%,rgba(5,159,172,0) 100%);
-	background: linear-gradient(to bottom,  rgba(1,159,172,1) 0%,rgba(5,159,172,0) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#019fac', endColorstr='#00059fac',GradientType=0 );
-	}
-
-
 
 #header {
-	background:transparent;
+	border:none;
+	}
+
+#header .logo-block {
+	left:-86px;
+	margin-left:50%;
 	}
 
 #header .logo-block .logo {
-			background:url(../../img/data/gallevent-logo-white-365x60.svg) 0 2px no-repeat;
-			background-size:contain;
-		}
+	background:url(../../img/data/gallevent-logo-white-365x60.svg) 0 2px no-repeat;
+	background-size:contain;
+	}
 	
 #header a {
 	transition:all 0.5s ease;
@@ -63,41 +51,16 @@ body.sign-in {
 	opacity: 0.5;
 	}
 
-
-
 #content {
 	position:relative;
 	float:left;
-	top: 50%;
+	margin-top:100px;
 	left: 50%;
-	margin-top: -12.5em;
-	margin-left:-400px;
-	width:800px;
+	margin-left:-200px;
+	padding:25px 50px 45px 50px;
+	width:300px;
 	border-radius:5px;
-	background:rgba(255, 255, 255, 0.9);
-	}
-
-#content p {
-	font-size:120%;
-	}
-
-#content .left,
-#content .right {
-	width:50%;
-	height:100%;
-	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
-	box-sizing: border-box;         /* Opera/IE 8+ */
-	}
-
-#content .left {
-	padding:1em 0 1em 50px;
-	background:rgba(255, 255, 255, 1);
-	border-radius:5px 0 0 5px;
-	}
-
-#content .right {
-	padding:0 50px 0 50px;
+	background:#fff;
 	}
 
 input[type="text"],
@@ -105,4 +68,15 @@ input[type="password"] {
 	max-width:300px;
 	}
 
-
+#content .btn-sign-in {
+	margin:2em auto 0;
+	margin-bottom:2em;
+	padding:1.1em 4em;
+	}
+	
+#footer .copyright {
+	position:absolute;
+	right:1em;
+	bottom:1em;
+	color:#fff;
+	}

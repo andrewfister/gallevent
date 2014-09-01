@@ -47,6 +47,11 @@ h3 {
 	color:rgba(248, 156, 28, 1);
 	}
 
+.center {
+	margin: 0 auto;
+	text-align:center;
+	}
+
 .name {
 	font-size:125%;
 	color:rgba(5, 159, 172, 1);
@@ -643,6 +648,16 @@ input[type='checkbox'] {
 #top-search button:hover {
   background:#98de44;
   }
+ 
+/* = Footer */
+#footer {
+	float:left;
+	width:100%;
+	}
+
+#footer .copyright {
+	margin-right:1em;
+	}
 
 
 /* = Map Feature
