@@ -48,8 +48,8 @@ var MapView = Backbone.View.extend({
         
         this.HoverTooltip.prototype = new google.maps.OverlayView();
         this.HoverTooltip.prototype.onAdd = function() {
-            if (this.marker.hoverInfo) {
                 var mapPanes = this.getPanes();
+            if (this.marker.hoverInfo && mapPanes != undefined) {
                 mapPanes.floatPane.appendChild(this.marker.hoverInfo);
             }
         };
@@ -300,11 +300,8 @@ var MapView = Backbone.View.extend({
     
     setMarkerHover: function(marker, event) {
         marker.hoverInfo = $(this.hoverTemplate(marker.event.toJSON()))[0];
-        
-        var mapPanes = this.getPanes();
-        mapPanes.floatPane.appendChild(this.marker.hoverInfo);
-        
         marker.tooltip = new this.HoverTooltip({ marker: marker, map: this.map });
+        marker.tooltip.onAdd();
     },
 
     removeMarkers: function() {
