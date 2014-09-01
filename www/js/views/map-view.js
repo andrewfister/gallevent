@@ -59,8 +59,11 @@ var MapView = Backbone.View.extend({
             if (this.projection) {
                 var markerLatLng = this.marker.getPosition();
                 var markerPosition = this.projection.fromLatLngToDivPixel(markerLatLng);
-                this.marker.hoverInfo.style.left = (markerPosition.x + 25) + 'px';
-                this.marker.hoverInfo.style.top = (markerPosition.y- 30) + 'px';
+                
+                if (this.marker.hoverInfo != undefined) {
+                    this.marker.hoverInfo.style.left = (markerPosition.x + 25) + 'px';
+                    this.marker.hoverInfo.style.top = (markerPosition.y- 30) + 'px';
+                }
             }
         };
         
