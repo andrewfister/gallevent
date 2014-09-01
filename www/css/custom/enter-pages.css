@@ -69,7 +69,7 @@ input[type="password"] {
 	max-width:300px;
 	}
 
-#content .btn-sign-in {
+#content input[type="submit"] {
 	margin:2em auto 0;
 	margin-bottom:2em;
 	padding:1.1em 4em;
