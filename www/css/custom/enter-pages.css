@@ -3,7 +3,7 @@
 ** Description: Styles for User Control Section Pages
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 08-31-2014
+** Updated: 09-14-2014
 ************************************** */
 
 html {
@@ -19,10 +19,23 @@ body {
 	}
 
 h2 {
+	margin-bottom: 0.5em;
 	padding-top:0.3em;
-	font-size:200%;
+	font-size:150%;
 	line-height:1.2em;
-	color:#85C440;
+	color:rgba(5, 159, 172, 1);
+	}
+
+h3 {
+	position:relative;
+	font-size:110%;
+	color:#58595b;
+	}
+
+h3 svg {
+	position:relative;
+	top:15px;
+	margin-right:8px;
 	}
 
 .center {
@@ -57,11 +70,28 @@ h2 {
 	float:left;
 	margin-top:100px;
 	left: 50%;
-	margin-left:-200px;
 	padding:25px 50px 45px 50px;
-	width:300px;
 	border-radius:5px;
 	background:#fff;
+	}
+
+.sign-in #content {
+	margin-left:-200px;
+	width:300px;
+	}
+
+.join #content {
+	margin-left:-396px;
+	}
+
+.join #content .left {
+	width:340px;
+	}
+
+.join #content .right {
+	border-left:1px solid #CCC;
+	width:300px;
+	padding-left:50px;
 	}
 
 input[type="text"],
