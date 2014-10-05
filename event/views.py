@@ -29,7 +29,7 @@ class FrontPageView(TemplateView):
 
 
 class SearchView(View):
-    searchForms = [forms.EventSearchForm, forms.EventBriteSearchForm, forms.MeetupSearchForm]
+    searchForms = [forms.EventSearchForm, forms.MeetupSearchForm, forms.EventBriteSearchForm]
 
     def get(self, request): 
         events = []
