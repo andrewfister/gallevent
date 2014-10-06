@@ -161,11 +161,7 @@ var MapView = Backbone.View.extend({
         }.bind(this));
 
         google.maps.event.addListener(this.map, 'center_changed', function() {
-            if (!this.dragging && !this.detectVisibleMarkers()) {
-                this.eventsLoaded = false;
-                this.markersLoaded = false;
-                window.dispatcher.trigger("search");
-            }
+            $('.btn-search-here').removeClass('hidden');
         }.bind(this));
         
         return this;
