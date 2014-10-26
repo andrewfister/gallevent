@@ -56,7 +56,7 @@ window.eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ 
                         <span class="button-container"><button class="btn-add-filters" type="button">Add Filters</button></span>
                     </span>
         		</fieldset>
-        		<div><button class="btn-search-here btn-add-filters">Search Here</button></div>
+        		<div><button class="btn-search-here btn-add-filters hidden">Search Here</button></div>
                 <input type="hidden" id="map-latitude" class="map-location" name="latitude" value="{{ request.GET.latitude|default:0 }}" />
                 <input type="hidden" id="map-longitude" class="map-location" name="longitude" value="{{ request.GET.longitude|default:0 }}" />
                 <input type="hidden" id="map-radius" name="distance" value="{{ request.GET.distance|default:5.08 }}" />

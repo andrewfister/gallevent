@@ -159,6 +159,10 @@ var MapView = Backbone.View.extend({
             this.setMapLocation(false);
             this.setMapRadius();
         }.bind(this));
+
+        google.maps.event.addListener(this.map, 'center_changed', function() {
+            $('.btn-search-here').removeClass('hidden');
+        }.bind(this));
         
         return this;
     },
