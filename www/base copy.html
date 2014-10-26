@@ -37,18 +37,26 @@
     
     {% block header %}
     <div id="header">
-    	<a href="{% url 'front_page' %}" class="logo">Gallevent&trade;</a>
+    	<div class="logo-block">
+        <a href="{% url 'front_page' %}" class="logo">Gallevent&trade;</a>
+        </div><!-- .logo-block -->
         
         <nav id="top-nav">
             {% block nav %}{% endblock nav %}
         </nav>
-        
+        {% block top-search %}
+        {% endblock top-search %}
     </div><!-- #header -->
     {% endblock header %}
-    
-    <div id="content">
-        {% block content %}{% endblock content %}
-    </div><!-- #content -->
+        <div id="content">
+            {% block content %}{% endblock content %}
+        </div><!-- #content -->
+        
+        {% block footer %}
+            <div id="footer">
+            	<span class="copyright">&copy; All Rights Reserved</span>
+            </div><!-- #footer -->
+        {% endblock footer %}
     
     <!-- Google Analytics -->
     <script type="text/javascript">

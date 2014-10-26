@@ -2,8 +2,7 @@
 {% load map_tags %}
 
 {% block css %}
-<link rel="stylesheet" type="text/css" href="/static/css/custom/home-page.css" />
-<link rel="stylesheet" type="text/css" href="/static/css/custom/map-pop-ups.css" />
+
 {% endblock %}
 
 {% block prejavascript %}
@@ -27,66 +26,66 @@ window.eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ 
 {% block body-class %}home{% endblock body-class %}
 
 {% block top-search %}
-        <div id="top-search-container" tabindex="0">
-            <form id="top-search" method="get">
-                <input type="text" id="event-keywords" name="q" placeholder="I'm looking for..." value="{{ request.GET.q }}" title="Enter keywords to filter events" />
-                <fieldset class="filters">
-        			<legend class="filters-legend">
-                    	<span class="filters-icon">Filters</span>
-                        <span class="close">Close Filters</span>
-                    </legend>
-                    <span class="filter-container">
-                        <input type="text" id="location-search-input" placeholder="Change Location" />
-                        <span class="select time-span">
-                            <select id="time-span" name="timeSpan">
-                                <option value="day_of" {% if timeSpan == "day_of" %}selected="selected"{% endif %}>Day of</option>
-                                <option value="week_of" {% if timeSpan == "week_of" %}selected="selected"{% endif %}>Week of</option>
-                                <option value="weekend_of" {% if timeSpan == "weekend_of" %}selected="selected"{% endif %}>Weekend of</option>
-                            </select>
-                        </span>
-                        <span class="date-input-container"><input type="text" id="date" placeholder="{{ form.today.value }}" value="{{ form.start_date.value }}" /></span>
-                        <span class="select price">
-                            <select id="price" name="price">
-                                <option value="any_price">Any Price</option>
-                                <option value="free">Free</option>
-                                <option value="under_10">Under $10</option>
-                                <option value="under_20">Under $20</option>
-                            </select>
-                        </span>
-                        <span class="button-container"><button class="btn-add-filters" type="button">Add Filters</button></span>
+    <div id="top-search-container" tabindex="0">
+        <form id="top-search" method="get">
+            <input type="text" id="event-keywords" name="q" placeholder="I'm looking for..." value="{{ request.GET.q }}" title="Enter keywords to filter events" />
+            <fieldset class="filters">
+                <legend class="filters-legend">
+                    <span class="filters-icon">Filters</span>
+                    <span class="close">Close Filters</span>
+                </legend>
+                <span class="filter-container">
+                    <input type="text" id="location-search-input" placeholder="Change Location" />
+                    <span class="select time-span">
+                        <select id="time-span" name="timeSpan">
+                            <option value="day_of" {% if timeSpan == "day_of" %}selected="selected"{% endif %}>Day of</option>
+                            <option value="week_of" {% if timeSpan == "week_of" %}selected="selected"{% endif %}>Week of</option>
+                            <option value="weekend_of" {% if timeSpan == "weekend_of" %}selected="selected"{% endif %}>Weekend of</option>
+                        </select>
                     </span>
-        		</fieldset>
-        		<div><button class="btn-search-here btn-add-filters">Search Here</button></div>
-                <input type="hidden" id="map-latitude" class="map-location" name="latitude" value="{{ request.GET.latitude|default:0 }}" />
-                <input type="hidden" id="map-longitude" class="map-location" name="longitude" value="{{ request.GET.longitude|default:0 }}" />
-                <input type="hidden" id="map-radius" name="distance" value="{{ request.GET.distance|default:5.08 }}" />
-                <input type="hidden" id="date1" name="start_date" value=""/>
-                <input type="hidden" id="date2" name="end_date" value=""/>
-            </form>
-        </div><!-- #top-search-container -->
-        {% endblock top-search %}
+                    <span class="date-input-container"><input type="text" id="date" placeholder="{{ form.today.value }}" value="{{ form.start_date.value }}" /></span>
+                    <span class="select price">
+                        <select id="price" name="price">
+                            <option value="any_price">Any Price</option>
+                            <option value="free">Free</option>
+                            <option value="under_10">Under $10</option>
+                            <option value="under_20">Under $20</option>
+                        </select>
+                    </span>
+                    <span class="button-container"><button class="btn-add-filters" type="button">Add Filters</button></span>
+                </span>
+            </fieldset>
+            <div><button class="btn-search-here btn-add-filters">Search Here</button></div>
+            <input type="hidden" id="map-latitude" class="map-location" name="latitude" value="{{ request.GET.latitude|default:0 }}" />
+            <input type="hidden" id="map-longitude" class="map-location" name="longitude" value="{{ request.GET.longitude|default:0 }}" />
+            <input type="hidden" id="map-radius" name="distance" value="{{ request.GET.distance|default:5.08 }}" />
+            <input type="hidden" id="date1" name="start_date" value=""/>
+            <input type="hidden" id="date2" name="end_date" value=""/>
+        </form>
+    </div><!-- #top-search-container -->
+{% endblock top-search %}
         
-        {% block nav %}
-        	<div id="btn-menu">
-                <span class="icon-gray"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve"><rect fill="#A7A9AC" width="30" height="6"/><rect y="12" fill="#A7A9AC" width="30" height="6"/><rect y="24" fill="#A7A9AC" width="30" height="6"/></svg></span>
-                <span class="icon-white"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve"><rect fill="#FFFFFF" width="30" height="6"/><rect y="12" fill="#FFFFFF" width="30" height="6"/><rect y="24" fill="#FFFFFF" width="30" height="6"/>
-                </svg>
-                </span>
-                <span class="text">
-                    Menu
-                </span>
-            </div><!-- #btn-menu -->
-            <span class="account-links">
-            {% if request.user.is_authenticated %}
-            	<a class="btn-sign-in" href="{% url 'profile' %}">{{ request.user.username }}</a>
-            	<a class="btn-sign-in" href="{% url 'sign_out' %}">Sign Out</a>
-            {% else %}
-            	<a class="btn-sign-in" href="{% url 'sign_in' %}">Sign In</a>
-                <a class="btn-join" href="{% url 'join' %}">Join</a>
-            {% endif %}
-            </span>
-        {% endblock nav %}
+{% block nav %}
+    <div id="btn-menu">
+        <span class="icon-gray"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve"><rect fill="#A7A9AC" width="30" height="6"/><rect y="12" fill="#A7A9AC" width="30" height="6"/><rect y="24" fill="#A7A9AC" width="30" height="6"/></svg></span>
+        <span class="icon-white"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve"><rect fill="#FFFFFF" width="30" height="6"/><rect y="12" fill="#FFFFFF" width="30" height="6"/><rect y="24" fill="#FFFFFF" width="30" height="6"/>
+        </svg>
+        </span>
+        <span class="text">
+            Menu
+        </span>
+    </div><!-- #btn-menu -->
+    <span class="account-links">
+    {% if request.user.is_authenticated %}
+        <a class="btn-sign-in" href="{% url 'profile' %}">{{ request.user.username }}</a>
+        <a class="btn-sign-in" href="{% url 'sign_out' %}">Sign Out</a>
+    {% else %}
+        <a class="btn-sign-in" href="{% url 'sign_in' %}">Sign In</a>
+        <a class="btn-join" href="{% url 'join' %}">Join</a>
+    {% endif %}
+    </span>
+{% endblock nav %}
         
 {% block content %}
 
@@ -100,63 +99,21 @@ window.eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ 
     
 	{% endblock map %}
 	<div id="event-list">
-        <div id="pin-key">
-            <a href="#" class="key networking">
-                <span class="arrow">&and;</span>
-                <span class="details">
-                    <strong>Networking <span class="category-count"></span></strong><i>Meetups, Mixers, Conferences...</i>
-                </span>
-            </a>
-            <a href="#" class="key education">
-                <span class="arrow">&nbsp;</span>
-                <span class="details">
-                    <strong>Education <span class="category-count"></span></strong><i>Classes, Study Groups, Lectures...</i>
-                </span>
-            </a>
-            <a href="#" class="key fairs">
-                <span class="arrow">&nbsp;</span>
-                <span class="details">
-                    <strong>Fairs &amp; Festivals <span class="category-count"></span></strong><i>Street, Food, Cultural...</i>
-                </span>
-            </a>
-            <a href="#" class="key athletic">
-            	<span class="arrow">&nbsp;</span>
-                <span class="details">
-                    <strong>Athletic <span class="category-count"></span></strong><i>Running, biking, hiking...</i>
-                </span>
-            </a>
-            <a href="#" class="key art">
-            	<span class="arrow">&nbsp;</span>
-                <span class="details">
-                    <strong>Art &amp; Music <span class="category-count"></span></strong><i>Shows, Concerts, Crafting...</i>
-                </span>
-            </a>
-            <a href="#" class="key dancing">
-                <span class="arrow">&nbsp;</span>
-                <span class="details">
-                    <strong>Dancing <span class="category-count"></span></strong><i>Classes, Parties, Flash Mobs...</i>
-                </span>
-            </a>
-            <a href="#" class="key dining">
-                <span class="arrow">&nbsp;</span>
-                <span class="details">
-                    <strong>Dining <span class="category-count"></span></strong><i>Events for Foodies...</i>
-                </span>
-            </a>
-            <a href="#" class="key nightlife">
-                <span class="arrow">&nbsp;</span>
-                <span class="details">
-                    <strong>Nightlife &amp; Parties <span class="category-count"></span></strong><i>Club, Drinking, Comedy...</i>
-                </span>
-            </a>
-        </div><!-- #pin-key -->
-        <div id="list">
-        	<!--Heading
-            Price
-            Date
-            Description
-            Address -->
-        </div><!-- #list -->
+    	<div class="card">
+        	<h3 class="name">Name of Event</h3>
+            <div class="address">767 Bryant St., San Francisco</div>
+            <div class="time">7:30p - 8:00p</div>
+            <div class="price">Free</div>
+            <div class="description">This is the description of an event. We will have a character limit for this event view.</div>
+        </div>
+        <div class="card">
+        	<img src="" />
+        	<h3 class="name">Name of Event</h3>
+            <div class="address">767 Bryant St., San Francisco</div>
+            <div class="time">7:30p - 8:00p</div>
+            <div class="price">Free</div>
+            <div class="description">This is the description of an event. We will have a character limit for this event view.</div>
+        </div>
 	</div><!-- #event-list -->
 </div><!-- #map-feature -->
     

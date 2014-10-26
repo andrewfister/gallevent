@@ -8,18 +8,21 @@
 
 html,
 body {
+	position:absolute;
+	width:100%;
+	height:100%;
 	font-family:Arial, Helvetica, sans-serif !important;
 	color:#58595b;
 	background:#B3D1FF;
 	}
 
 a {
-	color:#03c5c4;
+	color:#059fac;
 	text-decoration:none;
 	}
 
 a:hover {
-	color:#85c440;
+	text-decoration:underline;
 	}
 
 h1,
@@ -414,13 +417,15 @@ input[type='checkbox'] {
 	border-bottom:1px solid #E9E9E9;
 	}
 
-#header .logo {
-	display:block;
-	float:left;
+#header .logo-block {
 	margin:0.5em;
-	width:183px;
+	}
+
+#header .logo-block .logo {
+	display:block;
+	width:49px;
 	height:30px;
-	background:url(../../img/data/gallevent-logo-orange-365x60.svg) top left no-repeat;
+	background:url(../../img/data/gallevent-logo-icon-orange-98x60.svg) top left no-repeat;
 	background-size:contain;
 	overflow:hidden;
 	text-indent:-9999px;
@@ -455,9 +460,10 @@ input[type='checkbox'] {
 	}
 
 .account-links {
-	float: right;
-	margin: 0.8em 1.2em 0 0.7em;
-	font-size: 90%;
+	position:fixed;
+	right:1.5em;
+	top:1.95em;
+	font-size:85%;
 	}
 
 .account-links a {
@@ -689,6 +695,74 @@ input[type='checkbox'] {
 	margin-top:-48px;
 	}
 
+/* = Pin Key */
+#pin-key {
+	float:left;
+	width:100%;
+	background:#fff;
+	background: -moz-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(255,255,255,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.8)), color-stop(100%,rgba(255,255,255,1)));
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 100%);
+	background: -o-linear-gradient(top, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 100%);
+	background: -ms-linear-gradient(top, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 100%);
+	background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%,rgba(255,255,255,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6ffffff', endColorstr='#ffffff',GradientType=0 );
+	}
+
+#pin-key a {
+	display:block;
+	float:left;
+	position:relative;
+	margin:5px 0 5px 0;
+	width:12.5%;
+	height:38px;
+	padding:0;
+	color:#43555A;
+	transition: max-width 2s ease;
+	-webkit-transition: max-width 2s ease;
+	}
+
+#pin-key a:hover {
+	text-decoration:none;
+	}
+
+#pin-key .arrow {
+	display:none;
+	position: absolute;
+	top: -10px;
+	left:50%;
+	margin-left:-8px;
+	width: 16px;
+	height: 10px;
+	text-indent: -9999px;
+	background-image: url(../../img/data/arrow-white-32x20.svg);
+	background-size: contain;
+	}
+
+
+#pin-key .details {
+	display:none;
+	margin-left:40px;
+  	}
+
+#pin-key .details strong {
+	margin-bottom:-0.2em;
+	}
+
+#pin-key .category-count {
+	font-weight:normal;
+	font-size: 90%;
+	}
+
+#pin-key .details i {
+	font-size:80%;
+	}
+
+#pin-key a.selected .arrow {
+	display:block;
+	}
+
+
 
 
 
@@ -700,7 +774,7 @@ a.key {
 	background-repeat:no-repeat;
 	}
 
-/*
+
 .networking {
 	background-image:url(../../img/data/pin-networking.svg);
 	}
@@ -770,4 +844,3 @@ a.key {
 .jobs.disabled {
 	background-image:url(../../img/data/pin-jobs-g.svg);
 	}
-	*/
