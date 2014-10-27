@@ -410,7 +410,6 @@ input[type='checkbox'] {
 -------------------------------------- */
 #header {
 	position:fixed;
-	top:0; /* temporary fix because something about date field in top search pushes header down */
 	float:left;
 	z-index:600;
 	width:100%;
@@ -470,14 +469,182 @@ input[type='checkbox'] {
 
 
 /* = Top Search */
-#top-search {
-	position:absolute;
-	z-index: 600;
-	background:#ff0;
-	bottom:0;
-	display: none !important;
+#top-search-container {
+	float:left;
+	width:100%;
+	max-width:500px;
+	padding:0.5em;
+	box-sizing:border-box;
 	}
 
+#top-search {
+	position:relative;
+	float:left;
+	width:100%;
+	}
+
+#top-search #event-keywords {
+	position:relative;
+	border:1px solid #e5e5e5;
+	width:100%;
+	text-indent:60px;
+	z-index:610;
+	-moz-box-shadow:    none !important;
+  	-webkit-box-shadow: none !important;
+ 	box-shadow:         none !important;
+	-webkit-appearance: none;
+	}
+
+#top-search fieldset.filters {
+	position:relative;
+	float:right;
+	margin-top:-2.5em;
+	/*margin-top:-2.8em;*/
+	padding:0 1em 0 1em;
+	color:#fff;
+	border-radius:5px;
+	transition: all 1s ease;
+	-webkit-transition: all 1s ease;
+	max-width:20%;
+	}
+
+#top-search fieldset.filters.active {
+	background:rgba(5, 159, 172, 0.9);
+	max-width:100%;
+	}
+
+#top-search legend {
+	color:#fff;
+	float:right;
+	letter-spacing:0.02em;
+	}
+
+#top-search .filters.active legend {
+	margin-bottom:1em;
+	}
+
+#top-search b,
+#top-search .close {
+	display:none;	
+	}
+
+#top-search .filters-icon,
+#top-search .close {
+	position:relative;
+	z-index:615;
+	width:37px;
+	height:45px;
+	text-indent:-9999px;
+	}
+
+#top-search .filters-icon {
+	display:block;
+	background:url(../../img/data/icon-filters-gray-37x9.svg) 0 0.8em no-repeat;
+	}
+
+#top-search .close {
+	float: right;
+	background:url(../../img/data/icon-filters-teal-37x9.svg) 0 0.8em no-repeat;
+	}
+
+/*
+#top-search .close {
+	float: right;
+	}
+
+#top-search .close svg {
+	width:15px;
+	height:15px;
+	}
+*/
+
+#top-search .filters-icon:hover,
+#top-search .close:hover {
+	opacity:0.6;	
+	}
+
+#top-search legend {
+	width: 100%;
+	}
+
+#top-search .filters.active legend .close {	
+	display:block;
+	}
+#top-search .filters.active legend .filters-icon {
+	display:none;	
+	}
+
+#top-search .filter-container {
+	display:none;
+	}
+
+#top-search .filters.active .filter-container {
+	display:block;
+	}
+
+#top-search input,
+#top-search .select {
+	display: inline-block;
+	float:left;
+	}
+
+#top-search #location-search-input {
+	width:100%;
+	margin-bottom:0.4em;
+	}
+
+
+#top-search span.time-span {
+	width:50%;
+	margin-bottom:0.4em;
+	}
+
+#top-search .date-input-container {
+	box-sizing:border-box;
+	display: inline-block;
+	float:right;
+	width:50%;
+	padding-left:0.4em;
+	margin-bottom:0.4em;
+	}
+
+@-moz-document url-prefix() { 
+	#top-search .date-input-container {
+		width:49%;
+		padding-left:0;
+	}
+}
+
+#top-search #date {
+  float: left;
+  width:100%;
+  }
+
+#top-search span.price {
+  width: 100%;
+  margin-bottom:1em;
+  }
+
+#top-search .button-container {
+  float:left;
+  width:100%;	
+  }
+
+#top-search button {
+  display:block;
+  margin:0 auto;
+  margin-bottom:1em;
+  border:1px solid #fff;
+  padding:0.8em;
+  color:#fff;
+  font-weight:bold;
+  letter-spacing:0.02em;
+  background:#85c440;
+  }
+
+#top-search button:hover {
+  background:#98de44;
+  }
  
 /* = Footer */
 #footer {
@@ -518,7 +685,7 @@ input[type='checkbox'] {
 ** ================================ */
 #event-list {
 	position:absolute;
-	z-index:500;
+	z-index:400;
 	float:left;
 	width:100%;
 	top:100%;
@@ -581,3 +748,75 @@ a.key {
 	background-position:center 0px;
 	background-repeat:no-repeat;
 	}
+
+/*
+.networking {
+	background-image:url(../../img/data/pin-networking.svg);
+	}
+.networking.disabled {
+	background-image:url(../../img/data/pin-networking-g.svg);
+	}
+
+.education {
+	background-image:url(../../img/data/pin-education.svg);
+	}
+.education.disabled {
+	background-image:url(../../img/data/pin-education-g.svg);
+	}
+
+.fairs {
+	background-image:url(../../img/data/pin-fairs.svg);
+	}
+.fairs.disabled {
+	background-image:url(../../img/data/pin-fairs-g.svg);
+	}
+
+.athletic {
+	background-image:url(../../img/data/pin-athletic.svg);
+	}
+.athletic.disabled {
+	background-image:url(../../img/data/pin-athletic-g.svg);
+	}
+
+.art {
+	background-image:url(../../img/data/pin-art.svg);
+	}
+.art.disabled {
+	background-image:url(../../img/data/pin-art-g.svg);
+	}
+
+.dancing {
+	background-image:url(../../img/data/pin-dancing.svg);
+	}
+.dancing.disabled {
+	background-image:url(../../img/data/pin-dancing-g.svg);
+	}
+
+.sales {
+	background-image:url(../../img/data/pin-sales.svg);
+	}
+.sales.disabled {
+	background-image:url(../../img/data/pin-sales-g.svg);
+	}
+
+.dining {
+	background-image:url(../../img/data/pin-dining.svg);
+	}
+.dining.disabled {
+	background-image:url(../../img/data/pin-dining-g.svg);
+	}
+
+.nightlife {
+	background-image:url(../../img/data/pin-nightlife.svg);
+	}
+.nightlife.disabled {
+	background-image:url(../../img/data/pin-nightlife-g.svg);
+	}
+
+.jobs {
+	background-image:url(../../img/data/pin-jobs.svg);
+	}
+.jobs.disabled {
+	background-image:url(../../img/data/pin-jobs-g.svg);
+	}
+	*/
