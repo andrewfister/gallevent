@@ -20,88 +20,11 @@ window.eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ 
 <script type="text/javascript" src="/static/js/models/event-model.js"></script>
 <script type="text/javascript" src="/static/js/views/search-view.js"></script>
 <script type="text/javascript" src="/static/js/views/pin-key-view.js"></script>
+<script type="text/javascript" src="/static/js/views/event-list-view.js"></script>
 <script type="text/javascript" src="/static/js/controllers/front-page-controller.js"></script>
 {% endblock viewjavascript %}
 
 {% block body-class %}home{% endblock body-class %}
-
-{% block top-search %}
-    <div id="top-search-container" tabindex="0">
-        <form id="top-search" method="get">
-            <input type="text" id="event-keywords" name="q" placeholder="I'm looking for..." value="{{ request.GET.q }}" title="Enter keywords to filter events" />
-            <fieldset class="filters">
-                <legend class="filters-legend">
-                    <span class="filters-icon">Filters</span>
-                    <span class="close">Close Filters</span>
-                </legend>
-                <span class="filter-container">
-                    <input type="text" id="location-search-input" placeholder="Change Location" />
-                    <span class="select time-span">
-                        <select id="time-span" name="timeSpan">
-                            <option value="day_of" {% if timeSpan == "day_of" %}selected="selected"{% endif %}>Day of</option>
-                            <option value="week_of" {% if timeSpan == "week_of" %}selected="selected"{% endif %}>Week of</option>
-                            <option value="weekend_of" {% if timeSpan == "weekend_of" %}selected="selected"{% endif %}>Weekend of</option>
-                        </select>
-                    </span>
-                    <span class="date-input-container"><input type="text" id="date" placeholder="{{ form.today.value }}" value="{{ form.start_date.value }}" /></span>
-                    <span class="select price">
-                        <select id="price" name="price">
-                            <option value="any_price">Any Price</option>
-                            <option value="free">Free</option>
-                            <option value="under_10">Under $10</option>
-                            <option value="under_20">Under $20</option>
-                        </select>
-                    </span>
-                    <span class="button-container"><button class="btn-add-filters" type="button">Add Filters</button></span>
-        		</fieldset>
-                <input type="hidden" id="map-latitude" class="map-location" name="latitude" value="{{ request.GET.latitude|default:0 }}" />
-                <input type="hidden" id="map-longitude" class="map-location" name="longitude" value="{{ request.GET.longitude|default:0 }}" />
-                <input type="hidden" id="map-radius" name="distance" value="{{ request.GET.distance|default:5.08 }}" />
-                <input type="hidden" id="date1" name="start_date" value=""/>
-                <input type="hidden" id="date2" name="end_date" value=""/>
-            </form>
-        </div><!-- #top-search-container -->
-        {% endblock top-search %}
-        
-        {% block nav %}
-        	<div id="btn-menu">
-                <span class="icon-gray"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve"><rect fill="#A7A9AC" width="30" height="6"/><rect y="12" fill="#A7A9AC" width="30" height="6"/><rect y="24" fill="#A7A9AC" width="30" height="6"/></svg></span>
-                <span class="icon-white"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve"><rect fill="#FFFFFF" width="30" height="6"/><rect y="12" fill="#FFFFFF" width="30" height="6"/><rect y="24" fill="#FFFFFF" width="30" height="6"/>
-                </svg>
-                </span>
-            </fieldset>
-            <div><button class="btn-search-here btn-add-filters">Search Here</button></div>
-            <input type="hidden" id="map-latitude" class="map-location" name="latitude" value="{{ request.GET.latitude|default:0 }}" />
-            <input type="hidden" id="map-longitude" class="map-location" name="longitude" value="{{ request.GET.longitude|default:0 }}" />
-            <input type="hidden" id="map-radius" name="distance" value="{{ request.GET.distance|default:5.08 }}" />
-            <input type="hidden" id="date1" name="start_date" value=""/>
-            <input type="hidden" id="date2" name="end_date" value=""/>
-        </form>
-    </div><!-- #top-search-container -->
-{% endblock nav %}
-        
-{% block nav2 %}
-    <div id="btn-menu">
-        <span class="icon-gray"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve"><rect fill="#A7A9AC" width="30" height="6"/><rect y="12" fill="#A7A9AC" width="30" height="6"/><rect y="24" fill="#A7A9AC" width="30" height="6"/></svg></span>
-        <span class="icon-white"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-        width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve"><rect fill="#FFFFFF" width="30" height="6"/><rect y="12" fill="#FFFFFF" width="30" height="6"/><rect y="24" fill="#FFFFFF" width="30" height="6"/>
-        </svg>
-        </span>
-        <span class="text">
-            Menu
-        </span>
-    </div><!-- #btn-menu -->
-    <span class="account-links">
-    {% if request.user.is_authenticated %}
-        <a class="btn-sign-in" href="{% url 'profile' %}">{{ request.user.username }}</a>
-        <a class="btn-sign-in" href="{% url 'sign_out' %}">Sign Out</a>
-    {% else %}
-        <a class="btn-sign-in" href="{% url 'sign_in' %}">Sign In</a>
-        <a class="btn-join" href="{% url 'join' %}">Join</a>
-    {% endif %}
-    </span>
-{% endblock nav2 %}
         
 {% block content %}
 
@@ -135,3 +58,81 @@ window.eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ 
     
     
 {% endblock content %}
+
+{% block nav %}
+	<div id="map-controls">
+    	<ul id="pin-key">
+            <li>
+                <a href="#" class="key networking">
+                    <span class="arrow">&nbsp;</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="key education">
+                    <span class="arrow">&nbsp;</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="key fairs">
+                    <span class="arrow">&nbsp;</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="key athletic">
+                    <span class="arrow">&nbsp;</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="key art">
+                    <span class="arrow">&nbsp;</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="key dancing">
+                    <span class="arrow">&nbsp;</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="key dining">
+                    <span class="arrow">&nbsp;</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="key parties">
+                    <span class="arrow">&nbsp;</span>
+                </a>
+            </li>
+        </ul><!-- #pin-key -->
+        <div id="top-search-container" tabindex="0">
+            <form id="top-search" method="get">
+                <label class="icon find-event" for="event">Search for Events</label><input type="text" id="event" name="q" placeholder="Example: Dancing" value="{{ request.GET.q }}" />
+                <label class="icon price" for="price">Price</label>
+                <span class="select price">
+                    <select id="price" name="price">
+                        <option value="any_price">Any Price</option>
+                        <option value="free">Free</option>
+                        <option value="under_10">Under $10</option>
+                        <option value="under_20">Under $20</option>
+                    </select>
+                </span>
+                <label class="icon clock" for="time-span">Time</label>
+                <span class="select time-span">
+                    <select id="time-span" name="timeSpan">
+                        <option value="day_of" {% if timeSpan == "day_of" %}selected="selected"{% endif %}>Day of</option>
+                        <option value="week_of" {% if timeSpan == "week_of" %}selected="selected"{% endif %}>Week of</option>
+                        <option value="weekend_of" {% if timeSpan == "weekend_of" %}selected="selected"{% endif %}>Weekend of</option>
+                    </select>
+                </span>
+                <input type="text" id="date" placeholder="{{ form.today.value }}" value="{{ form.start_date.value }}" />
+                <button class="btn-search" type="button"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="18px" height="17px" viewBox="0 0 18 17" enable-background="new 0 0 18 17" xml:space="preserve"><path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M7.008 0c-3.81 0-6.894 3.052-6.894 6.8 c0 3.8 3.1 6.8 6.9 6.825c1.646 0 3.146-0.573 4.334-1.524c0.055 0.1 0.1 0.2 0.2 0.271l4.29 4.3 C16.057 16.9 16.4 17 16.7 17c0.309 0 0.618-0.115 0.857-0.355c0.471-0.464 0.471-1.228 0-1.692l-4.288-4.257 c-0.123-0.117-0.257-0.201-0.402-0.264c0.665-1.043 1.052-2.28 1.052-3.609C13.894 3.1 10.8 0 7 0z M7.008 2.1 c2.627 0 4.8 2.1 4.8 4.722c0 0.881-0.255 1.739-0.726 2.498l-0.433 0.687l-0.61 0.487c-0.858 0.688-1.893 1.051-2.998 1.1 c-2.636 0-4.775-2.117-4.775-4.722C2.232 4.2 4.4 2.1 7 2.101z"/></svg> <span>Search</span></button>
+                
+                <input type="hidden" id="map-latitude" name="latitude" value="{{ request.GET.latitude|default:0 }}" />
+                <input type="hidden" id="map-longitude" name="longitude" value="{{ request.GET.longitude|default:0 }}" />
+                <input type="hidden" id="map-radius" name="distance" value="{{ request.GET.distance|default:5.08 }}" />
+                <input type="hidden" id="date1" name="start_date" value=""/>
+                <input type="hidden" id="date2" name="end_date" value=""/>
+                
+            </form>
+        </div><!-- #top-search-container -->
+    </div><!-- #map-controls -->
+{% endblock nav %}
