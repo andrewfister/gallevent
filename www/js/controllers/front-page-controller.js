@@ -20,4 +20,9 @@ $(document).ready(function() {
     window.pinKeyView = new PinKeyView({
         collection: window.mapEvents
     });
+    
+    window.eventListView = new EventListView({
+        collection: window.mapEvents,
+        el: $('#event-list')
+    });
 });
