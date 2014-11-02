@@ -52,8 +52,11 @@ h3 {
 	font-size:95%;
 	}
 
+.name, .address {
+	margin-bottom:0.8em;
+	}
+
 .name {
-	margin:0 0 0.1em 0;
 	font-size:125%;
 	color:#4A4A4A;
 	/*color:#58595b;*/
@@ -64,12 +67,10 @@ h3 {
 	}
 
 .time {
-	margin:0 0 0.8em 0;
 	color:#219FAA; /* teal */
 	}
 
 .address {
-	margin:0 0 0.8em 0;
 	color:#989A9D;
 	}
 .description {
@@ -528,7 +529,7 @@ input[type='checkbox'] {
 	float:left;
 	width:100%;
 	top:100%;
-	margin-top:-52px;
+	margin-top:-59px;
 	}
 
 .half #even-list {
