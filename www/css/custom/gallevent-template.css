@@ -57,7 +57,7 @@ h3 {
 	}
 
 .name {
-	font-size:125%;
+	font-size:120%;
 	color:#4A4A4A;
 	/*color:#58595b;*/
 	}
@@ -425,9 +425,9 @@ input[type='checkbox'] {
 #header .logo {
 	display:block;
 	float:left;
-	margin:0.5em;
+	margin:0.65em 0.5em 0.65em 0.5em;
 	width:183px;
-	height:30px;
+	height:25px;
 	background:url(../../img/data/gallevent-logo-white-365x60.svg) top left no-repeat;
 	background-size:contain;
 	overflow:hidden;
@@ -538,7 +538,7 @@ input[type='checkbox'] {
 	}
 
 .card {
-	padding:1.05em 1em 1.15em 44px;
+	padding:1.06em 1em 1.15em 44px;
 	background:rgba(255,255,255,1);
 	background-repeat:no-repeat;
 	background-position:0.5em 0.7em;
