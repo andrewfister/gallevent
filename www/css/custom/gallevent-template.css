@@ -52,8 +52,8 @@ h3 {
 	font-size:95%;
 	}
 
-.name, .address {
-	margin-bottom:0.8em;
+.name {
+	margin-bottom:0.7em;
 	}
 
 .name {
@@ -72,6 +72,7 @@ h3 {
 
 .address {
 	color:#989A9D;
+	margin-bottom:0.8em;
 	}
 .description {
 
