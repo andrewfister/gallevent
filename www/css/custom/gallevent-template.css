@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 02-09-2014
-** Updated: 10-26-2014
+** Updated: 11-02-2014
 ************************************** */
 
 html,
@@ -53,6 +53,7 @@ h3 {
 	}
 
 .name {
+	margin:0 0 0.8em 0;
 	font-size:125%;
 	color:#4A4A4A;
 	/*color:#58595b;*/
@@ -68,7 +69,7 @@ h3 {
 	}
 
 .address {
-	margin:0 0 0.5em 0;
+	margin:0 0 0.8em 0;
 	color:#989A9D;
 	}
 .description {
@@ -535,50 +536,50 @@ input[type='checkbox'] {
 	}
 
 .card {
-	padding:1.05em 0.5em 1.15em 44px;
+	padding:1.05em 1em 1.15em 44px;
 	background:rgba(255,255,255,1);
 	background-repeat:no-repeat;
 	background-position:0.5em 0.7em;
 	}
 .card.networking {
 	background-image:url(../../img/data/pin-networking.svg);
-	border-top:3px solid #2D95BF;
+	border-top:2px solid #2D95BF;
 	}
 .card.education {
 	background-image:url(../../img/data/pin-education.svg);
-	border-top:3px solid #4EBA6F;
+	border-top:2px solid #4EBA6F;
 	}
 .card.fairs {
 	background-image:url(../../img/data/pin-fairs.svg);
-	border-top:3px solid #85C440;
+	border-top:2px solid #85C440;
 	}
 .card.athletic {
 	background-image:url(../../img/data/pin-athletic.svg);
-	border-top:3px solid #F0C419;
+	border-top:2px solid #F0C419;
 	}
 .art {
 	background-image:url(../../img/data/pin-art.svg);
-	border-top:3px solid #F89C1C;
+	border-top:2px solid #F89C1C;
 	}
 .dancing {
 	background-image:url(../../img/data/pin-dancing.svg);
-	border-top:3px solid #F15A5A;
+	border-top:2px solid #F15A5A;
 	}
 .sales {
 	background-image:url(../../img/data/pin-sales.svg);
-	border-top:3px solid #D62427;
+	border-top:2px solid #D62427;
 	}
 .dining {
 	background-image:url(../../img/data/pin-dining.svg);
-	border-top:3px solid #955BA5;
+	border-top:2px solid #955BA5;
 	}
 .nightlife {
 	background-image:url(../../img/data/pin-nightlife.svg);
-	border-top:3px solid #6756B2;
+	border-top:2px solid #6756B2;
 	}
 .jobs {
 	background-image:url(../../img/data/pin-jobs.svg);
-	border-top:3px solid #2D2C83;
+	border-top:2px solid #2D2C83;
 	}
 
 
