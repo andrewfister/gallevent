@@ -47,6 +47,10 @@ h3 {
 	text-align:center;
 	}
 
+
+
+/* = Card Styles (used for event displays throughout site)
+----------------------------------- */
 .card {
 	color:#717171;
 	font-size:95%;
@@ -185,6 +189,12 @@ label {
 	font-weight:bold;
 	}
 
+button {
+	border:1px solid #fff;
+	color:#fff;
+	background:#85BF41;
+	}
+
 input[type="text"],
 input[type="password"],
 input[type="submit"],
@@ -234,21 +244,16 @@ textarea {
 	}
 
 select {
-	padding:0.8em 0 0.8em 0;
-	width:150%;
-	text-indent:0.8em;
+	padding: 0.8em 0 0.8em 0;
+	width: 100%;
+	text-indent: 0.8em;
+	background: #fff url(../../img/data/icon-arrow-down-blue-30x21.svg) right 15px center no-repeat;
+	background-size: 15px 10px;
 	-webkit-appearance: none;
-	background-color:transparent !important;
 	-webkit-background-clip: padding;
   	-moz-background-clip: padding;
 	}
-
-.select {
-	background:#fff url(../../img/data/icon-arrow-down-blue-30x21.svg) right 15px center no-repeat;
-	background-size:15px 10px;
-	overflow:hidden;
-	}
-.select:hover {
+select:hover {
 	background:#fff url(../../img/data/icon-arrow-down-blue-30x21-h.svg) right 15px center no-repeat;
 	background-size:15px 10px;
 	}
@@ -473,14 +478,7 @@ input[type='checkbox'] {
 	}
 
 
-/* = Top Search */
-#top-search {
-	position:absolute;
-	z-index: 600;
-	background:#ff0;
-	bottom:0;
-	display: none !important;
-	}
+
 
  
 /* = Footer */
@@ -494,9 +492,8 @@ input[type='checkbox'] {
 	}
 
 
-/* = Map Feature
+/* = Map
 -------------------------------------- */
-
 #map-box {
 	position:absolute;
 	float:left;
@@ -521,10 +518,9 @@ input[type='checkbox'] {
 	}
 
 
-/* ================================
-** Home Page Event List
-** ================================ */
-#event-list {
+/* = Map Controls
+-------------------------------------- */
+#map-feature {
 	position:absolute;
 	z-index:500;
 	float:left;
@@ -533,7 +529,30 @@ input[type='checkbox'] {
 	margin-top:-59px;
 	}
 
-.half #even-list {
+.map-btns {
+	float: left;
+	width:100%;
+	}
+.map-btns span {
+	float:left;
+	width:50%;
+	padding:1em;
+	color:#fff;
+	text-align:center;
+	}
+.map-btns .btn-filters {
+	background:#219FAA;
+	}
+.map-btns .btn-list {
+	background:#85BF41;
+	}
+
+#event-list {
+	float:left;
+	width:100%;
+	}
+
+.half #map-feature {
 	top:50%;
 	}
 
@@ -584,6 +603,23 @@ input[type='checkbox'] {
 	border-top:2px solid #2D2C83;
 	}
 
+
+/* = Filters */
+#filters input,
+#filters select,
+#filters button {
+	margin-top:1em;
+	width:100%;
+	}
+#filters button {
+	padding:1em;
+	}
+
+/* = Top Search */
+#filters {
+	padding:1em;
+	background:#219FAA;
+	}
 
 
 /* = Specific Cateogry Styles */
