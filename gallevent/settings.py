@@ -16,8 +16,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'galleventdb',
-        'USER': 'galleventdbadmin',
-        'PASSWORD': 'oreborestore',
+        'USER': 'galleventroot',
+        'PASSWORD': 'ormoordrawer',
         'HOST': local_settings.DATABASE_HOST_LOCAL,
         'PORT': '',
     }
