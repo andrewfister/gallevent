@@ -125,7 +125,7 @@ var SearchView = Backbone.View.extend({
             window.mapView.locationSearch(newLocationSearchTerms);
         }
     
-        var serializedSearch = $('#top-search').serializeArray();
+        var serializedSearch = $('#filters').serializeArray();
         var searchData = {};
         var i;
         for (i = 0; i < serializedSearch.length; i++)

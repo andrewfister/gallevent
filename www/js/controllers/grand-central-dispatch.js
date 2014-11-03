@@ -15,7 +15,7 @@ $(document).ready(function() {
         window.signInView.render();
     }
 
-    if ($('#top-search').length) {
+    if ($('#filters').length) {
         window.searchView = new SearchView({
             collection: window.events
         });

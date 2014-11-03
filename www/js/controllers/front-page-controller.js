@@ -5,7 +5,7 @@ $(document).ready(function() {
 
     window.searchView = new SearchView({
         collection: window.events,
-        el: $('#top-search')
+        el: $('#filters')
     });
 
     window.mapEvents = new EventCollection();
