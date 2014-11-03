@@ -43,7 +43,7 @@ window.eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ 
             <span class="btn-filters">Filters</span><span class="btn-list">List</span>
         </div>
         <form id="filters" method="get">
-                    <input type="text" id="event" name="q" placeholder="search events" value="{{ request.GET.q }}" />
+                    <input type="text" id="event" name="q" placeholder="Search Events" value="{{ request.GET.q }}" />
                     <span class="select price">
                         <select id="price" name="price">
                             <option value="any_price">Any Price</option>
