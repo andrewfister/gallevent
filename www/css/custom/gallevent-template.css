@@ -527,6 +527,7 @@ input[type='checkbox'] {
 	}
 
 .map-btns {
+	display: none;
 	float:right;
 	}
 .map-btns span {
@@ -604,7 +605,7 @@ input[type='checkbox'] {
 
 /* = Filters */
 #filters {
-
+display: none;
 	position:absolute;
 	z-index:810;
 	top:3em;
