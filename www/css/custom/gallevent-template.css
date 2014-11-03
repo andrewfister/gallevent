@@ -527,12 +527,13 @@ input[type='checkbox'] {
 	}
 
 .map-btns {
-	float: left;
-	width:100%;
+	float:right;
 	}
 .map-btns span {
 	float:left;
-	width:50%;
+	margin:0 1em 1em 0;
+	border:1px solid #fff;
+	border-radius:5px;
 	padding:1em;
 	color:#fff;
 	text-align:center;
@@ -603,14 +604,23 @@ input[type='checkbox'] {
 
 /* = Filters */
 #filters {
+
+	position:absolute;
+	z-index:810;
+	top:3em;
 	float:left;
+	margin:1em;
 	padding:1em;
-	background:#219FAA;
+	background:rgba(33,159,179,0.8);
+	border-radius:5px;
 	}
 
-#filters input,
-#filters select,
 #filters button {
+	width:100%;
+}
+
+#filters input,
+#filters select {
 	margin-bottom:0.5em;
 	width:100%;
 	}
