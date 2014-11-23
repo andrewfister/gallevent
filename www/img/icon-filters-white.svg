@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" width="40px" height="40px" viewBox="0 0 40 40" xml:space="preserve">
+<circle fill-rule="evenodd" fill="#FFFFFF" cx="5" cy="16.062" r="4"/>
+<g>
+	<path fill-rule="evenodd" fill="#FFFFFF" d="M5,22.062c-0.702,0-1.374-0.128-2-0.35V38c0,1.1,0.9,2,2,2s2-0.9,2-2V21.713
+		C6.374,21.935,5.702,22.062,5,22.062z"/>
+	<path fill-rule="evenodd" fill="#FFFFFF" d="M5,10.062c0.702,0,1.374,0.127,2,0.35V2c0-1.1-0.9-2-2-2S3,0.9,3,2v8.413
+		C3.626,10.19,4.298,10.062,5,10.062z"/>
+</g>
+<circle fill-rule="evenodd" fill="#FFFFFF" cx="15" cy="30.062" r="4"/>
+<g>
+	<path fill-rule="evenodd" fill="#FFFFFF" d="M15,36.062c-0.702,0-1.374-0.128-2-0.35V38c0,1.1,0.9,2,2,2s2-0.9,2-2v-2.287
+		C16.374,35.935,15.702,36.062,15,36.062z"/>
+	<path fill-rule="evenodd" fill="#FFFFFF" d="M15,24.062c0.702,0,1.374,0.128,2,0.35V2c0-1.1-0.9-2-2-2s-2,0.9-2,2v22.412
+		C13.626,24.19,14.298,24.062,15,24.062z"/>
+</g>
+<circle fill-rule="evenodd" fill="#FFFFFF" cx="25" cy="10.062" r="4"/>
+<g>
+	<path fill-rule="evenodd" fill="#FFFFFF" d="M25,4.062c0.702,0,1.373,0.127,2,0.35V2c0-1.1-0.9-2-2-2s-2,0.9-2,2v2.413
+		C23.627,4.19,24.298,4.062,25,4.062z"/>
+	<path fill-rule="evenodd" fill="#FFFFFF" d="M25,16.062c-0.702,0-1.373-0.127-2-0.35V38c0,1.1,0.9,2,2,2s2-0.9,2-2V15.712
+		C26.373,15.935,25.702,16.062,25,16.062z"/>
+</g>
+<circle fill-rule="evenodd" fill="#FFFFFF" cx="35" cy="20.062" r="4"/>
+<g>
+	<path fill-rule="evenodd" fill="#FFFFFF" d="M35,14.062c0.702,0,1.373,0.127,2,0.35V2c0-1.1-0.9-2-2-2s-2,0.9-2,2v12.413
+		C33.627,14.19,34.298,14.062,35,14.062z"/>
+	<path fill-rule="evenodd" fill="#FFFFFF" d="M35,26.062c-0.702,0-1.373-0.128-2-0.35V38c0,1.1,0.9,2,2,2s2-0.9,2-2V25.713
+		C36.373,25.935,35.702,26.062,35,26.062z"/>
+</g>
+</svg>
