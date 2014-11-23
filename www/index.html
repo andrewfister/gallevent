@@ -63,12 +63,44 @@ window.eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ 
         <input type="hidden" id="date1" name="start_date" value=""/>
         <input type="hidden" id="date2" name="end_date" value=""/>
     </form>
+    
+    
 
 	<div id="map-feature">
+    
+    	<div class="map-btns">
+    		<span class="btn-filters">Filters</span><span class="btn-list">List</span>
+    	</div>
+    
+    	
+    	<ul id="pin-key">
+            <li>
+                <a href="#" class="key networking">Networking</a>
+            </li>
+            <li>
+                <a href="#" class="key education">Education</a>
+            </li>
+            <li>
+                <a href="#" class="key fairs">Fairs</a>
+            </li>
+            <li>
+                <a href="#" class="key athletic">Athletic</a>
+            </li>
+            <li>
+                <a href="#" class="key art">Art &amp; Music</a>
+            </li>
+            <li>
+                <a href="#" class="key dancing">Dancing</a>
+            </li>
+            <li>
+                <a href="#" class="key dining">Dining</a>
+            </li>
+            <li>
+                <a href="#" class="key parties">Parties</a>
+            </li>
+        </ul><!-- #pin-key -->
 
-        <div class="map-btns">
-            <span class="btn-filters">Filters</span><span class="btn-list">List</span>
-        </div>
+        
         
 
     	<div id="event-list">
