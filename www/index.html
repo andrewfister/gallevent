@@ -21,6 +21,7 @@ window.eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ 
 <script type="text/javascript" src="/static/js/views/search-view.js"></script>
 <script type="text/javascript" src="/static/js/views/pin-key-view.js"></script>
 <script type="text/javascript" src="/static/js/views/event-list-view.js"></script>
+<script type="text/javascript" src="/static/js/views/map-buttons-view.js"></script>
 <script type="text/javascript" src="/static/js/controllers/front-page-controller.js"></script>
 {% endblock viewjavascript %}
 
@@ -38,7 +39,7 @@ window.eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ 
         {% show_map %}
     {% endblock map %}
 
-    <form id="filters" method="get">
+    <form id="filters" class="hidden" method="get">
         <input type="text" id="event" name="q" placeholder="Search Events" value="{{ request.GET.q }}" />
         <span class="select price">
             <select id="price" name="price">

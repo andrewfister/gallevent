@@ -20,6 +20,10 @@ $(document).ready(function() {
     window.pinKeyView = new PinKeyView({
         collection: window.mapEvents
     });
+
+    window.mapButtonsView = new MapButtonsView({
+        el: $('.map-btns')
+    });
     
     window.eventListView = new EventListView({
         collection: window.mapEvents,

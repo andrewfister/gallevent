@@ -113,7 +113,7 @@ ROOT_URLCONF = 'gallevent.urls'
 LOGIN_URL = '/signin/sign_in'
 LOGOUT_URL = '/signin/sign_out'
 
-TEMPLATE_DIRS = local_settings.TEMPLATE_DIRS_LOCAL
+TEMPLATE_DIRS = (local_settings.TEMPLATE_DIRS_LOCAL,)
 
 from mustachejs import conf
 conf.conf.MUSTACHEJS_DIRS = local_settings.JSTEMPLATE_DIRS_LOCAL
@@ -158,13 +158,13 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'django.utils.log.NullHandler',
         },
-        'logfile':{
+        'logfile': {
             'level': 'DEBUG',
             'class': 'logging.handlers.TimedRotatingFileHandler',
             'formatter': 'simple',
             'filename': os.path.join(local_settings.GALLEVENT_PATH, 'logs/gallevent.log'),
         },
-        'stream':{
+        'stream': {
             'class': 'logging.StreamHandler',
             'formatter': 'simple',
             'level': 'DEBUG',
