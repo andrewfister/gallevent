@@ -609,7 +609,7 @@ input[type='checkbox'] {
 	width:100%;
 	}
 
-.half #map-feature {
+#map-feature.active {
 	top:50%;
 	}
 
