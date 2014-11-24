@@ -33,9 +33,6 @@ window.eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ 
 {% block content %}
     
     {% block map %}
-        <div class="loading">
-        Loading
-        </div><!-- .loading -->
         {% show_map %}
     {% endblock map %}
 
@@ -70,8 +67,10 @@ window.eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ 
 
 	<div id="map-feature">
     
+    	<div class="loading">Loading...</div>
+    
     	<div class="map-btns">
-    		<span class="btn-filters">Filters</span><span class="btn-list">List</span><span class="btn-refresh">Refresh</span>
+    		<span class="btn-filters"><em>Filters</em></span><span class="btn-list"><em>List</em></span><span class="btn-refresh"><em>Refresh</em></span>
     	</div>
     
     	
