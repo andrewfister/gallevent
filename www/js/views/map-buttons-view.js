@@ -13,6 +13,6 @@ var MapButtonsView = Backbone.View.extend({
     },
 
     showList: function() {
-        $('#event-list').toggleClass('active');
+        $('#map-feature').toggleClass('active');
     }
 });
