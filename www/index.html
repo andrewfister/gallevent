@@ -41,6 +41,7 @@ window.eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ 
 
     <form id="filters" class="hidden" method="get">
         <input type="text" id="event" name="q" placeholder="Search Events" value="{{ request.GET.q }}" />
+        <input type="text" id="location-search-input" name="q" placeholder="e.g. San Francisco, CA" value="" />
         <span class="select price">
             <select id="price" name="price">
                 <option value="any_price">Any Price</option>
@@ -57,7 +58,7 @@ window.eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ 
             </select>
         </span>
         <input type="text" id="date" placeholder="{{ form.today.value }}" value="{{ form.start_date.value }}"/>
-        <button class="btn-apply" type="button">Apply Filters</button>
+        <button class="btn-search" type="button">Apply Filters</button>
         <input type="hidden" id="map-latitude" name="latitude" value="{{ request.GET.latitude|default:0 }}" />
         <input type="hidden" id="map-longitude" name="longitude" value="{{ request.GET.longitude|default:0 }}" />
         <input type="hidden" id="map-radius" name="distance" value="{{ request.GET.distance|default:5.08 }}" />

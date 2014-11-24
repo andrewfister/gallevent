@@ -4,7 +4,6 @@ var SearchView = Backbone.View.extend({
     events: {
         'click .btn-search': 'submitSearch',
         'keypress #event': 'submitSearch',
-        'click .btn-add-filters': 'submitSearch',
         'click .filters-legend > .filters-icon': 'showFilters',
         'click .filters-legend > .close': 'hideFilters',
     },
@@ -54,7 +53,7 @@ var SearchView = Backbone.View.extend({
     },
     
     hideFilters: function() {
-        $('.filters').removeClass('active');
+        $('#filters').addClass('hidden');
     },
 
     changeTimeSpan: function() {
