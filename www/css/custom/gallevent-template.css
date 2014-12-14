@@ -607,6 +607,7 @@ input[type='checkbox'] {
 #event-list {
 	float:left;
 	width:100%;
+	background:#fff;
 	}
 
 #map-feature.active {
