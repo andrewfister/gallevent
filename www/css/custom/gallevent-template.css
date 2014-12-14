@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 02-09-2014
-** Updated: 11-23-2014
+** Updated: 12-14-2014
 ************************************** */
 
 html,
@@ -38,6 +38,9 @@ h3 {
 	font-size:115%;
 	}
 
+/* = Global Helpers
+----------------------------------- */
+
 .hidden {
 	display:none;
 	}
@@ -46,6 +49,10 @@ h3 {
 	margin: 0 auto;
 	text-align:center;
 	}
+
+.right {
+	float: right;
+}
 
 
 
@@ -407,9 +414,12 @@ input[type='checkbox'] {
 
 /* = Header
 -------------------------------------- */
-#header {
+header ul li {
+	display: inline-block;
+}
+header {
 	position:fixed;
-	top:0; /* temporary fix because something about date field in top search pushes header down */
+	top:0;
 	float:left;
 	z-index:600;
 	width:100%;
@@ -417,7 +427,7 @@ input[type='checkbox'] {
 	background:rgba(248,156,28,0.95);
 	}
 
-#header .logo {
+header .logo {
 	display:block;
 	float:left;
 	margin:0.65em 0.5em 0.65em 0.5em;
@@ -428,6 +438,63 @@ input[type='checkbox'] {
 	overflow:hidden;
 	text-indent:-9999px;
 	}
+
+header .right {
+	position: relative;
+	z-index: 960;
+}
+
+header .right a {
+	display: inline-block;
+	margin:0.7em 1em 0 0;
+	color:rgba(255,255,255,1);
+}
+header .right a:hover {
+	opacity: 0.6;
+}
+
+header .right .form{
+	display: none;
+}
+header .right:hover .form {
+	display: block;
+	position: absolute;
+	right:0;
+	padding-top:1.2em;
+	color:#fff;
+}
+header .right form {
+	padding:1.5em 30px 1.5em 30px;
+	background:rgba(17, 176, 251, 0.9);
+}
+
+header .right form .help {
+	color:#fff;
+	text-decoration: underline;
+}
+header .right form .help:hover {
+	opacity: 0.6;
+}
+header .right form label {
+	display: block;
+	color:#fff;
+}
+header .right form button {
+	margin:0.5em 0 0 0;
+}
+header .right .form .btn {
+	float:left;
+	border-top:1px solid rgba(255,255,255,0.9);
+	background:rgba(17, 176, 251, 0.9);
+	color: #fff;
+	width: 100%;
+	text-align: center;
+	margin-left:0px;
+}
+header .right .form .btn:hover {
+	background:#3CC86E;
+}
+
 
 #btn-menu {
 	display:none;
@@ -767,3 +834,26 @@ input[type='checkbox'] {
 	margin-top:0.5em;
 	padding:1em;
 	}
+
+
+@media (max-width:1000px) {
+	.dt {
+		display:none;
+	}
+/*
+	header .right form {
+		right: -30px;
+	}
+	*/
+
+	header .account {
+		display: inline-block;
+		margin:0.75em 0.8em 0 0;
+		background: url(../../img/icon-user-white.svg) 100% 0 no-repeat;
+		background-size: contain;
+		text-indent:-9999px;
+		overflow: hidden;
+		height: 20px;
+		width: 80px;
+	}
+}

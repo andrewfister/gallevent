@@ -36,13 +36,13 @@
 
     
     {% block header %}
-    <div id="header">
+    <header>
     	<a href="{% url 'front_page' %}" class="logo">Gallevent&trade;</a>
         
         <nav id="top-nav">
             {% block nav %}{% endblock nav %}
         </nav>
-    </div><!-- #header -->
+    </header><!-- #header -->
     {% endblock header %}
     
     <div id="content">

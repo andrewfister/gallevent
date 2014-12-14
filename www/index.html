@@ -28,6 +28,25 @@ window.eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ 
 {% block body-class %}home{% endblock body-class %}
 
 {% block nav %}
+    <div class="right">
+        <ul>
+            <li><a class="account" href="#">Sign In</a>
+                <span class="form">
+                    <form>
+                        <label>Email:</label>
+                        <input type="text" />
+                        <label>Password:</label>
+                        <input type="password" />
+                        <input type="checkbox" /> Remember me
+                        <br />
+                        <button>Sign In</button>
+                        <a class="help" href="#">Need help?</a>
+                    </form>
+                    <a class="btn" href="#">Create an Account</a>
+                </span>
+            </li><li><a class="dt" href="#">Register</a></li>
+        </ul>
+    </div><!-- .right -->
 {% endblock nav %}
         
 {% block content %}
