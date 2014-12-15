@@ -186,14 +186,21 @@ h3 {
 	}
 
 label {
+	margin:0 0 0.2em 0;
+	display:block;
+	clear:both;
 	font-weight:bold;
 	}
 
 button {
 	border:1px solid #fff;
+	padding:0.8em 1em;
 	color:#fff;
 	background:#85BF41;
 	}
+button:hover {
+	background:#9AE04A;
+}
 
 input[type="text"],
 input[type="password"],
@@ -215,6 +222,9 @@ select,
 input[type="text"],
 input[type="password"],
 textarea {
+	margin-bottom: 1.3em;
+	width:100%;
+	max-width:425px;
 	padding:0.8em;
 	border:1px solid #BCBCBC;
 	}
@@ -240,6 +250,8 @@ label.radio-l:hover {
 	}
 
 textarea {
+	display:block;
+	clear:both;
 	height:20em;
 	}
 
@@ -259,6 +271,79 @@ input[type='checkbox'] {
 	width:1em;
 	height:1em;
 	}
+
+
+
+fieldset {
+	margin:0 0 2em 1.4em;
+	}
+
+legend {
+	margin-left:-2.5em;
+	font-size:130%;
+	color:#f89c1c;
+	}
+legend b {
+	display:inline-block;
+	margin:0 0.5em 0 0;
+	width:2em;
+	height:1.7em;
+	color:#fff;
+	padding-top:0.3em;
+	text-align:center;
+	background:#f89c1c;
+	}
+
+
+
+input#p-start-date,
+input#p-start-time,
+input#start-date,
+input#start-time,
+input#end-date,
+input#end-time,
+input#rsvp-close-date,
+input#rsvp-close-time {
+	max-width:140px;
+	}
+
+.guest-l-or-tickets-btns {
+	float: left;
+	margin-bottom: 1em;
+	}
+
+.btn-guest-list,
+.btn-tickets {
+	float:left;
+	font-weight:bold;
+	font-size:120%;
+	border:3px solid #239ea2;
+	border-radius:8px;
+	padding: 1.5em 1em 1.5em 0;
+	color:#239ea2;
+	}
+
+.btn-guest-list {
+	background:url(../../img/data/icon-guest-list-teal-37x24.svg) 20px center no-repeat;
+	margin-right:0.5em;
+	text-indent: 75px;
+	}
+.btn-guest-list:hover {
+	background:url(../../img/data/icon-guest-list-green-37x24.svg) 20px center no-repeat;
+	border:3px solid #85c440;
+	color:#85c440;
+	}
+
+.btn-tickets {
+	background:url(../../img/data/icon-ticket-teal-43x28.svg) 20px center no-repeat;
+	text-indent: 75px;
+	}
+.btn-tickets:hover {
+	background:url(../../img/data/icon-ticket-green-43x28.svg) 20px center no-repeat;
+	border:3px solid #85c440;
+	color:#85c440;
+	}
+
 
 .btn-post-event,
 #content .btn-join,
@@ -422,9 +507,10 @@ header {
 	top:0;
 	float:left;
 	z-index:600;
+	border-bottom:1px solid rgba(247, 156, 30, 0.4);
 	width:100%;
 	font-size:110%;
-	background:rgba(248,156,28,0.95);
+	background:rgba(255,255,255,0.95);
 	}
 
 header .logo {
@@ -433,7 +519,7 @@ header .logo {
 	margin:0.65em 0.5em 0.65em 0.5em;
 	width:183px;
 	height:25px;
-	background:url(../../img/data/gallevent-logo-white-365x60.svg) top left no-repeat;
+	background:url(../../img/data/gallevent-logo-orange-365x60.svg) top left no-repeat;
 	background-size:contain;
 	overflow:hidden;
 	text-indent:-9999px;
@@ -447,7 +533,7 @@ header .right {
 header .right a {
 	display: inline-block;
 	margin:0.7em 1em 0 0;
-	color:rgba(255,255,255,1);
+	color:#2bbdbf;
 }
 header .right a:hover {
 	opacity: 0.6;
@@ -460,12 +546,12 @@ header .right:hover .form {
 	display: block;
 	position: absolute;
 	right:0;
-	padding-top:1.2em;
+	padding-top:0.9em;
 	color:#fff;
 }
 header .right form {
 	padding:1.5em 30px 1.5em 30px;
-	background:rgba(17, 176, 251, 0.9);
+	background:rgba(43,189,191,0.9);
 }
 
 header .right form .help {
@@ -475,24 +561,9 @@ header .right form .help {
 header .right form .help:hover {
 	opacity: 0.6;
 }
-header .right form label {
-	display: block;
-	color:#fff;
-}
+
 header .right form button {
-	margin:0.5em 0 0 0;
-}
-header .right .form .btn {
-	float:left;
-	border-top:1px solid rgba(255,255,255,0.9);
-	background:rgba(17, 176, 251, 0.9);
-	color: #fff;
-	width: 100%;
-	text-align: center;
-	margin-left:0px;
-}
-header .right .form .btn:hover {
-	background:#3CC86E;
+	margin:1em 1em 0 0;
 }
 
 
@@ -674,6 +745,7 @@ header .right .form .btn:hover {
 #event-list {
 	float:left;
 	width:100%;
+	min-height:600px;
 	background:#fff;
 	}
 
@@ -769,7 +841,7 @@ header .right .form .btn:hover {
 	list-style:none;
 	font-size:100%;
 	background:#fff;
-	box-shadow:		0px -1px 2px rgba(0, 0, 0, 0.25);
+	box-shadow:		0px -1px 6px rgba(0, 0, 0, 0.1);
 	}
 
 #pin-key li {
@@ -835,25 +907,43 @@ header .right .form .btn:hover {
 	padding:1em;
 	}
 
+@media (max-width:699px) {
+	header .right:hover .form {
+		position: fixed;
+		left:0;
+		width: 100%;
+	}
+	header form input[type="text"],
+	header form input[type="password"] {
+		width:100%;
+		max-width: none;
+	}
+}
+
+@media (min-width:700px) {
+	header .right:hover .form {
+		width: 350px;
+	}
+}
 
 @media (max-width:1000px) {
 	.dt {
-		display:none;
+		display:none !important;
 	}
-/*
-	header .right form {
-		right: -30px;
-	}
-	*/
 
 	header .account {
 		display: inline-block;
-		margin:0.75em 0.8em 0 0;
-		background: url(../../img/icon-user-white.svg) 100% 0 no-repeat;
+		margin-right:0.8em;
+		background: url(../../img/icon-user-teal.svg) 100% 0 no-repeat;
 		background-size: contain;
 		text-indent:-9999px;
 		overflow: hidden;
 		height: 20px;
 		width: 80px;
 	}
+
+	header .right:hover .form {
+		padding-top:0.7em;
+	}
 }
+
