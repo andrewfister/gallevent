@@ -6,7 +6,6 @@
 {% endblock css %}
 
 {% block nav %}<a class="tab l1" href="{% url 'posts' %}">Posts</a><a class="tab l2" href="{% url 'datebook' %}">Datebook</a><a class="tab l3" href="{% url 'groups' %}">Groups</a><a class="tab l4" href="{% url 'profile' %}">Profile</a>
-<span class="account-links"><a class="btn-sign-in" href="{% url 'profile' %}">{{ request.user.username }}</a><a class="btn-sign-in" href="{% url 'sign_out' %}">Sign Out</a></span>
 {% endblock nav %}
 
 {% block content %}

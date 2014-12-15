@@ -383,7 +383,6 @@ input#rsvp-close-time {
 .btn-save {
 	clear:left;
 	margin:0 1em 0 0;
-	padding:0.5em 1em 0.5em 1em;
 	color:#fff;
 	background:#85c440;
 	}
@@ -509,7 +508,7 @@ header {
 	z-index:600;
 	border-bottom:1px solid rgba(247, 156, 30, 0.4);
 	width:100%;
-	font-size:110%;
+	font-size:100%;
 	background:rgba(255,255,255,0.95);
 	}
 
@@ -532,7 +531,7 @@ header .right {
 
 header .right a {
 	display: inline-block;
-	margin:0.7em 1em 0 0;
+	margin:0.9em 1em 0 0;
 	color:#2bbdbf;
 }
 header .right a:hover {
@@ -709,14 +708,14 @@ header .right form button {
 
 
 .map-btns span.btn-filters {
-	background:#ED5B5A url(../../img/icon-filters-white.svg) center no-repeat;
+	background:rgba(43,189,191,1) url(../../img/icon-filters-white.svg) center no-repeat;
 	background-size:50%;
 	}
 .map-btns span.btn-filters:before {
-	border-bottom: 11.55px solid #ED5B5A;
+	border-bottom: 11.55px solid rgba(43,189,191,1);
 	}
 .map-btns span.btn-filters:after {
-	  border-top: 11.55px solid #ED5B5A;
+	  border-top: 11.55px solid rgba(43,189,191,1);
 }
 
 .map-btns .btn-list {
@@ -872,24 +871,15 @@ header .right form button {
 	opacity:0.5;
 	}
 
-
-
-
-	
-	
-	
-
-
-
 /* = Filters */
 #filters {
 	position:absolute;
-	z-index:810;
+	z-index:550;
 	top:3em;
 	float:left;
 	margin:1em;
 	padding:1em;
-	background:rgba(33,159,179,0.8);
+	background:rgba(43,189,191,0.9);
 	border-radius:5px;
 	}
 
@@ -920,6 +910,14 @@ header .right form button {
 	}
 }
 
+@media (min-width:490px) {
+	#filters {
+		left:-200px;
+		margin-left: 50%;
+		width:400px;
+	}
+}
+
 @media (min-width:700px) {
 	header .right:hover .form {
 		width: 350px;
@@ -943,7 +941,7 @@ header .right form button {
 	}
 
 	header .right:hover .form {
-		padding-top:0.7em;
+		padding-top:0.5em;
 	}
 }
 
