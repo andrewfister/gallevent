@@ -5,7 +5,16 @@
 <link rel="stylesheet" type="text/css" href="/static/css/ad-styles.css" />
 {% endblock css %}
 
-{% block nav %}<a class="tab l1" href="{% url 'posts' %}">Posts</a><a class="tab l2" href="{% url 'datebook' %}">Datebook</a><a class="tab l3" href="{% url 'groups' %}">Groups</a><a class="tab l4" href="{% url 'profile' %}">Profile</a>
+{% block nav %}
+<div id="top-nav">
+	<a class="tab l1" href="{% url 'posts' %}">Posts</a><a class="tab l2" href="{% url 'datebook' %}">Datebook</a><a class="tab l3" href="{% url 'groups' %}">Groups</a><a class="tab l4" href="{% url 'profile' %}">Profile</a>
+</div>
+<div class="right sign-in-status">
+	<ul class="signed-in {% if not user.is_authenticated %}hidden{% endif %}">
+	    <li>Hi, <a class="username" href="{% url 'profile' %}">{{ user.username }}</a></li>
+	    <li><a class="btn-sign-out {% if not user.is_authenticated %}hidden{% endif %}" href="{% url 'sign_out' %}">Sign Out</a></li>
+	</ul>
+</div>
 {% endblock nav %}
 
 {% block content %}

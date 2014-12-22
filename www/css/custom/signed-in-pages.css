@@ -16,6 +16,10 @@ body {
 	margin:5em 1.8em 0 1.8em;
 	}
 
+header {
+	background:rgba(255,255,255,1);
+}
+
 #container {
 	padding-bottom:2em;
 	}
@@ -113,12 +117,6 @@ body {
 	color:#868789;
 	}
 	
-	
-	
-	
-
-
-
 .card {
 	float:left;
 	margin-bottom:1em;
@@ -175,27 +173,54 @@ body {
 
 .posts h1,
 .posts .l1,
-.signed-in #header .l1:hover {
+header .l1:hover {
 	color:#85C440 !important;
 	}
+.posts .l1,
+.posts .l1:hover {
+	background:#85C440;
+}
 
 .datebook h1,
 .datebook .l2,
-.signed-in #header .l2:hover {
+header .l2:hover {
 	color:#F0C419 !important;
 	}
+.datebook .l2,
+.datebook .l2:hover {
+	background:#F0C419 !important;
+}
 	
 .groups h1,
 .groups .l3,
-.signed-in #header .l3:hover {
+header .l3:hover {
 	color:#F89C1C !important;
 	}
+.groups .l3,
+.groups .l3:hover {
+	background:#F89C1C !important;
+}
 
 .profile h1,
-.profile .l4,
-.signed-in #header .l4:hover {
+header .l4:hover {
 	color:#F15A5A !important;
 	}
+
+.profile .l4,
+.profile .l4:hover {
+	background: #F15A5A;
+}
+
+.posts .l1,
+.posts .l1:hover,
+.datebook .l2,
+.datebook .l2:hover,
+.groups .l3,
+.groups .l3:hover,
+.profile .l4,
+.profile .l4:hover {
+	color: #fff !important;
+}
 
 .post-event #header .btn1,
 .datebook #header .l1,
@@ -285,7 +310,7 @@ body {
 @media (min-width: 1000px) {
 	/* = Top Navigation */
 	#top-nav {
-		position:relative;
+		position:absolute;
 		left:-16em;
 		margin-left:50%;
 		width:30em;
@@ -295,7 +320,7 @@ body {
 		}
 	
 	#top-nav .tab {
-		padding-top:1.5em;
+		padding:1.5em 0 0.6em 0;
 		width:25%;
 		}
 }
