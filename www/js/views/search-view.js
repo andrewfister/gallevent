@@ -3,7 +3,6 @@ var SearchView = Backbone.View.extend({
     
     events: {
         'click .btn-search': 'submitSearch',
-        'keypress #event': 'submitSearch',
         'click .filters-legend > .filters-icon': 'showFilters',
         'click .filters-legend > .close': 'hideFilters',
     },
