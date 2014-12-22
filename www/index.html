@@ -59,7 +59,7 @@ window.eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ 
 
     <form id="filters" class="hidden" method="get">
         <input type="text" id="event" name="q" placeholder="Search Events" value="{{ request.GET.q }}" />
-        <input type="text" id="location-search-input" name="q" placeholder="e.g. San Francisco, CA" value="" />
+        <input type="text" id="location-search-input" placeholder="e.g. San Francisco, CA" value="" />
         <span class="select price">
             <select id="price" name="price">
                 <option value="any_price">Any Price</option>

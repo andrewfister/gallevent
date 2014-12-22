@@ -13,6 +13,7 @@ from signin import forms
 
 logger = logging.getLogger('gallevent')
 
+
 class SignInView(FormView):
     template_name = 'sign-in.html'
     form_class = forms.SignInForm
