@@ -26,12 +26,12 @@ var SignInView = Backbone.View.extend({
 
         $('.signed-out').fadeOut(600, function() {
             $('.signed-out').addClass('hidden');
-        });
-
-        $('.signed-in').fadeIn(600, function() {
             $('.username').text(this.model.get('userName'));
             $('.sign-in-message').text('');
-            $('.signed-in').removeClass('hidden');
+
+            $('.signed-in').fadeIn(600, function() {
+                $('.signed-in').removeClass('hidden');
+            }.bind(this));
         }.bind(this));
     },
     
