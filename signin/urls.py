@@ -3,6 +3,7 @@ from signin import views
 
 urlpatterns = patterns('signin.views',
     url(r'^sign_in/?$', views.SignInView.as_view(), name='sign_in'),
+    url(r'^json_sign_in/?$', views.JSONSignInView.as_view(), name='json_sign_in'),
     url(r'^sign_out/?$', views.SignOutView.as_view(), name='sign_out'),
     url(r'^join/?$', views.JoinView.as_view(), name='join'),
 )

@@ -3,6 +3,15 @@ $(document).ready(function() {
     window.dispatcher = _.clone(Backbone.Events);
     window.events = new EventSearchCollection();
 
+    if ($('.sign-in-status').length) {
+        window.signInUser = new User();
+        window.signInView = new SignInView({
+            el: $('.sign-in-status'),
+            model: window.signInUser
+        });
+        window.signInView.render();
+    }
+
     window.searchView = new SearchView({
         collection: window.events,
         el: $('#filters')
