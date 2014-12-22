@@ -51,16 +51,17 @@
 	        <ul class="{% if user.is_authenticated %}hidden{% endif %} signed-out">
 	            <li><a class="account" href="{% url 'sign_in' %}">Sign In</a>
 	                <span class="form">
-	                    <form>
+	                    <form class="{% if user.is_authenticated %}hidden{% endif %} signed-out sign-in-form" method="post">
+                            {% csrf_token %}
 	                    	<em class="sign-in-message"></em>
 	                        <label>Email:</label>
 	                        <input type="text" class="email" name="email" />
 	                        <label>Password:</label>
 	                        <input type="password" name="password" />
-	                        <input type="checkbox" /> Remember me
+	                        <!--<input type="checkbox" /> Remember me-->
 	                        <br />
-	                        <button class="btn-sign-in">Sign In</button>
-	                        <a class="help" href="#">Need help?</a>
+	                        <button type="button" class="btn-sign-in">Sign In</button>
+	                        <!--<a class="help" href="#">Need help?</a>-->
 	                    </form>
 	                    <a class="btn alt-sign-in" href="{% url 'join' %}">Create an Account</a>
 	                </span>

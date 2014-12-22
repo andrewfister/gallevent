@@ -20,9 +20,6 @@ var User = Backbone.Model.extend({
         }
         
         var ajaxUrl = this.signInUrl;
-        if (callJoin) {
-            ajaxUrl = this.joinUrl;
-        }
 
         $.ajax(ajaxUrl, {
             type: 'POST',
@@ -50,7 +47,7 @@ var User = Backbone.Model.extend({
         });
     },
 
-    signInUrl: '/signin/sign_in/',
+    signInUrl: '/signin/json_sign_in/',
     signOutUrl: '/signin/sign_out/',
     joinUrl: '/signin/join/',
     urlRoot: '/profile/user/'
