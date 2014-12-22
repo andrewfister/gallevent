@@ -56,17 +56,19 @@ class JSONSignInView(View):
             else:
                 logging.debug('disabled account')
                 logger.info('disabled account')
+
+            user_dict = model_to_dict(user, fields=['id', 'username', 'first_name', 'last_name', 'email'])
+            user_dict['userName'] = user_dict['username']
+            user_dict['firstName'] = user_dict['first_name']
+            user_dict['lastName'] = user_dict['last_name']
+            del user_dict['username']
+            del user_dict['first_name']
+            del user_dict['last_name']
         else:
+            user_dict = {}
             logging.debug('invalid login')
             logger.info('invalid login')
 
-        user_dict = model_to_dict(user, fields=['id', 'username', 'first_name', 'last_name', 'email'])
-        user_dict['userName'] = user_dict['username']
-        user_dict['firstName'] = user_dict['first_name']
-        user_dict['lastName'] = user_dict['last_name']
-        del user_dict['username']
-        del user_dict['first_name']
-        del user_dict['last_name']
         login_response = {'success': request.user.is_authenticated(),
                           'user': user_dict}
         return HttpResponse(json.dumps(login_response), content_type="application/json")
