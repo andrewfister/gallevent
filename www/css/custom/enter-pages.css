@@ -3,7 +3,7 @@
 ** Description: Styles for User Control Section Pages
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 09-14-2014
+** Updated: 12-21-2014
 ************************************** */
 
 html {
@@ -17,6 +17,8 @@ html {
 body {
 	background:transparent;
 	}
+
+
 
 h2 {
 	margin-bottom: 0.5em;
@@ -41,69 +43,6 @@ h3 svg {
 .center {
 	display:block;
 	}
-
-#header {
-	border:none;
-	margin-top:20px;
-	}
-
-#header .logo-block {
-	left:-86px;
-	margin-left:50%;
-	}
-
-#header .logo-block .logo {
-	background:url(../../img/data/gallevent-logo-white-365x60.svg) 0 2px no-repeat;
-	background-size:contain;
-	}
-	
-#header a {
-	transition:all 0.5s ease;
-	}
-
-#header a:hover {
-	opacity: 0.5;
-	}
-
-#content {
-	position:relative;
-	float:left;
-	margin-top:100px;
-	left: 50%;
-	padding:25px 50px 45px 50px;
-	border-radius:5px;
-	background:#fff;
-	}
-
-.sign-in #content {
-	margin-left:-200px;
-	width:300px;
-	}
-
-.join #content {
-	margin-left:-396px;
-	}
-
-.join #content .left {
-	width:340px;
-	}
-
-.join #content .right {
-	border-left:1px solid #CCC;
-	width:300px;
-	padding-left:50px;
-	}
-
-input[type="text"],
-input[type="password"] {
-	max-width:300px;
-	}
-
-#content input[type="submit"] {
-	margin:2em auto 0;
-	margin-bottom:2em;
-	padding:1.1em 4em;
-	}
 	
 #footer .copyright {
 	position:absolute;
@@ -111,3 +50,4 @@ input[type="password"] {
 	bottom:1em;
 	color:#fff;
 	}
+

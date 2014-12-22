@@ -30,6 +30,7 @@ h3 {
 	}
 
 h1 {
+	margin-bottom: 0.5em;
 	font-size:200%;
 	color:rgba(5, 159, 172, 1);
 	}
@@ -49,6 +50,10 @@ h3 {
 	margin: 0 auto;
 	text-align:center;
 	}
+
+.left {
+	float: left;
+}
 
 .right {
 	float: right;
@@ -208,9 +213,7 @@ input[type="submit"],
 textarea,
 .select,
 select,
-button,
-.btn-join,
-.btn-sign-in {
+button {
 	border-radius:5px;
 	-moz-box-shadow:    none !important;
   	-webkit-box-shadow: none !important;
@@ -345,9 +348,7 @@ input#rsvp-close-time {
 	}
 
 
-.btn-post-event,
-#content .btn-join,
-#content .btn-sign-in {
+.btn-post-event {
 	display:block;
 	margin-bottom:2em;
 	width:auto;
@@ -359,14 +360,7 @@ input#rsvp-close-time {
 	border:none;
 	}
 
-#content .btn-join,
-#content .btn-sign-in {
-	margin-top:2em;
-	}	
-
 .btn-post-event:hover,
-#content .btn-join:hover,
-#content .btn-sign-in:hover,
 .btn-save:hover {
 	background:#9AE04A;
 	}
@@ -872,29 +866,48 @@ header .right form button {
 	}
 
 /* = Filters */
-#filters {
+#filters,
+.join .box,
+.sign-in .box {
 	position:absolute;
 	z-index:550;
-	top:3em;
+	top:2.9em;
 	float:left;
-	margin:1em;
 	padding:1em;
-	background:rgba(43,189,191,0.9);
-	border-radius:5px;
+	box-sizing:			border-box;
+	-moz-box-sizing:	border-box;
+	-webkit-box-sizing:	border-box;
 	}
+#filters {
+	background:rgba(43,189,191,0.9);
+}
 
-#filters button {
+.join .box,
+.sign-in .box {
+	background:#fff;
+}
+
+.join .box .right,
+.sign-in .box .right {
+	padding:0 1em 3em 3em;
+}
+
+#filters button,
+.join .box button,
+.sign-in .box button {
+	margin-top:0.5em;
 	width:100%;
+	padding:1em;
 }
 
 #filters input,
-#filters select {
+#filters select,
+.join .box input,
+.join .box select
+.sign-in .box input,
+.sign-in .box select {
 	margin-bottom:0.5em;
 	width:100%;
-	}
-#filters button {
-	margin-top:0.5em;
-	padding:1em;
 	}
 
 @media (max-width:699px) {
@@ -908,19 +921,57 @@ header .right form button {
 		width:100%;
 		max-width: none;
 	}
+
+	.join .box .left,
+	.sign-in .box .left {
+		width:100%;
+	}
+	.join .box .right,
+	.sign-in .box .right {
+		display: none;
+	}
 }
 
+@media (max-width:489px) {
+	#filters,
+	.join .box,
+	.sign-in .box {
+		width: 100%;
+	}
+} 
+
 @media (min-width:490px) {
-	#filters {
+	#filters,
+	.join .box,
+	.sign-in .box {
 		left:-200px;
 		margin-left: 50%;
 		width:400px;
+		border-radius:5px;
+	}
+
+	.join .box,
+	.sign-in .box {
+		top: 5em;
 	}
 }
 
 @media (min-width:700px) {
 	header .right:hover .form {
 		width: 350px;
+	}
+
+	.join .box,
+	.sign-in .box {
+		left:-350px;
+		width:700px;
+	}
+
+	.join .box .left,
+	.join .box .right,
+	.sign-in .box .left,
+	.sign-in .box .right {
+		width:50%;
 	}
 }
 
