@@ -28,6 +28,31 @@ window.eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ 
 {% block body-class %}home{% endblock body-class %}
 
 {% block nav %}
+    <div class="right sign-in-status">
+            <ul class="signed-in {% if not user.is_authenticated %}hidden{% endif %}">
+                <li>Hi, <a class="username" href="{% url 'profile' %}">{{ user.username }}</a></li>
+                <li><a class="btn-sign-out {% if not user.is_authenticated %}hidden{% endif %}" href="{% url 'sign_out' %}">Sign Out</a></li>
+            </ul>
+            <ul class="{% if user.is_authenticated %}hidden{% endif %} signed-out">
+                <li><a class="account" href="{% url 'sign_in' %}">Sign In</a>
+                    <span class="form">
+                        <form class="{% if user.is_authenticated %}hidden{% endif %} signed-out sign-in-form" method="post">
+                            {% csrf_token %}
+                            <em class="sign-in-message"></em>
+                            <label>Email:</label>
+                            <input type="text" class="email" name="email" />
+                            <label>Password:</label>
+                            <input type="password" name="password" />
+                            <!--<input type="checkbox" /> Remember me-->
+                            <br />
+                            <button type="button" class="btn-sign-in">Sign In</button>
+                            <!--<a class="help" href="#">Need help?</a>-->
+                        </form>
+                        <a class="btn alt-sign-in" href="{% url 'join' %}">Create an Account</a>
+                    </span>
+                </li><li><a class="dt" href="{% url 'join' %}">Register</a></li>
+            </ul>
+        </div>
 {% endblock nav %}
         
 {% block content %}
