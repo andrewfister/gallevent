@@ -49,7 +49,7 @@ var SearchView = Backbone.View.extend({
     },
     
     showFilters: function() {
-        $('.filters').addClass('active');
+        $('#filters').addClass('active');
     },
     
     hideFilters: function() {
