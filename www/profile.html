@@ -5,6 +5,7 @@
 {% block active_tab_content %}
 	<h1>Your Profile</h1>
     <div class="col1">
+        <h2>Profile Card</h2>
         {% if not form_edit_bio %}
     	<div class="bio">
         	<div class="card">
@@ -17,13 +18,14 @@
                     <!--<p><b>500</b> Events Attended</p>
                     <p><b>20</b> Groups</p>-->
                 </div><!-- .col2 -->
-            </div><!-- .card -->
-            <p>{{ profile.bio|default:'+ Add your bio' }}</p>
-            <p class="profile-links">
+                <div class="description">{{ profile.bio|default:'+ Add your bio' }}</div>
+                <p class="profile-links">
                 <a href="#" class="twitter">{{ profile.twitter|default:'+ Add your Twitter' }}</a><br />
                 <a href="#" class="facebook">{{ profile.facebook|default:'+ Add your Facebook' }}</a><br />
                 <a href="#" class="website">{{ profile.website|default:'+ Add your website' }}</a>
-            </p>
+                </p>
+            </div><!-- .card -->
+            
     		<a href="{{ request.path }}?form_edit=bio" class="btn-edit" type="button">Edit</a>
     	</div><!-- .bio -->
     	{% else %}
@@ -58,14 +60,18 @@
     	{% endif %}
     </div><!-- .col1 -->
     <div class="col2 your-info">
+        <h2>Additional Information</h2>
         {% if not form_edit_basic_info %}
-    	<div class="basic-info">
-        	<h3>Basics</h3>
-            <p><b>Gender</b> <span>{{ profile.gender_text }}</span></p>
-            <p><b>Looking For</b> <span>{{ profile.interests_text }}</span></p>
-            <p><b>Relationship</b> <span>{{ profile.relationship_text }}</span></p>
-            <a href="{{ request.path }}?form_edit=basic_info" class="btn-edit" type="button">Edit</a>
-        </div><!-- .basic-info -->
+        <div class="card">
+        	<div class="basic-info">
+            	<h3>Basics</h3>
+                <p><b>Gender</b> <span>{{ profile.gender_text }}</span></p>
+                <p><b>Looking For</b> <span>{{ profile.interests_text }}</span></p>
+                <p><b>Relationship</b> <span>{{ profile.relationship_text }}</span></p>
+            </div>
+            
+        </div>
+        <a href="{{ request.path }}?form_edit=basic_info" class="btn-edit" type="button">Edit</a>
         {% else %}
         <div class="basic-info-edit">
         	<h3>Basics</h3>

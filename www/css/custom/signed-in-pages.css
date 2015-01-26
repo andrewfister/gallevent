@@ -202,6 +202,7 @@ header .l3:hover {
 }
 
 .profile h1,
+.profile h2,
 header .l4:hover {
 	color:#F15A5A !important;
 	}
@@ -258,11 +259,7 @@ header .l4:hover {
 /* = Specific to Your Profile */
 
 
-.profile .col1,
-.profile .col2 {
-	float:left;
-	width:50%;
-	}
+/*
 
 .profile .col1 {
 	padding-right: 4em;
@@ -281,7 +278,7 @@ header .l4:hover {
 	color:#868789;
 	font-weight:normal;
 	}
-
+*/
 
 
 .profile .card .pic {

@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 02-09-2014
-** Updated: 12-14-2014
+** Updated: 01-25-2015
 ************************************** */
 
 html,
@@ -35,6 +35,11 @@ h1 {
 	color:rgba(5, 159, 172, 1);
 	}
 
+h2 {
+	margin-bottom: 1em;
+	font-size:120%;
+}
+
 h3 {
 	font-size:115%;
 	}
@@ -59,7 +64,15 @@ h3 {
 	float: right;
 }
 
+.col1,
+.col2 {
+	float:left;
+	width:50%;
+	}
 
+.col2 {
+	padding-left: 2em;
+}
 
 /* = Card Styles (used for event displays throughout site)
 ----------------------------------- */
@@ -535,7 +548,7 @@ header .right a:hover {
 header .right .form{
 	display: none;
 }
-header .right:hover .form {
+header .right .active .form {
 	display: block;
 	position: absolute;
 	right:0;
@@ -557,6 +570,20 @@ header .right form .help:hover {
 
 header .right form button {
 	margin:1em 1em 0 0;
+}
+
+header .right .btn {
+	margin:0;
+	width:100%;
+	border-top:1px solid #fff;
+	padding:0.8em 1em;
+	color:#fff;
+	text-align: center;
+	background:rgba(43,189,191,0.9);
+}
+header .right .btn:hover {
+	background-color:rgb(154, 224, 74);
+	opacity: 1;
 }
 
 
@@ -747,11 +774,14 @@ header .right form button {
 	}
 
 .card {
-	padding:1.06em 1em 1.15em 44px;
+	padding: 1em;
 	background:rgba(255,255,255,1);
+	}
+.card.events {
+	padding:1.06em 1em 1.15em 44px;
 	background-repeat:no-repeat;
 	background-position:0.5em 0.7em;
-	}
+}
 .card.networking {
 	border-top:2px solid #2D95BF;
 	}
@@ -911,7 +941,7 @@ header .right form button {
 	}
 
 @media (max-width:699px) {
-	header .right:hover .form {
+	header .right .active .form {
 		position: fixed;
 		left:0;
 		width: 100%;
@@ -920,6 +950,15 @@ header .right form button {
 	header form input[type="password"] {
 		width:100%;
 		max-width: none;
+	}
+
+	.col1,
+	.col2 {
+		width: 100%;
+	}
+
+	.col2 {
+		padding-left:0;
 	}
 
 	.join .box .left,
@@ -957,7 +996,7 @@ header .right form button {
 }
 
 @media (min-width:700px) {
-	header .right:hover .form {
+	header .right .active .form {
 		width: 350px;
 	}
 

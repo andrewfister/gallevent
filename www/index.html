@@ -28,14 +28,13 @@ window.eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ 
 {% block body-class %}home{% endblock body-class %}
 
 {% block nav %}
-<!--
     <div class="right sign-in-status">
         <ul class="signed-in {% if not user.is_authenticated %}hidden{% endif %}">
             <li>Hi, <a class="username" href="{% url 'profile' %}">{{ user.username }}</a></li>
             <li><a class="btn-sign-out {% if not user.is_authenticated %}hidden{% endif %}" href="{% url 'sign_out' %}">Sign Out</a></li>
         </ul>
         <ul class="{% if user.is_authenticated %}hidden{% endif %} signed-out">
-            <li><a class="account" href="{% url 'sign_in' %}">Sign In</a>
+            <li class="active"><a class="account" href="{% url 'sign_in' %}">Sign In</a>
                 <span class="form">
                     <form class="{% if user.is_authenticated %}hidden{% endif %} signed-out sign-in-form" method="post">
                         {% csrf_token %}
@@ -54,7 +53,6 @@ window.eventsJSON = [ {% for event in events %} {id: {{ event.id }},user_id: {{ 
             </li><li><a class="dt" href="{% url 'join' %}">Register</a></li>
         </ul>
     </div>
--->
 {% endblock nav %}
         
 {% block content %}
