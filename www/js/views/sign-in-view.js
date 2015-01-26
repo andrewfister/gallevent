@@ -14,6 +14,10 @@ var SignInView = Backbone.View.extend({
                 this.signIn();
             }
         }.bind(this));
+
+        $('.sign-in-ui').click(function(event) {
+            $('.sign-in-ui').toggleClass('active');
+        });
         
         this.render();
     },

@@ -5,6 +5,7 @@ from django.db import models
 from django.core.serializers.json import DjangoJSONEncoder
 from django.core.serializers.json import Serializer as JSONSerializer
 
+
 class Event(models.Model):
     class Meta:
         unique_together = ('source_event_id', 'source_id')
