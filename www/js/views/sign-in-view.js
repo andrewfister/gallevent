@@ -8,6 +8,7 @@ var SignInView = Backbone.View.extend({
     },
     
     initialize: function() {
+
         $('.sign-in-form').keypress(function(event) {
             if (event.which === 13) {
                 this.signIn();
@@ -15,12 +16,12 @@ var SignInView = Backbone.View.extend({
         }.bind(this));
 
         window.dispatcher.on('click', function(event) {
-            if (this !== event.target &&
-               !$('.sign-in-status').has(event.target).length &&
-               !$(event.target).is('.sign-in-status')) {
-                   $('.sign-in-ui').removeClass('active');
+            if (this.$el !== event.target &&
+               !this.$el.has(event.target).length &&
+               !$(event.target).is(this.className)) {
+                   this.$('.sign-in-ui').removeClass('active');
                }
-        });
+        }, this);
         
         this.render();
     },
