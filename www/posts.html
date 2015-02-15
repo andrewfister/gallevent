@@ -33,7 +33,7 @@ var eventJSON = {};
 {% block active_tab_content %}
 	<h1>Your Posts</h1>
     
-    <a class="btn1" href="{% url 'post_event' %}">Create New Post</a>
+    <a class="button" href="{% url 'post_event' %}">+ New Post</a>
     <div class="col1">
 
     	
@@ -58,7 +58,7 @@ var eventJSON = {};
         {% else %}
         	<div class="no-activity">
                 <h2>You have no posts!</h2>
-                    <h3>Create a post for your event, sale, or job today!</h3>
+                <p><a href="{% url 'post_event' %}">Create a post</a> for your event, sale, or job today!</p>
     		</div><!-- .row .no-activity -->
         {% endif %}
     </div><!-- .col1 -->

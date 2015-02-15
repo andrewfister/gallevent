@@ -3,7 +3,7 @@
 ** Description: Styles for User Control Section Pages
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 08-03-2014
+** Updated: 02-15-2014
 ************************************** */
 
 html,
@@ -97,9 +97,7 @@ header {
 
 .row {
 	float:left;
-	padding-top:1em;
 	width:100%;
-	border-top:1px solid #CCC;
 	}
 
 .no-activity {
@@ -121,6 +119,8 @@ header {
 	float:left;
 	margin-bottom:1em;
 	width:100%;
+	background:#fff;
+	border:1px solid rgba(0,0,0,0.09);
 	}
 
 .card .pic {
@@ -135,13 +135,12 @@ header {
 	height:80px;
 	}
 
+
 .bio {
 	float:left;
 }
 
-.summary p {
-	margin:0;
-	font-size:95%;
+.summary {
 	color:#868789;
 	}
 

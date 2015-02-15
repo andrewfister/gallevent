@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 02-09-2014
-** Updated: 01-25-2015
+** Updated: 01-15-2015
 ************************************** */
 
 html,
@@ -67,28 +67,18 @@ h3 {
 .col1,
 .col2 {
 	float:left;
-	width:50%;
 	}
-
-.col2 {
-	padding-left: 2em;
-}
 
 /* = Card Styles (used for event displays throughout site)
 ----------------------------------- */
 .card {
 	color:#717171;
-	font-size:95%;
 	}
 
 .name {
-	margin-bottom:0.5em;
-	}
-
-.name {
+	margin-bottom:0.25em;
 	font-size:120%;
 	color:#4A4A4A;
-	/*color:#58595b;*/
 	}
 
 .price {
@@ -100,8 +90,8 @@ h3 {
 	}
 
 .address {
-	color:#989A9D;
-	margin-bottom:0.7em;
+	color:rgba(152, 154, 157,0.5);
+	font-style: italic;
 	}
 .description {
 
@@ -210,13 +200,16 @@ label {
 	font-weight:bold;
 	}
 
-button {
+button,
+.button {
 	border:1px solid #fff;
 	padding:0.8em 1em;
 	color:#fff;
 	background:#85BF41;
 	}
-button:hover {
+button:hover,
+.button:hover {
+	color:#fff;
 	background:#9AE04A;
 }
 
@@ -226,7 +219,8 @@ input[type="submit"],
 textarea,
 .select,
 select,
-button {
+button,
+.button {
 	border-radius:5px;
 	-moz-box-shadow:    none !important;
   	-webkit-box-shadow: none !important;
@@ -950,15 +944,6 @@ header .right .btn:hover {
 	header form input[type="password"] {
 		width:100%;
 		max-width: none;
-	}
-
-	.col1,
-	.col2 {
-		width: 100%;
-	}
-
-	.col2 {
-		padding-left:0;
 	}
 
 	.join .box .left,
