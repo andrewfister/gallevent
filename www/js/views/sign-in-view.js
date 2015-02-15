@@ -4,20 +4,15 @@ var SignInView = Backbone.View.extend({
     events: {
         'click .btn-sign-in': 'signIn',
         'click .btn-sign-out': 'signOut',
+        'click .sign-in-cta': 'showSignIn',
     },
     
     initialize: function() {
-        this.showJoinForm = false;
-        
         $('.sign-in-form').keypress(function(event) {
             if (event.which === 13) {
                 this.signIn();
             }
         }.bind(this));
-
-        $('.sign-in-ui').click(function(event) {
-            $('.sign-in-ui').toggleClass('active');
-        });
         
         this.render();
     },
@@ -55,14 +50,9 @@ var SignInView = Backbone.View.extend({
     },
     
     showSignIn: function() {
-        this.switchForm();
-        
-        $(".sign-in-form").removeClass("hidden", function() {
-	        $(".signed-out").toggleClass('active');
-	        $(".sign-in-form").removeClass("invisible");
-        });
+        $(".sign-in-ui").toggleClass("active");
     },
-    
+
     signIn: function() {
         this.model.signIn(this.renderSignedIn.bind(this), this.render, false);
     }
