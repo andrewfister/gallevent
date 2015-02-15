@@ -10,7 +10,7 @@ html,
 body {
 	font-family:Arial, Helvetica, sans-serif !important;
 	font-size:100%;
-	color:#58595b;
+	color:rgba(74, 74, 74, 1);
 	background:#B3D1FF;
 	}
 
@@ -78,8 +78,10 @@ h3 {
 .name {
 	margin-bottom:0.25em;
 	font-size:120%;
-	color:#4A4A4A;
 	}
+
+.date {
+}
 
 .price {
 	color:#85c440; /* green */
@@ -90,11 +92,11 @@ h3 {
 	}
 
 .address {
-	color:rgba(152, 154, 157,0.5);
+	color:rgba(152, 154, 157,0.8);
 	font-style: italic;
 	}
-.description {
 
+.description {
 }
 
 
