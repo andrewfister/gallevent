@@ -4,6 +4,10 @@ $(document).ready(function() {
     window.events = new EventSearchCollection();
 
     if ($('.sign-in-status').length) {
+        $(document).on('click', function(event) {
+            window.dispatcher.trigger('click', event);
+        });
+
         window.signInUser = new User();
         window.signInView = new SignInView({
             el: $('.sign-in-status'),
