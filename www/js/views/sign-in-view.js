@@ -13,6 +13,14 @@ var SignInView = Backbone.View.extend({
                 this.signIn();
             }
         }.bind(this));
+
+        window.dispatcher.on('click', function(event) {
+            if (this !== event.target &&
+               !$('.sign-in-status').has(event.target).length &&
+               !$(event.target).is('.sign-in-status')) {
+                   $('.sign-in-ui').removeClass('active');
+               }
+        });
         
         this.render();
     },
@@ -25,6 +33,7 @@ var SignInView = Backbone.View.extend({
             this.model.set(response.user);
 
             $('.signed-out').fadeOut(600, function() {
+                $('.sign-in-ui').removeClass('active');
                 $('.signed-out').addClass('hidden');
                 $('.username').text(this.model.get('userName'));
                 $('.sign-in-message').text('');
