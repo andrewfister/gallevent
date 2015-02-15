@@ -141,14 +141,32 @@ header {
 }
 
 .summary {
-	color:#868789;
+	position: relative;
 	}
 
-.summary .price {
-	display:inline-block;
-	margin-right: 1em;
-	min-width:5em;
+.summary .name,
+.summary .price,
+.summary .address {
+	margin-bottom: 0.25em;
 	}
+
+.summary .name,
+.summary .price,
+.summary .address {
+	display: block;
+}
+
+.summary .date {
+	position: absolute;
+	top:0;
+	right:0;
+}
+
+.summary .description {
+	clear: both;
+	padding-top: 1em;
+}
+
 
 .datebook #container,
 /* .posts #container, JESS */
