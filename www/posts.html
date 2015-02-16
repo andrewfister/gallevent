@@ -42,13 +42,15 @@ var eventJSON = {};
                         <img src="/static/img/avatar-unipegi-150x150.png" />
                     </div>-->
                     <div class="summary">
-                        <div class="name"><a href="#">{{ post.name }}</a></div>
-                        <p><b class="price">${{ post.ticket_price }}</b><b class="date">{{ post.start_date }}</b></p>
+                        <a class="name" href="#">{{ post.name }}</a>
+                        <b class="date">{{ post.start_date }}</b>
+                        <b class="price">${{ post.ticket_price }}</b>
                         <p class="address">{{ post.city }}, {{ post.state }}</p>
+                        <a>Show Description</a>
+                        <p>{{ post.description }}</p>
+                        <a class="btn-edit"></a>
                     </div><!-- .summary -->
                 </div><!-- .card -->
-                <p>{{ post.description }}</p>
-                <a class="btn-edit"></a>
         {% endfor %}
         {% else %}
             <div class="card">
