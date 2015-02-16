@@ -43,12 +43,12 @@ var eventJSON = {};
                     </div>-->
                     <div class="summary">
                         <a class="name" href="#">{{ post.name }}</a>
-                        <b class="date">{{ post.start_date }}</b>
+                        <p class="date">{{ post.start_date }}</p>
                         <b class="price">${{ post.ticket_price }}</b>
-                        <p class="address">{{ post.city }}, {{ post.state }}</p>
+                        <p class="address">{{ post.address }}</p>
                         <a>Show Description</a>
                         <p>{{ post.description }}</p>
-                        <a class="btn-edit"></a>
+                        <a class="btn-edit">Edit</a> | <a class="btn-edit">Delete</a>
                     </div><!-- .summary -->
                 </div><!-- .card -->
         {% endfor %}
