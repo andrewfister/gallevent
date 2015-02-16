@@ -33,14 +33,10 @@ var eventJSON = {};
 {% block active_tab_content %}
 	<h1>Your Posts</h1>
     
-    <a class="button" href="{% url 'post_event' %}">+ New Post</a>
+    <a class="button top" href="{% url 'post_event' %}">+ New Post</a>
     <div class="col1">
-
-    	
-
         {% if posts|length > 0 %}
         {% for post in posts %}
-        	<div class="row">
             	<div class="card">
                     <!--<div class="pic">
                         <img src="/static/img/avatar-unipegi-150x150.png" />
@@ -53,13 +49,14 @@ var eventJSON = {};
                 </div><!-- .card -->
                 <p>{{ post.description }}</p>
                 <a class="btn-edit"></a>
-        	</div><!-- .row -->
         {% endfor %}
         {% else %}
-        	<div class="no-activity">
-                <h2>You have no posts!</h2>
-                <p><a href="{% url 'post_event' %}">Create a post</a> for your event, sale, or job today!</p>
-    		</div><!-- .row .no-activity -->
+            <div class="card">
+                <div class="summary center">
+                    <p class="name">You have no posts!</p>
+                    <a href="{% url 'post_event' %}">Create a post</a> for your event, sale, or job today!
+                </div><!-- .summary -->
+            </div><!-- .card -->
         {% endif %}
     </div><!-- .col1 -->
 {% endblock active_tab_content %}

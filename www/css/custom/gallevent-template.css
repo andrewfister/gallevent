@@ -215,6 +215,13 @@ button:hover,
 	background:#9AE04A;
 }
 
+.button.top {
+	position: absolute;
+	top:-0.22em;
+	right: 0;
+	float: right;
+}
+
 input[type="text"],
 input[type="password"],
 input[type="submit"],

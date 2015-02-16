@@ -25,6 +25,7 @@ header {
 	}
 
 .signed-in #map-box {
+	position: fixed;
 	right:0;
 	left:auto;
 	width:50%;
@@ -182,6 +183,12 @@ header {
 /* = Specific Section Styles 
 ** ************************* */
 
+.posts .col1,
+.datebook .col1,
+.groups .col1 {
+	width: 100%;
+}
+
 /* = Specific Color Coded Header and Heading Styles */
 
 .post-event h1 {
@@ -217,6 +224,12 @@ header .l3:hover {
 .groups .l3:hover {
 	background:#F89C1C !important;
 }
+
+.profile .col1,
+.profile .col2 {
+	width: 50%;
+}
+
 
 .profile h1,
 .profile h2,
