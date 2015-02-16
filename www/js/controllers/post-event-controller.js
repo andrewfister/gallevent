@@ -3,6 +3,10 @@ $(document).ready(function() {
     window.dispatcher = _.clone(Backbone.Events);
     window.events = new Event(window.eventJSON);
 
+    $(document).on('click', function(event) {
+        window.dispatcher.trigger('click', event);
+    });
+
     window.signInUser = new User();
     window.signInView = new SignInView({
         el: $('.sign-in-status'),

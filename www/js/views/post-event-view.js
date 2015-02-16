@@ -29,6 +29,14 @@ var PostEventView = Backbone.View.extend({
             $('.btn-tickets').addClass("active");
 
         });
+
+        $('#p-time').click(function() {
+            $('#p-time-select').removeClass('hidden');
+        });
+
+        $('#p-immediately').click(function() {
+            $('#p-time-select').addClass('hidden');
+        });
         
         this.render();
     },
@@ -95,7 +103,7 @@ var PostEventView = Backbone.View.extend({
         });
         
         $("#post-type").change(function (evtObj) {
-            if (evtObj.currentTarget.value == "pt-event") {
+            if (evtObj.currentTarget.value == "1") {
                 $("#event-category-container").removeClass('hidden');
             }
             else {
@@ -160,8 +168,8 @@ var PostEventView = Backbone.View.extend({
                            addressComponents["country"] = component_value; break;
 
                         default: break;
-                        }  // switch
-                }    // for 
+                        }
+                }
 
                 $("#latitude").val( addressComponents["latitude"]); 
                 $("#longitude").val( addressComponents["longitude"]);
@@ -177,9 +185,7 @@ var PostEventView = Backbone.View.extend({
                 alert('Please enter valid address.');
               }
           }.bind(this) );
-  
-//        return event;  
-    },  // function()
+    },
                 
 
     codeAddress: function(address) {
