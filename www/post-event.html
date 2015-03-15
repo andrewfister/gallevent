@@ -75,7 +75,7 @@ var eventJSON = {};
         <input type="radio" name="p-privacy" value="public" id="p-public"><label class="radio-l" for="p-public"><b>Public</b> event</label><br>
 		<input type="radio" name="p-privacy" value="private" id="p-private"><label class="radio-l" for="p-private"><b>Private</b> event</label>-->
         <label for="p-launch" class="required">Launch post:</label>
-        <input type="radio" name="post_launch" value="immediately" id="p-immediately" selected="selected"><label class="radio-l" for="p-immediately">Immediately</label><br>
+        <input type="radio" name="post_launch" value="immediately" id="p-immediately" checked="checked"><label class="radio-l" for="p-immediately">Immediately</label><br>
 		<input type="radio" name="post_launch" value="time" id="p-time"><label class="radio-l" for="p-time">On a specific date and time</label>
         <div id="p-time-select" class="hidden"><label for="p-start-date" class="required">Launch post on this date &amp; time:</label>
         <input type="text" id="p-start-date" class="input-standard" name="p-start_date"  placeholder="06/20/2012" value="{{ form.start_date.value }}" /> at
