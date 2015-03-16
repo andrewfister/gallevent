@@ -21,7 +21,11 @@ header {
 }
 
 #container {
+	width: 100%;
 	padding-bottom:2em;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing:	border-box;
+	box-sizing:			border-box;
 	}
 
 .signed-in #map-box {
@@ -38,6 +42,10 @@ header {
 
 .signed-in #content {
 	float:left;
+	width: 50%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing:	border-box;
+	box-sizing:			border-box;
 	}
 
 
@@ -49,6 +57,7 @@ header {
 /* = Top Navigation */
 #top-nav {
 	position:fixed;
+	z-index: 9999;
 	bottom:0;
 	float:left;
 	width:100%;
@@ -62,7 +71,9 @@ header {
 	width:25%;
 	padding:1em 0 1em 0;
 	color:#494949;
-	box-sizing:border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing:	border-box;
+	box-sizing:			border-box;
 	}
 
 #top-nav .tab:hover {
@@ -83,12 +94,6 @@ header {
 
 .l4 {
 	border-bottom:4px solid #F15A5A;
-	}
-
-.post-event #content,
-.posts #content {
-	width: 50%;
-	background:#f9f9f9;
 	}
 
 .btn-edit {
@@ -170,13 +175,8 @@ header {
 
 
 .datebook #container,
-/* .posts #container, JESS */
+.posts #container,
 .groups #container {
-	width:50%;
-	padding-right:1.8em;
-	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
-	box-sizing:border-box;
 	}
 
 
@@ -333,6 +333,16 @@ header .l4:hover {
 	display:block;
 	margin: 1em 0 2em 0;
 	}
+
+@media (max-width:840px) {
+	.signed-in #map-box {
+		display: none;
+	}
+	.signed-in #content {
+		width: 100%;
+	}
+
+}
 
 @media (min-width: 1000px) {
 	/* = Top Navigation */

@@ -49,16 +49,17 @@ var eventJSON = {};
                         <a>Show Description</a>
                         <p>{{ post.description }}</p>
                         <a class="btn-edit">Edit</a> | <a class="btn-edit">Delete</a>
-                    </div><!-- .summary -->
-                </div><!-- .card -->
+                    </div>
+                </div>
         {% endfor %}
         {% else %}
-            <div class="card">
+            <div class="card notice">
                 <div class="summary center">
-                    <p class="name">You have no posts!</p>
-                    <a href="{% url 'post_event' %}">Create a post</a> for your event, sale, or job today!
-                </div><!-- .summary -->
-            </div><!-- .card -->
+                    <p class="name"><span>You have not hosted any events!</span><span>Post an event!</span></p>
+                    <p><img src="/static/img/unipegi-gray-sitting-animated-240x240.gif"></p>
+                    <a href="{% url 'post_event' %}">Create a post for your event, sale, or job today!</a>
+                </div>
+            </div>
         {% endif %}
     </div><!-- .col1 -->
 {% endblock active_tab_content %}
