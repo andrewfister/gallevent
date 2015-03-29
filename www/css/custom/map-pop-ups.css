@@ -3,14 +3,14 @@
 ** Description: Pins and Pop-Ups Used on Map
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 03-30-2014
+** Updated: 03-29-2015
 ************************************** */
 
 .pin-hover {
 	position:relative;
 	left:20px;
 	display:block;
-	background: url(../../img/bg-blue-80-3x3.png) 0 0 repeat;
+	background:#fff;
 	width:200px;
 	color:#fff;
 	border-radius:0 4px 4px 4px;

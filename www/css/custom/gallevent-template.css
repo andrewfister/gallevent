@@ -3,14 +3,14 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 02-09-2014
-** Updated: 03-15-2015
+** Updated: 03-29-2015
 ************************************** */
 
 html,
 body {
 	font-family:Arial, Helvetica, sans-serif !important;
 	font-size:100%;
-	color:rgba(74, 74, 74, 1);
+	color:rgba(74, 74, 74, 0.9);
 	background:#B3D1FF;
 	}
 
@@ -73,7 +73,7 @@ h3 {
 ----------------------------------- */
 .card {
 	padding: 1em;
-	color:#717171;
+	/*color:#717171;*/
 	background:rgba(255,255,255,1);
 	}
 
@@ -668,6 +668,31 @@ header .right .btn:hover {
 
 .gmnoprint {
 	display:none;	
+	}
+
+.pin-hover {
+	position:relative;
+	left:22px;
+	background:rgba(255,255,255,0.96);
+	width:200px;
+	/*color:rgba(74, 74, 74, 0.9);*/
+	border-radius:5px;
+	-webkit-transform: translateY(-40%);
+ 	-ms-transform: translateY(-40%);
+  	transform: translateY(-40%);
+	}
+.pin-hover .arrow {
+	position: absolute;
+	left: -12px;
+	width: 12px;
+	height: 100%;
+	text-indent: 9999px;
+	background: url(../../img/arrow-white-12x21.svg) 0 center no-repeat;
+	}
+.pin-hover .event-name {
+	display:block;
+	margin:1em;
+	font-size:140%;
 	}
 
 
