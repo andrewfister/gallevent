@@ -998,6 +998,15 @@ header .right .btn:hover {
 	padding:0 1em 3em 3em;
 }
 
+.join .box .left,
+.sign-in .box .left {
+	width:45%;
+}
+.join .box .right,
+.sign-in .box .right {
+	width:55%;
+}
+
 #filters button,
 .join .box button,
 .sign-in .box button {
@@ -1009,20 +1018,18 @@ header .right .btn:hover {
 #filters input,
 #filters select {
 	margin-bottom:0.5em;
-	width:100%;
 	}
 
-/*
+
 #filters input,
 #filters select,
 .join .box input,
-.join .box select
+.join .box select,
 .sign-in .box input,
 .sign-in .box select {
-	margin-bottom:0.5em;
 	width:100%;
 	}
-*/
+
 
 @media (max-width:699px) {
 	header .right .active .form {
