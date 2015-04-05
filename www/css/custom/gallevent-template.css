@@ -562,7 +562,7 @@ header .right .active .form {
 	display: block;
 	position: absolute;
 	right:0;
-	padding-top:0.9em;
+	padding-top:0.95em;
 	color:#fff;
 }
 header .right form {
@@ -1097,10 +1097,6 @@ header .right .btn:hover {
 		overflow: hidden;
 		height: 20px;
 		width: 80px;
-	}
-
-	header .right:hover .form {
-		padding-top:0.5em;
 	}
 }
 
