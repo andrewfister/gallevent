@@ -3,7 +3,7 @@
 ** Description: Styles for User Control Section Pages
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 03-31-2013
-** Updated: 02-15-2014
+** Updated: 04-26-2015
 ************************************** */
 
 html,
@@ -11,10 +11,20 @@ body {
 	background:#f9f9f9;
 	}
 
+#wrapper {
+	position:relative;
+	z-index:550;
+	float: left;
+	padding:5em 1.8em 0 1.8em;
+	background:#f9f9f9;
+}
+
+/*
 .signed-in #wrapper {
 	position:relative;
 	margin:5em 1.8em 0 1.8em;
 	}
+*/
 
 header {
 	background:rgba(255,255,255,1);
@@ -28,6 +38,14 @@ header {
 	box-sizing:			border-box;
 	}
 
+
+.signed-in #map-box {
+	position: fixed;
+	right:0;
+}
+
+
+/*
 .signed-in #map-box {
 	position: fixed;
 	right:0;
@@ -47,6 +65,7 @@ header {
 	-moz-box-sizing:	border-box;
 	box-sizing:			border-box;
 	}
+*/
 
 
 
@@ -334,6 +353,17 @@ header .l4:hover {
 	margin: 1em 0 2em 0;
 	}
 
+@media (min-width: 505px) {
+	.form-col.entry-type {
+		width:205px;
+	}
+	.form-col.ticket-price,
+	.form-col.rsvp-limit {
+		width:110px;
+		padding-left:5px;
+	}
+}
+
 @media (max-width:840px) {
 	.signed-in #map-box {
 		display: none;
@@ -360,4 +390,13 @@ header .l4:hover {
 		padding:1.5em 0 0.6em 0;
 		width:25%;
 		}
+}
+
+@media (min-width: 1070px) {
+	.signed-in #content {
+		max-width:540px;
+	}
+	.signed-in #map-box {
+		margin-left: 540px;
+	}
 }

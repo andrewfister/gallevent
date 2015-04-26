@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 02-09-2014
-** Updated: 04-05-2015
+** Updated: 04-26-2015
 ************************************** */
 
 html,
@@ -68,6 +68,10 @@ h3 {
 .col2 {
 	float:left;
 	}
+
+.form-col {
+	display: inline-block;
+}
 
 /* = Card Styles (used for event displays throughout site)
 ----------------------------------- */
