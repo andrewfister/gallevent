@@ -71,7 +71,7 @@ class EventSearchForm(SearchForm):
             return self.no_query_found()
 
         center = Point(self.cleaned_data['longitude'], self.cleaned_data['latitude'])
-        radius = D(mi=self.cleaned_data['distance'])
+        radius = D(mi=self.cleaned_data['distance']*1000)
         logger.info('Center: {} and Radius: {}'.format(center, radius))
         sqs = sqs.dwithin('location', center, radius)
 
