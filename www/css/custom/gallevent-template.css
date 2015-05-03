@@ -3,7 +3,7 @@
 ** Description: Gallevent Frontend Website Template
 ** Author: Jessica Greenwalt - www.jgreenwalt.com
 ** Created: 02-09-2014
-** Updated: 04-26-2015
+** Updated: 05-03-2015
 ************************************** */
 
 html,
@@ -392,12 +392,11 @@ input#rsvp-close-time {
 	background:#9AE04A;
 	}
 
-.btn-edit {
-	background:none;
+.edit {
 	color:#85c440;
 	}
 
-.btn-edit:hover {
+.edit:hover {
 	text-decoration:underline;
 	}
 
