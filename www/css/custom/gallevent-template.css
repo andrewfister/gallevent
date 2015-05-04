@@ -221,12 +221,13 @@ button:hover,
 	background:#9AE04A;
 }
 
+
 .button.top {
-	position: absolute;
-	top:-0.22em;
 	right: 0;
 	float: right;
+	margin-top: -3.5em;
 }
+
 
 input[type="text"],
 input[type="password"],
@@ -396,7 +397,12 @@ input#rsvp-close-time {
 	color:#85c440;
 	}
 
-.edit:hover {
+.delete {
+	color:rgba(152, 154, 157,0.8);
+	}
+
+.edit:hover,
+.delete:hover {
 	text-decoration:underline;
 	}
 

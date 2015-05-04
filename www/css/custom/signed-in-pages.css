@@ -15,6 +15,7 @@ body {
 	position:relative;
 	z-index:550;
 	float: left;
+	width:100%;
 	padding:5em 1.8em 0 1.8em;
 	background:#f9f9f9;
 }

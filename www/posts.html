@@ -33,24 +33,24 @@ var eventJSON = {};
 {% block active_tab_content %}
 	<h1>Your Posts</h1>
     
-    <a class="button top" href="{% url 'post_event' %}">+ New Post</a>
     <div class="col1">
+    <a class="button top" href="{% url 'post_event' %}">+ New Post</a>
         {% if posts|length > 0 %}
         {% for post in posts %}
-            	<div class="card">
-                    <!--<div class="pic">
-                        <img src="/static/img/avatar-unipegi-150x150.png" />
-                    </div>-->
-                    <div class="summary">
-                        <a class="name" href="#">{{ post.name }}</a>
-                        <p class="date">{{ post.start_date }}</p>
-                        <b class="price">${{ post.ticket_price }}</b>
-                        <p class="address">{{ post.address }}</p>
-                        <a>Show Description</a>
-                        <p>{{ post.description }}</p>
-                        <a class="edit">Edit</a> | <a class="delete">Delete</a>
-                    </div>
+        	<div class="card">
+                <!--<div class="pic">
+                    <img src="/static/img/avatar-unipegi-150x150.png" />
+                </div>-->
+                <div class="summary">
+                    <a class="name" href="#">{{ post.name }}</a>
+                    <p class="date">{{ post.start_date }}</p>
+                    <b class="price">${{ post.ticket_price }}</b>
+                    <p class="address">{{ post.address }}</p>
+                    <a>Show Description</a>
+                    <p>{{ post.description }}</p>
+                    <a class="edit">Edit</a> | <a class="delete">Delete</a>
                 </div>
+            </div>
         {% endfor %}
         {% else %}
             <div class="card notice">
