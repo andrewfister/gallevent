@@ -504,9 +504,9 @@ class PostEventForm(forms.ModelForm):
     def clean_rsvp_limit(self):
         return self.cleaned_data['rsvp_limit'] or 0
 
-    def save(self):
+    def save(self, commit=True):
         self.cleaned_data['short_description'] = self.cleaned_data['description'][:64].encode('utf-8').strip()
-        super(PostEventForm, self).save()
+        return super(PostEventForm, self).save(commit)
 
 
 class ArchiveEventForm(forms.ModelForm):

@@ -14,6 +14,7 @@ from django_extra.login_required import LoginRequiredMixin
 
 logger = logging.getLogger('gallevent')
 
+
 class FrontPageView(TemplateView):
     template_name = "index.html"
     
@@ -67,7 +68,38 @@ class PostEventView(LoginRequiredMixin, FormView):
         print(form.errors)
 
         return super(PostEventView, self).form_invalid(form)
-        
+
+
+class EditEventView(PostEventView):
+    template_name = "post-event.html"
+    form_class = forms.PostEventForm
+    success_url = '/profile/posts'
+
+    def __init__(self):
+        self.event_id = None
+        self.form = None
+
+        super(EditEventView, self).__init__()
+
+    def get(self, request, event_id):
+        event = models.Event.objects.get(pk=event_id)
+        self.event_id = event_id
+
+        self.form = EditEventView.form_class(instance=event)
+
+        return self.render_to_response({
+            'form': self.form,
+            'edit': 'edit'
+        })
+
+    def form_valid(self, form):
+        logger.debug("Edit event form GOOD!")
+        instance = form.save(commit=False)
+        instance.id = self.event_id
+        instance.save()
+
+        return super(EditEventView, self).form_valid(form)
+
         
 class EventDetailView(LoginRequiredMixin, TemplateView):
     template_name = "event_detail.html"
@@ -88,4 +120,3 @@ def show_events(request):
         'selected_page': 'your-posts',
         'events': events,
         }, context_instance=RequestContext(request))
-

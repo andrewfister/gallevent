@@ -32,7 +32,7 @@ var eventJSON = {};
 
 {% block active_tab_content %}
     {% if edit %}
-    <h1><a href="{% url 'gallevent.event.views.show_events' %}">Your Posts</a>: Edit Your Event</h1>
+    <h1><a href="{% url 'posts' %}">Your Posts</a>: Edit Your Event</h1>
     {% else %}
     {% if form.errors %}
     <div class="top-error"><h3>Oops!</h3> There was an error with your post.</div>
@@ -40,6 +40,9 @@ var eventJSON = {};
     <h1>Create Your Post</h1>
     {% endif %}
     <form method="post" id="post-event">{% csrf_token %}
+        {% if edit %}
+        <input type="text" class="hidden" name="id" value="{{ form.id.value }}"></input>
+        {% endif %}
 	<fieldset>
         <legend><b>1</b>Post Details</legend>
         <label for="post-type" class="required">Type of post:</label>
@@ -192,7 +195,7 @@ var eventJSON = {};
     </fieldset>
     <input class="hidden" name="user_id" type="text" value="{{ request.user.id }}"></input>
         <div class="main-btn-holder">
-    		<input class="btn-post-event" type="submit" value="Create Post" />
+    		<input class="btn-post-event" type="submit" value="Save Event" />
         </div><!-- .main-btn-holder -->
         
 	</form>

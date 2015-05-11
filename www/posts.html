@@ -48,7 +48,7 @@ var eventJSON = {};
                     <p class="address">{{ post.address }}</p>
                     <a>Show Description</a>
                     <p>{{ post.description }}</p>
-                    <a class="edit">Edit</a> | <a class="delete">Delete</a>
+                    <a class="edit" href="/event/edit/{{ post.id }}">Edit</a> | <a class="delete">Delete</a>
                 </div>
             </div>
         {% endfor %}
